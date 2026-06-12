@@ -1,4 +1,4 @@
-package com.kazuki.lingocoach
+package com.mk.lingocoach
 
 import org.junit.Test
 

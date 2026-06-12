@@ -29,3 +29,5 @@
 *.hprof
 
 .kotlin/
+
+google-services.json

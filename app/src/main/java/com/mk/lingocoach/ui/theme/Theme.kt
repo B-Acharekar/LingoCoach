@@ -1,4 +1,4 @@
-package com.kazuki.lingocoach.ui.theme
+package com.mk.lingocoach.ui.theme
 
 import android.app.Activity
 import android.os.Build

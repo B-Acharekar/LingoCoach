@@ -1,4 +1,4 @@
-package com.kazuki.lingocoach.ui.theme
+package com.mk.lingocoach.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

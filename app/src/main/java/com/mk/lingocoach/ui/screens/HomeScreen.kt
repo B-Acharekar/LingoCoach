@@ -1,4 +1,4 @@
-package com.kazuki.lingocoach.ui.screens
+package com.mk.lingocoach.ui.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

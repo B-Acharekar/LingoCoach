@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kazuki.lingocoach"
+    namespace = "com.mk.lingocoach"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.kazuki.lingocoach"
+        applicationId = "com.mk.lingocoach"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -65,4 +65,8 @@ dependencies {
 
     // dotLottie Android
     implementation(libs.dotlottie.android)
+
+    // OkHttp & Gson
+    implementation(libs.okhttp)
+    implementation(libs.gson)
 }
