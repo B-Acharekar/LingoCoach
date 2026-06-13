@@ -2,6 +2,7 @@ package com.mk.lingocoach.network
 
 import android.util.Log
 import com.google.gson.Gson
+import com.google.gson.annotations.SerializedName
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
@@ -34,6 +35,107 @@ data class AssessmentResponse(
     val transcribed_text: String?
 )
 
+// ─── Current Learning Path Models ───────────────────────────────────────────
+
+data class ContentBlock(
+    val type: String,       // "explanation", "example", "tip"
+    val text: String
+)
+
+data class Exercise(
+    val id: String,
+    val type: String,       // "multiple_choice", "fill_in_the_blank", "pronunciation", "free_speech"
+    val stimulus: String,
+    val instruction: String,
+    val options: List<String>?,
+    val correct_answer: String?
+)
+
+data class CurrentSublesson(
+    val id: String,
+    val title: String,
+    val order: Int,
+    val status: String,
+    val content_blocks: List<ContentBlock>,
+    val exercises: List<Exercise>
+)
+
+data class CurrentLesson(
+    val id: String,
+    val title: String,
+    val description: String,
+    val order: Int,
+    val status: String,
+    @SerializedName("xp_reward") val xpReward: Int,
+    val sublessons: List<CurrentSublesson>
+)
+
+data class CurrentModule(
+    val id: String,
+    val title: String,
+    val description: String,
+    val level: String,
+    val order: Int,
+    val status: String,
+    @SerializedName("xp_reward") val xpReward: Int,
+    val lessons: List<CurrentLesson>
+)
+
+data class CurrentLearningPathResponse(
+    val user_id: String,
+    val tier: String,
+    val xp: Int,
+    val streak: Int,
+    val modules: List<CurrentModule>
+)
+
+data class SublessonDetail(
+    val id: String,
+    val title: String,
+    val lesson_id: String,
+    val module_id: String,
+    val order: Int,
+    val status: String?,
+    val content_blocks: List<ContentBlock>,
+    val exercises: List<Exercise>
+)
+
+data class CompleteExerciseRequest(
+    val user_id: String,
+    val sublesson_id: String,
+    val exercise_id: String,
+    val user_answer: String,
+    val audio_transcription: String = ""
+)
+
+data class CompleteExerciseResponse(
+    val exercise_id: String,
+    val is_correct: Boolean,
+    val score: Int,
+    val feedback: String,
+    val xp_earned: Int,
+    val streak_updated: Boolean,
+    val new_streak: Int,
+    val mistake_logged: Boolean,
+    val mistake_type: String?
+)
+
+data class Mistake(
+    val id: String,
+    val user_id: String,
+    val word: String,
+    val mistake_type: String,
+    val user_sentence: String,
+    val correct_sentence: String,
+    val explanation: String,
+    val times_missed: Int,
+    val mastered: Boolean,
+    val mastery_score: Int,
+    val created_at: String,
+    val last_reviewed: String?
+)
+
+// ─────────────────────────────────────────────────────────────────────────────
 object AssessmentApi {
     private const val BASE_URL = "https://lingoai-backend-zej0.onrender.com"
     private val JSON_MEDIA_TYPE = "application/json; charset=utf-8".toMediaType()
@@ -184,6 +286,95 @@ object AssessmentApi {
                         Log.e("AssessmentApi", "Failed to parse learning path response", e)
                         onResult(null)
                     }
+                }
+            }
+        })
+    }
+
+    fun getCurrentLearningPath(userId: String, onResult: (CurrentLearningPathResponse?) -> Unit) {
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/learning-path/current?user_id=$userId")
+            .get()
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to get current learning path", e)
+                onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) { Log.e("AssessmentApi", "Get learning path error: ${response.code}"); onResult(null); return }
+                    val body = response.body?.string()
+                    Log.d("AssessmentApi", "Current learning path: $body")
+                    try { onResult(gson.fromJson(body, CurrentLearningPathResponse::class.java)) }
+                    catch (e: Exception) { Log.e("AssessmentApi", "Parse error", e); onResult(null) }
+                }
+            }
+        })
+    }
+
+    fun getSublesson(sublessonId: String, onResult: (SublessonDetail?) -> Unit) {
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/sublessons/$sublessonId")
+            .get()
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to get sublesson", e); onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) { onResult(null); return }
+                    val body = response.body?.string()
+                    try { onResult(gson.fromJson(body, SublessonDetail::class.java)) }
+                    catch (e: Exception) { onResult(null) }
+                }
+            }
+        })
+    }
+
+    fun completeExercise(request: CompleteExerciseRequest, onResult: (CompleteExerciseResponse?) -> Unit) {
+        val json = gson.toJson(request)
+        val httpRequest = Request.Builder()
+            .url("$BASE_URL/api/v1/exercise/complete")
+            .post(json.toRequestBody(JSON_MEDIA_TYPE))
+            .header("accept", "application/json")
+            .build()
+        client.newCall(httpRequest).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to complete exercise", e); onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) { onResult(null); return }
+                    val body = response.body?.string()
+                    try { onResult(gson.fromJson(body, CompleteExerciseResponse::class.java)) }
+                    catch (e: Exception) { onResult(null) }
+                }
+            }
+        })
+    }
+
+    fun getMistakes(userId: String, onResult: (List<Mistake>?) -> Unit) {
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/mistakes?user_id=$userId")
+            .get()
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to get mistakes", e); onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) { onResult(null); return }
+                    val body = response.body?.string()
+                    try {
+                        val type = object : com.google.gson.reflect.TypeToken<List<Mistake>>() {}.type
+                        onResult(gson.fromJson(body, type))
+                    } catch (e: Exception) { onResult(null) }
                 }
             }
         })
