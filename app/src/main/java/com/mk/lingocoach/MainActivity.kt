@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.mk.lingocoach.ui.screens.HomeScreen
 import com.mk.lingocoach.ui.screens.LanguageSelectionScreen
+import com.mk.lingocoach.ui.screens.LessonScreen
 import com.mk.lingocoach.ui.screens.SplashScreen
 import com.mk.lingocoach.ui.theme.LingoCoachTheme
 
@@ -23,7 +24,8 @@ enum class Screen {
     WelcomeAboard,
     Assessment,
     LearningPath,
-    Home
+    Home,
+    Lesson
 }
 
 class MainActivity : ComponentActivity() {
@@ -33,6 +35,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             LingoCoachTheme(dynamicColor = false) {
                 var currentScreen by remember { mutableStateOf(Screen.Splash) }
+                var currentSublessonId by remember { mutableStateOf("") }
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -72,7 +75,18 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         Screen.Home -> {
-                            HomeScreen()
+                            HomeScreen(
+                                onNavigateToLesson = { sublessonId ->
+                                    currentSublessonId = sublessonId
+                                    currentScreen = Screen.Lesson
+                                }
+                            )
+                        }
+                        Screen.Lesson -> {
+                            LessonScreen(
+                                sublessonId = currentSublessonId,
+                                onNavigateBack = { currentScreen = Screen.Home }
+                            )
                         }
                     }
                 }
