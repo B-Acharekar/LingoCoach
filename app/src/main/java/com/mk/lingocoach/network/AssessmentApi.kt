@@ -379,7 +379,101 @@ object AssessmentApi {
             }
         })
     }
+
+    fun getVocabBookmarks(userId: String, onResult: (List<VocabBookmark>?) -> Unit) {
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/vocab/bookmarks?user_id=$userId")
+            .get()
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to get vocab bookmarks", e); onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) { onResult(null); return }
+                    val body = response.body?.string()
+                    try {
+                        val type = object : com.google.gson.reflect.TypeToken<List<VocabBookmark>>() {}.type
+                        onResult(gson.fromJson(body, type))
+                    } catch (e: Exception) { onResult(null) }
+                }
+            }
+        })
+    }
+
+    fun getFlashcards(userId: String, onResult: (List<Flashcard>?) -> Unit) {
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/flashcards/review?user_id=$userId")
+            .get()
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to get flashcards", e); onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) { onResult(null); return }
+                    val body = response.body?.string()
+                    try {
+                        val type = object : com.google.gson.reflect.TypeToken<List<Flashcard>>() {}.type
+                        onResult(gson.fromJson(body, type))
+                    } catch (e: Exception) { onResult(null) }
+                }
+            }
+        })
+    }
+
+    fun reviewFlashcard(cardId: String, rating: Int, onResult: (Boolean) -> Unit) {
+        val json = gson.toJson(ReviewRatingRequest(cardId, rating))
+        val httpRequest = Request.Builder()
+            .url("$BASE_URL/api/v1/flashcards/review")
+            .post(json.toRequestBody(JSON_MEDIA_TYPE))
+            .header("accept", "application/json")
+            .build()
+        client.newCall(httpRequest).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to review flashcard", e); onResult(false)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    onResult(response.isSuccessful)
+                }
+            }
+        })
+    }
 }
+
+data class VocabBookmark(
+    val id: String,
+    val user_id: String,
+    val word: String,
+    val context_sentence: String?,
+    val corrected_sentence: String?,
+    val definition: String?,
+    val pronunciation_url: String?,
+    val mastery_score: Int
+)
+
+data class Flashcard(
+    val id: String,
+    val user_id: String,
+    val card_type: String,
+    val front: String,
+    val back: String,
+    val interval: Int,
+    val ease_factor: Float,
+    val repetitions: Int,
+    val streak: Int,
+    val due_date: String
+)
+
+data class ReviewRatingRequest(
+    val card_id: String,
+    val rating: Int
+)
 
 data class SubLearningPath(
     val title: String,
