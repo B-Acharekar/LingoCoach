@@ -288,6 +288,7 @@ fun AssessmentScreen(
                                 sharedPrefs.edit()
                                     .putString("assessment_response_json", gson.toJson(finalResponse))
                                     .putString("learning_path_json", gson.toJson(pathResponse))
+                                    .putString("session_id", finalResponse!!.session_id)
                                     .putBoolean("assessment_completed", true)
                                     .apply()
                                 onNavigateToLearningPath()
