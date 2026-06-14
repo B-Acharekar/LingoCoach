@@ -58,7 +58,12 @@ internal val CardWhite        = Color(0xFFFFFEFF)
 internal val CardBorderColor  = Color(0x18000000)
 
 @Composable
-fun HomeScreen(onNavigateToLesson: (sublessonId: String) -> Unit) {
+fun HomeScreen(
+    onNavigateToLesson: (sublessonId: String) -> Unit,
+    onNavigateToVocab: () -> Unit = {},
+    onNavigateToMistakes: () -> Unit = {},
+    onNavigateToFlashcards: () -> Unit = {}
+) {
     val context       = LocalContext.current
     val scope         = rememberCoroutineScope()
     val sharedPrefs   = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
@@ -244,13 +249,13 @@ fun HomeScreen(onNavigateToLesson: (sublessonId: String) -> Unit) {
                 ) {
                     HomeFeatureCard(
                         modifier = Modifier.weight(1f),
-                        topSymbol = "⚔️",
-                        title = "Vocab Duel",
-                        subtitle = "QUICK PVP MATCH",
+                        topSymbol = "🧠",
+                        title = "SRS Review",
+                        subtitle = "FLASHCARDS",
                         gradient = Brush.linearGradient(
                             listOf(Color(0xFFFFB300), Color(0xFFFF6D00))
                         ),
-                        onClick = {}
+                        onClick = onNavigateToFlashcards
                     )
                     HomeFeatureCard(
                         modifier = Modifier.weight(1f),
@@ -267,14 +272,14 @@ fun HomeScreen(onNavigateToLesson: (sublessonId: String) -> Unit) {
                 Spacer(Modifier.height(14.dp))
 
                 // ── Vocab Builder ────────────────────────────────────────────
-                HomeVocabBuilderCard()
+                HomeVocabBuilderCard(onClick = onNavigateToVocab)
 
                 Spacer(Modifier.height(22.dp))
 
                 Spacer(Modifier.height(16.dp))
 
                 // ── Mistake Vault ────────────────────────────────────────────
-                HomeMistakeVaultCard(mistakes = mistakes)
+                HomeMistakeVaultCard(mistakes = mistakes, onClick = onNavigateToMistakes)
 
                 Spacer(Modifier.height(16.dp))
 
@@ -287,7 +292,13 @@ fun HomeScreen(onNavigateToLesson: (sublessonId: String) -> Unit) {
             // ── Bottom Navigation ────────────────────────────────────────────
             HomeBottomNav(
                 selectedTab   = selectedTab,
-                onTabSelected = { selectedTab = it }
+                onTabSelected = { 
+                    selectedTab = it
+                    when (it) {
+                        2 -> onNavigateToVocab()
+                        3 -> onNavigateToMistakes()
+                    }
+                }
             )
         }
     }
@@ -495,7 +506,7 @@ fun HomeFeatureCard(
 
 // ─── Vocab Builder Card ───────────────────────────────────────────────────────
 @Composable
-fun HomeVocabBuilderCard() {
+fun HomeVocabBuilderCard(onClick: () -> Unit = {}) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -503,7 +514,7 @@ fun HomeVocabBuilderCard() {
             .shadow(4.dp, RoundedCornerShape(20.dp))
             .clip(RoundedCornerShape(20.dp))
             .background(CardWhite)
-            .clickable { }
+            .clickable { onClick() }
             .padding(16.dp)
     ) {
         Column {
@@ -589,7 +600,7 @@ fun HomeVocabBuilderCard() {
 
 // ─── Mistake Vault Card ──────────────────────────────────────────────────────
 @Composable
-fun HomeMistakeVaultCard(mistakes: List<Mistake>) {
+fun HomeMistakeVaultCard(mistakes: List<Mistake>, onClick: () -> Unit = {}) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -597,7 +608,7 @@ fun HomeMistakeVaultCard(mistakes: List<Mistake>) {
             .shadow(4.dp, RoundedCornerShape(20.dp))
             .clip(RoundedCornerShape(20.dp))
             .background(CardWhite)
-            .clickable { }
+            .clickable { onClick() }
             .padding(16.dp)
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
