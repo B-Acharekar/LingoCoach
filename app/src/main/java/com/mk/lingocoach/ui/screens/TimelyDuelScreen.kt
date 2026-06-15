@@ -374,6 +374,7 @@ fun DuelGameScreen(
         // TTS auto-speak for spelling/pronunciation
         if (question.type == DuelQuestionType.SPELLING || question.type == DuelQuestionType.PRONUNCIATION) {
             delay(400)
+            tts?.setSpeechRate(1.0f)
             tts?.speak(question.vocabWord.word, TextToSpeech.QUEUE_FLUSH, null, null)
         }
         while (timeLeft > 0 && !answered) {
@@ -481,28 +482,33 @@ fun DuelGameScreen(
             Column(modifier = Modifier.padding(20.dp)) {
                 when (question.type) {
                     DuelQuestionType.SPELLING -> {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(Icons.Default.VolumeUp, null, tint = BrandPurple,
-                                modifier = Modifier.size(28.dp).clickable {
-                                    tts?.speak(question.vocabWord.word, TextToSpeech.QUEUE_FLUSH, null, null)
-                                })
-                            Spacer(Modifier.width(10.dp))
-                            Text("Listen and type the word", color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                        }
-                        Spacer(Modifier.height(8.dp))
+                        Text("Listen and type the word", color = TextDark, fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                        Spacer(Modifier.height(4.dp))
                         Text("/${question.vocabWord.pronunciation}/", color = TextLight,
                             fontSize = 13.sp, fontStyle = FontStyle.Italic)
-                        Spacer(Modifier.height(8.dp))
+                        Spacer(Modifier.height(6.dp))
                         Text(question.vocabWord.meaning, color = TextMid, fontSize = 13.sp)
+                        Spacer(Modifier.height(14.dp))
+                        // Centered speaker + S M F
+                        CardPronunciation(
+                            word = question.vocabWord.word,
+                            tts = tts
+                        )
                     }
                     DuelQuestionType.PRONUNCIATION -> {
                         Text("Speak this word aloud:", color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.Bold)
-                        Spacer(Modifier.height(10.dp))
+                        Spacer(Modifier.height(8.dp))
                         Text(question.vocabWord.word, color = TextDark, fontSize = 28.sp, fontWeight = FontWeight.ExtraBold)
                         Text("(${question.vocabWord.partOfSpeech}) /${question.vocabWord.pronunciation}/",
                             color = TextLight, fontSize = 13.sp, fontStyle = FontStyle.Italic)
-                        Spacer(Modifier.height(8.dp))
+                        Spacer(Modifier.height(6.dp))
                         Text(question.vocabWord.meaning, color = TextMid, fontSize = 13.sp)
+                        Spacer(Modifier.height(14.dp))
+                        // Centered speaker + S M F
+                        CardPronunciation(
+                            word = question.vocabWord.word,
+                            tts = tts
+                        )
                     }
                     DuelQuestionType.FILL_BLANK -> {
                         Text("Complete the sentence:", color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.Bold)
@@ -629,17 +635,11 @@ fun DuelGameScreen(
                     }
                 }
                 Spacer(Modifier.height(12.dp))
-                // Re-listen button
-                OutlinedButton(
-                    onClick = { tts?.speak(question.vocabWord.word, TextToSpeech.QUEUE_FLUSH, null, null) },
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(14.dp),
-                    border = ButtonDefaults.outlinedButtonBorder
-                ) {
-                    Icon(Icons.Default.VolumeUp, null, tint = BrandPurple, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(6.dp))
-                    Text("Listen Again", color = BrandPurple, fontWeight = FontWeight.Bold)
-                }
+                PronunciationBar(
+                    word = question.vocabWord.word,
+                    tts = tts,
+                    label = "Listen Again"
+                )
             }
         }
 

@@ -268,7 +268,8 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                                     context = context
                                 )
                                 currentViewState = VocabViewState.DrillFeedback
-                            }
+                            },
+                            tts = tts
                         )
                     } else {
                         currentViewState = VocabViewState.Dashboard
@@ -289,6 +290,7 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                             onSpeakWord = {
                                 tts?.speak(question.word.word, TextToSpeech.QUEUE_FLUSH, null, null)
                             },
+                            tts = tts,
                             onContinue = {
                                 if (isCorrectFeedback) {
                                     // Correct: remove from queue permanently
@@ -794,7 +796,8 @@ fun ColumnScope.ContextualDrillView(
     selectedOptionIdx: Int?,
     onOptionSelected: (Int) -> Unit,
     onConfirm: () -> Unit,
-    onNotMastered: () -> Unit
+    onNotMastered: () -> Unit,
+    tts: TextToSpeech? = null
 ) {
     Column(
         modifier = Modifier
@@ -847,23 +850,29 @@ fun ColumnScope.ContextualDrillView(
             shape = RoundedCornerShape(20.dp)
         ) {
             Column(modifier = Modifier.padding(20.dp)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = question.word.word,
-                        color = TextDark,
-                        fontSize = 22.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "(${question.word.partOfSpeech.replaceFirstChar { it.uppercase() }}) /${question.word.pronunciation}/",
-                        color = TextLight,
-                        fontSize = 13.sp,
-                        fontStyle = FontStyle.Italic
-                    )
-                }
+                // Word + part of speech
+                Text(
+                    text = question.word.word,
+                    color = TextDark,
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.ExtraBold
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = "(${question.word.partOfSpeech.replaceFirstChar { it.uppercase() }}) /${question.word.pronunciation}/",
+                    color = TextLight,
+                    fontSize = 13.sp,
+                    fontStyle = FontStyle.Italic
+                )
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(14.dp))
+                // Centered pronunciation: speaker icon + S M F pills
+                CardPronunciation(
+                    word = question.word.word,
+                    tts = tts
+                )
+
+                Spacer(modifier = Modifier.height(14.dp))
                 HorizontalDivider(color = Color(0x0D000000))
                 Spacer(modifier = Modifier.height(12.dp))
 
@@ -995,6 +1004,8 @@ fun ColumnScope.DrillFeedbackView(
     showReinforcementFeedback: Boolean,
     onCheckReinforcement: () -> Unit,
     onSpeakWord: () -> Unit,
+    onSpeakWordAtRate: (Float) -> Unit = { onSpeakWord() },
+    tts: TextToSpeech? = null,
     onContinue: () -> Unit
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
@@ -1042,37 +1053,29 @@ fun ColumnScope.DrillFeedbackView(
                     }
 
                     Column(modifier = Modifier.padding(16.dp)) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(
-                                text = word.word,
-                                color = TextDark,
-                                fontSize = 24.sp,
-                                fontWeight = FontWeight.ExtraBold
-                            )
-                            
-                            // Audio Speaker Button
-                            IconButton(
-                                onClick = onSpeakWord,
-                                modifier = Modifier
-                                    .size(36.dp)
-                                    .background(BrandPurpleSoft, CircleShape)
-                            ) {
-                                Icon(Icons.Default.VolumeUp, contentDescription = "Listen", tint = BrandPurple, modifier = Modifier.size(18.dp))
-                            }
-                        }
-
-                        Spacer(modifier = Modifier.height(4.dp))
+                        // Word + pronunciation text
+                        Text(
+                            text = word.word,
+                            color = TextDark,
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                        Spacer(modifier = Modifier.height(2.dp))
                         Text(
                             text = "(${word.partOfSpeech.replaceFirstChar { it.uppercase() }}) /${word.pronunciation}/",
                             color = TextLight,
                             fontSize = 13.sp,
                             fontStyle = FontStyle.Italic
                         )
-                        Spacer(modifier = Modifier.height(10.dp))
+
+                        Spacer(modifier = Modifier.height(14.dp))
+                        // Centered speaker + S M F pills
+                        CardPronunciation(
+                            word = word.word,
+                            tts = tts
+                        )
+
+                        Spacer(modifier = Modifier.height(14.dp))
                         HorizontalDivider(color = Color(0x0D000000))
                         Spacer(modifier = Modifier.height(10.dp))
                         Text(
@@ -1484,19 +1487,12 @@ fun ColumnScope.AllWordsBrowserView(
                                 }
 
                                 Spacer(modifier = Modifier.height(12.dp))
-                                // Pronunciation voice button
-                                Button(
-                                    onClick = { tts?.speak(w.word, TextToSpeech.QUEUE_FLUSH, null, null) },
-                                    modifier = Modifier.fillMaxWidth().height(36.dp),
-                                    colors = ButtonDefaults.buttonColors(containerColor = BrandPurpleSoft),
-                                    shape = RoundedCornerShape(10.dp)
-                                ) {
-                                    Row(verticalAlignment = Alignment.CenterVertically) {
-                                        Icon(Icons.Default.VolumeUp, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(16.dp))
-                                        Spacer(modifier = Modifier.width(6.dp))
-                                        Text("Listen Pronunciation", color = BrandPurple, fontSize = 11.sp, fontWeight = FontWeight.Bold)
-                                    }
-                                }
+                                // Pronunciation bar with speed control
+                                PronunciationBar(
+                                    word = w.word,
+                                    tts = tts,
+                                    label = "Listen Pronunciation"
+                                )
                             }
                         }
                     }
