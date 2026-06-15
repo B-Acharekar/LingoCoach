@@ -1,0 +1,929 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Health & Lifestyle": [
+      {
+        "word": "exercise",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈeksərsaɪz/",
+        "meaning": "Physical activity that you do to make your body strong and healthy.",
+        "synonyms": ["workout", "training", "movement"],
+        "antonyms": ["inactivity", "laziness"],
+        "examples": [
+          {
+            "english": "Doing regular exercise can help you maintain a fit body and reduce stress.",
+            "translations": {
+              "Mandarin Chinese": "定期进行体育锻炼可以帮助你保持健壮的身体并减轻压力。",
+              "Hindi": "नियमित व्यायाम करने से आपको फिट शरीर बनाए रखने और तनाव कम करने में मदद मिल सकती है।",
+              "Spanish": "Hacer ejercicio regular puede ayudarte a mantener un cuerpo en forma y reducir el estrés.",
+              "Standard Arabic": "ممارسة التمارين الرياضية بانتظام يمكن أن تساعدك في الحفاظ على جسم لائق وتقليل التوتر.",
+              "French": "Faire de l'exercice régulièrement peut vous aider à maintenir un corps en forme et à réduire le stress.",
+              "Bengali": "নিয়মিত ব্যায়াম করা আপনাকে একটি ফিট শরীর বজায় রাখতে এবং মানসিক চাপ কমাতে সাহায্য করতে পারে।",
+              "Portuguese": "Fazer exercícios regularmente pode ajudar você a manter um corpo em forma e reduzir o estresse.",
+              "Russian": "Регулярные физические упражнения помогают поддерживать тело в форме и снижают стресс.",
+              "Urdu": "باقاعدگی سے ورزش کرنا آپ کو فٹ جسم برقرار رکھنے اور تناؤ کو کم کرنے میں مدد دے سکتا ہے۔",
+              "Indonesian": "Berolahraga secara teratur dapat membantu Anda menjaga tubuh tetap bugar dan mengurangi stres.",
+              "Standard German": "Regelmäßige Bewegung kann Ihnen helfen, einen fitten Körper zu erhalten und Stress abzubauen.",
+              "Japanese": "定期的な運動は、健康な体を維持し、ストレスを軽減するのに役立ちます。"
+            }
+          },
+          {
+            "english": "She likes to exercise in the local park early every morning.",
+            "translations": {
+              "Mandarin Chinese": "她喜欢每天清晨在当地的公园里锻炼身体。",
+              "Hindi": "वह रोज सुबह जल्दी स्थानीय पार्क में व्यायाम करना पसंद करती हैं।",
+              "Spanish": "A ella le gusta hacer ejercicio en el parque local temprano cada mañana.",
+              "Standard Arabic": "تحب ممارسة الرياضة في الحديقة المحلية في الصباح الباكر من كل يوم.",
+              "French": "Elle aime faire de l'exercice dans le parc du quartier tôt chaque matin.",
+              "Bengali": "তিনি প্রতিদিন ভোরে স্থানীয় পার্কে ব্যায়াম করতে পছন্দ করেন।",
+              "Portuguese": "Ela gosta de se exercitar no parque local bem cedo todas as manhãs.",
+              "Russian": "Ей нравится делать зарядку в местном парке каждое утро.",
+              "Urdu": "وہ روزانہ صبح سویرے مقامی پارک میں ورزش کرنا پسند کرتی ہے۔",
+              "Indonesian": "Dia suka berolahraga di taman setempat setiap pagi-pagi sekali.",
+              "Standard German": "Sie treibt jeden Morgen gerne früh im örtlichen Park Sport.",
+              "Japanese": "彼女は毎朝早く、地元の公園で運動するのが好きです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "fitness",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfɪtnəs/",
+        "meaning": "The condition of being physically strong and healthy.",
+        "synonyms": ["health", "well-being", "vigor"],
+        "antonyms": ["weakness", "illness"],
+        "examples": [
+          {
+            "english": "He joined a gym recently to improve his cardiovascular fitness.",
+            "translations": {
+              "Mandarin Chinese": "他最近加入了一家健身房，以提高他的心血管健康水平。",
+              "Hindi": "उन्होंने हाल ही में अपनी हृदय की फिटनेस (स्वास्थ्य) को सुधारने के लिए जिम ज्वाइन किया है।",
+              "Spanish": "Se unió a un gimnasio recientemente para mejorar su condición física cardiovascular.",
+              "Standard Arabic": "انضم إلى صالة الألعاب الرياضية مؤخراً لتحسين لياقته البدنية للقلب والأوعية الدموية.",
+              "French": "Il s'est inscrit dans une salle de sport récemment pour améliorer sa condition physique cardiovasculaire.",
+              "Bengali": "তিনি সম্প্রতি তার হৃদযন্ত্রের সুস্থতা বা ফিটনেস উন্নত করতে একটি জিমে যোগ দিয়েছেন।",
+              "Portuguese": "Ele se matriculou em uma academia recentemente para melhorar seu condicionamento físico cardiovascular.",
+              "Russian": "Недавно он записался в тренажерный зал, чтобы улучшить свою физическую форму.",
+              "Urdu": "اس نے حال ہی میں اپنی قلبی فٹنس کو بہتر بنانے کے لیے جِم جوائن کیا۔",
+              "Indonesian": "Dia baru-baru ini bergabung dengan pusat kebugaran untuk meningkatkan kebugaran kardiovaskularnya.",
+              "Standard German": "Er hat sich vor Kurzem in einem Fitnessstudio angemeldet, um seine Fitness zu verbessern.",
+              "Japanese": "彼は心肺の持久力（フィットネス）を高めるために、最近ジムに入会しました。"
+            }
+          },
+          {
+            "english": "Walking ten thousand steps a day is great for your overall fitness.",
+            "translations": {
+              "Mandarin Chinese": "每天走一万步对你的整体健康非常有好处。",
+              "Hindi": "दिन में दस हजार कदम चलना आपकी समग्र फिटनेस के लिए बहुत अच्छा है।",
+              "Spanish": "Caminar diez mil pasos al día es excelente para tu estado físico general.",
+              "Standard Arabic": "المشي عشرة آلاف خطوة يومياً أمر رائع للياقة البدنية العامة.",
+              "French": "Marcher dix mille pas par jour est excellent pour votre forme générale.",
+              "Bengali": "দিনে দশ হাজার পা হাঁটা আপনার সামগ্রিক ফিটনেসের জন্য দুর্দান্ত।",
+              "Portuguese": "Caminhar dez mil passos por dia é ótimo para o seu condicionamento físico geral.",
+              "Russian": "Прогулка в десять тысяч шагов в день полезна для вашей общей физической формы.",
+              "Urdu": "دن میں دس ہزار قدم چلنا آپ کی مجموعی فٹنس کے لیے بہت اچھا ہے۔",
+              "Indonesian": "Berjalan sepuluh ribu langkah sehari sangat bagus untuk kebugaran Anda secara keseluruhan.",
+              "Standard German": "Täglich zehntausend Schritte zu gehen, ist großartig für Ihre allgemeine Fitness.",
+              "Japanese": "1日1万歩歩くことは、全体の健康維持（フィットネス）にとても効果的です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "healthy",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈhelθi/",
+        "meaning": "In good physical or mental condition; not sick.",
+        "synonyms": ["well", "fit", "wholesome"],
+        "antonyms": ["unhealthy", "sick", "ill"],
+        "examples": [
+          {
+            "english": "Eating a healthy breakfast gives you plenty of energy for the day.",
+            "translations": {
+              "Mandarin Chinese": "吃一顿健康的早餐能为你带来一整天充沛的精力。",
+              "Hindi": "एक स्वस्थ नाश्ता करने से आपको दिनभर के लिए भरपूर ऊर्जा मिलती है।",
+              "Spanish": "Comer un desayuno saludable te da mucha energía para el día.",
+              "Standard Arabic": "تناول وجبة إفطار صحية يمنحك الكثير من الطاقة طوال اليوم.",
+              "French": "Manger un petit-déjeuner sain vous donne beaucoup d'énergie pour la journée.",
+              "Bengali": "একটি স্বাস্থ্যকর সকালের নাস্তা খাওয়া আপনাকে সারাদিনের জন্য প্রচুর শক্তি দেয়।",
+              "Portuguese": "Comer um café da manhã saudável te dá muita energia para o dia.",
+              "Russian": "Здоровый завтрак дает много энергии на весь день.",
+              "Urdu": "صحت بخش ناشتہ کرنا آپ کو دن بھر کے لیے بھرپور توانائی دیتا ہے۔",
+              "Indonesian": "Makan sarapan yang sehat memberi Anda banyak energi untuk menjalani hari.",
+              "Standard German": "Ein gesundes Frühstück gibt Ihnen viel Energie für den Tag.",
+              "Japanese": "健康的な朝食をとることで、その日1日の十分なエネルギーが得られます。"
+            }
+          },
+          {
+            "english": "The doctor says that my grandparents are active and healthy.",
+            "translations": {
+              "Mandarin Chinese": "医生说我的爷爷奶奶身体又活跃又健康。",
+              "Hindi": "डॉक्टर का कहना है कि मेरे दादा-दादी सक्रिय और स्वस्थ हैं।",
+              "Spanish": "El médico dice que mis abuelos están activos y saludables.",
+              "Standard Arabic": "يقول الطبيب إن جدي وجدتي نشيطان وبصحة جيدة.",
+              "French": "Le médecin dit que mes grands-parents sont actifs et en bonne santé.",
+              "Bengali": "ডাক্তার বলেছেন যে আমার দাদা-দাদী সক্রিয় এবং সুস্থ আছেন।",
+              "Portuguese": "O médico diz que meus avós são ativos e saudáveis.",
+              "Russian": "Врач говорит, что мои бабушка и дедушка активны и здоровы.",
+              "Urdu": "ڈاکٹر کا کہنا ہے کہ میرے دادا دادی فعال اور صحت مند ہیں۔",
+              "Indonesian": "Dokter mengatakan bahwa kakek-nenek saya aktif dan sehat.",
+              "Standard German": "Der Arzt sagt, dass meine Großeltern aktiv und gesund sind.",
+              "Japanese": "医者は、私の祖父母が活発で健康であると言っています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "unhealthy",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ʌnˈhelθi/",
+        "meaning": "Not in good health, or likely to cause illness or poor health.",
+        "synonyms": ["sickly", "harmful", "bad"],
+        "antonyms": ["healthy", "wholesome"],
+        "examples": [
+          {
+            "english": "Drinking sweet soda every day is an unhealthy habit.",
+            "translations": {
+              "Mandarin Chinese": "每天喝甜苏打水是一个不健康的习惯。",
+              "Hindi": "हर दिन मीठा सोडा पीना एक अस्वस्थ आदत है।",
+              "Spanish": "Beber refrescos dulces todos los días es un hábito poco saludable.",
+              "Standard Arabic": "شرب الصودا الحلوة كل يوم هو عادة غير صحية.",
+              "French": "Boire du soda sucré tous les jours est une habitude malsaine.",
+              "Bengali": "প্রতিদিন মিষ্টি সোডা খাওয়া একটি অস্বাস্থ্যকর অভ্যাস।",
+              "Portuguese": "Beber refrigerante doce todos os dias é um hábito pouco saudável.",
+              "Russian": "Питье сладкой газировки каждый день — нездоровая привычка.",
+              "Urdu": "ہر روز میٹھا سوڈا پینا ایک غیر صحت بخش عادت ہے۔",
+              "Indonesian": "Minum soda manis setiap hari adalah kebiassaan yang tidak sehat.",
+              "Standard German": "Täglich süße Limonade zu trinken, ist eine ungesunde Angewohnheit.",
+              "Japanese": "甘い炭酸飲料を毎日飲むことは、不健康な習慣です。"
+            }
+          },
+          {
+            "english": "He felt weak because he had an unhealthy diet for months.",
+            "translations": {
+              "Mandarin Chinese": "他感到虚弱，因为他几个月来的饮食都不健康。",
+              "Hindi": "वह कमजोरी महसूस कर रहा था क्योंकि महीनों से उसका खान-पान अस्वस्थ था।",
+              "Spanish": "Se sentía débil porque llevó una dieta poco saludable durante meses.",
+              "Standard Arabic": "شعر بالضعف لأنه اتبع نظاماً غذائياً غير صحي لعدة أشهر.",
+              "French": "Il se sentait faible parce qu'il avait un régime alimentaire malsain depuis des mois.",
+              "Bengali": "তিনি দুর্বল বোধ করছিলেন কারণ কয়েক মাস ধরে তার অস্বাস্থ্যকর ডায়েট ছিল।",
+              "Portuguese": "Ele se sentia fraco porque teve uma alimentação pouco saudável por meses.",
+              "Russian": "Он чувствовал слабость, потому что в течение нескольких месяцев плохо и вредно питался.",
+              "Urdu": "وہ کمزوری محسوس کر رہا تھا کیونکہ مہینوں سے اس کی غذا غیر صحت بخش تھی۔",
+              "Indonesian": "Dia merasa lemah karena menjalani pola makan yang tidak sehat selama berbulan-bulan.",
+              "Standard German": "Er fühlte sich schwach, weil er sich monatelang ungesund ernährt hatte.",
+              "Japanese": "何ヶ月も不健康な食生活を続けていたため、彼は体がだるく感じていました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "stress",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/stres/",
+        "meaning": "A feeling of emotional or physical tension caused by difficult situations.",
+        "synonyms": ["tension", "anxiety", "pressure"],
+        "antonyms": ["relaxation", "calmness", "peace"],
+        "examples": [
+          {
+            "english": "Too much stress at work can cause sleep problems and headaches.",
+            "translations": {
+              "Mandarin Chinese": "工作压力过大可能会导致睡眠问题和头痛。",
+              "Hindi": "काम का अत्यधिक तनाव (स्ट्रेस) सोने की समस्या और सिरदर्द का कारण बन सकता है।",
+              "Spanish": "Demasiado estrés en el trabajo puede causar problemas para dormir y dolores de cabeza.",
+              "Standard Arabic": "الكثير من التوتر في العمل يمكن أن يسبب مشاكل في النوم وصداعاً.",
+              "French": "Trop de stress au travail peut causer des problèmes de sommeil et des maux de tête.",
+              "Bengali": "কাজের অতিরিক্ত মানসিক চাপ ঘুমের সমস্যা এবং মাথাব্যথার কারণ হতে পারে।",
+              "Portuguese": "Muito estresse no trabalho pode causar problemas de sono e dores de cabeza.",
+              "Russian": "Слишком большой стресс на работе может вызвать проблемы со сном и головные боли.",
+              "Urdu": "کام کا بہت زیادہ تناؤ نیند کے مسائل اور سر درد کا سبب بن سکتا ہے۔",
+              "Indonesian": "Terlalu banyak stres di tempat kerja dapat menyebabkan masalah tidur dan sakit kepala.",
+              "Standard German": "Zu viel Stress am Arbeitsplatz kann zu Schlafproblemen und Kopfschmerzen führen.",
+              "Japanese": "仕事での過度なストレスは、睡眠障害や頭痛を引き起こす原因になります。"
+            }
+          },
+          {
+            "english": "Yoga is a great practice to reduce mental stress.",
+            "translations": {
+              "Mandarin Chinese": "瑜伽是减轻精神压力的绝佳练习。",
+              "Hindi": "मानसिक तनाव को कम करने के लिए योग एक बेहतरीन अभ्यास है।",
+              "Spanish": "El yoga es una excelente práctica para reducir el estrés mental.",
+              "Standard Arabic": "اليوجا ممارسة رائعة لتقليل التوتر النفسي.",
+              "French": "Le yoga est une excellente pratique pour réduire le stress mental.",
+              "Bengali": "মানসিক চাপ কমাতে যোগব্যায়াম একটি দুর্দান্ত অনুশীলন।",
+              "Portuguese": "Ioga é uma ótima prática para reduzir o estresse mental.",
+              "Russian": "Йога — отличная практика для снятия психологического стресса.",
+              "Urdu": "ذہنی تناؤ کو کم کرنے کے لیے یوگا ایک بہترین مشق ہے۔",
+              "Indonesian": "Yoga adalah latihan yang sangat baik untuk mengurangi stres mental.",
+              "Standard German": "Yoga ist eine großartige Praxis, um mentalen Stress abzubauen.",
+              "Japanese": "ヨガは、精神的なストレスを和らげるのに素晴らしい方法です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "energy",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈenərdʒi/",
+        "meaning": "The power and ability to be physically and mentally active.",
+        "synonyms": ["vitality", "strength", "power"],
+        "antonyms": ["weakness", "lethargy", "fatigue"],
+        "examples": [
+          {
+            "english": "Children have so much energy and love to run around all afternoon.",
+            "translations": {
+              "Mandarin Chinese": "孩子们精力太充沛了，喜欢整个下午都在到处乱跑。",
+              "Hindi": "बच्चों में बहुत अधिक ऊर्जा होती है और वे पूरी दोपहर इधर-उधर दौड़ना पसंद करते हैं।",
+              "Spanish": "Los niños tienen tanta energía y les encanta correr toda la tarde.",
+              "Standard Arabic": "يتمتع الأطفال بالطاقة العالية ويحبون الركض طوال فترة بعد الظهر.",
+              "French": "Les enfants ont tellement d'énergie et adorent courir partout tout l'après-midi.",
+              "Bengali": "বাচ্চাদের প্রচুর শক্তি থাকে এবং তারা সারা দুপুর জুড়ে দৌড়াদৌড়ি করতে পছন্দ করে।",
+              "Portuguese": "As crianças têm tanta energia e adoram correr por aí a tarde toda.",
+              "Russian": "У детей так много энергии, они любят бегать напролет весь день.",
+              "Urdu": "بچوں میں بہت زیادہ توانائی ہوتی ہے اور وہ پوری دوپہر ادھر ادھر دوڑنا پسند کرتے ہیں۔",
+              "Indonesian": "Anak-anak memiliki begitu banyak energi dan suka berlarian sepanjang sore.",
+              "Standard German": "Kinder haben so viel Energie und lieben es, den ganzen Nachmittag herumzurennen.",
+              "Japanese": "子供たちはとても元気（エネルギー）いっぱいで、午後中ずっと走り回るのが大好きです。"
+            }
+          },
+          {
+            "english": "I feel full of energy after sleeping for eight hours.",
+            "translations": {
+              "Mandarin Chinese": "睡了八个小时后，我感到精力充沛。",
+              "Hindi": "आठ घंटे सोने के बाद मैं ऊर्जा से भरपूर महसूस कर रहा हूँ।",
+              "Spanish": "Me siento lleno de energía después de dormir durante ocho horas.",
+              "Standard Arabic": "أشعر بالنشاط والحيوية بعد النوم لمدة ثماني ساعات.",
+              "French": "Je me sens plein d'énergie après avoir dormi pendant huit heures.",
+              "Bengali": "আট ঘণ্টা ঘুমানোর পর আমি শক্তিতে ভরপুর বোধ করছি।",
+              "Portuguese": "Sinto-me cheio de energia depois de dormir por oito horas.",
+              "Russian": "Я чувствую себя полным сил после восьмичасового сна.",
+              "Urdu": "آٹھ گھنٹے سونے کے بعد میں توانائی سے بھرپور محسوس کر رہا ہوں۔",
+              "Indonesian": "Saya merasa penuh energi setelah tidur selama delapan jam.",
+              "Standard German": "Ich fühle mich voller Energie, nachdem ich acht Stunden geschlafen habe.",
+              "Japanese": "8時間睡眠をとったので、エネルギーが満ちあふれているように感じます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "vitamin",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈvaɪtəmɪn/",
+        "meaning": "A natural substance found in foods that is necessary for the body to stay healthy.",
+        "synonyms": ["nutrient", "supplement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Oranges contain a large amount of vitamin C, which protects you from colds.",
+            "translations": {
+              "Mandarin Chinese": "橙子含有大量的维生素C，可以保护你免受感冒。",
+              "Hindi": "संतरे में बड़ी मात्रा में विटामिन सी होता है, जो आपको सर्दी से बचाता है।",
+              "Spanish": "Las naranjas contienen una gran cantidad de vitamina C, que te protege de los resfriados.",
+              "Standard Arabic": "يحتوي البرتقال على كمية كبيرة من فيتامين سي، الذي يحميك من نزلات البرد.",
+              "French": "Les oranges contiennent une grande quantité de vitamine C, qui vous protège des rhumes.",
+              "Bengali": "কমলালেবুতে প্রচুর পরিমাণে ভিটামিন সি থাকে, যা আপনাকে ঠান্ডা লাগা থেকে রক্ষা করে।",
+              "Portuguese": "Laranjas contêm uma grande quantidade de vitamina C, que protege você contra resfriados.",
+              "Russian": "Апельсины содержат большое количество витамина С, который защищает от простуды.",
+              "Urdu": "संतरे (مالٹے) میں بڑی مقدار میں وٹامن سی ہوتا ہے، جو آپ کو سردی سے بچاتا ہے۔",
+              "Indonesian": "Jeruk mengandung banyak vitamin C, yang melindungi Anda dari flu.",
+              "Standard German": "Orangen enthalten viel Vitamin C, das vor Erkältungen schützt.",
+              "Japanese": "オレンジには、風邪から体を守ってくれるビタミンCが大量に含まれています。"
+            }
+          },
+          {
+            "english": "You can get vitamin D naturally by spending time in sunlight.",
+            "translations": {
+              "Mandarin Chinese": "你可以通过晒太阳来自然获取维生素D。",
+              "Hindi": "आप धूप में समय बिताकर प्राकृतिक रूप से विटामिन डी प्राप्त कर सकते हैं।",
+              "Spanish": "Puedes obtener vitamina D de forma natural al pasar tiempo bajo la luz solar.",
+              "Standard Arabic": "يمكنك الحصول على فيتامين د بشكل طبيعي عن طريق قضاء بعض الوقت في الشمس.",
+              "French": "Vous pouvez obtenir de la vitamine D naturellement en passant du temps au soleil.",
+              "Bengali": "আপনি সূর্যের আলোতে সময় ব্যয় করে প্রাকৃতিকভাবে ভিটামিন ডি পেতে পারেন।",
+              "Portuguese": "Você pode obter vitamina D naturalmente passando algum tempo sob a luz do sol.",
+              "Russian": "Вы можете получить витамин D естественным путем, проводя время на солнце.",
+              "Urdu": "آپ دھوپ میں وقت گزار کر قدرتی طور پر وٹامن ڈی حاصل کر سکتے ہیں۔",
+              "Indonesian": "Anda bisa mendapatkan vitamin D secara alami dengan menghabiskan waktu di bawah sinar matahari.",
+              "Standard German": "Sie können Vitamin D auf natürliche Weise aufnehmen, indem Sie Zeit in der Sonne verbringen.",
+              "Japanese": "日光を浴びることで、自然にビタミンDを体内で作ることができます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "medicine",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmedsn/",
+        "meaning": "A substance, especially a liquid or pill, that you take to cure an illness or pain.",
+        "synonyms": ["drug", "medication", "cure"],
+        "antonyms": ["poison"],
+        "examples": [
+          {
+            "english": "The doctor gave me some cough medicine to help me sleep better.",
+            "translations": {
+              "Mandarin Chinese": "医生给我开了些止咳药，好让我睡得更好。",
+              "Hindi": "डॉक्टर ने मुझे बेहतर नींद में मदद करने के लिए खांसी की कुछ दवा (मेडिसिन) दी।",
+              "Spanish": "El médico me dio un medicamento para la tos para ayudarme a dormir mejor.",
+              "Standard Arabic": "أعطاني الطبيب بعض دواء السعال لمساعدتي على النوم بشكل أفضل.",
+              "French": "Le médecin m'a donné un médicament contre la toux pour m'aider à mieux dormir.",
+              "Bengali": "ডাক্তার আমাকে ভালো ঘুমাতে সাহায্য করার জন্য কাশির কিছু ওষুধ দিয়েছিলেন।",
+              "Portuguese": "O médico me deu um remédio para tosse para me ajudar a dormir melhor.",
+              "Russian": "Врач дал мне лекарство от кашля, чтобы я мог лучше спать.",
+              "Urdu": "ڈاکٹر نے مجھے بہتر نیند میں مدد کرنے کے لیے کھانسی کی کچھ دوا دی۔",
+              "Indonesian": "Dokter memberi saya obat batuk untuk membantu saya tidur lebih nyenyak.",
+              "Standard German": "Der Arzt hat mir Hustensaft gegeben, damit ich besser schlafen kann.",
+              "Japanese": "医者はよく眠れるようにと、私に咳止めの薬（メディスン）をくれました。"
+            }
+          },
+          {
+            "english": "Keep all medicine out of reach of young children.",
+            "translations": {
+              "Mandarin Chinese": "将所有药物放在幼儿拿不到的地方。",
+              "Hindi": "सभी दवाओं को छोटे बच्चों की पहुँच से दूर रखें।",
+              "Spanish": "Mantenga todos los medicamentos fuera del alcance de los niños pequeños.",
+              "Standard Arabic": "احفظ جميع الأدوية بعيداً عن متناول الأطفال الصغار.",
+              "French": "Gardez tous les médicaments hors de portée des jeunes enfants.",
+              "Bengali": "সব ওষুধ ছোট বাচ্চাদের নাগালের বাইরে রাখুন।",
+              "Portuguese": "Mantenha todos os remédios fora do alcance de crianças pequenas.",
+              "Russian": "Храните все лекарства в недоступном для детей месте.",
+              "Urdu": "تمام ادویات کو چھوٹے بچوں کی پہنچ سے دور رکھیں۔",
+              "Indonesian": "Jauhkan semua obat-obatan dari jangkauan anak-anak.",
+              "Standard German": "Bewahren Sie alle Medikamente außerhalb der Reichweite von kleinen Kindern auf.",
+              "Japanese": "すべての薬は、小さな子供の手の届かないところに保管してください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "appointment",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈpɔɪntmənt/",
+        "meaning": "An arrangement to meet someone at a particular time and place, especially for business or health.",
+        "synonyms": ["booking", "meeting", "reservation"],
+        "antonyms": ["cancellation"],
+        "examples": [
+          {
+            "english": "I have a doctor's appointment at three o'clock to check my ears.",
+            "translations": {
+              "Mandarin Chinese": "我下午三点约了医生检查耳朵。",
+              "Hindi": "कान की जांच के लिए मेरा आज दोपहर तीन बजे डॉक्टर के पास अपॉइंटमेंट है।",
+              "Spanish": "Tengo una cita médica a las tres en punto para revisarme los oídos.",
+              "Standard Arabic": "عندي موعد مع الطبيب في الساعة الثالثة لفحص أذنيّ.",
+              "French": "J'ai un rendez-vous chez le médecin à trois heures pour vérifier mes oreilles.",
+              "Bengali": "আমার কান পরীক্ষা করার জন্য আজ বেলা তিনটায় ডাক্তারের অ্যাপয়েন্টমেন্ট আছে।",
+              "Portuguese": "Tenho uma consulta médica às três horas para examinar meus ouvidos.",
+              "Russian": "У меня запись к врачу на три часа, чтобы проверить уши.",
+              "Urdu": "کان کی جانچ کے لیے میرا آج دوپہر تین بجے ڈاکٹر کے پاس اپائنٹمنٹ ہے۔",
+              "Indonesian": "Saya ada janji temu dengan dokter jam tiga tepat untuk memeriksa telinga saya.",
+              "Standard German": "Ich habe um drei Uhr einen Arzttermin, um meine Ohren untersuchen zu lassen.",
+              "Japanese": "耳の検査のために、午後3時に医者の予約（アポイントメント）があります。"
+            }
+          },
+          {
+            "english": "She called the dental clinic to cancel her morning appointment.",
+            "translations": {
+              "Mandarin Chinese": "她打电话给牙科诊所取消了她早上的预约。",
+              "Hindi": "उन्होंने सुबह का अपॉइंटमेंट रद्द करने के लिए डेंटल क्लिनिक में फोन किया।",
+              "Spanish": "Llamó a la clínica dental para cancelar su cita de la mañana.",
+              "Standard Arabic": "اتصلت بعيادة الأسنان لإلغاء موعدها الصباحي.",
+              "French": "Elle a appelé la clinique dentaire pour annuler son rendez-vous du matin.",
+              "Bengali": "তিনি সকালের অ্যাপয়েন্টমেন্ট বাতিল করতে ডেন্টাল ক্লিনিকে ফোন করেছিলেন।",
+              "Portuguese": "Ela ligou para a clínica odontológica para cancelar sua consulta da manhã.",
+              "Russian": "Она позвонила в стоматологическую клинику, чтобы отменить утренний прием.",
+              "Urdu": "انہوں نے صبح کا اپائنٹمنٹ منسوخ کرنے کے لیے ڈینٹل کلینک میں فون کیا۔",
+              "Indonesian": "Dia menelepon klinik gigi untuk membatalkan janji temu paginya.",
+              "Standard German": "Sie rief in der Zahnarztpraxis an, um ihren morgendlichen Termin abzusagen.",
+              "Japanese": "彼女は午前の予約を取り消すために、歯科医院に電話をしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "dentist",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdentɪst/",
+        "meaning": "A person whose job is to take care of people's teeth.",
+        "synonyms": ["dental surgeon", "orthodontist"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "You should visit the dentist twice a year to prevent tooth decay.",
+            "translations": {
+              "Mandarin Chinese": "你应该每年看两次牙医以防蛀牙。",
+              "Hindi": "दांतों की सड़न को रोकने के लिए आपको साल में दो बार डेंटिस्ट (दंत चिकित्सक) के पास जाना चाहिए।",
+              "Spanish": "Deberías visitar al dentista dos veces al año para prevenir la caries dental.",
+              "Standard Arabic": "يجب عليك زيارة طبيب الأسنان مرتين في السنة لمنع تسوس الأسنان.",
+              "French": "Vous devriez consulter le dentiste deux fois par an pour prévenir les caries dentaires.",
+              "Bengali": "দাঁতের ক্ষয় রোধ করতে আপনার বছরে দুবার ডেন্টাল চিকিৎসকের কাছে যাওয়া উচিত।",
+              "Portuguese": "Você deve visitar o dentista duas vezes por ano para prevenir a cárie dentária.",
+              "Russian": "Вам следует посещать стоматолога дважды в год, чтобы предотвратить кариес.",
+              "Urdu": "دانتوں کی سڑن کو روکنے کے لیے آپ کو سال میں دو بار ڈینٹسٹ کے پاس جانا چاہیے۔",
+              "Indonesian": "Anda harus mengunjungi dokter gigi dua kali setahun untuk mencegah kerusakan gigi.",
+              "Standard German": "Sie sollten zweimal im Jahr zum Zahnarzt gehen, um Karies vorzubeugen.",
+              "Japanese": "虫歯を防ぐために、年に2回は歯医者（デンティスト）に見てもらうべきです。"
+            }
+          },
+          {
+            "english": "The dentist extracted his painful tooth quickly and carefully.",
+            "translations": {
+              "Mandarin Chinese": "牙医快速且仔细地拔掉了他那颗痛牙。",
+              "Hindi": "दंत चिकित्सक ने उसके दर्दनाक दांत को जल्दी और सावधानी से निकाल दिया।",
+              "Spanish": "El dentista extrajo su diente dolorido de forma rápida y cuidadosa.",
+              "Standard Arabic": "خلع طبيب الأسنان سنه المؤلم بسرعة وعناية.",
+              "French": "Le dentiste a extrait sa dent douloureuse rapidement et avec soin.",
+              "Bengali": "ডেন্টিস্ট তার ব্যথার দাঁতটি দ্রুত এবং সাবধানে তুলে ফেলেছিলেন।",
+              "Portuguese": "O dentista extraiu o dente dolorido dele de forma rápida e cuidadosa.",
+              "Russian": "Стоматолог быстро и аккуратно удалил больной зуб.",
+              "Urdu": "ڈینٹسٹ نے اس کے درد کرتے ہوئے دانت کو جلدی اور احتیاط سے نکال دیا۔",
+              "Indonesian": "Dokter gigi mencabut giginya yang sakit dengan cepat dan hati-hati.",
+              "Standard German": "Der Zahnarzt zog seinen schmerzenden Zahn schnell und vorsichtig.",
+              "Japanese": "歯医者さんは彼の痛む歯を素早く、そして丁寧に抜いてくれました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "headache",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhedeɪk/",
+        "meaning": "A continuous pain in the head.",
+        "synonyms": ["migraine", "head pain"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She took an aspirin to relieve her severe headache.",
+            "translations": {
+              "Mandarin Chinese": "她服用了一片阿司匹林来缓解她剧烈的头痛。",
+              "Hindi": "उसने अपने गंभीर सिरदर्द से राहत पाने के लिए एक एस्पिरिन ली।",
+              "Spanish": "Tomó una aspirina para aliviar su dolor de cabeza severo.",
+              "Standard Arabic": "تناولت حبة أسبرين لتخفيف صداعها الشديد.",
+              "French": "Elle a pris une aspirine pour soulager son violent mal de tête.",
+              "Bengali": "তিনি তার তীব্র মাথাব্যথা উপশম করতে একটি অ্যাসপিরিন খেয়েছিলেন।",
+              "Portuguese": "Ela tomou uma aspirina para aliviar sua forte dor de cabeça.",
+              "Russian": "Она приняла аспирин, чтобы облегчить сильную головную боль.",
+              "Urdu": "اس نے اپنے شدید سر درد سے راحت پانے کے لیے ایک اسپرین لی۔",
+              "Indonesian": "Dia minum aspirin untuk meredakan sakit kepalanya yang parah.",
+              "Standard German": "Sie nahm eine Aspirin, um ihre starken Kopfschmerzen zu lindern.",
+              "Japanese": "彼女はひどい頭痛を和らげるためにアスピリンを飲みました。"
+            }
+          },
+          {
+            "english": "Loud music always gives me a terrible headache.",
+            "translations": {
+              "Mandarin Chinese": "大声的音乐总是让我头痛欲裂。",
+              "Hindi": "तेज़ संगीत से हमेशा मेरे सिर में तेज़ दर्द होने लगता है।",
+              "Spanish": "La música a alto volumen siempre me da un terrible dolor de cabeza.",
+              "Standard Arabic": "الموسيقى الصاخبة تسبب لي دائماً صداعاً فظيعاً.",
+              "French": "La musique forte me donne toujours un terrible mal de tête.",
+              "Bengali": "উচ্চস্বরে গান শুনলে আমার সবসময় প্রচণ্ড মাথাব্যথা হয়।",
+              "Portuguese": "Música alta sempre me dá uma dor de cabeça terrível.",
+              "Russian": "Громкая музыка всегда вызывает у меня жуткую головную боль.",
+              "Urdu": "اونچی موسیقی ہمیشہ میرے سر میں شدید درد کا سبب بنتی ہے۔",
+              "Indonesian": "Musik yang keras selalu membuat saya sakit kepala parah.",
+              "Standard German": "Laute Musik bereitet mir immer schreckliche Kopfschmerzen.",
+              "Japanese": "大音量の音楽を聴くと、私はいつもひどい頭痛がしてきます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "temperature",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtemprətʃər/",
+        "meaning": "The measurement of how hot or cold a body or place is; medically, a high body temperature showing sickness.",
+        "synonyms": ["fever", "warmth", "heat"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The nurse used a thermometer to check the sick boy's temperature.",
+            "translations": {
+              "Mandarin Chinese": "护士用体温计检查生病男孩的体温。",
+              "Hindi": "नर्स ने बीमार लड़के का तापमान (बुखार) जांचने के लिए थर्मामीटर का उपयोग किया।",
+              "Spanish": "La enfermera usó un termómetro para medir la temperatura del niño enfermo.",
+              "Standard Arabic": "استخدمت الممرضة مقياس حرارة لفحص درجة حرارة الصبي المريض.",
+              "French": "L'infirmière a utilisé un thermomètre pour vérifier la température du garçon malade.",
+              "Bengali": "নার্স অসুস্থ ছেলেটির তাপমাত্রা পরীক্ষা করার জন্য একটি থอร์মোমিটার ব্যবহার করেছিলেন।",
+              "Portuguese": "A enfermeira usou um termômetro para verificar a temperatura do menino doente.",
+              "Russian": "Медсестра измерила температуру больного мальчика с помощью термометра.",
+              "Urdu": "نرس نے بیمار لڑکے کا درجہ حرارت چیک کرنے کے لیے تھرمامیٹر کا استعمال کیا۔",
+              "Indonesian": "Perawat menggunakan termometer untuk memeriksa suhu tubuh anak laki-laki yang sakit.",
+              "Standard German": "Die Krankenschwester benutzte ein Thermometer, um die Temperatur des kranken Jungen zu messen.",
+              "Japanese": "看護師は、病気の男の子の体温を測るために体温計を使いました。"
+            }
+          },
+          {
+            "english": "If your temperature rises above thirty-nine degrees, go to the clinic.",
+            "translations": {
+              "Mandarin Chinese": "如果你的体温升到三十九度以上，请去诊所就医。",
+              "Hindi": "यदि आपका तापमान 39 डिग्री से ऊपर बढ़ जाता है, तो क्लिनिक जाएं।",
+              "Spanish": "Si tu temperatura sube de los treinta y nueve grados, ve a la clínica.",
+              "Standard Arabic": "إذا ارتفعت درجة حرارتك فوق تسع وثلاثين درجة، فاذهب إلى العيادة.",
+              "French": "Si votre température dépasse trente-neuf degrés, rendez-vous à la clinique.",
+              "Bengali": "যদি আপনার তাপমাত্রা ৩৯ ডিগ্রির উপরে উঠে যায়, তবে ক্লিনিকে যান।",
+              "Portuguese": "Se a sua temperatura subir acima de trinta e nove graus, vá à clínica.",
+              "Russian": "Если ваша температура поднимется выше тридцати девяти градусов, обратитесь в клинику.",
+              "Urdu": "اگر آپ کا درجہ حرارت 39 ڈگری سے اوپر چلا جائے تو کلینک جائیں۔",
+              "Indonesian": "Jika suhu tubuh Anda naik di atas tiga puluh sembilan derajat, pergilah ke klinik.",
+              "Standard German": "Wenn Ihre Temperatur über neununddreißig Grad steigt, gehen Sie in die Klinik.",
+              "Japanese": "もし体温が39度以上に上がったら、病院（クリニック）に行ってください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "cough",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "verb / noun",
+        "pronunciation": "/kɔːf/",
+        "meaning": "To force air out of your lungs with a sudden sharp sound, often when you are sick.",
+        "synonyms": ["hack", "bark"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please cover your mouth when you cough to avoid spreading germs.",
+            "translations": {
+              "Mandarin Chinese": "咳嗽时请捂住嘴，以免传播细菌。",
+              "Hindi": "कीटाणुओं को फैलने से रोकने के लिए कृपया खांसते समय अपना मुंह ढक लें।",
+              "Spanish": "Por favor, cúbrete la boca al toser para evitar la propagación de gérmenes.",
+              "Standard Arabic": "يرجى تغطية فمك عندما تسعل لتجنب انتشار الجراثيم.",
+              "French": "Veuillez vous couvrir la bouche lorsque vous toussez pour éviter de propager des microbes.",
+              "Bengali": "জীবাণু ছড়ানো রোধ করতে দয়া করে কাশির সময় মুখ ঢেকে রাখুন।",
+              "Portuguese": "Por favor, cubra a boca ao tossir para evitar a propagação de germes.",
+              "Russian": "Пожалуйста, прикрывайте рот при кашле, чтобы не распространять микробы.",
+              "Urdu": "جراثیم پھیلنے سے بچنے کے لیے براہ کرم کھانستے وقت اپنا منہ ڈھانپ لیں۔",
+              "Indonesian": "Tolong tutup mulut Anda saat batuk untuk menghindari penyebaran kuman.",
+              "Standard German": "Bitte bedecken Sie beim Husten Ihren Mund, um die Verbreitung von Keimen zu vermeiden.",
+              "Japanese": "細菌の拡散を防ぐため、咳をするときは口を覆ってください。"
+            }
+          },
+          {
+            "english": "He has a dry cough that gets worse during the night.",
+            "translations": {
+              "Mandarin Chinese": "他患有干咳，夜间会变得更加严重。",
+              "Hindi": "उसे सूखी खांसी है जो रात के दौरान और खराब हो जाती है।",
+              "Spanish": "Tiene una tos seca que empeora durante la noche.",
+              "Standard Arabic": "لديه سعال جاف يزداد سوءاً خلال الليل.",
+              "French": "Il a une toux sèche qui empire pendant la nuit.",
+              "Bengali": "তার একটি শুকনো কাশি রয়েছে যা রাতে আরও খারাপ হয়।",
+              "Portuguese": "Ele está com uma tosse seca que piora durante a noite.",
+              "Russian": "У него сухой кашель, который усиливается по ночам.",
+              "Urdu": "اسے سوکھی کھانسی ہے جو رات کے وقت زیادہ شدید ہو جاتی ہے۔",
+              "Indonesian": "Dia menderita batuk kering yang memburuk di malam hari.",
+              "Standard German": "Er hat einen trockenen Husten, der nachts schlimmer wird.",
+              "Japanese": "彼は夜になると悪化する乾いた咳（コフ）に悩まされています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "fever",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfiːvər/",
+        "meaning": "A medical condition in which the body temperature is higher than normal.",
+        "synonyms": ["high temperature", "febrile illness"],
+        "antonyms": ["chills"],
+        "examples": [
+          {
+            "english": "She stayed in bed all day because she had a high fever and body chills.",
+            "translations": {
+              "Mandarin Chinese": "她整天躺在床上，因为她发高烧而且身体发冷。",
+              "Hindi": "वह दिनभर बिस्तर पर रही क्योंकि उसे तेज़ बुख़ार (फीवर) और शरीर में कंपन था।",
+              "Spanish": "Se quedó en cama todo el día porque tenía fiebre alta y escalofríos.",
+              "Standard Arabic": "بقيت في السرير طوال اليوم لأنها كانت تعاني من حمى شديدة وقشعريرة في الجسم.",
+              "French": "Elle est restée au lit toute la journée parce qu'elle avait une forte fièvre et des frissons.",
+              "Bengali": "তিনি সারাদিন বিছানায় ছিলেন কারণ তার উচ্চ জ্বর এবং শরীরে কাঁপুনি ছিল।",
+              "Portuguese": "Ela ficou na cama o dia todo porque estava com febre alta e calafrios.",
+              "Russian": "Она пролежала в постели весь день, так как у нее была высокая температура и озноб.",
+              "Urdu": "وہ سارا دن بستر پر رہی کیونکہ اسے تیز بخار اور جسم میں کپکپی تھی۔",
+              "Indonesian": "Dia tetap di tempat tidur sepanjang hari karena demam tinggi dan menggigil.",
+              "Standard German": "Sie blieb den ganzen Tag im Bett, weil sie hohes Fieber und Schüttelfrost hatte.",
+              "Japanese": "高熱（フィーバー）と悪寒があったため、彼女は1日中ベッドで横になっていました。"
+            }
+          },
+          {
+            "english": "Take this medicine every six hours to lower your fever.",
+            "translations": {
+              "Mandarin Chinese": "每六个小时服用一次这种药以退烧。",
+              "Hindi": "अपना बुखार कम करने के लिए यह दवा हर छह घंटे में लें।",
+              "Spanish": "Tome este medicamento cada seis horas para bajar la fiebre.",
+              "Standard Arabic": "تناول هذا الدواء كل ست ساعات لخفض الحمى.",
+              "French": "Prenez ce médicament toutes les six heures pour faire baisser votre fièvre.",
+              "Bengali": "আপনার জ্বর কমাতে প্রতি ছয় ঘন্টা পর পর এই ওষুধটি নিন।",
+              "Portuguese": "Tome este remédio a cada seis horas para baixar a febre.",
+              "Russian": "Принимайте это лекарство каждые шесть часов, чтобы сбить температуру.",
+              "Urdu": "اپنا بخار کم کرنے کے لیے یہ دوا ہر چھ گھنٹے بعد لیں۔",
+              "Indonesian": "Minum obat ini setiap enam jam untuk menurunkan demam Anda.",
+              "Standard German": "Nehmen Sie dieses Medikament alle sechs Stunden ein, um Ihr Fieber zu senken.",
+              "Japanese": "熱を下げるために、この薬を6時間おきに飲んでください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "diet",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈdaɪət/",
+        "meaning": "The food and drink usually eaten by a person or group; or a limited variety of food eaten to lose weight.",
+        "synonyms": ["nutrition", "food regime", "eating plan"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "A balanced diet contains lots of fresh vegetables, fruits, and lean protein.",
+            "translations": {
+              "Mandarin Chinese": "均衡的饮食包含大量的蔬菜、水果和优质蛋白质。",
+              "Hindi": "एक संतुलित आहार (डाइट) में প্রচুর मात्रा में ताजी सब्जियां, फल और प्रोटीन शामिल होते हैं।",
+              "Spanish": "Una dieta equilibrada contiene muchas verduras frescas, frutas y proteínas magras.",
+              "Standard Arabic": "يحتوي النظام الغذائي المتوازن على الكثير من الخضار الطازجة والفواكه والبروتين الخالي من الدهون.",
+              "French": "Un régime alimentaire équilibré contient beaucoup de légumes frais, de fruits et de protéines maigres.",
+              "Bengali": "একটি সুষম খাদ্যে প্রচুর তাজা শাকসবজি, ফলমূল এবং চর্বিহীন প্রোটিন থাকে।",
+              "Portuguese": "Uma dieta equilibrada contém muitos vegetais frescos, frutas e proteínas magras.",
+              "Russian": "Сбалансированная диета содержит много свежих овощей, фруктов и нежирного белка.",
+              "Urdu": "ایک متوازن غذا میں بہت سی تازہ سبزیاں، پھل اور پروٹین شامل ہوتے ہیں۔",
+              "Indonesian": "Diet yang seimbang mengandung banyak sayuran segar, buah-buahan, dan protein tanpa lemak.",
+              "Standard German": "Eine ausgewogene Ernährung enthält viel frisches Gemüse, Obst und mageres Eiweiß.",
+              "Japanese": "バランスの取れた食事（ダイエット）には、新鮮な野菜、果物、そして脂肪の少ないタンパク質が多く含まれます。"
+            }
+          },
+          {
+            "english": "The athlete went on a strict low-sugar diet before the competition.",
+            "translations": {
+              "Mandarin Chinese": "该运动员在比赛前进行了严格的低糖饮食管理。",
+              "Hindi": "एथलीट ने प्रतियोगिता से पहले सख्त कम चीनी वाले आहार (डाइट) का पालन किया।",
+              "Spanish": "El atleta comenzó una dieta estricta baja en azúcar antes de la competencia.",
+              "Standard Arabic": "اتبع الرياضي نظاماً غذائياً صارماً منخفض السكر قبل المنافسة.",
+              "French": "L'athlète a suivi un régime strict pauvre en sucre avant la compétition.",
+              "Bengali": "ক্রীড়াবিদ প্রতিযোগিতার আগে একটি কঠোর কম চিনিযুক্ত ডায়েট শুরু করেছিলেন।",
+              "Portuguese": "O atleta iniciou uma dieta rigorosa com pouco açúcar antes da competição.",
+              "Russian": "Перед соревнованиями спортсмен сел на строгую диету с низким содержанием сахара.",
+              "Urdu": "ایتھلیٹ نے مقابلے سے پہلے سخت کم چینی والی غذا کا استعمال کیا۔",
+              "Indonesian": "Atlet tersebut menjalani diet rendah gula yang ketat sebelum kompetisi.",
+              "Standard German": "Der Athlet machte vor dem Wettkampf eine strenge zuckerarme Diät.",
+              "Japanese": "そのアスリートは、大会の前に厳格な低糖質の食事制限を行いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "sleep",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/sliːp/",
+        "meaning": "The natural state of rest in which your eyes are closed and your mind is unconscious.",
+        "synonyms": ["slumber", "rest", "nap"],
+        "antonyms": ["wakefulness", "consciousness"],
+        "examples": [
+          {
+            "english": "Getting enough sleep is crucial for your brain to function properly.",
+            "translations": {
+              "Mandarin Chinese": "充足的睡眠对于大脑正常运转至关重要。",
+              "Hindi": "मस्तिष्क के ठीक से काम करने के लिए पर्याप्त नींद लेना महत्वपूर्ण है।",
+              "Spanish": "Dormir lo suficiente es crucial para que tu cerebro funcione correctamente.",
+              "Standard Arabic": "الحصول على قسط كافٍ من النوم أمر بالغ الأهمية ليعمل عقلك بشكل صحيح.",
+              "French": "Dormir suffisamment est crucial pour que votre cerveau fonctionne correctement.",
+              "Bengali": "মস্তিষ্ক সঠিকভাবে কাজ করার জন্য পর্যাপ্ত ঘুম অত্যন্ত গুরুত্বপূর্ণ।",
+              "Portuguese": "Dormir o suficiente é crucial para o bom funcionamento do cérebro.",
+              "Russian": "Полноценный сон имеет решающее значение для правильной работы мозга.",
+              "Urdu": "دماغ کے ٹھیک سے کام کرنے کے لیے کافی نیند لینا بہت ضروری ہے۔",
+              "Indonesian": "Tidur yang cukup sangat penting agar otak Anda berfungsi dengan baik.",
+              "Standard German": "Ausreichend Schlaf ist entscheidend für das reibungslose Funktionieren Ihres Gehirns.",
+              "Japanese": "十分な睡眠をとることは、脳が正常に機能するために不可欠です。"
+            }
+          },
+          {
+            "english": "I usually sleep for seven hours every night during the workweek.",
+            "translations": {
+              "Mandarin Chinese": "在工作周里，我通常每晚睡七个小时。",
+              "Hindi": "मैं आमतौर पर कार्य सप्ताह के दौरान हर रात सात घंटे सोता हूँ।",
+              "Spanish": "Normalmente duermo siete horas cada noche durante la semana laboral.",
+              "Standard Arabic": "عادة ما أنام لمدة سبع ساعات كل ليلة خلال أسبوع العمل.",
+              "French": "Dormir sept heures par nuit en semaine est mon habitude.",
+              "Bengali": "আমি সাধারণত কর্মদিবসগুলোতে প্রতি রাতে সাত ঘণ্টা ঘুমাই।",
+              "Portuguese": "Eu costumo dormir sete horas todas as noites durante a semana de trabalho.",
+              "Russian": "Обычно я сплю по семь часов каждую ночь в течение рабочей недели.",
+              "Urdu": "میں عام طور پر کام کے دنوں میں ہر رات سات گھنٹے سوتا ہوں۔",
+              "Indonesian": "Saya biasanya tidur selama tujuh jam setiap malam selama hari kerja.",
+              "Standard German": "Unter der Woche schlafe ich normalerweise jede Nacht sieben Stunden.",
+              "Japanese": "平日は、普段は毎晩7時間眠っています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "mental health",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌmentl ˈhelθ/",
+        "meaning": "A person's condition with regard to their psychological and emotional well-being.",
+        "synonyms": ["psychological state", "emotional health"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Taking breaks from social media can improve your mental health significantly.",
+            "translations": {
+              "Mandarin Chinese": "暂时远离社交媒体可以显著改善你的心理健康。",
+              "Hindi": "सोशल मीडिया से ब्रेक लेने से आपके मानसिक स्वास्थ्य (मेंटल हेल्थ) में काफी सुधार हो सकता है।",
+              "Spanish": "Tomarse descansos de las redes sociales puede mejorar significativamente tu salud mental.",
+              "Standard Arabic": "أخذ فترات راحة من وسائل التواصل الاجتماعي يمكن أن يحسن صحتك النفسية بشكل كبير.",
+              "French": "Faire des pauses avec les réseaux sociaux peut améliorer considérablement votre santé mentale.",
+              "Bengali": "সোশ্যাল মিডিয়া থেকে বিরতি নেওয়া আপনার মানসিক স্বাস্থ্যকে উল্লেখযোগ্যভাবে উন্নত করতে পারে।",
+              "Portuguese": "Dar um tempo nas redes sociais pode melhorar significativamente sua saúde mental.",
+              "Russian": "Перерывы в использовании социальных сетей могут значительно улучшить ваше психическое здоровье.",
+              "Urdu": "سوشل میڈیا سے وقفہ لینا آپ کی ذہنی صحت کو نمایاں طور پر بہتر بنا سکتا ہے۔",
+              "Indonesian": "Beristirahat dari media sosial dapat meningkatkan kesehatan mental Anda secara signifikan.",
+              "Standard German": "Pausen von den sozialen Medien können Ihre mentale Gesundheit erheblich verbessern.",
+              "Japanese": "SNSから離れて休息をとることは、心の健康（メンタルヘルス）を大幅に改善することができます。"
+            }
+          },
+          {
+            "english": "The company offers free counseling services to support employee mental health.",
+            "translations": {
+              "Mandarin Chinese": "该公司提供免费的咨询服务，以支持员工的心理健康。",
+              "Hindi": "कंपनी कर्मचारियों के मानसिक स्वास्थ्य का समर्थन करने के लिए मुफ्त परामर्श सेवाएं प्रदान करती है।",
+              "Spanish": "La empresa ofrece servicios de asesoramiento gratuitos para apoyar la salud mental de los empleados.",
+              "Standard Arabic": "تقدم الشركة خدمات استشارية مجانية لدعم الصحة النفسية للموظفين.",
+              "French": "L'entreprise propose des services de conseil gratuits pour soutenir la santé mentale des employés.",
+              "Bengali": "প্রতিষ্ঠানটি কর্মচারীদের মানসিক স্বাস্থ্য সহায়তার জন্য বিনামূল্যে কাউন্সেলিং পরিষেবা প্রদান করে।",
+              "Portuguese": "A empresa oferece serviços de aconselhamento gratuitos para apoiar a saúde mental dos funcionários.",
+              "Russian": "Компания предлагает бесплатные консультационные услуги для поддержки психического здоровья сотрудников.",
+              "Urdu": "کمپنی ملازمین کی ذہنی صحت کی مدد کے لیے مفت کونسلنگ کی خدمات فراہم کرتی ہے۔",
+              "Indonesian": "Perusahaan menawarkan layanan konseling gratis untuk mendukung kesehatan mental karyawan.",
+              "Standard German": "Das Unternehmen bietet kostenlose Beratungsdienste an, um die mentale Gesundheit der Mitarbeiter zu unterstützen.",
+              "Japanese": "その会社は、従業員の心の健康を支えるために無料のカウンセリングサービスを提供しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "hospital",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhɑːspɪtl/",
+        "meaning": "An institution providing medical and surgical treatment and nursing care for sick or injured people.",
+        "synonyms": ["medical center", "clinic", "infirmary"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The ambulance rushed the injured driver to the nearest emergency hospital.",
+            "translations": {
+              "Mandarin Chinese": "救护车迅速将受伤的司机送往最近的急诊医院。",
+              "Hindi": "एम्बुलेंस घायल ड्राइवर को नजदीकी आपातकालीन अस्पताल ले गई।",
+              "Spanish": "La ambulancia llevó de urgencia al conductor lesionado al hospital de emergencias más cercano.",
+              "Standard Arabic": "نقلت سيارة الإسعاف السائق المصاب بسرعة إلى أقرب مستشفى طوارئ.",
+              "French": "L'ambulance a transporté d'urgence le conducteur blessé vers l'hôpital le plus proche.",
+              "Bengali": "অ্যাম্বুলেন্সটি আহত চালককে দ্রুত নিকটস্থ জরুরি হাসপাতালে নিয়ে যায়।",
+              "Portuguese": "A ambulância levou o motorista ferido às pressas para o hospital de emergência mais próximo.",
+              "Russian": "Машина скорой помощи доставила раненого водителя в ближайшую больницу.",
+              "Urdu": "ایمبولینس زخمی ڈرائیवर کو قریبی ہنگامی اسپتال لے گئی۔",
+              "Indonesian": "Ambulans melarikan pengemudi yang terluka ke rumah sakit darurat terdekat.",
+              "Standard German": "Der Krankenwagen brachte den verletzten Fahrer in das nächste Krankenhaus.",
+              "Japanese": "救急車は怪我をした運転手を、最も近い救急病院（ホスピタル）へ急送しました。"
+            }
+          },
+          {
+            "english": "She works as a pediatric nurse in a large public hospital.",
+            "translations": {
+              "Mandarin Chinese": "她在一所大型公立医院担任儿科护士。",
+              "Hindi": "वह एक बड़े सरकारी अस्पताल में बाल रोग नर्स (पीडियाट्रिक नर्स) के रूप में काम करती हैं।",
+              "Spanish": "Trabaja como enfermera pediátrica en un gran hospital público.",
+              "Standard Arabic": "تعمل كممرضة أطفال في مستشفى عام كبير.",
+              "French": "Elle travaille comme infirmière pédiatrique dans un grand hôpital public.",
+              "Bengali": "তিনি একটি বড় সরকারি হাসপাতালে শিশু রোগ বিশেষজ্ঞ নার্স হিসেবে কাজ করেন।",
+              "Portuguese": "Ela trabalha como enfermeira pediátrica em um grande hospital público.",
+              "Russian": "Она работает детской медсестрой в крупной государственной больнице.",
+              "Urdu": "وہ ایک بڑے سرکاری اسپتال میں بچوں کی نرس کے طور پر کام کرتی ہے۔",
+              "Indonesian": "Dia bekerja sebagai perawat anak di rumah sakit umum yang besar.",
+              "Standard German": "Sie arbeitet als Kinderkrankenschwester in einem großen öffentlichen Krankenhaus.",
+              "Japanese": "彼女は大きな公立病院で小児科の看護師として働いています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "symptom",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɪmptəm/",
+        "meaning": "A physical or mental feature which is regarded as an indication of a condition or disease.",
+        "synonyms": ["sign", "indication", "warning"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "A sudden loss of taste or smell can be a common symptom of a virus.",
+            "translations": {
+              "Mandarin Chinese": "味觉或嗅觉的突然丧失可能是病毒的常见症状。",
+              "Hindi": "स्वाद या गंध का अचानक चले जाना वायरस का एक सामान्य लक्षण (सिम्पटम) हो सकता है।",
+              "Spanish": "La pérdida repentina del gusto o el olfato puede ser un síntoma común de un virus.",
+              "Standard Arabic": "يمكن أن يكون الفقدان المفاجئ لحاسة التذوق أو الشم عرضاً شائعاً للفيروس.",
+              "French": "Une perte soudaine du goût ou de l'odorat peut être un symptôme courant d'un virus.",
+              "Bengali": "হঠাৎ স্বাদ বা গন্ধ চলে যাওয়া ভাইরাসের একটি সাধারণ লক্ষণ হতে পারে।",
+              "Portuguese": "A perda repentina do paladar ou do olfato pode ser um sintoma comum de um vírus.",
+              "Russian": "Внезапная потеря вкуса или обоняния может быть частым симптомом вируса.",
+              "Urdu": "سواد یا سونگھنے کی حس کا اچانک ختم ہو جانا وائرس کی ایک عام علامت (سمپٹم) ہو سکتا ہے۔",
+              "Indonesian": "Hilangnya indra perasa atau penciuman secara tiba-tiba bisa menjadi gejala umum dari virus.",
+              "Standard German": "Ein plötzlicher Verlust des Geschmacks- oder Geruchssinns kann ein häufiges Symptom für ein Virus sein.",
+              "Japanese": "突然、味や臭いがわからなくなるのは、ウイルスの一般的な症状（シンプトム）である可能性があります。"
+            }
+          },
+          {
+            "english": "Tell your doctor immediately if you experience any unusual symptoms.",
+            "translations": {
+              "Mandarin Chinese": "如果您遇到任何异常症状，请立即告诉您的医生。",
+              "Hindi": "यदि आप किसी भी असामान्य लक्षण का अनुभव करते हैं, तो तुरंत अपने डॉक्टर को बताएं।",
+              "Spanish": "Informe a su médico de inmediato si experimenta algún síntoma inusual.",
+              "Standard Arabic": "أخبر طبيبك على الفور إذا شعرت بأي أعراض غير عادية.",
+              "French": "Informez immédiatement votre médecin si vous ressentez des symptômes inhabituels.",
+              "Bengali": "আপনি যদি কোনো অস্বাভাবিক লক্ষণ অনুভব করেন তবে অবিলম্বে আপনার ডাক্তারকে জানান।",
+              "Portuguese": "Informe o seu médico imediatamente se sentir qualquer sintoma incomum.",
+              "Russian": "Немедленно сообщите врачу, если заметите у себя какие-либо необычные симптомы.",
+              "Urdu": "اگر آپ کو کوئی غیر معمولی علامت محسوس ہو تو فوراً اپنے ڈاکٹر کو بتائیں۔",
+              "Indonesian": "Segera beri tahu dokter Anda jika Anda mengalami gejala yang tidak biasa.",
+              "Standard German": "Informieren Sie sofort Ihren Arzt, wenn Sie ungewöhnliche Symptome bemerken.",
+              "Japanese": "何かいつもと違う症状が現れた場合は、すぐに医師に伝えてください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "pain",
+        "level": "A2",
+        "category": "Health & Lifestyle",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/peɪn/",
+        "meaning": "An unpleasant physical feeling caused by illness or injury.",
+        "synonyms": ["ache", "suffering", "soreness"],
+        "antonyms": ["pleasure", "comfort", "relief"],
+        "examples": [
+          {
+            "english": "He felt a sharp pain in his left ankle after twisting it during the match.",
+            "translations": {
+              "Mandarin Chinese": "在比赛中扭伤左脚踝后，他感到一阵剧痛。",
+              "Hindi": "मैच के दौरान बाएं टखने के मुड़ जाने के बाद उन्हें उसमें तेज़ दर्द महसूस हुआ।",
+              "Spanish": "Sintió un dolor agudo en el tobillo izquierdo después de torcérselo durante el partido.",
+              "Standard Arabic": "شعر بألم حاد في كاحله الأيسر بعد التوائه أثناء المباراة.",
+              "French": "Il a ressenti une vive douleur à la cheville gauche après se l'être tordue pendant le match.",
+              "Bengali": "ম্যাচের সময় বাঁ পায়ের গোড়ালি মচকে যাওয়ার পর তিনি সেখানে তীব্র ব্যথা অনুভব করেছিলেন।",
+              "Portuguese": "Ele sentiu uma dor aguda no tornozelo esquerdo após torcê-lo durante a partida.",
+              "Russian": "Он почувствовал острую боль в левой лодыжке после того, как вывихнул ее во время матча.",
+              "Urdu": "میچ کے دوران بائیں ٹخنے کے مڑ جانے کے بعد اسے وہاں شدید درد محسوس ہوا۔",
+              "Indonesian": "Dia merasakan sakit yang tajam di pergelangan kaki kirinya setelah terkilir saat pertandingan.",
+              "Standard German": "Er spürte einen stechenden Schmerz im linken Knöchel, nachdem er ihn sich während des Spiels verdreht hatte.",
+              "Japanese": "試合中に左足首をひねってしまい、彼はそこに鋭い痛み（ペイン）を感じました。"
+            }
+          },
+          {
+            "english": "The physical therapy helped reduce the chronic pain in her lower back.",
+            "translations": {
+              "Mandarin Chinese": "物理治疗帮助减轻了她腰部的慢性疼痛。",
+              "Hindi": "भौतिक चिकित्सा (फिजिकल थेरेपी) ने उनकी पीठ के निचले हिस्से के पुराने दर्द को कम करने में मदद की।",
+              "Spanish": "La fisioterapia ayudó a reducir el dolor crónico en la parte baja de su espalda.",
+              "Standard Arabic": "ساعد العلاج الطبيعي في تقليل الألم المزمن في أسفل ظهرها.",
+              "French": "La physiothérapie a permis de réduire la douleur chronique dans le bas de son dos.",
+              "Bengali": "ফিজিওথেরাপি তার পিঠের নিচের অংশের দীর্ঘস্থায়ী ব্যথা কমাতে সাহায্য করেছিল।",
+              "Portuguese": "A fisioterapia ajudou a reduzir a dor crônica na região lombar.",
+              "Russian": "Физиотерапия помогла уменьшить хроническую боль в пояснице.",
+              "Urdu": "فزیوتھراپی نے ان کی کمر کے نچلے حصے کے پرانے درد کو کم کرنے میں مدد کی۔",
+              "Indonesian": "Terapi fisik membantu mengurangi rasa sakit kronis di punggung bawahnya.",
+              "Standard German": "Die Physiotherapie half, die chronischen Schmerzen in ihrem unteren Rücken zu lindern.",
+              "Japanese": "理学療法のおかげで、彼女の腰の慢性的な痛みが和らぎました。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

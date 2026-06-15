@@ -1,0 +1,589 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Sports & Activities": [
+      {
+        "word": "football",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfʊtbɔːl/",
+        "meaning": "A game played by two teams who try to kick a ball into a goal.",
+        "synonyms": ["soccer"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He plays football with his friends every Saturday.",
+            "translations": {
+              "Mandarin Chinese": "他每周六都和朋友一起踢足球。",
+              "Hindi": "वह हर शनिवार अपने दोस्तों के साथ फुटबॉल खेलता है।",
+              "Spanish": "Él juega al fútbol con sus amigos todos los sábados.",
+              "Standard Arabic": "يلعب كرة القدم مع أصدقائه كل يوم سبت.",
+              "French": "Il joue au football avec ses amis chaque samedi.",
+              "Bengali": "সে প্রতি শনিবার তার বন্ধুদের সাথে ফুটবল খেলে।",
+              "Portuguese": "Ele joga futebol com seus amigos todos os sábados.",
+              "Russian": "Он играет в футбол с друзьями каждую субботу.",
+              "Urdu": "وہ ہر ہفتے اپنے دوستوں کے ساتھ فٹ بال کھیلتا ہے۔",
+              "Indonesian": "Dia bermain sepak bola dengan teman-temannya setiap hari Sabtu.",
+              "Standard German": "Er spielt jeden Samstag Fußball mit seinen Freunden.",
+              "Japanese": "彼は毎週土曜日に友達とサッカーをします。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "basketball",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbæskɪtbɔːl/",
+        "meaning": "A game played by two teams who try to throw a ball through a high hoop.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She is very tall, so she is good at basketball.",
+            "translations": {
+              "Mandarin Chinese": "她很高，所以她很擅长打篮球。",
+              "Hindi": "वह बहुत लंबी है, इसलिए वह बास्केटबॉल में अच्छी है।",
+              "Spanish": "Ella es muy alta, así que es buena en el baloncesto.",
+              "Standard Arabic": "إنها طويلة جداً، لذا فهي جيدة في كرة السلة.",
+              "French": "Elle est très grande, donc elle est douée pour le basket-ball.",
+              "Bengali": "সে খুব লম্বা, তাই সে বাস্কেটবলে ভালো।",
+              "Portuguese": "Ela é muito alta, então é boa no basquete.",
+              "Russian": "Она очень высокая, поэтому хорошо играет в баскетбол.",
+              "Urdu": "وہ بہت لمبی ہے، اس لیے وہ باسکٹ بال میں اچھی ہے۔",
+              "Indonesian": "Dia sangat tinggi, jadi dia pandai bermain bola basket.",
+              "Standard German": "Sie ist sehr groß, also ist sie gut im Basketball.",
+              "Japanese": "彼女はとても背が高いので、バスケットボールが得意です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "swimming",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈswɪmɪŋ/",
+        "meaning": "The activity of moving through water by moving your body.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Swimming is a great way to stay healthy and fit.",
+            "translations": {
+              "Mandarin Chinese": "游泳是保持健康和健美的好方法。",
+              "Hindi": "तैरना स्वस्थ और फिट रहने का एक शानदार तरीका है।",
+              "Spanish": "Nadar es una gran manera de mantenerse sano y en forma.",
+              "Standard Arabic": "السباحة طريقة رائعة للحفاظ على الصحة واللياقة البدنية.",
+              "French": "La natation est un excellent moyen de rester en bonne santé et en forme.",
+              "Bengali": "সাঁতার কাটা স্বাস্থ্যবান এবং ফিট থাকার একটি দারুণ উপায়।",
+              "Portuguese": "Nadar é uma ótima maneira de se manter saudável e em forma.",
+              "Russian": "Плавание — отличный способ оставаться здоровым и в форме.",
+              "Urdu": "تیراکی صحت مند اور فٹ رہنے کا ایک بہترین طریقہ ہے۔",
+              "Indonesian": "Berenang adalah cara yang bagus untuk tetap sehat dan bugar.",
+              "Standard German": "Schwimmen ist eine großartige Möglichkeit, gesund und fit zu bleiben.",
+              "Japanese": "水泳は健康で体を鍛えるのに最適な方法です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "running",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈrʌnɪŋ/",
+        "meaning": "The activity of moving on foot at a fast pace.",
+        "synonyms": ["jogging"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I enjoy running in the park every morning.",
+            "translations": {
+              "Mandarin Chinese": "我喜欢每天早上在公园里跑步。",
+              "Hindi": "मुझे हर सुबह पार्क में दौड़ना अच्छा लगता है।",
+              "Spanish": "Disfruto correr en el parque cada mañana.",
+              "Standard Arabic": "أستمتع بالركض في الحديقة كل صباح.",
+              "French": "J'aime courir dans le parc chaque matin.",
+              "Bengali": "আমি প্রতিদিন সকালে পার্কে দৌড়াতে পছন্দ করি।",
+              "Portuguese": "Eu gosto de correr no parque todas as manhãs.",
+              "Russian": "Мне нравится бегать в парке каждое утро.",
+              "Urdu": "میں ہر صبح پارک میں دوڑنے سے لطف اندوز ہوتا ہوں۔",
+              "Indonesian": "Saya suka berlari di taman setiap pagi.",
+              "Standard German": "Ich genieße es, jeden Morgen im Park zu laufen.",
+              "Japanese": "毎朝公園で走るのが好きです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "exercise",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈeksərsaɪz/",
+        "meaning": "Physical activity to stay healthy.",
+        "synonyms": ["workout", "training"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "You should do some exercise every day to feel better.",
+            "translations": {
+              "Mandarin Chinese": "你应该每天做些运动来感觉更好。",
+              "Hindi": "बेहतर महसूस करने के लिए आपको हर दिन थोड़ा व्यायाम करना चाहिए।",
+              "Spanish": "Deberías hacer algo de ejercicio todos los días para sentirte mejor.",
+              "Standard Arabic": "يجب عليك ممارسة بعض التمارين كل يوم لتشعر بتحسن.",
+              "French": "Tu devrais faire un peu d'exercice tous les jours pour te sentir mieux.",
+              "Bengali": "আরও ভালো বোধ করার জন্য আপনার প্রতিদিন কিছু ব্যায়াম করা উচিত।",
+              "Portuguese": "Você deve fazer algum exercício todos os dias para se sentir melhor.",
+              "Russian": "Вам следует каждый день делать упражнения, чтобы чувствовать себя лучше.",
+              "Urdu": "بہتر محسوس کرنے کے لیے آپ کو ہر روز کچھ ورزش کرنی چاہیے۔",
+              "Indonesian": "Anda harus berolahraga setiap hari agar merasa lebih baik.",
+              "Standard German": "Du solltest jeden Tag etwas Sport treiben, um dich besser zu fühlen.",
+              "Japanese": "気分を良くするために、毎日運動をするべきです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "competition",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɑːmpəˈtɪʃn/",
+        "meaning": "An event where people try to win a prize or beat others.",
+        "synonyms": ["contest", "match"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He won the national swimming competition.",
+            "translations": {
+              "Mandarin Chinese": "他赢得了全国游泳比赛。",
+              "Hindi": "उसने राष्ट्रीय तैराकी प्रतियोगिता जीती।",
+              "Spanish": "Él ganó la competencia nacional de natación.",
+              "Standard Arabic": "فاز في مسابقة السباحة الوطنية.",
+              "French": "Il a gagné la compétition nationale de natation.",
+              "Bengali": "সে জাতীয় সাঁতার প্রতিযোগিতায় জিতেছে।",
+              "Portuguese": "Ele venceu a competição nacional de natação.",
+              "Russian": "Он выиграл национальные соревнования по плаванию.",
+              "Urdu": "اس نے قومی تیراکی کا مقابلہ جیتا۔",
+              "Indonesian": "Dia memenangkan kompetisi renang nasional.",
+              "Standard German": "Er hat den nationalen Schwimmwettbewerb gewonnen.",
+              "Japanese": "彼は全国水泳大会で優勝しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "winner",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwɪnər/",
+        "meaning": "The person or team that comes first in a competition.",
+        "synonyms": ["champion"],
+        "antonyms": ["loser"],
+        "examples": [
+          {
+            "english": "She was the winner of the tennis tournament.",
+            "translations": {
+              "Mandarin Chinese": "她是网球锦标赛的获胜者。",
+              "Hindi": "वह टेनिस टूर्नामेंट की विजेता थी।",
+              "Spanish": "Ella fue la ganadora del torneo de tenis.",
+              "Standard Arabic": "كانت هي الفائزة في بطولة التنس.",
+              "French": "Elle a été la gagnante du tournoi de tennis.",
+              "Bengali": "তিনি টেনিস টুর্নামেন্টের বিজয়ী ছিলেন।",
+              "Portuguese": "Ela foi a vencedora do torneio de tênis.",
+              "Russian": "Она стала победительницей теннисного турнира.",
+              "Urdu": "وہ ٹینس ٹورنامنٹ کی فاتح تھی۔",
+              "Indonesian": "Dia adalah pemenang turnamen tenis tersebut.",
+              "Standard German": "Sie war die Gewinnerin des Tennisturniers.",
+              "Japanese": "彼女はテニストーナメントの勝者でした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "loser",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈluːzər/",
+        "meaning": "The person or team that does not win a competition.",
+        "synonyms": [],
+        "antonyms": ["winner"],
+        "examples": [
+          {
+            "english": "It is important to be a good loser in sports.",
+            "translations": {
+              "Mandarin Chinese": "在体育运动中学会从容面对失败很重要。",
+              "Hindi": "खेल में हार को स्वीकार करना सीखना महत्वपूर्ण है।",
+              "Spanish": "Es importante saber perder en los deportes.",
+              "Standard Arabic": "من المهم أن تكون خاسراً نبيلاً في الرياضة.",
+              "French": "Il est important de savoir perdre dans le sport.",
+              "Bengali": "খেলাধুলায় পরাজয় মেনে নিতে জানাটা গুরুত্বপূর্ণ।",
+              "Portuguese": "É importante saber perder nos esportes.",
+              "Russian": "Важно уметь достойно проигрывать в спорте.",
+              "Urdu": "کھیلوں میں ہار کو تسلیم کرنا سیکھنا ضروری ہے۔",
+              "Indonesian": "Penting untuk tetap sportif saat kalah dalam olahraga.",
+              "Standard German": "Es ist wichtig, im Sport verlieren zu können.",
+              "Japanese": "スポーツにおいて、負けたときに潔くあることは重要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "team",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/tiːm/",
+        "meaning": "A group of people who play a sport together.",
+        "synonyms": ["squad"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Our team won the game yesterday.",
+            "translations": {
+              "Mandarin Chinese": "我们的球队昨天赢了比赛。",
+              "Hindi": "हमारी टीम कल गेम जीत गई।",
+              "Spanish": "Nuestro equipo ganó el juego ayer.",
+              "Standard Arabic": "فاز فريقنا بالمباراة أمس.",
+              "French": "Notre équipe a gagné le match hier.",
+              "Bengali": "আমাদের দল গতকাল খেলা জিতেছে।",
+              "Portuguese": "Nosso time venceu o jogo ontem.",
+              "Russian": "Наша команда выиграла вчерашнюю игру.",
+              "Urdu": "ہماری ٹیم کل گیم جیت گئی۔",
+              "Indonesian": "Tim kami memenangkan pertandingan kemarin.",
+              "Standard German": "Unser Team hat das Spiel gestern gewonnen.",
+              "Japanese": "昨日の試合で私たちのチームが勝ちました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "practice",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈpræktɪs/",
+        "meaning": "To do something regularly to get better at it.",
+        "synonyms": ["train", "rehearse"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He needs to practice every day to become a better player.",
+            "translations": {
+              "Mandarin Chinese": "他需要每天练习才能成为一名更好的球员。",
+              "Hindi": "एक बेहतर खिलाड़ी बनने के लिए उसे हर दिन अभ्यास करने की आवश्यकता है।",
+              "Spanish": "Necesita practicar todos los días para convertirse en un mejor jugador.",
+              "Standard Arabic": "يحتاج إلى التدرب كل يوم ليصبح لاعباً أفضل.",
+              "French": "Il doit s'entraîner tous les jours pour devenir un meilleur joueur.",
+              "Bengali": "একজন ভালো খেলোয়াড় হওয়ার জন্য তাকে প্রতিদিন অনুশীলন করতে হবে।",
+              "Portuguese": "Ele precisa praticar todos os dias para se tornar um jogador melhor.",
+              "Russian": "Ему нужно практиковаться каждый день, чтобы стать лучшим игроком.",
+              "Urdu": "ایک بہتر کھلاڑی بننے کے لیے اسے ہر روز پریکٹس کرنے کی ضرورت ہے۔",
+              "Indonesian": "Dia perlu berlatih setiap hari untuk menjadi pemain yang lebih baik.",
+              "Standard German": "Er muss jeden Tag üben, um ein besserer Spieler zu werden.",
+              "Japanese": "より良い選手になるために、彼は毎日練習する必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "coach",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/koʊtʃ/",
+        "meaning": "A person who teaches and trains people in a sport.",
+        "synonyms": ["trainer", "instructor"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The coach gave the team some great advice.",
+            "translations": {
+              "Mandarin Chinese": "教练给了球队一些很好的建议。",
+              "Hindi": "कोच ने टीम को कुछ बेहतरीन सलाह दी।",
+              "Spanish": "El entrenador dio al equipo un gran consejo.",
+              "Standard Arabic": "قدم المدرب للفريق نصيحة رائعة.",
+              "French": "L'entraîneur a donné de très bons conseils à l'équipe.",
+              "Bengali": "কোচ দলকে দারুণ কিছু পরামর্শ দিয়েছেন।",
+              "Portuguese": "O treinador deu um ótimo conselho à equipe.",
+              "Russian": "Тренер дал команде отличный совет.",
+              "Urdu": "کوچ نے ٹیم کو کچھ زبردست مشورے دیے۔",
+              "Indonesian": "Pelatih memberikan saran yang sangat bagus kepada tim.",
+              "Standard German": "Der Trainer gab dem Team einen tollen Rat.",
+              "Japanese": "コーチはチームに素晴らしいアドバイスをしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "stadium",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsteɪdiəm/",
+        "meaning": "A large building with seats where people watch sports.",
+        "synonyms": ["arena", "grounds"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Thousands of people went to the stadium for the match.",
+            "translations": {
+              "Mandarin Chinese": "成千上万的人去体育场观看比赛。",
+              "Hindi": "हजारों लोग मैच देखने के लिए स्टेडियम गए।",
+              "Spanish": "Miles de personas fueron al estadio para el partido.",
+              "Standard Arabic": "ذهب آلاف الأشخاص إلى الملعب لحضور المباراة.",
+              "French": "Des milliers de personnes sont allées au stade pour le match.",
+              "Bengali": "হাজার হাজার মানুষ ম্যাচ দেখতে স্টেডিয়ামে গিয়েছিল।",
+              "Portuguese": "Milhares de pessoas foram ao estádio para o jogo.",
+              "Russian": "Тысячи людей пошли на стадион на матч.",
+              "Urdu": "ہزاروں لوگ میچ دیکھنے کے لیے اسٹیڈیم گئے۔",
+              "Indonesian": "Ribuan orang pergi ke stadion untuk menonton pertandingan.",
+              "Standard German": "Tausende Menschen gingen ins Stadion zum Spiel.",
+              "Japanese": "何千人もの人々が試合を見にスタジアムへ行きました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "gym",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/dʒɪm/",
+        "meaning": "A room or building with equipment for physical exercise.",
+        "synonyms": ["fitness center"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I go to the gym three times a week.",
+            "translations": {
+              "Mandarin Chinese": "我每周去三次健身房。",
+              "Hindi": "मैं हफ्ते में तीन बार जिम जाता हूँ।",
+              "Spanish": "Voy al gimnasio tres veces por semana.",
+              "Standard Arabic": "أذهب إلى صالة الألعاب الرياضية ثلاث مرات في الأسبوع.",
+              "French": "Je vais à la salle de sport trois fois par semaine.",
+              "Bengali": "আমি সপ্তাহে তিনবার জিমে যাই।",
+              "Portuguese": "Vou à academia três vezes por semana.",
+              "Russian": "Я хожу в спортзал три раза в неделю.",
+              "Urdu": "میں ہفتے میں تین بار جم جاتا ہوں۔",
+              "Indonesian": "Saya pergi ke gym tiga kali seminggu.",
+              "Standard German": "Ich gehe dreimal pro Woche ins Fitnessstudio.",
+              "Japanese": "週に3回ジムに通っています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "fitness",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfɪtnəs/",
+        "meaning": "The state of being healthy and strong.",
+        "synonyms": ["health", "condition"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Running is great for your overall fitness.",
+            "translations": {
+              "Mandarin Chinese": "跑步对你的整体健康状况非常有益。",
+              "Hindi": "दौड़ना आपकी समग्र फिटनेस के लिए बहुत अच्छा है।",
+              "Spanish": "Correr es genial para tu condición física general.",
+              "Standard Arabic": "الركض رائع للياقتك البدنية العامة.",
+              "French": "Courir est excellent pour votre forme physique générale.",
+              "Bengali": "দৌড়ানো আপনার সামগ্রিক ফিটনেসের জন্য খুব ভালো।",
+              "Portuguese": "Correr é ótimo para sua aptidão física geral.",
+              "Russian": "Бег отлично подходит для вашей общей физической формы.",
+              "Urdu": "دوڑنا آپ کی مجموعی فٹنس کے لیے بہت اچھا ہے۔",
+              "Indonesian": "Berlari sangat bagus untuk kebugaran Anda secara keseluruhan.",
+              "Standard German": "Laufen ist großartig für deine allgemeine Fitness.",
+              "Japanese": "走ることは、全体的な健康維持にとても良いです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "training",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtreɪnɪŋ/",
+        "meaning": "The process of learning the skills needed for a sport or job.",
+        "synonyms": ["coaching", "practice"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The team is in training for the upcoming championship.",
+            "translations": {
+              "Mandarin Chinese": "球队正在为即将到来的锦标赛进行训练。",
+              "Hindi": "टीम आगामी चैंपियनशिप के लिए प्रशिक्षण ले रही है।",
+              "Spanish": "El equipo está en entrenamiento para el próximo campeonato.",
+              "Standard Arabic": "الفريق في مرحلة تدريب للبطولة القادمة.",
+              "French": "L'équipe est à l'entraînement pour le prochain championnat.",
+              "Bengali": "দলটি আসন্ন চ্যাম্পিয়নশিপের জন্য প্রশিক্ষণ নিচ্ছে।",
+              "Portuguese": "A equipe está em treinamento para o próximo campeonato.",
+              "Russian": "Команда тренируется перед предстоящим чемпионатом.",
+              "Urdu": "ٹیم آنے والی چیمپئن شپ کے لیے ٹریننگ کر رہی ہے۔",
+              "Indonesian": "Tim sedang menjalani pelatihan untuk kejuaraan mendatang.",
+              "Standard German": "Das Team trainiert für die bevorstehende Meisterschaft.",
+              "Japanese": "チームは次のチャンピオンシップに向けてトレーニング中です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "game",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɡeɪm/",
+        "meaning": "A form of play or sport with rules.",
+        "synonyms": ["match", "contest"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The basketball game was very exciting.",
+            "translations": {
+              "Mandarin Chinese": "篮球比赛非常精彩。",
+              "Hindi": "बास्केटबॉल गेम बहुत रोमांचक था।",
+              "Spanish": "El juego de baloncesto fue muy emocionante.",
+              "Standard Arabic": "كانت لعبة كرة السلة مثيرة للغاية.",
+              "French": "Le match de basket-ball était très excitant.",
+              "Bengali": "বাস্কেটবল খেলাটি খুব উত্তেজনাপূর্ণ ছিল।",
+              "Portuguese": "O jogo de basquete foi muito emocionante.",
+              "Russian": "Баскетбольная игра была очень захватывающей.",
+              "Urdu": "باسکٹ بال کا کھیل بہت دلچسپ تھا۔",
+              "Indonesian": "Pertandingan bola basket itu sangat seru.",
+              "Standard German": "Das Basketballspiel war sehr aufregend.",
+              "Japanese": "バスケットボールの試合はとてもエキサイティングでした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "player",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpleɪər/",
+        "meaning": "A person who plays a sport or game.",
+        "synonyms": ["athlete", "competitor"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He is the best player on our team.",
+            "translations": {
+              "Mandarin Chinese": "他是我们队里最好的球员。",
+              "Hindi": "वह हमारी टीम का सबसे अच्छा खिलाड़ी है।",
+              "Spanish": "Él es el mejor jugador de nuestro equipo.",
+              "Standard Arabic": "إنه أفضل لاعب في فريقنا.",
+              "French": "C'est le meilleur joueur de notre équipe.",
+              "Bengali": "তিনি আমাদের দলের সেরা খেলোয়াড়।",
+              "Portuguese": "Ele é o melhor jogador do nosso time.",
+              "Russian": "Он лучший игрок в нашей команде.",
+              "Urdu": "وہ ہماری ٹیم کا بہترین کھلاڑی ہے۔",
+              "Indonesian": "Dia adalah pemain terbaik di tim kami.",
+              "Standard German": "Er ist der beste Spieler in unserem Team.",
+              "Japanese": "彼はチームで最高の選手です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "score",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/skɔːr/",
+        "meaning": "The number of points that someone gets in a game or competition.",
+        "synonyms": ["result", "points"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "What was the final score of the match?",
+            "translations": {
+              "Mandarin Chinese": "比赛的最终比分是多少？",
+              "Hindi": "मैच का अंतिम स्कोर क्या था?",
+              "Spanish": "¿Cuál fue el marcador final del partido?",
+              "Standard Arabic": "ما هي النتيجة النهائية للمباراة؟",
+              "French": "Quel était le score final du match ?",
+              "Bengali": "ম্যাচের চূড়ান্ত স্কোর কত ছিল?",
+              "Portuguese": "Qual foi o placar final da partida?",
+              "Russian": "Каков был окончательный счет матча?",
+              "Urdu": "میچ کا حتمی اسکور کیا تھا؟",
+              "Indonesian": "Berapa skor akhir pertandingan tersebut?",
+              "Standard German": "Was war der Endstand des Spiels?",
+              "Japanese": "試合の最終スコアは何でしたか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "goal",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɡoʊl/",
+        "meaning": "A point scored in football or similar games.",
+        "synonyms": ["point"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She scored a goal in the last minute of the game.",
+            "translations": {
+              "Mandarin Chinese": "她在比赛最后一分钟进了一球。",
+              "Hindi": "उसने खेल के अंतिम मिनट में एक गोल किया।",
+              "Spanish": "Ella anotó un gol en el último minuto del juego.",
+              "Standard Arabic": "سجلت هدفاً في الدقيقة الأخيرة من المباراة.",
+              "French": "Elle a marqué un but dans la dernière minute du match.",
+              "Bengali": "সে খেলার শেষ মিনিটে একটি গোল করেছে।",
+              "Portuguese": "Ela marcou um gol no último minuto do jogo.",
+              "Russian": "Она забила гол на последней минуте игры.",
+              "Urdu": "اس نے کھیل کے آخری منٹ میں ایک گول کیا۔",
+              "Indonesian": "Dia mencetak gol di menit terakhir pertandingan.",
+              "Standard German": "Sie schoss in der letzten Minute des Spiels ein Tor.",
+              "Japanese": "彼女は試合の最後の1分でゴールを決めました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "match",
+        "level": "A2",
+        "category": "Sports & Activities",
+        "part_of_speech": "noun",
+        "pronunciation": "/mætʃ/",
+        "meaning": "A game or competition.",
+        "synonyms": ["game", "contest"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Are you going to watch the football match tonight?",
+            "translations": {
+              "Mandarin Chinese": "你今晚要看足球比赛吗？",
+              "Hindi": "क्या तुम आज रात फुटबॉल मैच देखने जा रहे हो?",
+              "Spanish": "¿Vas a ver el partido de fútbol esta noche?",
+              "Standard Arabic": "هل ستشاهد مباراة كرة القدم الليلة؟",
+              "French": "Vas-tu regarder le match de football ce soir ?",
+              "Bengali": "তুমি কি আজ রাতে ফুটবল ম্যাচ দেখতে যাচ্ছ?",
+              "Portuguese": "Você vai assistir à partida de futebol hoje à noite?",
+              "Russian": "Ты будешь смотреть футбольный матч сегодня вечером?",
+              "Urdu": "کیا آپ آج رات فٹ بال میچ دیکھنے جا رہے ہیں؟",
+              "Indonesian": "Apakah Anda akan menonton pertandingan sepak bola malam ini?",
+              "Standard German": "Wirst du heute Abend das Fußballspiel schauen?",
+              "Japanese": "今夜、サッカーの試合を見ますか？"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

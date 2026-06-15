@@ -1,0 +1,589 @@
+{
+  "level": "B1",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Movies/Music": [
+      {
+        "word": "soundtrack",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsaʊndtræk/",
+        "meaning": "The recorded music accompanying and synchronized to the images of a motion picture, television program, or video game.",
+        "synonyms": ["score", "film music", "recording"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The soundtrack for Interstellar was composed by Hans Zimmer and perfectly matches the vastness of space.",
+            "translations": {
+              "Mandarin Chinese": "《星际穿越》的电影原声带由汉斯·季默谱曲，完美地契合了太空的辽阔感。",
+              "Hindi": "फिल्म 'इंटरस्टेलर' का साउंडट्रैक हंस ज़िमर द्वारा तैयार किया गया था और यह अंतरिक्ष की विशालता से पूरी तरह मेल खाता है।",
+              "Spanish": "La banda sonora de Interstellar fue compuesta por Hans Zimmer y encaja perfectamente con la inmensidad del espacio.",
+              "Standard Arabic": "قام هانس زيمر بتأليف الموسيقى التصويرية لفيلم Interstellar وهي تتطابق تماماً مع اتساع الفضاء.",
+              "French": "La bande originale d'Interstellar a été composée par Hans Zimmer et correspond parfaitement à l'immensité de l'espace.",
+              "Bengali": "ইন্টারস্টেলার চলচ্চিত্রের সাউন্ডট্র্যাকটি হ্যান্স জিমার দ্বারা সুর করা হয়েছিল এবং এটি মহাকাশের বিশালতার সাথে নিখুঁতভাবে মেলে।",
+              "Portuguese": "A trilha sonora de Interstellar foi composta por Hans Zimmer e combina perfeitamente com a imensidão do espaço.",
+              "Russian": "Саундтрек к фильму «Интерстеллар» был написан Хансом Циммером и идеально передает просторы космоса.",
+              "Urdu": "فلم 'انٹرسٹيلر' کا ساؤنڈ ٹریک ہنس زیمر نے ترتیب دیا تھا اور یہ خلائے بسیط کی وسعت سے بالکل مطابقت رکھتا ہے۔",
+              "Indonesian": "Soundtrack untuk Interstellar digubah oleh Hans Zimmer dan sangat cocok dengan luasnya ruang angkasa.",
+              "Standard German": "Der Soundtrack für Interstellar wurde von Hans Zimmer komponiert und passt perfekt zur Unendlichkeit des Weltraums.",
+              "Japanese": "『インターステラー』のサウンドトラックはハンス・ジマーが作曲し、宇宙の広大さに完全に見合っています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "audience",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɔːdiəns/",
+        "meaning": "The assembled spectators or listeners at a public event such as a play, movie, concert, or meeting.",
+        "synonyms": ["spectators", "listeners", "viewers"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The IMAX audience sat in complete silence during the intense psychological thriller scenes.",
+            "translations": {
+              "Mandarin Chinese": "在紧张的心里惊悚片场景中，IMAX影院的观众全程静坐。",
+              "Hindi": "गहन मनोवैज्ञानिक थ्रिलर दृश्यों के दौरान आईमैक्स (IMAX) दर्शक बिल्कुल शांति से बैठे रहे।",
+              "Spanish": "El público de la sala IMAX se sentó en completo silencio durante las intensas escenas del thriller psicológico.",
+              "Standard Arabic": "جلس جمهور أيمكس في صمت تام خلال مشاهد الإثارة النفسية المكثفة.",
+              "French": "Le public de la salle IMAX est resté assis dans un silence complet pendant las scènes intenses du thriller psychologique.",
+              "Bengali": "তীব্র মনস্তাত্ত্বিক থ্রিলার দৃশ্যগুলির সময় আইম্যাক্স দর্শকরা সম্পূর্ণ নীরবতায় বসেছিলেন।",
+              "Portuguese": "O público do IMAX sentou-se em completo silêncio durante as cenas intensas de suspense psicológico.",
+              "Russian": "Зрители в зале IMAX сидели в полной тишине во время напряженных сцен психологического триллера.",
+              "Urdu": "شدید نفسیاتی تھرلر مناظر کے دوران آئیمیکس (IMAX) کے حاضرین بالکل خاموشی سے بیٹھے رہے۔",
+              "Indonesian": "Penonton IMAX duduk dalam keheningan total selama adegan thriller psikologis yang menegangkan.",
+              "Standard German": "Das IMAX-Publikum saß während der intensiven Szenen des Psychothrillers in völliger Stille da.",
+              "Japanese": "緊迫したサイコスリラーのシーン中、IMAXの観客は完全に静まり返って座っていました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "performance",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/pəˈfɔːməns/",
+        "meaning": "An act of staging or presenting a play, concert, or other form of entertainment.",
+        "synonyms": ["show", "act", "presentation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The lead actor delivered a powerful performance that kept the audience on the edge of their seats.",
+            "translations": {
+              "Mandarin Chinese": "男主角带来了震撼的表演，让观众紧张得坐立不安。",
+              "Hindi": "मुख्य अभिनेता ने एक दमदार अभिनय (परफॉर्मेंस) किया जिसने दर्शकों को अंत तक बांधे रखा।",
+              "Spanish": "El actor principal ofreció una actuación poderosa que mantuvo al público en vilo.",
+              "Standard Arabic": "قدم الممثل الرئيسي أداءً قوياً جعل الجمهور في حالة ترقب شديد.",
+              "French": "L'acteur principal a livré une performance puissante qui a tenu le public en haleine.",
+              "Bengali": "প্রধান অভিনেতা একটি শক্তিশালী অভিনয় পরিবেশন করেছিলেন যা দর্শকদের আসনের প্রান্তে ধরে রেখেছিল।",
+              "Portuguese": "O ator principal teve uma atuação poderosa que manteve o público ansioso.",
+              "Russian": "Главный актер показал мощную игру, которая держала зрителей в напряжении.",
+              "Urdu": "مرکزی اداکار نے ایک جاندار اداکاری کا مظاہرہ کیا جس نے حاضرین کو سحر زدہ رکھا۔",
+              "Indonesian": "Aktor utama memberikan pertunjukan yang luar biasa yang membuat penonton tetap tegang.",
+              "Standard German": "Der Hauptdarsteller zeigte eine kraftvolle Leistung, die das Publikum in Atem hielt.",
+              "Japanese": "主演俳優は観客をハラハラドキドキさせる、迫力のある演技（パフォーマンス）を披露しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "director",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/dəˈrektə(r)/",
+        "meaning": "A person who supervises the actors and staff of a movie, play, or television program and directs the making of it.",
+        "synonyms": ["filmmaker", "producer", "supervisor"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Christopher Nolan is a brilliant director known for utilizing deep visual timelines in his films.",
+            "translations": {
+              "Mandarin Chinese": "克里斯托弗·诺兰是一位出色的导演，以在电影中运用复杂的视觉时间线而闻名。",
+              "Hindi": "क्रिस्टोफर नोलन एक शानदार निर्देशक (डायरेक्टर) हैं जो अपनी फिल्मों में गहरी दृश्य समय-सीमा (टाइमलाइन्स) का उपयोग करने के लिए जाने जाते हैं।",
+              "Spanish": "Christopher Nolan es un director brillante conocido por utilizar líneas de tiempo visuales profundas en sus películas.",
+              "Standard Arabic": "كريستوفر نولان مخرج عبقري معروف باستخدام خطوط زمنية بصرية عميقة في أفلامه.",
+              "French": "Christopher Nolan est un réalisateur brillant connu pour utiliser des chronologies visuelles complexes dans ses films.",
+              "Bengali": "ক্রিস্টোফার নোলান একজন প্রতিভাবান পরিচালক যিনি তার চলচ্চিত্রে গভীর ভিজ্যুয়াল টাইমলাইন ব্যবহার করার জন্য পরিচিত।",
+              "Portuguese": "Christopher Nolan é um diretor brilhante conhecido por utilizar linhas do tempo visuais profundas em seus filmes.",
+              "Russian": "Кристофер Нолан — блестящий режиссер, известный использованием сложных визуальных таймлайнов в своих фильмах.",
+              "Urdu": "کرسٹوفر نولان ایک شاندار ڈائریکٹر ہیں جو اپنی فلموں میں گہری بصری ٹائم لائنز استعمال کرنے کے لیے جانے جاتے ہیں۔",
+              "Indonesian": "Christopher Nolan adalah sutradara brilian yang dikenal sering menggunakan lini masa visual yang mendalam dalam film-filmnya.",
+              "Standard German": "Christopher Nolan ist ein brillanter Regisseur, der dafür bekannt ist, tiefe visuelle Zeitachsen in seinen Filmen zu nutzen.",
+              "Japanese": "クリストファー・ノーランは、映画の中で深い視覚的タイムラインを利用することで知られる素晴らしい映画監督です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "actor",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈæktə(r)/",
+        "meaning": "A person whose profession is acting on the stage, in movies, or on television.",
+        "synonyms": ["performer", "player", "thespian"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The main actor spent months preparing for his challenging role in Shutter Island.",
+            "translations": {
+              "Mandarin Chinese": "男主角花了几个月的时间为《禁闭岛》中具有挑战性的角色做准备。",
+              "Hindi": "मुख्य अभिनेता ने 'शटर आइलैंड' में अपनी चुनौतीपूर्ण भूमिका की तैयारी में महीनों बिताए।",
+              "Spanish": "El actor principal pasó meses preparándose para su desafiante papel en Shutter Island.",
+              "Standard Arabic": "أمضى الممثل الرئيسي أشهراً في الاستعداد لدوره الصعب في فيلم Shutter Island.",
+              "French": "L'acteur principal a passé des mois à se préparer pour son rôle exigeant dans Shutter Island.",
+              "Bengali": "প্রধান অভিনেতা শাটার আইল্যান্ডে তার চ্যালেঞ্জিং ভূমিকার জন্য প্রস্তুত হতে কয়েক মাস সময় ব্যয় করেছিলেন।",
+              "Portuguese": "O ator principal passou meses se preparando para seu papel desafiador em Shutter Island.",
+              "Russian": "Главный актер провел месяцы, готовясь к своей сложной роли в фильме «Остров проклятых».",
+              "Urdu": "مرکزی اداکار نے فلم 'شٹر آئی لینڈ' میں اپنے چیلنجنگ کردار کی تیاری میں مہینوں لگائے۔",
+              "Indonesian": "Aktor utama menghabiskan waktu berbulan-bulan untuk mempersiapkan perannya yang menantang dalam Shutter Island.",
+              "Standard German": "Der Hauptdarsteller verbrachte Monate mit der Vorbereitung auf seine anspruchsvolle Rolle in Shutter Island.",
+              "Japanese": "主演俳優は『シャッター アイランド』での挑戦的な役作りのために、何ヶ月も準備に費やしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "actress",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈæktrəs/",
+        "meaning": "A woman whose profession is acting on the stage, in movies, or on television.",
+        "synonyms": ["performer", "player"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The talented actress won an award for her portrayal of a complex astronaut character.",
+            "translations": {
+              "Mandarin Chinese": "这位才华横溢的女演员因成功塑造了一个复杂的宇航员角色而获奖。",
+              "Hindi": "प्रतिभावान अभिनेत्री ने एक जटिल अंतरिक्ष यात्री के पात्र के चित्रण के लिए एक पुरस्कार जीता।",
+              "Spanish": "La talentosa actriz ganó un premio por su interpretación de un complejo personaje de astronauta.",
+              "Standard Arabic": "فازت الممثلة الموهوبة بجائزة عن تجسيدها لشخصية رائدة فضاء معقدة.",
+              "French": "La talentueuse actrice a remporté un prix pour son incarnation d'un personnage complexe d'astronaute.",
+              "Bengali": "প্রতিভাবান অভিনেত্রী একটি জটিল মহাকাশচারী চরিত্রের রূপায়নের জন্য একটি পুরস্কার জিতেছেন।",
+              "Portuguese": "A talentosa atriz ganhou um prêmio por sua interpretação de uma personagem complexa de astronauta.",
+              "Russian": "Талантливая актриса получила награду за роль сложного персонажа-космонавта.",
+              "Urdu": "प्रतिभावान अभिनेत्री ने एक जटिल अंतरिक्ष यात्री के पात्र के चित्रण के लिए एक पुरस्कार जीता।",
+              "Indonesian": "Aktris berbakat tersebut memenangkan penghargaan atas perannya sebagai karakter astronot yang kompleks.",
+              "Standard German": "Die talentierte Schauspielerin gewann einen Preis für ihre Darstellung einer komplexen Astronauten-Figur.",
+              "Japanese": "その実力派女優は、複雑な宇宙飛行士のキャラクターを演じて賞を獲得しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "scene",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/siːn/",
+        "meaning": "A sequence of continuous action in a movie, play, or television show.",
+        "synonyms": ["sequence", "segment", "clip"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The final scene of the psychological thriller left the audience completely shocked.",
+            "translations": {
+              "Mandarin Chinese": "这部心理惊悚片的最后一幕让观众彻底震惊了。",
+              "Hindi": "मनोवैज्ञानिक थ्रिलर का अंतिम दृश्य (सीन) दर्शकों को पूरी तरह से स्तब्ध कर गया।",
+              "Spanish": "La escena final del thriller psicológico dejó al público completamente conmocionado.",
+              "Standard Arabic": "ترك المشهد الأخير من فيلم الإثارة النفسية الجمهور في حالة صدمة تامة.",
+              "French": "La scène finale du thriller psychologique a laissé le public complètement sous le choc.",
+              "Bengali": "মনস্তাত্ত্বিক থ্রিলারের শেষ দৃশ্যটি দর্শকদের সম্পূর্ণ স্তব্ধ করে দিয়েছিল।",
+              "Portuguese": "A cena final do suspense psicológico deixou o público completamente chocado.",
+              "Russian": "Финальная сцена психологического триллера повергла зрителей в полный шок.",
+              "Urdu": "نفسیاتی تھرلر کے آخری منظر نے حاضرین کو بالکل ہکا بکا کر دیا۔",
+              "Indonesian": "Adegan terakhir dari thriller psikologis itu membuat penonton benar-benar terkejut.",
+              "Standard German": "Die Schlussszene des Psychothrillers ließ das Publikum völlig schockiert zurück.",
+              "Japanese": "そのサイコスリラーのラストシーンは、観客を完全に唖然とさせました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "episode",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈepɪsəʊd/",
+        "meaning": "An installment of a separate program of a formatted series of television or radio broadcasts.",
+        "synonyms": ["installment", "chapter", "part"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The latest episode of the sci-fi series had incredible CGI and layout design.",
+            "translations": {
+              "Mandarin Chinese": "该科幻剧集的最新一集拥有令人难以置信的特效（CGI）和布局设计。",
+              "Hindi": "विज्ञान-कथा (sci-fi) श्रृंखला के नवीनतम एपिसोड में अविश्वसनीय सीजीआई और लेआउट डिज़ाइन था।",
+              "Spanish": "El último episodio de la serie de ciencia ficción tuvo un CGI y un diseño de maquetación increíbles.",
+              "Standard Arabic": "تضمنت الحلقة الأخيرة من مسلسل الخيال العلمي مؤثرات بصرية (CGI) وتصميم تخطيط مذهل.",
+              "French": "Le dernier épisode de la série de science-fiction offrait des effets spéciaux (CGI) et une mise en scène incroyables.",
+              "Bengali": "সাই-ফাই সিরিজের সর্বশেষ পর্বটিতে অবিশ্বাস্য সিজিআই এবং লেআউট ডিজাইন ছিল।",
+              "Portuguese": "O último episódio da série de ficção científica teve efeitos visuais (CGI) e design de layout incríveis.",
+              "Russian": "Последний эпизод научно-фантастического сериала отличался невероятной графикой (CGI) и дизайном макетов.",
+              "Urdu": "سائنس فکشن سیریز کی تازہ ترین قسط میں حیرت انگیز CGI اور لے آؤٹ ڈیزائن تھا۔",
+              "Indonesian": "Episode terbaru dari serial fiksi ilmiah ini memiliki CGI dan desain tata letak yang luar biasa.",
+              "Standard German": "Die neueste Episode der Sci-Fi-Serie hatte unglaubliche CGI-Effekte und ein tolles Layout-Design.",
+              "Japanese": "そのSFシリーズの最新エピソードは、素晴らしいCGI（特殊効果）とレイアウトデザインを誇っていました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "series",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɪəriːz/",
+        "meaning": "A set of related television or radio programs, books, etc., dealing with the same subject or characters.",
+        "synonyms": ["show", "serial", "franchise"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am currently watching a tense dark-themed thriller series on a popular streaming platform.",
+            "translations": {
+              "Mandarin Chinese": "我目前正在一个热门的主流流媒体平台上观看一部紧张的暗黑主题惊悚剧集。",
+              "Hindi": "मैं वर्तमान में एक लोकप्रिय स्ट्रीमिंग प्लेटफ़ॉर्म पर एक तनावपूर्ण डार्क-थीम वाली थ्रिलर श्रृंखला (सीरीज़) देख रहा हूँ।",
+              "Spanish": "Actualmente estoy viendo una tensa serie de suspenso de temática oscura en una plataforma de streaming popular.",
+              "Standard Arabic": "أشاهد حالياً مسلسل إثارة غامضاً ومكثفاً على منصة بث معروفة.",
+              "French": "Je regarde actuellement une série de thrillers sombres et tendus sur une plateforme de streaming populaire.",
+              "Bengali": "আমি বর্তমানে একটি জনপ্রিয় স্ট্রিমিং প্ল্যাটফর্মে একটি উত্তেজনাপূর্ণ ডার্ক-থিমযুক্ত থ্রিলার সিরিজ দেখছি।",
+              "Portuguese": "Atualmente estou assistindo a uma série de suspense tensa com tema sombrio em uma plataforma de streaming popular.",
+              "Russian": "В настоящее время я смотрю напряженный триллер в темных тонах на популярной стриминговой платформе.",
+              "Urdu": "میں اس وقت ایک مقبول اسٹریمنگ پلیٹ فارم پر ایک سنسنی خیز ڈارک تھیم والی تھرلر سیریز دیکھ رہا ہوں۔",
+              "Indonesian": "Saat ini saya sedang menonton serial thriller menegangkan bertema gelap di platform streaming populer.",
+              "Standard German": "Ich schaue mir derzeit eine spannende Thriller-Serie mit düsterem Thema auf einer beliebten Streaming-Plattform an.",
+              "Japanese": "私は現在、人気のストリーミングプラットフォームで、緊迫したダークテーマのスリラードラマ（シリーズ）を視聴しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "genre",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈʒɒ̃rə/",
+        "meaning": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter.",
+        "synonyms": ["category", "type", "classification"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Science fiction is my favorite cinema genre because it explores deep ideas about human potential.",
+            "translations": {
+              "Mandarin Chinese": "科幻小说是我最喜欢的电影类型，因为它探讨了关于人类潜能的深刻想法。",
+              "Hindi": "विज्ञान-कथा (साइंस फिक्शन) मेरा पसंदीदा सिनेमा जॉनर (विधा) है क्योंकि यह मानवीय क्षमता के बारे में गहरे विचारों की खोज करता है।",
+              "Spanish": "La ciencia ficción es mi género cinematográfico favorito porque explora ideas profundas sobre el potencial humano.",
+              "Standard Arabic": "الخيال العلمي هو نوع السينما المفضل لدي لأنه يستكشف أفكاراً عميقة حول الإمكانات البشرية.",
+              "French": "La science-fiction est mon genre de cinéma préféré car elle explore des idées profondes sur le potentiel humain.",
+              "Bengali": "সায়েন্স ফিকশন আমার প্রিয় সিনেমা ঘরানা কারণ এটি মানুষের সম্ভাবনা সম্পর্কে গভীর ধারণাগুলি অন্বেষণ করে।",
+              "Portuguese": "A ficção científica é o meu gênero cinematográfico favorito porque explora ideias profundas sobre o potencial humano.",
+              "Russian": "Научная фантастика — мой любимый жанр кино, потому что он раскрывает глубокие идеи о человеческом потенциале.",
+              "Urdu": "سائنس فکشن میرا پسندیدہ سینما صنف ہے کیونکہ یہ انسانی صلاحیتوں کے بارے میں گہرے نظریات کا جائزہ لیتا ہے۔",
+              "Indonesian": "Fiksi ilmiah adalah genre bioskop favorit saya karena mengeksplorasi ide-ide mendalam tentang potensi manusia.",
+              "Standard German": "Science-Fiction ist mein Lieblings-Kinogenre, weil es tiefgründige Ideen über das menschliche Potenzial erforscht.",
+              "Japanese": "SFは人間の可能性についての深いアイデアを探求しているため、私が最も好きな映画のジャンルです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "documentary",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌdɒkjuˈmentri/",
+        "meaning": "A movie or a television or radio program that provides a factual record or report. less than fiction.",
+        "synonyms": ["factual film", "report", "chronicle"],
+        "antonyms": ["fiction"],
+        "examples": [
+          {
+            "english": "We watched a fascinating documentary about the engineering history of high-end race cars.",
+            "translations": {
+              "Mandarin Chinese": "我们看了一部关于高端赛车工程历史的精彩纪录片。",
+              "Hindi": "हमने हाई-एंड रेस कारों के इंजीनियरिंग इतिहास के बारे में एक शानदार वृत्तचित्र (डॉक्युमेंट्री) देखा।",
+              "Spanish": "Vimos un documental fascinante sobre la historia de la ingeniería de los coches de carreras de alta gama.",
+              "Standard Arabic": "شاهدنا فيلماً وثائقياً رائعاً عن تاريخ الهندسة لسيارات السباق المتطورة.",
+              "French": "Nous avons regardé un documentaire fascinant sur l'histoire de l'ingénierie des voitures de course haut de gamme.",
+              "Bengali": "আমরা হাই-এন্ড রেস কারগুলির ইঞ্জিনিয়ারিং ইতিহাস সম্পর্কে একটি আকর্ষণীয় ডকুমেন্টারি দেখেছি।",
+              "Portuguese": "Assistimos a um documentário fascinante sobre a história da engenharia de carros de corrida de ponta.",
+              "Russian": "Мы посмотрели увлекательный документальный фильм об истории машиностроения гоночных автомобилей высокого класса.",
+              "Urdu": "ہم نے ہائی اینڈ ریس کاروں کی انجینئرنگ کی تاریخ کے بارے में एक दिलचस्प डॉक्यूमेंट्री देखी।",
+              "Indonesian": "Kami menonton film dokumenter menarik tentang sejarah teknik mobil balap kelas atas.",
+              "Standard German": "Wir haben eine faszinierende Dokumentation über die Entwicklungsgeschichte von High-End-Rennwagen gesehen.",
+              "Japanese": "私たちは、ハイエンドなレーシングカーのエンジニアリング史に関する魅力的なドキュメンタリーを観ました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "concert",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɒnsət/",
+        "meaning": "A musical performance given in public, typically by several musicians or a band.",
+        "synonyms": ["show", "gig", "performance"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The live audio setups at the stadium concert offered incredible acoustic clarity.",
+            "translations": {
+              "Mandarin Chinese": "体育场音乐会的现场音频设置提供了令人难以置信的声音清晰度。",
+              "Hindi": "स्टेडियम कॉन्सर्ट में लाइव ऑडियो सेटअप ने अविश्वसनीय ध्वनि (अकौस्टिक) स्पष्टता प्रदान की।",
+              "Spanish": "La configuración de audio en vivo en el concierto del estadio ofreció una claridad acústica increíble.",
+              "Standard Arabic": "وفرت إعدادات الصوت الحي في حفل الاستاد وضوحاً صوتياً مذهلاً.",
+              "French": "Les installations audio en direct lors du concert au stade offraient une clarté acoustique incroyable.",
+              "Bengali": "স্টেডিয়াম কনসার্টে লাইভ অডিও সেটআপগুলি অবিশ্বাস্য শাব্দিক স্পষ্টতা প্রদান করেছিল।",
+              "Portuguese": "As configurações de áudio ao vivo no show do estádio ofereceram uma clareza acústica incrível.",
+              "Russian": "Настройки живого звука на стадионном концерте обеспечили невероятную акустическую четкость.",
+              "Urdu": "اسٹیڈیم کے کنسرٹ میں لائیو آڈیو سیٹ اپ نے لاجواب آواز کی وضاحت پیش کی۔",
+              "Indonesian": "Pengaturan audio langsung di konser stadion menawarkan kejelasan akustik yang luar biasa.",
+              "Standard German": "Die Live-Audio-Setups beim Stadionkonzert boten eine unglaubliche akustische Klarheit.",
+              "Japanese": "スタジアムコンサートのライブ音響設備は、素晴らしい音響の明瞭度（クリアさ）を提供していました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "lyrics",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlɪrɪks/",
+        "meaning": "The words of a song.",
+        "synonyms": ["words", "text", "verse"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The deep lyrics of the title track match the overall moody tone of the album.",
+            "translations": {
+              "Mandarin Chinese": "主打歌深刻的歌词与整张专辑低沉的基调相呼应。",
+              "Hindi": "शीर्षक ट्रैक (टाइटल ट्रैक) के गहरे बोल (लिरिक्स) एल्बम के समग्र मूडी टोन से मेल खाते हैं।",
+              "Spanish": "Las letras profundas de la canción principal coinciden con el tono melancólico general del álbum.",
+              "Standard Arabic": "تتطابق كلمات الأغنية الرئيسية العميقة مع النبرة الغامضة العامة للألبوم.",
+              "French": "Les paroles profondes de la chanson titre correspondent au ton globalement feutré de l'album.",
+              "Bengali": "টাইটেল ট্র্যাকের গভীর লিরিক্স অ্যালবামের সামগ্রিক মুডি টোনের সাথে মেলে।",
+              "Portuguese": "As letras profundas da faixa-título combinam com o tom melancólico geral do álbum.",
+              "Russian": "Глубокий текст заглавного трека соответствует общему мрачному тону альбома.",
+              "Urdu": "ٹائٹل ٹریک کے گہرے بول البم کے مجموعی موڈی ٹون سے مطابقت رکھتے ہیں۔",
+              "Indonesian": "Lirik yang mendalam dari lagu utama cocok dengan nada muram keseluruhan album.",
+              "Standard German": "Die tiefgründigen Songtexte des Titeltracks passen zum insgesamt atmosphärischen Ton des Albums.",
+              "Japanese": "タイトル曲の深い歌詞（リリックス）は、アルバム全体の重厚なトーンと一致しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "musician",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/mjuˈzɪʃn/",
+        "meaning": "A person who plays a musical instrument, especially professionally, or writes music.",
+        "synonyms": ["artist", "player", "composer"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "A professional musician needs a high-fidelity home theater system to review audio details properly.",
+            "translations": {
+              "Mandarin Chinese": "一位专业的音乐家需要高保真家庭影院系统来妥善审查音频细节。",
+              "Hindi": "एक पेशेवर संगीतकार (म्यूजिशियन) को ऑडियो विवरणों की ठीक से समीक्षा करने के लिए एक हाई-फिडेलिटी होम थिएटर सिस्टम की आवश्यकता होती है।",
+              "Spanish": "Un músico profesional necesita un sistema de cine en casa de alta fidelidad para revisar los detalles del audio correctamente.",
+              "Standard Arabic": "يحتاج الموسيقي المحترف إلى نظام مسرح منزلي عالي الدقة لمراجعة تفاصيل الصوت بشكل صحيح.",
+              "French": "Un musicien professionnel a besoin d'un système de cinéma maison haute fidélité pour analyser correctement les détails audio.",
+              "Bengali": "একজন পেশাদার সংগীতশিল্পীর অডিওর বিবরণ সঠিকভাবে পর্যালোচনা করার জন্য একটি হাই-ফিডেলিটি হোম থিয়েটার সিস্টেমের প্রয়োজন।",
+              "Portuguese": "Um músico profissional precisa de um sistema de home theater de alta fidelidade para revisar os detalhes do áudio corretamente.",
+              "Russian": "Профессиональному музыканту необходима домашняя система домашнего кинотеатра высокой точности (hi-fi) для правильного анализа звуковых деталей.",
+              "Urdu": "ایک پیشہ ور موسیقار کو آڈیو تفصیلات کا صحیح جائزہ لینے کے لیے ہائی فائی ہوم تھیٹر سسٹم کی ضرورت ہوتی ہے۔",
+              "Indonesian": "Seorang musisi profesional membutuhkan sistem teater rumah berkesetiaan tinggi (high-fidelity) untuk memeriksa detail audio dengan benar.",
+              "Standard German": "Ein professioneller Musiker benötigt ein High-Fidelity-Heimkinosystem, um Audiodetails richtig zu überprüfen.",
+              "Japanese": "プロのミュージシャンは、音響の詳細を正しくチェックするために、高忠実度（ハイファイ）なホームシアターシステムを必要とします。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "album",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈælbəm/",
+        "meaning": "A collection of audio recordings issued as a single item on a CD, record, or digital download platform.",
+        "synonyms": ["record", "release", "collection"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He streamed the new concept album using lossless high-fidelity configurations.",
+            "translations": {
+              "Mandarin Chinese": "他使用无损高保真配置流媒体播放了新的概念专辑。",
+              "Hindi": "उन्होंने दोषरहित (लॉसलेस) हाई-फिडेलिटी कॉन्फ़िगरेशन का उपयोग करके नए कॉन्सेप्ट एल्बम को स्ट्रीम किया।",
+              "Spanish": "Transmitió el nuevo álbum conceptual utilizando configuraciones de alta fidelidad sin pérdidas.",
+              "Standard Arabic": "قام ببث الألبوم المفاهيمي الجديد باستخدام إعدادات عالية الدقة وغير مضغوطة.",
+              "French": "Il a écouté le nouvel album concept en streaming en utilisant des configurations haute fidélité sans perte.",
+              "Bengali": "তিনি লসলেস হাই-ফিডেলিটি কনফিগারেশন ব্যবহার করে নতুন কনসেপ্ট অ্যালবামটি স্ট্রিম করেছেন।",
+              "Portuguese": "Ele transmitiu o novo álbum conceitual usando configurações de alta fidelidad sem perdas.",
+              "Russian": "Он запустил трансляцию нового концептуального альбома в формате высокого качества без потерь (lossless).",
+              "Urdu": "اس نے لاس لیس ہائی فیڈلٹی کنفیگریشنز کا استعمال کرتے ہوئے نیا کانسیپٹ البم اسٹریم کیا۔",
+              "Indonesian": "Ia mengalirkan (stream) album konsep baru tersebut menggunakan konfigurasi berkesetiaan tinggi tanpa kehilangan (lossless).",
+              "Standard German": "Er streamte das neue Konzeptalbum mit verlustfreien High-Fidelity-Konfigurationen.",
+              "Japanese": "彼はロスレス・ハイファイ設定を使用して、新しいコンセプトアルバムをストリーミング再生しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "entertainment",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌentəˈteɪnmənt/",
+        "meaning": "The action of providing or being provided with amusement or enjoyment, especially through movies, plays, or music.",
+        "synonyms": ["amusement", "leisure", "recreation"],
+        "antonyms": ["boredom", "work"],
+        "examples": [
+          {
+            "english": "Modern online systems have transformed how the entertainment sector distributes content directly to users.",
+            "translations": {
+              "Mandarin Chinese": "现代网络系统已经改变了娱乐部门直接向用户分发内容的方式。",
+              "Hindi": "आधुनिक ऑनलाइन प्रणालियों ने मनोरंजन (एंटरटेनमेंट) क्षेत्र द्वारा सीधे उपयोगकर्ताओं को सामग्री वितरित करने के तरीके को बदल दिया है।",
+              "Spanish": "Los sistemas en línea modernos han transformado la forma en que el sector del entretenimiento distribuye contenido directamente a los usuarios.",
+              "Standard Arabic": "لقد غيّرت الأنظمة الحديثة عبر الإنترنت الطريقة التي يوزع بها قطاع الترفيه المحتوى مباشرة على المستخدمين.",
+              "French": "Les systèmes en ligne modernes ont transformé la façon dont le secteur du divertissement distribue le contenu directement aux utilisateurs.",
+              "Bengali": "আধুনিক অনলাইন সিস্টেমগুলি বিনোদন খাত কীভাবে ব্যবহারকারীদের কাছে সরাসরি সামগ্রী বিতরণ করে তা রূপান্তরিত করেছে।",
+              "Portuguese": "Os sistemas online modernos transformaram a forma como o setor de entretenimento distribui conteúdo diretamente aos usuários.",
+              "Russian": "Современные онлайн-системы изменили способы распространения контента в индустрии развлечений среди пользователей.",
+              "Urdu": "جدید آن لائن سسٹمز نے تفریحی شعبے کے صارفین تک براہ راست مواد پہنچانے کے طریقے کو بدل دیا ہے۔",
+              "Indonesian": "Sistem daring modern telah mengubah cara sektor hiburan mendistribusikan konten secara langsung kepada pengguna.",
+              "Standard German": "Moderne Online-Systeme haben die Art und Weise verändert, wie der Unterhaltungssektor Inhalte direkt an die Nutzer verteilt.",
+              "Japanese": "現代のオンラインシステムは、エンターテインメント業界がユーザーに直接コンテンツを配信する方法を一変させました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "streaming service",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈstriːmɪŋ ˈsɜːvɪs/",
+        "meaning": "An online platform providing continuous on-demand video or audio content over an internet connection.",
+        "synonyms": ["OTT platform", "digital distribution platform"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The streaming service updated its responsive user interface layout for smooth navigation.",
+            "translations": {
+              "Mandarin Chinese": "该流媒体服务更新了其响应式用户界面布局，以确保流畅的浏览体验。",
+              "Hindi": "स्ट्रीमिंग सेवा ने सुचारू नेविगेशन के लिए अपने रिस्पॉन्सिव यूज़र इंटरफ़ेस लेआउट को अपडेट किया।",
+              "Spanish": "El servicio de streaming actualizó el diseño de su interfaz de usuario responsiva para una navegación fluida.",
+              "Standard Arabic": "حدثت خدمة البث تخطيط واجهة المستخدم المتجاوبة لتوفير التنقل السلس.",
+              "French": "Le service de streaming a mis à jour sa disposition d'interface utilisateur adaptative pour une navigation fluide.",
+              "Bengali": "স্ট্রিমিং পরিষেবাটি মসৃণ নেভিগেশনের জন্য তার রেসপনসিভ ইউজার ইন্টারফেস লেআউট আপডেট করেছে।",
+              "Portuguese": "O serviço de streaming atualizou seu layout de interface de usuário responsivo para uma navegação fluida.",
+              "Russian": "Стриминговый сервис обновил свой адаптивный макет пользовательского интерфейса для плавной навигации.",
+              "Urdu": "اسٹریمنگ سروس نے ہموار نیویگیشن کے لیے اپنے ریسپونسیو صارف انٹرفेस لے آؤٹ کو اپ ڈیٹ کیا۔",
+              "Indonesian": "Layanan streaming tersebut memperbarui tata letak antarmuka pengguna yang responsif untuk navigasi yang lancar.",
+              "Standard German": "Der Streaming-Dienst hat sein responsives Benutzeroberflächen-Layout für eine reibungslose Navigation aktualisiert.",
+              "Japanese": "そのストリーミングサービスは、スムーズな操作（ナビゲーション）のために、レスポンシブなユーザーインターフェースデザインを更新しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "review",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈvjuː/",
+        "meaning": "A critical appraisal of a book, play, movie, concert, or piece of hardware published in a newspaper or online journal.",
+        "synonyms": ["critique", "evaluation", "assessment"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I read a detailed technical review analyzing the audio receiver performance before planning my purchase.",
+            "translations": {
+              "Mandarin Chinese": "在计划购买之前，我阅读了一篇详细的技术评论，分析了音频接收器的性能。",
+              "Hindi": "अपनी खरीदारी की योजना बनाने से पहले मैंने ऑडियो रिसीवर के प्रदर्शन का विश्लेषण करने वाली एक विस्तृत तकनीकी समीक्षा (रिव्यू) पढ़ी।",
+              "Spanish": "Leí una reseña técnica detallada que analizaba el rendimiento del receptor de audio antes de planificar mi compra.",
+              "Standard Arabic": "قرأت مراجعة تقنية مفصلة تحلل أداء مستقبل الصوت قبل التخطيط لعملية الشراء.",
+              "French": "J'ai lu une critique technique détaillée analysant les performances du récepteur audio avant de planifier mon achat.",
+              "Bengali": "আমি আমার কেনার পরিকল্পনা করার আগে অডিও রিসিভারের পারফরম্যান্স বিশ্লেষণ করে একটি বিশদ প্রযুক্তিগত পর্যালোচনা পড়েছি।",
+              "Portuguese": "Li uma análise técnica detalhada avaliando o desempenho do receptor de áudio antes de planejar minha compra.",
+              "Russian": "Я прочитал подробный технический обзор, анализирующий работу аудиоресивера, прежде чем планировать покупку.",
+              "Urdu": "میں نے اپنی خریداری کی منصوبہ بندی کرنے سے پہلے آڈیو ریسیور کی کارکردगी کا تجزیہ کرنے والا ایک تفصیلی تکنیکی جائزہ پڑھا۔",
+              "Indonesian": "Saya membaca ulasan teknis terperinci yang menganalisis kinerja penerima audio sebelum merencanakan pembelian saya.",
+              "Standard German": "Ich habe einen detaillierten technischen Testbericht gelesen, der die Leistung des Audio-Receivers analysiert, bevor ich meinen Kauf geplant habe.",
+              "Japanese": "購入を計画する前に、オーディオレシーバーの性能を分析した詳細なテクニカルレビューを読みました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "plot",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/plɒt/",
+        "meaning": "The main events of a play, movie, or similar work, devised and presented by the writer as an interrelated sequence.",
+        "synonyms": ["storyline", "scenario", "narrative"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The complex plot of Shutter Island contains layers of mystery less obvious on first viewing.",
+            "translations": {
+              "Mandarin Chinese": "《禁闭岛》复杂的剧情包含多层神秘色彩，初次观看时并不那么明显。",
+              "Hindi": "'शटर आइलैंड' के जटिल कथानक (प्लॉट) में रहस्य की परतें हैं जो पहली बार देखने पर इतनी स्पष्ट नहीं होती हैं।",
+              "Spanish": "La compleja trama de Shutter Island contiene capas de misterio menos obvias en un primer visionado.",
+              "Standard Arabic": "تحتوي الحبكة المعقدة لفيلم Shutter Island على طبقات من الغموض تكون أقل وضوحاً عند المشاهدة الأولى.",
+              "French": "L'intrigue complexe de Shutter Island contient des niveaux de mystère moins évidents lors du premier visionnage.",
+              "Bengali": "শাটার আইল্যান্ডের জটিল প্লটে রহস্যের স্তর রয়েছে যা প্রথমবার দেখার সময় এতটা স্পষ্ট হয় না।",
+              "Portuguese": "O enredo complexo de Shutter Island contém camadas de mistério menos óbvias na primeira visualização.",
+              "Russian": "Сложный сюжет «Острова проклятых» содержит слои тайны, менее очевидные при первом просмотре.",
+              "Urdu": "فلم 'شٹر آئی لینڈ' کے پیچیدہ پلاٹ میں اسرار کی تہیں موجود ہیں جو پہلی بار دیکھنے پر اتنی واضح نہیں ہوتیں۔",
+              "Indonesian": "Alur cerita Shutter Island yang kompleks mengandung lapisan misteri yang kurang terlihat pada tontonan pertama.",
+              "Standard German": "Die komplexe Handlung von Shutter Island enthält mysteriöse Ebenen, die beim ersten Anschauen weniger offensichtlich sind.",
+              "Japanese": "『シャッター アイランド』の複雑なプロット（筋書き）には、初見では気づきにくい何層もの謎が含まれています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "cinema",
+        "level": "B1",
+        "category": "Movies/Music",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɪnəmə/",
+        "meaning": "A theater where movies are shown for public entertainment, or the production of movies as an art or industry.",
+        "synonyms": ["movie theater", "pictures", "film industry"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Going to an IMAX cinema offers a highly immersive architectural sound field experience.",
+            "translations": {
+              "Mandarin Chinese": "去IMAX电影院可以提供高度沉浸式的建筑声场体验。",
+              "Hindi": "आईमैक्स (IMAX) सिनेमाघर में जाना एक अत्यधिक इमर्सिव आर्किटेक्चरल साउंड फील्ड का अनुभव प्रदान करता है।",
+              "Spanish": "Ir a un cine IMAX ofrece una experiencia de campo de sonido arquitectónico altamente inmersiva.",
+              "Standard Arabic": "توفر التوجه إلى سينما أيمكس تجربة مجال صوتي هندسي غامرة للغاية.",
+              "French": "Aller dans un cinéma IMAX offre une expérience de champ sonore architectural hautement immersive.",
+              "Bengali": "আইম্যাক্স সিনেমায় যাওয়া একটি অত্যন্ত ইমারসিভ আর্কিটেকচারাল সাউন্ড ফিল্ডের অভিজ্ঞতা প্রদান করে।",
+              "Portuguese": "Ir a um cinema IMAX oferece uma experiência de campo sonoro arquitetônico altamente imersiva.",
+              "Russian": "Поход в кинотеатр IMAX обеспечивает высокоэффектное погружение в объемное звуковое поле.",
+              "Urdu": "آئیمیکس (IMAX) سینما جانا ایک انتہائی عمیق بصری اور صوتی تجربہ فراہم کرتا ہے۔",
+              "Indonesian": "Pergi ke bioskop IMAX menawarkan pengalaman medan suara arsitektural yang sangat imersif.",
+              "Standard German": "Ein Besuch im IMAX-Kino bietet ein hochgradig immersives architektonisches Schallfelderlebnis.",
+              "Japanese": "IMAXシアター（映画館）に行くと、高度に没入感のある建築的な音場体験が得られます。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

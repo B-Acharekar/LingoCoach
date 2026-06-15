@@ -1,0 +1,199 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "300-400",
+  "source": "Foundational English Descriptive Vocabulary",
+  "categories": {
+    "Clothes": [
+      {
+        "word": "shirt",
+        "level": "A1",
+        "category": "Clothes",
+        "part_of_speech": "noun",
+        "pronunciation": "/ʃɜːrt/",
+        "meaning": "A garment for the upper body, typically with a collar and buttons.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am wearing a white shirt.",
+            "translations": {
+              "Mandarin Chinese": "我穿着一件白衬衫。",
+              "Spanish": "Llevo puesta una camisa blanca."
+            }
+          }
+        ]
+      },
+      {
+        "word": "t-shirt",
+        "level": "A1",
+        "category": "Clothes",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtiː ʃɜːrt/",
+        "meaning": "A casual garment with short sleeves and no collar.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is hot, so I will wear a t-shirt.",
+            "translations": {
+              "Mandarin Chinese": "天气很热，所以我要穿T恤。",
+              "Spanish": "Hace calor, así que usaré una camiseta."
+            }
+          }
+        ]
+      },
+      {
+        "word": "pants",
+        "level": "A1",
+        "category": "Clothes",
+        "part_of_speech": "noun",
+        "pronunciation": "/pænts/",
+        "meaning": "A garment covering the body from the waist down to the ankles.",
+        "synonyms": ["trousers"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "These pants are too long.",
+            "translations": {
+              "Mandarin Chinese": "这条裤子太长了。",
+              "Spanish": "Estos pantalones son demasiado largos."
+            }
+          }
+        ]
+      },
+      {
+        "word": "jeans",
+        "level": "A1",
+        "category": "Clothes",
+        "part_of_speech": "noun",
+        "pronunciation": "/dʒiːnz/",
+        "meaning": "Casual trousers made of denim fabric.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I wear jeans on the weekend.",
+            "translations": {
+              "Mandarin Chinese": "我周末穿牛仔裤。",
+              "Spanish": "Uso jeans los fines de semana."
+            }
+          }
+        ]
+      },
+      {
+        "word": "dress",
+        "level": "A1",
+        "category": "Clothes",
+        "part_of_speech": "noun",
+        "pronunciation": "/dres/",
+        "meaning": "A one-piece garment for the body, usually worn by women.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She has a beautiful red dress.",
+            "translations": {
+              "Mandarin Chinese": "她有一件漂亮的红裙子。",
+              "Spanish": "Ella tiene un hermoso vestido rojo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "skirt",
+        "level": "A1",
+        "category": "Clothes",
+        "part_of_speech": "noun",
+        "pronunciation": "/skɜːrt/",
+        "meaning": "A garment hanging from the waist.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The skirt is black.",
+            "translations": {
+              "Mandarin Chinese": "那条裙子是黑色的。",
+              "Spanish": "La falda es negra."
+            }
+          }
+        ]
+      },
+      {
+        "word": "shoe",
+        "level": "A1",
+        "category": "Clothes",
+        "part_of_speech": "noun",
+        "pronunciation": "/ʃuː/",
+        "meaning": "A covering for the foot.",
+        "synonyms": ["footwear"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I need new shoes.",
+            "translations": {
+              "Mandarin Chinese": "我需要新鞋子。",
+              "Spanish": "Necesito zapatos nuevos."
+            }
+          }
+        ]
+      },
+      {
+        "word": "sock",
+        "level": "A1",
+        "category": "Clothes",
+        "part_of_speech": "noun",
+        "pronunciation": "/sɒk/",
+        "meaning": "A soft garment for the foot and lower leg.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Where is my other sock?",
+            "translations": {
+              "Mandarin Chinese": "我的另一只袜子在哪里？",
+              "Spanish": "¿Dónde está mi otro calcetín?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "jacket",
+        "level": "A1",
+        "category": "Clothes",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdʒækɪt/",
+        "meaning": "A short coat worn on the upper body.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Put on your jacket; it is cold.",
+            "translations": {
+              "Mandarin Chinese": "穿上你的夹克，外面冷。",
+              "Spanish": "Ponte la chaqueta; hace frío."
+            }
+          }
+        ]
+      },
+      {
+        "word": "glasses",
+        "level": "A1",
+        "category": "Clothes",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɡlæsɪz/",
+        "meaning": "Lenses worn to improve vision.",
+        "synonyms": ["spectacles"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I need my glasses to read.",
+            "translations": {
+              "Mandarin Chinese": "我需要眼镜来阅读。",
+              "Spanish": "Necesito mis gafas para leer."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

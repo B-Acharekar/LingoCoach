@@ -1,0 +1,449 @@
+{
+  "level": "B2",
+  "approx_words": "800-1200",
+  "source": "Foundations of Psychology",
+  "categories": {
+    "Psychology": [
+      {
+        "word": "behavior",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/bɪˈheɪvjər/",
+        "meaning": "The way in which one acts or conducts oneself, especially toward others.",
+        "synonyms": ["conduct", "actions"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Psychologists study how the environment influences human behavior.",
+            "translations": {
+              "Mandarin Chinese": "心理学家研究环境如何影响人类行为。",
+              "Hindi": "मनोवैज्ञानिक अध्ययन करते हैं कि पर्यावरण मानव व्यवहार को कैसे प्रभावित करता है।",
+              "Spanish": "Los psicólogos estudian cómo el entorno influye en el comportamiento humano.",
+              "French": "Les psychologues étudient comment l'environnement influence le comportement humain.",
+              "Japanese": "心理学者は環境が人間の行動にどのように影響するかを研究している。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "emotion",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪˈmoʊʃn/",
+        "meaning": "A natural instinctive state of mind deriving from one's circumstances, mood, or relationships.",
+        "synonyms": ["feeling", "passion"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is important to learn how to manage every emotion effectively.",
+            "translations": {
+              "Mandarin Chinese": "学会如何有效管理每一种情绪很重要。",
+              "Hindi": "हर भावना को प्रभावी ढंग से प्रबंधित करना सीखना महत्वपूर्ण है।",
+              "Spanish": "Es importante aprender a manejar cada emoción de manera efectiva.",
+              "French": "Il est important d'apprendre à gérer chaque émotion efficacement.",
+              "Japanese": "あらゆる感情を効果的に管理する方法を学ぶことが重要である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "motivation",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌmoʊtɪˈveɪʃn/",
+        "meaning": "The reason or reasons one has for acting or behaving in a particular way.",
+        "synonyms": ["incentive", "drive"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Lack of motivation can make it difficult to achieve your goals.",
+            "translations": {
+              "Mandarin Chinese": "缺乏动力会使你难以实现目标。",
+              "Hindi": "प्रेरणा की कमी आपके लक्ष्यों को प्राप्त करना कठिन बना सकती है।",
+              "Spanish": "La falta de motivación puede hacer difícil lograr tus metas.",
+              "French": "Le manque de motivation peut rendre difficile l'atteinte de vos objectifs.",
+              "Japanese": "モチベーションの欠如は、目標達成を困難にする可能性がある。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "personality",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌpɜːrsəˈnæləti/",
+        "meaning": "The combination of characteristics or qualities that form an individual's distinctive character.",
+        "synonyms": ["character", "disposition"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Her outgoing personality makes her very popular with her peers.",
+            "translations": {
+              "Mandarin Chinese": "她外向的性格使她在同龄人中非常受欢迎。",
+              "Hindi": "उसका बहिर्मुखी व्यक्तित्व उसे अपने साथियों के बीच बहुत लोकप्रिय बनाता है।",
+              "Spanish": "Su personalidad extrovertida la hace muy popular entre sus compañeros.",
+              "French": "Sa personnalité extravertie la rend très populaire auprès de ses pairs.",
+              "Japanese": "彼女の外向的な性格は、同僚の間で非常に人気がある。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "memory",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmeməri/",
+        "meaning": "The faculty by which the mind stores and remembers information.",
+        "synonyms": ["recall", "remembrance"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Short-term memory is essential for processing new information.",
+            "translations": {
+              "Mandarin Chinese": "短期记忆对于处理新信息至关重要。",
+              "Hindi": "नई जानकारी को संसाधित करने के लिए अल्पकालिक स्मृति आवश्यक है।",
+              "Spanish": "La memoria a corto plazo es esencial para procesar nueva información.",
+              "French": "La mémoire à court terme est essentielle pour traiter de nouvelles informations.",
+              "Japanese": "短期記憶は新しい情報を処理するために不可欠である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "stress",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/stres/",
+        "meaning": "A state of mental or emotional strain resulting from demanding circumstances.",
+        "synonyms": ["tension", "pressure"],
+        "antonyms": ["relaxation"],
+        "examples": [
+          {
+            "english": "Chronic stress can have a negative impact on physical health.",
+            "translations": {
+              "Mandarin Chinese": "长期压力会对身体健康产生负面影响。",
+              "Hindi": "दीर्घकालिक तनाव का शारीरिक स्वास्थ्य पर नकारात्मक प्रभाव पड़ सकता है।",
+              "Spanish": "El estrés crónico puede tener un impacto negativo en la salud física.",
+              "French": "Le stress chronique peut avoir un impact négatif sur la santé physique.",
+              "Japanese": "慢性的なストレスは身体の健康に悪影響を及ぼす可能性がある。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "mental process",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈmentl ˈprɑːses/",
+        "meaning": "Cognitive activities such as thinking, reasoning, and remembering.",
+        "synonyms": ["cognitive function"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Decision-making is a complex mental process involving logic and emotion.",
+            "translations": {
+              "Mandarin Chinese": "决策是一个涉及逻辑和情感的复杂心理过程。",
+              "Hindi": "निर्णय लेना एक जटिल मानसिक प्रक्रिया है जिसमें तर्क और भावना शामिल है।",
+              "Spanish": "La toma de decisiones es un proceso mental complejo que involucra lógica y emoción.",
+              "French": "La prise de décision est un processus mental complexe impliquant la logique et l'émotion.",
+              "Japanese": "意思決定は、論理と感情を伴う複雑な心理プロセスである。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "self-esteem",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌself ɪˈstiːm/",
+        "meaning": "Confidence in one's own worth or abilities.",
+        "synonyms": ["self-worth", "self-respect"],
+        "antonyms": ["self-doubt"],
+        "examples": [
+          {
+            "english": "Positive feedback can significantly boost a child's self-esteem.",
+            "translations": {
+              "Mandarin Chinese": "积极的反馈可以显著提高孩子的自尊心。",
+              "Hindi": "सकारात्मक प्रतिक्रिया बच्चे के आत्म-सम्मान को काफी बढ़ा सकती है।",
+              "Spanish": "La retroalimentación positiva puede aumentar significativamente la autoestima de un niño.",
+              "French": "Les commentaires positifs peuvent considérablement renforcer l'estime de soi d'un enfant.",
+              "Japanese": "肯定的なフィードバックは、子供の自尊心を大幅に高めることができる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "anxiety",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/æŋˈzaɪəti/",
+        "meaning": "A feeling of worry, nervousness, or unease about an event or uncertainty.",
+        "synonyms": ["worry", "unease"],
+        "antonyms": ["calm", "serenity"],
+        "examples": [
+          {
+            "english": "Many people suffer from social anxiety in large crowds.",
+            "translations": {
+              "Mandarin Chinese": "许多人在大群人中会感到社交焦虑。",
+              "Hindi": "बहुत से लोग बड़ी भीड़ में सामाजिक चिंता से पीड़ित होते हैं।",
+              "Spanish": "Muchas personas sufren de ansiedad social en grandes multitudes.",
+              "French": "Beaucoup de gens souffrent d'anxiété sociale dans les grandes foules.",
+              "Japanese": "多くの人が大勢の人の前で社会不安を感じる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "depression",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈpreʃn/",
+        "meaning": "A mood disorder that causes a persistent feeling of sadness and loss of interest.",
+        "synonyms": ["despair", "melancholy"],
+        "antonyms": ["happiness"],
+        "examples": [
+          {
+            "english": "Seeking professional help is a crucial step in treating depression.",
+            "translations": {
+              "Mandarin Chinese": "寻求专业帮助是治疗抑郁症的关键一步。",
+              "Hindi": "पेशेवर मदद लेना अवसाद के इलाज में एक महत्वपूर्ण कदम है।",
+              "Spanish": "Buscar ayuda profesional es un paso crucial en el tratamiento de la depresión.",
+              "French": "Chercher une aide professionnelle est une étape cruciale dans le traitement de la dépression.",
+              "Japanese": "専門家の助けを求めることは、うつ病を治療する上で非常に重要なステップである。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "decision-making",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈsɪʒn ˌmeɪkɪŋ/",
+        "meaning": "The process of making choices by identifying a decision and gathering information.",
+        "synonyms": ["choosing", "judgment"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He is known for his rational approach to decision-making.",
+            "translations": {
+              "Mandarin Chinese": "他以理性的决策方法而闻名。",
+              "Hindi": "वह निर्णय लेने के अपने तर्कसंगत दृष्टिकोण के लिए जाना जाता है।",
+              "Spanish": "Es conocido por su enfoque racional en la toma de decisiones.",
+              "French": "Il est connu pour son approche rationnelle de la prise de décision.",
+              "Japanese": "彼は意思決定に対する理性的なアプローチで知られている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "therapy",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈθerəpi/",
+        "meaning": "Treatment intended to relieve or heal a disorder.",
+        "synonyms": ["counseling", "treatment"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Cognitive behavioral therapy is widely used to treat various mental health issues.",
+            "translations": {
+              "Mandarin Chinese": "认知行为疗法被广泛用于治疗各种心理健康问题。",
+              "Hindi": "संज्ञानात्मक व्यवहार थेरेपी का उपयोग विभिन्न मानसिक स्वास्थ्य समस्याओं के इलाज के लिए व्यापक रूप से किया जाता है।",
+              "Spanish": "La terapia cognitivo-conductual se utiliza ampliamente para tratar diversos problemas de salud mental.",
+              "French": "La thérapie cognitivo-comportementale est largement utilisée pour traiter divers problèmes de santé mentale.",
+              "Japanese": "認知行動療法は、様々なメンタルヘルスの問題を治療するために広く使用されている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "consciousness",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɑːnʃəsnəs/",
+        "meaning": "The state of being aware of and responsive to one's surroundings.",
+        "synonyms": ["awareness", "sentience"],
+        "antonyms": ["unconsciousness"],
+        "examples": [
+          {
+            "english": "Scientists are still trying to understand the nature of consciousness.",
+            "translations": {
+              "Mandarin Chinese": "科学家们仍在努力理解意识的本质。",
+              "Hindi": "वैज्ञानिक अभी भी चेतना की प्रकृति को समझने की कोशिश कर रहे हैं।",
+              "Spanish": "Los científicos todavía están tratando de entender la naturaleza de la conciencia.",
+              "French": "Les scientifiques essaient encore de comprendre la nature de la conscience.",
+              "Japanese": "科学者は今も意識の本質を理解しようとしている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "habit",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhæbɪt/",
+        "meaning": "A settled or regular tendency or practice.",
+        "synonyms": ["routine", "custom"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It takes time to break a bad habit.",
+            "translations": {
+              "Mandarin Chinese": "改掉坏习惯需要时间。",
+              "Hindi": "बुरी आदत को तोड़ने में समय लगता है।",
+              "Spanish": "Lleva tiempo romper un mal hábito.",
+              "French": "Il faut du temps pour briser une mauvaise habitude.",
+              "Japanese": "悪い習慣を断ち切るには時間がかかる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "mindset",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmaɪndset/",
+        "meaning": "The established set of attitudes held by someone.",
+        "synonyms": ["mentality", "attitude"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Having a growth mindset can help you overcome challenges.",
+            "translations": {
+              "Mandarin Chinese": "拥有成长型思维模式可以帮助你克服挑战。",
+              "Hindi": "विकास मानसिकता रखना आपको चुनौतियों से उबरने में मदद कर सकता है।",
+              "Spanish": "Tener una mentalidad de crecimiento puede ayudarte a superar desafíos.",
+              "French": "Avoir un état d'esprit orienté vers la croissance peut vous aider à surmonter les défis.",
+              "Japanese": "成長マインドセットを持つことは、課題を克服する助けとなる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "perception",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/pərˈsepʃn/",
+        "meaning": "The ability to see, hear, or become aware of something through the senses.",
+        "synonyms": ["awareness", "insight"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Our perception of reality can be influenced by our past experiences.",
+            "translations": {
+              "Mandarin Chinese": "我们对现实的感知会受到过去经验的影响。",
+              "Hindi": "वास्तविकता के बारे में हमारी धारणा हमारे पिछले अनुभवों से प्रभावित हो सकती है।",
+              "Spanish": "Nuestra percepción de la realidad puede verse influenciada por nuestras experiencias pasadas.",
+              "French": "Notre perception de la réalité peut être influencée par nos expériences passées.",
+              "Japanese": "現実に対する我々の認識は、過去の経験によって影響を受ける可能性がある。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "empathy",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈempəθi/",
+        "meaning": "The ability to understand and share the feelings of another.",
+        "synonyms": ["compassion", "understanding"],
+        "antonyms": ["apathy"],
+        "examples": [
+          {
+            "english": "Developing empathy is key to building strong relationships.",
+            "translations": {
+              "Mandarin Chinese": "培养同理心是建立稳固关系的关键。",
+              "Hindi": "समानुभूति विकसित करना मजबूत रिश्ते बनाने की कुंजी है।",
+              "Spanish": "Desarrollar la empatía es clave para construir relaciones sólidas.",
+              "French": "Développer l'empathie est la clé pour construire des relations solides.",
+              "Japanese": "共感を育むことは、強固な人間関係を築く鍵である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "social behavior",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈsoʊʃl bɪˈheɪvjər/",
+        "meaning": "Behavior that is directed towards other people or affected by the presence of others.",
+        "synonyms": ["interactional behavior"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Social behavior is a primary focus of social psychology.",
+            "translations": {
+              "Mandarin Chinese": "社会行为是社会心理学的主要关注点。",
+              "Hindi": "सामाजिक व्यवहार सामाजिक मनोविज्ञान का प्राथमिक केंद्र है।",
+              "Spanish": "El comportamiento social es un enfoque principal de la psicología social.",
+              "French": "Le comportement social est un axe principal de la psychologie sociale.",
+              "Japanese": "社会行動は社会心理学の主要な焦点である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "psychological effect",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌsaɪkəˈlɑːdʒɪkl ɪˈfekt/",
+        "meaning": "The impact of a stimulus or event on the mental state of an individual.",
+        "synonyms": ["mental impact", "psychological outcome"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The psychological effect of isolation can be quite profound.",
+            "translations": {
+              "Mandarin Chinese": "孤立带来的心理影响可能相当深远。",
+              "Hindi": "अलगाव का मनोवैज्ञानिक प्रभाव काफी गहरा हो सकता है।",
+              "Spanish": "El efecto psicológico del aislamiento puede ser muy profundo.",
+              "French": "L'effet psychologique de l'isolement peut être très profond.",
+              "Japanese": "孤立の心理的影響は非常に深刻なものになり得る。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "mental health",
+        "level": "B2",
+        "category": "Psychology",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈmentl helθ/",
+        "meaning": "A person's condition with regard to their psychological and emotional well-being.",
+        "synonyms": ["psychological well-being"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Prioritizing mental health is just as important as physical fitness.",
+            "translations": {
+              "Mandarin Chinese": "优先考虑心理健康和身体健康一样重要。",
+              "Hindi": "मानसिक स्वास्थ्य को प्राथमिकता देना शारीरिक फिटनेस जितना ही महत्वपूर्ण है।",
+              "Spanish": "Priorizar la salud mental es tan importante como la aptitud física.",
+              "French": "Donner la priorité à la santé mentale est tout aussi important que la forme physique.",
+              "Japanese": "メンタルヘルスを優先することは、身体の健康と同じくらい重要である。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

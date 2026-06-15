@@ -1,0 +1,161 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "300-400",
+  "source": "Foundational English Descriptive Vocabulary",
+  "categories": {
+    "Emotions": [
+      {
+        "word": "happy",
+        "level": "A1",
+        "category": "Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈhæpi/",
+        "meaning": "Feeling or showing pleasure or contentment.",
+        "synonyms": ["glad"],
+        "antonyms": ["sad"],
+        "examples": [
+          {
+            "english": "I am very happy today.",
+            "translations": {
+              "Mandarin Chinese": "我今天非常开心。",
+              "Spanish": "Estoy muy feliz hoy."
+            }
+          }
+        ]
+      },
+      {
+        "word": "sad",
+        "level": "A1",
+        "category": "Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/sæd/",
+        "meaning": "Feeling or showing sorrow; unhappy.",
+        "synonyms": ["unhappy"],
+        "antonyms": ["happy"],
+        "examples": [
+          {
+            "english": "The movie is very sad.",
+            "translations": {
+              "Mandarin Chinese": "这部电影很悲伤。",
+              "Spanish": "La película es muy triste."
+            }
+          }
+        ]
+      },
+      {
+        "word": "angry",
+        "level": "A1",
+        "category": "Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈæŋɡri/",
+        "meaning": "Feeling strong displeasure or hostility.",
+        "synonyms": ["mad"],
+        "antonyms": ["calm"],
+        "examples": [
+          {
+            "english": "He is angry with me.",
+            "translations": {
+              "Mandarin Chinese": "他生我的气。",
+              "Spanish": "Él está enojado conmigo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "afraid",
+        "level": "A1",
+        "category": "Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/əˈfreɪd/",
+        "meaning": "Feeling fear or anxiety; frightened.",
+        "synonyms": ["scared"],
+        "antonyms": ["brave"],
+        "examples": [
+          {
+            "english": "The child is afraid of the dark.",
+            "translations": {
+              "Mandarin Chinese": "那个孩子怕黑。",
+              "Spanish": "El niño tiene miedo a la oscuridad."
+            }
+          }
+        ]
+      },
+      {
+        "word": "tired",
+        "level": "A1",
+        "category": "Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈtaɪərd/",
+        "meaning": "In need of sleep or rest.",
+        "synonyms": ["sleepy"],
+        "antonyms": ["energetic"],
+        "examples": [
+          {
+            "english": "I am tired after work.",
+            "translations": {
+              "Mandarin Chinese": "我下班后很累。",
+              "Spanish": "Estoy cansado después del trabajo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "bored",
+        "level": "A1",
+        "category": "Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/bɔːrd/",
+        "meaning": "Feeling weary because one is unoccupied or lacks interest.",
+        "synonyms": [],
+        "antonyms": ["interested"],
+        "examples": [
+          {
+            "english": "The class is long, and I am bored.",
+            "translations": {
+              "Mandarin Chinese": "这节课很长，我很无聊。",
+              "Spanish": "La clase es larga y estoy aburrido."
+            }
+          }
+        ]
+      },
+      {
+        "word": "love",
+        "level": "A1",
+        "category": "Emotions",
+        "part_of_speech": "verb/noun",
+        "pronunciation": "/lʌv/",
+        "meaning": "A strong feeling of deep affection.",
+        "synonyms": ["adore"],
+        "antonyms": ["hate"],
+        "examples": [
+          {
+            "english": "I love my family.",
+            "translations": {
+              "Mandarin Chinese": "我爱我的家人。",
+              "Spanish": "Amo a mi familia."
+            }
+          }
+        ]
+      },
+      {
+        "word": "hate",
+        "level": "A1",
+        "category": "Emotions",
+        "part_of_speech": "verb/noun",
+        "pronunciation": "/heɪt/",
+        "meaning": "To feel intense dislike for something.",
+        "synonyms": ["dislike"],
+        "antonyms": ["love"],
+        "examples": [
+          {
+            "english": "I hate being late.",
+            "translations": {
+              "Mandarin Chinese": "我讨厌迟到。",
+              "Spanish": "Odio llegar tarde."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

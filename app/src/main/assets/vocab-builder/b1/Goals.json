@@ -1,0 +1,589 @@
+{
+  "level": "B1",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Goals": [
+      {
+        "word": "achievement",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈtʃiːvmənt/",
+        "meaning": "A thing done successfully, typically by effort, courage, or skill.",
+        "synonyms": ["accomplishment", "attainment", "feat"],
+        "antonyms": ["failure", "forfeit"],
+        "examples": [
+          {
+            "english": "Migrating the entire application framework to native Jetpack Compose with zero downtime was a major technical achievement.",
+            "translations": {
+              "Mandarin Chinese": "在零停机时间的情况下将整个应用程序框架迁移到原生 Jetpack Compose 是一项重大的技术成就。",
+              "Hindi": "शून्य डाउनटाइम के साथ संपूर्ण एप्लिकेशन फ्रेमवर्क को नेटिव जेटपैक कंपोज़ पर माइग्रेट करना एक बड़ी तकनीकी उपलब्धि थी।",
+              "Spanish": "Migrar todo el marco de la aplicación a Jetpack Compose nativo con cero tiempo de inactividad fue un logro técnico importante.",
+              "Standard Arabic": "كانت هجرة إطار عمل التطبيق بأكمله إلى Jetpack Compose الأصلي بدون أي توقف إنجازاً تقنياً كبيراً.",
+              "French": "La migration de l'ensemble du framework de l'application vers Jetpack Compose natif sans aucune interruption a été une réussite technique majeure.",
+              "Bengali": "কোনো ডাউনটাইम ছাড়াই সম্পূর্ণ অ্যাপ্লিকেশন ফ্রেমওয়ার্কটিকে নেটিভ জেটপ্যাক কম্পোজে স্থানান্তরিত করা একটি বড় প্রযুক্তিগত কৃতিত্ব ছিল।",
+              "Portuguese": "Migrar todo o framework do aplicativo para o Jetpack Compose nativo com zero tempo de inatividade foi uma grande conquista técnica.",
+              "Russian": "Миграция всей структуры приложения на нативный Jetpack Compose с нулевым временем простоя стала важным техническим достижением.",
+              "Urdu": "بغیر کسی ڈاؤن ٹائم کے پورے ایپلیکیشن فریم ورک کو نیٹو Jetpack Compose پر منتقل کرنا ایک بڑی تکنیکی کامیابی تھی۔",
+              "Indonesian": "Migrasi seluruh kerangka kerja aplikasi ke Jetpack Compose asli dengan waktu henti nol adalah pencapaian teknis yang besar.",
+              "Standard German": "Die Migration des gesamten Anwendungs-Frameworks auf natives Jetpack Compose ohne Ausfallzeiten war eine große technische Leistung.",
+              "Japanese": "ダウンタイムゼロでアプリケーションフレームワーク全体をネイティブのJetpack Composeに移行したことは、大きな技術的成果でした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "success",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/səkˈses/",
+        "meaning": "The accomplishment of an aim or purpose, or the attainment of popularity or prosperity.",
+        "synonyms": ["triumph", "victory", "prosperity"],
+        "antonyms": ["failure", "defeat"],
+        "examples": [
+          {
+            "english": "The success of the offline machine learning model depended on optimizing local data structures.",
+            "translations": {
+              "Mandarin Chinese": "离线机器学习模型的成功取决于本地数据结构的优化。",
+              "Hindi": "ऑफ़लाइन मशीन लर्निंग मॉडल की सफलता स्थानीय डेटा संरचनाओं (डेटा स्ट्रक्चर्स) को अनुकूलित करने पर निर्भर करती थी。",
+              "Spanish": "El éxito del modelo de aprendizaje automático sin conexión dependía de la optimización de las estructuras de datos locales.",
+              "Standard Arabic": "اعتمد نجاح نموذج التعلم الآلي غير المتصل بالإنترنت على تحسين هياكل البيانات المحلية.",
+              "French": "Le succès du modèle d'apprentissage automatique hors ligne dépendait de l'optimisation des structures de datos locales.",
+              "Bengali": "অফলাইন মেশিন লার্নিং মডেলের সাফল্য স্থানীয় ডেটা স্ট্রাকচার অপ্টিমাইজ করার ওপর নির্ভর করে।",
+              "Portuguese": "O sucesso do modelo de aprendizado de máquina offline dependia da otimização das estruturas de dados locais.",
+              "Russian": "Успех автономной модели машинного обучения зависел от оптимизации локальных структур данных.",
+              "Urdu": "آف لائن مشین لرننگ ماڈل کی کامیابی مقامی ڈیٹا اسٹرکچرز کو بہتر بنانے پر منحصر تھی۔",
+              "Indonesian": "Keberhasilan model pembelajaran mesin luring bergantung pada pengoptimalan struktur data lokal.",
+              "Standard German": "Der Erfolg des Offline-Modells für maschinelles Lernen hing von der Optimierung lokaler Datenstrukturen ab.",
+              "Japanese": "オフライン機械学習モデルの成功は、ローカルデータ構造の最適化にかかっていました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "failure",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfeɪljə(r)/",
+        "meaning": "Lack of success, or an unsuccessful person, enterprise, or unexpected hardware component breakdown.",
+        "synonyms": ["breakdown", "crash", "collapse"],
+        "antonyms": ["success", "triumph"],
+        "examples": [
+          {
+            "english": "The system architecture features a custom fallback protocol to keep running even during a database server failure.",
+            "translations": {
+              "Mandarin Chinese": "该系统架构具有自定义回退协议，即使在数据库服务器发生故障时也能保持运行。",
+              "Hindi": "सिस्टम आर्किटेक्चर में एक कस्टम फ़ॉलबैक प्रोटोकॉल शामिल है ताकि डेटाबेस सर्वर की विफलता के दौरान भी काम जारी रहे।",
+              "Spanish": "La arquitectura del sistema cuenta con un protocolo de respaldo personalizado para seguir funcionando incluso durante una falla del servidor de la base de datos.",
+              "Standard Arabic": "تتميز بنية النظام ببروتوكول احتياطي مخصص لمواصلة التشغيل حتى أثناء فشل خادم قاعدة البيانات.",
+              "French": "L'architecture du système intègre un protocole de secours personnalisé pour continuer à fonctionner même en cas de défaillance du serveur de base de datos.",
+              "Bengali": "ডাটাবেস সার্ভার ব্যর্থতার সময়ও চলমান রাখার জন্য সিস্টেম আর্কিটেকচারে একটি কাস্টম ফলব্যাক প্রোটোকল রয়েছে।",
+              "Portuguese": "A arquitetura do sistema apresenta um protocolo de fallback personalizado para continuar funcionando mesmo durante uma falha no servidor de banco de dados.",
+              "Russian": "Архитектура системы включает настраиваемый резервный протокол для продолжения работы даже в случае сбоя сервера базы данных.",
+              "Urdu": "سسٹم آرکیٹیکچر میں ایک حسب ضرورت فال بیک پروٹوکول موجود ہے تاکہ ڈیٹا بیس سرور کی خرابی کے دوران بھی کام جاری رہے۔",
+              "Indonesian": "Arsitektur sistem memiliki protokol cadangan (fallback) khusus untuk tetap berjalan bahkan saat terjadi kegagalan server basis data.",
+              "Standard German": "Die Systemarchitektur verfügt über ein benutzerdefiniertes Fallback-Protokoll, um den Betrieb auch bei einem Ausfall des Datenbankservers aufrechtzuerhalten.",
+              "Japanese": "そのシステムアーキテクチャは、データベースサーバーの障害時でも実行を継続できるように、カスタムフォールバックプロトコルを備えています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "improvement",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪmˈpruːvmənt/",
+        "meaning": "An instance of a change that makes something better, or the process of altering something to a higher grade.",
+        "synonyms": ["enhancement", "upgrade", "refinement"],
+        "antonyms": ["deterioration", "decline"],
+        "examples": [
+          {
+            "english": "The latest software build showed a massive improvement in user interface rendering speeds.",
+            "translations": {
+              "Mandarin Chinese": "最新的软件版本在用户界面渲染速度方面有了巨大的提升。",
+              "Hindi": "नवीनतम सॉफ़्टवेयर बिल्ड ने यूज़र इंटरफ़ेस रेंडरिंग गति में भारी सुधार दिखाया।",
+              "Spanish": "La última compilación del software mostró una gran mejora en las velocidades de renderizado de la interfaz de usuario.",
+              "Standard Arabic": "أظهر الإصدار الأخير من البرمجيات تحسناً هائلاً في سرعات رندر واجهة المستخدم.",
+              "French": "La dernière version du logiciel a montré une amélioration massive des vitesses de rendu de l'interface utilisateur.",
+              "Bengali": "সর্বশেষ সফ্টওয়্যার বিল্ডটি ইউজার इंटरफेस রেন্ডারিং গতিতে একটি বিশাল উন্নতি দেখিয়েছে।",
+              "Portuguese": "A versão mais recente do software mostrou uma melhoria maciça nas velocidades de renderização da interface do usuário.",
+              "Russian": "Последняя сборка программного обеспечения показала огромное улучшение скорости рендеринга пользовательского интерфейса.",
+              "Urdu": "تازہ ترین سافٹ ویئر بلڈ نے صارف انٹرفेस رینڈرنگ کی رفتار میں زبردست بہتری دکھائی۔",
+              "Indonesian": "Pembaruan perangkat lunak terbaru menunjukkan peningkatan besar dalam kecepatan rendering antarmuka pengguna.",
+              "Standard German": "Der neueste Software-Build zeigte eine massive Verbesserung der Rendergeschwindigkeiten der Benutzeroberfläche.",
+              "Japanese": "最新のソフトウェアビルドは、ユーザーインターフェースのレンダリング速度において大幅な向上を示しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "motivation",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌməʊtɪˈveɪʃn/",
+        "meaning": "The reason or reasons one has for acting or behaving in a particular way, or general enthusiasm for task completion.",
+        "synonyms": ["inspiration", "incentive", "drive"],
+        "antonyms": ["discouragement", "apathy"],
+        "examples": [
+          {
+            "english": "Building an platform that handles complex market trends was his main motivation for exploring machine learning.",
+            "translations": {
+              "Mandarin Chinese": "构建一个能处理复杂市场趋势的平台是他探索机器学习的主要动力。",
+              "Hindi": "जटिल बाजार प्रवृत्तियों (मार्केट ट्रेंड्स) को संभालने वाला एक प्लेटफॉर्म बनाना मशीन लर्निंग का पता लगाने के लिए उनकी मुख्य प्रेरणा (मोटिवेशन) थी।",
+              "Spanish": "Construir una plataforma que maneje tendencias complejas del mercado fue su principal motivación para explorar el aprendizaje automático.",
+              "Standard Arabic": "كان بناء منصة تتعامل مع اتجاهات السوق المعقدة هو دافعه الرئيسي لاستكشاف التعلم الآلي.",
+              "French": "Construire une plateforme capable de gérer des tendances de marché complexes était sa principale motivation pour explorer l'apprentissage automatique.",
+              "Bengali": "জটিল বাজার প্রবণতাগুলি পরিচালনা করে এমন একটি প্ল্যাটফর্ম তৈরি করা মেশিন লার্নিং অন্বেষণ করার জন্য তার প্রধান প্রেরণা ছিল।",
+              "Portuguese": "Construir uma plataforma que lide com tendências complexas de mercado foi sua principal motivação para explorar o aprendizado de máquina.",
+              "Russian": "Создание платформы, обрабатывающей сложные рыночные тренды, было его главной мотивацией для изучения машинного обучения.",
+              "Urdu": "مارکیٹ کے پیچیدہ رجحانات کو سنبھالنے والا پلیٹ فارم بنانا مشین لرننگ کو دریافت کرنے کے لیے اس کا بنیادی محرک تھا۔",
+              "Indonesian": "Membangun platform yang menangani tren pasar yang kompleks adalah motivasi utamanya untuk mengeksplorasi pembelajaran mesin.",
+              "Standard German": "Der Aufbau einer Plattform, die komplexe Markttrends verarbeitet, war seine Hauptmotivation für die Erforschung des maschinellen Lernens.",
+              "Japanese": "複雑な市場トレンドを処理するプラットフォームを構築することが、彼が機械学習を探求する主な動機でした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "dream",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/driːm/",
+        "meaning": "A cherished aspiration, ambition, or ideal vision for one's life, career, or engineering creations.",
+        "synonyms": ["aspiration", "ambition", "vision"],
+        "antonyms": ["reality"],
+        "examples": [
+          {
+            "english": "His dream is to design highly optimized, self-healing communication frameworks using decentralized mesh networks.",
+            "translations": {
+              "Mandarin Chinese": "他的梦想是利用去中心化网状网络设计高度优化的、自愈的通信框架。",
+              "Hindi": "उनका सपना विकेंद्रीकृत (डिसेंट्रलाइज्ड) मेश नेटवर्क का उपयोग करके अत्यधिक अनुकूलित, स्व-उपचार संचार फ्रेमवर्क डिज़ाइन करना है।",
+              "Spanish": "Su sueño es diseñar marcos de comunicación altamente optimizados y autorreparables utilizando redes en malla descentralizadas.",
+              "Standard Arabic": "حلمه هو تصميم أطر اتصال مُحسّنة للغاية وذاتية التشافي باستخدام شبكات متداخلة (Mesh) لا مركزية.",
+              "French": "Son rêve est de concevoir des frameworks de communication hautement optimisés et auto-guérisseurs en utilisant des réseaux maillés décentralisés.",
+              "Bengali": "তার স্বপ্ন হলো বিকেন্দ্রীভূত মেশ নেটওয়ার্ক ব্যবহার করে অত্যন্ত অপ্টিমাইজড, স্ব-নিরাময় যোগাযোগ ফ্রেমওয়ার্ক ডিজাইন করা।",
+              "Portuguese": "Seu sonho é projetar frameworks de comunicação altamente otimizados e autorrecuperáveis usando redes em malha descentralizadas.",
+              "Russian": "Его мечта — разработать высокооптимизированные самовосстанавливающиеся коммуникационные структуры с использованием децентрализованных ячеистых сетей.",
+              "Urdu": "اس کا خواب ڈی سینٹرلائزڈ میش نیٹ ورکس کا استعمال کرتے ہوئے انتہائی بہترین، سیلف ہیلنگ کمیونیکیشن فریم ورکس ڈیزائن کرنا ہے۔",
+              "Indonesian": "Impiannya adalah merancang kerangka kerja komunikasi yang sangat optimal dan dapat memulihkan diri sendiri menggunakan jaringan mesh yang terdesentralisasi.",
+              "Standard German": "Sein Traum ist es, hochoptimierte, selbstheilende Kommunikations-Frameworks unter Verwendung dezentraler Mesh-Netzwerke zu entwerfen.",
+              "Japanese": "彼の夢は、分散型メッシュネットワークを使用して、高度に最適化された自己修復型の通信フレームワークを設計することです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "plan",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/plæn/",
+        "meaning": "A detailed proposal for doing or achieving something, or an architectural map of steps to execute a software goal.",
+        "synonyms": ["strategy", "scheme", "roadmap"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We need a clear architectural plan before writing the software components for the final-year network system.",
+            "translations": {
+              "Mandarin Chinese": "在为毕业年度的网络系统编写软件组件之前，我们需要一个清晰的架构计划。",
+              "Hindi": "अंतिम वर्ष की नेटवर्क प्रणाली के लिए सॉफ़्टवेयर घटक लिखने से पहले हमें एक स्पष्ट वास्तुशिल्प (आर्किटेक्चरल) योजना की आवश्यकता है।",
+              "Spanish": "Necesitamos un plan arquitectónico claro antes de escribir los componentes de software para el sistema de red de fin de carrera.",
+              "Standard Arabic": "نحن بحاجة إلى خطة بنيوية واضحة قبل كتابة مكونات البرمجيات لنظام الشبكة الخاص بالسنة الأخيرة.",
+              "French": "Nous avons besoin d'un plan architectural clair avant d'écrire les composants logiciels pour le système réseau de fin d'études.",
+              "Bengali": "শেষ বর্ষের নেটওয়ার্ক সিস্টেমের জন্য সফ্টওয়্যার উপাদানগুলি লেখার আগে আমাদের একটি পরিষ্কার স্থাপত্য পরিকল্পনা প্রয়োজন।",
+              "Portuguese": "Precisamos de um plano arquitetônico claro antes de escrever os componentes de software para o sistema de rede do último ano.",
+              "Russian": "Нам нужен четкий архитектурный план перед написанием программных компонентов для сетевой системы выпускного курса.",
+              "Urdu": "آخری سال کے نیٹ ورک سسٹم کے لیے سافٹ ویئر اجزاء لکھنے سے پہلے ہمیں ایک واضح آرکیٹیکچرل پلان کی ضرورت ہے۔",
+              "Indonesian": "Kita memerlukan rencana arsitektur yang jelas sebelum menulis komponen perangkat lunak untuk sistem jaringan tahun terakhir.",
+              "Standard German": "Wir benötigen einen klaren Architekturplan, bevor wir die Softwarekomponenten für das Netzwerksystem im Abschlussjahr schreiben.",
+              "Japanese": "最終学年のネットワークシステムのソフトウェアコンポーネントを記述する前に、明確なアーキテクチャ計画が必要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "objective",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/əbˈdʒektɪv/",
+        "meaning": "A thing aimed at or sought; a target goal or purpose within a structured development environment.",
+        "synonyms": ["goal", "target", "aim"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The main objective of Project Nivesha is to utilize accurate historical analysis to estimate financial trends.",
+            "translations": {
+              "Mandarin Chinese": "Nivesha 项目的主要目标是利用准确的历史分析来预测财务趋势。",
+              "Hindi": "परियोजना (प्रोजेक्ट) निवेशा का मुख्य उद्देश्य वित्तीय प्रवृत्तियों का अनुमान लगाने के लिए सटीक ऐतिहासिक विश्लेषण का उपयोग करना है।",
+              "Spanish": "El objetivo principal del Proyecto Nivesha es utilizar análisis históricos precisos para estimar tendencias financieras.",
+              "Standard Arabic": "الهدف الرئيسي لمشروع Nivesha هو استخدام تحليل تاريخي دقيق لتقدير اتجاهات المال.",
+              "French": "L'objectif principal du Projet Nivesha est d'utiliser une analyse historique précise pour estimer les tendances financières.",
+              "Bengali": "প্রজেক্ট নিবেশার প্রধান উদ্দেশ্য হলো আর্থিক প্রবণতা অনুমান করার জন্য সঠিক ঐতিহাসিক বিশ্লেষণ ব্যবহার করা।",
+              "Portuguese": "O principal objetivo do Projeto Nivesha é utilizar análises históricas precisas para estimar tendências financeiras.",
+              "Russian": "Основная задача проекта «Нивеша» — использовать точный исторический анализ для оценки финансовых тенденций.",
+              "Urdu": "پروجیکٹ نویشا کا بنیادی مقصد مالیاتی رجحانات کا اندازہ لگانے کے لیے درست تاریخی تجزیہ کا استعمال کرنا ہے۔",
+              "Indonesian": "Tujuan utama Proyek Nivesha adalah menggunakan analisis historis yang akurat untuk memperkirakan tren keuangan.",
+              "Standard German": "Das Hauptziel von Projekt Nivesha ist es, präzise historische Analysen zu nutzen, um Finanztrends abzuschätzen.",
+              "Japanese": "プロジェクトNiveshaの主な目的は、正確な履歴分析を利用して財務トレンドを予測することです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "career goal",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/kəˈrɪə(r) ɡəʊl/",
+        "meaning": "A target or milestone an individual desires to reach within their profession or working lifespan.",
+        "synonyms": ["professional ambition", "vocation target"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "His long-term career goal is to work as a chief AI systems architect specializing in decentralized device layouts.",
+            "translations": {
+              "Mandarin Chinese": "他的长期职业目标是担任专门从事去中心化设备布局的首席人工智能系统架构师。",
+              "Hindi": "उनका दीर्घकालिक करियर लक्ष्य एक मुख्य एआई सिस्टम आर्किटेक्ट के रूप में काम करना है जो विकेंद्रीकृत डिवाइस लेआउट में विशेषज्ञता रखता हो।",
+              "Spanish": "Su objetivo profesional a largo plazo es trabajar como arquitecto en jefe de sistemas de IA especializado en diseños de dispositivos descentralizados.",
+              "Standard Arabic": "هدفه المهني طويل الأجل هو العمل ككبير مهندسي أنظمة ذكاء اصطناعي متخصص في تخطيطات الأجهزة اللامركزية.",
+              "French": "Son objectif de carrière à long terme est de travailler en tant que concepteur principal de systèmes d'IA, spécialisé dans les architectures d'appareils décentralisées.",
+              "Bengali": "তার দীর্ঘমেয়াদী কর্মজীবনের লক্ষ্য হলো বিকেন্দ্রীভূত ডিভাইস লেআউটে বিশেষজ্ঞ প্রধান এআই সিস্টেম আর্কিটেক্ট হিসাবে কাজ করা।",
+              "Portuguese": "Seu objetivo de carreira a longo prazo é trabalhar como arquiteto-chefe de sistemas de IA, especializado em layouts de dispositivos descentralizados.",
+              "Russian": "Его долгосрочная карьерная цель — работать главным архитектором систем ИИ, специализирующимся на децентрализованных структурах устройств.",
+              "Urdu": "ان کا طویل مدتی کیریئر کا ہدف ایک چیف اے آئی سسٹم آرکیٹیکٹ کے طور پر کام کرنا ہے جو ڈی سینٹرلائزڈ ڈیوائس لے آؤٹس میں مہارت رکھتا ہو۔",
+              "Indonesian": "Tujuan karier jangka panjangnya adalah bekerja sebagai kepala arsitek sistem AI yang berspesialisasi dalam tata letak perangkat yang terdesentralisasi.",
+              "Standard German": "Sein langfristiges Karriereziel ist es, als Chefarchitekt für KI-Systeme zu arbeiten, der auf dezentrale Gerätelayouts spezialisiert ist.",
+              "Japanese": "彼の長期的なキャリア目標は、分散型デバイスレイアウトを専門とする、チーフAIシステムアーキテクトとして働くことです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "future",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfjuːtʃə(r)/",
+        "meaning": "The time or a period of time following the moment of speaking or writing; time regarded as still to come.",
+        "synonyms": ["tomorrow", "forthcoming", "prospects"],
+        "antonyms": ["past", "history"],
+        "examples": [
+          {
+            "english": "The future of mobile system engineering relies heavily on integrating lightweight intelligence libraries directly onto devices.",
+            "translations": {
+              "Mandarin Chinese": "移动系统工程的未来很大程度上取决于直接将轻量级智能库集成到设备上。",
+              "Hindi": "मोबाइल सिस्टम इंजीनियरिंग का भविष्य सीधे उपकरणों (डिवाइसेज) पर हल्के इंटेलिजेंस लाइब्रेरी को एकीकृत करने पर काफी निर्भर करता है।",
+              "Spanish": "El futuro de la ingeniería de sistemas móviles depende en gran medida de la integración de bibliotecas de inteligencia ligeras directamente en los dispositivos.",
+              "Standard Arabic": "يعتمد مستقبل هندسة الأنظمة المحمولة بشكل كبير على دمج مكتبات الذكاء خفيفة الوزن مباشرة على الأجهزة.",
+              "French": "L'avenir de l'ingénierie des systèmes mobiles repose en grande partie sur l'intégration de bibliotecas d'intelligence légères directement sur les appareils.",
+              "Bengali": "মোবাইল সিস্টেম ইঞ্জিনিয়ারিংয়ের ভবিষ্যত সরাসরি ডিভাইসগুলিতে লাইটওয়েট ইন্টেলিজেন্স লাইব্রেরি একীভূত করার ওপর অনেকটাই নির্ভর করে।",
+              "Portuguese": "O futuro da engenharia de sistemas móveis depende fortemente da integração de bibliotecas de inteligência leves diretamente nos dispositivos.",
+              "Russian": "Будущее мобильного системного проектирования во многом зависит от интеграции легких библиотек искусственного интеллекта непосредственно в устройства.",
+              "Urdu": "موبائل سسٹم انجینئرنگ کا مستقبل براہ راست آلات پر ہلکی پھلکی انٹیلیجنس لائبریریوں کو مربوط کرنے پر بہت زیادہ انحصار کرتا ہے۔",
+              "Indonesian": "Masa depan rekayasa sistem seluler sangat bergantung pada integrasi pustaka kecerdasan ringan langsung ke perangkat.",
+              "Standard German": "Die Zukunft der Mobilsystemtechnik hängt stark von der Integration leichtgewichtiger Intelligenzbibliotheken direkt auf den Geräten ab.",
+              "Japanese": "モバイルシステムエンジニアリングの未来は、軽量なインテリジェンスライブラリをデバイスに直接統合することに大きく依存しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "progress",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈprəʊɡres/",
+        "meaning": "Forward or onward movement toward a destination, milestone, or the successful staging of an active software build.",
+        "synonyms": ["advance", "development", "stride"],
+        "antonyms": ["regression", "decline"],
+        "examples": [
+          {
+            "english": "We check our repository commit history daily to evaluate the progress of our group codebase.",
+            "translations": {
+              "Mandarin Chinese": "我们每天检查代码仓库的提交历史，以评估小组代码库的进展。",
+              "Hindi": "हम अपने समूह कोडबेस की प्रगति का मूल्यांकन करने के लिए प्रतिदिन अपने रिपॉजिटरी कमिट इतिहास (हिस्ट्री) की जांच करते हैं।",
+              "Spanish": "Revisamos el historial de commits de nuestro repositorio diariamente para evaluar el progreso de nuestra base de código grupal.",
+              "Standard Arabic": "نحن نتحقق من سجل التعديلات (Commits) في المستودع يومياً لتقييم تقدم الكود البرمجي الجماعي الخاص بنا.",
+              "French": "Nous vérifions quotidiennement l'historique des commits de notre dépôt pour évaluer la progression de notre base de code de groupe.",
+              "Bengali": "আমাদের গ্রুপ কোডবেসের অগ্রগতি মূল্যায়ন করতে আমরা প্রতিদিন আমাদের সংগ্রহস্থলের কমিট ইতিহাস পরীক্ষা করি।",
+              "Portuguese": "Verificamos o histórico de commits do nosso repositório diariamente para avaliar o progresso de nossa base de código de grupo.",
+              "Russian": "Мы ежедневно проверяем историю коммитов в нашем репозитории, чтобы оценить прогресс групповой базы кода.",
+              "Urdu": "ہم اپنے گروپ کوڈ بیس کی ترقی کا جائزہ لینے کے لیے روزانہ اپنے ریپوزٹری کمٹ ہسٹری کو چیک کرتے ہیں۔",
+              "Indonesian": "Kami memeriksa riwayat komit (commit history) repositori kami setiap hari untuk mengevaluasi kemajuan basis kode kelompok kami.",
+              "Standard German": "Wir überprüfen täglich die Commit-Historie unseres Repositorys, um den Fortschritt unserer Gruppen-Codebasis zu bewerten.",
+              "Japanese": "グループのコードベースの進捗（プログレス）を評価するために、リポジトリのコミット履歴を毎日確認しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "challenge",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtʃælɪndʒ/",
+        "meaning": "A task or situation that tests someone's abilities, demands focused effort, or presents logical engineering complexity.",
+        "synonyms": ["difficulty", "obstacle", "problem"],
+        "antonyms": ["breeze", "easy task"],
+        "examples": [
+          {
+            "english": "Implementing local sensor analytics without wasting battery capacity is a tough challenge for mobile engineering teams.",
+            "translations": {
+              "Mandarin Chinese": "在不浪费电池电量的情况下实现本地传感器分析对于移动工程团队来说是一个艰巨的挑战。",
+              "Hindi": "बैटरी क्षमता को बर्बाद किए बिना स्थानीय सेंसर एनालिटिक्स को लागू करना मोबाइल इंजीनियरिंग टीमों के लिए एक कठिन चुनौती है।",
+              "Spanish": "Implementar análisis de sensores locales sin desperdiciar la capacidad de la batería es un desafío difícil para los equipos de ingeniería móvil.",
+              "Standard Arabic": "يعد تنفيذ تحليلات المستشعرات المحلية دون إهدار سعة البطارية تحدياً صعباً لفرق هندسة الأجهزة المحمولة.",
+              "French": "L'implémentation d'analyses de capteurs locaux sans gaspiller la capacité de la batterie est un défi de taille pour les équipes d'ingénierie mobile.",
+              "Bengali": "ব্যাটারির ক্ষমতা নষ্ট না করে স্থানীয় সেন্সর অ্যানালিটিক্স প্রয়োগ করা মোবাইল ইঞ্জিনিয়ারিং টিমের জন্য একটি কঠিন চ্যালেঞ্জ।",
+              "Portuguese": "Implementar análises de sensores locais sem desperdiçar a capacidade da bateria é um desafio difícil para as equipes de engenharia móvel.",
+              "Russian": "Внедрение локальной аналитики датчиков без потери емкости аккумулятора — сложная задача для команд мобильной разработки.",
+              "Urdu": "بیٹری کی گنجائش کو ضائع کیے بغیر مقامی سینسر اینالیٹکس کو لاگو کرنا موبائل انجینئرنگ ٹیموں کے لیے ایک مشکل چیلنج ہے۔",
+              "Indonesian": "Menerapkan analitik sensor lokal tanpa membuang kapasitas baterai adalah tantangan berat bagi tim rekayasa seluler.",
+              "Standard German": "Die Implementierung lokaler Sensoranalysen ohne Verschwendung von Akkukapazität ist eine schwierige Herausforderung für Teams in der Mobilentwicklung.",
+              "Japanese": "バッテリー容量を浪費せずにローカルセンサーの分析を実装することは、モバイルエンジニアリングチームにとって厳しい挑戦（チャレンジ）です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "decision",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈsɪʒn/",
+        "meaning": "A conclusion or resolution reached after consideration, especially regarding architecture pathways or code rules.",
+        "synonyms": ["verdict", "resolution", "choice"],
+        "antonyms": ["indecision", "hesitation"],
+        "examples": [
+          {
+            "english": "Moving away from a hybrid design system to a native architecture layout was a critical technical decision.",
+            "translations": {
+              "Mandarin Chinese": "从混合设计系统转向原生架构布局是一项关键的技术决定。",
+              "Hindi": "हाइब्रिड डिज़ाइन सिस्टम से हटकर नेटिव आर्किटेक्चर लेआउट पर जाना एक महत्वपूर्ण तकनीकी निर्णय था।",
+              "Spanish": "Pasar de un sistema de diseño híbrido a un diseño de arquitectura nativo fue una decisión técnica crítica.",
+              "Standard Arabic": "كان الانتقال من نظام تصميم هجين إلى تخطيط بنيوي أصلي (Native) قراراً تقنياً حاسماً.",
+              "French": "Abandonner un système de conception hybride au profit d'une architecture native a été une décision technique cruciale.",
+              "Bengali": "একটি হাইব্রিড ডিজাইন সিস্টেম থেকে একটি নেটিভ আর্কিটেকচার লেআউটে চলে যাওয়া একটি জটিল প্রযুক্তিগত সিদ্ধান্ত ছিল।",
+              "Portuguese": "Mudar de um sistema de design híbrido para um layout de arquitetura nativo foi uma decisão técnica crítica.",
+              "Russian": "Переход от гибридной системы проектирования к нативной архитектуре макета был важным техническим решением.",
+              "Urdu": "ہائبرڈ ڈیزائن سسٹم سے ہٹ کر نیٹو آرکیٹیکچر لے آؤٹ پر جانا ایک اہم تکنیکی فیصلہ تھا۔",
+              "Indonesian": "Beralih dari sistem desain hibrida ke tata letak arsitektur asli (native) adalah keputusan teknis yang kritis.",
+              "Standard German": "Der Wechsel von einem hybriden Designsystem zu einem nativen Architektur-Layout war eine kritische technische Entscheidung.",
+              "Japanese": "ハイブリッドなデザインシステムからネイティブなアーキテクチャレイアウトへの移行は、重要な技術的決断でした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "effort",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈefət/",
+        "meaning": "A vigorous or determined attempt to accomplish something, or the expenditure of physical or mental energy.",
+        "synonyms": ["exertion", "endeavor", "energy"],
+        "antonyms": ["laziness", "inactivity"],
+        "examples": [
+          {
+            "english": "Optimizing a local AI framework to run efficiently on standard mobile devices requires substantial engineering effort.",
+            "translations": {
+              "Mandarin Chinese": "优化本地人工智能框架以在标准移动设备上高效运行需要付出大量的工程努力。",
+              "Hindi": "मानक मोबाइल उपकरणों पर कुशलतापूर्वक चलने के लिए स्थानीय एआई फ्रेमवर्क को अनुकूलित करने के लिए पर्याप्त इंजीनियरिंग प्रयास की आवश्यकता होती है।",
+              "Spanish": "Optimizar un marco de IA local para que se ejecute de manera eficiente en dispositivos móviles estándar requiere un esfuerzo de ingeniería sustancial.",
+              "Standard Arabic": "يتطلب تحسين إطار عمل ذكاء اصطناعي محلي ليعمل بكفاءة على الأجهزة المحمولة القياسية جهداً هندسياً كبيراً.",
+              "French": "L'optimisation d'un framework d'IA local pour qu'il fonctionne efficacement sur des appareils mobiles standard nécessite un effort d'ingénierie substantiel.",
+              "Bengali": "স্ট্যান্ডার্ড মোবাইল ডিভাইসগুলিতে দক্ষতার সাথে চালানোর জন্য একটি স্থানীয় এআই ফ্রেমওয়ার্ক অপ্টিমাইজ করার জন্য যথেষ্ট ইঞ্জিনিয়ারিং প্রচেষ্টার প্রয়োজন।",
+              "Portuguese": "Otimizar um framework de IA local para rodar eficientemente em dispositivos móveis padrão requer um esforço de engenharia substancial.",
+              "Russian": "Оптимизация локального ИИ-фреймворка для эффективной работы на стандартных мобильных устройствах требует значительных инженерных усилий.",
+              "Urdu": "اسٹینڈرڈ موبائل آلات پر موثر طریقے سے چلانے کے لیے مقامی AI فریم ورک کو بہتر بنانے کے لیے کافی انجینئرنگ کوشش کی ضرورت ہوتی ہے۔",
+              "Indonesian": "Mengoptimalkan kerangka kerja AI lokal agar berjalan efisien pada perangkat seluler standar memerlukan upaya rekayasa yang besar.",
+              "Standard German": "Die Optimierung eines lokalen KI-Frameworks für die effiziente Ausführung auf Standard-Mobilgeräten erfordert erheblichen Entwicklungsaufwand.",
+              "Japanese": "標準的なモバイルデバイス上で効率的に動作するようにローカルAIフレームワークを最適化するには、かなりのエンジニアリングの労力（エフォート）が必要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "focus",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfəʊkəs/",
+        "meaning": "The center of interest or activity, or the state of concentrating clear attention on a specific objective or layout theme.",
+        "synonyms": ["concentration", "core", "center"],
+        "antonyms": ["distraction"],
+        "examples": [
+          {
+            "english": "The main focus of the application design was high-contrast dark visual tones, emphasizing an obsidian theme.",
+            "translations": {
+              "Mandarin Chinese": "该应用程序设计的主要焦点是高对比度的深色视觉色调，强调黑曜石主题。",
+              "Hindi": "एप्लिकेशन डिज़ाइन का मुख्य फोकस उच्च-विपरीत (हाई-कॉन्ट्रास्ट) गहरे दृश्य टोन थे, जो ओब्सीडियन थीम पर जोर देते थे।",
+              "Spanish": "El enfoque principal del diseño de la aplicación fueron los tonos visuales oscuros de alto contraste, enfatizando un tema de obsidiana.",
+              "Standard Arabic": "كان التركيز الرئيسي لتصميم التطبيق هو النغمات البصرية الداكنة عالية التباين، مع التركيز على سمة السج (الأوبسيديان).",
+              "French": "Le focus principal de la conception de l'application portait sur des tons visuels sombres à contraste élevé, mettant en valeur un thème obsidienne.",
+              "Bengali": "অ্যাপ্লিকেশন ডিজাইনের মূল ফোকাস ছিল উচ্চ-বৈসাদৃশ্য ডার্ক ভিজ্যুয়াল টোন, যা একটি অবসিডিয়ান থিমকে জোর দেয়।",
+              "Portuguese": "O foco principal do design do aplicativo foram os tons visuais escuros de alto contraste, enfatizando um tema de obsidiana.",
+              "Russian": "Основной упор в дизайне приложения был сделан на высококонтрастные темные визуальные тона с акцентом на обсидиановую тему.",
+              "Urdu": "ایپلی کیشن ڈیزائن کا بنیادی مرکز ہائی کانٹراسٹ ڈارک بصری ٹونز تھے، جو اوبسیڈین تھیم پر زور دیتے تھے۔",
+              "Indonesian": "Fokus utama dari desain aplikasi ini adalah nada visual gelap kontras tinggi, menekankan tema obsidian.",
+              "Standard German": "Der Hauptfokus des Anwendungsdesigns lag auf kontrastreichen, dunklen visuellen Tönen, die ein Obsidian-Thema betonten.",
+              "Japanese": "アプリケーションデザインの主な焦点（フォーカス）は高コントラストのダークな視覚トーンであり、オブシディアンのテーマが強調されていました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "ambition",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/æmˈbɪʃn/",
+        "meaning": "A strong desire to do or to achieve something, typically requiring determination, skill, and hard work.",
+        "synonyms": ["aspiration", "drive", "eagerness"],
+        "antonyms": ["apathy", "laziness"],
+        "examples": [
+          {
+            "english": "His professional ambition is to build full-stack utility solutions that function entirely without server connectivity.",
+            "translations": {
+              "High-contrast Dark": "他的职业雄心是构建完全不需要服务器连接的全栈实用解决方案。",
+              "Hindi": "उनकी व्यावसायिक महत्वाकांक्षा (महत्वाकांक्षा) ऐसे फुल-स्टैक उपयोगिता समाधान बनाने की है जो सर्वर कनेक्टिविटी के बिना पूरी तरह से काम करते हों।",
+              "Spanish": "Su ambición profesional es crear soluciones de utilidad full-stack que funcionen completamente sin conectividad con el servidor.",
+              "Standard Arabic": "طموحه المهني هو بناء حلول أدوات شاملة (Full-Stack) تعمل بالكامل دون اتصال بالخادم.",
+              "French": "Son ambition professionnelle est de concevoir des solutions utilitaires full-stack fonctionnant entièrement sans connectivité serveur.",
+              "Bengali": "তার পেশাদার উচ্চাকাঙ্ক্ষা হলো ফুল-স্ট্যাক ইউটিলিটি সমাধান তৈরি করা যা সার্ভার সংযোগ ছাড়াই সম্পূর্ণরূপে কাজ করে।",
+              "Portuguese": "Sua ambição profissional é construir soluções de utilidade full-stack que funcionem totalmente sem conectividade de servidor.",
+              "Russian": "Его профессиональные амбиции заключаются в создании фулстек-утилит, которые работают полностью без подключения к серверу.",
+              "Urdu": "اس کا پیشہ ورانہ عزم ایسے فل اسٹیک یوٹیلیٹی سلوشنز بنانا ہے جو سرور کنیکٹیویٹی کے بغیر مکمل طور پر کام کرتے ہوں۔",
+              "Indonesian": "Ambisi profesionalnya adalah membangun solusi utilitas full-stack yang berfungsi penuh tanpa konektivitas server.",
+              "Standard German": "Seine berufliche Ambition ist es, Full-Stack-Utility-Lösungen zu bauen, die völlig ohne Serververbindung funktionieren.",
+              "Japanese": "彼の専門的な野心（アンビション）は、サーバーとの接続がなくても完全に機能するフルスタックのユーティリティソリューションを構築することです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "opportunity",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɒpəˈtjuːnəti/",
+        "meaning": "A set of circumstances that makes it possible to do something, or a favorable opening for progress or career development.",
+        "synonyms": ["chance", "opening", "prospect"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Working on Project OmniBoard AI provided a perfect opportunity to master offline device intelligence models.",
+            "translations": {
+              "Mandarin Chinese": "参与 Project OmniBoard AI 项目提供了一个掌握离线设备智能模型的绝佳机会。",
+              "Hindi": "प्रोजेक्ट ओम्नीबोर्ड एआई (OmniBoard AI) पर काम करने से ऑफ़लाइन डिवाइस इंटेलिजेंस मॉडल में महारत हासिल करने का एक सही अवसर मिला।",
+              "Spanish": "Trabajar en el Proyecto OmniBoard AI brindó una oportunidad perfecta para dominar los modelos de inteligencia de dispositivos sin conexión.",
+              "Standard Arabic": "وفر العمل على مشروع OmniBoard AI فرصة مثالية لإتقان نماذج ذكاء الأجهزة غير المتصلة بالإنترنت.",
+              "French": "Travailler sur le Projet OmniBoard AI a fourni une opportunité parfaite pour maîtriser les modèles d'intelligence d'appareils hors ligne.",
+              "Bengali": "প্রজেক্ট ওমনিবোর্ড এআই-তে কাজ করা অফলাইন ডিভাইস ইন্টেলিজেন্স মডেলগুলিতে দক্ষতা অর্জনের একটি নিখুঁত সুযোগ প্রদান করেছিল।",
+              "Portuguese": "Trabalhar no Projeto OmniBoard AI ofereceu uma oportunidade perfeita para dominar os modelos de inteligência de dispositivos offline.",
+              "Russian": "Работа над проектом OmniBoard AI предоставила прекрасную возможность освоить модели автономного искусственного интеллекта для устройств.",
+              "Urdu": "پروجیکٹ OmniBoard AI پر کام کرنے نے آف لائن ڈیوائس انٹیلیجنس ماڈلز پر عبور حاصل کرنے کا ایک بہترین موقع فراہم کیا۔",
+              "Indonesian": "Bekerja di Proyek OmniBoard AI memberikan kesempatan sempurna untuk menguasai model kecerdasan perangkat luring.",
+              "Standard German": "Die Arbeit an Projekt OmniBoard AI bot die perfekte Gelegenheit, Offline-Geräteintelligenzmodelle zu meistern.",
+              "Japanese": "プロジェクトOmniBoard AIへの取り組みは、オフラインのデバイスインテリジェンスモデルを習得する絶好の機会（オポチュニティ）となりました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "determination",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˌtɜːmɪˈneɪʃn/",
+        "meaning": "Firmness of purpose; resoluteness in reaching a desired milestone despite structural obstacles.",
+        "synonyms": ["resolve", "persistence", "tenacity"],
+        "antonyms": ["indecision", "weakness"],
+        "examples": [
+          {
+            "english": "His determination to fix the sensor memory leak kept him coding late into the night.",
+            "translations": {
+              "Mandarin Chinese": "他修复传感器内存泄漏的决心让他编码到深夜。",
+              "Hindi": "सेंसर मेमोरी लीक को ठीक करने के उनके दृढ़ संकल्प ने उन्हें देर रात तक कोडिंग करने में लगाए रखा।",
+              "Spanish": "Su determinación por solucionar la fuga de memoria del sensor lo mantuvo programando hasta altas horas de la noche.",
+              "Standard Arabic": "إن تصميمه على إصلاح تسريب ذاكرة المستشعر جعله يستمر في البرمجة حتى وقت متأخر من الليل.",
+              "French": "Sa détermination à corriger la fuite de mémoire du capteur l'a poussé à coder tard dans la nuit.",
+              "Bengali": "সেন্সর মেমরি লিক ঠিক করার জন্য তার দৃঢ় সংকল্প তাকে গভীর রাত পর্যন্ত কোডিং করতে বাধ্য করেছিল।",
+              "Portuguese": "Sua determinação em corrigir o vazamento de memória do sensor o manteve programando até tarde da noite.",
+              "Russian": "Его решимость устранить утечку памяти датчика заставляла его писать код до поздней ночи.",
+              "Urdu": "سینسر میموری لیک کو ٹھیک کرنے کے اس کے عزم نے اسے دیر رات تک کوڈنگ کرنے پر مجبور رکھا۔",
+              "Indonesian": "Tekadnya untuk memperbaiki kebocoran memori sensor membuatnya tetap menulis kode hingga larut malam.",
+              "Standard German": "Seine Entschlossenheit, das Speicherleck des Sensors zu beheben, ließ ihn bis spät in die Nacht codieren.",
+              "Japanese": "センサーのメモリリークを修正するという彼の強い意志（デtermination）が、深夜までのコーディングを支えていました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "personal growth",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpɜːsənl ɡrəʊθ/",
+        "meaning": "The ongoing process of understanding oneself and developing new skills to reach full capability.",
+        "synonyms": ["self-development", "self-improvement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Learning advanced architectural patterns contributes significantly to an engineer's professional and personal growth.",
+            "translations": {
+              "Mandarin Chinese": "学习先进的架构模式对工程师的专业和个人成长有显着贡献。",
+              "Hindi": "उन्नत वास्तुशिल्प (एडवांस्ड आर्किटेक्चरल) पैटर्न सीखना एक इंजीनियर के व्यावसायिक और व्यक्तिगत विकास में महत्वपूर्ण योगदान देता है।",
+              "Spanish": "Aprender patrones arquitectónicos avanzados contribuye significativamente al crecimiento profesional y personal de un ingeniero.",
+              "Standard Arabic": "يساهم تعلم الأنماط البنيوية المتقدمة بشكل كبير في النمو المهني والشخصي للمهندس.",
+              "French": "L'apprentissage de modèles architecturaux avancés contribue de manière significative à la croissance professionnelle et personnelle d'un ingénieur.",
+              "Bengali": "উন্নত আর্কিটেকচারাল প্যাটার্ন শেখা একজন ইঞ্জিনিয়ারের পেশাদার এবং ব্যক্তিগত বৃদ্ধিতে উল্লেখযোগ্য অবদান রাখে।",
+              "Portuguese": "Aprender padrões arquitetônicos avançados contribui significativamente para o crescimento profissional e pessoal de um engenheiro.",
+              "Russian": "Изучение передовых архитектурных паттернов вносит значительный вклад в профессиональный и личный рост инженера.",
+              "Urdu": "جدید آرکیٹیکچرل پیٹرنز سیکھنا ایک انجینئر کی پیشہ ورانہ اور ذاتی ترقی میں نمایاں مدد دیتا ہے۔",
+              "Indonesian": "Mempelajari pola arsitektur tingkat lanjut berkontribusi secara signifikan terhadap pertumbuhan profesional dan pribadi seorang insinyur.",
+              "Standard German": "Das Erlernen fortgeschrittener Architekturmuster trägt erheblich zum beruflichen und persönlichen Wachstum eines Ingenieurs bei.",
+              "Japanese": "高度なアーキテクチャパターンを学ぶことは、エンジニアの専門的・個人的な成長に大きく貢献します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "target",
+        "level": "B1",
+        "category": "Goals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtɑːɡɪt/",
+        "meaning": "An objective or result towards which efforts are directed, or a specific metric milestone to achieve.",
+        "synonyms": ["goal", "objective", "destination"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Our target was to achieve a sub-100ms response time for the offline database lookup queries.",
+            "translations": {
+              "Mandarin Chinese": "我们的目标是将离线数据库查找查询的响应时间控制在 100 毫秒以内。",
+              "Hindi": "हमारा लक्ष्य ऑफ़लाइन डेटाबेस लुकअप प्रश्नों (क्वेरीज) के लिए 100ms से कम प्रतिक्रिया समय प्राप्त करना था।",
+              "Spanish": "Nuestro objetivo era lograr un tiempo de respuesta inferior a 100ms para las consultas de búsqueda de la base de datos sin conexión.",
+              "Standard Arabic": "كان هدفنا هو تحقيق وقت استجابة أقل من 100 ملي ثانية لطلبات البحث في قاعدة البيانات غير المتصلة بالإنترنت.",
+              "French": "Notre objectif était d'obtenir un temps de réponse inférieur à 100ms pour les requêtes de recherche dans la base de datos hors ligne.",
+              "Bengali": "আমাদের লক্ষ্য ছিল অফলাইন ডাটাবেস সন্ধানের কোয়েরির জন্য 100ms-এর কম প্রতিক্রিয়া সময় অর্জন করা।",
+              "Portuguese": "Nossa meta era atingir um tempo de resposta inferior a 100ms para as consultas de pesquisa no banco de dados offline.",
+              "Russian": "Нашей целью было достижение времени отклика менее 100 мс для запросов поиска в автономной базе данных.",
+              "Urdu": "ہمارا ہدف آف لائن ڈیٹا بیس لک اپ کوئریز کے لیے 100ms سے کم رسپانس ٹائم حاصل کرنا تھا۔",
+              "Indonesian": "Target kami adalah mencapai waktu respons di bawah 100 md untuk kueri pencarian basis data luring.",
+              "Standard German": "Unser Ziel war es, eine Antwortzeit von unter 100 ms für die Offline-Datenbankabfragen zu erreichen.",
+              "Japanese": "私たちの目標（ターゲット）は、オフラインデータベースの検索クエリに対して100ミリ秒未満のレスポンスタイムを達成することでした。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

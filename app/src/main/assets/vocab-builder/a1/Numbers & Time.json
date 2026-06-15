@@ -1,0 +1,218 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "400-500",
+  "source": "Foundational English Communication",
+  "categories": {
+    "Numbers & Time": [
+      {
+        "word": "zero",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "number/noun",
+        "pronunciation": "/ˈzɪəroʊ/",
+        "meaning": "The number 0.",
+        "synonyms": ["nought", "nil"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The temperature is zero degrees.",
+            "translations": {
+              "Mandarin Chinese": "气温是零度。",
+              "Spanish": "La temperatura es de cero grados."
+            }
+          }
+        ]
+      },
+      {
+        "word": "one",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "number",
+        "pronunciation": "/wʌn/",
+        "meaning": "The number 1.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I have one brother.",
+            "translations": {
+              "Mandarin Chinese": "我有一个哥哥。",
+              "Spanish": "Tengo un hermano."
+            }
+          }
+        ]
+      },
+      {
+        "word": "first",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "ordinal number",
+        "pronunciation": "/fɜːrst/",
+        "meaning": "Coming before all others in time or order.",
+        "synonyms": [],
+        "antonyms": ["last"],
+        "examples": [
+          {
+            "english": "This is my first time here.",
+            "translations": {
+              "Mandarin Chinese": "这是我第一次来这里。",
+              "Spanish": "Esta es mi primera vez aquí."
+            }
+          }
+        ]
+      },
+      {
+        "word": "time",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "noun",
+        "pronunciation": "/taɪm/",
+        "meaning": "The indefinite continued progress of existence.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "What time is it?",
+            "translations": {
+              "Mandarin Chinese": "现在几点？",
+              "Spanish": "¿Qué hora es?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "hour",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈaʊər/",
+        "meaning": "A period of 60 minutes.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I will be back in one hour.",
+            "translations": {
+              "Mandarin Chinese": "我一小时后回来。",
+              "Spanish": "Volveré en una hora."
+            }
+          }
+        ]
+      },
+      {
+        "word": "minute",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmɪnɪt/",
+        "meaning": "A period of 60 seconds.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Wait a minute, please.",
+            "translations": {
+              "Mandarin Chinese": "请等一分钟。",
+              "Spanish": "Espera un minuto, por favor."
+            }
+          }
+        ]
+      },
+      {
+        "word": "today",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "adverb/noun",
+        "pronunciation": "/təˈdeɪ/",
+        "meaning": "On this present day.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Today is Monday.",
+            "translations": {
+              "Mandarin Chinese": "今天是星期一。",
+              "Spanish": "Hoy es lunes."
+            }
+          }
+        ]
+      },
+      {
+        "word": "tomorrow",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "adverb/noun",
+        "pronunciation": "/təˈmɔːroʊ/",
+        "meaning": "On the day after today.",
+        "synonyms": [],
+        "antonyms": ["yesterday"],
+        "examples": [
+          {
+            "english": "See you tomorrow.",
+            "translations": {
+              "Mandarin Chinese": "明天见。",
+              "Spanish": "Nos vemos mañana."
+            }
+          }
+        ]
+      },
+      {
+        "word": "yesterday",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "adverb/noun",
+        "pronunciation": "/ˈjestərddeɪ/",
+        "meaning": "On the day before today.",
+        "synonyms": [],
+        "antonyms": ["tomorrow"],
+        "examples": [
+          {
+            "english": "I was busy yesterday.",
+            "translations": {
+              "Mandarin Chinese": "我昨天很忙。",
+              "Spanish": "Estuve ocupado ayer."
+            }
+          }
+        ]
+      },
+      {
+        "word": "week",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "noun",
+        "pronunciation": "/wiːk/",
+        "meaning": "A period of seven days.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "See you next week.",
+            "translations": {
+              "Mandarin Chinese": "下周见。",
+              "Spanish": "Nos vemos la próxima semana."
+            }
+          }
+        ]
+      },
+      {
+        "word": "monday",
+        "level": "A1",
+        "category": "Numbers & Time",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmʌndeɪ/",
+        "meaning": "The day of the week after Sunday and before Tuesday.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I have school on Monday.",
+            "translations": {
+              "Mandarin Chinese": "我周一有课。",
+              "Spanish": "Tengo clases el lunes."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

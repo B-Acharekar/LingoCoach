@@ -1,0 +1,469 @@
+{
+  "level": "B2",
+  "approx_words": "800-1200",
+  "source": "Professional Business English",
+  "categories": {
+    "Business": [
+      {
+        "word": "entrepreneur",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɑːntrəprəˈnɜːr/",
+        "meaning": "A person who organizes and operates a business, taking on greater than normal financial risks to do so.",
+        "synonyms": ["founder", "businessperson"],
+        "antonyms": ["employee"],
+        "examples": [
+          {
+            "english": "The young entrepreneur turned her small idea into a global success.",
+            "translations": {
+              "Mandarin Chinese": "这位年轻的企业家将她的小点子变成了一项全球性的成功事业。",
+              "Hindi": "युवा उद्यमी ने अपने छोटे से विचार को एक वैश्विक सफलता में बदल दिया।",
+              "Spanish": "La joven emprendedora convirtió su pequeña idea en un éxito mundial.",
+              "Standard Arabic": "حول رائد الأعمال الشاب فكرته الصغيرة إلى نجاح عالمي.",
+              "French": "La jeune entrepreneure a transformé sa petite idée en un succès mondial.",
+              "Japanese": "その若い起業家は、自分の小さなアイデアを世界的な成功へと変えました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "investment",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪnˈvestmənt/",
+        "meaning": "The action of putting money into a venture with the expectation of achieving a profit.",
+        "synonyms": ["funding", "capital injection"],
+        "antonyms": ["divestment"],
+        "examples": [
+          {
+            "english": "The company is seeking a large investment to fund its expansion.",
+            "translations": {
+              "Mandarin Chinese": "公司正在寻求大量投资以资助其扩张。",
+              "Hindi": "कंपनी अपने विस्तार को निधि देने के लिए एक बड़े निवेश की तलाश कर रही है।",
+              "Spanish": "La empresa busca una gran inversión para financiar su expansión.",
+              "Standard Arabic": "تسعى الشركة للحصول على استثمار كبير لتمويل توسعها.",
+              "French": "L'entreprise cherche un investissement important pour financer son expansion.",
+              "Japanese": "その会社は拡大資金として多額の投資を求めている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "corporation",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɔːrpəˈreɪʃn/",
+        "meaning": "A large company or group of companies authorized to act as a single entity.",
+        "synonyms": ["enterprise", "conglomerate"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He has worked for a multinational corporation for over a decade.",
+            "translations": {
+              "Mandarin Chinese": "他在一家跨国企业工作了十多年。",
+              "Hindi": "उसने एक बहुराष्ट्रीय निगम के लिए एक दशक से अधिक समय तक काम किया है।",
+              "Spanish": "Ha trabajado para una corporación multinacional durante más de una década.",
+              "Standard Arabic": "لقد عمل لدى شركة متعددة الجنسيات لأكثر من عقد من الزمان.",
+              "French": "Il travaille pour une société multinationale depuis plus de dix ans.",
+              "Japanese": "彼は多国籍企業で10年以上働いている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "partnership",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpɑːrtnərʃɪp/",
+        "meaning": "A legal relationship between two or more parties who carry on a business together for profit.",
+        "synonyms": ["collaboration", "alliance"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "They formed a strategic partnership to share resources.",
+            "translations": {
+              "Mandarin Chinese": "他们建立了战略合作伙伴关系以共享资源。",
+              "Hindi": "संसाधनों को साझा करने के लिए उन्होंने एक रणनीतिक साझेदारी बनाई।",
+              "Spanish": "Formaron una asociación estratégica para compartir recursos.",
+              "Standard Arabic": "لقد شكلوا شراكة استراتيجية لمشاركة الموارد.",
+              "French": "Ils ont formé un partenariat stratégique pour partager les ressources.",
+              "Japanese": "彼らはリソースを共有するために戦略的パートナーシップを形成した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "marketing",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmɑːrkɪtɪŋ/",
+        "meaning": "The action of promoting and selling products or services.",
+        "synonyms": ["promotion", "advertising"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Their new marketing campaign focuses on social media influencers.",
+            "translations": {
+              "Mandarin Chinese": "他们新的营销活动专注于社交媒体影响者。",
+              "Hindi": "उनका नया मार्केटिंग अभियान सोशल मीडिया इन्फ्लुएंसर्स पर केंद्रित है।",
+              "Spanish": "Su nueva campaña de marketing se centra en los influencers de redes sociales.",
+              "Standard Arabic": "تركز حملتهم التسويقية الجديدة على المؤثرين في وسائل التواصل الاجتماعي.",
+              "French": "Leur nouvelle campagne marketing se concentre sur les influenceurs des réseaux sociaux.",
+              "Japanese": "彼らの新しいマーケティングキャンペーンは、ソーシャルメディアのインフルエンサーに焦点を当てている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "advertisement",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ədˈvɜːrtɪsmənt/",
+        "meaning": "A notice or announcement in a public medium promoting a product.",
+        "synonyms": ["ad", "commercial"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We saw an advertisement for the new smartphone during the game.",
+            "translations": {
+              "Mandarin Chinese": "比赛期间我们看到了新款智能手机的广告。",
+              "Hindi": "खेल के दौरान हमने नए स्मार्टफोन का विज्ञापन देखा।",
+              "Spanish": "Vimos un anuncio del nuevo teléfono inteligente durante el partido.",
+              "Standard Arabic": "رأينا إعلاناً للهاتف الذكي الجديد أثناء المباراة.",
+              "French": "Nous avons vu une publicité pour le nouveau smartphone pendant le match.",
+              "Japanese": "試合中に新しいスマートフォンの広告を見た。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "consumer behavior",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/kənˈsuːmər bɪˈheɪvjər/",
+        "meaning": "The study of how individuals select and use products.",
+        "synonyms": ["buyer habits"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Understanding consumer behavior is vital for designing effective products.",
+            "translations": {
+              "Mandarin Chinese": "了解消费者行为对于设计有效的产品至关重要。",
+              "Hindi": "प्रभावी उत्पादों को डिजाइन करने के लिए उपभोक्ता व्यवहार को समझना महत्वपूर्ण है।",
+              "Spanish": "Comprender el comportamiento del consumidor es vital para diseñar productos eficaces.",
+              "Standard Arabic": "فهم سلوك المستهلك أمر حيوي لتصميم منتجات فعالة.",
+              "French": "Comprendre le comportement du consommateur est essentiel pour concevoir des produits efficaces.",
+              "Japanese": "効果的な製品を設計するには、消費者行動を理解することが不可欠である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "brand identity",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/brænd aɪˈdentəti/",
+        "meaning": "The visible elements of a brand that distinguish it in the consumer's mind.",
+        "synonyms": ["brand image", "corporate identity"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Consistent messaging is essential to maintain a strong brand identity.",
+            "translations": {
+              "Mandarin Chinese": "一致的信息传达对于保持强大的品牌形象至关重要。",
+              "Hindi": "एक मजबूत ब्रांड पहचान बनाए रखने के लिए लगातार संदेश देना आवश्यक है।",
+              "Spanish": "Es esencial un mensaje coherente para mantener una identidad de marca sólida.",
+              "Standard Arabic": "الرسائل المتسقة ضرورية للحفاظ على هوية علامة تجارية قوية.",
+              "French": "Une communication cohérente est essentielle pour maintenir une identité de marque forte.",
+              "Japanese": "強力なブランドアイデンティティを維持するには、一貫したメッセージの発信が不可欠である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "management",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmænɪdʒmənt/",
+        "meaning": "The process of dealing with or controlling things or people within an organization.",
+        "synonyms": ["administration", "leadership"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The new management team implemented several cost-cutting measures.",
+            "translations": {
+              "Mandarin Chinese": "新的管理团队实施了几项削减成本的措施。",
+              "Hindi": "नई प्रबंधन टीम ने कई लागत-कटौती के उपाय लागू किए।",
+              "Spanish": "El nuevo equipo directivo implementó varias medidas de reducción de costos.",
+              "Standard Arabic": "نفذ فريق الإدارة الجديد عدة تدابير لخفض التكاليف.",
+              "French": "La nouvelle équipe de direction a mis en œuvre plusieurs mesures de réduction des coûts.",
+              "Japanese": "新しい経営陣はいくつかのコスト削減策を実施した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "strategy",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈstrætədʒi/",
+        "meaning": "A plan of action designed to achieve a long-term aim.",
+        "synonyms": ["plan", "blueprint"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We need to rethink our pricing strategy to compete with the new rivals.",
+            "translations": {
+              "Mandarin Chinese": "我们需要重新思考我们的定价策略以与新竞争对手竞争。",
+              "Hindi": "हमें नए प्रतिस्पर्धियों के साथ प्रतिस्पर्धा करने के लिए अपनी मूल्य निर्धारण रणनीति पर पुनर्विचार करने की आवश्यकता है।",
+              "Spanish": "Necesitamos repensar nuestra estrategia de precios para competir con los nuevos rivales.",
+              "Standard Arabic": "نحتاج إلى إعادة التفكير في استراتيجية التسعير الخاصة بنا للتنافس مع المنافسين الجدد.",
+              "French": "Nous devons repenser notre stratégie de prix pour rivaliser avec les nouveaux concurrents.",
+              "Japanese": "新たな競合他社と競争するために、価格戦略を見直す必要がある。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "negotiation",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/nɪˌɡoʊʃiˈeɪʃn/",
+        "meaning": "A discussion aimed at reaching an agreement.",
+        "synonyms": ["bargaining", "deal-making"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The negotiation for the new contract lasted for several weeks.",
+            "translations": {
+              "Mandarin Chinese": "新合同的谈判持续了数周。",
+              "Hindi": "नए अनुबंध के लिए बातचीत कई हफ्तों तक चली।",
+              "Spanish": "La negociación del nuevo contrato duró varias semanas.",
+              "Standard Arabic": "استمرت المفاوضات بشأن العقد الجديد لعدة أسابيع.",
+              "French": "La négociation du nouveau contrat a duré plusieurs semaines.",
+              "Japanese": "新しい契約の交渉は数週間続いた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "competition",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɑːmpəˈtɪʃn/",
+        "meaning": "The activity or condition of competing with others for profit or market share.",
+        "synonyms": ["rivalry", "market contest"],
+        "antonyms": ["cooperation"],
+        "examples": [
+          {
+            "english": "The intense competition forced the company to lower its prices.",
+            "translations": {
+              "Mandarin Chinese": "激烈的竞争迫使公司降低了价格。",
+              "Hindi": "तीव्र प्रतिस्पर्धा ने कंपनी को अपनी कीमतें कम करने के लिए मजबूर किया।",
+              "Spanish": "La intensa competencia obligó a la empresa a bajar sus precios.",
+              "Standard Arabic": "أجبرت المنافسة الشديدة الشركة على خفض أسعارها.",
+              "French": "La concurrence intense a contraint l'entreprise à baisser ses prix.",
+              "Japanese": "激しい競争により、その会社は価格を下げざるを得なくなった。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "revenue",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈrevənuː/",
+        "meaning": "Income, especially when of a company or organization and of a substantial nature.",
+        "synonyms": ["turnover", "income"],
+        "antonyms": ["expenditure"],
+        "examples": [
+          {
+            "english": "The company reported a record increase in quarterly revenue.",
+            "translations": {
+              "Mandarin Chinese": "公司报告称季度收入创历史新高。",
+              "Hindi": "कंपनी ने तिमाही राजस्व में रिकॉर्ड वृद्धि की सूचना दी।",
+              "Spanish": "La empresa informó un aumento récord en los ingresos trimestrales.",
+              "Standard Arabic": "أعلنت الشركة عن زيادة قياسية في الإيرادات الربع سنوية.",
+              "French": "L'entreprise a enregistré une augmentation record de son chiffre d'affaires trimestriel.",
+              "Japanese": "同社は四半期収益が過去最高を記録したと報告した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "profit margin",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈprɑːfɪt mɑːrdʒɪn/",
+        "meaning": "The amount by which revenue from sales exceeds costs, expressed as a percentage.",
+        "synonyms": ["net margin"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Despite high sales, the profit margin remained quite low.",
+            "translations": {
+              "Mandarin Chinese": "尽管销售额很高，但利润率仍然很低。",
+              "Hindi": "उच्च बिक्री के बावजूद, लाभ मार्जिन काफी कम रहा।",
+              "Spanish": "A pesar de las altas ventas, el margen de beneficio se mantuvo bastante bajo.",
+              "Standard Arabic": "على الرغم من المبيعات المرتفعة، ظل هامش الربح منخفضاً جداً.",
+              "French": "Malgré des ventes élevées, la marge bénéficiaire est restée assez faible.",
+              "Japanese": "売上高は高いものの、利益率はかなり低いままだった。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "stakeholder",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsteɪkhoʊldər/",
+        "meaning": "A person with an interest or concern in something, especially a business.",
+        "synonyms": ["interested party", "investor"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We must consider the needs of every stakeholder before making this change.",
+            "translations": {
+              "Mandarin Chinese": "在做出此项改变之前，我们必须考虑每一位利益相关者的需求。",
+              "Hindi": "यह बदलाव करने से पहले हमें प्रत्येक हितधारक की जरूरतों पर विचार करना चाहिए।",
+              "Spanish": "Debemos considerar las necesidades de cada parte interesada antes de realizar este cambio.",
+              "Standard Arabic": "يجب أن نأخذ في الاعتبار احتياجات كل صاحب مصلحة قبل إجراء هذا التغيير.",
+              "French": "Nous devons tenir compte des besoins de chaque partie prenante avant d'effectuer ce changement.",
+              "Japanese": "この変更を行う前に、すべてのステークホルダーのニーズを考慮しなければならない。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "product launch",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈprɑːdʌkt lɔːntʃ/",
+        "meaning": "The process of introducing a new product to the market.",
+        "synonyms": ["market release"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The marketing team is preparing for the global product launch next month.",
+            "translations": {
+              "Mandarin Chinese": "营销团队正在为下个月的全球产品发布做准备。",
+              "Hindi": "मार्केटिंग टीम अगले महीने वैश्विक उत्पाद लॉन्च की तैयारी कर रही है।",
+              "Spanish": "El equipo de marketing se está preparando para el lanzamiento global del producto el próximo mes.",
+              "Standard Arabic": "يستعد فريق التسويق لإطلاق المنتج عالمياً الشهر المقبل.",
+              "French": "L'équipe marketing se prépare pour le lancement mondial du produit le mois prochain.",
+              "Japanese": "マーケティングチームは来月の世界的な製品ローンチに向けて準備を進めている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "innovation",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɪnəˈveɪʃn/",
+        "meaning": "The action of innovating; a new method, idea, or product.",
+        "synonyms": ["modernization", "breakthrough"],
+        "antonyms": ["stagnation"],
+        "examples": [
+          {
+            "english": "Technological innovation has allowed us to increase production speed.",
+            "translations": {
+              "Mandarin Chinese": "技术创新使我们能够提高生产速度。",
+              "Hindi": "तकनीकी नवाचार ने हमें उत्पादन गति बढ़ाने की अनुमति दी है।",
+              "Spanish": "La innovación tecnológica nos ha permitido aumentar la velocidad de producción.",
+              "Standard Arabic": "سمح لنا الابتكار التكنولوجي بزيادة سرعة الإنتاج.",
+              "French": "L'innovation technologique nous a permis d'augmenter la vitesse de production.",
+              "Japanese": "技術革新により、生産スピードを上げることができた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "business model",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈbɪznəs ˌmɑːdl/",
+        "meaning": "A design for the successful operation of a business.",
+        "synonyms": ["revenue strategy"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "They changed their business model to focus on a subscription service.",
+            "translations": {
+              "Mandarin Chinese": "他们改变了商业模式，专注于订阅服务。",
+              "Hindi": "उन्होंने अपने व्यवसाय मॉडल को सब्सक्रिप्शन सेवा पर ध्यान केंद्रित करने के लिए बदल दिया।",
+              "Spanish": "Cambiaron su modelo de negocio para centrarse en un servicio de suscripción.",
+              "Standard Arabic": "لقد غيروا نموذج عملهم للتركيز على خدمة الاشتراك.",
+              "French": "Ils ont modifié leur modèle économique pour se concentrer sur un service d'abonnement.",
+              "Japanese": "彼らはサブスクリプションサービスに焦点を当てるようビジネスモデルを変更した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "supply chain",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/səˈplaɪ tʃeɪn/",
+        "meaning": "The sequence of processes involved in the production and distribution of a commodity.",
+        "synonyms": ["logistics network"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Disruptions in the supply chain caused significant delays in delivery.",
+            "translations": {
+              "Mandarin Chinese": "供应链的中断导致交付严重延误。",
+              "Hindi": "आपूर्ति श्रृंखला में व्यवधानों के कारण डिलीवरी में महत्वपूर्ण देरी हुई।",
+              "Spanish": "Las interrupciones en la cadena de suministro causaron retrasos significativos en la entrega.",
+              "Standard Arabic": "تسببت الاضطرابات في سلسلة التوريد في تأخيرات كبيرة في التسليم.",
+              "French": "Les perturbations de la chaîne d'approvisionnement ont causé des retards importants dans les livraisons.",
+              "Japanese": "サプライチェーンの混乱により、配送に大幅な遅延が生じた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "startup",
+        "level": "B2",
+        "category": "Business",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈstɑːrtʌp/",
+        "meaning": "A newly established business, often characterized by rapid growth and high risk.",
+        "synonyms": ["new venture", "emerging company"],
+        "antonyms": ["established firm"],
+        "examples": [
+          {
+            "english": "The tech startup recently received a massive round of funding.",
+            "translations": {
+              "Mandarin Chinese": "这家科技初创公司最近获得了一轮巨额融资。",
+              "Hindi": "टेक स्टार्टअप को हाल ही में फंडिंग का एक बड़ा दौर प्राप्त हुआ।",
+              "Spanish": "La startup tecnológica recibió recientemente una ronda masiva de financiación.",
+              "Standard Arabic": "حصلت الشركة الناشئة في مجال التكنولوجيا مؤخراً على جولة تمويل ضخمة.",
+              "French": "La startup technologique a récemment reçu une importante levée de fonds.",
+              "Japanese": "そのテック系スタートアップは最近、大規模な資金調達を受けた。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,589 @@
+{
+  "level": "B1",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Personality": [
+      {
+        "word": "ambitious",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/æmˈbɪʃəs/",
+        "meaning": "Having or showing a strong desire and determination to succeed, achieve great goals, or reach a high position.",
+        "synonyms": ["aspiring", "determined", "driven"],
+        "antonyms": ["unambitious", "lazy", "aimless"],
+        "examples": [
+          {
+            "english": "The ambitious student spent his weekends learning complex system architectures and advanced programming frameworks.",
+            "translations": {
+              "Mandarin Chinese": "这位雄心勃勃的学生把周末时间都花在学习复杂的系统架构和高级编程框架上。",
+              "Hindi": "महत्वाकांक्षी छात्र ने अपने सप्ताहांत (वीकेंड्स) जटिल सिस्टम आर्किटेक्चर और उन्नत प्रोग्रामिंग फ्रेमवर्क सीखने में बिताए।",
+              "Spanish": "El ambicioso estudiante pasaba sus fines de semana aprendiendo arquitecturas de sistemas complejas y marcos de programación avanzados.",
+              "Standard Arabic": "أمضى الطالب الطموح عطلات نهاية الأسبوع في تعلم بنية الأنظمة المعقدة وأطر البرمجة المتقدمة.",
+              "French": "L'étudiant ambitieux passait ses week-ends à apprendre des architectures de systèmes complexes et des frameworks de programmation avancés.",
+              "Bengali": "উচ্চাভিলাষী ছাত্রটি তার সপ্তাহান্তগুলি জটিল সিস্টেম আর্কিটেকচার এবং উন্নত প্রোগ্রামিং ফ্রেমওয়ার্ক শেখার জন্য ব্যয় করেছিল।",
+              "Portuguese": "O estudante ambicioso passava seus fins de semana aprendiendo arquiteturas de sistemas complexas e frameworks de programação avançados.",
+              "Russian": "Амбициозный студент проводил свои выходные, изучая сложные архитектуры систем и передовые фреймворки программирования.",
+              "Urdu": "پرعزم طالب علم نے اپنے ہفتے کے آخری دن پیچیدہ سسٹم آرکیٹیکچرز اور جدید پروگرامنگ فریم ورکس سیکھنے میں گزارے۔",
+              "Indonesian": "Mahasiswa yang ambisius itu menghabiskan akhir pekannya untuk mempelajari arsitektur sistem yang kompleks dan kerangka kerja pemrograman tingkat lanjut.",
+              "Standard German": "Der ehrgeizige Student verbrachte seine Wochenenden damit, komplexe Systemarchitekturen und fortgeschrittene Programmier-Frameworks zu erlernen.",
+              "Japanese": "その野心的な学生は、週末を複雑なシステムアーキテクチャや高度なプログラミングフレームワークの学習に費やしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "confident",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈkɒnfɪdənt/",
+        "meaning": "Feeling or showing certainty about one's own abilities, qualities, or the successful outcome of something.",
+        "synonyms": ["assured", "certain", "self-reliant"],
+        "antonyms": ["insecure", "doubtful", "timid"],
+        "examples": [
+          {
+            "english": "After testing his applications thoroughly on local servers, he felt confident about presenting them to the review board.",
+            "translations": {
+              "Mandarin Chinese": "在本地服务器上彻底测试了他的应用程序后，他有信心将其展示给评审委员会。",
+              "Hindi": "स्थानीय सर्वर पर अपने एप्लिकेशन का पूरी तरह से परीक्षण करने के बाद, वह उन्हें समीक्षा बोर्ड के सामने प्रस्तुत करने के प्रति आश्वस्त महसूस कर रहा था।",
+              "Spanish": "Después de probar sus aplicaciones a fondo en servidores locales, se sintió seguro de presentarlas ante el comité de revisión.",
+              "Standard Arabic": "بعد اختبار تطبيقاته بدقة على الخوادم المحلية، شعر بالثقة في تقديمها إلى لجنة المراجعة.",
+              "French": "Après avoir testé ses applications en profondeur sur des serveurs locaux, il s'est senti confiant à l'idée de les présenter au comité d'évaluation.",
+              "Bengali": "লোকাল সার্ভারে তার অ্যাপ্লিকেশনগুলি পুঙ্খানুপুঙ্খভাবে পরীক্ষা করার পরে, তিনি সেগুলিকে পর্যালোচনা বোর্ডের সামনে উপস্থাপন করার বিষয়ে আত্মবিশ্বাসী বোধ করেছিলেন।",
+              "Portuguese": "Depois de testar seus aplicativos completamente em servidores locais, ele se sentiu confiante em apresentá-los ao comitê de revisão.",
+              "Russian": "Тщательно протестировав свои приложения на локальных серверах, он почувствовал уверенность перед презентацией их экспертной комиссии.",
+              "Urdu": "مقامی سرورز پر اپنی ایپلی کیشنز کا اچھی طرح تجربہ کرنے کے بعد، وہ انہیں ریویو بورڈ کے سامنے پیش کرنے کے بارے میں پراعتماد محسوس کر رہا تھا۔",
+              "Indonesian": "Setelah menguji aplikasinya secara menyeluruh di server lokal, dia merasa percaya diri untuk mempresentasikannya ke hadapan dewan peninjau.",
+              "Standard German": "Nachdem er seine Anwendungen gründlich auf lokalen Servern getestet hatte, war er zuversichtlich, sie dem Prüfungsausschuss zu präsentieren.",
+              "Japanese": "ローカルサーバーでアプリケーションを徹底的にテストした後、彼はそれを審査委員会にプレゼンテーションすることに自信を持ちました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "independent",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˌɪndɪˈpendənt/",
+        "meaning": "Free from outside control; not depending on another authority or person for livelihood, decisions, or support.",
+        "synonyms": ["self-sufficient", "autonomous", "unconnected"],
+        "antonyms": ["dependent", "reliant"],
+        "examples": [
+          {
+            "english": "As an independent full-stack developer, he handles both backend logic and user interface design by himself.",
+            "translations": {
+              "Mandarin Chinese": "作为一名独立的全栈开发人员，他独自处理后端逻辑和用户界面设计。",
+              "Hindi": "एक स्वतंत्र (इंडिपेंडेंट) फुल-स्टैक डेवलपर के रूप में, वह बैकएंड लॉजिक और यूज़र इंटरफ़ेस डिज़ाइन दोनों को स्वयं संभालता है।",
+              "Spanish": "Como desarrollador full-stack independiente, él se encarga tanto de la lógica del backend como del diseño de la interfaz de usuario por sí mismo.",
+              "Standard Arabic": "بصفته مطوراً مستقلاً وشاملاً (Full-Stack)، فإنه يتعامل مع منطق الخلفية وتصميم واجهة المستخدم بمفرده.",
+              "French": "En tant que développeur full-stack indépendant, il gère lui-même la logique backend et la conception de l'interface utilisateur.",
+              "Bengali": "একজন স্বাধীন ফুল-স্ট্যাক ডেভেলपर হিসাবে, তিনি ব্যাকএন্ড লজিক এবং ইউজার ইন্টারফেস ডিজাইন উভয়ই নিজেই পরিচালনা করেন।",
+              "Portuguese": "Como um desenvolvedor full-stack independente, ele lida tanto com a lógica do backend quanto com o design da interface do usuário sozinho.",
+              "Russian": "Как независимый фулстек-разработчик, он самостоятельно занимается и бэкенд-логикой, и дизайном пользовательского интерфейса.",
+              "Urdu": "ایک آزاد فل اسٹیک ڈویلپر کے طور पर, وہ بیک اینڈ لاجک اور صارف انٹرفیس ڈیزائن دونوں خود ہی سنبھالتا ہے۔",
+              "Indonesian": "Sebagai pengembang full-stack yang independen, ia menangani logika backend dan desain antarmuka pengguna secara mandiri.",
+              "Standard German": "Als unabhängiger Full-Stack-Entwickler kümmert er sich selbstständig sowohl um die Backend-Logik als auch um das Design der Benutzeroberfläche.",
+              "Japanese": "独立したフルスタックエンジニアとして、彼はバックエンドのロジックとユーザーインターフェースのデザインの両方を自らこなします。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "creative",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/kriˈeɪtɪv/",
+        "meaning": "Relating to or involving the imagination or original ideas, especially in the production of an artistic work or system layout.",
+        "synonyms": ["imaginative", "innovative", "artistic"],
+        "antonyms": ["unimaginative", "unoriginal", "boring"],
+        "examples": [
+          {
+            "english": "He used a creative minimalist layout design to build a clean paper-like user interface for his new application.",
+            "translations": {
+              "Mandarin Chinese": "他采用了富有创意的极简主义布局设计，为他的新应用程序构建了一个干净的、像纸一样的用户界面。",
+              "Hindi": "उन्होंने अपने नए एप्लिकेशन के लिए एक साफ कागज जैसे यूजर इंटरफेस बनाने के लिए एक रचनात्मक (क्रिएटिव) न्यूनतम (मिनिमलिस्ट) लेआउट डिज़ाइन का उपयोग किया।",
+              "Spanish": "Utilizó un diseño de maquetación creativo y minimalista para crear una interfaz de usuario limpia y similar al papel para su nueva aplicación.",
+              "Standard Arabic": "استخدم تصميم تخطيطي إبداعي وبسيط لإنشاء واجهة مستخدم نظيفة تشبه الورق لتطبيقه الجديد.",
+              "French": "Il a utilisé une mise en page minimaliste et créative pour concevoir une interface utilisateur épurée, semblable à du papier, pour sa nouvelle application.",
+              "Bengali": "তিনি তার নতুন অ্যাপ্লিকেশনের জন্য একটি পরিষ্কার কাগজের মতো ইউজার ইন্টারফেস তৈরি করতে একটি সৃজনশীল মিনিমালিস্ট লেআউট ডিজাইন ব্যবহার করেছিলেন।",
+              "Portuguese": "Ele usou um design de layout minimalista e criativo para construir uma interface de usuário limpa e semelhante a papel para seu novo aplicativo.",
+              "Russian": "Он использовал креативный минималистичный макет интерфейса, чтобы создать чистый, похожий на бумагу дизайн для своего нового приложения.",
+              "Urdu": "اس نے اپنی نئی ایپلی کیشن کے لیے کاغذ کی طرح صاف ستھرا صارف انٹرفेस بنانے کے لیے ایک تخلیقی منیملسٹ لے آؤٹ ڈیزائن کا استعمال کیا۔",
+              "Indonesian": "Ia menggunakan desain tata letak minimalis yang kreatif untuk membangun antarmuka pengguna yang bersih seperti kertas untuk aplikasi barunya.",
+              "Standard German": "Er nutzte ein kreatives, minimalistisches Layout-Design, um eine saubere, papierähnliche Benutzeroberfläche für seine neue Anwendung zu erstellen.",
+              "Japanese": "彼はクリエイティブでミニマルなレイアウトデザインを採用し、新しいアプリケーションのためのクリーンで紙のようなユーザーインターフェースを構築しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "responsible",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/rɪˈspɒnsəbl/",
+        "meaning": "Having an obligation to do something, or having control over or care for someone, as part of one's job or role; trustworthy.",
+        "synonyms": ["trustworthy", "accountable", "reliable"],
+        "antonyms": ["irresponsible", "careless"],
+        "examples": [
+          {
+            "english": "Being the team leader, Aditya is responsible for coordinating the backend tasks with the frontend team.",
+            "translations": {
+              "Mandarin Chinese": "作为团队负责人，阿迪蒂亚（Aditya）负责协调后端任务与前端团队。",
+              "Hindi": "टीम लीडर होने के नाते, आदित्य फ्रंटएंड टीम के साथ बैकएंड कार्यों के समन्वय (कोऑर्डिनेट) के लिए जिम्मेदार हैं।",
+              "Spanish": "Al ser el líder del team, Aditya es responsable de coordinar las tareas del backend con el team del frontend.",
+              "Standard Arabic": "كونه قائد الفريق، فإن أديتيا مسؤول عن تنسيق مهام الخلفية مع فريق الواجهة الأمامية.",
+              "French": "En tant que chef d'équipe, Aditya est responsable de la coordination des tâches backend avec l'équipe frontend.",
+              "Bengali": "টিম লিডার হিসেবে, আদিত্য ফ্রন্টএন্ড টিমের সাথে ব্যাকএন্ড কাজের সমন্বয় করার জন্য দায়ী।",
+              "Portuguese": "Sendo o líder da equipe, Aditya é responsável por coordenar as tarefas do backend com a equipe do frontend.",
+              "Russian": "Будучи лидером команды, Адитья несет ответственность за координацию задач бэкенда с фронтенд-командой.",
+              "Urdu": "ٹیم لیڈر ہونے کے ناطے، آدتیہ فرنٹ اینڈ ٹیم کے ساتھ بیک اینڈ کے کاموں کو مربوط کرنے کا ذمہ دار ہے۔",
+              "Indonesian": "Sebagai pemimpin tim, Aditya bertanggung jawab untuk mengoordinasikan tugas-tugas backend dengan tim frontend.",
+              "Standard German": "Als Teamleiter ist Aditya dafür verantwortlich, die Backend-Aufgaben mit dem Frontend-Team abzustimmen.",
+              "Japanese": "チームリーダーとして、アディティヤ（Aditya）はバックエンドのタスクをフロントエンドチームと連携させる責任を負っています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "generous",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈdʒenərəs/",
+        "meaning": "Showing a readiness to give more of something, as money, time, or assistance, than is strictly necessary or expected.",
+        "synonyms": ["kind", "charitable", "bountiful"],
+        "antonyms": ["selfish", "mean", "stingy"],
+        "examples": [
+          {
+            "english": "The tech community is full of generous developers who share their source code openly online.",
+            "translations": {
+              "Mandarin Chinese": "科技社区里到处都是慷慨的开发人员，他们在网上公开分享他们的源代码。",
+              "Hindi": "तकनीकी समुदाय उदार (जेनरेस) डेवलपर्स से भरा है जो अपने सोर्स कोड को ऑनलाइन खुलकर साझा करते हैं।",
+              "Spanish": "La comunidad tecnológica está llena de desarrolladores generosos que comparten su código fuente abiertamente en línea.",
+              "Standard Arabic": "مجتمع التقنية مليء بالمطورين الكرماء الذين يشاركون رموزهم البرمجية المصدرية بشكل علني عبر الإنترنت.",
+              "French": "La communauté tech regorge de développeurs généreux qui partagent ouvertement leur code source en ligne.",
+              "Bengali": "টেক কমিউনিটি উদার ডেভেলপারদের দ্বারা পূর্ণ যারা তাদের সোর্স কোড অনলাইনে খোলামেলাভাবে শেয়ার করেন।",
+              "Portuguese": "A comunidade de tecnologia está cheia de desenvolvedores generosos que compartilham seu código-fonte abertamente online.",
+              "Russian": "Технологическое сообщество полно щедрых разработчиков, которые открыто делятся своим исходным кодом в Интернете.",
+              "Urdu": "ٹیک کمیونٹی ایسے فیاض ڈویلپرز سے بھری پڑی ہے جو اپنا سورس کوڈ آن لائن کھل کر شیئر کرتے ہیں۔",
+              "Indonesian": "Komunitas teknologi dipenuhi dengan pengembang murah hati yang membagikan kode sumber mereka secara terbuka di internet.",
+              "Standard German": "Die Tech-Community ist voller großzügiger Entwickler, die ihren Quellcode offen im Internet teilen.",
+              "Japanese": "テックコミュニティには、自分のソースコードをオンラインで惜しみなく公開してくれる気前の良い開発者がたくさんいます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "sensitive",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈsensətɪv/",
+        "meaning": "Having or displaying a quick and delicate appreciation of others' feelings, or being easily offended or upset.",
+        "synonyms": ["perceptive", "responsive", "delicate"],
+        "antonyms": ["insensitive", "numb", "callous"],
+        "examples": [
+          {
+            "english": "The dynamic sensor implementation is highly sensitive to subtle changes in data patterns.",
+            "translations": {
+              "Mandarin Chinese": "该动态传感器实现对数据模式的微小变化高度敏感。",
+              "Hindi": "गतिशील (डायनेमिक) सेंसर कार्यान्वयन डेटा पैटर्न में सूक्ष्म परिवर्तनों के प्रति अत्यधिक संवेदनशील है।",
+              "Spanish": "La implementación del sensor dinámico es altamente sensible a cambios sutiles en los patrones de datos.",
+              "Standard Arabic": "إن تنفيذ المستشعر الديناميكي حساس للغاية للتغيرات الدقيقة في أنماط البيانات.",
+              "French": "L'implémentation du capteur dynamique est très sensible aux changements subtils dans les modèles de données.",
+              "Bengali": "ডায়নামিক সেন্সর বাস্তবায়ন ডেটা প্যাটার্নের সূক্ষ্ম পরিবর্তনের প্রতি অত্যন্ত সংবেদনশীল।",
+              "Portuguese": "A implementação do sensor dinâmico é altamente sensível a mudanças sutis nos padrões de dados.",
+              "Russian": "Реализация динамического датчика обладает высокой чувствительностью к тонким изменениям в структурах данных.",
+              "Urdu": "ڈائنامک سینسر کا نفاذ ڈیٹا پیٹرنز میں معمولی تبدیلیوں کے لیے انتہائی حساس ہے۔",
+              "Indonesian": "Implementasi sensor dinamis sangat sensitif terhadap perubahan halus dalam pola data.",
+              "Standard German": "Die dynamische Sensor-Implementierung reagiert sehr empfindlich auf subtile Änderungen in den Datenmustern.",
+              "Japanese": "そのダイナミックセンサーの実装は、データパターンのわずかな変化に対しても非常に敏感に反応します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "optimistic",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˌɒptɪˈmɪstɪk/",
+        "meaning": "Hopeful and confident about the future or the success of something.",
+        "synonyms": ["hopeful", "positive", "cheerful"],
+        "antonyms": ["pessimistic", "gloomy"],
+        "examples": [
+          {
+            "english": "The software engineer is optimistic that the local fallback database architecture will prevent application crashes.",
+            "translations": {
+              "Mandarin Chinese": "该软件工程师乐观地认为，本地回退数据库架构将防止应用程序崩溃。",
+              "Hindi": "सॉफ़्टवेयर इंजीनियर आशान्वित (ऑप्टिमॉस्टिक) है कि स्थानीय फ़ॉलबैक डेटाबेस आर्किटेक्चर एप्लिकेशन क्रैश को रोकेगा।",
+              "Spanish": "El ingeniero de software es optimista de que la arquitectura de base de datos de respaldo local evitará las caídas de la aplicación.",
+              "Standard Arabic": "مهندس البرمجيات متفائل بأن بنية قاعدة البيانات الاحتياطية المحلية ستمنع تعطل التطبيق.",
+              "French": "L'ingénieur logiciel est optimiste quant au fait que l'architecture de base de datos locale de secours évitera les plantages de l'application.",
+              "Bengali": "সফ্টওয়্যার প্রকৌশলী আশাবাদী যে স্থানীয় ফলব্যাক ডাটাবেস আর্কিটেকচার অ্যাপ্লিকেশন ক্র্যাশ প্রতিরোধ করবে।",
+              "Portuguese": "O engenheiro de software está otimista de que a arquitetura de banco de dados de fallback local evitará falhas no aplicativo.",
+              "Russian": "Разработчик программного обеспечения оптимистично настроен на то, что локальная резервная архитектура базы данных предотвратит сбои приложения.",
+              "Urdu": "سافٹ ویئر انجینئر پرامید ہے کہ مقامی فال بیک ڈیٹا بیس آرکیٹیکچر ایپلیکیشن کو کریش ہونے سے بچائے گا۔",
+              "Indonesian": "Insinyur perangkat lunak tersebut optimis bahwa arsitektur basis data cadangan (fallback) lokal akan mencegah kerusakan aplikasi.",
+              "Standard German": "Der Software-Entwickler ist optimistisch, dass die lokale Fallback-Datenbankarchitektur Anwendungsabstürze verhindern wird.",
+              "Japanese": "そのソフトウェアエンジニアは、ローカルフォールバックのデータベースアーキテクチャによってアプリケーションのクラッシュを防げると楽観視しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "pessimistic",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˌpesɪˈmɪstɪk/",
+        "meaning": "Tending to see the worst aspect of things or believe that the worst will happen; lacking hope.",
+        "synonyms": ["negative", "gloomy", "cynical"],
+        "antonyms": ["optimistic", "hopeful"],
+        "examples": [
+          {
+            "english": "We shouldn't take a pessimistic approach toward error resolution; every bug in the code has a solution.",
+            "translations": {
+              "Mandarin Chinese": "我们不应该对错误解决采取悲观的态度；代码中的每个错误都有解决方案。",
+              "Hindi": "हमें त्रुटि (एरर) समाधान के प्रति निराशावादी (पेसिमिस्टिक) दृष्टिकोण नहीं अपनाना चाहिए; कोड के हर बग का एक समाधान होता है।",
+              "Spanish": "No deberíamos adoptar un enfoque pesimista hacia la resolución de errores; cada bug en el código tiene una solución.",
+              "Standard Arabic": "لا ينبغي لنا أن نتخذ نهجاً متشائماً تجاه حل الأخطاء؛ فكل ثغرة برمجية في الكود لها حل.",
+              "French": "Nous ne devrions pas adopter une approche pessimiste face à la résolution des erreurs ; chaque bug dans le code a une solution.",
+              "Bengali": "ত্রুটি সমাধানের প্রতি আমাদের হতাশাবাদী দৃষ্টিভঙ্গি নেওয়া উচিত নয়; কোডের প্রতিটি বাগের একটি সমাধান রয়েছে।",
+              "Portuguese": "Não devemos adotar uma abordagem pessimista em relação à resolução de erros; cada bug no código tem uma solução.",
+              "Russian": "Не стоит занимать пессимистичную позицию по отношению к устранению ошибок; у каждого бага в коде есть решение.",
+              "Urdu": "ہمیں غلطی کے حل کی طرف مایوس کن رویہ نہیں اپنانا چاہیے؛ کوڈ میں موجود ہر بگ کا حل ہوتا ہے۔",
+              "Indonesian": "Kita tidak boleh mengambil pendekatan pesimis terhadap penyelesaian kesalahan; setiap bug dalam kode pasti ada solusinya.",
+              "Standard German": "Wir sollten bei der Fehlerbehebung nicht pessimistisch herangehen; jeder Fehler im Code hat eine Lösung.",
+              "Japanese": "エラー解決に対して悲観的なアプローチをとるべきではありません。コード内のすべてのバグには必ず解決策があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "determined",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/dɪˈtɜːmɪnd/",
+        "meaning": "Having made a firm decision and being resolved not to change it, despite difficulties or setbacks.",
+        "synonyms": ["resolute", "purposeful", "unwavering"],
+        "antonyms": ["indecisive", "hesitant", "irresolute"],
+        "examples": [
+          {
+            "english": "He was determined to master native mobile engineering concepts before starting his final-year group project.",
+            "translations": {
+              "Mandarin Chinese": "他决心在开始最后一年的小组项目之前，掌握原生移动工程概念。",
+              "Hindi": "वह अपने अंतिम वर्ष के समूह प्रोजेक्ट को शुरू करने से पहले नेटिव मोबाइल इंजीनियरिंग अवधारणाओं (कॉन्सेप्ट्स) में महारत हासिल करने के लिए दृढ़ संकल्पित था।",
+              "Spanish": "Estaba decidido a dominar los conceptos de ingeniería móvil nativa antes de comenzar su proyecto grupal de fin de carrera.",
+              "Standard Arabic": "كان مصمماً على إتقان مفاهيم هندسة الهواتف المحمولة الأصلية (Native) قبل البدء في مشروع التخرج الجماعي الخاص به.",
+              "French": "Il était déterminé à maîtriser les concepts d'ingénierie mobile native avant de commencer son projet de groupe de fin d'études.",
+              "Bengali": "তিনি তার শেষ বর্ষের গ্রুপ প্রজেক্ট শুরু করার আগে নেটিভ মোবাইল ইঞ্জিনিয়ারিং ধারণাগুলিতে দক্ষতা অর্জন করতে দৃঢ়প্রতিজ্ঞ ছিলেন।",
+              "Portuguese": "Ele estava determinado a dominar os conceitos de engenharia móvel nativa antes de começar seu projeto de grupo de fim de curso.",
+              "Russian": "Он был полон решимости освоить концепции нативной мобильной разработки перед началом работы над выпускным групповым проектом.",
+              "Urdu": "وہ اپنے آخری سال کے گروپ پروجیکٹ کو شروع کرنے سے پہلے نیٹو موبائل انجینئرنگ کے تصورات پر عبور حاصل کرنے کے لیے پرعزم تھا۔",
+              "Indonesian": "Ia bertekad untuk menguasai konsep rekayasa seluler asli (native mobile engineering) sebelum memulai proyek kelompok tahun terakhirnya.",
+              "Standard German": "Er war fest entschlossen, die Konzepte der nativen Mobilentwicklung zu meistern, bevor er mit seinem Gruppenprojekt im Abschlussjahr begann.",
+              "Japanese": "彼は最終学年のグループプロジェクトを始める前に、ネイティブモバイルエンジニアリングの概念を習得しようと固く決意していました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "curious",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈkjʊəriəs/",
+        "meaning": "Eager to know or learn something new; exhibiting a strong desire for exploration or discovery.",
+        "synonyms": ["inquisitive", "interested", "inquiring"],
+        "antonyms": ["indifferent", "uninterested", "apathetic"],
+        "examples": [
+          {
+            "english": "An engineer should always be curious about how offline AI systems process data structures on a hardware device.",
+            "translations": {
+              "Mandarin Chinese": "工程师应该始终对离线人工智能系统如何在硬件设备上处理数据结构感到好奇。",
+              "Hindi": "एक इंजीनियर को हमेशा इस बात को लेकर उत्सुक (क्यूरियस) होना चाहिए कि ऑफलाइन एआई सिस्टम हार्डवेयर डिवाइस पर डेटा स्ट्रक्चर को कैसे प्रोसेस करते हैं।",
+              "Spanish": "Un ingeniero siempre debe sentir curiosidad por saber cómo los sistemas de IA sin conexión procesan las estructuras de datos en un dispositivo de hardware.",
+              "Standard Arabic": "يجب أن يكون المهندس فضولياً دائماً بشأن كيفية معالجة أنظمة الذكاء الاصطناعي غير المتصلة بالإنترنت لهياكل البيانات على أجهزة الأجهزة.",
+              "French": "Un ingénieur doit toujours être curieux de savoir comment les systèmes d'IA hors ligne traitent les structures de données sur un appareil matériel.",
+              "Bengali": "অফলাইন এআই সিস্টেমগুলি কীভাবে একটি হার্ডওয়্যার ডিভাইসে ডেটা স্ট্রাকচার প্রক্রিয়া করে সে সম্পর্কে একজন ইঞ্জিনিয়ারের সর্বদা কৌতূহলী হওয়া উচিত।",
+              "Portuguese": "Um engenheiro deve sempre ser curioso sobre como os sistemas de IA offline processam estruturas de dados em um dispositivo de hardware.",
+              "Russian": "Инженер всегда должен проявлять любопытство к тому, как автономные системы искусственного интеллекта обрабатывают структуры данных на аппаратном устройстве.",
+              "Urdu": "ایک انجینئر کو ہمیشہ اس بات کے بارے میں متجسس ہونا چاہیے کہ آف لائن AI سسٹمز ہارڈ ویئر ڈیوائس پر ڈیٹا اسٹرکچرز کو کیسے پروسیس کرتے ہیں۔",
+              "Indonesian": "Seorang insinyur harus selalu penasaran tentang bagaimana sistem AI luring memproses struktur data pada perangkat keras.",
+              "Standard German": "Ein Ingenieur sollte immer neugierig darauf sein, wie Offline-KI-Systeme Datenstrukturen auf einem Hardwaregerät verarbeiten.",
+              "Japanese": "エンジニアは、オフラインのAIシステムがハードウェアデバイス上でどのようにデータ構造を処理しているのかについて、常に好奇心を持つべきです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "reliable",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/rɪˈlaɪəbl/",
+        "meaning": "Consistently good in quality or performance; able to be trusted or depended upon entirely.",
+        "synonyms": ["dependable", "trustworthy", "consistent"],
+        "antonyms": ["unreliable", "untrustworthy", "fickle"],
+        "examples": [
+          {
+            "english": "Kalpesh is a reliable project teammate who always delivers clean backend components on schedule.",
+            "translations": {
+              "Mandarin Chinese": "卡尔佩什（Kalpesh）是一位可靠的项目队友，他总是能按时交付干净的后端组件。",
+              "Hindi": "कल्पेश एक भरोसेमंद (रिलायबल) प्रोजेक्ट टीममेट हैं जो हमेशा शेड्यूल पर साफ-सुथरे बैकएंड घटक (कंपोनेंट्स) वितरित करते हैं।",
+              "Spanish": "Kalpesh es un compañero de proyecto confiable que siempre entrega componentes de backend limpios a tiempo.",
+              "Standard Arabic": "كالبيرش هو زميل مشروع موثوق يقدم دائماً مكونات خلفية نظيفة في الوقت المحدد.",
+              "French": "Kalpesh est un coéquipier de projet fiable qui livre toujours des composants backend propres dans les délais.",
+              "Bengali": "কল্পেশ একজন নির্ভরযোগ্য প্রজেক্ট টিমমেট যিনি সর্বদা সময়সূচী অনুযায়ী পরিষ্কার ব্যাকএন্ড উপাদান সরবরাহ করেন।",
+              "Portuguese": "Kalpesh é um companheiro de equipe de projeto confiável que sempre entrega componentes de backend limpos dentro do cronograma.",
+              "Russian": "Калпеш — надежный товарищ по проекту, который всегда своевременно поставляет чистые компоненты бэкенда.",
+              "Urdu": "کلپیش پروجیکٹ کا ایک قابل اعتماد ساتھی ہے جو ہمیشہ شیڈول کے مطابق صاف ستھرا بیک اینڈ اجزاء فراہم کرتا ہے۔",
+              "Indonesian": "Kalpesh adalah rekan tim proyek yang andal yang selalu memberikan komponen backend yang bersih sesuai jadwal.",
+              "Standard German": "Kalpesh ist ein zuverlässiger Projektpartner, der saubere Backend-Komponenten immer pünktlich liefert.",
+              "Japanese": "カルペシュ（Kalpesh）は信頼できるプロジェクトのチームメイトで、常に予定通りにクリーンなバックエンドのコンポーネントを納品してくれます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "mature",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/məˈtʃʊə(r)/",
+        "meaning": "Having reached an advanced stage of mental or emotional development; behaving in a sensible and sensible way like an adult.",
+        "synonyms": ["grown-up", "responsible", "sensible"],
+        "antonyms": ["immature", "childish"],
+        "examples": [
+          {
+            "english": "He handled the difficult software architectural constraints in a very mature and balanced way.",
+            "translations": {
+              "Mandarin Chinese": "他以一种非常成熟和平衡的方式处理了困难的软件架构限制。",
+              "Hindi": "उन्होंने कठिन सॉफ्टवेयर आर्किटेक्चरल बाधाओं को बहुत परिपक्व (मैच्योर) और संतुलित तरीके से संभाला।",
+              "Spanish": "Manejó las difíciles restricciones arquitectónicas del software de una manera muy madura y equilibrada.",
+              "Standard Arabic": "لقد تعامل مع قيود بنية البرمجيات الصعبة بطريقة ناضجة ومتوازنة للغاية.",
+              "French": "Il a géré les contraintes architecturales logicielles difficiles d'une manière très mature et équilibrée.",
+              "Bengali": "তিনি অত্যন্ত পরিপক্ক এবং ভারসাম্যপূর্ণ উপায়ে কঠিন সফ্টওয়্যার আর্কিটেকচারাল সীমাবদ্ধতাগুলি পরিচালনা করেছিলেন।",
+              "Portuguese": "Ele lidou com as difíceis restrições arquitetônicas de software de uma forma muito madura e equilibrada.",
+              "Russian": "Он справился со сложными архитектурными ограничениями программного обеспечения в очень зрелой и взвешенной манере.",
+              "Urdu": "اس نے سافٹ ویئر آرکیٹیکچرل کی مشکل رکاوٹوں کو بہت سمجھداری اور متوازن انداز میں سنبھالا۔",
+              "Indonesian": "Ia menangani batasan arsitektur perangkat lunak yang sulit dengan cara yang sangat matang dan seimbang.",
+              "Standard German": "Er ging mit den schwierigen softwarearchitektonischen Einschränkungen sehr reif und ausgewogen um.",
+              "Japanese": "彼は、ソフトウェアアーキテクチャの厳しい制約に対して、非常に成熟したバランスの取れたアプローチで対処しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "selfish",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈselfɪʃ/",
+        "meaning": "Lacking consideration for others; concerned chiefly with one's own profit, pleasure, or technical interests.",
+        "synonyms": ["self-centered", "greedy", "egocentric"],
+        "antonyms": ["selfless", "generous", "altruistic"],
+        "examples": [
+          {
+            "english": "A good group project requires team consensus rather than making selfish decisions about code updates.",
+            "translations": {
+              "Mandarin Chinese": "一个优秀的小组项目需要团队共识，而不是在代码更新上做出自私的决定。",
+              "Hindi": "एक अच्छे समूह प्रोजेक्ट के लिए कोड अपडेट के बारे में स्वार्थी (स्वार्थी) निर्णय लेने के बजाय टीम की आम सहमति की आवश्यकता होती है।",
+              "Spanish": "Un buen proyecto grupal requiere el consenso del team en lugar de tomar decisiones egoístas sobre las actualizaciones de código.",
+              "Standard Arabic": "يتطلب المشروع الجماعي الجيد إجماع الفريق بدلاً من اتخاذ قرارات أنانية بشأن تحديثات الكود البرمجي.",
+              "French": "Un bon projet de groupe nécessite un consensus d'équipe plutôt que de prendre des décisions égoïstes concernant les mises à jour du code.",
+              "Bengali": "একটি ভাল গ্রুপ প্রজেক্টের জন্য কোড আপডেট সম্পর্কে স্বার্থপর সিদ্ধান্ত নেওয়ার পরিবর্তে টিমের ঐকমত্য প্রয়োজন।",
+              "Portuguese": "A boa equipe de projeto requer o consenso da equipe em vez de tomar decisões egoístas sobre atualizações de código.",
+              "Russian": "Хороший групповой проект требует консенсуса всей команды, а не принятия эгоистичных решений по поводу обновления кода.",
+              "Urdu": "ایک اچھے گروپ پروجیکٹ کے لیے کوڈ اپ ڈیٹس کے بارے میں خود غرضانہ فیصلے کرنے کے بجائے ٹیم کے اتفاق رائے کی ضرورت ہوتی ہے۔",
+              "Indonesian": "Proyek kelompok yang baik membutuhkan konsensus tim daripada membuat keputusan sepihak yang egois tentang pembaruan kode.",
+              "Standard German": "Ein gutes Gruppenprojekt erfordert den Konsens des Teams, anstatt egoistische Entscheidungen über Code-Updates zu treffen.",
+              "Japanese": "優れたグループプロジェクトには、コードの更新について利己的な決定を下すのではなく、チームの合意が必要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "patient",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈpeɪʃnt/",
+        "meaning": "Able to accept or tolerate delays, problems, or suffering without becoming annoyed, angry, or anxious.",
+        "synonyms": ["tolerant", "forbearing", "calm"],
+        "antonyms": ["impatient", "restless"],
+        "examples": [
+          {
+            "english": "Debugging an autonomous self-healing protocol requires a patient mind to analyze deep log files.",
+            "translations": {
+              "Mandarin Chinese": "调试自主自愈协议需要耐心分析深度日志文件。",
+              "Hindi": "एक स्वायत्त स्व-उपचार (सेल्फ-हीलिंग) प्रोटोकॉल को डीबग करने के लिए गहरे लॉग फ़ाइलों का विश्लेषण करने के लिए एक धैर्यवान (पेशेंट) दिमाग की आवश्यकता होती है।",
+              "Spanish": "Depurar un protocolo autónomo de autorreparación requiere una mente paciente para analizar archivos de registro profundos.",
+              "Standard Arabic": "يتطلب تصحيح بروتوكول التشافي الذاتي المستقل عقلاً صبوراً لتحليل ملفات السجل العميقة.",
+              "French": "Le débogage d'un protocole d'auto-guérison autonome nécessite un esprit patient pour analyser les fichiers de log complexes.",
+              "Bengali": "একটি স্বায়ত্তশাসিত স্ব-নিরাময় প্রোটোকল ডিবাগ করার জন্য গভীর লগ ফাইলগুলি বিশ্লেষণ করতে একটি ধৈর্যশীল মনের প্রয়োজন।",
+              "Portuguese": "Depurar um protocolo autônomo de autorrecuperação requer uma mente paciente para analisar arquivos de log profundos.",
+              "Russian": "Отладка автономного самовосстанавливающегося протокола требует терпения для анализа файлов подробных логов.",
+              "Urdu": "ایک خود مختار سیلف ہیلنگ پروٹوکول کو ڈیبگ کرنے کے لیے گہری لاگ فائلوں کا تجزیہ کرنے کے لیے صبر کرنے والے دماغ کی ضرورت ہوتی ہے۔",
+              "Indonesian": "Melakukan debug pada protokol penyembuhan mandiri otonom (autonomous self-healing) memerlukan pikiran yang sabar untuk menganalisis berkas log yang mendalam.",
+              "Standard German": "Das Debuggen eines autonomen, selbstheilenden Protokolls erfordert einen geduldigen Verstand, um tiefe Logdateien zu analysieren.",
+              "Japanese": "自律的な自己修復プロトコルのデバッグには、深いログファイルを分析するための忍耐強い精神が必要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "honest",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈɒnɪst/",
+        "meaning": "Free of deceit and untruthfulness; sincere; giving a true and genuine assessment of a situation.",
+        "synonyms": ["truthful", "sincere", "frank"],
+        "antonyms": ["dishonest", "deceitful"],
+        "examples": [
+          {
+            "english": "Sagar gave an honest review of the layout design, highlighting both its visual strengths and architectural flaws.",
+            "translations": {
+              "Mandarin Chinese": "萨加尔（Sagar）对该布局设计给出了诚实的评价，既强调了其视觉优势，也指出了架构缺陷。",
+              "Hindi": "सागर ने लेआउट डिज़ाइन की एक ईमानदार (ऑनेस्ट) समीक्षा दी, जिसमें इसकी दृश्य शक्तियों और वास्तुशिल्प (आर्किटेक्चरल) खामियों दोनों पर प्रकाश डाला गया।",
+              "Spanish": "Sagar ofreció una reseña honesta del diseño de maquetación, destacando tanto sus fortalezas visuales como sus fallas arquitectónicas.",
+              "Standard Arabic": "قدم ساغار مراجعة صادقة لتصميم التخطيط، مسلطاً الضوء على نقاط القوة البصرية والعيوب البنيوية على حد سواء.",
+              "French": "Sagar a donné un avis honnête sur la conception de la mise en page, soulignant à la fois ses points forts visuels et ses défauts architecturaux.",
+              "Bengali": "সাগর লেআউট ডিজাইনের একটি সৎ পর্যালোচনা দিয়েছেন, এর চাক্ষুষ শক্তি এবং স্থাপত্যের ত্রুটি উভয়ই তুলে ধরেছেন।",
+              "Portuguese": "Sagar deu uma avaliação honesta do design do layout, destacando tanto seus pontos fortes visuais quanto suas falhas arquitetônicas.",
+              "Russian": "Сагар дал честный отзыв о макете дизайна, отметив как его визуальные преимущества, так и архитектурные недостатки.",
+              "Urdu": "ساگر نے لے آؤٹ ڈیزائن کا ایک ایماندارانہ جائزہ دیا، جس میں اس کی بصری خوبیوں اور آرکیٹیکچرل خامیوں دونوں کو اجاگر کیا۔",
+              "Indonesian": "Sagar memberikan ulasan jujur ​​tentang desain tata letak, menyoroti keunggulan visual sekaligus kelemahan arsitektur perangkat lunaknya.",
+              "Standard German": "Sagar gab eine ehrliche Bewertung des Layout-Designs ab und hob sowohl die visuellen Stärken als auch die architektonischen Mängel hervor.",
+              "Japanese": "サガル（Sagar）はレイアウトデザインについて、その視覚的な強みとアーキテクチャ上の欠陥の両方を浮き彫りにした誠実なレビューを提示しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "sociable",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈsəʊʃəbl/",
+        "meaning": "Willing to talk and engage in activities with other people; friendly, companionable, or welcoming.",
+        "synonyms": ["friendly", "outgoing", "gregarious"],
+        "antonyms": ["unsociable", "shy", "reserved"],
+        "examples": [
+          {
+            "english": "Even during intense technical hackathons, he remained sociable and shared culinary snacks with other engineering students.",
+            "translations": {
+              "Mandarin Chinese": "即使在紧张的技术黑客马拉松期间，他仍然乐于社交，与其他工程系学生分享烹饪点心。",
+              "Hindi": "गहन तकनीकी हैकाथॉन के दौरान भी, वह मिलनसार (सोशिएबल) बने रहे और अन्य इंजीनियरिंग छात्रों के साथ पाक स्नैक्स साझा किए।",
+              "Spanish": "Incluso durante los intensos hackatones técnicos, se mantuvo sociable y compartió bocadillos culinarios con otros estudiantes de ingeniería.",
+              "Standard Arabic": "حتى أثناء مسابقات الهاكاثون التقنية المكثفة, ظل اجتماعياً وشارك الوجبات الخفيفة مع طلاب الهندسة الآخرين.",
+              "French": "Même lors de hackathons techniques intenses, il restait sociable et partageait des collations avec d'autres étudiants en ingénierie.",
+              "Bengali": "এমনকি তীব্র প্রযুক্তিগত হ্যাকাথনের সময়ও, তিনি মিশুক ছিলেন এবং অন্যান্য ইঞ্জিনিয়ারিং শিক্ষার্থীদের সাথে রন্ধনসম্পর্কীয় স্ন্যাকস ভাগ করেছিলেন।",
+              "Portuguese": "Mesmo durante hackathons técnicos intensos, ele permaneceu sociável e compartilhou lanches culinários com outros estudantes de engenharia.",
+              "Russian": "Даже во время напряженных технических хакатонов он оставался общительным и делился кулинарными закусками с другими студентами-инженерами.",
+              "Urdu": "شدید تکنیکی ہیکاتھنز کے دوران بھی، وہ ملنسار رہا اور انجینئرنگ کے دیگر طلباء کے साथ खान-पान शेयर किया।",
+              "Indonesian": "Bahkan selama hackathon teknis yang intens, ia tetap ramah (sociable) dan berbagi camilan kuliner dengan mahasiswa teknik lainnya.",
+              "Standard German": "Selbst während intensiver technischer Hackathons blieb er gesellig und teilte kulinarische Snacks mit anderen Ingenieurstudenten.",
+              "Japanese": "過酷な技術ハッカソンの最中でさえ、彼は社交的な態度を崩さず、他の工学部の学生たちと軽食を分け合っていました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "introverted",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈɪntrəvɜːtɪd/",
+        "meaning": "Reflecting a personality type characterized by a preference for quiet, solitary environments and internal focus.",
+        "synonyms": ["reserved", "quiet", "shy"],
+        "antonyms": ["extroverted", "outgoing"],
+        "examples": [
+          {
+            "english": "Many skilled software builders have an introverted nature, preferring focused system design over public speaking.",
+            "translations": {
+              "Mandarin Chinese": "许多成熟的软件构建者都具有内向的天性，比起公开演讲，他们更喜欢专注于系统设计。",
+              "Hindi": "कई कुशल सॉफ़्टवेयर निर्माताओं का स्वभाव अंतर्मुखी (इंट्रोवर्टेड) होता है, जो सार्वजनिक बोलने के बजाय केंद्रित सिस्टम डिज़ाइन को पसंद करते हैं।",
+              "Spanish": "Muchos desarrolladores de software experimentados tienen una naturaleza introvertida, prefiriendo el diseño de sistemas enfocado antes que hablar en público.",
+              "Standard Arabic": "يتميز العديد من منشئي البرمجيات المهرة بطبيعة انطوائية، حيث يفضلون تصميم الأنظمة المركّز على التحدث أمام الجمهور.",
+              "French": "De nombreux concepteurs de logiciels qualifiés sont de nature introvertie, préférant la conception de systèmes ciblée aux prises de parole en public.",
+              "Bengali": "অনেক দক্ষ সফ্টওয়্যার নির্মাতার একটি অন্তর্মুখী স্বভাব রয়েছে, যারা জনসমক্ষে কথা বলার চেয়ে ফোকাসড সিস্টেম ডিজাইন পছন্দ করেন।",
+              "Portuguese": "Muitos criadores de software qualificados têm uma natureza introvertida, preferindo o design de sistemas focado em vez de falar em público.",
+              "Russian": "Многие квалифицированные разработчики программного обеспечения по природе интроверты, предпочитающие сосредоточенное проектирование систем публичным выступлениям.",
+              "Urdu": "بہت سے ہنرمند سافٹ ویئر بنانے والے فطرتاً درون بیں ہوتے ہیں، جو عوامی سطح پر بولنے کے بجائے توجہ مرکوز سسٹم ڈیزائن کو ترجیح دیتے ہیں۔",
+              "Indonesian": "Banyak pembuat perangkat lunak yang terampil memiliki sifat introvert, lebih menyukai desain sistem yang terfokus daripada berbicara di depan umum.",
+              "Standard German": "Viele erfahrene Softwareentwickler haben eine introvertierte Natur und bevorzugen ein fokussiertes Systemdesign gegenüber öffentlichen Reden.",
+              "Japanese": "多くの熟練したソフトウェア開発者は内向的な（イントロバートな）気質を持っており、人前で話すことよりも、集中してシステム設計を行うことを好みます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "extroverted",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈekstrəvɜːtɪd/",
+        "meaning": "Reflecting a personality type characterized by outgoing, expressive, and highly social behavior directed outward.",
+        "synonyms": ["outgoing", "sociable", "expressive"],
+        "antonyms": ["introverted", "reserved"],
+        "examples": [
+          {
+            "english": "An extroverted tech manager easily handles communication between multi-language developer squads.",
+            "translations": {
+              "Mandarin Chinese": "外向的技术经理可以轻松处理多语言开发人员团队之间的沟通。",
+              "Hindi": "एक बहिर्मुखी (एक्सट्रोवर्टेड) टेक मैनेजर बहु-भाषा डेवलपर टीमों के बीच संचार (कम्युनिकेशन) को आसानी से संभालता है।",
+              "Spanish": "Un gerente tecnológico extrovertido maneja fácilmente la comunicación entre escuadrones de desarrolladores multilingües.",
+              "Standard Arabic": "يتعامل المدير التقني المنفتح بسهولة مع التواصل بين فرق المطورين متعددي اللغات.",
+              "French": "Un manager tech extraverti gère facilement la communication entre des équipes de développeurs multilingues.",
+              "Bengali": "একজন বহির্মুখী টেক ম্যানেজার বহু-ভাষী ডেভেলপার স্কোয়াডগুলির মধ্যে যোগাযোগ সহজেই পরিচালনা করেন।",
+              "Portuguese": "Um gerente de tecnologia extrovertido lida facilmente com a comunicação entre equipes de desenvolvedores multilíngues.",
+              "Russian": "Экстравертный технический менеджер легко справляется с коммуникацией между многоязычными командами разработчиков.",
+              "Urdu": "ایک برون بیں ٹیک مینیجر کثیر لسانی ڈویلپر اسکواڈز کے درمیان مواصلت کو آسانی سے سنبھالتا ہے۔",
+              "Indonesian": "Seorang manajer teknologi yang ekstrovert dapat dengan mudah menangani komunikasi antara tim pengembang multi-bahasa.",
+              "Standard German": "Ein extrovertierter Tech-Manager bewältigt problemlos die Kommunikation zwischen mehrsprachigen Entwicklerteams.",
+              "Japanese": "外向的な（エキストロバートな）テックマネージャーは、多言語を話す開発チーム間のコミュニケーションを容易にこなします。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "motivated",
+        "level": "B1",
+        "category": "Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈməʊtɪveɪtɪd/",
+        "meaning": "Provided with a strong reason or motive to act; highly enthusiastic and driven to complete demanding projects.",
+        "synonyms": ["driven", "inspired", "enthusiastic"],
+        "antonyms": ["demotivated", "lazy", "indifferent"],
+        "examples": [
+          {
+            "english": "He was highly motivated to develop an offline AI keyboard interface that respects responsive UI guidelines.",
+            "translations": {
+              "Mandarin Chinese": "他非常积极地开发一个符合响应式用户界面指南的离线人工智能键盘界面。",
+              "Hindi": "वह एक ऑफ़लाइन एआई कीबोर्ड इंटरफ़ेस विकसित करने के लिए अत्यधिक प्रेरित (मोटिवेटेड) था जो रिस्पॉन्सिव यूआई दिशानिर्देशों का सम्मान करता है।",
+              "Spanish": "Estaba muy motivado para desarrollar una interfaz de teclado de IA sin conexión que respetara las pautas de interfaz de usuario responsiva.",
+              "Standard Arabic": "كان لديه دافع قوي لتطوير واجهة لوحة مفاتيح ذكاء اصطناعي غير متصلة بالإنترنت تحترم إرشادات واجهة المستخدم المتجاوبة.",
+              "French": "Il était très motivé à l'idée de développer une interface de clavier d'IA hors ligne respectant les directives d'interface utilisateur adaptative.",
+              "Bengali": "তিনি একটি অফলাইন এআই কীবোর্ড ইন্টারফেস তৈরি করতে অত্যন্ত অনুপ্রাণিত ছিলেন যা রেসপনসিভ ইউআই নির্দেশিকা মেনে চলে।",
+              "Portuguese": "Ele estava altamente motivado para desenvolver uma interface de teclado de IA offline que respeitasse as diretrizes de interface de usuário responsiva.",
+              "Russian": "Он был очень мотивирован на разработку интерфейса автономной клавиатуры с ИИ, соответствующего принципам адаптивного интерфейса.",
+              "Urdu": "وہ آف لائن AI کی بورڈ انٹرفیس تیار کرنے کے لیے انتہائی حوصلہ مند تھا جو ریسپونسیو UI رہنما خطوط کے مطابق ہو۔",
+              "Indonesian": "Ia sangat termotivasi untuk mengembangkan antarmuka papan ketik AI luring yang mematuhi pedoman UI yang responsif.",
+              "Standard German": "Er war sehr motiviert, eine Offline-KI-Tastaturschnittstelle zu entwickeln, die den Richtlinien für responsive Benutzeroberflächen entspricht.",
+              "Japanese": "彼は、レスポンシブなUIガイドラインに準拠したオフラインAIキーボードインターフェースの開発に非常に意欲的（モチベート）でした。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "level": "C1-C2",
+  "approx_words": "1200-1500",
+  "source": "Idiomatic English & Native Usage",
+  "categories": {
+    "Idioms": [
+      {
+        "word": "break the ice",
+        "level": "C1",
+        "meaning": "To say or do something to make people feel more relaxed in a social setting.",
+        "examples": ["He told a funny joke to break the ice at the start of the meeting."]
+      },
+      {
+        "word": "hit the nail on the head",
+        "level": "C1",
+        "meaning": "To describe exactly what is causing a situation or problem.",
+        "examples": ["You hit the nail on the head when you said the team lacks clear direction."]
+      },
+      {
+        "word": "under the weather",
+        "level": "C1",
+        "meaning": "Feeling slightly ill or not well.",
+        "examples": ["I’m feeling a bit under the weather today, so I’ll stay home."]
+      },
+      {
+        "word": "once in a blue moon",
+        "level": "C1",
+        "meaning": "Something that happens very rarely.",
+        "examples": ["My brother lives abroad, so I only get to see him once in a blue moon."]
+      },
+      {
+        "word": "spill the beans",
+        "level": "C1",
+        "meaning": "To reveal a secret.",
+        "examples": ["The surprise party was ruined because someone spilled the beans."]
+      },
+      {
+        "word": "cost an arm and a leg",
+        "level": "C1",
+        "meaning": "Something that is very expensive.",
+        "examples": ["The repairs on his vintage car cost an arm and a leg."]
+      },
+      {
+        "word": "the ball is in your court",
+        "level": "C1",
+        "meaning": "It is up to you to make the next decision or step.",
+        "examples": ["I’ve given you all the information you need; the ball is in your court now."]
+      },
+      {
+        "word": "burn the midnight oil",
+        "level": "C2",
+        "meaning": "To work late into the night.",
+        "examples": ["She had to burn the midnight oil to finish the report before the deadline."]
+      },
+      {
+        "word": "piece of mind",
+        "level": "C1",
+        "meaning": "Commonly 'peace of mind' (a state of mental calm) or 'give someone a piece of your mind' (to tell someone you are angry with them).",
+        "examples": ["Checking the locks gives me peace of mind."]
+      },
+      {
+        "word": "cut corners",
+        "level": "C1",
+        "meaning": "To do something in the easiest or cheapest way, often sacrificing quality.",
+        "examples": ["The builder cut corners on the materials, and now the roof is leaking."]
+      },
+      {
+        "word": "barking up the wrong tree",
+        "level": "C2",
+        "meaning": "To have the wrong idea about how to achieve something or who is responsible for something.",
+        "examples": ["If you think I’m the one who stole the files, you’re barking up the wrong tree."]
+      },
+      {
+        "word": "call it a day",
+        "level": "C1",
+        "meaning": "To stop working on something.",
+        "examples": ["We’ve been working for ten hours; let’s call it a day."]
+      },
+      {
+        "word": "on the same page",
+        "level": "C1",
+        "meaning": "To be in agreement or have the same understanding of a situation.",
+        "examples": ["Before we start the project, let’s make sure everyone is on the same page."]
+      },
+      {
+        "word": "back to square one",
+        "level": "C1",
+        "meaning": "To have to start again from the beginning.",
+        "examples": ["The proposal was rejected, so we are back to square one."]
+      },
+      {
+        "word": "better late than never",
+        "level": "C1",
+        "meaning": "It is better for something to happen late than for it to not happen at all.",
+        "examples": ["He finally apologized; I suppose it's better late than never."]
+      },
+      {
+        "word": "by the book",
+        "level": "C1",
+        "meaning": "To follow the rules strictly.",
+        "examples": ["The inspector does everything by the book, so you won’t find any errors."]
+      },
+      {
+        "word": "keep an eye on",
+        "level": "C1",
+        "meaning": "To watch or look after someone or something.",
+        "examples": ["Could you keep an eye on my luggage while I get a coffee?"]
+      },
+      {
+        "word": "miss the point",
+        "level": "C1",
+        "meaning": "To fail to understand the main idea or importance of something.",
+        "examples": ["He argued about the formatting, but he completely missed the point of my argument."]
+      },
+      {
+        "word": "pull yourself together",
+        "level": "C1",
+        "meaning": "To regain control of one's emotions.",
+        "examples": ["Take a deep breath and pull yourself together; you have a presentation to give."]
+      },
+      {
+        "word": "speak of the devil",
+        "level": "C1",
+        "meaning": "Said when the person you were just talking about appears.",
+        "examples": ["Speak of the devil! We were just discussing your promotion."]
+      }
+    ]
+  }
+}

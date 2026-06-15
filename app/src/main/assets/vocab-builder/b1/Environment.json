@@ -1,0 +1,589 @@
+{
+  "level": "B1",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Environment": [
+      {
+        "word": "climate change",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈklaɪmət tʃeɪndʒ/",
+        "meaning": "A long-term change in the earth's climate, especially a change due to an increase in the average atmospheric temperature.",
+        "synonyms": ["environmental shift", "climatic variation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The tech conference featured a presentation on using data-driven models to monitor climate change trends.",
+            "translations": {
+              "Mandarin Chinese": "科技会议展示了一项关于利用数据驱动模型监测气候变化趋势的演讲。",
+              "Hindi": "तकनीकी सम्मेलन (टेक कॉन्फ्रेंस) में जलवायु परिवर्तन के रुझानों की निगरानी के लिए डेटा-संचालित मॉडल का उपयोग करने पर एक प्रस्तुति दी गई।",
+              "Spanish": "La conferencia tecnológica incluyó una presentación sobre el uso de modelos basados en datos para monitorear las tendencias del cambio climático.",
+              "Standard Arabic": "تضمن المؤتمر التقني عرضاً حول استخدام النماذج القائمة على البيانات لمراقبة اتجاهات تغير المناخ.",
+              "French": "La conférence technologique a proposé une présentation sur un modèle basé sur les données pour suivre les tendances du changement climatique.",
+              "Bengali": "প্রযুক্তি সম্মেলনে জলবায়ু পরিবর্তনের প্রবণতা নিরীক্ষণের জন্য ডেটা-চালিত মডেল ব্যবহারের উপর একটি উপস্থাপনা করা হয়েছিল।",
+              "Portuguese": "A conferência de tecnologia apresentou uma palestra sobre o uso de modelos baseados em dados para monitorar as tendências da mudança climática.",
+              "Russian": "На технологической конференции была представлена презентация об использовании моделей на основе данных для мониторинга тенденций изменения климата.",
+              "Urdu": "ٹیک کانفرنس میں موسمیاتی تبدیلیوں کے رجحانات کی نگرانی کے لیے ڈیٹا سے چلنے والے ماڈلز کے استعمال پر ایک پریزنٹیشن دی گئی۔",
+              "Indonesian": "Konferensi teknologi tersebut menampilkan presentasi tentang penggunaan model berbasis data untuk memantau tren perubahan iklim.",
+              "Standard German": "Die Tech-Konferenz beinhaltete eine Präsentation über die Nutzung datengesteuerter Modelle zur Überwachung von Klimawandeltrends.",
+              "Japanese": "そのテックカンファレンスでは、データ駆動型モデルを使用して気候変動のトレンドを監視することに関するプレゼンテーションが行われました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "pollution",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/pəˈluːʃn/",
+        "meaning": "The presence in or introduction into the environment of a substance or thing that has harmful or poisonous effects.",
+        "synonyms": ["contamination", "fouling", "impurities"],
+        "antonyms": ["purification", "cleanliness"],
+        "examples": [
+          {
+            "english": "Smart city applications deploy autonomous sensors to measure air pollution metrics in high-traffic zones.",
+            "translations": {
+              "Mandarin Chinese": "智慧城市应用程序部署自主传感器来测量高交通流量区域的空气污染指标。",
+              "Hindi": "स्मार्ट सिटी एप्लिकेशन अत्यधिक ट्रैफ़िक वाले क्षेत्रों में वायु प्रदूषण के मेट्रिक्स को मापने के लिए स्वायत्त सेंसर तैनात करते हैं।",
+              "Spanish": "Las aplicaciones de ciudades inteligentes despliegan sensores autónomos para medir las métricas de contaminación del aire en zonas de alto tráfico.",
+              "Standard Arabic": "تنشر تطبيقات المدن الذكية أجهزة استشعار مستقلة لقياس مقاييس تلوث الهواء في المناطق ذات الحركية المرورية العالية.",
+              "French": "Les applications de ville intelligente déploient des capteurs autonomes pour mesurer les indices de pollution de l'air dans les zones à fort trafic.",
+              "Bengali": "স্মার্ট সিটি অ্যাপ্লিকেশনগুলি উচ্চ-ট্র্যাফিক জোনে বায়ু দূষণের মেট্রিক্স পরিমাপের জন্য স্বায়ত্তশাসিত সেন্সর মোতায়েন করে।",
+              "Portuguese": "As aplicações de cidades inteligentes implantam sensores autônomos para medir métricas de poluição do ar em zonas de alto tráfego.",
+              "Russian": "Приложения для умных городов развертывают автономные датчики для измерения показателей загрязнения воздуха в зонах с интенсивным движением.",
+              "Urdu": "اسمارٹ سٹی ایپلی کیشنز تیز ٹریفک والے زونز میں ہوا کی آلودگی کے میٹرکس کی پیمائش کے لیے خود مختار سینسرز لگاتی ہیں۔",
+              "Indonesian": "Aplikasi kota pintar menerapkan sensor otonom untuk mengukur metrik polusi udara di zona lalu lintas padat.",
+              "Standard German": "Smart-City-Anwendungen setzen autonome Sensoren ein, um die Luftverschmutzungswerte in stark frequentierten Zonen zu messen.",
+              "Japanese": "スマートシティのアプリケーションは、交通量の多いゾーンで大気汚染のメトリクスを測定するために自律型センサーを配置しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "recycling",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌriːˈsaɪklɪŋ/",
+        "meaning": "The action or process of converting waste materials into reusable objects or resources.",
+        "synonyms": ["reprocessing", "reclaiming", "reusing"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The minimalist web interface provides clear guides to help citizens understand regional recycling rules.",
+            "translations": {
+              "Mandarin Chinese": "这个极简的网络界面提供了清晰的指南，帮助市民了解区域回收规则。",
+              "Hindi": "न्यूनतम (मिनिमलिस्ट) वेब इंटरफ़ेस नागरिकों को क्षेत्रीय रीसाइक्लिंग नियमों को समझने में मदद करने के लिए स्पष्ट गाइड प्रदान करता है।",
+              "Spanish": "La interfaz web minimalista proporciona guías claras para ayudar a los ciudadanos a comprender las reglas regionales de reciclaje.",
+              "Standard Arabic": "توفر واجهة الويب البسيطة أدلة واضحة لمساعدة المواطنين على فهم قواعد إعادة التدوير الإقليمية.",
+              "French": "L'interface web minimaliste fournit des guides clairs pour aider les citoyens à comprendre les règles de recyclage régionales.",
+              "Bengali": "মিনিমালিস্ট ওয়েব ইন্টারফেসটি নাগরিকদের আঞ্চলিক পুনর্ব্যবহারের নিয়মগুলি বুঝতে সাহায্য করার জন্য স্পষ্ট নির্দেশিকা প্রদান করে।",
+              "Portuguese": "A interface web minimalista fornece guias claros para ajudar os cidadãos a entender as regras regionais de reciclagem.",
+              "Russian": "Минималистичный веб-интерфейс предоставляет четкие руководства, помогающие гражданам понять региональные правила переработки отходов.",
+              "Urdu": "منیمالسٹ ویب انٹرفیس شہریوں کو علاقائی ری سائیکلنگ کے اصولوں کو سمجھنے میں مدد کرنے کے لیے واضح گائیڈز فراہم کرتا ہے۔",
+              "Indonesian": "Antarmuka web minimalis ini menyediakan panduan yang jelas untuk membantu warga memahami aturan daur ulang regional.",
+              "Standard German": "Die minimalistische Weboberfläche bietet klare Anleitungen, um den Bürgern das Verständnis der regionalen Recyclingregeln zu erleichtern.",
+              "Japanese": "そのミニマリストなWebインターフェースは、市民が地域の再利用（リサイクル）規則を理解するのを助ける明確なガイドを提供しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "renewable energy",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈnjuːəbl ˈenədʒi/",
+        "meaning": "Energy from a source that is not depleted when used, such as wind or solar power.",
+        "synonyms": ["clean energy", "green power", "alternative energy"],
+        "antonyms": ["fossil fuels", "non-renewable energy"],
+        "examples": [
+          {
+            "english": "The investment analysis platform predicts steady growth in infrastructure software managing renewable energy.",
+            "translations": {
+              "Mandarin Chinese": "该投资分析平台预测管理可再生能源的基础设施软件将保持稳定增长。",
+              "Hindi": "निवेश विश्लेषण मंच (इन्वेस्टमेंट एनालिसिस प्लेटफॉर्म) नवीकरणीय ऊर्जा (रिन्यूएबल एनर्जी) के प्रबंधन वाले बुनियादी ढांचा सॉफ्टवेयर में निरंतर वृद्धि की भविष्यवाणी करता है।",
+              "Spanish": "La plataforma de análisis de inversiones predice un crecimiento constante en el software de infraestructura que gestiona la energía renovable.",
+              "Standard Arabic": "تتوقع منصة تحليل الاستثمار نمواً مستقراً في برمجيات البنية التحتية التي تدير الطاقة المتجددة.",
+              "French": "La plateforme d'analyse des investissements prévoit une croissance constante des logiciels d'infrastructure gérant les énergies renouvelables.",
+              "Bengali": "বিনিয়োগ বিশ্লেষণ প্ল্যাটফর্মটি নবায়নযোগ্য শক্তি পরিচালনাকারী অবকাঠামো সফ্টওয়্যারের অবিচলিত বৃদ্ধির পূর্বাভাস দিয়েছে।",
+              "Portuguese": "A plataforma de análise de investimentos prevê um crescimento constante no software de infraestrutura que gerencia energia renovável.",
+              "Russian": "Платформа инвестиционного анализа прогнозирует устойчивый рост программного обеспечения инфраструктуры для управления возобновляемыми источниками энергии.",
+              "Urdu": "انویسٹمنٹ انالیسس پلیٹ فارم قابل تجدید توانائی کا انتظام کرنے والے انفراسٹرکچر سافٹ ویئر میں مستحکم ترقی کی پیش گوئی کرتا ہے۔",
+              "Indonesian": "Platform analisis investasi tersebut memprediksi pertumbuhan yang stabil pada perangkat lunak infrastruktur yang mengelola energi terbarukan.",
+              "Standard German": "Die Investitionsanalyseplattform prognostiziert ein stetiges Wachstum bei Infrastruktursoftware zur Verwaltung erneuerbarer Energien.",
+              "Japanese": "その投資分析プラットフォームは、再生可能エネルギーを管理するインフラソフトウェアの着実な成長を予測しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "global warming",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɡləʊbl ˈwɔːmɪŋ/",
+        "meaning": "A gradual increase in the overall temperature of the earth's atmosphere, generally attributed to the greenhouse effect.",
+        "synonyms": ["greenhouse effect", "climate warming"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The environmental application calculates data to show how individual consumption habits accelerate global warming.",
+            "translations": {
+              "Mandarin Chinese": "该环保应用程序计算数据，以显示个人消费习惯如何加速全球变暖。",
+              "Hindi": "पर्यावरण संबंधी एप्लिकेशन यह दिखाने के लिए डेटा की गणना करता है कि व्यक्तिगत उपभोग की आदतें वैश्विक वार्मिंग को कैसे तेज करती हैं।",
+              "Spanish": "La aplicación ambiental calcula datos para mostrar cómo los hábitos de consumo individuales aceleran el calentamiento global.",
+              "Standard Arabic": "يحسب التطبيق البيئي البيانات لإظهار كيف تسرع عادات الاستهلاك الفردية من ظاهرة الاحتباس الحراري.",
+              "French": "L'application environnementale calcule les données pour montrer comment les habitudes de consommation individuelles accélèrent le réchauffement climatique.",
+              "Bengali": "পরিবেশগত অ্যাপ্লিকেশনটি পৃথক ভোগের অভ্যাস কীভাবে বিশ্ব উষ্ণায়নকে ত্বরান্বিত করে তা দেখানোর জন্য ডেটা গণনা করে।",
+              "Portuguese": "O aplicativo ambiental calcula dados para mostrar como os hábitos de consumo individuais aceleram o aquecimento global.",
+              "Russian": "Экологическое приложение рассчитывает данные, чтобы показать, как индивидуальные привычки потребления ускоряют глобальное потепление.",
+              "Urdu": "ماحولیاتی ایپلی کیشن ڈیٹا کا حساب لگا کر یہ دکھاتی ہے کہ انفرادی استعمال کی عادتیں کس طرح گلوبل وارمنگ کو تیز کرتی ہیں۔",
+              "Indonesian": "Aplikasi lingkungan tersebut menghitung data untuk menunjukkan bagaimana kebiasaan konsumsi individu mempercepat pemanasan global.",
+              "Standard German": "Die Umweltanwendung berechnet Daten, um zu zeigen, wie individuelle Konsumgewohnheiten die globale Erwärmung beschleunigen.",
+              "Japanese": "その環境アプリケーションはデータを計算し、個人の消費習慣がどのように地球温暖化（グローバルウォーミング）を加速させるかを示します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "plastic waste",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈplæstɪk weɪst/",
+        "meaning": "Discarded plastic materials that accumulate in the environment and harm habitats or wildlife.",
+        "synonyms": ["plastic debris", "synthetic refuse"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The dashboard displays statistics regarding the heavy accumulation of plastic waste near urban coastlines.",
+            "translations": {
+              "Mandarin Chinese": "该仪表盘显示了关于城市海岸线附近塑料垃圾严重堆积的统计数据。",
+              "Hindi": "डैशबोर्ड शहरी तटों के पास प्लास्टिक कचरे (प्लास्टिक वेस्ट) के भारी संचय के संबंध में आँकड़े प्रदर्शित करता है।",
+              "Spanish": "El tablero muestra estadísticas sobre la gran acumulación de residuos plásticos cerca de las costas urbanas.",
+              "Standard Arabic": "تعرض لوحة المعلومات إحصاءات تتعلق بالتراكم الكثيف للنفايات البلاستيكية بالقرب من الخطوط الساحلية الحضرية.",
+              "French": "Le tableau de bord affiche des statistiques concernant la forte accumulation de déchets plastiques près des côtes urbaines.",
+              "Bengali": "ড্যাশবোর্ডটি শহুরে উপকূলরেখার কাছাকাছি প্লাস্টিক বর্জ্যের ভারী জমার বিষয়ে পরিসংখ্যান প্রদর্শন করে।",
+              "Portuguese": "O painel exibe estatísticas sobre o grande acúmulo de resíduos plásticos perto de costas urbanas.",
+              "Russian": "На информационной панели отображается статистика сильного накопления пластиковых отходов вблизи городских побережий.",
+              "Urdu": "ڈیش بورڈ شہری ساحلوں کے قریب پلاسٹک کے فضلے کے بھاری جمع ہونے کے بارے میں اعداد و شمار دکھاتا ہے۔",
+              "Indonesian": "Dasbor menampilkan statistik terkait penumpukan limbah plastik yang besar di dekat garis pantai perkotaan.",
+              "Standard German": "Das Dashboard zeigt Statistiken über die starke Anhäufung von Plastikmüll an städtischen Küstenlinien.",
+              "Japanese": "ダッシュボードには、都市部の海岸線近くにおけるプラスチックごみ（プラスチックウェイスト）の深刻な蓄積に関する統計が表示されます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "natural resources",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈnætʃrəl rɪˈsɔːsɪz/",
+        "meaning": "Materials or substances such as minerals, forests, water, and fertile land that occur in nature and can be used for economic gain.",
+        "synonyms": ["raw materials", "environmental assets"],
+        "antonyms": ["synthetic materials"],
+        "examples": [
+          {
+            "english": "Industrial development must minimize the consumption of non-renewable natural resources.",
+            "translations": {
+              "Mandarin Chinese": "工业发展必须尽量减少不可再生自然资源的消耗。",
+              "Hindi": "औद्योगिक विकास को गैर-नवीकरणीय प्राकृतिक संसाधनों की खपत को कम करना चाहिए।",
+              "Spanish": "El desarrollo industrial debe minimizar el consumo de recursos naturales no renovables.",
+              "Standard Arabic": "يجب أن يقلل التطوير الصناعي من استهلاك الموارد الطبيعية غير المتجددة.",
+              "French": "Le développement industriel doit minimiser la consommation de ressources naturelles non renouvelables.",
+              "Bengali": "শিল্প উন্নয়নকে অবশ্যই অনবায়নযোগ্য প্রাকৃতিক সম্পদের ব্যবহার কমিয়ে আনতে হবে।",
+              "Portuguese": "O desenvolvimento industrial deve minimizar o consumo de recursos naturais não renováveis.",
+              "Russian": "Промышленное развитие должно свести к минимуму потребление невозобновляемых природных ресурсов.",
+              "Urdu": "صنعتی ترقی کو غیر قابل تجدید قدرتی وسائل کے استعمال کو کم سے کم کرنا چاہیے۔",
+              "Indonesian": "Pembangunan industri harus meminimalkan konsumsi sumber daya alam yang tidak dapat diperbarui.",
+              "Standard German": "Die industrielle Entwicklung muss den Verbrauch nicht erneuerbarer natürlicher Ressourcen minimieren.",
+              "Japanese": "工業発展は、非再生可能天然資源（ナチュラルリソース）の消費を最小限に抑えなければなりません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "forest",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfɒrɪst/",
+        "meaning": "A large area covered chiefly with trees and undergrowth.",
+        "synonyms": ["woods", "woodland", "timberland"],
+        "antonyms": ["desert", "clearing"],
+        "examples": [
+          {
+            "english": "Satellite rendering tools monitor the structural boundaries of the local forest over time.",
+            "translations": {
+              "Mandarin Chinese": "卫星渲染工具随着时间的推移监测当地森林的结构边界。",
+              "Hindi": "सैटेलाइट रेंडरिंग टूल समय के साथ स्थानीय वन (फॉरेस्ट) की संरचनात्मक सीमाओं की निगरानी करते हैं।",
+              "Spanish": "Las herramientas de renderizado satelital monitorean los límites estructurales del bosque local a lo largo del tiempo.",
+              "Standard Arabic": "تراقب أدوات الرندر عبر الأقمار الصناعية الحدود البنيوية للغابة المحلية بمرور الوقت.",
+              "French": "Les outils de rendu satellite surveillent les limites structurelles de la forêt locale au fil du temps.",
+              "Bengali": "স্যাটেলাইট রেন্ডারিং সরঞ্জামগুলি সময়ের সাথে সাথে স্থানীয় বনের কাঠামোগত সীমানা পর্যবেক্ষণ করে।",
+              "Portuguese": "As ferramentas de renderização via satélite monitoram os limites estruturais da floresta local ao longo do tempo.",
+              "Russian": "Инструменты спутникового рендеринга отслеживают структурные границы местного леса с течением времени.",
+              "Urdu": "سیٹلائٹ رینڈرنگ ٹولز وقت کے ساتھ ساتھ مقامی جنگل کی ساختی حدود کی نگرانی کرتے ہیں۔",
+              "Indonesian": "Alat rendering satelit memantau batas struktural hutan lokal dari waktu ke waktu.",
+              "Standard German": "Satelliten-Rendering-Tools überwachen die strukturellen Grenzen des lokalen Waldes im Zeitverlauf.",
+              "Japanese": "衛星レンダリングツールは、時間の経過に伴う地元の森林（フォレスト）の構造的境界を監視します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "wildlife",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwaɪldlaɪf/",
+        "meaning": "Wild animals collectively; the native fauna of a region.",
+        "synonyms": ["undomesticated animals", "fauna"],
+        "antonyms": ["domesticated animals", "livestock"],
+        "examples": [
+          {
+            "english": "He captured beautiful nature photography featuring regional wildlife using a custom camera app.",
+            "translations": {
+              "Mandarin Chinese": "他使用自定义相机应用程序拍摄了包含区域野生动物的美丽自然摄影。",
+              "Hindi": "उन्होंने एक कस्टम कैमरा ऐप का उपयोग करके क्षेत्रीय वन्यजीवों (वाइल्डलाइफ) की सुंदर प्रकृति फोटोग्राफी को कैप्चर किया।",
+              "Spanish": "Capturó hermosas fotografías de la naturaleza que muestran la vida silvestre de la región usando una aplicación de cámara personalizada.",
+              "Standard Arabic": "التقط صوراً طبيعية جميلة تتميز بالحياة البرية الإقليمية باستخدام تطبيق كاميرا مخصص.",
+              "French": "Il a capturé de magnifiques photos de nature mettant en valeur la faune locale à l'aide d'une application photo personnalisée.",
+              "Bengali": "তিনি একটি কাস্টম ক্যামেরা অ্যাপ ব্যবহার করে আঞ্চলিক বন্যপ্রাণী সম্বলিত সুন্দর প্রকৃতির ছবি তুলেছেন।",
+              "Portuguese": "Ele capturou belas fotografias da natureza apresentando a vida selvagem regional usando um aplicativo de câmera personalizado.",
+              "Russian": "Он сделал красивые фотографии природы с изображением местной дикой природы, используя кастомное приложение камеры.",
+              "Urdu": "اس نے ایک کسٹم کیمرہ ایپ کا استعمال کرتے ہوئے علاقائی جنگلی حیات کی خوبصورت نیچر فوٹوگرافی شیئر کی۔",
+              "Indonesian": "Ia mengabadikan fotografi alam yang indah yang menampilkan satwa liar regional menggunakan aplikasi kamera khusus.",
+              "Standard German": "Er hat mit einer maßgeschneiderten Kamera-App wunderschöne Naturaufnahmen der regionalen Tierwelt gemacht.",
+              "Japanese": "彼はカスタムカメラアプリを使用して、地域の野生動物（ワイルドライフ）をとらえた美しい自然写真を撮影しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "conservation",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɒnsəˈveɪʃn/",
+        "meaning": "The action of conserving something, in particular preservation, protection, or restoration of the natural environment.",
+        "synonyms": ["preservation", "protection", "safeguarding"],
+        "antonyms": ["destruction", "neglect", "waste"],
+        "examples": [
+          {
+            "english": "A secure database system manages the records of local wildlife conservation projects.",
+            "translations": {
+              "Mandarin Chinese": "一个安全的数据库系统管理着当地野生动物保护项目的记录。",
+              "Hindi": "एक सुरक्षित डेटाबेस सिस्टम स्थानीय वन्यजीव संरक्षण (वाइल्डलाइफ कंजर्वेशन) परियोजनाओं के रिकॉर्ड का प्रबंधन करता है।",
+              "Spanish": "Un sistema de base de datos seguro gestiona los registros de los proyectos locales de conservación de la vida silvestre.",
+              "Standard Arabic": "يدير نظام قاعدة بيانات آمن سجلات مشاريع الحفاظ على الحياة البرية المحلية.",
+              "French": "Un système de base de données sécurisé gère les dossiers des projets locaux de conservation de la faune.",
+              "Bengali": "একটি নিরাপদ ডাটাবেস সিস্টেম স্থানীয় বন্যপ্রাণী সংরক্ষণ প্রকল্পের রেকর্ড পরিচালনা করে।",
+              "Portuguese": "Um sistema de banco de dados seguro gerencia os registros dos projetos locais de conservação da vida selvagem.",
+              "Russian": "Безопасная система баз данных управляет записями местных проектов по сохранению дикой природы.",
+              "Urdu": "ایک محفوظ ڈیٹا بیس سسٹم مقامی جنگلی حیات کے تحفظ کے منصوبوں کے ریکارڈ کا انتظام کرتا ہے۔",
+              "Indonesian": "Sistem basis data yang aman mengelola catatan proyek konservasi satwa liar setempat.",
+              "Standard German": "Ein sicheres Datenbanksystem verwaltet die Aufzeichnungen lokaler Naturschutzprojekte.",
+              "Japanese": "安全なデータベースシステムが、地元の野生動物保護（コンサベーション）プロジェクトの記録を管理しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "carbon footprint",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɑːbən ˈfʊtprɪnt/",
+        "meaning": "The amount of carbon dioxide releases into the atmosphere due to the activities of a particular individual, organization, or community.",
+        "synonyms": ["carbon impact", "emissions count"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The dashboard integration helps families track and reduce their annual carbon footprint.",
+            "translations": {
+              "Mandarin Chinese": "仪表盘集成帮助家庭追踪并减少他们的年度碳足迹。",
+              "Hindi": "डैशबोर्ड एकीकरण (डैशबोर्ड इंटीग्रेशन) परिवारों को उनके वार्षिक कार्बन फुटप्रिंट को ट्रैक करने और कम करने में मदद करता है।",
+              "Spanish": "La integración del tablero ayuda a las familias a rastrear y reducir su huella de carbono anual.",
+              "Standard Arabic": "يساعد دمج لوحة المعلومات العائلات على تتبع وتقليل بصمتها الكربونية السنوية.",
+              "French": "L'intégration du tableau de bord aide les familles à suivre et à réduire leur empreinte carbone annuelle.",
+              "Bengali": "ড্যাশবোর্ড ইন্টিগ্রেশন পরিবারগুলিকে তাদের বার্ষিক কার্বন ফুটপ্রিন্ট ট্র্যাক করতে এবং কমাতে সহায়তা করে।",
+              "Portuguese": "A integração do painel ajuda as famílias a rastrear e reduzir sua pegada de carbono anual.",
+              "Russian": "Интеграция информационной панели помогает семьям отслеживать и сокращать свой ежегодный углеродный след.",
+              "Urdu": "ڈیش بورڈ انٹیگریشن خاندانوں کو اپنے سالانہ کاربن فٹ پرنٹ کو ٹریک کرنے اور کم کرنے میں مدد کرتا ہے۔",
+              "Indonesian": "Integrasi dasbor membantu keluarga melacak dan mengurangi jejak karbon tahunan mereka.",
+              "Standard German": "Die Dashboard-Integration hilft Familien, ihren jährlichen CO2-Fußabdruck zu verfolgen und zu reduzieren.",
+              "Japanese": "ダッシュボード統合により、家庭が年間の炭素足跡（カーボンフットプリント）を追跡し、削減するのを支援します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "environmental issue",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪnˌvaɪrənˈmentl ˈɪʃuː/",
+        "meaning": "Problems with planet's systems (air, water, soil) that have developed as a result of human activities or ecological disruptions.",
+        "synonyms": ["ecological problem", "green concern"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Water shortage is a critical environmental issue that impacts millions of households every summer.",
+            "translations": {
+              "Mandarin Chinese": "水资源短缺是一个关键的环境问题，每年夏天都会影响数百万个家庭。",
+              "Hindi": "पानी की कमी एक गंभीर पर्यावरणीय समस्या (एनवायरनमेंटल इश्यू) है जो हर गर्मी में लाखों परिवारों को प्रभावित करती है।",
+              "Spanish": "La escasez de agua es un problema ambiental crítico que afecta a millones de hogares cada verano.",
+              "Standard Arabic": "تعد مشكلة نقص المياه مشكلة بيئية حرجة تؤثر على ملايين الأسر كل صيف.",
+              "French": "La pénurie d'eau est un problème environnemental critique qui touche des millions de foyers chaque été.",
+              "Bengali": "পানির ঘাটতি একটি গুরুতর পরিবেশগত সমস্যা যা প্রতি গ্রীষ্মে লক্ষ লক্ষ পরিবারকে প্রভাবিত করে।",
+              "Portuguese": "A escassez de água é um problema ambiental crítico que afeta milhões de lares a cada verão.",
+              "Russian": "Нехватка воды — это критическая экологическая проблема, которая каждое лето затрагивает миллионы семей.",
+              "Urdu": "پانی کی قلت ایک سنگین ماحولیاتی مسئلہ ہے جو ہر موسم گرما میں لاکھوں خاندانوں کو متاثر کرتی ہے۔",
+              "Indonesian": "Kekurangan air adalah masalah lingkungan kritis yang berdampak pada jutaan rumah tangga setiap musim panas.",
+              "Standard German": "Wasserknappheit ist ein kritisches Umweltproblem, das jeden Sommer Millionen von Haushalten betrifft.",
+              "Japanese": "水不足は、毎年夏に何百万もの世帯に影響を与える深刻な環境問題（エンバイロメンタルイシュー）です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "solar energy",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsəʊlər ˈenədʒi/",
+        "meaning": "Radiant light and heat from the Sun that is harnessed using a range of technologies such as solar power to generate electricity.",
+        "synonyms": ["solar power", "sun power"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The dashboard component monitors how effectively the home panels capture solar energy.",
+            "translations": {
+              "Mandarin Chinese": "仪表盘组件监测家用面板捕获太阳能 transition 的有效性。",
+              "Hindi": "डैशबोर्ड घटक (कम्पोनेंट) यह निगरानी करता है कि होम पैनल सौर ऊर्जा (सोलर एनर्जी) को कितनी प्रभावी ढंग से कैप्चर करते हैं।",
+              "Spanish": "El componente del tablero monitorea con qué efectividad los paneles del hogar capturan la energía solar.",
+              "Standard Arabic": "يراقب مكون لوحة المعلومات مدى فعالية الألواح المنزلية في التقاط الطاقة الشمسية.",
+              "French": "Le composant du tableau de bord surveille l'efficacité avec laquelle les panneaux domestiques captent l'énergie solaire.",
+              "Bengali": "ড্যাশবোর্ড উপাদানটি ঘরের প্যানেলগুলি কত কার্যকরভাবে সৌর শক্তি ক্যাপচার করে তা পর্যবেক্ষণ করে।",
+              "Portuguese": "O componente do painel monitora a eficácia com que os painéis domésticos captam energia solar.",
+              "Russian": "Компонент информационной панели отслеживает, насколько эффективно домашние панели улавливают солнечную энергию.",
+              "Urdu": "ڈیش بورڈ کا جزو یہ مانیٹر کرتا ہے کہ ہوم پینلز شمسی توانائی کو کتنی مؤثر طریقے سے حاصل کرتے ہیں۔",
+              "Indonesian": "Komponen dasbor memantau seberapa efektif panel rumah menangkap energi surya.",
+              "Standard German": "Die Dashboard-Komponente überwacht, wie effektiv die Solaranlagen des Hauses Solarenergie erfassen.",
+              "Japanese": "ダッシュボードコンポーネントは、家庭用パネルがどの程度効率的に太陽光エネルギー（ソーラーエナジー）を取り込んでいるかを監視します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "water shortage",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwɔːtə ˈʃɔːtɪdʒ/",
+        "meaning": "The lack of sufficient available water resources to meet the demands of water usage within a region.",
+        "synonyms": ["water scarcity", "drought"],
+        "antonyms": ["water abundance", "surplus"],
+        "examples": [
+          {
+            "english": "The data portal tracks metrics related to regional rainfall to predict seasonal water shortage parameters.",
+            "translations": {
+              "Mandarin Chinese": "数据门户网站追踪与区域降雨相关的指标，以预测季节性水资源短缺参数。",
+              "Hindi": "डेटा पोर्टल मौसमी पानी की कमी (वाटर शॉर्टेज) के मापदंडों की भविष्यवाणी करने के लिए क्षेत्रीय वर्षा से संबंधित मेट्रिक्स को ट्रैक करता है।",
+              "Spanish": "El portal de datos rastrea métricas relacionadas con la lluvia regional para predecir los parámetros de escasez de agua estacional.",
+              "Standard Arabic": "يتتبع بوابة البيانات المقاييس المتعلقة بهطول الأمطار الإقليمية للتنبؤ بمعايير نقص المياه الموسمي.",
+              "French": "Le portail de données suit les indices liés aux précipitations régionales afin de prévoir les paramètres de pénurie d'eau saisonnière.",
+              "Bengali": "ডেটা পোর্টালটি ঋতুভিত্তিক পানির ঘাটতির প্যারামিটারগুলির পূর্বাভাস দিতে আঞ্চলিক বৃষ্টিপাত সম্পর্কিত মেট্রিক্স ট্র্যাক করে।",
+              "Portuguese": "O portal de dados rastreia métricas relacionadas à chuva regional para prever os parâmetros de escassez de água sazonal.",
+              "Russian": "Портал данных отслеживает показатели, связанные с региональными осадками, для прогнозирования параметров сезонной нехватки воды.",
+              "Urdu": "ڈیٹا پورٹل موسمی پانی کی قلت کے پیرامیٹرز کی پیش گوئی کرنے کے لیے علاقائی بارش سے متعلق میٹرکس کو ٹریک کرتا ہے۔",
+              "Indonesian": "Portal data melacak metrik yang terkait dengan curah hujan regional untuk memprediksi parameter kekurangan air musiman.",
+              "Standard German": "Das Datenportal verfolgt Metriken zur regionalen Niederschlagsmenge, um Parameter für saisonale Wasserknappheit vorherzusagen.",
+              "Japanese": "データポータルは、季節的な水不足（ウォーターショーテージ）のパラメータを予測するために、地域の降雨量に関連するメトリクスを追跡します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "protect",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "verb",
+        "pronunciation": "/prəˈtekt/",
+        "meaning": "Keep safe from harm or injury; preserve structural or ecological integrity.",
+        "synonyms": ["safeguard", "shield", "defend"],
+        "antonyms": ["harm", "endanger", "expose"],
+        "examples": [
+          {
+            "english": "Autonomous encryption protocols work together to protect sensitive user profile records.",
+            "translations": {
+              "Mandarin Chinese": "自主加密协议共同努力以保护敏感的用户资料记录。",
+              "Hindi": "संवेदनशील उपयोगकर्ता प्रोफ़ाइल रिकॉर्ड की रक्षा (प्रोटेक्ट) करने के लिए स्वायत्त एन्क्रिप्शन प्रोटोकॉल एक साथ काम करते हैं।",
+              "Spanish": "Los protocolos de cifrado autónomos trabajan juntos para proteger los registros confidenciales del perfil del usuario.",
+              "Standard Arabic": "تعمل بروتوكولات التشفير المستقلة معاً لحماية سجلات ملف تعريف المستخدم الحساسة.",
+              "French": "Les protocoles de chiffrement autonomes collaborent pour protéger les données sensibles du profil utilisateur.",
+              "Bengali": "সংবেদনশীল ব্যবহারকারী প্রোফাইল রেকর্ড রক্ষা করতে স্বায়ত্তশাসিত এনক্রিপশন প্রোটোকলগুলি একসাথে কাজ করে।",
+              "Portuguese": "Os protocolos de criptografia autônomos trabalham juntos para proteger os registros confidenciais do perfil do usuário.",
+              "Russian": "Автономные протоколы шифрования работают вместе для защиты конфиденциальных записей профилей пользователей.",
+              "Urdu": "حساس صارف پروفائل ریکارڈز کی حفاظت کے لیے خود مختار انکرپشن پروٹوکول مل کر کام کرتے ہیں۔",
+              "Indonesian": "Protokol enkripsi otonom bekerja sama untuk melindungi catatan profil pengguna yang sensitif.",
+              "Standard German": "Autonome Verschlüsselungsprotokolle arbeiten zusammen, um sensible Benutzerprofildaten zu schützen.",
+              "Japanese": "自律的な暗号化プロトコルが連携して、機密性の高いユーザープロファイルレコードを保護（プロテクト）します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "ecosystem",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈiːkəʊsɪstəm/",
+        "meaning": "A biological community of interacting organisms and their physical environment, or an interconnected network of software frameworks.",
+        "synonyms": ["ecological community", "network", "environment environment"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The mobile developer enjoys working inside the Android framework ecosystem due to its versatility.",
+            "translations": {
+              "Mandarin Chinese": "由于其多功能性，移动开发人员喜欢在 Android 框架生态系统中工作。",
+              "Hindi": "मोबाइल डेवलपर इसकी बहुमुखी प्रतिभा के कारण एंड्रॉइड फ्रेमवर्क इकोसिस्टम के भीतर काम करना पसंद करता है।",
+              "Spanish": "El desarrollador móvil disfruta trabajando dentro del ecosistema del marco de Android debido a su versatilidad.",
+              "Standard Arabic": "يستمتع مطور الهاتف المحمول بالعمل داخل منظومة إطار عمل Android نظراً لمرونته.",
+              "French": "Le développeur mobile apprécie de travailler au sein de l'écosystème du framework Android en raison de sa polyvalence.",
+              "Bengali": "মোবাইল ডেভেলপার অ্যান্ড্রয়েড ফ্রেমওয়ার্ক ইকোসিস্টেমের মধ্যে কাজ করা উপভোগ করেন এর বহুমুখীতার কারণে।",
+              "Portuguese": "O desenvolvedor móvel gosta de trabalhar dentro do ecossistema do framework Android devido à sua versatilidade.",
+              "Russian": "Мобильный разработчик получает удовольствие от работы в экосистеме платформы Android благодаря ее универсальности.",
+              "Urdu": "موبائل ڈویلپر اینڈرائیڈ فریم ورک ایکو سسٹم کے اندر کام کرنے سے لطف اندوز ہوتا ہے کیونکہ یہ ورسٹائل ہے۔",
+              "Indonesian": "Pengembang seluler menikmati bekerja di dalam ekosistem kerangka kerja Android karena keserbagunaannya.",
+              "Standard German": "Der mobile Entwickler arbeitet aufgrund der Vielseitigkeit gerne im Android-Framework-Ökosystem.",
+              "Japanese": "モバイル開発者は、その汎用性の高さから、Androidフレームワークのエコシステム内で作業することを楽しんでいます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "electric vehicle",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪˈlektrɪk ˈviːəkl/",
+        "meaning": "A automotive build that derives propulsion from one or more electric motors, using energy stored in rechargeable batteries.",
+        "synonyms": ["EV", "battery electric car"],
+        "antonyms": ["combustion engine car"],
+        "examples": [
+          {
+            "english": "The engineering dashboard displays efficient parameters for battery usage in the new electric vehicle design.",
+            "translations": {
+              "Mandarin Chinese": "工程仪表盘显示了新电动汽车设计中电池使用的有效参数。",
+              "Hindi": "इंजीनियरिंग डैशबोर्ड नए इलेक्ट्रिक वाहन (इलेक्ट्रिक व्हीकल) डिज़ाइन में बैटरी उपयोग के लिए कुशल मापदंड प्रदर्शित करता है।",
+              "Spanish": "El tablero de ingeniería muestra parámetros eficientes para el uso de la batería en el nuevo diseño de vehículo eléctrico.",
+              "Standard Arabic": "تعرض لوحة القيادة الهندسية معايير فعالة لاستخدام البطارية في تصميم المركبة الكهربائية الجديدة.",
+              "French": "Le tableau de bord d'ingénierie affiche les paramètres optimaux pour l'utilisation de la batterie dans le nouveau modèle de véhicule électrique.",
+              "Bengali": "ইঞ্জিনিয়ারিং ড্যাশবোর্ড নতুন বৈদ্যুতিক যানবাহনের ডিজাইনে ব্যাটারি ব্যবহারের জন্য দক্ষ প্যারামিটার প্রদর্শন করে।",
+              "Portuguese": "O painel de engenharia exibe parâmetros eficientes para o uso da bateria no novo design de veículo elétrico.",
+              "Russian": "Инженерная панель отображает эффективные параметры использования батареи в новом дизайне электромобиля.",
+              "Urdu": "انجینئرنگ ڈیش بورڈ نئی الیکٹرک گاڑی کے ڈیزائن میں بیٹری کے استعمال کے موثر پیرامیٹرز دکھاتا ہے۔",
+              "Indonesian": "Dasbor rekayasa menampilkan parameter efisien untuk penggunaan baterai pada desain kendaraan listrik baru.",
+              "Standard German": "Das Entwicklungs-Dashboard zeigt effiziente Parameter für die Batterienutzung im neuen Elektrofahrzeugdesign.",
+              "Japanese": "エンジニアリングダッシュボードには、新しい電気自動車（エレクトリックビークル）設計におけるバッテリー使用の効率的なパラメータが表示されます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "greenhouse gas",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɡriːnhaʊs ɡæs/",
+        "meaning": "A gas that contributes to the greenhouse effect by absorbing infrared radiation, such as carbon dioxide.",
+        "synonyms": ["carbon emissions", "atmospheric pollutants"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Industrial software modules verify factory compliance regarding standard greenhouse gas emission ceilings.",
+            "translations": {
+              "Mandarin Chinese": "工业软件模块验证工厂关于标准温室气体排放上限的合规性。",
+              "Hindi": "औद्योगिक सॉफ़्टवेयर मॉड्यूल मानक ग्रीनहाउस गैस (ग्रीनहाउस गैस) उत्सर्जन सीमा के संबंध में कारखाने के अनुपालन को सत्यापित करते हैं।",
+              "Spanish": "Los módulos de software industrial verifican el cumplimiento de la fábrica con respecto a los límites estándar de emisión de gases de efecto invernadero.",
+              "Standard Arabic": "تتحقق وحدات البرمجيات الصناعية من امتثال المصنع فيما يتعلق بالحدود القصوى القياسية لانبعاثات الغازات الدفيئة.",
+              "French": "Les modules logiciels industriels vérifient la conformité de l'usine par rapport aux plafonds réglementaires d'émissions de gaz à effet de serre.",
+              "Bengali": "শিল্প সফ্টওয়্যার মডিউলগুলি মানক গ্রিনহাউস গ্যাস নির্গমনের সিলিং সম্পর্কিত কারখানার সম্মতি যাচাই করে।",
+              "Portuguese": "Os módulos de software industrial verificam a conformidade da fábrica em relação aos tetos regulamentares de emissão de gases de efeito estufa.",
+              "Russian": "Модули промышленного программного обеспечения проверяют соответствие завода стандартным предельным уровням выбросов парниковых газов.",
+              "Urdu": "صنعتی سافٹ ویئر ماڈیولز معیاری گرین ہاؤس گیسوں کے اخراج کی حد کے حوالے سے فیکٹری کی تعمیل کی تصدیق کرتے ہیں۔",
+              "Indonesian": "Modul perangkat lunak industri memverifikasi kepatuhan pabrik terkait ambang batas emisi gas rumah kaca standar.",
+              "Standard German": "Industrielle Softwaremodule überprüfen die Einhaltung der Fabrikvorgaben bezüglich der standardmäßigen Treibhausgasemissionsgrenzen.",
+              "Japanese": "産業用ソフトウェアモジュールは、標準的な温室効果ガス（グリーンハウスガス）排出上限に関する工場のコンプライアンスを検証します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "sustainability",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/səˌsteɪnəˈbɪləti/",
+        "meaning": "The ability to be maintained at a certain rate or level, or avoidance of the depletion of natural resources in order to maintain an ecological balance.",
+        "synonyms": ["renewability", "ecological balance", "viability"],
+        "antonyms": ["unviability", "destruction"],
+        "examples": [
+          {
+            "english": "The minimalist product layout highlights the brand's long-term focus on absolute material sustainability.",
+            "translations": {
+              "Mandarin Chinese": "极简的产品布局突出了品牌对绝对材料可持续性的长期关注。",
+              "Hindi": "न्यूनतम (मिनिमलिस्ट) उत्पाद लेआउट पूर्ण सामग्री स्थिरता (सस्टेनेबिलिटी) पर ब्रांड के दीर्घकालिक फोकस को उजागर करता है।",
+              "Spanish": "El diseño de producto minimalista destaca el enfoque a largo plazo de la marca en la sostenibilidad absoluta de los materiales.",
+              "Standard Arabic": "يسلط تخطيط المنتج البسيط الضوء على تركيز العلامة التجارية طويل المدى على الاستدامة المطلقة للمواد.",
+              "French": "La mise en page minimaliste du produit souligne l'accent à long terme de la marque sur la durabilité absolue des matériaux.",
+              "Bengali": "মিনিমালিস্ট পণ্য লেআউটটি সম্পূর্ণ উপাদান স্থায়িত্বের উপর ব্র্যান্ডের দীর্ঘমেয়াদী ফোকাস হাইলাইট করে।",
+              "Portuguese": "O layout minimalista do produto destaca o foco de longo prazo da marca na sustentabilidade absoluta dos materiais.",
+              "Russian": "Минималистичный макет продукта подчеркивает долгосрочное внимание бренда к абсолютной устойчивости материалов.",
+              "Urdu": "منیمالسٹ پروڈکٹ لے آؤٹ مٹیریل کی طویل مدتی پائیداری پر برانڈ کی توجہ کو نمایاں کرتا ہے۔",
+              "Indonesian": "Tata letak produk yang minimalis menonjolkan fokus jangka panjang merek pada keberlanjutan material yang mutlak.",
+              "Standard German": "Das minimalistische Produktlayout unterstreicht den langfristigen Fokus der Marke auf absolute Materialnachhaltigkeit.",
+              "Japanese": "ミニマリストなプロダクトレイアウトは、絶対的な素材の持続可能性（サステナビリティ）に対するブランドの長期的なフォーカスを際立たせています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "earthquake",
+        "level": "B1",
+        "category": "Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɜːθkweɪk/",
+        "meaning": "A sudden and violent shaking of the ground, sometimes causing great destruction, as a result of movements within the earth's crust or volcanic action.",
+        "synonyms": ["seismic tremor", "shock", "temblor"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The mesh communication network successfully transmitted seismic metrics during the minor earthquake.",
+            "translations": {
+              "Mandarin Chinese": "网状通信网络在轻微地震期间成功传输了地震指标。",
+              "Hindi": "मेश संचार नेटवर्क ने मामूली भूकंप (अर्थक्वेक) के दौरान भूकंपीय मेट्रिक्स को सफलतापूर्वक प्रसारित किया।",
+              "Spanish": "La red de comunicación en malla transmitió con éxito las métricas sísmicas durante el terremoto menor.",
+              "Standard Arabic": "نجحت شبكة الاتصالات المتداخلة في نقل المقاييس الزلزالية أثناء الزلزال الخفيف.",
+              "French": "Le réseau de communication maillé a transmis avec succès les données sismiques pendant le léger tremblement de terre.",
+              "Bengali": "মেশ যোগাযোগ নেটওয়ার্কটি সামান্য ভূমিকম্পের সময় সিসমিক মেট্রিক্স সফলভাবে প্রেরণ করেছিল।",
+              "Portuguese": "A rede de comunicação em malha transmitiu com sucesso as métricas sísmicas durante o terremoto de menor intensidade.",
+              "Russian": "Ячеистая сеть связи успешно передала сейсмические показатели во время небольшого землетрясения.",
+              "Urdu": "میش کمیونیکیشن نیٹ ورک نے معمولی زلزلے کے دوران زلزلے کے میٹرکس کو کامیابی سے منتقل کیا۔",
+              "Indonesian": "Jaringan komunikasi mesh berhasil mengirimkan metrik seismik selama gempa bumi kecil terjadi.",
+              "Standard German": "Das Mesh-Kommunikationsnetzwerk übertrug während des kleineren Erdbebens erfolgreich seismische Messdaten.",
+              "Japanese": "メッシュ通信ネットワークは、小規模な地震（アースクエイク）の間、地震メトリクスの送信に成功しました。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "400-500",
+  "source": "Foundational English Descriptive Vocabulary",
+  "categories": {
+    "Body & Health": [
+      {
+        "word": "head",
+        "level": "A1",
+        "category": "Body & Health",
+        "part_of_speech": "noun",
+        "pronunciation": "/hed/",
+        "meaning": "The part of the body that contains the brain, eyes, nose, and mouth.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I have a pain in my head.",
+            "translations": {
+              "Mandarin Chinese": "我头疼。",
+              "Spanish": "Me duele la cabeza."
+            }
+          }
+        ]
+      },
+      {
+        "word": "hand",
+        "level": "A1",
+        "category": "Body & Health",
+        "part_of_speech": "noun",
+        "pronunciation": "/hænd/",
+        "meaning": "The end part of a person's arm, including the fingers.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Wash your hands before you eat.",
+            "translations": {
+              "Mandarin Chinese": "吃饭前洗手。",
+              "Spanish": "Lávate las manos antes de comer."
+            }
+          }
+        ]
+      },
+      {
+        "word": "foot",
+        "level": "A1",
+        "category": "Body & Health",
+        "part_of_speech": "noun",
+        "pronunciation": "/fʊt/",
+        "meaning": "The lower extremity of the leg below the ankle.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My foot hurts when I walk.",
+            "translations": {
+              "Mandarin Chinese": "我走路时脚很疼。",
+              "Spanish": "Me duele el pie cuando camino."
+            }
+          }
+        ]
+      },
+      {
+        "word": "doctor",
+        "level": "A1",
+        "category": "Body & Health",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdɒktər/",
+        "meaning": "A person qualified to treat sick people.",
+        "synonyms": ["physician"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I need to see the doctor.",
+            "translations": {
+              "Mandarin Chinese": "我需要去看医生。",
+              "Spanish": "Necesito ver al doctor."
+            }
+          }
+        ]
+      },
+      {
+        "word": "hospital",
+        "level": "A1",
+        "category": "Body & Health",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhɒspɪtl/",
+        "meaning": "A place where sick or injured people are treated.",
+        "synonyms": ["clinic"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The hospital is near my house.",
+            "translations": {
+              "Mandarin Chinese": "医院离我家很近。",
+              "Spanish": "El hospital está cerca de mi casa."
+            }
+          }
+        ]
+      },
+      {
+        "word": "sick",
+        "level": "A1",
+        "category": "Body & Health",
+        "part_of_speech": "adjective",
+        "pronunciation": "/sɪk/",
+        "meaning": "Affected by physical or mental illness.",
+        "synonyms": ["ill"],
+        "antonyms": ["healthy"],
+        "examples": [
+          {
+            "english": "I am sick today, so I stay home.",
+            "translations": {
+              "Mandarin Chinese": "我今天病了，所以待在家里。",
+              "Spanish": "Estoy enfermo hoy, así que me quedo en casa."
+            }
+          }
+        ]
+      },
+      {
+        "word": "healthy",
+        "level": "A1",
+        "category": "Body & Health",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈhelθi/",
+        "meaning": "In good physical or mental condition.",
+        "synonyms": ["fit"],
+        "antonyms": ["sick"],
+        "examples": [
+          {
+            "english": "Eating fruit makes you healthy.",
+            "translations": {
+              "Mandarin Chinese": "吃水果让你更健康。",
+              "Spanish": "Comer fruta te hace saludable."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

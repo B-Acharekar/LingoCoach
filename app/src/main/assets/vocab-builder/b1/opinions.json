@@ -1,0 +1,589 @@
+{
+  "level": "B1",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Opinions": [
+      {
+        "word": "personally",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "adverb",
+        "pronunciation": "/ˈpɜːsənəli/",
+        "meaning": "From a specific individual's standpoint or internal perspective.",
+        "synonyms": ["individually", "subjectively", "myself"],
+        "antonyms": ["objectively", "universally"],
+        "examples": [
+          {
+            "english": "Personally, I prefer high-contrast dark themes over standard layouts for long coding sessions.",
+            "translations": {
+              "Mandarin Chinese": "就我个人而言，在长时间的编码过程中，我更喜欢高对比度的深色主题，而不是标准布局。",
+              "Hindi": "व्यक्तिगत रूप से (पर्सनली), मैं लंबे कोडिंग सत्रों के लिए मानक लेआउट की तुलना में उच्च-विपरीत (हाई-कॉन्ट्रास्ट) डार्क थीम पसंद करता हूं।",
+              "Spanish": "Personalmente, prefiero los temas oscuros de alto contraste en lugar de los diseños estándar para largas sesiones de codificación.",
+              "Standard Arabic": "شخصياً، أفضّل المظهر الداكن عالي التباين على التخطيطات القياسية في جلسات البرمجة الطويلة.",
+              "French": "Personnellement, je préfère les thèmes sombres à fort contraste aux mises en page standard pour les longues sessions de codage.",
+              "Bengali": "ব্যক্তিগতভাবে, আমি দীর্ঘ কোডিং সেশনের জন্য স্ট্যান্ডার্ড লেআউটের চেয়ে উচ্চ-কন্ট্রাস্ট ডার্ক থিম পছন্দ করি।",
+              "Portuguese": "Pessoalmente, prefiro temas escuros de alto contraste a layouts padrão para longas sessões de programação.",
+              "Russian": "Лично я предпочитаю высококонтрастные темные темы стандартным макетам во время длительных сессий кодинга.",
+              "Urdu": "ذاتی طور پر، میں طویل کوڈنگ سیشنز کے لیے معیاری لے آؤٹ کے بجائے ہائی کنٹراسٹ ڈارک تھیمز کو ترجیح دیتا ہوں۔",
+              "Indonesian": "Secara pribadi, saya lebih menyukai tema gelap dengan kontras tinggi daripada tata letak standar untuk sesi coding yang lama.",
+              "Standard German": "Ich persönlich bevorzuge bei langen Coding-Sessions kontrastreiche Dark-Themes gegenüber Standard-Layouts.",
+              "Japanese": "個人的には、長時間のコーディングセッションには標準のレイアウトよりも高コントラストのダークテーマを好みます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "in my opinion",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "phrase",
+        "pronunciation": "/ɪn maɪ əˈpɪnjən/",
+        "meaning": "A phrase used to introduce an individual's personal belief or judgment about a topic.",
+        "synonyms": ["to my mind", "from my perspective", "I think"],
+        "antonyms": ["factually", "indisputably"],
+        "examples": [
+          {
+            "english": "In my opinion, building a native application yields better performance metrics than using a hybrid framework.",
+            "translations": {
+              "Mandarin Chinese": "在我看来，构建原生应用程序比使用混合框架能产生更好的性能指标。",
+              "Hindi": "मेरी राय में (इन माई ओपिनियन), एक मूल (नेटीव) एप्लिकेशन बनाने से हाइब्रिड फ्रेमवर्क का उपयोग करने की तुलना में बेहतर प्रदर्शन मेट्रिक्स मिलते हैं।",
+              "Spanish": "En mi opinión, crear una aplicación nativa genera mejores métricas de rendimiento que usar un marco híbrido.",
+              "Standard Arabic": "في رأيي، فإن بناء تطبيق أصيل يحقق مقاييس أداء أفضل من استخدام إطار عمل هجين.",
+              "French": "À mon avis, créer une application native donne de meilleurs indicateurs de performance que d'utiliser un framework hybride.",
+              "Bengali": "আমার মতে, একটি নেটিভ অ্যাপ্লিকেশন তৈরি করা হাইব্রিড ফ্রেমওয়ার্ক ব্যবহারের চেয়ে ভাল পারফরম্যান্স মেট্রিক্স দেয়।",
+              "Portuguese": "Na minha opinião, construir um aplicativo nativo gera melhores métricas de desempenho do que usar um framework híbrido.",
+              "Russian": "По моему мнению, создание нативного приложения обеспечивает лучшие показатели производительности, чем использование гибридного фреймворка.",
+              "Urdu": "میری رائے میں، ہائبرڈ فریم ورک استعمال کرنے کے مقابلے میں نیٹو ایپلیکیشن بنانا بہتر کارکردگی کے میٹرکس فراہم کرتا ہے۔",
+              "Indonesian": "Menurut pendapat saya, membangun aplikasi asli menghasilkan metrik performa yang lebih baik daripada menggunakan kerangka kerja hibrida.",
+              "Standard German": "Meiner Meinung nach bietet die Entwicklung einer nativen Anwendung eine bessere Performance als die Nutzung eines Hybrid-Frameworks.",
+              "Japanese": "私の意見では、ネイティブアプリケーションを構築する方が、ハイブリッドフレームワークを使用するよりも優れたパフォーマンスメトリクスが得られます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "point of view",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "noun",
+        "pronunciation": "/pɔɪnt əv vjuː/",
+        "meaning": "A particular attitude or way of considering a matter; a position from which something is observed.",
+        "synonyms": ["perspective", "standpoint", "outlook"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "From a system architecture point of view, minimizing database calls reduces execution latency.",
+            "translations": {
+              "Mandarin Chinese": "从系统架构的角度来看，减少数据库调用可以降低执行延迟。",
+              "Hindi": "सिस्टम आर्किटेक्चर के दृष्टिकोण (पॉइंट ऑफ व्यू) से, डेटाबेस कॉल को कम करने से निष्पादन विलंबता (एक्ज़ीक्यूशन लेटेंसी) कम हो जाती处理。",
+              "Spanish": "Desde el punto de vista de la arquitectura del sistema, minimizar las llamadas a la base de datos reduce la latencia de ejecución.",
+              "Standard Arabic": "من وجهة نظر بنية النظام، فإن تقليل استدعاءات قاعدة البيانات يقلل من زمن انتقال التنفيذ.",
+              "French": "Du point de vue de l'architecture système, minimiser les appels à la base de données réduit la latence d'exécution.",
+              "Bengali": "সিস্টেম আর্কিটেকচারের দৃষ্টিকোণ থেকে, ডাটাবেস কলগুলি হ্রাস করা এক্সিকিউশন লেটেন্সি কমিয়ে দেয়।",
+              "Portuguese": "Do ponto de vista da arquitetura do sistema, minimizar as chamadas de banco de dados reduz a latência de execução.",
+              "Russian": "С точки зрения архитектуры системы, минимизация вызовов базы данных снижает задержку выполнения.",
+              "Urdu": "سسٹم آرکیٹیکچر کے نقطہ نظر سے، ڈیٹا بیس کالز کو کم کرنے سے عملدرآمد میں تاخیر کم ہو جاتی ہے۔",
+              "Indonesian": "Dari sudut pandang arsitektur sistem, meminimalkan panggilan basis data mengurangi latensi eksekusi.",
+              "Standard German": "Aus Sicht der Systemarchitektur reduziert die Minimierung von Datenbankaufrufen die Ausführungslatenz.",
+              "Japanese": "システムアーキテクチャの観点（ポイントオブビュー）から見ると、データベース呼び出しを最小限に抑えることで、実行遅延が減少します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "argument",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɑːɡjumənt/",
+        "meaning": "A reason or set of reasons given with the aim of persuading others that an action or idea is right or wrong.",
+        "synonyms": ["reasoning", "case", "assertion"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The team presented a strong structural argument for migrating the database to a decentralized layout.",
+            "translations": {
+              "Mandarin Chinese": "该团队为将数据库迁移到去中心化布局提出了一个强有力的结构性论据。",
+              "Hindi": "टीम ने डेटाबेस को विकेंद्रीकृत लेआउट में स्थानांतरित करने के लिए एक मजबूत संरचनात्मक तर्क (आर्ग्युमेंट) प्रस्तुत किया।",
+              "Spanish": "El equipo presentó un fuerte argumento estructural para migrar la base de datos a un diseño descentralizado.",
+              "Standard Arabic": "قدم الفريق حجة بنيوية قوية لنقل قاعدة البيانات إلى تخطيط لا مركزي.",
+              "French": "L'équipe a présenté un argument structurel fort en faveur de la migration de la base de données vers une architecture décentralisée.",
+              "Bengali": "দলটি ডাটাবেসকে একটি বিকেন্দ্রীভূত লেআউটে স্থানান্তরিত করার জন্য একটি জোরালো কাঠামোগত যুক্তি উপস্থাপন করেছে।",
+              "Portuguese": "A equipe apresentou um argumento estrutural forte para migrar o banco de dados para um layout descentralizado.",
+              "Russian": "Команда представила сильный структурный аргумент в пользу миграции базы данных на децентрализованный макет.",
+              "Urdu": "ٹیم نے ڈیٹا بیس کو ڈی سینٹرلائزڈ لے آؤٹ پر منتقل کرنے کے لیے ایک مضبوط ساختی دلیل پیش کی۔",
+              "Indonesian": "Tim memberikan argumen struktural yang kuat untuk memigrasikan basis data ke tata letak terdesentralisasi.",
+              "Standard German": "Das Team brachte ein starkes strukturelles Argument für die Migration der Datenbank auf ein dezentrales Layout vor.",
+              "Japanese": "チームは、データベースを分散型レイアウトに移行するための強力な構造的論拠（アーギュメント）を提示しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "agree",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "verb",
+        "pronunciation": "/əˈɡriː/",
+        "meaning": "Have the same opinion about something; concur.",
+        "synonyms": ["concur", "coincide", "consent"],
+        "antonyms": ["disagree", "differ"],
+        "examples": [
+          {
+            "english": "Most developers agree that clean, minimalist component interfaces improve user retention metrics.",
+            "translations": {
+              "Mandarin Chinese": "大多数开发人员都同意，干净、极简的组件界面可以提高用户留存指标。",
+              "Hindi": "अधिकांश डेवलपर्स इस बात से सहमत (एग्री) हैं कि साफ-सुथरे, न्यूनतम घटक इंटरफ़ेस उपयोगकर्ता प्रतिधारण (रिटेंशन) मेट्रिक्स में सुधार करते हैं।",
+              "Spanish": "La mayoría de los desarrolladores están de acuerdo en que las interfaces de componentes limpias y minimalistas mejoran las métricas de retención de usuarios.",
+              "Standard Arabic": "يتفق معظم المطورين على أن واجهات المكونات النظيفة والبسيطة تعمل على تحسين مقاييس الاحتفاظ بالمستخدمين.",
+              "French": "La plupart des développeurs conviennent que des interfaces de composants propres et minimalistes améliorent les indicateurs de rétention des utilisateurs.",
+              "Bengali": "বেশিরভাগ ডেভেলপার একমত যে পরিষ্কার, মিনিমালিস্ট উপাদান ইন্টারফেস ব্যবহারকারী ধরে রাখার মেট্রিক্স উন্নত করে।",
+              "Portuguese": "A maioria dos desenvolvedores concorda que interfaces de componentes limpas e minimalistas melhoram as métricas de retenção de usuários.",
+              "Russian": "Большинство разработчиков согласны с тем, что чистые, минималистичные интерфейсы компонентов улучшают показатели удержания пользователей.",
+              "Urdu": "زیادہ تر ڈویلپرز اس بات سے اتفاق کرتے ہیں کہ صاف، منیمالسٹ اجزاء کے انٹرفیس صارف کو برقرار رکھنے کے میٹرکس کو بہتر بناتے ہیں۔",
+              "Indonesian": "Sebagian besar pengembang setuju bahwa antarmuka komponen yang bersih dan minimalis meningkatkan metrik retensi pengguna.",
+              "Standard German": "Die meisten Entwickler stimmen darin überein, dass saubere, minimalistische Komponentenschnittstellen die Nutzerbindungsraten verbessern.",
+              "Japanese": "ほとんどの開発者は、クリーンでミニマリストなコンポーネントインターフェースがユーザー維持メトリクスを向上させるという点に同意しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "disagree",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˌdɪsəˈɡriː/",
+        "meaning": "Have or express a different opinion from someone else.",
+        "synonyms": ["differ", "clash", "diverge"],
+        "antonyms": ["agree", "concur"],
+        "examples": [
+          {
+            "english": "They disagree on whether the application configuration should prioritize local memory or cloud synchronization.",
+            "translations": {
+              "Mandarin Chinese": "他们在应用程序配置是应该优先考虑本地内存还是云同步的问题上存在分歧。",
+              "Hindi": "वे इस बात पर असहमत (डिसएग्री) हैं कि एप्लिकेशन कॉन्फ़िगरेशन को स्थानीय मेमोरी या क्लाउड सिंक्रोनाइज़ेशन को प्राथमिकता देनी चाहिए या नहीं।",
+              "Spanish": "Ellos no están de acuerdo sobre si la configuración de la aplicación debe priorizar la memoria local o la sincronización en la nube.",
+              "Standard Arabic": "إنهم يختلفون حول ما إذا كان ينبغي لتكوين التطبيق إعطاء الأولوية للذاكرة المحلية أم للمزامنة السحابية.",
+              "French": "Ils ne sont pas d'accord sur la question de savoir si la configuration de l'application doit privilégier la mémoire locale ou la synchronisation sur le cloud.",
+              "Bengali": "অ্যাপ্লিকেশন কনফিগারেশন স্থানীয় মেমরি নাকি ক্লাউড সিঙ্ক্রোনাইজেশনকে অগ্রাধিকার দেবে তা নিয়ে তারা দ্বিমত পোষণ করেন।",
+              "Portuguese": "Eles discordam sobre se a configuração do aplicativo deve priorizar a memória local ou a sincronização na nuvem.",
+              "Russian": "Они расходятся во мнениях относительно того, должна ли конфигурация приложения отдавать приоритет локальной памяти или синхронизации с облаком.",
+              "Urdu": "وہ اس بات پر اختلاف کرتے ہیں کہ آیا ایپلیکیشن کنفیگریشن میں مقامی میموری کو ترجیح دی جانی چاہیے یا کلاؤڈ سنکرونائزیشن کو۔",
+              "Indonesian": "Mereka tidak setuju tentang apakah konfigurasi aplikasi harus memprioritaskan memori lokal atau sinkronisasi awan.",
+              "Standard German": "Sie sind sich uneinig darüber, ob die Anwendungskonfiguration den lokalen Speicher oder die Cloud-Synchronisation priorisieren sollte.",
+              "Japanese": "彼らは、アプリケーションの構成がローカルメモリかクラウド同期のどちらを優先すべきかについて意見が一致していません（ディサグリー）。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "belief",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "noun",
+        "pronunciation": "/bɪˈliːf/",
+        "meaning": "An acceptance that a statement is true or that something exists; trust or confidence in something.",
+        "synonyms": ["conviction", "faith", "trust"],
+        "antonyms": ["skepticism", "disbelief", "doubt"],
+        "examples": [
+          {
+            "english": "It is my firm belief that clear system documentation eliminates core structural vulnerabilities.",
+            "translations": {
+              "Mandarin Chinese": "我坚信，清晰的系统文档可以消除核心结构漏洞。",
+              "Hindi": "यह मेरा दृढ़ विश्वास (बिलीफ) है कि स्पष्ट सिस्टम दस्तावेज़ीकरण मुख्य संरचनात्मक कमजोरियों को समाप्त करता है।",
+              "Spanish": "Es mi firme creencia que una documentación clara del sistema elimina las vulnerabilidades estructurales principales.",
+              "Standard Arabic": "إنني على يقين تام بأن توثيق النظام الواضح يقضي على الثغرات البنيوية الأساسية.",
+              "French": "C'est ma ferme conviction qu'une documentation claire du système élimine les vulnérabilités structurelles de base.",
+              "Bengali": "এটি আমার দৃঢ় বিশ্বাস যে পরিষ্কার সিস্টেম ডকুমেন্টেশন মূল কাঠামোগত দুর্বলতাগুলি দূর করে।",
+              "Portuguese": "É minha firme convicção que uma documentação clara do sistema elimina vulnerabilidades estruturais essenciais.",
+              "Russian": "Я твердо убежден, что четкая системная документация устраняет основные структурные уязвимости.",
+              "Urdu": "میرا یہ پختہ عقیدہ ہے کہ واضح سسٹم ڈاکیومنٹیشن بنیادی ساختی خامیوں کو ختم کرتی ہے۔",
+              "Indonesian": "Ini adalah keyakinan kuat saya bahwa dokumentasi sistem yang jelas menghilangkan kerentanan struktural inti.",
+              "Standard German": "Es ist meine feste Überzeugung, dass eine klare Systemdokumentation zentrale strukturelle Schwachstellen eliminiert.",
+              "Japanese": "明確なシステムドキュメンテーションがコアな構造的脆弱性を排除するというのが、私の確固たる信念（ビリーフ）です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "attitude",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈætɪtjuːd/",
+        "meaning": "A settled way of thinking or feeling about someone or something, typically one that is reflected in a person's behavior.",
+        "synonyms": ["mindset", "stance", "disposition"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The team adopted a proactive attitude toward isolating software bug parameters during production.",
+            "translations": {
+              "Mandarin Chinese": "该团队在生产过程中对隔离软件漏洞参数采取了积极的态度。",
+              "Hindi": "टीम ने उत्पादन (प्रोडक्शन) के दौरान सॉफ़्टवेयर बग मापदंडों को अलग करने के प्रति एक सक्रिय दृष्टिकोण (एटीट्यूड) अपनाया।",
+              "Spanish": "El equipo adoptó una actitud proactiva hacia el aislamiento de los parámetros de errores de software durante la producción.",
+              "Standard Arabic": "اتخذ الفريق موقفاً استباقياً تجاه عزل معايير الأخطاء البرمجية أثناء الإنتاج.",
+              "French": "L'équipe a adopté une attitude proactive concernant l'isolation des paramètres de bogues logiciels pendant la production.",
+              "Bengali": "দলটি উত্পাদনের সময় সফ্টওয়্যার বাগ প্যারামিটারগুলি আলাদা করার দিকে একটি সক্রিয় দৃষ্টিভঙ্গি গ্রহণ করেছিল।",
+              "Portuguese": "A equipe adotou uma atitude proativa em relação ao isolamento dos parâmetros de bugs de software durante a produção.",
+              "Russian": "Команда заняла проактивную позицию в отношении изоляции параметров программных ошибок во время производства.",
+              "Urdu": "ٹیم نے پروڈکشن کے دوران سافٹ ویئر بگ پیرامیٹرز کو الگ کرنے کے حوالے سے فعال رویہ اپنایا۔",
+              "Indonesian": "Tim mengadopsi sikap proaktif terhadap isolasi parameter bug perangkat lunak selama produksi.",
+              "Standard German": "Das Team zeigte eine proaktive Haltung bei der Isolierung von Software-Bug-Parametern während der Produktion.",
+              "Japanese": "チームは、製造中にソフトウェアのバグパラメータを特定して隔離することに対して、積極的な姿勢（アティチュード）をとりました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "perspective",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "noun",
+        "pronunciation": "/pəˈspektɪv/",
+        "meaning": "A particular attitude toward or way of regarding something; a point of view.",
+        "synonyms": ["outlook", "viewpoint", "angle"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "An analytical perspective helps developers balance design systems with functional constraints.",
+            "translations": {
+              "Mandarin Chinese": "分析的角度有助于开发人员平衡设计系统与功能限制。",
+              "Hindi": "एक विश्लेषणात्मक परिप्रेक्ष्य (पर्सपेक्टिव) डेवलपर्स को कार्यात्मक बाधाओं के साथ डिजाइन प्रणालियों को संतुलित करने में मदद करता है।",
+              "Spanish": "Una perspectiva analítica ayuda a los desarrolladores a equilibrar los sistemas de diseño con las restricciones funcionales.",
+              "Standard Arabic": "يساعد المنظور التحليلي المطورين على موازنة أنظمة التصميم مع القيود الوظيفية.",
+              "French": "Une perspective analytique aide les développeurs à équilibrer les systèmes de conception avec les contraintes fonctionnelles.",
+              "Bengali": "একটি বিশ্লেষণাত্মক দৃষ্টিকোণ ডেভেলপারদের কার্যকরী সীমাবদ্ধতার সাথে ডিজাইন সিস্টেমের ভারসাম্য বজায় রাখতে সহায়তা করে।",
+              "Portuguese": "Uma perspectiva analítica ajuda os desenvolvedores a equilibrar os sistemas de design com restrições funcionais.",
+              "Russian": "Аналитический взгляд помогает разработчикам сбалансировать дизайн-системы с функциональными ограничениями.",
+              "Urdu": "ایک تجزیاتی نقطہ نظر ڈویلپرز کو فنکشنل رکاوٹوں کے ساتھ ڈیزائن سسٹمز کو متوازن کرنے میں مدد کرتا ہے۔",
+              "Indonesian": "Perspektif analitis membantu pengembang menyeimbangkan sistem desain dengan batasan fungsional.",
+              "Standard German": "Eine analytische Perspektive hilft Entwicklern, Designsysteme mit funktionalen Einschränkungen abzustimmen.",
+              "Japanese": "分析的な視点（パースペクティブ）は、開発者がデザインシステムと機能的な制約のバランスをとるのに役立ちます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "criticize",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˈkrɪtɪsaɪz/",
+        "meaning": "Indicate the faults of someone or something in a disapproving way, or evaluate technical weaknesses objectively.",
+        "synonyms": ["condemn", "censure", "evaluate"],
+        "antonyms": ["praise", "approve", "commend"],
+        "examples": [
+          {
+            "english": "Senior engineers sometimes criticize code structural styles to ensure uniform implementation standards.",
+            "translations": {
+              "Mandarin Chinese": "高级工程师有时会批评代码结构样式，以确保统一的实现标准。",
+              "Hindi": "वरिष्ठ इंजीनियर कभी-कभी समान कार्यान्वयन मानकों को सुनिश्चित करने के लिए कोड संरचनात्मक शैलियों की आलोचना (क्रिटिसाइज) करते हैं।",
+              "Spanish": "Los ingenieros senior a veces critican los estilos estructurales del código para garantizar estándares de implementación uniformes.",
+              "Standard Arabic": "ينتقد كبار المهندسين أحياناً الأساليب البنيوية للبرمجيات لضمان معايير تنفيذ موحدة.",
+              "French": "Les ingénieurs confirmés critiquent parfois les styles structurels du code pour garantir des normes d'implémentation uniformes.",
+              "Bengali": "সিনিয়র প্রকৌশলীরা অভিন্ন বাস্তবায়ন মান নিশ্চিত করতে মাঝে মাঝে কোড কাঠামোগত শৈলীর সমালোচনা করেন।",
+              "Portuguese": "Engenheiros seniores às vezes criticam os estilos estruturais do código para garantir padrões uniformes de implementação.",
+              "Russian": "Старшие инженеры иногда критикуют структурные стили кода, чтобы обеспечить единые стандарты реализации.",
+              "Urdu": "سینئر انجینئرز بعض اوقات یکساں نفاذ کے معیارات کو یقینی بنانے کے لیے کوڈ کے ساختی انداز پر تنقید کرتے ہیں۔",
+              "Indonesian": "Insinyur senior terkadang mengkritik gaya struktural kode untuk memastikan standar implementasi yang seragam.",
+              "Standard German": "Senior-Entwickler kritisieren manchmal Code-Strukturstile, um einheitliche Implementierungsstandards zu gewährleisten.",
+              "Japanese": "シニアエンジニアは、均一な実装基準を確保するために、コードの構造スタイルを批判（クリティサイズ）することがあります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "support",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "verb",
+        "pronunciation": "/pəˈspektɪv/",
+        "meaning": "Give assistance to, approve of, or maintain the structural reliability of a platform framework.",
+        "synonyms": ["back", "advocate", "assist"],
+        "antonyms": ["oppose", "hinder", "reject"],
+        "examples": [
+          {
+            "english": "The framework modules fully support offline artificial intelligence metrics processing.",
+            "translations": {
+              "Mandarin Chinese": "该框架模块完全支持离线人工智能指标处理。",
+              "Hindi": "फ्रेमवर्क मॉड्यूल ऑफ़लाइन आर्टिफिशियल इंटेलिजेंस मेट्रिक्स प्रोसेसिंग का पूरी तरह से समर्थन (सपोर्ट) करते हैं।",
+              "Spanish": "Los módulos del marco admiten totalmente el procesamiento de métricas de inteligencia artificial sin conexión.",
+              "Standard Arabic": "تدعم وحدات إطار العمل بشكل كامل معالجة مقاييس الذكاء الاصطناعي دون اتصال بالإنترنت.",
+              "French": "Les modules du framework prennent entièrement en charge le traitement des indicateurs d'intelligence artificielle hors ligne.",
+              "Bengali": "ফ্রেমওয়ার্ক মডিউলগুলি অফলাইন কৃত্রিম বুদ্ধিমত্তা মেট্রিক্স প্রক্রিয়াকরণকে সম্পূর্ণরূপে সমর্থন করে।",
+              "Portuguese": "Os módulos do framework oferecem suporte total ao processamento de métricas de inteligência artificial offline.",
+              "Russian": "Модули платформы полностью поддерживают обработку показателей автономного искусственного интеллекта.",
+              "Urdu": "فریم ورک ماڈیولز آف لائن مصنوعی ذہانت کے میٹرکس پروسیسنگ کو مکمل طور پر سپورٹ کرتے ہیں۔",
+              "Indonesian": "Modul kerangka kerja sepenuhnya mendukung pemrosesan metrik kecerdasan buatan secara luring.",
+              "Standard German": "Die Framework-Module unterstützen die Verarbeitung von Offline-Metriken der künstlichen Intelligenz vollständig.",
+              "Japanese": "そのフレームワークモジュールは、オフライン人工知能メトリクスの処理を完全にサポートしています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "suggest",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "verb",
+        "pronunciation": "/səˈdʒest/",
+        "meaning": "Put forward an idea or plan for consideration.",
+        "synonyms": ["propose", "recommend", "advise"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Analysts suggest implementing state management modules to maintain layout stability.",
+            "translations": {
+              "Mandarin Chinese": "分析师建议实施状态管理模块以保持布局稳定性。",
+              "Hindi": "विश्लेषक लेआउट स्थिरता बनाए रखने के लिए राज्य प्रबंधन (स्टेट मैनेजमेंट) मॉड्यूल को लागू करने का सुझाव (सजेस्ट) देते हैं।",
+              "Spanish": "Los analistas sugieren implementar módulos de gestión de estado para mantener la estabilidad del diseño.",
+              "Standard Arabic": "يقترح المحللون تنفيذ وحدات إدارة الحالة للحفاظ على استقرار التخطيط.",
+              "French": "Les analystes suggèrent d'implémenter des modules de gestion d'état pour maintenir la stabilité de la mise en page.",
+              "Bengali": "বিশ্লেষকরা লেআউট স্থায়িত্ব বজায় রাখার জন্য রাষ্ট্র পরিচালনা মডিউল বাস্তবায়নের পরামর্শ দেন।",
+              "Portuguese": "Analistas sugerem a implementação de módulos de gerenciamento de estado para manter a estabilidade do layout.",
+              "Russian": "Аналитики предлагают внедрить модули управления состоянием для поддержания стабильности макета.",
+              "Urdu": "تجزیہ کار لے آؤٹ کے استحکام کو برقرار رکھنے کے لیے اسٹیٹ مینجمنٹ ماڈیولز کو نافذ کرنے کا مشورہ دیتے ہیں۔",
+              "Indonesian": "Para analis menyarankan penerapan modul manajemen status untuk menjaga stabilitas tata letak.",
+              "Standard German": "Analysten empfehlen die Implementierung von Zustandsverwaltungsmodulen, um die Layoutstabilität aufrechtzuerhalten.",
+              "Japanese": "アナリストは、レイアウトの安定性を維持するために状態管理モジュールを実装することを提案（サジェスト）しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "preference",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈprefrəns/",
+        "meaning": "A greater liking for one alternative over another; a choice dictated by design systems or personal choices.",
+        "synonyms": ["partiality", "predilection", "choice"],
+        "antonyms": ["aversion", "indifference"],
+        "examples": [
+          {
+            "english": "His design preference clearly leans toward high-contrast industrial neo-minimalism.",
+            "translations": {
+              "Mandarin Chinese": "他的设计偏好明显倾向于高对比度的工业新极简主义。",
+              "Hindi": "उनकी डिज़ाइन प्राथमिकता (प्रेफरेंस) स्पष्ट रूप से उच्च-विपरीत (हाई-कॉन्ट्रास्ट) औद्योगिक नव-न्यूनतमवाद (नियो-मिनिमलिज्म) की ओर झुकी हुई है।",
+              "Spanish": "Su preferencia de diseño se inclina claramente hacia el neominimalismo industrial de alto contraste.",
+              "Standard Arabic": "يميل تفضيله في التصميم بوضوح نحو النيو-بساطة الصناعية عالية التباين.",
+              "French": "Sa préférence en matière de design penche clairement vers un néo-minimalisme industriel à fort contraste.",
+              "Bengali": "তার নকশার পছন্দটি স্পষ্টভাবে উচ্চ-কন্ট্রাস্ট শিল্প নিও-মিনিমালিজমের দিকে ঝুঁকেছে।",
+              "Portuguese": "Sua preferência de design inclina-se claramente para o neominimalismo industrial de alto contraste.",
+              "Russian": "Его дизайнерские предпочтения явно склоняются к высококонтрастному индустриальному неоминимализму.",
+              "Urdu": "ان کا ڈیزائن ہائی کنٹراسٹ انڈسٹریل نیو منیمالزم کی طرف واضح جھکاؤ رکھتا ہے۔",
+              "Indonesian": "Preferensi desainnya jelas condong ke arah neo-minimalisme industri dengan kontras tinggi.",
+              "Standard German": "Seine Designpräferenz neigt eindeutig zu einem kontrastreichen, industriellen Neo-Minimalismus.",
+              "Japanese": "彼のデザインの好み（プレファレンス）は、高コントラストなインダストリアル・ネオミニマリズムに明らかに傾いています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "discussion",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈskʌʃn/",
+        "meaning": "The action or process of talking about something in order to reach a decision or to exchange ideas.",
+        "synonyms": ["conversation", "dialogue", "consultation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The team had an interactive technical discussion about shifting to a standalone sensor architecture.",
+            "translations": {
+              "Mandarin Chinese": "团队就转向独立传感器架构进行了互动式技术讨论。",
+              "Hindi": "टीम ने एक स्टैंडअलोन सेंसर आर्किटेक्चर में स्थानांतरित होने के बारे में एक इंटरैक्टिव तकनीकी चर्चा (डिस्कशन) की।",
+              "Spanish": "El equipo tuvo una discusión técnica interactiva sobre el cambio a una arquitectura de sensores independiente.",
+              "Standard Arabic": "أجرى الفريق مناقشة تقنية تفاعلية حول الانتقال إلى بنية مستشعرات مستقلة.",
+              "French": "L'équipe a eu une discussion technique interactive sur le passage à une architecture de capteurs autonomes.",
+              "Bengali": "দলটি একটি স্বতন্ত্র সেন্সর আর্কিটেকচারে স্থানান্তরিত করার বিষয়ে একটি ইন্টারেক্টিভ প্রযুক্তিগত আলোচনা করেছে।",
+              "Portuguese": "A equipe teve uma discussão técnica interativa sobre a mudança para uma arquitetura de sensores independente.",
+              "Russian": "Команда провела интерактивное техническое обсуждение перехода на автономную архитектуру датчиков.",
+              "Urdu": "ٹیم نے اسٹینڈ اکیلے سینسر آرکیٹیکچر پر منتقل ہونے کے بارے میں ایک انٹرایکٹو تکنیکی بحث کی۔",
+              "Indonesian": "Tim mengadakan diskusi teknis interaktif tentang peralihan ke arsitektur sensor mandiri.",
+              "Standard German": "Das Team führte eine interaktive technische Diskussion über den Wechsel zu einer eigenständigen Sensorarchitektur.",
+              "Japanese": "チームは、スタンドアロンのセンサーアーキテクチャへの移行について、インタラクティブな技術的議論（ディスカッション）を行いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "judgment",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdʒʌdʒmənt/",
+        "meaning": "The ability to make considered decisions or come to sensible conclusions about alternative software or system designs.",
+        "synonyms": ["assessment", "discernment", "evaluation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Relying on objective diagnostic metrics prevents subjective errors in performance judgment.",
+            "translations": {
+              "Mandarin Chinese": "依赖客观的诊断指标可以防止性能判断中的主观错误。",
+              "Hindi": "वस्तुनिष्ठ नैदानिक ​​(ऑब्जेक्टिव डायग्नोस्टिक) मेट्रिक्स पर भरोसा करने से प्रदर्शन निर्णय (जजमेंट) में व्यक्तिपरक त्रुटियां रुकती हैं।",
+              "Spanish": "Confiar en métricas de diagnóstico objetivas evita errores subjetivos en el juicio de rendimiento.",
+              "Standard Arabic": "الاعتماد على مقاييس تشخيصية موضوعية يمنع الأخطاء الذاتية في تقييم الأداء.",
+              "French": "S'appuyer sur des indicateurs de diagnostic objectifs évite les erreurs subjectives dans l'évaluation des performances.",
+              "Bengali": "বস্তুনিষ্ঠ ডায়াগনস্টিক মেট্রিক্সের উপর নির্ভর করা কর্মক্ষমতা বিচারের ক্ষেত্রে বিষয়ভিত্তিক ত্রুটিগুলি প্রতিরোধ করে।",
+              "Portuguese": "Confiar em métricas de diagnóstico objetivas evita erros subjetivos no julgamento de desempenho.",
+              "Russian": "Опора на объективные диагностические показатели предотвращает субъективные ошибки в оценке производительности.",
+              "Urdu": "معروضی تشخیصی میٹرکس پر انحصار کارکردگی کے فیصلے میں ذاتی نوعیت کی غلطیوں کو روکتا ہے۔",
+              "Indonesian": "Mengandalkan metrik diagnostik yang objektif mencegah kesalahan subjektif dalam penilaian kinerja.",
+              "Standard German": "Die Verlässlichkeit auf objektive Diagnosemetriken verhindert subjektive Fehler bei der Leistungsbeurteilung.",
+              "Japanese": "客観的な診断メトリクスに依存することで、パフォーマンス評価（ジャッジメント）における主観的なエラーを防ぐことができます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "impression",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪmˈpreʃn/",
+        "meaning": "An idea, feeling, or opinion about something or someone, especially one formed without conscious thought or on first view.",
+        "synonyms": ["feeling", "notion", "perception"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The interface layout gave a highly polished initial impression during the user usability testing phase.",
+            "translations": {
+              "Mandarin Chinese": "在用户可用性测试阶段，界面布局给人留下了高度精细 lower 的初步印象。",
+              "Hindi": "इंटरफ़ेस लेआउट ने उपयोगकर्ता उपयोगिता परीक्षण (यूज़र यूज़ेबिलिटी टेस्टिंग) चरण के दौरान एक अत्यधिक पॉलिश प्रारंभिक प्रभाव (इंप्रेशन) दिया।",
+              "Spanish": "El diseño de la interfaz dio una primera impresión muy pulida durante la fase de prueba de usabilidad del usuario.",
+              "Standard Arabic": "أعطى تخطيط الواجهة انطباعاً أولياً مصقولاً للغاية خلال مرحلة اختبار سهولة الاستخدام.",
+              "French": "La mise en page de l'interface a donné une première impression très soignée lors de la phase de test d'utilisabilité par les utilisateurs.",
+              "Bengali": "ইন্টারফেস লেআউটটি ব্যবহারকারীর ব্যবহারযোগ্যতা পরীক্ষার পর্বের সময় একটি অত্যন্ত মার্জিত প্রাথমিক ছাপ তৈরি করেছিল।",
+              "Portuguese": "O layout da interface causou uma primeira impressão muito polida durante a fase de testes de usabilidade do usuário.",
+              "Russian": "Макет интерфейса произвел очень приятное первое впечатление во время этапа тестирования юзабилити.",
+              "Urdu": "انٹرفیس لے آؤٹ نے صارف کے استعمال کے ٹیسٹنگ مرحلے کے دوران ایک انتہائی بہترین ابتدائی تاثر دیا۔",
+              "Indonesian": "Tata letak antarmuka memberikan kesan pertama yang sangat rapi selama fase pengujian kegunaan pengguna.",
+              "Standard German": "Das Interface-Layout hinterließ während der Usability-Testphase einen sehr ausgereiften ersten Eindruck.",
+              "Japanese": "インターフェースのレイアウトは、ユーザーのユーザビリティテストフェーズ中に、高度に洗練された第一印象（インプレッション）を与えました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "convince",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "verb",
+        "pronunciation": "/kənˈvɪns/",
+        "meaning": "Persuade someone to do something or accept a structural implementation based on logical proof.",
+        "synonyms": ["persuade", "satisfy", "induce"],
+        "antonyms": ["dissuade", "discourage"],
+        "examples": [
+          {
+            "english": "The performance metrics were enough to convince the system architecture team to approve the update.",
+            "translations": {
+              "Mandarin Chinese": "性能指标足以说服系统架构团队批准该更新。",
+              "Hindi": "प्रदर्शन मेट्रिक्स सिस्टम आर्किटेक्चर टीम को अपडेट को मंजूरी देने के लिए मनाने (कन्विंस) के लिए पर्याप्त थे।",
+              "Spanish": "Las métricas de rendimiento fueron suficientes para convencer al equipo de arquitectura del sistema de aprobar la actualización.",
+              "Standard Arabic": "كانت مقاييس الأداء كافية لإقناع فريق بنية النظام بالموافقة على التحديث.",
+              "French": "Les indicateurs de performance ont suffi à convaincre l'équipe d'architecture système de valider la mise à jour.",
+              "Bengali": "পারফরম্যান্স মেট্রিক্স সিস্টেম আর্কিটেকচার টিমকে আপডেটটি অনুমোদন করার জন্য বোঝানোর জন্য যথেষ্ট ছিল।",
+              "Portuguese": "As métricas de desempenho foram suficientes para convencer a equipe de arquitetura do sistema a aprovar a atualização.",
+              "Russian": "Показателей производительности было достаточно, чтобы убедить команду системных архитекторов утвердить обновление.",
+              "Urdu": "کارکردگی کے میٹرکس سسٹم آرکیٹیکچر ٹیم کو اپ ڈیٹ کی منظوری دینے پر قائل کرنے کے لیے کافی تھے۔",
+              "Indonesian": "Metrik performa sudah cukup untuk meyakinkan tim arsitektur sistem agar menyetujui pembaruan tersebut.",
+              "Standard German": "Die Leistungsdaten reichten aus, um das Systemarchitektur-Team von der Genehmigung des Updates zu überzeugen.",
+              "Japanese": "パフォーマンスメトリクスは、システムアーキテクチャチームを説得（コンビンス）してアップデートを承認させるのに十分なものでした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "debate",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈbeɪt/",
+        "meaning": "A formal discussion on a particular topic in a public meeting or legislative assembly, in which opposing arguments are put forward.",
+        "synonyms": ["argument", "dispute", "controversy"],
+        "antonyms": ["agreement", "concord"],
+        "examples": [
+          {
+            "english": "There is an active online debate regarding the scalability of offline machine learning kits on low-end devices.",
+            "translations": {
+              "Mandarin Chinese": "关于低端设备上离线机器学习工具包的可扩展性，网上展开了积极的辩论。",
+              "Hindi": "लो-एंड डिवाइसों पर ऑफ़लाइन मशीन लर्निंग किट की स्केलेबिलिटी के संबंध में एक सक्रिय ऑनलाइन बहस (डिबेट) चल रही है।",
+              "Spanish": "Existe un debate activo en línea sobre la escalabilidad de los kits de aprendizaje automático sin conexión en dispositivos de gama baja.",
+              "Standard Arabic": "هناك جدل نشط عبر الإنترنت بخصوص إمكانية التوسع لحزم التعلم الآلي دون اتصال بالإنترنت على الأجهزة منخفضة المواصفات.",
+              "French": "Il existe un débat en ligne actif concernant l'évolutivité des kits de machine learning hors ligne sur les appareils d'entrée de gamme.",
+              "Bengali": "লো-এন্ড ডিভাইসগুলিতে অফলাইন মেশিন লার্নিং কিটগুলির স্কেলেবিলিটি সম্পর্কিত একটি সক্রিয় অনলাইন বিতর্ক রয়েছে।",
+              "Portuguese": "Existe um debate online ativo sobre a escalabilidade de kits de aprendizado de máquina offline em dispositivos de baixo custo.",
+              "Russian": "В Интернете ведутся активные дебаты относительно масштабируемости автономных комплектов машинного обучения на бюджетных устройствах.",
+              "Urdu": "کم قیمت والے آلات پر آف لائن مشین لرننگ کٹس کی اسکیل ایبلٹی کے حوالے سے آن لائن بحث جاری ہے۔",
+              "Indonesian": "Ada perdebatan daring yang aktif mengenai skalabilitas kit pembelajaran mesin luring pada perangkat kelas bawah.",
+              "Standard German": "Es gibt eine aktive Online-Debatte über die Skalierbarkeit von Offline-Machine-Learning-Kits auf Low-End-Geräten.",
+              "Japanese": "ローエンドデバイスにおけるオフライン機械学習キットの拡張性に関しては、活発なオンライン討論（ディベート）が行われています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "fair",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/feə(r)/",
+        "meaning": "In accordance with the rules or standards; legitimate, equitable, or balanced.",
+        "synonyms": ["just", "impartial", "reasonable"],
+        "antonyms": ["unfair", "unjust", "biased"],
+        "examples": [
+          {
+            "english": "The testing suite provided a fair assessment of device performance across different mobile platforms.",
+            "translations": {
+              "Mandarin Chinese": "该测试套件对不同移动平台上的设备性能进行了公正的评估。",
+              "Hindi": "परीक्षण सूट (टेस्टिंग सुइट) ने विभिन्न मोबाइल प्लेटफार्मों पर डिवाइस के प्रदर्शन का एक निष्पक्ष (फेयर) मूल्यांकन प्रदान किया।",
+              "Spanish": "La suite de pruebas proporcionó una evaluación justa del rendimiento del dispositivo en diferentes plataformas móviles.",
+              "Standard Arabic": "وفرت حزمة الاختبارات تقييماً عادلاً لأداء الأجهزة عبر منصات الهاتف المحمول المختلفة.",
+              "French": "La suite de tests a fourni une évaluation équitable des performances des appareils sur différentes plateformes mobiles.",
+              "Bengali": "টেস্টিং স্যুটটি বিভিন্ন মোবাইল প্ল্যাটফর্ম জুড়ে ডিভাইসের কার্যক্ষমতার একটি ন্যায্য মূল্যায়ন প্রদান করেছে।",
+              "Portuguese": "A suite de testes forneceu uma avaliação justa do desempenho do dispositivo em diferentes plataformas móveis.",
+              "Russian": "Тестовый набор обеспечил справедливую оценку производительности устройств на различных мобильных платформах.",
+              "Urdu": "ٹیسٹنگ سوٹ نے مختلف موبائل پلیٹ فارمز پر ڈیوائस کی کارکردگی کا منصفانہ جائزہ فراہم کیا۔",
+              "Indonesian": "Rangkaian pengujian memberikan penilaian yang adil terhadap performa perangkat di berbagai platform seluler.",
+              "Standard German": "Die Testsuite lieferte eine faire Bewertung der Geräteperformance auf verschiedenen mobilen Plattformen.",
+              "Japanese": "そのテストスイートは、異なるモバイルプラットフォーム間でのデバイスパフォーマンスの公正な（フェアな）評価を提供しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "reasonable",
+        "level": "B1",
+        "category": "Opinions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈriːznəbl/",
+        "meaning": "Having sound judgment; fair and sensible; logical within defined limits.",
+        "synonyms": ["sensible", "rational", "logical"],
+        "antonyms": ["unreasonable", "irrational"],
+        "examples": [
+          {
+            "english": "Setting a minor latency threshold is reasonable when deploying data models over complex mesh frameworks.",
+            "translations": {
+              "Mandarin Chinese": "在复杂的网状框架上部署数据模型时，设置一个较小的延迟阈值是合理的。",
+              "Hindi": "जटिल मेश फ़्रेमवर्क पर डेटा मॉडल तैनात करते समय एक मामूली विलंबता सीमा (लेटेंसी थ्रेशोल्ड) निर्धारित करना उचित (रीज़नेबल) है।",
+              "Spanish": "Establecer un umbral de latencia menor es razonable cuando se despliegan modelos de datos en marcos de malla complejos.",
+              "Standard Arabic": "يعد وضع حد أدنى لزمن الانتقال أمراً معقولاً عند نشر نماذج البيانات عبر أطر عمل شبكية معقدة.",
+              "French": "Définir un seuil de latence mineur est raisonnable lors du déploiement de modèles de données sur des frameworks maillés complexes.",
+              "Bengali": "জটিল জাল কাঠামোর উপর ডেটা মডেলগুলি স্থাপন করার সময় একটি ছোট লেটেন্সি থ্রেশহোল্ড সেট করা যুক্তিসঙ্গত।",
+              "Portuguese": "Definir um limite de latência menor é razoável ao implantar modelos de dados em frameworks de malha complexos.",
+              "Russian": "Установка небольшого порога задержки разумна при развертывании моделей данных в сложных ячеистых структурах.",
+              "Urdu": "پیچیدہ میش فریم ورکس پر ڈیٹا ماڈلز کو تعینات کرتے وقت معمولی تاخیر کی حد مقرر کرنا معقول ہے۔",
+              "Indonesian": "Menetapkan ambang batas latensi kecil adalah hal yang wajar saat menerapkan model data pada kerangka kerja mesh yang rumit.",
+              "Standard German": "Die Festlegung einer geringen Latenzschwelle ist vernünftig, wenn Datenmodelle über komplexe Mesh-Frameworks bereitgestellt werden.",
+              "Japanese": "複雑なメッシュフレームワーク上でデータモデルをデプロイする場合、わずかな遅延しきい値を設定することは合理的（リーズナブル）です。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "300-400",
+  "source": "Educational Vocabulary",
+  "categories": {
+    "School": [
+      {
+        "word": "teacher",
+        "level": "A1",
+        "category": "School",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtiːtʃər/",
+        "meaning": "A person who teaches in a school.",
+        "synonyms": ["instructor"],
+        "antonyms": ["student"],
+        "examples": [
+          {
+            "english": "The teacher explains the lesson.",
+            "translations": {
+              "Mandarin Chinese": "老师讲解课程。",
+              "Spanish": "El profesor explica la lección."
+            }
+          }
+        ]
+      },
+      {
+        "word": "student",
+        "level": "A1",
+        "category": "School",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈstjuːdnt/",
+        "meaning": "A person who is studying at a school or college.",
+        "synonyms": ["pupil"],
+        "antonyms": ["teacher"],
+        "examples": [
+          {
+            "english": "The student listens to the teacher.",
+            "translations": {
+              "Mandarin Chinese": "学生听老师讲课。",
+              "Spanish": "El estudiante escucha al profesor."
+            }
+          }
+        ]
+      },
+      {
+        "word": "classroom",
+        "level": "A1",
+        "category": "School",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈklɑːsruːm/",
+        "meaning": "A room in a school where classes are held.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The classroom is big.",
+            "translations": {
+              "Mandarin Chinese": "教室很大。",
+              "Spanish": "El aula es grande."
+            }
+          }
+        ]
+      },
+      {
+        "word": "homework",
+        "level": "A1",
+        "category": "School",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhoʊmwɜːrk/",
+        "meaning": "Work that a student is given to do at home.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I do my homework every evening.",
+            "translations": {
+              "Mandarin Chinese": "我每天晚上做作业。",
+              "Spanish": "Hago mi tarea cada noche."
+            }
+          }
+        ]
+      },
+      {
+        "word": "lesson",
+        "level": "A1",
+        "category": "School",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlesn/",
+        "meaning": "A period of time during which students are taught.",
+        "synonyms": ["class"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The English lesson is at 9 am.",
+            "translations": {
+              "Mandarin Chinese": "英语课在上午9点。",
+              "Spanish": "La lección de inglés es a las 9 am."
+            }
+          }
+        ]
+      },
+      {
+        "word": "exam",
+        "level": "A1",
+        "category": "School",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪɡˈzæm/",
+        "meaning": "A formal test of knowledge.",
+        "synonyms": ["test"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I have an exam today.",
+            "translations": {
+              "Mandarin Chinese": "我今天有考试。",
+              "Spanish": "Tengo un examen hoy."
+            }
+          }
+        ]
+      },
+      {
+        "word": "study",
+        "level": "A1",
+        "category": "School",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˈstʌdi/",
+        "meaning": "To dedicate time to gaining knowledge.",
+        "synonyms": ["learn"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I study in the library.",
+            "translations": {
+              "Mandarin Chinese": "我在图书馆学习。",
+              "Spanish": "Estudio en la biblioteca."
+            }
+          }
+        ]
+      },
+      {
+        "word": "pen",
+        "level": "A1",
+        "category": "School",
+        "part_of_speech": "noun",
+        "pronunciation": "/pen/",
+        "meaning": "An instrument for writing with ink.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Do you have a blue pen?",
+            "translations": {
+              "Mandarin Chinese": "你有蓝色钢笔吗？",
+              "Spanish": "¿Tienes un bolígrafo azul?"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,389 @@
+{
+  "level": "C1-C2",
+  "approx_words": "1200-1500",
+  "source": "Jurisprudence & Legal Procedure",
+  "categories": {
+    "Law": [
+      {
+        "word": "legislation",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌledʒɪˈsleɪʃn/",
+        "meaning": "Laws, considered collectively, that have been enacted by a legislative body.",
+        "synonyms": ["statutes", "enactments", "acts"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The parliament passed new legislation to address data privacy concerns in the digital age.",
+            "translations": {
+              "Mandarin Chinese": "议会通过了新的立法，以解决数字时代的数据隐私问题。",
+              "Spanish": "El parlamento aprobó una nueva legislación para abordar las preocupaciones sobre la privacidad de datos en la era digital."
+            }
+          }
+        ]
+      },
+      {
+        "word": "constitution",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɒnstɪˈtjuːʃn/",
+        "meaning": "The fundamental principles according to which a state or other organization is acknowledged to be governed.",
+        "synonyms": ["charter", "fundamental law"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The supreme court is responsible for interpreting the constitution to ensure government actions remain within legal bounds.",
+            "translations": {
+              "Mandarin Chinese": "最高法院负责解释宪法，以确保政府行为保持在法律范围内。",
+              "Spanish": "La corte suprema es responsable de interpretar la constitución para garantizar que las acciones del gobierno permanezcan dentro de los límites legales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "jurisdiction",
+        "level": "C2",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌdʒʊərɪsˈdɪkʃn/",
+        "meaning": "The official power to make legal decisions and judgments.",
+        "synonyms": ["authority", "competence", "legal scope"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The international court lacked jurisdiction over the domestic crimes committed by the state official.",
+            "translations": {
+              "Mandarin Chinese": "国际法院对该国家官员犯下的国内罪行没有管辖权。",
+              "Spanish": "La corte internacional carecía de jurisdicción sobre los crímenes domésticos cometidos por el funcionario estatal."
+            }
+          }
+        ]
+      },
+      {
+        "word": "trial",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtraɪəl/",
+        "meaning": "A formal examination of evidence before a judge, and typically before a jury, in order to decide guilt in a case of criminal or civil proceedings.",
+        "synonyms": ["hearing", "adjudication"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The high-profile trial lasted for months, attracting extensive media coverage.",
+            "translations": {
+              "Mandarin Chinese": "这场备受瞩目的审判持续了数月，吸引了广泛的媒体报道。",
+              "Spanish": "El juicio de alto perfil duró meses, atrayendo una extensa cobertura mediática."
+            }
+          }
+        ]
+      },
+      {
+        "word": "verdict",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈvɜːrdɪkt/",
+        "meaning": "A decision on a disputed issue in a civil or criminal case or an inquest.",
+        "synonyms": ["judgment", "adjudication", "finding"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "After deliberation, the jury returned a unanimous verdict of not guilty.",
+            "translations": {
+              "Mandarin Chinese": "经过审议，陪审团一致作出了无罪的裁决。",
+              "Spanish": "Después de deliberar, el jurado emitió un veredicto unánime de no culpabilidad."
+            }
+          }
+        ]
+      },
+      {
+        "word": "testimony",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtestɪmoʊni/",
+        "meaning": "A formal written or spoken statement, especially one given in a court of law.",
+        "synonyms": ["evidence", "deposition", "declaration"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The witness's testimony was considered crucial in identifying the suspect.",
+            "translations": {
+              "Mandarin Chinese": "证人的证词被认为是确认嫌疑人的关键。",
+              "Spanish": "El testimonio del testigo fue considerado crucial para identificar al sospechoso."
+            }
+          }
+        ]
+      },
+      {
+        "word": "evidence",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈevɪdəns/",
+        "meaning": "The available body of facts or information indicating whether a belief or proposition is true or valid.",
+        "synonyms": ["proof", "grounds", "data"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The prosecution failed to present sufficient forensic evidence to link the defendant to the crime scene.",
+            "translations": {
+              "Mandarin Chinese": "控方未能提供足够的法医证据将被告与犯罪现场联系起来。",
+              "Spanish": "La fiscalía no pudo presentar suficiente evidencia forense para vincular al acusado con la escena del crimen."
+            }
+          }
+        ]
+      },
+      {
+        "word": "attorney",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈtɜːrni/",
+        "meaning": "A person, typically a lawyer, appointed to act for another in business or legal matters.",
+        "synonyms": ["lawyer", "counsel", "advocate"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The defense attorney requested a motion to dismiss the charges due to insufficient evidence.",
+            "translations": {
+              "Mandarin Chinese": "辩护律师因证据不足而动议撤销指控。",
+              "Spanish": "El abogado defensor solicitó una moción para desestimar los cargos debido a evidencia insuficiente."
+            }
+          }
+        ]
+      },
+      {
+        "word": "defendant",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈfendənt/",
+        "meaning": "An individual, company, or institution sued or accused in a court of law.",
+        "synonyms": ["accused", "litigant"],
+        "antonyms": ["plaintiff", "prosecutor"],
+        "examples": [
+          {
+            "english": "The defendant chose to remain silent throughout the proceedings.",
+            "translations": {
+              "Mandarin Chinese": "被告选择在整个诉讼过程中保持沉默。",
+              "Spanish": "El acusado optó por permanecer en silencio durante todo el proceso."
+            }
+          }
+        ]
+      },
+      {
+        "word": "plaintiff",
+        "level": "C2",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpleɪntɪf/",
+        "meaning": "A person who brings a case against another in a court of law.",
+        "synonyms": ["complainant", "litigant", "claimant"],
+        "antonyms": ["defendant"],
+        "examples": [
+          {
+            "english": "The plaintiff sought damages for the breach of contract incurred by the defendant.",
+            "translations": {
+              "Mandarin Chinese": "原告因被告违约而寻求损害赔偿。",
+              "Spanish": "El demandante solicitó una indemnización por el incumplimiento de contrato en el que incurrió el demandado."
+            }
+          }
+        ]
+      },
+      {
+        "word": "criminal offense",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈkrɪmɪnl əˈfens/",
+        "meaning": "An act that violates the criminal code and is punishable by the state.",
+        "synonyms": ["crime", "felony", "misdemeanor"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The suspect was charged with a serious criminal offense following the investigation.",
+            "translations": {
+              "Mandarin Chinese": "调查结束后，该嫌疑人被控犯有严重的刑事罪行。",
+              "Spanish": "El sospechoso fue acusado de un delito penal grave tras la investigación."
+            }
+          }
+        ]
+      },
+      {
+        "word": "civil rights",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈsɪvl raɪts/",
+        "meaning": "The rights of citizens to political and social freedom and equality.",
+        "synonyms": ["fundamental liberties", "human rights"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The landmark legislation was enacted to protect the civil rights of marginalized groups.",
+            "translations": {
+              "Mandarin Chinese": "这项具有里程碑意义的立法旨在保护边缘群体的公民权利。",
+              "Spanish": "La legislación histórica fue promulgada para proteger los derechos civiles de los grupos marginados."
+            }
+          }
+        ]
+      },
+      {
+        "word": "contract",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɒntrækt/",
+        "meaning": "A written or spoken agreement, especially one concerning employment, sales, or tenancy, that is intended to be enforceable by law.",
+        "synonyms": ["agreement", "covenant", "compact"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Before signing, it is imperative to review every clause within the contract to avoid future disputes.",
+            "translations": {
+              "Mandarin Chinese": "签署前，必须审查合同中的每一条条款，以避免未来的争议。",
+              "Spanish": "Antes de firmar, es imperativo revisar cada cláusula dentro del contrato para evitar futuras disputas."
+            }
+          }
+        ]
+      },
+      {
+        "word": "regulation",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌreɡjuˈleɪʃn/",
+        "meaning": "A rule or directive made and maintained by an authority.",
+        "synonyms": ["ordinance", "by-law", "ruling"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "New environmental regulation necessitates stricter emissions standards for industrial facilities.",
+            "translations": {
+              "Mandarin Chinese": "新的环境法规要求工业设施必须遵守更严格的排放标准。",
+              "Spanish": "La nueva regulación ambiental requiere estándares de emisión más estrictos para las instalaciones industriales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "legal system",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈliːɡl ˈsɪstəm/",
+        "meaning": "A procedure or process for interpreting and enforcing the law.",
+        "synonyms": ["judiciary", "justice system"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The effectiveness of any legal system rests on the integrity of its judiciary.",
+            "translations": {
+              "Mandarin Chinese": "任何法律制度的有效性都取决于其司法机构的廉正。",
+              "Spanish": "La eficacia de cualquier sistema legal descansa sobre la integridad de su poder judicial."
+            }
+          }
+        ]
+      },
+      {
+        "word": "appeal",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈpiːl/",
+        "meaning": "An application to a higher court for a decision to be reversed.",
+        "synonyms": ["review", "reconsideration"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The defense filed an appeal, arguing that procedural errors occurred during the initial trial.",
+            "translations": {
+              "Mandarin Chinese": "辩方提出了上诉，认为在最初的审判中出现了程序错误。",
+              "Spanish": "La defensa presentó una apelación, argumentando que ocurrieron errores de procedimiento durante el juicio inicial."
+            }
+          }
+        ]
+      },
+      {
+        "word": "court ruling",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/kɔːrt ˈruːlɪŋ/",
+        "meaning": "A judicial decision, especially one that settles a point of law.",
+        "synonyms": ["judgment", "decree", "precedent"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The court ruling set a significant legal precedent for future litigation regarding corporate liability.",
+            "translations": {
+              "Mandarin Chinese": "该法院裁决为未来关于企业责任的诉讼确立了重要的法律先例。",
+              "Spanish": "El fallo judicial estableció un precedente legal significativo para futuros litigios relacionados con la responsabilidad corporativa."
+            }
+          }
+        ]
+      },
+      {
+        "word": "prosecution",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌprɒsɪˈkjuːʃn/",
+        "meaning": "The institution and conducting of legal proceedings against someone in respect of a criminal charge.",
+        "synonyms": ["the state", "accusers"],
+        "antonyms": ["defense"],
+        "examples": [
+          {
+            "english": "The prosecution argued that the defendant had both the motive and the opportunity to commit the crime.",
+            "translations": {
+              "Mandarin Chinese": "控方辩称，被告既有动机也有机会犯下罪行。",
+              "Spanish": "La fiscalía argumentó que el acusado tenía tanto el motivo como la oportunidad para cometer el crimen."
+            }
+          }
+        ]
+      },
+      {
+        "word": "judiciary",
+        "level": "C2",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/dʒuˈdɪʃieri/",
+        "meaning": "The judicial authorities of a country; judges collectively.",
+        "synonyms": ["court system", "the bench"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "An independent judiciary is essential to maintain the checks and balances of a democratic state.",
+            "translations": {
+              "Mandarin Chinese": "独立的司法机构对于维护民主国家的制衡至关重要。",
+              "Spanish": "Un poder judicial independiente es esencial para mantener el sistema de pesos y contrapesos de un estado democrático."
+            }
+          }
+        ]
+      },
+      {
+        "word": "liability",
+        "level": "C1",
+        "category": "Law",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌlaɪəˈbɪləti/",
+        "meaning": "The state of being responsible for something, especially by law.",
+        "synonyms": ["responsibility", "accountability", "onus"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The company sought to limit its liability by including indemnification clauses in its service contracts.",
+            "translations": {
+              "Mandarin Chinese": "该公司试图通过在服务合同中加入赔偿条款来限制其责任。",
+              "Spanish": "La empresa buscó limitar su responsabilidad incluyendo cláusulas de indemnización en sus contratos de servicio."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

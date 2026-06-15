@@ -1,0 +1,589 @@
+{
+  "level": "B1",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Social Media": [
+      {
+        "word": "content",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɒntent/",
+        "meaning": "The information, images, video, or audio published on a website or digital medium.",
+        "synonyms": ["material", "media", "posts"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Many creators focus on producing high-quality content to keep their viewers engaged.",
+            "translations": {
+              "Mandarin Chinese": "许多创作者专注于制作高质量的内容，以保持观众的参与度。",
+              "Hindi": "कई क्रिएटर अपने दर्शकों को जोड़े रखने के लिए उच्च गुणवत्ता वाली सामग्री बनाने पर ध्यान केंद्रित करते हैं।",
+              "Spanish": "Muchos creadores se enfocan en producir contenido de alta calidad para mantener interesados a sus espectadores.",
+              "Standard Arabic": "يركز العديد من منشئي المحتوى على إنتاج محتوى عالي الجودة للحفاظ على تفاعل مشاهديهم.",
+              "French": "De nombreux créateurs se concentrent sur la production de contenu de haute qualité pour fidéliser leurs spectateurs.",
+              "Bengali": "অনেক ক্রিয়েটর তাদের দর্শকদের ধরে রাখতে উচ্চ-মানের কনটেন্ট তৈরি করার দিকে মনোনিবেশ করেন।",
+              "Portuguese": "Muitos criadores se concentram em produzir conteúdo de alta qualidade para manter seus espectadores engajados.",
+              "Russian": "Многие авторы сосредотачиваются на создании высококачественного контента, чтобы удерживать внимание зрителей.",
+              "Urdu": "بہت سے تخلیق کار اپنے ناظرین کو مصروف رکھنے کے لیے اعلیٰ معیار کا مواد تیار کرنے پر توجہ مرکوز کرتے ہیں۔",
+              "Indonesian": "Banyak kreator fokus memproduksi konten berkualitas tinggi untuk menjaga penonton mereka tetap tertarik.",
+              "Standard German": "Viele Ersteller konzentrieren sich auf die Produktion hochwertiger Inhalte, um ihre Zuschauer zu binden.",
+              "Japanese": "多くのクリエイターは、視聴者を惹きつけるために高品質なコンテンツの制作に集中しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "influencer",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɪnfluənsər/",
+        "meaning": "A person with the power to affect the buying decisions or opinions of others through social media platforms.",
+        "synonyms": ["tastemaker", "opinion leader", "key figure"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The brand collaborated with a famous fashion influencer to launch their new clothing line.",
+            "translations": {
+              "Mandarin Chinese": "该品牌与一位著名的时尚网红合作推出了他们的新服装系列。",
+              "Hindi": "ब्रांड ने अपनी नई कपड़ों की श्रृंखला शुरू करने के लिए एक प्रसिद्ध फैशन इन्फ्लुएंसर के साथ सहयोग किया।",
+              "Spanish": "La marca colaboró con un famoso influencer de moda para lanzar su nueva línea de ropa.",
+              "Standard Arabic": "تعاونت العلامة التجارية مع أحد مؤثري الموضة المشهورين لإطلاق خط ملابسهم الجديد.",
+              "French": "La marque a collaboré avec un influenceur de mode célèbre pour lancer sa nouvelle ligne de vêtements.",
+              "Bengali": "ব্র্যান্ডটি তাদের নতুন পোশাকের লাইন চালু করতে একজন বিখ্যাত ফ্যাশন ইনফ্লুয়েন্সারের সাথে কাজ করেছে।",
+              "Portuguese": "A marca colaborou com um influenciador de moda famoso para lançar sua nova linha de roupas.",
+              "Russian": "Бренд сотрудничал с известным модным инфлюенсером для запуска своей новой линии одежды.",
+              "Urdu": "برانڈ نے اپنے کپڑوں کی نئی لائن لانچ کرنے کے لیے ایک مشہور فیشن انفلونسر کے ساتھ تعاون کیا۔",
+              "Indonesian": "Merek tersebut berkolaborasi dengan pemengaruh mode terkenal untuk meluncurkan lini pakaian baru mereka.",
+              "Standard German": "Die Marke arbeitete mit einem bekannten Mode-Influencer zusammen, um ihre neue Bekleidungslinie auf den Markt zu bringen.",
+              "Japanese": "そのブランドは、新しい衣料品ラインを立ち上げるために、有名なファッションインフルエンサーとコラボレーションしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "subscriber",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/səbˈskraɪbər/",
+        "meaning": "A person who signs up to receive regular updates or access content from a specific channel or platform.",
+        "synonyms": ["member", "follower", "paying viewer"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The educational channel gained its one-millionth subscriber after a video went viral.",
+            "translations": {
+              "Mandarin Chinese": "该教育频道在一段视频走红后迎来了它的第100万个订阅者。",
+              "Hindi": "एक वीडियो के वायरल होने के बाद शैक्षिक चैनल ने अपना दस लाखवां सब्सक्राइबर प्राप्त किया।",
+              "Spanish": "El canal educativo obtuvo su suscriptor número un millón después de que un video se volviera viral.",
+              "Standard Arabic": "कौतुकपूर्ण चैनल ने एक वीडियो वायरल होने के बाद अपना दस लाखवां सब्सक्राइबर प्राप्त किया।",
+              "French": "La chaîne éducative a obtenu son millionième abonné après qu'une vidéo est devenue virale.",
+              "Bengali": "একটি ভিডিও ভাইরাল হওয়ার পরে শিক্ষামূলক চ্যানেলটি তার দশ লক্ষতম সাবস্ক্রাইবার অর্জন করেছে।",
+              "Portuguese": "O canal educatif ganhou seu milionésimo inscrito depois que um vídeo viralizou.",
+              "Russian": "Образовательный канал набрал своего миллионного подписчика после того, как видео стало вирусным.",
+              "Urdu": "ایک ویڈیو وائرل ہونے کے بعد تعلیمی چینل نے اپنا 10 لاکھواں سبسکرाइबर حاصل کیا۔",
+              "Indonesian": "Saluran edukasi itu mendapatkan pelanggan kesatujutanya setelah sebuah video menjadi viral.",
+              "Standard German": "Der Bildungskanal gewann seinen einmillionsten Abonnenten, nachdem ein Video viral ging.",
+              "Japanese": "動画が話題になった後、その教育チャンネルは100万人目の登録者を獲得しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "viral",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈvaɪrəl/",
+        "meaning": "Circulating rapidly and widely from one internet user to another in a very short time.",
+        "synonyms": ["trending", "popular", "fast-spreading"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The funny cat video went viral on Saturday, gathering millions of views overnight.",
+            "translations": {
+              "Mandarin Chinese": "那段搞笑的猫咪视频在周六走红，一夜之间吸引了数百万次观看。",
+              "Hindi": "बिल्ली का वह मजेदार वीडियो शनिवार को वायरल हो गया, जिससे रात भर में लाखों व्यूज आ गए।",
+              "Spanish": "El divertido video del gato se volvió viral el sábado, acumulando millones de vistas de la noche a la mañana.",
+              "Standard Arabic": "انتشر فيديو القط المضحك بشكل فيروسي يوم السبت، وحصد ملايين المشاهدات طوال الليل.",
+              "French": "La vidéo de chat amusante est devenue virale samedi, accumulant des millions de vues du jour au lendemain.",
+              "Bengali": "মজার বিড়ালের ভিডিওটি শনিবারে ভাইরাল হয়েছিল এবং রাতারাতি লক্ষ লক্ষ ভিউ সংগ্রহ করেছিল।",
+              "Portuguese": "O vídeo engraçado do gato viralizou no sábado, acumulando milhões de visualizações da noite para o dia.",
+              "Russian": "Смешное видео с котом стало вирусным в субботу, собрав миллионы просмотров за одну ночь.",
+              "Urdu": "بلی کی وہ مضحکہ خیز ویڈیو ہفتے کے دن وائرل ہو گئی، جس سے راتوں رات لاکھوں ویوز آ گئے۔",
+              "Indonesian": "Video kucing yang lucu itu menjadi viral pada hari Sabtu, mengumpulkan jutaan penayangan dalam semalam.",
+              "Standard German": "Das lustige Katzenvideo ging am Samstag viral und sammelte über Nacht Millionen von Aufrufen.",
+              "Japanese": "その面白い猫の動画は土曜日に口コミで広がり、一晩で何百万回も再生されました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "livestream",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlaɪvstriːm/",
+        "meaning": "A live transmission of an event or broadcast over the internet in real time.",
+        "synonyms": ["live broadcast", "real-time stream"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Thousands of viewers joined the tech launch livestream to see the new software features.",
+            "translations": {
+              "Mandarin Chinese": "成千上万的观众加入了技术发布会直播，以查看新的软件功能。",
+              "Hindi": "सॉफ्टवेयर के नए फीचर्स देखने के लिए हजारों दर्शक टेक लॉन्च लाइवस्ट्रीम में शामिल हुए।",
+              "Spanish": "Miles de espectadores se unieron a la transmisión en vivo del lanzamiento tecnológico para ver las nuevas características del software.",
+              "Standard Arabic": "انضم آلاف المشاهدين إلى البث المباشر لإطلاق التقنية لرؤية ميزات البرمجيات الجديدة.",
+              "French": "Des milliers de spectateurs ont rejoint le livestream de lancement technologique pour voir les nouvelles fonctionnalités du logiciel.",
+              "Bengali": "সফ্টওয়্যারের নতুন বৈশিষ্ট্যগুলি দেখতে হাজার হাজার দর্শক প্রযুক্তি লঞ্চ লাইভস্ট্রিমে যোগ দিয়েছিলেন।",
+              "Portuguese": "Milhares de espectadores se juntaram à transmissão ao vivo de lançamento tecnológico para ver os novos recursos do software.",
+              "Russian": "Тысячи зрителей присоединились к прямой трансляции запуска технологий, чтобы увидеть новые функции программного обеспечения.",
+              "Urdu": "سافٹ ویئر کی نئی خصوصیات دیکھنے کے لیے ہزاروں ناظرین ٹیک لانچ لائیو اسٹریم میں شامل ہوئے۔",
+              "Indonesian": "Ribuan penonton bergabung dalam siaran langsung peluncuran teknologi untuk melihat fitur perangkat lunak baru.",
+              "Standard German": "Tausende von Zuschauern nahmen am Livestream des Tech-Launches teil, um die neuen Softwarefunktionen zu sehen.",
+              "Japanese": "何千人もの視聴者が、新しいソフトウェアの機能を見るために、テック発表会のライブ配信に参加しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "algorithm",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈælɡərɪðəm/",
+        "meaning": "A set of rules used by a digital platform to prioritize and display content to users based on their habits.",
+        "synonyms": ["sorting code", "computational rules"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The social media algorithm recommends posts based on your past search history.",
+            "translations": {
+              "Mandarin Chinese": "社交媒体算法根据您过去的搜索历史推荐帖子。",
+              "Hindi": "सोशल मीडिया एल्गोरिदम आपके पिछले खोज इतिहास के आधार पर पोस्ट की सिफारिश करता है।",
+              "Spanish": "El algoritmo de las redes sociales recomienda publicaciones basadas en tu historial de búsqueda anterior.",
+              "Standard Arabic": "توجه خوارزمية وسائل التواصل الاجتماعي المنشورات بناءً على سجل البحث السابق الخاص بك.",
+              "French": "L'algorithme des réseaux sociaux recommande des publications en fonction de votre historique de recherche passé.",
+              "Bengali": "সোশ্যাল মিডিয়া অ্যালগরিদম আপনার অতীতের অনুসন্ধানের ইতিহাসের ভিত্তিতে পোস্টগুলি সুপারিশ করে।",
+              "Portuguese": "O algoritmo de mídia social recomenda postagens com base no seu histórico de pesquisa anterior.",
+              "Russian": "Алгоритм социальных сетей рекомендует публикации на основе вашей прошлой истории поиска.",
+              "Urdu": "سوشل میڈیا الگورتھم آپ کی ماضی کی تلاش کی تاریخ کی بنیاد پر پوسٹس کی سفارش کرتا ہے۔",
+              "Indonesian": "Algoritma media sosial merekomendasikan postingan berdasarkan riwayat pencarian Anda sebelumnya.",
+              "Standard German": "Der Algorithmus der sozialen Medien empfiehlt Beiträge basierend auf Ihrem bisherigen Suchverlauf.",
+              "Japanese": "ソーシャルメディアのアルゴリズムは、過去の検索履歴に基づいて投稿を推奨します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "comment section",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɒment ˈsekʃn/",
+        "meaning": "The area below an online article or social post where readers can leave feedback or discuss topics.",
+        "synonyms": ["discussion area", "feedback panel"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The creator checked the comment section to read feedback about the new update.",
+            "translations": {
+              "Mandarin Chinese": "创作者查看了评论区，以阅读有关新更新的反馈意见。",
+              "Hindi": "क्रिएटर ने नए अपडेट के बारे में प्रतिक्रिया पढ़ने के लिए कमेंट सेक्शन की जांच की।",
+              "Spanish": "El creador revisó la sección de comentarios para leer los comentarios sobre la nueva actualización.",
+              "Standard Arabic": "تفقد منشئ المحتوى قسم التعليقات لقراءة الملاحظات حول التحديث الجديد.",
+              "French": "Le créateur a vérifié la section des commentaires pour lire les avis sur la nouvelle mise à jour.",
+              "Bengali": "ক্রিয়েটর নতুন আপডেট সম্পর্কে প্রতিক্রিয়া পড়ার জন্য কমেন্ট সেকশনটি পরীক্ষা করে দেখেছিলেন।",
+              "Portuguese": "O criador verificou a seção de comentários para ler o feedback sobre a nova atualização.",
+              "Russian": "Автор проверил раздел комментариев, чтобы прочитать отзывы о новом обновлении.",
+              "Urdu": "تخلیق کار نے نئی اپ ڈیٹ کے بارے میں رائے پڑھنے کے لیے کمنٹ سیکشن چیک کیا۔",
+              "Indonesian": "Kreator memeriksa kolom komentar untuk membaca umpan balik tentang pembaruan baru.",
+              "Standard German": "Der Ersteller überprüfte den Kommentarbereich, um Feedback zum neuen Update zu lesen.",
+              "Japanese": "クリエイターは新しいアップデートに関するフィードバックを読むために、コメント欄を確認しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "notification",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌnəʊtɪfɪˈkeɪʃn/",
+        "meaning": "An automated message sent by an application to inform a user about a specific activity or update.",
+        "synonyms": ["alert", "update", "push message"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I received a push notification on my mobile screen when she liked my photo.",
+            "translations": {
+              "Mandarin Chinese": "当她点赞我的照片时，我的手机屏幕上收到了一个推送通知。",
+              "Hindi": "जब उसने मेरी तस्वीर को पसंद किया, तो मुझे अपने मोबाइल स्क्रीन पर एक पुश नोटिफिकेशन मिला।",
+              "Spanish": "Recibí una notificación push en la pantalla de mi móvil cuando le dio me gusta a mi foto.",
+              "Standard Arabic": "تلقيت إشعاراً فورياً على شاشة هاتفي المحمول عندما أعجبت بصورتي.",
+              "French": "J'ai reçu une notification push sur l'écran de mon mobile lorsqu'elle a aimé ma photo.",
+              "Bengali": "সে আমার ছবি লাইক করলে আমি আমার মোবাইল স্ক্রিনে একটি পুশ নোটিফিকেশন পেয়েছি।",
+              "Portuguese": "Recebi uma notificação push na tela do meu celular quando ela curtiu minha foto.",
+              "Russian": "Я получил пуш-уведомление на экране мобильного телефона, когда она оценила мое фото.",
+              "Urdu": "جب اس نے میری تصویر کو لائک کیا تو مجھے اپنے موبائل اسکرین پر ایک پش نوٹیفکیشن موصول ہوا۔",
+              "Indonesian": "Saya menerima notifikasi push di layar ponsel saya ketika dia menyukai foto saya.",
+              "Standard German": "Ich habe eine Push-Benachrichtigung auf meinem Mobiltelefon erhalten, als ihr mein Foto gefiel.",
+              "Japanese": "彼女が私の写真に「いいね」をしたとき、スマートフォンの画面にプッシュ通知が届きました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "profile",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈprəʊfaɪl/",
+        "meaning": "An account page representing an individual or organization, showcasing details and past history.",
+        "synonyms": ["account page", "biography", "identity summary"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She updated her professional profile picture to make it look cleaner and more clean.",
+            "translations": {
+              "Mandarin Chinese": "她更新了她的专业头像，使其看起来更干净、更整洁。",
+              "Hindi": "उन्होंने अपनी पेशेवर प्रोफ़ाइल तस्वीर को अपडेट किया ताकि यह अधिक साफ और व्यवस्थित दिखे।",
+              "Spanish": "Ella actualizó su foto de perfil profesional para que se viera más limpia y pulida.",
+              "Standard Arabic": "قامت بتحديث صورة ملفها الشخصي المهني لتبدو أكثر نظافة وترتيباً.",
+              "French": "Elle a mis à jour sa photo de profil professionnel pour qu'elle ait l'air plus soignée.",
+              "Bengali": "তিনি তার পেশাদার প্রোফাইল পিকচারটি আপডেট করেছেন যাতে এটি আরও পরিষ্কার এবং সুন্দর দেখায়।",
+              "Portuguese": "Ela atualizou sua foto de perfil profissional para deixá-la com uma aparência mais limpa e organizada.",
+              "Russian": "Она обновила свою профессиональную фотографию профиля, чтобы она выглядела более аккуратной.",
+              "Urdu": "اس نے اپنی پیشہ ورانہ پروفائل پکچر کو اپ ڈیٹ کیا تاکہ یہ زیادہ صاف اور منظم نظر آئے۔",
+              "Indonesian": "Dia memperbarui foto profil profesionalnya agar terlihat lebih bersih dan rapi.",
+              "Standard German": "Sie hat ihr professionelles Profilbild aktualisiert, damit es ordentlicher aussieht.",
+              "Japanese": "彼女は、よりすっきりと洗練されて見えるように、プロフィールの写真を更新しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "privacy",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈprɪvəsi/",
+        "meaning": "The state of being free from public attention or unauthorized access to personal database items.",
+        "synonyms": ["secrecy", "confidentiality", "isolation"],
+        "antonyms": ["publicity"],
+        "examples": [
+          {
+            "english": "You should check your application privacy settings to secure your personal photos.",
+            "translations": {
+              "Mandarin Chinese": "您应该检查您的应用程序隐私设置，以确保您的个人照片安全。",
+              "Hindi": "आपको अपने व्यक्तिगत फ़ोटो को सुरक्षित करने के लिए अपने एप्लिकेशन की गोपनीयता सेटिंग्स की जांच करनी चाहिए।",
+              "Spanish": "Debe verificar la configuración de privacidad de su aplicación para proteger sus fotos personales.",
+              "Standard Arabic": "يجب عليك التحقق من إعدادات خصوصية التطبيق لتأمين صورك الشخصية.",
+              "French": "Vous devriez vérifier les paramètres de confidentialité de votre application pour sécuriser vos photos personnelles.",
+              "Bengali": "আপনার ব্যক্তিগত ছবি সুরক্ষিত করতে আপনার অ্যাপ্লিকেশন গোপনীয়তা সেটিংস পরীক্ষা করা উচিত।",
+              "Portuguese": "Você deve verificar as configurações de privacidade do seu aplicativo para proteger suas fotos pessoais.",
+              "Russian": "Вам следует проверить настройки конфиденциальности приложения, чтобы защитить свои личные фотографии.",
+              "Urdu": "آپ کو اپنی ذاتی تصاویر کو محفوظ بنانے کے लिए اپنی ایپلیکیشن کی پرائیویسی سیٹنگز چیک کرنی چاہئیں۔",
+              "Indonesian": "Anda harus memeriksa pengaturan privasi aplikasi Anda untuk mengamankan foto pribadi Anda.",
+              "Standard German": "Sie sollten die Datenschutzeinstellungen Ihrer Anwendung überprüfen, um Ihre persönlichen Fotos zu schützen.",
+              "Japanese": "個人写真を保護するために、アプリのプライバシー設定を確認する必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "account",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈkaʊnt/",
+        "meaning": "A security setup with a username and password that allows user access to a digital network or workspace.",
+        "synonyms": ["profile registration", "login identity"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He deleted his old database entry and opened a new developer account on the platform.",
+            "translations": {
+              "Mandarin Chinese": "他删除了旧的数据库条目，并在该平台上开通了一个新的开发者账户。",
+              "Hindi": "उन्होंने अपनी पुरानी डेटाबेस प्रविष्टि को हटा दिया और प्लेटफॉर्म पर एक नया डेवलपर खाता खोला।",
+              "Spanish": "Eliminó su antigua entrada de base de datos y abrió una nueva cuenta de desarrollador en la plataforma.",
+              "Standard Arabic": "قام بحذف مدخل قاعدة البيانات القديم وفتح حساب مطور جديد على النظام الأساسي.",
+              "French": "Il a supprimé son ancienne entrée de base de données et a ouvert un nouveau compte de développeur sur la plateforme.",
+              "Bengali": "তিনি তার পুরানো ডাটাবেস এন্ট্রি মুছে ফেলে প্ল্যাটফর্মে একটি নতুন ডেভেলপার অ্যাকাউন্ট খুলেছেন।",
+              "Portuguese": "Ele excluiu sua entrada antiga no banco de dados e abriu uma nova conta de desenvolvedor na plataforma.",
+              "Russian": "Он удалил свою старую запись в базе данных и открыл новую учетную запись разработчика на платформе.",
+              "Urdu": "اس نے اپنا پرانا ڈیٹا بیس اندراج حذف کر دیا اور پلیٹ فارم پر ایک نیا ڈویلپر اکاؤنٹ کھولا۔",
+              "Indonesian": "Dia menghapus entri basis data lamanya dan membuka akun pengembang baru di platform tersebut.",
+              "Standard German": "Er löschte seinen alten Datenbankeintrag und eröffnete ein neues Entwicklerkonto auf der Plattform.",
+              "Japanese": "彼は古いデータベースエントリを削除し、プラットフォーム上に新しい開発者アカウントを開設しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "upload",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˌʌpˈləʊd/",
+        "meaning": "To transfer data, files, or pictures from a local machine onto a central computer network.",
+        "synonyms": ["publish online", "transfer", "submit file"],
+        "antonyms": ["download"],
+        "examples": [
+          {
+            "english": "It takes less than ten seconds to upload an image when the network connection is stable.",
+            "translations": {
+              "Mandarin Chinese": "当网络连接稳定时，上传一张图片只需不到十秒钟。",
+              "Hindi": "नेटवर्क कनेक्शन स्थिर होने पर छवि अपलोड करने में दस सेकंड से भी कम समय लगता है।",
+              "Spanish": "Se tarda menos de diez segundos en cargar una imagen cuando la conexión de red es estable.",
+              "Standard Arabic": "يستغرق تحميل الصورة أقل من عشر ثوانٍ عندما يكون اتصال الشبكة مستقراً.",
+              "French": "Il faut moins de dix secondes pour télécharger une image lorsque la connexion réseau est stable.",
+              "Bengali": "নেটওয়ার্ক সংযোগ স্থিতিশীল থাকলে একটি চিত্র আপলোড করতে দশ সেকেন্ডেরও কম সময় লাগে।",
+              "Portuguese": "Leva menos de dez segundos para enviar uma imagem quando a conexão de rede está estável.",
+              "Russian": "Загрузка изображения занимает менее десяти секунд, если сетевое подключение стабильно.",
+              "Urdu": "نیٹ ورک کنکشن مستحکم ہونے پر تصویر اپ لوڈ کرنے میں دس سیکنڈ سے بھی کم وقت لگتا ہے۔",
+              "Indonesian": "Dibutuhkan waktu kurang dari sepuluh detik untuk mengunggah gambar saat koneksi jaringan stabil.",
+              "Standard German": "Das Hochladen eines Bildes dauert weniger als zehn Sekunden, wenn die Netzwerkverbindung stabil ist.",
+              "Japanese": "ネットワーク接続が安定していれば、画像のアップロードにかかる時間は10秒未満です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "trending",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈtrendɪŋ/",
+        "meaning": "Currently popular, widely discussed, or moving in a clear direction on digital spaces.",
+        "synonyms": ["buzzing", "voguish", "popular now"],
+        "antonyms": ["outdated"],
+        "examples": [
+          {
+            "english": "The new architectural style became trending among modern interface designers this week.",
+            "translations": {
+              "Mandarin Chinese": "这种新的架构风格本周在现代界面设计师中流行起来。",
+              "Hindi": "यह नई स्थापत्य शैली इस सप्ताह आधुनिक इंटरफ़ेस डिजाइनरों के बीच ट्रेंड करने लगी।",
+              "Spanish": "El nuevo estilo arquitectónico se volvió tendencia entre los diseñadores de interfaces modernas esta semana.",
+              "Standard Arabic": "أصبح الأسلوب المعماري الجديد شائعاً بين مصممي الواجهات الحديثة هذا الأسبوع.",
+              "French": "Le nouveau style architectural est devenu tendance parmi les concepteurs d'interfaces modernes cette semaine.",
+              "Bengali": "নতুন আর্কিটেকচারাল শৈলীটি এই সপ্তাহে আধুনিক ইন্টারফেস ডিজাইনারদের মধ্যে ট্রেন্ডিং হয়ে উঠেছে।",
+              "Portuguese": "O novo estilo arquitetônico tornou-se tendência entre os designers de interfaces modernas esta semana.",
+              "Russian": "Этот новый архитектурный стиль стал трендом среди дизайнеров современных интерфейсов на этой неделе.",
+              "Urdu": "یہ نیا آرکیٹیکچرل اسٹائل اس ہفتے جدید انٹرفیس ڈیزائنرز کے درمیان ٹرینڈ کرنے لگا۔",
+              "Indonesian": "Gaya arsitektur baru ini menjadi tren di kalangan desainer antarmuka modern minggu ini.",
+              "Standard German": "Der neue Architekturstil wurde diese Woche unter modernen Interface-Designern zum Trend.",
+              "Japanese": "この新しい建築スタイルは、今週、現代のインターフェースデザイナーの間でトレンドになりました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "follower",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfɒləʊər/",
+        "meaning": "A user who subscribes to another account to trace their activity stream regularly.",
+        "synonyms": ["supporter", "subscriber", "fan"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Every new follower receives a small greeting message from the account developer.",
+            "translations": {
+              "Mandarin Chinese": "每个新关注者都会收到来自账户开发人员的简短问候信息。",
+              "Hindi": "प्रत्येक नए फ़ॉलोअर को खाता डेवलपर की ओर से एक छोटा सा ग्रीटिंग संदेश प्राप्त होता है।",
+              "Spanish": "Cada nuevo seguidor recibe un pequeño mensaje de saludo del desarrollador de la cuenta.",
+              "Standard Arabic": "يتلقى كل متابع جديد رسالة ترحيب صغيرة من مطور الحساب.",
+              "French": "Chaque nouvel abonné reçoit un petit message d'accueil de la part du développeur de l'application.",
+              "Bengali": "প্রতিটি নতুন ফলোয়ার অ্যাকাউন্ট ডেভেলপারের কাছ থেকে একটি ছোট অভিবাদন বার্তা পান।",
+              "Portuguese": "Cada novo seguidor recebe uma pequena mensagem de boas-vindas do desenvolvedor da conta.",
+              "Russian": "Каждый новый подписчик получает небольшое приветственное сообщение от разработчика аккаунта.",
+              "Urdu": "ہر نئے فالوور کو اکاؤنٹ ڈویلپر کی طرف سے ایک چھوٹا سا تہنیتی پیغام موصول ہوتا ہے۔",
+              "Indonesian": "Setiap pengikut baru menerima pesan sapaan kecil dari pengembang akun.",
+              "Standard German": "Jeder neue Follower erhält eine kurze Begrüßungsnachricht vom Account-Entwickler.",
+              "Japanese": "新しいフォロワーは全員、アカウント開発者から小さな挨拶のメッセージを受け取ります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "hashtag",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhæʃtæɡ/",
+        "meaning": "A word or phrase preceded by a hash sign (#) used to group messages under a common category.",
+        "synonyms": ["topic tag", "metadata label"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Using a relevant hashtag makes your technical post discoverable to foreign developer teams.",
+            "translations": {
+              "Mandarin Chinese": "使用相关的标签可以让国外的开发团队更容易发现您的技术帖子。",
+              "Hindi": "एक प्रासंगिक हैशटैग का उपयोग करने से आपकी तकनीकी पोस्ट विदेशी डेवलपर टीमों के लिए खोजने योग्य बन जाती है।",
+              "Spanish": "El uso de un hashtag relevante hace que tu publicación técnica sea visible para equipos de desarrolladores extranjeros.",
+              "Standard Arabic": "استخدام الوسم ذي الصلة يجعل منشورك الفني قابلاً للاكتشاف من قبل فرق المطورين الأجانب.",
+              "French": "L'utilisation d'un hashtag pertinent rend votre publication technique visible par les équipes de développeurs étrangères.",
+              "Bengali": "একটি প্রাসঙ্গিক হ্যাশট্যাগ ব্যবহার করা আপনার প্রযুক্তিগত পোস্টটিকে বিদেশী ডেভেলপার দলগুলির কাছে সহজে খুঁজে পাওয়ার যোগ্য করে তোলে।",
+              "Portuguese": "O uso de uma hashtag relevante torna sua postagem técnica detectável por equipes de desenvolvedores estrangeiras.",
+              "Russian": "Использование релевантного хэштега делает вашу техническую публикацию доступной для поиска зарубежными командами разработчиков.",
+              "Urdu": "ایک متعلقہ ہیش ٹیگ کا استعمال آپ کی تکنیکی پوسٹ کو غیر ملکی ڈویلپر ٹیموں کے لیے تلاش کے قابل بناتا ہے۔",
+              "Indonesian": "Menggunakan tagar yang relevan membuat postingan teknis Anda dapat ditemukan oleh tim pengembang asing.",
+              "Standard German": "Die Verwendung eines relevanten Hashtags macht Ihren technischen Beitrag für ausländische Entwicklerteams auffindbar.",
+              "Japanese": "関連するハッシュタグを使用すると、海外の開発者チームがあなたの技術的な投稿を見つけやすくなります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "direct message",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/dəˈrekt ˈmesɪdʒ/",
+        "meaning": "A private messaging feature that allows communication directly between individual users.",
+        "synonyms": ["private note", "DM", "personal chat"],
+        "antonyms": ["public comment"],
+        "examples": [
+          {
+            "english": "Send me a direct message if you want to collaborate on this open-source setup.",
+            "translations": {
+              "Mandarin Chinese": "如果您想在这个开源项目上进行合作，请给我发私信。",
+              "Hindi": "यदि आप इस ओपन-सोर्स सेटअप पर सहयोग करना चाहते हैं तो मुझे एक सीधा संदेश (डायरेक्ट मैसेज) भेजें।",
+              "Spanish": "Envíame un mensaje directo si quieres colaborar en esta configuración de código abierto.",
+              "Standard Arabic": "أرسل لي رسالة مباشرة إذا كنت تريد التعاون في هذا الإعداد مفتوح المصدر.",
+              "French": "Envoyez-moi un message direct si vous souhaitez collaborer sur cette configuration open source.",
+              "Bengali": "আপনি যদি এই ওপেন-সোর্স সেটআপে সহযোগিতা করতে চান তবে আমাকে একটি সরাসরি বার্তা পাঠান।",
+              "Portuguese": "Envie-me uma mensagem direta se quiser colaborar nesta configuração de código aberto.",
+              "Russian": "Отправьте мне личное сообщение, если хотите посотрудничать над этой конфигурацией с открытым исходным кодом.",
+              "Urdu": "اگر آپ اس اوپن سورس سیٹ اپ پر تعاون کرنا چاہتے ہیں تو مجھے براہ راست پیغام بھیجیں۔",
+              "Indonesian": "Kirimkan pesan langsung kepada saya jika Anda ingin berkolaborasi dalam pengaturan sumber terbuka ini.",
+              "Standard German": "Senden Sie mir eine Direktnachricht, wenn Sie an diesem Open-Source-Setup mitarbeiten möchten.",
+              "Japanese": "このオープンソースのセットアップでコラボレーションしたい場合は、ダイレクトメッセージを送ってください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "online community",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɒnlaɪn kəˈmjuːnəti/",
+        "meaning": "A group of people sharing similar interests who communicate and interact with each other via the internet.",
+        "synonyms": ["digital group", "web forum", "virtual society"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Joining an online community helps young engineers solve programming errors faster.",
+            "translations": {
+              "Mandarin Chinese": "加入在线社区可以帮助年轻的工程师更快地解决编程错误。",
+              "Hindi": "ऑनलाइन समुदाय में शामिल होने से युवा इंजीनियरों को प्रोग्रामिंग त्रुटियों को तेजी से हल करने में मदद मिलती है।",
+              "Spanish": "Unirse a una comunidad en línea ayuda a los ingenieros jóvenes a resolver errores de programación más rápido.",
+              "Standard Arabic": "الانضمام إلى مجتمع عبر الإنترنت يساعد المهندسين الشباب على حل أخطاء البرمجة بشكل أسرع.",
+              "French": "Rejoindre une communauté en ligne aide les jeunes ingénieurs à résoudre plus rapidement les erreurs de programmation.",
+              "Bengali": "অনলাইন কমিউনিটিতে যোগদান করা তরুণ ইঞ্জিনিয়ারদের প্রোগ্রামিংয়ের ত্রুটিগুলি দ্রুত সমাধান করতে সহায়তা করে।",
+              "Portuguese": "Participar de uma comunidade online ajuda jovens engenheiros a resolver erros de programação mais rapidamente.",
+              "Russian": "Присоединение к онлайн-сообществу помогает молодым инженерам быстрее решать ошибки программирования.",
+              "Urdu": "آن لائن کمیونٹی میں شامل ہونا نوجوان انجینئرز کو پروگرامنگ کی غلطیوں کو تیزی سے حل کرنے میں مدد کرتا ہے۔",
+              "Indonesian": "Bergabung dengan komunitas daring membantu para insinyur muda menyelesaikan kesalahan pemrograman dengan lebih cepat.",
+              "Standard German": "Der Beitritt zu einer Online-Community hilft jungen Ingenieuren, Programmierfehler schneller zu lösen.",
+              "Japanese": "オンラインコミュニティに参加することは、若いエンジニアがプログラミングのエラーをより早く解決するのに役立ちます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "digital platform",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdɪdʒɪtl ˈplætfɔːm/",
+        "meaning": "A base technology system or framework that enables users to interact, create accounts, and trade information.",
+        "synonyms": ["online network", "web infrastructure"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Each digital platform has specific guidelines regarding content publishing and copyright rules.",
+            "translations": {
+              "Mandarin Chinese": "每个数字平台都有关于内容发布和版权规则的具体指南。",
+              "Hindi": "प्रत्येक डिजिटल प्लेटफॉर्म के पास सामग्री प्रकाशन और कॉपीराइट नियमों के संबंध में विशिष्ट दिशानिर्देश होते हैं।",
+              "Spanish": "Cada plataforma digital tiene pautas específicas con respecto a la publicación de contenido y las reglas de derechos de autor.",
+              "Standard Arabic": "تمتلك كل منصة رقمية إرشادات محددة فيما يتعلق بنشر المحتوى وقواعد حقوق النشر.",
+              "French": "Chaque plateforme numérique a des directives spécifiques concernant la publication de contenu et les règles de droit d'auteur.",
+              "Bengali": "প্রতিটি ডিজিটাল প্ল্যাটফর্মের কন্টেন্ট প্রকাশ এবং কপিরাইট নিয়মের ক্ষেত্রে নির্দিষ্ট নির্দেশিকা রয়েছে।",
+              "Portuguese": "Cada plataforma digital possui diretrizes específicas em relação à publicação de conteúdo e regras de direitos autorais.",
+              "Russian": "Каждая цифровая платформа имеет определенные правила в отношении публикации контента и правил авторского права.",
+              "Urdu": "ہر ڈیجیٹل پلیٹ فارم کے پاس مواد کی اشاعت اور کاپی رائٹ کے قوانین کے حوالے سے مخصوص رہنما اصول ہوتے ہیں۔",
+              "Indonesian": "Setiap platform digital memiliki panduan khusus terkait penerbitan konten dan aturan hak cipta.",
+              "Standard German": "Jede digitale Plattform hat spezifische Richtlinien bezüglich der Veröffentlichung von Inhalten und Urheberrechtsregeln.",
+              "Japanese": "各デジタルプラットフォームには、コンテンツの公開や著作権規則に関する特定のガイドラインがあります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "podcast",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpɒdkɑːst/",
+        "meaning": "A digital audio file made available on the internet for downloading or streaming, typically available as a series.",
+        "synonyms": ["audio show", "netcast"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I enjoy listening to a tech podcast while commuting to my engineering college.",
+            "translations": {
+              "Mandarin Chinese": "我喜欢在去工程学院的通勤路上听科技播客。",
+              "Hindi": "मुझे अपने इंजीनियरिंग कॉलेज आने-जाने के दौरान टेक पॉडकास्ट सुनना पसंद है।",
+              "Spanish": "Disfruto escuchando un podcast de tecnología mientras viajo a mi universidad de ingeniería.",
+              "Standard Arabic": "أستمتع بالاستماع إلى بودكاست تقني أثناء تنقلي إلى كلية الهندسة الخاصة بي.",
+              "French": "J'aime écouter un podcast technologique en me rendant à mon école d'ingénieurs.",
+              "Bengali": "আমি আমার ইঞ্জিনিয়ারিং কলেজে যাওয়ার সময় একটি প্রযুক্তি পডকাস্ট শুনতে পছন্দ করি।",
+              "Portuguese": "Gosto de ouvir um podcast de tecnologia enquanto vou para a minha faculdade de engenharia.",
+              "Russian": "Мне нравится слушать технический подкаст по дороге в инженерный колледж.",
+              "Urdu": "مجھے اپنے انجینئرنگ کالج کے سفر کے دوران ٹیک پوڈ کاسٹ سننا پسند ہے۔",
+              "Indonesian": "Saya senang mendengarkan podcast teknologi saat dalam perjalanan ke kampus teknik saya.",
+              "Standard German": "Ich höre gerne einen Tech-Podcast, während ich zu meiner Ingenieurhochschule pendle.",
+              "Japanese": "エンジニアリング大学への通学中に、テック系のポッドキャストを聴くのが楽しみです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "creator",
+        "level": "B1",
+        "category": "Social Media",
+        "part_of_speech": "noun",
+        "pronunciation": "/kriˈeɪtər/",
+        "meaning": "A person who invents, produces, or builds digital media items like videos, blogs, or artwork.",
+        "synonyms": ["producer", "author", "maker"],
+        "antonyms": ["consumer"],
+        "examples": [
+          {
+            "english": "The platform introduced a new payment scheme to support every active digital creator.",
+            "translations": {
+              "Mandarin Chinese": "该平台推出了一个新的付费方案，以支持每一位活跃的数字创作者。",
+              "Hindi": "प्लेटफॉर्म ने हर सक्रिय डिजिटल क्रिएटर का समर्थन करने के लिए एक नई भुगतान योजना शुरू की।",
+              "Spanish": "La plataforma introdujo un nuevo esquema de pago para apoyar a cada creador digital activo.",
+              "Standard Arabic": "قدمت المنصة نظام دفع جديد لدعم كل منشئ محتوى رقمي نشط.",
+              "French": "La plateforme a introduit un nouveau système de paiement pour soutenir chaque créateur numérique actif.",
+              "Bengali": "প্ল্যাটফর্মটি প্রতিটি সক্রিয় ডিজিটাল ক্রিয়েটরকে সহায়তা করার জন্য একটি নতুন পেমেন্ট স্কিম চালু করেছে।",
+              "Portuguese": "A plataforma introduziu um novo esquema de pagamento para apoiar cada criador digital ativo.",
+              "Russian": "Платформа ввела новую схему оплаты для поддержки каждого активного цифрового автора.",
+              "Urdu": "پلیٹ فارم نے ہر فعال ڈیجیٹل تخلیق کار کی مدد کے لیے ادائیگی کا ایک نیا منصوبہ متعارف کرایا۔",
+              "Indonesian": "Platform ini memperkenalkan skema pembayaran baru untuk mendukung setiap kreator digital yang aktif.",
+              "Standard German": "Die Plattform hat ein neues Zahlungssystem eingeführt, um jeden aktiven digitalen Ersteller zu unterstützen.",
+              "Japanese": "プラットフォームは、すべてのアクティブなデジタルクリエイターを支援するために、新しい支払いスキームを導入しました。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "level": "B2",
+  "approx_words": "800-1200",
+  "source": "Academic & Professional English",
+  "categories": {
+    "Debate": [
+      {
+        "word": "argument",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɑːrɡjumənt/",
+        "meaning": "A coherent series of reasons or facts intended to support a point of view.",
+        "synonyms": ["case", "contention"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He presented a compelling argument in favor of renewable energy.",
+            "translations": {
+              "Mandarin Chinese": "他提出了一个支持可再生能源的有力论点。",
+              "Hindi": "उसने नवीकरणीय ऊर्जा के पक्ष में एक सम्मोहक तर्क प्रस्तुत किया।",
+              "Spanish": "Presentó un argumento convincente a favor de la energía renovable.",
+              "French": "Il a présenté un argument convaincant en faveur des énergies renouvelables.",
+              "Japanese": "彼は再生可能エネルギーを支持する説得力のある議論を提示した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "counterargument",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkaʊntərˌɑːrɡjumənt/",
+        "meaning": "An argument or set of reasons put forward to oppose an idea developed in another argument.",
+        "synonyms": ["rebuttal", "refutation"],
+        "antonyms": ["supporting argument"],
+        "examples": [
+          {
+            "english": "She prepared a strong counterargument to challenge the opponent's claim.",
+            "translations": {
+              "Mandarin Chinese": "她准备了一个强有力的反驳论点来挑战对手的主张。",
+              "Hindi": "उसने प्रतिद्वंद्वी के दावे को चुनौती देने के लिए एक मजबूत प्रतिवाद तैयार किया।",
+              "Spanish": "Preparó un contraargumento sólido para desafiar la afirmación del oponente.",
+              "French": "Elle a préparé un contre-argument solide pour contester la thèse de l'adversaire.",
+              "Japanese": "彼女は相手の主張に異議を唱えるために強力な反論を準備した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "evidence",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈevɪdəns/",
+        "meaning": "Facts, information, or documentation that support a claim or proposition.",
+        "synonyms": ["proof", "data"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "You need concrete evidence to support your hypothesis.",
+            "translations": {
+              "Mandarin Chinese": "你需要确凿的证据来支持你的假设。",
+              "Hindi": "आपको अपनी परिकल्पना का समर्थन करने के लिए ठोस सबूत चाहिए।",
+              "Spanish": "Necesitas pruebas concretas para respaldar tu hipótesis.",
+              "French": "Vous avez besoin de preuves concrètes pour étayer votre hypothèse.",
+              "Japanese": "仮説を裏付けるには具体的な証拠が必要だ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "claim",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/kleɪm/",
+        "meaning": "An assertion that something is true, often without immediate proof.",
+        "synonyms": ["assertion", "allegation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The speaker made a bold claim that technology will solve all our problems.",
+            "translations": {
+              "Mandarin Chinese": "发言者提出了一个大胆的主张，称技术将解决我们所有的问题。",
+              "Hindi": "वक्ता ने यह साहसिक दावा किया कि तकनीक हमारी सभी समस्याओं का समाधान कर देगी।",
+              "Spanish": "El orador hizo una afirmación audaz de que la tecnología resolverá todos nuestros problemas.",
+              "French": "L'orateur a fait une affirmation audacieuse selon laquelle la technologie résoudra tous nos problèmes.",
+              "Japanese": "話し手は、技術が我々のあらゆる問題を解決するという大胆な主張をした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "perspective",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/pərˈspektɪv/",
+        "meaning": "A particular attitude toward or way of regarding something; a point of view.",
+        "synonyms": ["viewpoint", "standpoint"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is important to consider the issue from a global perspective.",
+            "translations": {
+              "Mandarin Chinese": "从全球视角考虑这个问题很重要。",
+              "Hindi": "वैश्विक दृष्टिकोण से इस मुद्दे पर विचार करना महत्वपूर्ण है।",
+              "Spanish": "Es importante considerar el problema desde una perspectiva global.",
+              "French": "Il est important d'examiner la question sous un angle mondial.",
+              "Japanese": "世界的な視点からその問題を検討することが重要である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "logical",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈlɑːdʒɪkl/",
+        "meaning": "Characterized by clear, sound reasoning and consistent structure.",
+        "synonyms": ["rational", "coherent"],
+        "antonyms": ["illogical", "irrational"],
+        "examples": [
+          {
+            "english": "Your conclusion follows a clear and logical path.",
+            "translations": {
+              "Mandarin Chinese": "你的结论遵循了一条清晰且合乎逻辑的路径。",
+              "Hindi": "आपका निष्कर्ष एक स्पष्ट और तार्किक मार्ग का अनुसरण करता है।",
+              "Spanish": "Tu conclusión sigue un camino claro y lógico.",
+              "French": "Votre conclusion suit un cheminement clair et logique.",
+              "Japanese": "あなたの結論は明確で論理的な道筋をたどっている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "controversial",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˌkɑːntrəˈvɜːrʃl/",
+        "meaning": "Likely to give rise to intense public disagreement or debate.",
+        "synonyms": ["debatable", "contentious"],
+        "antonyms": ["unanimous", "accepted"],
+        "examples": [
+          {
+            "english": "The new policy remains a highly controversial topic among citizens.",
+            "translations": {
+              "Mandarin Chinese": "这项新政策在市民中仍然是一个极具争议的话题。",
+              "Hindi": "नई नीति नागरिकों के बीच एक अत्यधिक विवादास्पद विषय बनी हुई है।",
+              "Spanish": "La nueva política sigue siendo un tema muy controvertido entre los ciudadanos.",
+              "French": "La nouvelle politique reste un sujet très controversé parmi les citoyens.",
+              "Japanese": "その新しい政策は、市民の間で依然として非常に議論の分かれる話題である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "convince",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "verb",
+        "pronunciation": "/kənˈvɪns/",
+        "meaning": "To persuade someone to do or believe something through reasoning.",
+        "synonyms": ["persuade", "sway"],
+        "antonyms": ["dissuade"],
+        "examples": [
+          {
+            "english": "She managed to convince the committee that her plan was viable.",
+            "translations": {
+              "Mandarin Chinese": "她设法说服了委员会相信她的计划是可行的。",
+              "Hindi": "वह समिति को यह समझाने में सफल रही कि उसकी योजना व्यवहार्य है।",
+              "Spanish": "Logró convencer al comité de que su plan era viable.",
+              "French": "Elle a réussi à convaincre le comité que son plan était viable.",
+              "Japanese": "彼女は委員会に対し、自分の計画が実行可能であることを納得させることに成功した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "justify",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˈdʒʌstɪfaɪ/",
+        "meaning": "To provide valid reasons or evidence for an action or belief.",
+        "synonyms": ["defend", "vindicate"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is hard to justify such extreme measures in this situation.",
+            "translations": {
+              "Mandarin Chinese": "在这种情况下，很难为如此极端的措施辩护。",
+              "Hindi": "इस स्थिति में ऐसे चरम उपायों को सही ठहराना कठिन है।",
+              "Spanish": "Es difícil justificar medidas tan extremas en esta situación.",
+              "French": "Il est difficile de justifier de telles mesures extrêmes dans cette situation.",
+              "Japanese": "このような状況で、これほど極端な措置を正当化することは難しい。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "opposition",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɑːpəˈzɪʃn/",
+        "meaning": "The act of resisting or disagreeing with a position or proposal.",
+        "synonyms": ["resistance", "dissent"],
+        "antonyms": ["support", "agreement"],
+        "examples": [
+          {
+            "english": "Despite the opposition, the team decided to move forward.",
+            "translations": {
+              "Mandarin Chinese": "尽管有反对意见，团队还是决定继续前进。",
+              "Hindi": "विरोध के बावजूद, टीम ने आगे बढ़ने का फैसला किया।",
+              "Spanish": "A pesar de la oposición, el equipo decidió seguir adelante.",
+              "French": "Malgré l'opposition, l'équipe a décidé d'aller de l'avant.",
+              "Japanese": "反対にもかかわらず、チームは前に進むことを決めた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "supporting point",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/səˈpɔːrtɪŋ pɔɪnt/",
+        "meaning": "A reason or detail that helps to reinforce the main claim.",
+        "synonyms": ["supporting detail", "sub-argument"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Your main claim is strong, but you need another supporting point.",
+            "translations": {
+              "Mandarin Chinese": "你的主要主张很强，但你需要另一个支持点。",
+              "Hindi": "आपका मुख्य दावा मजबूत है, लेकिन आपको एक और समर्थन बिंदु की आवश्यकता है।",
+              "Spanish": "Tu afirmación principal es sólida, pero necesitas otro punto de apoyo.",
+              "French": "Votre thèse principale est solide, mais vous avez besoin d'un autre point d'appui.",
+              "Japanese": "あなたの主な主張は強力だが、もう一つ裏付けとなるポイントが必要だ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "debate topic",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/dɪˈbeɪt ˈtɑːpɪk/",
+        "meaning": "The specific subject under discussion in a formal argument.",
+        "synonyms": ["motion", "resolution"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The debate topic for tonight is 'The impact of social media'.",
+            "translations": {
+              "Mandarin Chinese": "今晚的辩论主题是“社交媒体的影响”。",
+              "Hindi": "आज रात के लिए बहस का विषय है 'सोशल मीडिया का प्रभाव'।",
+              "Spanish": "El tema del debate de esta noche es 'El impacto de las redes sociales'.",
+              "French": "Le sujet du débat de ce soir est 'L'impact des médias sociaux'.",
+              "Japanese": "今夜の討論のテーマは「ソーシャルメディアの影響」だ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "critical thinking",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈkrɪtɪkl ˈθɪŋkɪŋ/",
+        "meaning": "The objective analysis and evaluation of an issue to form a sound judgment.",
+        "synonyms": ["reasoned judgment", "analytical skills"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Critical thinking is essential for making informed decisions.",
+            "translations": {
+              "Mandarin Chinese": "批判性思维对于做出明智的决定至关重要。",
+              "Hindi": "सूचित निर्णय लेने के लिए आलोचनात्मक सोच आवश्यक है।",
+              "Spanish": "El pensamiento crítico es esencial para tomar decisiones informadas.",
+              "French": "La pensée critique est essentielle pour prendre des décisions éclairées.",
+              "Japanese": "批判的思考は、情報に基づいた決定を下すために不可欠である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "bias",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbaɪəs/",
+        "meaning": "A prejudice in favor of or against one thing compared to another.",
+        "synonyms": ["prejudice", "partiality"],
+        "antonyms": ["objectivity", "neutrality"],
+        "examples": [
+          {
+            "english": "The writer showed a clear bias toward the traditional method.",
+            "translations": {
+              "Mandarin Chinese": "作者对传统方法表现出了明显的偏见。",
+              "Hindi": "लेखक ने पारंपरिक विधि के प्रति स्पष्ट पूर्वाग्रह दिखाया।",
+              "Spanish": "El escritor mostró un claro sesgo hacia el método tradicional.",
+              "French": "L'écrivain a fait preuve d'un parti pris évident en faveur de la méthode traditionnelle.",
+              "Japanese": "書き手は伝統的な方法に対して明確な偏りを見せた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "analysis",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈnæləsɪs/",
+        "meaning": "Detailed examination of the components of a subject to understand it better.",
+        "synonyms": ["examination", "scrutiny"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "A thorough analysis of the data revealed several errors.",
+            "translations": {
+              "Mandarin Chinese": "对数据的详尽分析揭示了几个错误。",
+              "Hindi": "आंकड़ों के गहन विश्लेषण से कई त्रुटियां सामने आईं।",
+              "Spanish": "Un análisis exhaustivo de los datos reveló varios errores.",
+              "French": "Une analyse approfondie des données a révélé plusieurs erreurs.",
+              "Japanese": "データを入念に分析した結果、いくつかの誤りが明らかになった。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "discussion",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈskʌʃn/",
+        "meaning": "A conversation or debate about a specific topic.",
+        "synonyms": ["dialogue", "conversation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We engaged in a lively discussion regarding the new budget.",
+            "translations": {
+              "Mandarin Chinese": "我们就新预算进行了热烈的讨论。",
+              "Hindi": "हमने नए बजट के संबंध में एक जीवंत चर्चा की।",
+              "Spanish": "Participamos en una animada discusión sobre el nuevo presupuesto.",
+              "French": "Nous avons eu une discussion animée concernant le nouveau budget.",
+              "Japanese": "我々は新しい予算に関して活発な議論を交わした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "assumption",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈsʌmpʃn/",
+        "meaning": "A thing that is accepted as true without proof.",
+        "synonyms": ["presumption", "supposition"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Don't base your argument on an unproven assumption.",
+            "translations": {
+              "Mandarin Chinese": "不要基于未经证实的假设来论证。",
+              "Hindi": "अपने तर्क को किसी अप्रमाणित धारणा पर आधारित न करें।",
+              "Spanish": "No bases tu argumento en una suposición no probada.",
+              "French": "Ne fondez pas votre argument sur une supposition non prouvée.",
+              "Japanese": "証明されていない仮定に基づいて議論をしてはいけない。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "conclusion",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/kənˈkluːʒn/",
+        "meaning": "A judgment or decision reached by reasoning or evidence.",
+        "synonyms": ["inference", "final decision"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He drew the wrong conclusion from the available information.",
+            "translations": {
+              "Mandarin Chinese": "他根据现有信息得出了错误的结论。",
+              "Hindi": "उसने उपलब्ध जानकारी से गलत निष्कर्ष निकाला।",
+              "Spanish": "Sacó la conclusión equivocada de la información disponible.",
+              "French": "Il a tiré une conclusion erronée des informations disponibles.",
+              "Japanese": "彼は得られた情報から誤った結論を導き出した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "reasoning",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈriːzənɪŋ/",
+        "meaning": "The process of thinking about something in a logical way to form a judgment.",
+        "synonyms": ["logic", "thought process"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Her reasoning behind the decision was sound and persuasive.",
+            "translations": {
+              "Mandarin Chinese": "她做出该决定的理由既合理又有说服力。",
+              "Hindi": "निर्णय के पीछे उसका तर्क ठोस और प्रेरक था।",
+              "Spanish": "Su razonamiento detrás de la decisión fue sólido y persuasivo.",
+              "French": "Son raisonnement derrière cette décision était solide et convaincant.",
+              "Japanese": "その決定の背後にある彼女の推論は、健全で説得力があった。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "evaluate",
+        "level": "B2",
+        "category": "Debate",
+        "part_of_speech": "verb",
+        "pronunciation": "/ɪˈvæljueɪt/",
+        "meaning": "To assess the value, quality, or importance of something.",
+        "synonyms": ["assess", "appraise"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is necessary to evaluate all the evidence before making a judgment.",
+            "translations": {
+              "Mandarin Chinese": "在做出判断之前，有必要评估所有的证据。",
+              "Hindi": "निर्णय लेने से पहले सभी सबूतों का मूल्यांकन करना आवश्यक है।",
+              "Spanish": "Es necesario evaluar toda la evidencia antes de emitir un juicio.",
+              "French": "Il est nécessaire d'évaluer toutes les preuves avant de porter un jugement.",
+              "Japanese": "判断を下す前にすべての証拠を評価する必要がある。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

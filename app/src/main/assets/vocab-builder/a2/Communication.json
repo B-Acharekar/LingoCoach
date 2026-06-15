@@ -1,0 +1,929 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Communication": [
+      {
+        "word": "conversation",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɑːnvərˈseɪʃn/",
+        "meaning": "A talk between two or more people in which thoughts, feelings, and ideas are expressed.",
+        "synonyms": ["talk", "chat", "discussion"],
+        "antonyms": ["silence"],
+        "examples": [
+          {
+            "english": "We had a long conversation about our travel plans.",
+            "translations": {
+              "Mandarin Chinese": "我们针对旅行计划进行了一次长谈。",
+              "Hindi": "हमने अपनी यात्रा योजनाओं के बारे में एक लंबी बातचीत की।",
+              "Spanish": "Tuvimos una larga conversación sobre nuestros planes de viaje.",
+              "Standard Arabic": "أجرينا محادثة طويلة حول خطط سفرنا.",
+              "French": "Nous avons eu une longue conversation sur nos projets de voyage.",
+              "Bengali": "আমরা আমাদের ভ্রমণের পরিকল্পনা নিয়ে দীর্ঘ কথোপকথন করেছি।",
+              "Portuguese": "Tivemos uma longa conversa sobre nossos planos de viagem.",
+              "Russian": "У нас был долгий разговор о наших планах на путешествие.",
+              "Urdu": "ہم نے اپنے سفر کے منصوبوں کے بارے میں لمبی گفتگو کی۔",
+              "Indonesian": "Kami mengobrol panjang tentang rencana perjalanan kami.",
+              "Standard German": "Wir hatten ein langes Gespräch über unsere Reisepläne.",
+              "Japanese": "私たちは旅行の計画について長い会話をしました。"
+            }
+          },
+          {
+            "english": "It is easy to start a conversation with him.",
+            "translations": {
+              "Mandarin Chinese": "跟他开始一段对话很容易。",
+              "Hindi": "उनके साथ बातचीत शुरू करना आसान है।",
+              "Spanish": "Es fácil iniciar una conversación con él.",
+              "Standard Arabic": "من السهل بدء محادثة معه.",
+              "French": "Il est facile d'engager la conversation avec lui.",
+              "Bengali": "তার সাথে কথোপকথন শুরু করা সহজ।",
+              "Portuguese": "É fácil começar uma conversa com ele.",
+              "Russian": "С ним легко начать разговор.",
+              "Urdu": "ان کے ساتھ گفتگو شروع کرنا آسان ہے۔",
+              "Indonesian": "Mudah untuk memulai percakapan dengannya.",
+              "Standard German": "Es ist einfach, ein Gespräch mit ihm zu beginnen.",
+              "Japanese": "彼と会話を始めるのは簡単です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "discuss",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/dɪˈskʌs/",
+        "meaning": "To talk about something with another person or group in order to exchange ideas or decide something.",
+        "synonyms": ["debate", "talk over", "consider"],
+        "antonyms": ["ignore", "neglect"],
+        "examples": [
+          {
+            "english": "We need to discuss this problem with the manager.",
+            "translations": {
+              "Mandarin Chinese": "我们需要和经理讨论这个问题。",
+              "Hindi": "हमें इस समस्या पर प्रबंधक के साथ चर्चा करनी होगी।",
+              "Spanish": "Necesitamos discutir este problema con el gerente.",
+              "Standard Arabic": "نحن بحاجة لمناقشة هذه المشكلة مع المدير.",
+              "French": "Nous devons discuter de ce problème avec le directeur.",
+              "Bengali": "আমাদের এই সমস্যাটি নিয়ে ম্যানেজারের সাথে আলোচনা করা দরকার।",
+              "Portuguese": "Precisamos discutir este problema com o gerente.",
+              "Russian": "Нам нужно обсудить эту проблему с менеджером.",
+              "Urdu": "ہمیں مینیجر کے ساتھ اس مسئلے پر بحث کرنے کی ضرورت ہے۔",
+              "Indonesian": "Kami perlu mendiskusikan masalah ini dengan manajer.",
+              "Standard German": "Wir müssen dieses Problem mit dem Manager besprechen.",
+              "Japanese": "この問題についてマネージャーと話し合う必要があります。"
+            }
+          },
+          {
+            "english": "They met to discuss the new project details.",
+            "translations": {
+              "Mandarin Chinese": "他们会面以商讨新项目的细节。",
+              "Hindi": "वे नए प्रोजेक्ट के विवरण पर चर्चा करने के लिए मिले।",
+              "Spanish": "Se reunieron para discutir los detalles del nuevo proyecto.",
+              "Standard Arabic": "اجتمعوا لمناقشة تفاصيل المشروع الجديد.",
+              "French": "Ils se sont réunis pour discuter des détails du nouveau projet.",
+              "Bengali": "তারা নতুন প্রকল্পের বিবরণ নিয়ে আলোচনা করতে মিলিত হয়েছিল।",
+              "Portuguese": "Eles se reuniram para discutir os detalhes do novo projeto.",
+              "Russian": "Они встретились, чтобы обсудить детали нового проекта.",
+              "Urdu": "وہ نئے پروجیکٹ کی تفصیلات پر بحث کرنے کے لیے ملے۔",
+              "Indonesian": "Mereka bertemu untuk mendiskusikan detail proyek baru.",
+              "Standard German": "Sie trafen sich, um die Details des neuen Projekts zu besprechen.",
+              "Japanese": "彼らは新しいプロジェクトの詳細を話し合うために集まりました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "explain",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/ɪkˈspleɪn/",
+        "meaning": "To make something clear or easy to understand by giving reasons or details.",
+        "synonyms": ["clarify", "describe", "illustrate"],
+        "antonyms": ["confuse", "complicate"],
+        "examples": [
+          {
+            "english": "Can you explain how this machine works?",
+            "translations": {
+              "Mandarin Chinese": "你能解释一下这台机器是怎么运作的吗？",
+              "Hindi": "क्या आप समझा सकते हैं कि यह मशीन कैसे काम करती है?",
+              "Spanish": "¿Puedes explicar cómo funciona esta máquina?",
+              "Standard Arabic": "هل يمكنك شرح كيف تعمل هذه الآلة؟",
+              "French": "Peux-tu expliquer comment cette machine fonctionne ?",
+              "Bengali": "এই মেশিনটি কীভাবে কাজ করে তা কি আপনি ব্যাখ্যা করতে পারেন?",
+              "Portuguese": "Você pode explicar cómo esta máquina funciona?",
+              "Russian": "Можешь объяснить, как работает этот аппарат?",
+              "Urdu": "کیا آپ وضاحت کر سکتے ہیں کہ یہ مشین کیسے کام کرتی ہے؟",
+              "Indonesian": "Bisakah Anda menjelaskan cara kerja mesin ini?",
+              "Standard German": "Kannst du erklären, wie diese Maschine funktioniert?",
+              "Japanese": "この機械がどのように動くか説明してくれますか？"
+            }
+          },
+          {
+            "english": "The teacher used examples to explain the rule.",
+            "translations": {
+              "Mandarin Chinese": "老师用例子来解释这条规则。",
+              "Hindi": "शिक्षक ने नियम समझाने के लिए उदाहरणों का उपयोग किया।",
+              "Spanish": "El maestro usó ejemplos para explicar la regla.",
+              "Standard Arabic": "استخدم المعلم أمثلة لشرح القاعدة.",
+              "French": "Le professeur a utilisé des exemples pour expliquer la règle.",
+              "Bengali": "শিক্ষক নিয়মটি ব্যাখ্যা করতে উদাহরণ ব্যবহার করেছিলেন।",
+              "Portuguese": "O professor usou exemplos para explicar a regra.",
+              "Russian": "Учитель использовал примеры, чтобы объяснить правило.",
+              "Urdu": "استاد نے قانون کی وضاحت کے لیے مثالیں استعمال کیں۔",
+              "Indonesian": "Guru menggunakan contoh untuk menjelaskan aturan tersebut.",
+              "Standard German": "Der Lehrer erklärte die Regel anhand von Beispielen.",
+              "Japanese": "先生はルールを説明するために例を使いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "describe",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/dɪˈskraɪb/",
+        "meaning": "To say or write what someone or something is like.",
+        "synonyms": ["portray", "depict", "report"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please describe the man you saw at the bank.",
+            "translations": {
+              "Mandarin Chinese": "请描述一下你在银行看到的那个人。",
+              "Hindi": "कृपया उस व्यक्ति का वर्णन करें जिसे आपने बैंक में देखा था।",
+              "Spanish": "Por favor, describe al hombre que viste en el banco.",
+              "Standard Arabic": "يرجى وصف الرجل الذي رأيته في البنك.",
+              "French": "S'il te plaît, décris l'homme que tu as vu à la banque.",
+              "Bengali": "অনুগ্রহ করে ব্যাংকে আপনি যে লোকটিকে দেখেছিলেন তার বর্ণনা দিন।",
+              "Portuguese": "Por favor, descreva o homem que você viu no banco.",
+              "Russian": "Пожалуйста, опишите человека, которого вы видели в банке.",
+              "Urdu": "براہ کرم اس آدمی کا حلیہ بتائیں جسے آپ نے بینک میں دیکھا تھا۔",
+              "Indonesian": "Tolong deskripsikan pria yang Anda lihat di bank.",
+              "Standard German": "Bitte beschreibe den Mann, den du in der Bank gesehen hast.",
+              "Japanese": "銀行で見かけた男性の特徴を説明してください。"
+            }
+          },
+          {
+            "english": "Words cannot describe how beautiful the view was.",
+            "translations": {
+              "Mandarin Chinese": "语言无法形容那里的风景有多美。",
+              "Hindi": "शब्द वर्णन नहीं कर सकते कि दृश्य कितना सुंदर था।",
+              "Spanish": "Las palabras no pueden describir lo hermoso que era el paisaje.",
+              "Standard Arabic": "الكلمات لا يمكنها وصف مدى جمال المنظر.",
+              "French": "Les mots ne peuvent décrire à quel point la vue était belle.",
+              "Bengali": "শব্দ দিয়ে প্রকাশ করা যাবে না দৃশ্যটি কতটা সুন্দর ছিল।",
+              "Portuguese": "Palavras não podem descrever quão bonita era a vista.",
+              "Russian": "Слова не могут описать, как красив был этот вид.",
+              "Urdu": "الفاظ بیان نہیں کر سکتے کہ وہ منظر کتنا خوبصورت تھا۔",
+              "Indonesian": "Kata-kata tidak dapat melukiskan betapa indahnya pemandangan itu.",
+              "Standard German": "Worte können nicht beschreiben, wie schön die Aussicht war.",
+              "Japanese": "言葉では言い表せないほど美しい景色でした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "introduce",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˌɪntrəˈduːs/",
+        "meaning": "To tell someone another person's name when they meet for the first time.",
+        "synonyms": ["present", "acquaint"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Allow me to introduce my new colleague, Sarah.",
+            "translations": {
+              "Mandarin Chinese": "请允许我介绍我的新同事，莎拉。",
+              "Hindi": "मुझे अपनी नई सहकर्मी, सारा से आपका परिचय कराने की अनुमति दें।",
+              "Spanish": "Permíteme presentarte a mi nueva colega, Sarah.",
+              "Standard Arabic": "اسمح لي أن أقدم لك زميلتي الجديدة، سارة.",
+              "French": "Permettez-moi de vous présenter ma nouvelle collègue, Sarah.",
+              "Bengali": "আমার নতুন সহকর্মী সারার সাথে আপনাদের পরিচয় করিয়ে দেওয়ার অনুমতি দিন।",
+              "Portuguese": "Permita-me apresentar minha nova colega, Sarah.",
+              "Russian": "Позвольте представить мою новую коллегу, Сару.",
+              "Urdu": "مجھے اپنے نئے ساتھی، سارہ کا تعارف کرانے کی اجازت دیں۔",
+              "Indonesian": "Izinkan saya memperkenalkan rekan kerja baru saya, Sarah.",
+              "Standard German": "Erlauben Sie mir, meine neue Kollegin Sarah vorzustellen.",
+              "Japanese": "新しい同僚のサラを紹介させてください。"
+            }
+          },
+          {
+            "english": "He introduced himself to the host of the party.",
+            "translations": {
+              "Mandarin Chinese": "他向派对的主人作了自我介绍。",
+              "Hindi": "उसने पार्टी के मेजबान से अपना परिचय कराया।",
+              "Spanish": "Él se presentó ante el anfitrión de la fiesta.",
+              "Standard Arabic": "قدم نفسه لمضيف الحفلة.",
+              "French": "Il s'est présenté à l'hôte de la soirée.",
+              "Bengali": "সে পার্টির হোস্টের কাছে নিজের পরিচয় দিল।",
+              "Portuguese": "Ele se apresentou ao anfitrião da festa.",
+              "Russian": "Он представился хозяиону вечеринки.",
+              "Urdu": "اس نے پارٹی کے میزبان سے اپنا تعارف کرایا۔",
+              "Indonesian": "Dia memperkenalkan diri kepada tuan rumah pesta.",
+              "Standard German": "Er stellte sich dem Gastgeber der Party vor.",
+              "Japanese": "彼はパーティーの主催者に自己紹介をしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "repeat",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/rɪˈpiːt/",
+        "meaning": "To say or do something again.",
+        "synonyms": ["restate", "reiterate", "redo"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Could you repeat that sentence, please? I missed it.",
+            "translations": {
+              "Mandarin Chinese": "请问你能重复那句话吗？我刚才错过了。",
+              "Hindi": "क्या आप कृपया वह वाक्य दोहरा सकते हैं? मैं सुन नहीं पाया।",
+              "Spanish": "¿Podría repetir esa frase, por favor? No la escuché.",
+              "Standard Arabic": "هل يمكنك تكرار هذه الجملة من فضلك؟ لقد فاتني سماعها.",
+              "French": "Pourriez-vous répéter cette phrase, s'il vous plaît ? Je l'ai manquée.",
+              "Bengali": "দয়া করে ওই বাক্যটি আরেকবার বলবেন কি? আমি শুনতে পাইনি।",
+              "Portuguese": "Você poderia repetir essa frase, por favor? Eu não ouvi.",
+              "Russian": "Не могли бы вы повторить это предложение, пожалуйста? Я пропустил.",
+              "Urdu": "کیا آپ برائے مہربانی وہ جملہ دہرا سکتے ہیں؟ میں سن نہیں سکا۔",
+              "Indonesian": "Bisakah Anda mengulangi kalimat itu? Saya melewatkannya.",
+              "Standard German": "Könnten Sie diesen Satz bitte wiederholen? Ich habe ihn nicht mitbekommen.",
+              "Japanese": "今の文章をもう一度言っていただけますか？聞き逃してしまいました。"
+            }
+          },
+          {
+            "english": "History sometimes repeats itself.",
+            "translations": {
+              "Mandarin Chinese": "历史有时候会重演。",
+              "Hindi": "इतिहास कभी-कभी खुद को दोहराता है।",
+              "Spanish": "La historia a veces se repite.",
+              "Standard Arabic": "التاريخ يعيد نفسه أحياناً.",
+              "French": "L'histoire se répète parfois.",
+              "Bengali": "ইতিহাস কখনো কখনো নিজেকে পুনরাবৃত্তি করে।",
+              "Portuguese": "A história às vezes se repete.",
+              "Russian": "История иногда повторяется.",
+              "Urdu": "تاریخ کبھی کبھی خود کو دہراتی ہے۔",
+              "Indonesian": "Sejarah terkadang berulang.",
+              "Standard German": "Die Geschichte wiederholt sich manchmal.",
+              "Japanese": "歴史は繰り返されることがあります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "pronounce",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/prəˈnaʊns/",
+        "meaning": "To make the sound of a word or letter in a particular way.",
+        "synonyms": ["articulate", "utter", "say"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is hard for beginners to pronounce this word correctly.",
+            "translations": {
+              "Mandarin Chinese": "初学者很难正确发音这个单词。",
+              "Hindi": "शुरुआती लोगों के लिए इस शब्द का सही उच्चारण करना कठिन है।",
+              "Spanish": "Es difícil para los principiantes pronunciar esta palabra correctamente.",
+              "Standard Arabic": "من الصعب على المبتدئين نطق هذه الكلمة بشكل صحيح.",
+              "French": "Il est difficile pour les débutants de prononcer ce mot correctement.",
+              "Bengali": "শুরুকারীদের জন্য এই শব্দটির সঠিক উচ্চারণ করা কঠিন।",
+              "Portuguese": "É difícil para iniciantes pronunciar esta palavra corretamente.",
+              "Russian": "Новичкам трудно правильно произнести это слово.",
+              "Urdu": "شروع کرنے والوں کے لیے اس لفظ کا صحیح تلفظ کرنا مشکل ہے۔",
+              "Indonesian": "Sulit bagi pemula untuk mengucapkan kata ini dengan benar.",
+              "Standard German": "Für Anfänger ist es schwierig, dieses Wort richtig auszusprechen.",
+              "Japanese": "初心者がこの単語を正しく発音するのは難しいです。"
+            }
+          },
+          {
+            "english": "How do you pronounce your last name?",
+            "translations": {
+              "Mandarin Chinese": "你的姓氏怎么读？",
+              "Hindi": "आप अपने उपनाम का उच्चारण कैसे करते हैं?",
+              "Spanish": "¿Cómo se pronuncia tu apellido?",
+              "Standard Arabic": "كيف تنطق اسم عائلتك؟",
+              "French": "Comment prononces-tu ton nom de famille ?",
+              "Bengali": "আপনার পদবি কীভাবে উচ্চারণ করেন?",
+              "Portuguese": "Como se pronuncia o seu sobrenome?",
+              "Russian": "Как произносится ваша фамилия?",
+              "Urdu": "آپ اپنے آخری نام کا تلفظ کیسے کرتے ہیں؟",
+              "Indonesian": "Bagaimana Anda mengucapkan nama belakang Anda?",
+              "Standard German": "Wie spricht man Ihren Nachnamen aus?",
+              "Japanese": "あなたの苗字はどう発音しますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "translate",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/trænzˈleɪt/",
+        "meaning": "To change words from one language into another language.",
+        "synonyms": ["convert", "interpret", "render"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please translate this document into English.",
+            "translations": {
+              "Mandarin Chinese": "请把这份文件翻译成英文。",
+              "Hindi": "कृपया इस दस्तावेज़ का अंग्रेज़ी में अनुवाद करें।",
+              "Spanish": "Por favor, traduce este documento al inglés.",
+              "Standard Arabic": "يرجى ترجمة هذا المستند إلى اللغة الإنجليزية.",
+              "French": "S'il vous plaît, traduisez ce document en anglais.",
+              "Bengali": "অনুগ্রহ করে এই নথিটি ইংরেজিতে অনুবাদ করুন।",
+              "Portuguese": "Por favor, traduza este documento para o inglês.",
+              "Russian": "Пожалуйста, переведите этот документ на английский.",
+              "Urdu": "براہ کرم اس دستاویز کا انگریزی میں ترجمہ کریں۔",
+              "Indonesian": "Tolong terjemahkan dokumen ini ke dalam bahasa Inggris.",
+              "Standard German": "Bitte übersetzen Sie dieses Dokument ins Englische.",
+              "Japanese": "この書類を英語に翻訳してください。"
+            }
+          },
+          {
+            "english": "An app can help you translate signs when you travel.",
+            "translations": {
+              "Mandarin Chinese": "旅行时，一款应用程序可以帮你翻译指示牌。",
+              "Hindi": "यात्रा करते समय एक ऐप आपको संकेतों का अनुवाद करने में मदद कर सकता है।",
+              "Spanish": "Una aplicación puede ayudarte a traducir letreros cuando viajas.",
+              "Standard Arabic": "يمكن أن يساعدك تطبيق في ترجمة اللافتات عندما تسافر.",
+              "French": "Une application peut vous aider à traduire les panneaux lorsque vous voyagez.",
+              "Bengali": "ভ্রমণের সময় একটি অ্যাপ আপনাকে সাইনবোর্ড অনুবাদ করতে সাহায্য করতে পারে।",
+              "Portuguese": "Um aplicativo pode te ajudar a traduzir placas quando você viaja.",
+              "Russian": "Приложение может помочь вам переводить вывески в путешествиях.",
+              "Urdu": "سفر کے دوران ایک ایپ آپ کو اشاروں کا ترجمہ کرنے میں مدد کر سکتی ہے۔",
+              "Indonesian": "Sebuah aplikasi dapat membantu Anda menerjemahkan tanda-tanda saat Anda bepergian.",
+              "Standard German": "Eine App kann Ihnen auf Reisen helfen, Schilder zu übersetzen.",
+              "Japanese": "旅行中、アプリが標識を翻訳するのに役立ちます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "agree",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/əˈɡriː/",
+        "meaning": "To have the same opinion as someone else, or to say yes to an idea.",
+        "synonyms": ["concur", "consent", "accept"],
+        "antonyms": ["disagree", "differ"],
+        "examples": [
+          {
+            "english": "I totally agree with you on this point.",
+            "translations": {
+              "Mandarin Chinese": "在这一点上我完全同意你的看法。",
+              "Hindi": "मैं इस बिंदु पर आपसे पूरी तरह सहमत हूँ।",
+              "Spanish": "Estoy totalmente de acuerdo contigo en este punto.",
+              "Standard Arabic": "أنا أتفق معك تماماً في هذه النقطة.",
+              "French": "Je suis tout à fait d'accord avec toi sur ce point.",
+              "Bengali": "আমি এই বিষয়ে আপনার সাথে সম্পূর্ণ একমত।",
+              "Portuguese": "Eu concordo totalmente com você neste ponto.",
+              "Russian": "Я полностью согласен с вами по этому пункту.",
+              "Urdu": "میں اس نقطہ پر آپ سے بالکل متفق ہوں۔",
+              "Indonesian": "Saya sangat setuju dengan Anda dalam hal ini.",
+              "Standard German": "Ich stimme dir in diesem Punkt vollkommen zu.",
+              "Japanese": "この点に関しては私も全く同感です。"
+            }
+          },
+          {
+            "english": "They finally agreed to change the meeting date.",
+            "translations": {
+              "Mandarin Chinese": "他们最终同意更改会议日期。",
+              "Hindi": "वे आखिरकार बैठक की तारीख बदलने पर सहमत हो गए।",
+              "Spanish": "Finalmente acordaron cambiar la fecha de la reunión.",
+              "Standard Arabic": "وافقوا أخيراً على تغيير موعد الاجتماع.",
+              "French": "Ils ont finalement accepté de changer la date de la réunion.",
+              "Bengali": "তারা অবশেষে মিটিংয়ের তারিখ পরিবর্তন করতে সম্মত হয়।",
+              "Portuguese": "Eles finalmente concordaram em mudar a data da reunião.",
+              "Russian": "Они наконец согласились изменить дату встречи.",
+              "Urdu": "وہ بالاخر ملاقات کی تاریخ تبدیل کرنے پر راضی ہو گئے۔",
+              "Indonesian": "Mereka akhirnya sepakat untuk mengubah tanggal pertemuan.",
+              "Standard German": "Sie haben sich schließlich darauf geeinigt, den Termin für das Treffen zu ändern.",
+              "Japanese": "彼らはついに会議の日程を変更することに同意しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "disagree",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˌdɪsəˈɡriː/",
+        "meaning": "To have a different opinion from someone else.",
+        "synonyms": ["differ", "object", "clash"],
+        "antonyms": ["agree", "concur"],
+        "examples": [
+          {
+            "english": "It is okay to disagree, but we should remain polite.",
+            "translations": {
+              "Mandarin Chinese": "意见不一致是可以的，但我们应该保持礼貌。",
+              "Hindi": "असहमत होना ठीक है, लेकिन हमें विनम्र रहना चाहिए।",
+              "Spanish": "Está bien estar en desacuerdo, pero debemos seguir siendo amables.",
+              "Standard Arabic": "من المقبول أن نختلف، ولكن يجب أن نبقى مؤدبين.",
+              "French": "C'est normal de ne pas être d'accord, mais nous devons rester polis.",
+              "Bengali": "দ্বিমত পোষণ করা ঠিক আছে, তবে আমাদের ভদ্র থাকা উচিত।",
+              "Portuguese": "Não tem problema discordar, mas devemos manter a educação.",
+              "Russian": "Не соглашаться — это нормально, но мы должны оставаться вежливыми.",
+              "Urdu": "اختلاف رائے ہونا ٹھیک ہے، لیکن ہمیں شائستہ رہنا چاہیے۔",
+              "Indonesian": "Tidak apa-apa untuk tidak setuju, tetapi kita harus tetap sopan.",
+              "Standard German": "Es ist völlig in Ordnung, anderer Meinung zu sein, aber wir sollten höflich bleiben.",
+              "Japanese": "意見が合わなくても大丈夫ですが、礼儀正しさは保つべきです。"
+            }
+          },
+          {
+            "english": "The two reports disagree on the final numbers.",
+            "translations": {
+              "Mandarin Chinese": "这两份报告在最终数据上存在分歧。",
+              "Hindi": "दोनों रिपोर्टें अंतिम आंकड़ों पर असहमत हैं।",
+              "Spanish": "Los dos informes no coinciden en las cifras finales.",
+              "Standard Arabic": "التقريران يختلفان حول الأرقام النهائية.",
+              "French": "Les deux rapports ne sont pas d'accord sur les chiffres finaux.",
+              "Bengali": "চূড়ান্ত সংখ্যার বিষয়ে দুটি প্রতিবেদন ভিন্নমত পোষণ করে।",
+              "Portuguese": "Os dois relatórios divergem sobre os números finais.",
+              "Russian": "Эти два отчета расходятся в итоговых цифрах.",
+              "Urdu": "دونوں رپورٹیں حتمی نمبروں پر متفق نہیں ہیں۔",
+              "Indonesian": "Kedua laporan tersebut tidak sepakat mengenai angka akhir.",
+              "Standard German": "Die beiden Berichte widersprechen sich bei den endgültigen Zahlen.",
+              "Japanese": "2つの報告書は最終的な数値で一致していません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "suggest",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/səɡˈdʒest/",
+        "meaning": "To mention an idea, plan, or action for other people to consider.",
+        "synonyms": ["propose", "recommend", "advise"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I suggest we take a break and get some coffee.",
+            "translations": {
+              "Mandarin Chinese": "我建议我们休息一下，去喝点咖啡。",
+              "Hindi": "मेरा सुझाव है कि हम एक ब्रेक लें और कुछ कॉफ़ी पीएँ।",
+              "Spanish": "Sugiero que nos tomemos un descanso y vayamos por un café.",
+              "Standard Arabic": "أقترح أن نأخذ استراحة ونشرب بعض القهوة.",
+              "French": "Je suggère que nous fassions une pause et prenions un café.",
+              "Bengali": "আমি পরামর্শ দিচ্ছি যে আমরা একটু বিরতি নিই এবং কিছু কফি খাই।",
+              "Portuguese": "Eu sugiro que façamos uma pausa e tomemos um café.",
+              "Russian": "Предлагаю сделать перерыв и выпить кофе.",
+              "Urdu": "میرا مشورہ ہے کہ ہم وقفہ لیں اور کچھ کافی پی لیں۔",
+              "Indonesian": "Saya sarankan kita istirahat sejenak dan minum kopi.",
+              "Standard German": "Ich schlage vor, wir machen eine Pause und trinken einen Kaffee.",
+              "Japanese": "少し休憩してコーヒーでも飲みませんか。"
+            }
+          },
+          {
+            "english": "Can you suggest a good restaurant near the station?",
+            "translations": {
+              "Mandarin Chinese": "你能推荐一家车站附近的不错的餐厅吗？",
+              "Hindi": "क्या आप स्टेशन के पास किसी अच्छे रेस्तरां का सुझाव दे सकते हैं?",
+              "Spanish": "¿Puedes recomendar un buen restaurante cerca de la estación?",
+              "Standard Arabic": "هل يمكنك اقتراح مطعم جيد بالقرب من المحطة؟",
+              "French": "Pouvez-vous suggérer un bon restaurant près de la gare ?",
+              "Bengali": "স্টেশনের কাছে একটি ভালো রেস্তোরাঁ কি আপনি সাজেস্ট করতে পারেন?",
+              "Portuguese": "Você pode sugerir um bom restaurante perto da estação?",
+              "Russian": "Можете посоветовать хороший ресторан недалеко от станции?",
+              "Urdu": "کیا آپ اسٹیشن کے پاس کسی اچھے ریسٹورنٹ کا مشورہ دے سکتے ہیں؟",
+              "Indonesian": "Bisakah Anda menyarankan restoran yang bagus di dekat stasiun?",
+              "Standard German": "Können Sie ein gutes Restaurant in der Nähe des Bahnhofs empfehlen?",
+              "Japanese": "駅の近くで良いレストランをお勧めしてもらえますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "reply",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/rɪˈplaɪ/",
+        "meaning": "To answer someone by saying or writing something.",
+        "synonyms": ["answer", "respond"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She did not reply to my text message yet.",
+            "translations": {
+              "Mandarin Chinese": "她还没有回复我的短信。",
+              "Hindi": "उसने अभी तक मेरे टेक्स्ट मैसेज का जवाब नहीं दिया है।",
+              "Spanish": "Ella todavía no ha respondido a mi mensaje de texto.",
+              "Standard Arabic": "لم ترد على رسالتي النصية بعد.",
+              "French": "Elle n'a pas encore répondu à my message.",
+              "Bengali": "সে এখনও আমার টেক্সট মেসেজের উত্তর দেয়নি।",
+              "Portuguese": "Ela ainda não respondeu à minha mensagem de texto.",
+              "Russian": "Она еще не ответила на мое текстовое сообщение.",
+              "Urdu": "اس نے ابھی تک میرے ٹیکسٹ میسج کا جواب نہیں دیا۔",
+              "Indonesian": "Dia belum membalas pesan teks saya.",
+              "Standard German": "Sie hat noch nicht auf meine SMS geantwortet.",
+              "Japanese": "彼女はまだ私のテキストメッセージに返信していません。"
+            }
+          },
+          {
+            "english": "'I am ready,' he replied with a smile.",
+            "translations": {
+              "Mandarin Chinese": "“我准备好了，”他微笑着回答。",
+              "Hindi": "'मैं तैयार हूँ,' उसने मुस्कुराते हुए उत्तर दिया।",
+              "Spanish": "'Estoy listo', respondió él con una sonrisa.",
+              "Standard Arabic": "'أنا مستعد'، أجاب بابتسامة.",
+              "French": "'Je suis prêt', répondit-il avec un sourire.",
+              "Bengali": "'আমি প্রস্তুত,' সে হেসে উত্তর দিল।",
+              "Portuguese": "'Estou pronto', ele respondeu com um sorriso.",
+              "Russian": "«Я готов», — ответил он с улыбкой.",
+              "Urdu": "'میں تیار ہوں،' اس نے مسکرا کر جواب دیا۔",
+              "Indonesian": "'Saya siap,' jawabnya sambil tersenyum.",
+              "Standard German": "„Ich bin bereit“, antwortete er mit einem Lächeln.",
+              "Japanese": "「準備はできています」と彼は笑顔で答えました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "message",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmesɪdʒ/",
+        "meaning": "A short piece of information given or sent to someone.",
+        "synonyms": ["note", "memo", "communication"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please leave a message after the beep.",
+            "translations": {
+              "Mandarin Chinese": "请在嘟声后留言。",
+              "Hindi": "कृपया बीप के बाद एक संदेश छोड़ें।",
+              "Spanish": "Por favor, deje un mensaje después de la señal.",
+              "Standard Arabic": "يرجى ترك رسالة بعد النغمة.",
+              "French": "S'il vous plaît, laissez un message après le signal sonore.",
+              "Bengali": "অনুগ্রহ করে বিপ শব্দের পর একটি বার্তা দিন।",
+              "Portuguese": "Por favor, deixe uma mensagem após o sinal.",
+              "Russian": "Пожалуйста, оставьте сообщение после сигнала.",
+              "Urdu": "براہ کرم بیپ کی آواز کے بعد پیغام چھوڑیں۔",
+              "Indonesian": "Silakan tinggalkan pesan setelah bunyi bip.",
+              "Standard German": "Bitte hinterlassen Sie eine Nachricht nach dem Signalton.",
+              "Japanese": "発信音の後にメッセージを残してください。"
+            }
+          },
+          {
+            "english": "I received an important message from my doctor.",
+            "translations": {
+              "Mandarin Chinese": "我收到了医生发来的一条重要信息。",
+              "Hindi": "मुझे मेरे डॉक्टर से एक महत्वपूर्ण संदेश मिला।",
+              "Spanish": "Recibí un mensaje importante de mi médico.",
+              "Standard Arabic": "تلقيت رسالة مهمة من طبيبي.",
+              "French": "J'ai reçu un message important de mon médecin.",
+              "Bengali": "আমি আমার ডাক্তারের কাছ থেকে একটি গুরুত্বপূর্ণ বার্তা পেয়েছি।",
+              "Portuguese": "Recebi uma mensagem importante do meu médico.",
+              "Russian": "Я получил важное сообщение от своего врача.",
+              "Urdu": "مجھے اپنے ڈاکٹر کی طرف سے ایک اہم پیغام ملا۔",
+              "Indonesian": "Saya menerima pesan penting dari dokter saya.",
+              "Standard German": "Ich habe eine wichtige Nachricht von meinem Arzt erhalten.",
+              "Japanese": "医者から重要なメッセージを受け取りました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "chat",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/tʃæt/",
+        "meaning": "To talk with someone in a friendly and informal way, either in person or online.",
+        "synonyms": ["gossip", "chatting", "converse"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We sat in the cafe and chatted for hours.",
+            "translations": {
+              "Mandarin Chinese": "我们坐在咖啡馆里聊了几个小时。",
+              "Hindi": "हम कैफे में बैठे और घंटों बातचीत की।",
+              "Spanish": "Nos sentamos en el café y charlamos durante horas.",
+              "Standard Arabic": "جلسنا في المقهى وتجاذبنا أطراف الحديث لساعات.",
+              "French": "Nous nous sommes assis au café et avons bavardé pendant des heures.",
+              "Bengali": "আমরা ক্যাফেতে বসে ঘন্টার পর ঘন্টা গল্প করেছি।",
+              "Portuguese": "Sentamos no café e conversamos por horas.",
+              "Russian": "Мы сидели в кафе и болтали часами.",
+              "Urdu": "ہم کیفے میں بیٹھے اور گھنٹوں گپ شپ کی۔",
+              "Indonesian": "Kami duduk di kafe dan mengobrol selama berjam-jam.",
+              "Standard German": "Wir saßen im Café und plauderten stundenlang.",
+              "Japanese": "私たちはカフェに座って何時間もおしゃべりしました。"
+            }
+          },
+          {
+            "english": "I often chat with my cousins online.",
+            "translations": {
+              "Mandarin Chinese": "我经常在网上和我的堂表亲们聊天。",
+              "Hindi": "मैं अक्सर ऑनलाइन अपने चचेरे भाइयों से चैट करता हूँ।",
+              "Spanish": "A menudo charlo con mis primos en línea.",
+              "Standard Arabic": "غالباً ما أدردش مع أبناء عمومتي عبر الإنترنت.",
+              "French": "Je bavarde souvent avec mes cousins en ligne.",
+              "Bengali": "আমি প্রায়ই আমার ভাইবোনদের সাথে অনলাইনে চ্যাট করি।",
+              "Portuguese": "Eu costumo conversar com meus primos online.",
+              "Russian": "Я часто болтаю со своими двоюродными братьями онлайн.",
+              "Urdu": "میں اکثر اپنے کزنوں کے ساتھ آن لائن بات چیت کرتا ہوں۔",
+              "Indonesian": "Saya sering mengobrol dengan sepupu saya secara daring.",
+              "Standard German": "Ich chatte oft online mit meinen Cousins.",
+              "Japanese": "私はよくいとことオンラインでおしゃべりします。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "email",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈiːmeɪl/",
+        "meaning": "A system for sending messages electronically, or a message sent this way.",
+        "synonyms": ["electronic mail"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Did you check your email this morning?",
+            "translations": {
+              "Mandarin Chinese": "你今天早上查收电子邮箱了吗？",
+              "Hindi": "क्या आपने आज सुबह अपना ईमेल चेक किया?",
+              "Spanish": "¿Revisaste tu correo electrónico esta mañana?",
+              "Standard Arabic": "هل تفقدت بريدك الإلكتروني هذا الصباح؟",
+              "French": "As-tu vérifié tes e-mails ce matin ?",
+              "Bengali": "আপনি কি আজ সকালে আপনার ইমেল চেক করেছেন?",
+              "Portuguese": "Você verificou seu e-mail esta manhã?",
+              "Russian": "Ты проверял электронную почту сегодня утром?",
+              "Urdu": "کیا آپ نے آج صبح اپنا ای میل چیک کیا؟",
+              "Indonesian": "Apakah Anda memeriksa email Anda pagi ini?",
+              "Standard German": "Haben Sie heute Morgen Ihre E-Mails überprüft?",
+              "Japanese": "今朝、メールをチェックしましたか？"
+            }
+          },
+          {
+            "english": "I will send you an email with the flight details.",
+            "translations": {
+              "Mandarin Chinese": "我会给你发一封包含航班信息的电子邮件。",
+              "Hindi": "मैं आपको उड़ान के विवरण के साथ एक ईमेल भेजूँगा।",
+              "Spanish": "Te enviaré un correo electrónico con los detalles del vuelo.",
+              "Standard Arabic": "سأرسل لك بريداً إلكترونياً يتضمن تفاصيل الرحلة.",
+              "French": "Je t'enverrai un e-mail avec les détails du vol.",
+              "Bengali": "আমি আপনাকে ফ্লাইটের বিবরণ সহ একটি ইমেল পাঠাব।",
+              "Portuguese": "Vou te enviar um e-mail com os detalhes do voo.",
+              "Russian": "Я отправлю вам электронное письмо с деталями рейса.",
+              "Urdu": "میں آپ کو فلائٹ کی تفصیلات کے ساتھ ایک ای میل بھیجوں گا۔",
+              "Indonesian": "Saya akan mengirimi Anda email berisi detail penerbangan.",
+              "Standard German": "Ich schicke Ihnen eine E-Mail mit den Flugdaten.",
+              "Japanese": "フライトの詳細をメールでお送りします。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "contact",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˈkɑːntækt/",
+        "meaning": "To communicate with someone by calling, texting, or emailing them.",
+        "synonyms": ["reach", "get in touch with", "notify"],
+        "antonyms": ["ignore", "avoid"],
+        "examples": [
+          {
+            "english": "You can contact me on my mobile phone anytime.",
+            "translations": {
+              "Mandarin Chinese": "你可以随时拨打我的手机联系我。",
+              "Hindi": "आप कभी भी मेरे मोबाइल फोन पर मुझसे संपर्क कर सकते हैं।",
+              "Spanish": "Puedes contactarme en mi teléfono móvil en cualquier momento.",
+              "Standard Arabic": "يمكنك الاتصال بي على هاتفي المحمول في أي وقت.",
+              "French": "Vous pouvez me contacter sur mon téléphone portable à tout moment.",
+              "Bengali": "আপনি যে কোনো সময় আমার মোবাইল ফোনে আমার সাথে যোগাযোগ করতে পারেন।",
+              "Portuguese": "Você pode me contatar no meu celular a qualquer momento.",
+              "Russian": "Вы можете связаться со мной по мобильному телефону в любое время.",
+              "Urdu": "آپ کسی بھی وقت میرے موبائل فون پر مجھ سے رابطہ کر سکتے ہیں۔",
+              "Indonesian": "Anda dapat menghubungi saya melalui ponsel saya kapan saja.",
+              "Standard German": "Sie können mich jederzeit auf meinem Handy kontaktieren.",
+              "Japanese": "いつでも私の携帯電話に連絡してください。"
+            }
+          },
+          {
+            "english": "We need to contact the police about the accident.",
+            "translations": {
+              "Mandarin Chinese": "发生这起事故，我们需要联系警方。",
+              "Hindi": "हमें दुर्घटना के बारे में पुलिस से संपर्क करना होगा।",
+              "Spanish": "Necesitamos contactar a la policía sobre el accidente.",
+              "Standard Arabic": "نحن بحاجة للاتصال بالشرطة بشأن الحادث.",
+              "French": "Nous devons contacter la police au sujet de l'accident.",
+              "Bengali": "দুর্ঘটনার বিষয়ে আমাদের পুলিশের সাথে যোগাযোগ করা দরকার।",
+              "Portuguese": "Precisamos entrar em contato com a polícia sobre o acidente.",
+              "Russian": "Нам нужно связаться с полицией по поводу аварии.",
+              "Urdu": "ہمیں حادثے کے بارے میں پولیس سے رابطہ کرنے کی ضرورت ہے۔",
+              "Indonesian": "Kita perlu menghubungi polisi mengenai kecelakaan itu.",
+              "Standard German": "Wir müssen die Polizei wegen des Unfalls kontaktieren.",
+              "Japanese": "事故について警察に連絡する必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "information",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɪnfərˈmeɪʃn/",
+        "meaning": "Facts or knowledge provided or learned about something.",
+        "synonyms": ["data", "facts", "knowledge"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The internet is full of useful information.",
+            "translations": {
+              "Mandarin Chinese": "互联网上充满了有用的信息。",
+              "Hindi": "इंटरनेट उपयोगी जानकारी से भरा है।",
+              "Spanish": "Internet está lleno de información útil.",
+              "Standard Arabic": "الإنترنت مليء بالمعلومات المفيدة.",
+              "French": "Internet regorge d'informations utiles.",
+              "Bengali": "ইন্টারনেট দরকারী তথ্যে পূর্ণ।",
+              "Portuguese": "A internet está cheia de informações úteis.",
+              "Russian": "Интернет полон полезной информации.",
+              "Urdu": "انٹرنیٹ مفید معلومات سے بھرا ہوا ہے۔",
+              "Indonesian": "Internet penuh dengan informasi yang berguna.",
+              "Standard German": "Das Internet ist voll von nützlichen Informationen.",
+              "Japanese": "インターネットは有益な情報でいっぱいです。"
+            }
+          },
+          {
+            "english": "Where can I get more information about the course?",
+            "translations": {
+              "Mandarin Chinese": "我在哪里可以获得关于这门课程的更多信息？",
+              "Hindi": "मुझे पाठ्यक्रम के बारे में अधिक जानकारी कहाँ मिल सकती है?",
+              "Spanish": "¿Dónde puedo obtener más información sobre el curso?",
+              "Standard Arabic": "أين يمكنني الحصول على مزيد من المعلومات حول الدورة؟",
+              "French": "Où puis-je obtenir plus d'informations sur le cours ?",
+              "Bengali": "আমি কোর্সটি সম্পর্কে আরও তথ্য কোথায় পেতে পারি?",
+              "Portuguese": "Onde posso obter mais informações sobre o curso?",
+              "Russian": "Где я могу получить больше информации о курсе?",
+              "Urdu": "مجھے کورس کے بارے میں مزید معلومات کہاں سے مل سکتی ہیں؟",
+              "Indonesian": "Di mana saya bisa mendapatkan informasi lebih lanjut tentang kursus ini?",
+              "Standard German": "Wo kann ich mehr Informationen über den Kurs bekommen?",
+              "Japanese": "コースについての詳細情報はどこで手に入りますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "opinion",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈpɪnjən/",
+        "meaning": "A belief or view about something, not necessarily based on fact.",
+        "synonyms": ["view", "belief", "thought"],
+        "antonyms": ["fact"],
+        "examples": [
+          {
+            "english": "In my opinion, this book is better than the movie.",
+            "translations": {
+              "Mandarin Chinese": "在我看来，这本书比电影更好。",
+              "Hindi": "मेरी राय में, यह किताब फिल्म से बेहतर है।",
+              "Spanish": "En mi opinión, este libro es mejor que la película.",
+              "Standard Arabic": "في رأيي، هذا الكتاب أفضل من الفيلم.",
+              "French": "À mon avis, ce livre est meilleur que le film.",
+              "Bengali": "আমার মতে, এই বইটি সিনেমার চেয়ে ভালো।",
+              "Portuguese": "Na minha opinião, este livro é melhor do que o filme.",
+              "Russian": "По моему мнению, эта книга лучше фильма.",
+              "Urdu": "میری رائے میں، یہ کتاب فلم سے بہتر ہے۔",
+              "Indonesian": "Menurut pendapat saya, buku ini lebih baik daripada filmnya.",
+              "Standard German": "Meiner Meinung nach ist dieses Buch besser als der Film.",
+              "Japanese": "私の意見では、この本は映画よりも面白いです。"
+            }
+          },
+          {
+            "english": "Everyone is entitled to their own opinion.",
+            "translations": {
+              "Mandarin Chinese": "每个人都有权发表自己的意见。",
+              "Hindi": "हर किसी को अपनी राय रखने का अधिकार है।",
+              "Spanish": "Cada quien tiene derecho a su propia opinión.",
+              "Standard Arabic": "لكل شخص الحق في رأيه الخاص.",
+              "French": "Chacun a droit à son propre avis.",
+              "Bengali": "প্রত্যেকেরই নিজস্ব মতামত প্রকাশের অধিকার রয়েছে।",
+              "Portuguese": "Todo mundo tem direito à sua própria opinião.",
+              "Russian": "Каждый имеет право на собственное мнение.",
+              "Urdu": "ہر کسی کو اپنی رائے کا حق حاصل ہے۔",
+              "Indonesian": "Setiap orang berhak atas pendapatnya masing-masing.",
+              "Standard German": "Jeder hat ein Recht auf seine eigene Meinung.",
+              "Japanese": "誰もが自分の意見を持つ権利があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "idea",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/aɪˈdiːə/",
+        "meaning": "A suggestion, plan, or thought about what to do in a situation.",
+        "synonyms": ["thought", "concept", "notion"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "That is a fantastic idea for the weekend!",
+            "translations": {
+              "Mandarin Chinese": "对于周末来说，那是个极好的主意！",
+              "Hindi": "सप्ताहांत के लिए यह एक शानदार विचार है!",
+              "Spanish": "¡Esa es una idea fantástica para el fin de semana!",
+              "Standard Arabic": "هذه فكرة رائعة لعطلة نهاية الأسبوع!",
+              "French": "C'est une excellente idée pour le week-end !",
+              "Bengali": "উইকএন্ডের জন্য এটি একটি চমৎকার আইডিয়া!",
+              "Portuguese": "Essa é uma ideia fantástica para o fim de semana!",
+              "Russian": "Это отличная идея на выходные!",
+              "Urdu": "ہفتے کے آخر کے لیے یہ ایک لاجواب خیال ہے!",
+              "Indonesian": "Itu ide yang fantastis untuk akhir pekan!",
+              "Standard German": "Das ist eine fantastische Idee für das Wochenende!",
+              "Japanese": "それは週末のための素晴らしいアイデアですね！"
+            }
+          },
+          {
+            "english": "I have no idea what time the train arrives.",
+            "translations": {
+              "Mandarin Chinese": "我完全不知道火车几点到站。",
+              "Hindi": "मुझे कोई अंदाजा नहीं है कि ट्रेन कितने बजे आएगी।",
+              "Spanish": "No tengo ni idea de a qué hora llega el tren.",
+              "Standard Arabic": "ليس لدي أي فكرة في أي وقت يصل القطار.",
+              "French": "Je n'ai aucune idée de l'heure à laquelle le train arrive.",
+              "Bengali": "ট্রেনটি কখন আসবে সে সম্পর্কে আমার কোনো ধারণা নেই।",
+              "Portuguese": "Eu não tenho ideia de que horas o trem chega.",
+              "Russian": "Я понятия не имею, во сколько прибывает поезд.",
+              "Urdu": "مجھے بالکل اندازہ نہیں ہے کہ ٹرین کس وقت پہنچے گی۔",
+              "Indonesian": "Saya tidak tahu sama sekali jam berapa kereta tiba.",
+              "Standard German": "Ich habe keine Ahnung, wann der Zug ankommt.",
+              "Japanese": "電車が何時に到着するのか全くわかりません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "question",
+        "level": "A2",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkwestʃən/",
+        "meaning": "A sentence or phrase used to find out information.",
+        "synonyms": ["query", "inquiry"],
+        "antonyms": ["answer", "reply"],
+        "examples": [
+          {
+            "english": "If you have any questions, please raise your hand.",
+            "translations": {
+              "Mandarin Chinese": "如果您有任何疑问，请举手。",
+              "Hindi": "यदि आपके पास कोई प्रश्न है, तो कृपया अपना हाथ उठाएं।",
+              "Spanish": "Si tiene alguna pregunta, por favor levante la mano.",
+              "Standard Arabic": "إذا كان لديك أي أسئلة، يرجى رفع يدك.",
+              "French": "Si vous avez des questions, veuillez lever la main.",
+              "Bengali": "আপনার যদি কোন প্রশ্ন থাকে, দয়া করে হাত তুলুন।",
+              "Portuguese": "Se tiver alguma dúvida, por favor levante a mano.",
+              "Russian": "Если у вас есть вопросы, пожалуйста, поднимите руку.",
+              "Urdu": "اگر آپ کے پاس کوئی سوال ہے تو براہ کرم اپنا ہاتھ اٹھائیں۔",
+              "Indonesian": "Jika Anda memiliki pertanyaan, silakan angkat tangan Anda.",
+              "Standard German": "Wenn Sie Fragen haben, heben Sie bitte die Hand.",
+              "Japanese": "質問がある場合は、手を挙げてください。"
+            }
+          },
+          {
+            "english": "That is a very difficult question to answer.",
+            "translations": {
+              "Mandarin Chinese": "那是一个很难回答的问题。",
+              "Hindi": "यह उत्तर देने के लिए बहुत कठिन प्रश्न है।",
+              "Spanish": "Esa es una pregunta muy difícil de responder.",
+              "Standard Arabic": "هذا سؤال صعب للغاية للإجابة عليه.",
+              "French": "C'est une question très difficile à répondre.",
+              "Bengali": "এটি উত্তর দেওয়ার জন্য খুব কঠিন একটি প্রশ্ন।",
+              "Portuguese": "Essa é uma pergunta muito difícil de responder.",
+              "Russian": "Это очень сложный вопрос, чтобы на него ответить.",
+              "Urdu": "یہ جواب دینے کے لیے بہت مشکل سوال ہے۔",
+              "Indonesian": "Itu adalah pertanyaan yang sangat sulit untuk dijawab.",
+              "Standard German": "Das ist eine sehr schwierige Frage.",
+              "Japanese": "それは答えるのが非常に難しい質問です。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

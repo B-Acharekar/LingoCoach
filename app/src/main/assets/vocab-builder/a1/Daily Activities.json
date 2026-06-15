@@ -1,0 +1,161 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "400-500",
+  "source": "Foundational English Communication",
+  "categories": {
+    "Daily Activities": [
+      {
+        "word": "wake up",
+        "level": "A1",
+        "category": "Daily Activities",
+        "part_of_speech": "phrasal verb",
+        "pronunciation": "/weɪk ʌp/",
+        "meaning": "To stop sleeping.",
+        "synonyms": ["awaken"],
+        "antonyms": ["sleep"],
+        "examples": [
+          {
+            "english": "I wake up at seven o'clock.",
+            "translations": {
+              "Mandarin Chinese": "我七点钟醒来。",
+              "Spanish": "Me despierto a las siete en punto."
+            }
+          }
+        ]
+      },
+      {
+        "word": "study",
+        "level": "A1",
+        "category": "Daily Activities",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˈstʌdi/",
+        "meaning": "To learn about a subject.",
+        "synonyms": ["learn"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I study English every day.",
+            "translations": {
+              "Mandarin Chinese": "我每天学习英语。",
+              "Spanish": "Estudio inglés todos los días."
+            }
+          }
+        ]
+      },
+      {
+        "word": "work",
+        "level": "A1",
+        "category": "Daily Activities",
+        "part_of_speech": "verb/noun",
+        "pronunciation": "/wɜːrk/",
+        "meaning": "To do a job or task.",
+        "synonyms": ["labor"],
+        "antonyms": ["rest"],
+        "examples": [
+          {
+            "english": "I work in a big office.",
+            "translations": {
+              "Mandarin Chinese": "我在一间大办公室工作。",
+              "Spanish": "Trabajo en una oficina grande."
+            }
+          }
+        ]
+      },
+      {
+        "word": "read",
+        "level": "A1",
+        "category": "Daily Activities",
+        "part_of_speech": "verb",
+        "pronunciation": "/riːd/",
+        "meaning": "To look at and understand written words.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I read a book at night.",
+            "translations": {
+              "Mandarin Chinese": "我晚上读书。",
+              "Spanish": "Leo un libro por la noche."
+            }
+          }
+        ]
+      },
+      {
+        "word": "write",
+        "level": "A1",
+        "category": "Daily Activities",
+        "part_of_speech": "verb",
+        "pronunciation": "/raɪt/",
+        "meaning": "To mark letters or words on paper.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please write your name.",
+            "translations": {
+              "Mandarin Chinese": "请写下你的名字。",
+              "Spanish": "Por favor, escribe tu nombre."
+            }
+          }
+        ]
+      },
+      {
+        "word": "cook",
+        "level": "A1",
+        "category": "Daily Activities",
+        "part_of_speech": "verb",
+        "pronunciation": "/kʊk/",
+        "meaning": "To prepare food using heat.",
+        "synonyms": ["prepare"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I cook dinner for my family.",
+            "translations": {
+              "Mandarin Chinese": "我为我的家人做晚餐。",
+              "Spanish": "Cocino la cena para mi familia."
+            }
+          }
+        ]
+      },
+      {
+        "word": "clean",
+        "level": "A1",
+        "category": "Daily Activities",
+        "part_of_speech": "verb",
+        "pronunciation": "/kliːn/",
+        "meaning": "To make something free of dirt.",
+        "synonyms": [],
+        "antonyms": ["dirty"],
+        "examples": [
+          {
+            "english": "I clean my room on Saturday.",
+            "translations": {
+              "Mandarin Chinese": "我周六打扫房间。",
+              "Spanish": "Limpio mi habitación los sábados."
+            }
+          }
+        ]
+      },
+      {
+        "word": "go",
+        "level": "A1",
+        "category": "Daily Activities",
+        "part_of_speech": "verb",
+        "pronunciation": "/ɡoʊ/",
+        "meaning": "To move from one place to another.",
+        "synonyms": [],
+        "antonyms": ["come"],
+        "examples": [
+          {
+            "english": "I go to school by bus.",
+            "translations": {
+              "Mandarin Chinese": "我乘公共汽车去上学。",
+              "Spanish": "Voy a la escuela en autobús."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

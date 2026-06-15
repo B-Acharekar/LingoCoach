@@ -1,0 +1,161 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "300-400",
+  "source": "Foundational English Communication",
+  "categories": {
+    "Transportation": [
+      {
+        "word": "car",
+        "level": "A1",
+        "category": "Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/kɑːr/",
+        "meaning": "A road vehicle with an engine, typically with four wheels.",
+        "synonyms": ["automobile"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I drive my car to work.",
+            "translations": {
+              "Mandarin Chinese": "我开车去上班。",
+              "Spanish": "Conduzco mi coche al trabajo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "bus",
+        "level": "A1",
+        "category": "Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/bʌs/",
+        "meaning": "A large motor vehicle carrying passengers by road.",
+        "synonyms": ["coach"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The bus stops at the station.",
+            "translations": {
+              "Mandarin Chinese": "公共汽车在车站停靠。",
+              "Spanish": "El autobús para en la estación."
+            }
+          }
+        ]
+      },
+      {
+        "word": "train",
+        "level": "A1",
+        "category": "Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/treɪn/",
+        "meaning": "A series of railway carriages moved by a locomotive.",
+        "synonyms": ["railway"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I take the train to travel.",
+            "translations": {
+              "Mandarin Chinese": "我坐火车去旅行。",
+              "Spanish": "Tomo el tren para viajar."
+            }
+          }
+        ]
+      },
+      {
+        "word": "bike / bicycle",
+        "level": "A1",
+        "category": "Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/baɪk/ /ˈbaɪsɪkl/",
+        "meaning": "A vehicle with two wheels that you ride by pedaling.",
+        "synonyms": ["cycle"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I ride my bike in the park.",
+            "translations": {
+              "Mandarin Chinese": "我在公园骑自行车。",
+              "Spanish": "Manejo mi bicicleta en el parque."
+            }
+          }
+        ]
+      },
+      {
+        "word": "airport",
+        "level": "A1",
+        "category": "Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈeərpɔːrt/",
+        "meaning": "A place where aircraft land and take off.",
+        "synonyms": ["airfield"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am going to the airport.",
+            "translations": {
+              "Mandarin Chinese": "我要去机场。",
+              "Spanish": "Voy al aeropuerto."
+            }
+          }
+        ]
+      },
+      {
+        "word": "station",
+        "level": "A1",
+        "category": "Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsteɪʃn/",
+        "meaning": "A place where trains or buses stop for passengers.",
+        "synonyms": ["terminal"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Where is the train station?",
+            "translations": {
+              "Mandarin Chinese": "火车站怎么走？",
+              "Spanish": "¿Dónde está la estación de tren?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "ticket",
+        "level": "A1",
+        "category": "Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtɪkɪt/",
+        "meaning": "A piece of paper allowing you to travel.",
+        "synonyms": ["pass"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I need to buy a ticket.",
+            "translations": {
+              "Mandarin Chinese": "我需要买票。",
+              "Spanish": "Necesito comprar un boleto."
+            }
+          }
+        ]
+      },
+      {
+        "word": "travel",
+        "level": "A1",
+        "category": "Transportation",
+        "part_of_speech": "verb/noun",
+        "pronunciation": "/ˈtrævl/",
+        "meaning": "To make a journey.",
+        "synonyms": ["go", "journey"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I like to travel by train.",
+            "translations": {
+              "Mandarin Chinese": "我喜欢坐火车旅行。",
+              "Spanish": "Me gusta viajar en tren."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

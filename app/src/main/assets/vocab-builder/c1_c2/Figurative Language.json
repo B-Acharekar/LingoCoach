@@ -1,0 +1,389 @@
+{
+  "level": "C1-C2",
+  "approx_words": "1200-1500",
+  "source": "Linguistics & Creative Writing",
+  "categories": {
+    "Figurative Language": [
+      {
+        "word": "metaphor",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmetəfər/",
+        "meaning": "A figure of speech in which a word or phrase is applied to an object or action to which it is not literally applicable.",
+        "synonyms": ["analogy", "symbol"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Time is a thief that steals our youth.",
+            "translations": {
+              "Mandarin Chinese": "时间是偷走我们青春的贼。",
+              "Spanish": "El tiempo es un ladrón que nos roba la juventud."
+            }
+          }
+        ]
+      },
+      {
+        "word": "simile",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɪməli/",
+        "meaning": "A figure of speech involving the comparison of one thing with another of a different kind, using 'like' or 'as'.",
+        "synonyms": ["comparison", "analogy"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Her smile was as bright as the sun.",
+            "translations": {
+              "Mandarin Chinese": "她的笑容像太阳一样灿烂。",
+              "Spanish": "Su sonrisa era tan brillante como el sol."
+            }
+          }
+        ]
+      },
+      {
+        "word": "personification",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/pərˌsɒnɪfɪˈkeɪʃn/",
+        "meaning": "The attribution of a personal nature or human characteristics to something nonhuman.",
+        "synonyms": ["anthropomorphism"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The wind whispered secrets through the trees.",
+            "translations": {
+              "Mandarin Chinese": "风在树间低声诉说着秘密。",
+              "Spanish": "El viento susurraba secretos a través de los árboles."
+            }
+          }
+        ]
+      },
+      {
+        "word": "hyperbole",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/haɪˈpɜːrbəli/",
+        "meaning": "Exaggerated statements or claims not meant to be taken literally.",
+        "synonyms": ["overstatement", "exaggeration"],
+        "antonyms": ["understatement"],
+        "examples": [
+          {
+            "english": "I have told you a million times to clean your room.",
+            "translations": {
+              "Mandarin Chinese": "我跟你说过一百万遍要把房间打扫干净。",
+              "Spanish": "Te he dicho un millón de veces que limpies tu habitación."
+            }
+          }
+        ]
+      },
+      {
+        "word": "idiomatic expression",
+        "level": "C2",
+        "category": "Figurative Language",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌɪdiəˈmætɪk ɪkˈspreʃn/",
+        "meaning": "A group of words established by usage as having a meaning not deducible from those of the individual words.",
+        "synonyms": ["idiom", "fixed phrase"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "When the project was finished, he decided to call it a day.",
+            "translations": {
+              "Mandarin Chinese": "项目完成后，他决定收工休息。",
+              "Spanish": "Cuando terminó el proyecto, decidió darlo por terminado."
+            }
+          }
+        ]
+      },
+      {
+        "word": "symbolism",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɪmbəlɪzəm/",
+        "meaning": "The use of symbols to represent ideas or qualities.",
+        "synonyms": ["representation", "significance"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The white dove is a universal symbol of peace.",
+            "translations": {
+              "Mandarin Chinese": "白鸽是和平的普遍象征。",
+              "Spanish": "La paloma blanca es un símbolo universal de paz."
+            }
+          }
+        ]
+      },
+      {
+        "word": "imagery",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɪmɪdʒəri/",
+        "meaning": "Visually descriptive or figurative language that appeals to the senses.",
+        "synonyms": ["vivid description", "sensory detail"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The author's rich imagery brought the cold, winter landscape to life.",
+            "translations": {
+              "Mandarin Chinese": "作者丰富的意象让寒冷的冬日景观变得生动起来。",
+              "Spanish": "La rica imaginería del autor dio vida al frío paisaje invernal."
+            }
+          }
+        ]
+      },
+      {
+        "word": "irony",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈaɪrəni/",
+        "meaning": "The expression of one's meaning by using language that normally signifies the opposite, typically for humorous or emphatic effect.",
+        "synonyms": ["sarcasm", "paradox"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The irony of the fire station burning down was not lost on the townspeople.",
+            "translations": {
+              "Mandarin Chinese": "消防局被烧毁的讽刺意味并没有被镇上的人们错过。",
+              "Spanish": "La ironía de que la estación de bomberos se incendiara no pasó desapercibida para los habitantes de la ciudad."
+            }
+          }
+        ]
+      },
+      {
+        "word": "sarcasm",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɑːrkæzəm/",
+        "meaning": "The use of irony to mock or convey contempt.",
+        "synonyms": ["mockery", "derision"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Her sarcasm was a defense mechanism against criticism.",
+            "translations": {
+              "Mandarin Chinese": "她的讽刺是对批评的一种防御机制。",
+              "Spanish": "Su sarcasmo era un mecanismo de defensa contra las críticas."
+            }
+          }
+        ]
+      },
+      {
+        "word": "analogy",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈnælədʒi/",
+        "meaning": "A comparison between two things, typically for the purpose of explanation or clarification.",
+        "synonyms": ["parallel", "correspondence"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The brain is often described using the analogy of a computer.",
+            "translations": {
+              "Mandarin Chinese": "大脑常被用计算机来进行类比描述。",
+              "Spanish": "El cerebro a menudo se describe usando la analogía de una computadora."
+            }
+          }
+        ]
+      },
+      {
+        "word": "oxymoron",
+        "level": "C2",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɒksiˈmɔːrɒn/",
+        "meaning": "A figure of speech in which apparently contradictory terms appear in conjunction.",
+        "synonyms": ["paradoxical phrase"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The 'deafening silence' in the library was uncomfortable.",
+            "translations": {
+              "Mandarin Chinese": "图书馆里“震耳欲聋的寂静”让人感到不适。",
+              "Spanish": "El 'silencio ensordecedor' en la biblioteca era incómodo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "alliteration",
+        "level": "C2",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˌlɪtəˈreɪʃn/",
+        "meaning": "The occurrence of the same letter or sound at the beginning of adjacent or closely connected words.",
+        "synonyms": ["repetition of sound"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Peter Piper picked a peck of pickled peppers.",
+            "translations": {
+              "Mandarin Chinese": "彼得·派珀挑了一满桶腌辣椒。（著名的绕口令）",
+              "Spanish": "Peter Piper cogió un montón de pimientos encurtidos."
+            }
+          }
+        ]
+      },
+      {
+        "word": "euphemism",
+        "level": "C2",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈjuːfəmɪzəm/",
+        "meaning": "A mild or indirect word or expression substituted for one considered to be too harsh or blunt when referring to something unpleasant or embarrassing.",
+        "synonyms": ["polite term", "understatement"],
+        "antonyms": ["dysphemism"],
+        "examples": [
+          {
+            "english": "He passed away in his sleep, a gentle euphemism for death.",
+            "translations": {
+              "Mandarin Chinese": "他在睡梦中离世了，“离世”是对死亡的一种温和委婉的表达。",
+              "Spanish": "Falleció mientras dormía, un suave eufemismo para la muerte."
+            }
+          }
+        ]
+      },
+      {
+        "word": "understatement",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌʌndərˈsteɪtmənt/",
+        "meaning": "The presentation of something as being smaller, worse, or less important than it actually is.",
+        "synonyms": ["minimization", "restraint"],
+        "antonyms": ["hyperbole", "exaggeration"],
+        "examples": [
+          {
+            "english": "To call the hurricane a 'bit of rain' was a gross understatement.",
+            "translations": {
+              "Mandarin Chinese": "把飓风称为“一点小雨”是非常严重的轻描淡写。",
+              "Spanish": "Llamar al huracán 'un poco de lluvia' fue una grave subestimación."
+            }
+          }
+        ]
+      },
+      {
+        "word": "figurative meaning",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈfɪɡjərətɪv ˈmiːnɪŋ/",
+        "meaning": "The non-literal meaning of a word or phrase, used to create a more vivid or emotional effect.",
+        "synonyms": ["metaphorical sense", "connotative meaning"],
+        "antonyms": ["literal meaning"],
+        "examples": [
+          {
+            "english": "In its figurative meaning, 'the heart of the matter' refers to the most important part of an issue.",
+            "translations": {
+              "Mandarin Chinese": "在比喻意义上，“问题的核心”指代一个问题的最重要部分。",
+              "Spanish": "En su sentido figurado, 'el corazón del asunto' se refiere a la parte más importante de un tema."
+            }
+          }
+        ]
+      },
+      {
+        "word": "double meaning",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌdʌbl ˈmiːnɪŋ/",
+        "meaning": "A word or phrase that can be interpreted in two different ways, often intentionally.",
+        "synonyms": ["ambiguity", "pun"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The author used a clever double meaning to mock the politician while appearing polite.",
+            "translations": {
+              "Mandarin Chinese": "作者运用巧妙的双关语在表面礼貌的同时嘲讽了那位政治家。",
+              "Spanish": "El autor usó un astuto doble sentido para burlarse del político mientras parecía educado."
+            }
+          }
+        ]
+      },
+      {
+        "word": "poetic expression",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/poʊˈetɪk ɪkˈspreʃn/",
+        "meaning": "Language that uses artistic or aesthetic qualities to express complex emotions or imagery.",
+        "synonyms": ["lyrical language"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The novel is filled with poetic expressions that evoke deep feelings of nostalgia.",
+            "translations": {
+              "Mandarin Chinese": "这部小说充满了唤起深厚怀旧之情的诗意表达。",
+              "Spanish": "La novela está llena de expresiones poéticas que evocan profundos sentimientos de nostalgia."
+            }
+          }
+        ]
+      },
+      {
+        "word": "descriptive language",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/dɪˈskrɪptɪv ˈlæŋɡwɪdʒ/",
+        "meaning": "Language intended to create a clear mental image for the reader, often utilizing figurative elements.",
+        "synonyms": ["vivid prose", "painting a picture"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Good descriptive language allows the reader to experience the setting as if they were there.",
+            "translations": {
+              "Mandarin Chinese": "优秀的描写性语言让读者仿佛身临其境地体验场景。",
+              "Spanish": "Un buen lenguaje descriptivo permite al lector experimentar el entorno como si estuviera allí."
+            }
+          }
+        ]
+      },
+      {
+        "word": "wordplay",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwɜːrdpleɪ/",
+        "meaning": "The clever and witty use of words and meaning, often in the form of puns or riddles.",
+        "synonyms": ["witticism", "punning"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "His constant wordplay made the presentation both engaging and entertaining.",
+            "translations": {
+              "Mandarin Chinese": "他不断的俏皮话使演示既引人入胜又充满娱乐性。",
+              "Spanish": "Su constante juego de palabras hizo que la presentación fuera atractiva y entretenida."
+            }
+          }
+        ]
+      },
+      {
+        "word": "figurative comparison",
+        "level": "C1",
+        "category": "Figurative Language",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈfɪɡjərətɪv kəmˈpærɪsn/",
+        "meaning": "Using a non-literal comparison to draw a connection between two different concepts.",
+        "synonyms": ["metaphorical comparison"],
+        "antonyms": ["literal comparison"],
+        "examples": [
+          {
+            "english": "The speaker used a figurative comparison to explain how the company's growth mirrored a wildfire.",
+            "translations": {
+              "Mandarin Chinese": "演讲者用一个比喻性的比较来解释公司增长如何像野火一样蔓延。",
+              "Spanish": "El orador utilizó una comparación figurativa para explicar cómo el crecimiento de la empresa se reflejaba en un incendio forestal."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "level": "B2",
+  "approx_words": "800-1200",
+  "source": "Academic & Professional Education",
+  "categories": {
+    "Education": [
+      {
+        "word": "curriculum",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/kəˈrɪkjələm/",
+        "meaning": "The subjects comprising a course of study in a school or college.",
+        "synonyms": ["syllabus", "program"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The school updated its curriculum to include more digital literacy.",
+            "translations": {
+              "Mandarin Chinese": "学校更新了课程，增加了更多数字素养内容。",
+              "Hindi": "स्कूल ने अपने पाठ्यक्रम को अपडेट किया ताकि उसमें अधिक डिजिटल साक्षरता शामिल हो सके।",
+              "Spanish": "La escuela actualizó su plan de estudios para incluir más alfabetización digital.",
+              "French": "L'école a mis à jour son programme pour inclure davantage de littératie numérique.",
+              "Japanese": "学校はデジタルリテラシーをより多く取り入れるようにカリキュラムを更新した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "academic performance",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌækəˈdemɪk pərˈfɔːrməns/",
+        "meaning": "The extent to which a student, teacher, or institution has achieved their educational goals.",
+        "synonyms": ["educational attainment", "grades"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Regular study habits are essential for maintaining good academic performance.",
+            "translations": {
+              "Mandarin Chinese": "良好的学习习惯对于保持优异的学业成绩至关重要。",
+              "Hindi": "अच्छे शैक्षणिक प्रदर्शन को बनाए रखने के लिए नियमित अध्ययन की आदतें आवश्यक हैं।",
+              "Spanish": "Los hábitos de estudio regulares son esenciales para mantener un buen rendimiento académico.",
+              "French": "Des habitudes d'étude régulières sont essentielles pour maintenir de bonnes performances académiques.",
+              "Japanese": "定期的な学習習慣は、良好な学業成績を維持するために不可欠である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "scholarship",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈskɑːlərʃɪp/",
+        "meaning": "A grant or payment made to support a student's education, awarded on the basis of academic or other achievement.",
+        "synonyms": ["grant", "bursary"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She was awarded a scholarship to study at the university.",
+            "translations": {
+              "Mandarin Chinese": "她获得了在该大学学习的奖学金。",
+              "Hindi": "उसे विश्वविद्यालय में अध्ययन करने के लिए छात्रवृत्ति प्रदान की गई।",
+              "Spanish": "Recibió una beca para estudiar en la universidad.",
+              "French": "Elle a reçu une bourse pour étudier à l'université.",
+              "Japanese": "彼女は大学で学ぶための奨学金を獲得した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "research paper",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈriːsɜːrtʃ ˌpeɪpər/",
+        "meaning": "An essay in which you explain what you have learned after having studied a particular subject in detail.",
+        "synonyms": ["dissertation", "thesis"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Writing a research paper requires extensive reading and analysis.",
+            "translations": {
+              "Mandarin Chinese": "撰写研究论文需要大量的阅读和分析。",
+              "Hindi": "शोध पत्र लिखने के लिए व्यापक पढ़ने और विश्लेषण की आवश्यकता होती है।",
+              "Spanish": "Escribir un trabajo de investigación requiere mucha lectura y análisis.",
+              "French": "La rédaction d'un article de recherche nécessite une lecture et une analyse approfondies.",
+              "Japanese": "研究論文を書くには、広範な読書と分析が必要である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "critical thinking",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈkrɪtɪkl ˈθɪŋkɪŋ/",
+        "meaning": "The objective analysis and evaluation of an issue in order to form a judgment.",
+        "synonyms": ["analytical thinking", "reasoning"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The course is designed to foster critical thinking among students.",
+            "translations": {
+              "Mandarin Chinese": "该课程旨在培养学生的批判性思维。",
+              "Hindi": "यह पाठ्यक्रम छात्रों में आलोचनात्मक सोच को बढ़ावा देने के लिए डिज़ाइन किया गया है।",
+              "Spanish": "El curso está diseñado para fomentar el pensamiento crítico entre los estudiantes.",
+              "French": "Le cours est conçu pour favoriser la pensée critique chez les étudiants.",
+              "Japanese": "そのコースは、学生の批判的思考を養うように設計されている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "qualification",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkwɑːlɪfɪˈkeɪʃn/",
+        "meaning": "An official record of achievement, such as a degree or certificate.",
+        "synonyms": ["credential", "certification"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "A master's degree is a highly valued qualification in this field.",
+            "translations": {
+              "Mandarin Chinese": "硕士学位在该领域是一项非常有价值的资历。",
+              "Hindi": "इस क्षेत्र में मास्टर डिग्री एक उच्च मूल्य वाली योग्यता है।",
+              "Spanish": "Una maestría es una calificación muy valorada en este campo.",
+              "French": "Un master est une qualification très appréciée dans ce domaine.",
+              "Japanese": "修士号は、この分野において非常に価値のある資格である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "lecture",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/ˈlektʃər/",
+        "meaning": "An educational talk to an audience, especially one of students in a university.",
+        "synonyms": ["talk", "presentation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The professor gave a fascinating lecture on modern history.",
+            "translations": {
+              "Mandarin Chinese": "教授就现代史做了一场引人入胜的讲座。",
+              "Hindi": "प्रोफेसर ने आधुनिक इतिहास पर एक आकर्षक व्याख्यान दिया।",
+              "Spanish": "El profesor dio una conferencia fascinante sobre historia moderna.",
+              "French": "Le professeur a donné une conférence fascinante sur l'histoire moderne.",
+              "Japanese": "教授は現代史に関する魅力的な講義を行った。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "seminar",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsemɪnɑːr/",
+        "meaning": "A meeting for discussion or training, usually involving fewer people than a lecture.",
+        "synonyms": ["workshop", "discussion group"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Students are expected to actively participate in the seminar.",
+            "translations": {
+              "Mandarin Chinese": "学生们需要积极参加研讨会。",
+              "Hindi": "छात्रों से सेमिनार में सक्रिय रूप से भाग लेने की अपेक्षा की जाती है।",
+              "Spanish": "Se espera que los estudiantes participen activamente en el seminario.",
+              "French": "Les étudiants sont censés participer activement au séminaire.",
+              "Japanese": "学生はセミナーに積極的に参加することが求められる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "tuition",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/tuˈɪʃn/",
+        "meaning": "A sum of money charged for teaching or instruction by a school or college.",
+        "synonyms": ["fees", "schooling cost"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Many students work part-time to help pay their tuition.",
+            "translations": {
+              "Mandarin Chinese": "许多学生通过兼职来帮助支付学费。",
+              "Hindi": "कई छात्र अपनी ट्यूशन फीस चुकाने में मदद के लिए पार्ट-टाइम काम करते हैं।",
+              "Spanish": "Muchos estudiantes trabajan a tiempo parcial para ayudar a pagar su matrícula.",
+              "French": "De nombreux étudiants travaillent à temps partiel pour aider à payer leurs frais de scolarité.",
+              "Japanese": "多くの学生は授業料を払うためにアルバイトをしている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "assignment",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈsaɪnmənt/",
+        "meaning": "A piece of work or job that you are given to do.",
+        "synonyms": ["task", "homework"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please submit your assignment before the deadline.",
+            "translations": {
+              "Mandarin Chinese": "请在截止日期前提交你的作业。",
+              "Hindi": "कृपया समय सीमा से पहले अपना असाइनमेंट जमा करें।",
+              "Spanish": "Por favor, envíe su tarea antes de la fecha límite.",
+              "French": "Veuillez soumettre votre devoir avant la date limite.",
+              "Japanese": "締め切り前に課題を提出してください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "assessment",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈsesmənt/",
+        "meaning": "The evaluation or estimation of the nature, quality, or ability of someone or something.",
+        "synonyms": ["evaluation", "testing"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The course assessment includes both written exams and projects.",
+            "translations": {
+              "Mandarin Chinese": "课程评估包括书面考试和项目。",
+              "Hindi": "पाठ्यक्रम मूल्यांकन में लिखित परीक्षा और परियोजनाएं दोनों शामिल हैं।",
+              "Spanish": "La evaluación del curso incluye tanto exámenes escritos como proyectos.",
+              "French": "L'évaluation du cours comprend à la fois des examens écrits et des projets.",
+              "Japanese": "コースの評価には、筆記試験とプロジェクトの両方が含まれる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "online learning",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈɑːnlaɪn ˈlɜːrnɪŋ/",
+        "meaning": "Education conducted via the internet.",
+        "synonyms": ["e-learning", "distance education"],
+        "antonyms": ["traditional classroom"],
+        "examples": [
+          {
+            "english": "Online learning has made education more accessible to everyone.",
+            "translations": {
+              "Mandarin Chinese": "在线学习使得每个人都能更容易地接受教育。",
+              "Hindi": "ऑनलाइन लर्निंग ने शिक्षा को सभी के लिए अधिक सुलभ बना दिया है।",
+              "Spanish": "El aprendizaje en línea ha hecho que la educación sea más accesible para todos.",
+              "French": "L'apprentissage en ligne a rendu l'éducation plus accessible à tous.",
+              "Japanese": "オンライン学習は、教育を誰にとってもより利用しやすいものにした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "educational system",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌedʒuˈkeɪʃənl ˈsɪstəm/",
+        "meaning": "The overall structure of schools, universities, and other institutions that provide education.",
+        "synonyms": ["schooling system"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The government is planning to reform the educational system.",
+            "translations": {
+              "Mandarin Chinese": "政府正计划改革教育体系。",
+              "Hindi": "सरकार शैक्षिक प्रणाली में सुधार करने की योजना बना रही है।",
+              "Spanish": "El gobierno planea reformar el sistema educativo.",
+              "French": "Le gouvernement prévoit de réformer le système éducatif.",
+              "Japanese": "政府は教育制度を改革することを計画している。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "knowledge transfer",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈnɑːlɪdʒ ˈtrænsfɜːr/",
+        "meaning": "The practical problem of transferring knowledge from one part of the organization to another.",
+        "synonyms": ["information sharing", "teaching"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Effective knowledge transfer is a core function of universities.",
+            "translations": {
+              "Mandarin Chinese": "有效的知识转移是大学的核心功能。",
+              "Hindi": "प्रभावी ज्ञान हस्तांतरण विश्वविद्यालयों का एक मुख्य कार्य है।",
+              "Spanish": "La transferencia efectiva de conocimientos es una función central de las universidades.",
+              "French": "Le transfert efficace des connaissances est une fonction centrale des universités.",
+              "Japanese": "効果的な知識移転は、大学の中心的な機能である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "discipline",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdɪsəplɪn/",
+        "meaning": "A branch of knowledge, typically one studied in higher education.",
+        "synonyms": ["field of study", "subject"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Biology is a challenging discipline.",
+            "translations": {
+              "Mandarin Chinese": "生物学是一门具有挑战性的学科。",
+              "Hindi": "जीव विज्ञान एक चुनौतीपूर्ण अनुशासन है।",
+              "Spanish": "La biología es una disciplina desafiante.",
+              "French": "La biologie est une discipline stimulante.",
+              "Japanese": "生物学はやりがいのある学問分野である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "graduation",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɡrædʒuˈeɪʃn/",
+        "meaning": "The act of successfully completing an academic degree.",
+        "synonyms": ["commencement", "completion"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She is looking forward to her graduation ceremony.",
+            "translations": {
+              "Mandarin Chinese": "她很期待她的毕业典礼。",
+              "Hindi": "वह अपने दीक्षांत समारोह के लिए उत्सुक है।",
+              "Spanish": "Ella espera con ansias su ceremonia de graduación.",
+              "French": "Elle attend avec impatience sa cérémonie de remise des diplômes.",
+              "Japanese": "彼女は卒業式を楽しみにしている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "internship",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɪntɜːrnʃɪp/",
+        "meaning": "A period of work experience offered by an organization for a limited period of time.",
+        "synonyms": ["traineeship", "placement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "An internship can provide valuable work experience.",
+            "translations": {
+              "Mandarin Chinese": "实习可以提供宝贵的工作经验。",
+              "Hindi": "इंटर्नशिप बहुमूल्य कार्य अनुभव प्रदान कर सकती है।",
+              "Spanish": "Una pasantía puede brindar una valiosa experiencia laboral.",
+              "French": "Un stage peut offrir une expérience professionnelle précieuse.",
+              "Japanese": "インターンシップは貴重な実務経験を提供してくれる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "field of study",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/fiːld əv ˈstʌdi/",
+        "meaning": "A particular branch of study or area of academic interest.",
+        "synonyms": ["discipline", "major"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Her chosen field of study is environmental science.",
+            "translations": {
+              "Mandarin Chinese": "她选择的研究领域是环境科学。",
+              "Hindi": "उसका चुना हुआ अध्ययन का क्षेत्र पर्यावरण विज्ञान है।",
+              "Spanish": "Su campo de estudio elegido es la ciencia ambiental.",
+              "French": "Son domaine d'étude choisi est les sciences de l'environnement.",
+              "Japanese": "彼女が選んだ専攻分野は環境科学である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "professional development",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/prəˈfeʃənl dɪˈveləpmənt/",
+        "meaning": "Learning to earn or maintain professional credentials such as academic degrees to formal coursework, attending conferences, and informal learning opportunities.",
+        "synonyms": ["career development", "training"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The company offers workshops for the professional development of its staff.",
+            "translations": {
+              "Mandarin Chinese": "公司为员工的职业发展提供研讨会。",
+              "Hindi": "कंपनी अपने कर्मचारियों के व्यावसायिक विकास के लिए कार्यशालाएं प्रदान करती है।",
+              "Spanish": "La empresa ofrece talleres para el desarrollo profesional de su personal.",
+              "French": "L'entreprise propose des ateliers pour le développement professionnel de son personnel.",
+              "Japanese": "その会社はスタッフのキャリア開発のためのワークショップを提供している。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "higher education",
+        "level": "B2",
+        "category": "Education",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈhaɪər ˌedʒuˈkeɪʃn/",
+        "meaning": "Education at a university or college level.",
+        "synonyms": ["tertiary education"],
+        "antonyms": ["primary education", "secondary education"],
+        "examples": [
+          {
+            "english": "Many countries aim to increase participation in higher education.",
+            "translations": {
+              "Mandarin Chinese": "许多国家旨在提高高等教育的参与度。",
+              "Hindi": "कई देश उच्च शिक्षा में भागीदारी बढ़ाने का लक्ष्य रखते हैं।",
+              "Spanish": "Muchos países tienen como objetivo aumentar la participación en la educación superior.",
+              "French": "De nombreux pays visent à accroître la participation à l'enseignement supérieur.",
+              "Japanese": "多くの国が高等教育への参加を増やすことを目指している。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

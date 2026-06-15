@@ -1,0 +1,389 @@
+{
+  "level": "C1-C2",
+  "approx_words": "1200-1500",
+  "source": "Advanced Macroeconomics & Public Policy",
+  "categories": {
+    "Economics": [
+      {
+        "word": "inflation",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪnˈfleɪʃn/",
+        "meaning": "A general increase in prices and a fall in the purchasing power of money.",
+        "synonyms": ["devaluation", "price escalation"],
+        "antonyms": ["deflation"],
+        "examples": [
+          {
+            "english": "Central banks often raise interest rates to curb hyperinflation.",
+            "translations": {
+              "Mandarin Chinese": "中央银行常通过提高利率来抑制恶性通货膨胀。",
+              "Spanish": "Los bancos centrales a menudo aumentan las tasas de interés para frenar la hiperinflación."
+            }
+          }
+        ]
+      },
+      {
+        "word": "recession",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈseʃn/",
+        "meaning": "A period of temporary economic decline during which trade and industrial activity are reduced.",
+        "synonyms": ["downturn", "slump", "depression"],
+        "antonyms": ["expansion", "boom"],
+        "examples": [
+          {
+            "english": "The government implemented stimulus packages to shorten the duration of the recession.",
+            "translations": {
+              "Mandarin Chinese": "政府实施了刺激计划以缩短经济衰退的持续时间。",
+              "Spanish": "El gobierno implementó paquetes de estímulo para acortar la duración de la recesión."
+            }
+          }
+        ]
+      },
+      {
+        "word": "monetary policy",
+        "level": "C2",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈmɒnɪteri ˈpɒləsi/",
+        "meaning": "Actions taken by a central bank to manage money supply and interest rates to influence the economy.",
+        "synonyms": ["central bank policy"],
+        "antonyms": ["fiscal policy"],
+        "examples": [
+          {
+            "english": "Tight monetary policy is often used to control inflation.",
+            "translations": {
+              "Mandarin Chinese": "紧缩的货币政策常被用于控制通货膨胀。",
+              "Spanish": "La política monetaria restrictiva se utiliza a menudo para controlar la inflación."
+            }
+          }
+        ]
+      },
+      {
+        "word": "fiscal policy",
+        "level": "C2",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈfɪskl ˈpɒləsi/",
+        "meaning": "The use of government spending and taxation to influence the economy.",
+        "synonyms": ["budgetary policy"],
+        "antonyms": ["monetary policy"],
+        "examples": [
+          {
+            "english": "Expansionary fiscal policy involves increasing public expenditure to boost demand.",
+            "translations": {
+              "Mandarin Chinese": "扩张性财政政策涉及增加公共支出以提振需求。",
+              "Spanish": "La política fiscal expansiva implica aumentar el gasto público para impulsar la demanda."
+            }
+          }
+        ]
+      },
+      {
+        "word": "supply and demand",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/səˈplaɪ ənd dɪˈmɑːnd/",
+        "meaning": "The relationship between the availability of a commodity and the desire of buyers for it.",
+        "synonyms": ["market forces"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The equilibrium price is determined by the intersection of supply and demand.",
+            "translations": {
+              "Mandarin Chinese": "均衡价格由供给和需求的交点决定。",
+              "Spanish": "El precio de equilibrio está determinado por la intersección de la oferta y la demanda."
+            }
+          }
+        ]
+      },
+      {
+        "word": "capitalism",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkæpɪtəlɪzəm/",
+        "meaning": "An economic and political system in which a country's trade and industry are controlled by private owners for profit.",
+        "synonyms": ["free-market economy"],
+        "antonyms": ["socialism", "communism"],
+        "examples": [
+          {
+            "english": "Proponents of capitalism argue that competition drives innovation and efficiency.",
+            "translations": {
+              "Mandarin Chinese": "资本主义的支持者认为竞争推动了创新和效率。",
+              "Spanish": "Los defensores del capitalismo argumentan que la competencia impulsa la innovación y la eficiencia."
+            }
+          }
+        ]
+      },
+      {
+        "word": "consumer spending",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/kənˈsuːmər ˈspendɪŋ/",
+        "meaning": "The total amount of money spent by individuals on final goods and services.",
+        "synonyms": ["private consumption"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "High consumer spending is often a sign of economic confidence.",
+            "translations": {
+              "Mandarin Chinese": "高消费支出往往是经济信心的体现。",
+              "Spanish": "El alto gasto del consumidor suele ser una señal de confianza económica."
+            }
+          }
+        ]
+      },
+      {
+        "word": "gross domestic product",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ɡroʊs dəˈmestɪk ˈprɒdʌkt/",
+        "meaning": "The total value of goods produced and services provided in a country during one year.",
+        "synonyms": ["GDP"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "GDP growth is the primary metric for assessing a nation's economic performance.",
+            "translations": {
+              "Mandarin Chinese": "GDP增长是评估一个国家经济表现的主要指标。",
+              "Spanish": "El crecimiento del PIB es la métrica principal para evaluar el desempeño económico de una nación."
+            }
+          }
+        ]
+      },
+      {
+        "word": "market structure",
+        "level": "C2",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈmɑːrkɪt ˈstrʌktʃər/",
+        "meaning": "The organizational and other characteristics of a market, such as the number of firms and level of competition.",
+        "synonyms": ["competitive landscape"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Monopolistic competition is a common market structure in retail industries.",
+            "translations": {
+              "Mandarin Chinese": "垄断竞争是零售业中常见的市场结构。",
+              "Spanish": "La competencia monopolística es una estructura de mercado común en las industrias minoristas."
+            }
+          }
+        ]
+      },
+      {
+        "word": "investment portfolio",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ɪnˈvestmənt pɔːrtˈfoʊlioʊ/",
+        "meaning": "A range of investments held by an individual or organization.",
+        "synonyms": ["asset allocation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Diversifying an investment portfolio helps to mitigate systemic risk.",
+            "translations": {
+              "Mandarin Chinese": "多元化投资组合有助于降低系统性风险。",
+              "Spanish": "Diversificar una cartera de inversiones ayuda a mitigar el riesgo sistémico."
+            }
+          }
+        ]
+      },
+      {
+        "word": "interest rate",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈɪntrəst reɪt/",
+        "meaning": "The proportion of a loan that is charged as interest to the borrower, typically expressed as an annual percentage.",
+        "synonyms": ["cost of capital"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Central banks manipulate interest rates to manage liquidity.",
+            "translations": {
+              "Mandarin Chinese": "中央银行操纵利率以管理流动性。",
+              "Spanish": "Los bancos centrales manipulan las tasas de interés para gestionar la liquidez."
+            }
+          }
+        ]
+      },
+      {
+        "word": "economic growth",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌiːkəˈnɑːmɪk ɡroʊθ/",
+        "meaning": "An increase in the production of goods and services over time.",
+        "synonyms": ["expansion", "advancement"],
+        "antonyms": ["stagnation"],
+        "examples": [
+          {
+            "english": "Sustainable economic growth requires investment in human capital.",
+            "translations": {
+              "Mandarin Chinese": "可持续的经济增长需要对人力资本进行投资。",
+              "Spanish": "El crecimiento económico sostenible requiere inversión en capital humano."
+            }
+          }
+        ]
+      },
+      {
+        "word": "trade deficit",
+        "level": "C2",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/treɪd ˈdefɪsɪt/",
+        "meaning": "The amount by which the cost of a country's imports exceeds the value of its exports.",
+        "synonyms": ["negative balance of trade"],
+        "antonyms": ["trade surplus"],
+        "examples": [
+          {
+            "english": "Persistent trade deficits can lead to currency depreciation.",
+            "translations": {
+              "Mandarin Chinese": "持续的贸易逆差可能导致货币贬值。",
+              "Spanish": "Los déficits comerciales persistentes pueden llevar a la depreciación de la moneda."
+            }
+          }
+        ]
+      },
+      {
+        "word": "unemployment rate",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌʌnɪmˈplɔɪmənt reɪt/",
+        "meaning": "The percentage of the total labor force that is unemployed but actively seeking employment.",
+        "synonyms": ["joblessness metrics"],
+        "antonyms": ["full employment"],
+        "examples": [
+          {
+            "english": "A high unemployment rate is a major indicator of structural economic weakness.",
+            "translations": {
+              "Mandarin Chinese": "高失业率是结构性经济疲软的主要指标。",
+              "Spanish": "Una alta tasa de desempleo es un indicador principal de debilidad económica estructural."
+            }
+          }
+        ]
+      },
+      {
+        "word": "financial crisis",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/faɪˈnænʃl ˈkraɪsɪs/",
+        "meaning": "A situation where financial assets suddenly lose a large part of their nominal value.",
+        "synonyms": ["market crash", "economic collapse"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The 2008 financial crisis had far-reaching global consequences.",
+            "translations": {
+              "Mandarin Chinese": "2008年的金融危机产生了深远的全球性影响。",
+              "Spanish": "La crisis financiera de 2008 tuvo consecuencias globales de largo alcance."
+            }
+          }
+        ]
+      },
+      {
+        "word": "globalization",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɡloʊbəlaɪˈzeɪʃn/",
+        "meaning": "The process by which businesses or other organizations develop international influence or start operating on an international scale.",
+        "synonyms": ["international integration"],
+        "antonyms": ["isolationism"],
+        "examples": [
+          {
+            "english": "Globalization has significantly increased interconnectedness between national economies.",
+            "translations": {
+              "Mandarin Chinese": "全球化显著增加了各国经济之间的相互联系。",
+              "Spanish": "La globalización ha aumentado significativamente la interconexión entre las economías nacionales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "public expenditure",
+        "level": "C2",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈpʌblɪk ɪkˈspendɪtʃər/",
+        "meaning": "Spending by the government on goods and services, infrastructure, and welfare.",
+        "synonyms": ["government spending"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Efficient public expenditure is vital for long-term infrastructure development.",
+            "translations": {
+              "Mandarin Chinese": "高效的公共支出对于长期的基础设施发展至关重要。",
+              "Spanish": "Un gasto público eficiente es vital para el desarrollo de infraestructura a largo plazo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "economic stability",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌiːkəˈnɑːmɪk stəˈbɪləti/",
+        "meaning": "A state in which an economy experiences little fluctuation in inflation, growth, and unemployment.",
+        "synonyms": ["macroeconomic balance"],
+        "antonyms": ["economic volatility"],
+        "examples": [
+          {
+            "english": "Maintaining economic stability is the primary objective of most central banks.",
+            "translations": {
+              "Mandarin Chinese": "维持经济稳定是大多数中央银行的主要目标。",
+              "Spanish": "Mantener la estabilidad económica es el objetivo principal de la mayoría de los bancos centrales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "wealth distribution",
+        "level": "C2",
+        "category": "Economics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/welθ ˌdɪstrɪˈbjuːʃn/",
+        "meaning": "The way in which the wealth and income of a nation are shared among its population.",
+        "synonyms": ["income inequality patterns"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Policy debates often center on how to improve wealth distribution to reduce social disparity.",
+            "translations": {
+              "Mandarin Chinese": "政策辩论往往集中在如何改善财富分配以减少社会差距。",
+              "Spanish": "Los debates políticos a menudo se centran en cómo mejorar la distribución de la riqueza para reducir la disparidad social."
+            }
+          }
+        ]
+      },
+      {
+        "word": "macroeconomics",
+        "level": "C1",
+        "category": "Economics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌmækroʊˌiːkəˈnɒmɪks/",
+        "meaning": "The branch of economics concerned with large-scale or general economic factors, such as interest rates and national productivity.",
+        "synonyms": ["aggregate economics"],
+        "antonyms": ["microeconomics"],
+        "examples": [
+          {
+            "english": "Macroeconomics provides the framework for understanding how national policies impact global trade.",
+            "translations": {
+              "Mandarin Chinese": "宏观经济学提供了理解国家政策如何影响全球贸易的框架。",
+              "Spanish": "La macroeconomía proporciona el marco para comprender cómo las políticas nacionales impactan el comercio global."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

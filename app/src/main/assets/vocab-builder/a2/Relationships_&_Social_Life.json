@@ -1,0 +1,589 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Relationships & Social Life": [
+      {
+        "word": "friendship",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfrendʃɪp/",
+        "meaning": "The relationship between friends.",
+        "synonyms": ["bond", "camaraderie"],
+        "antonyms": ["enmity"],
+        "examples": [
+          {
+            "english": "Their friendship has lasted for over ten years.",
+            "translations": {
+              "Mandarin Chinese": "他们的友谊已经持续了十多年。",
+              "Hindi": "उनकी दोस्ती दस साल से अधिक समय से चल रही है।",
+              "Spanish": "Su amistad ha durado más de diez años.",
+              "Standard Arabic": "استمرت صداقتهما لأكثر من عشر سنوات.",
+              "French": "Leur amitié dure depuis plus de dix ans.",
+              "Bengali": "তাদের বন্ধুত্ব দশ বছরেরও বেশি সময় ধরে টিকে আছে।",
+              "Portuguese": "A amizade deles dura há mais de dez anos.",
+              "Russian": "Их дружба длится уже более десяти лет.",
+              "Urdu": "ان کی دوستی دس سال سے زائد عرصے سے قائم ہے۔",
+              "Indonesian": "Persahabatan mereka telah berlangsung selama lebih dari sepuluh tahun.",
+              "Standard German": "Ihre Freundschaft besteht schon seit über zehn Jahren.",
+              "Japanese": "彼らの友情は10年以上続いています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "relationship",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈleɪʃnʃɪp/",
+        "meaning": "The way in which two or more people or things are connected.",
+        "synonyms": ["connection", "association"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is important to build a good relationship with your colleagues.",
+            "translations": {
+              "Mandarin Chinese": "与同事建立良好的关系很重要。",
+              "Hindi": "अपने सहकर्मियों के साथ अच्छे संबंध बनाना महत्वपूर्ण है।",
+              "Spanish": "Es importante construir una buena relación con tus colegas.",
+              "Standard Arabic": "من المهم بناء علاقة جيدة مع زملائك.",
+              "French": "Il est important de construire une bonne relation avec vos collègues.",
+              "Bengali": "সহকর্মীদের সাথে ভালো সম্পর্ক গড়ে তোলা গুরুত্বপূর্ণ।",
+              "Portuguese": "É importante construir um bom relacionamento com seus colegas.",
+              "Russian": "Важно построить хорошие отношения со своими коллегами.",
+              "Urdu": "اپنے ساتھیوں کے ساتھ اچھے تعلقات قائم کرنا ضروری ہے۔",
+              "Indonesian": "Penting untuk membangun hubungan yang baik dengan rekan kerja Anda.",
+              "Standard German": "Es ist wichtig, eine gute Beziehung zu seinen Kollegen aufzubauen.",
+              "Japanese": "同僚と良い関係を築くことは重要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "neighbor",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈneɪbər/",
+        "meaning": "A person who lives near you.",
+        "synonyms": ["next-door resident"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My neighbor brought us some cookies yesterday.",
+            "translations": {
+              "Mandarin Chinese": "我的邻居昨天给我们带来了一些饼干。",
+              "Hindi": "मेरे पड़ोसी ने कल हमें कुछ कुकीज़ दीं।",
+              "Spanish": "Mi vecino nos trajo algunas galletas ayer.",
+              "Standard Arabic": "أحضر لنا جاري بعض البسكويت أمس.",
+              "French": "Mon voisin nous a apporté des biscuits hier.",
+              "Bengali": "আমার প্রতিবেশী গতকাল আমাদের কিছু বিস্কুট দিয়েছিল।",
+              "Portuguese": "Meu vizinho nos trouxe alguns biscoitos ontem.",
+              "Russian": "Мой сосед принес нам вчера печенье.",
+              "Urdu": "میرے پڑوسی نے کل ہمیں کچھ بسکٹ دیے۔",
+              "Indonesian": "Tetangga saya membawakan kami beberapa kue kemarin.",
+              "Standard German": "Mein Nachbar hat uns gestern Kekse gebracht.",
+              "Japanese": "隣人が昨日クッキーを持ってきてくれました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "classmate",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈklæsmeɪt/",
+        "meaning": "A student who is in the same class as you at school or college.",
+        "synonyms": ["peer", "schoolmate"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I studied for the exam with a classmate.",
+            "translations": {
+              "Mandarin Chinese": "我和一位同学一起复习考试。",
+              "Hindi": "मैंने एक सहपाठी के साथ परीक्षा की तैयारी की।",
+              "Spanish": "Estudié para el examen con un compañero de clase.",
+              "Standard Arabic": "درست للامتحان مع زميل في الصف.",
+              "French": "J'ai étudié pour l'examen avec un camarade de classe.",
+              "Bengali": "আমি একজন সহপাঠীর সাথে পরীক্ষার জন্য পড়াশোনা করেছি।",
+              "Portuguese": "Estudei para o exame com um colega de classe.",
+              "Russian": "Я готовился к экзамену вместе с одноклассником.",
+              "Urdu": "میں نے اپنے ہم جماعت کے ساتھ امتحان کی تیاری کی۔",
+              "Indonesian": "Saya belajar untuk ujian bersama teman sekelas.",
+              "Standard German": "Ich habe mit einem Mitschüler für die Prüfung gelernt.",
+              "Japanese": "クラスメートと一緒に試験勉強をしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "guest",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɡest/",
+        "meaning": "A person who is invited to visit someone's home or attend an event.",
+        "synonyms": ["visitor", "attendee"],
+        "antonyms": ["host"],
+        "examples": [
+          {
+            "english": "We are having guests for dinner tonight.",
+            "translations": {
+              "Mandarin Chinese": "我们今晚有客人来吃晚饭。",
+              "Hindi": "आज रात हमारे यहाँ रात के खाने पर मेहमान आ रहे हैं।",
+              "Spanish": "Tendremos invitados a cenar esta noche.",
+              "Standard Arabic": "لدينا ضيوف لتناول العشاء الليلة.",
+              "French": "Nous avons des invités pour le dîner ce soir.",
+              "Bengali": "আজ রাতে আমাদের ডিনারে অতিথি আসছে।",
+              "Portuguese": "Teremos convidados para jantar hoje à noite.",
+              "Russian": "Сегодня вечером у нас гости на ужин.",
+              "Urdu": "آج رات ہمارے ہاں عشائیے پر مہمان آ رہے ہیں۔",
+              "Indonesian": "Kami kedatangan tamu untuk makan malam nanti.",
+              "Standard German": "Wir haben heute Abend Gäste zum Abendessen.",
+              "Japanese": "今夜は夕食にゲストが来ます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "party",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpɑːrti/",
+        "meaning": "A social gathering of people to celebrate or enjoy themselves.",
+        "synonyms": ["gathering", "celebration"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Are you going to Sarah's party on Saturday?",
+            "translations": {
+              "Mandarin Chinese": "你周六要去参加莎拉的派对吗？",
+              "Hindi": "क्या तुम शनिवार को सारा की पार्टी में जा रहे हो?",
+              "Spanish": "¿Vas a ir a la fiesta de Sarah el sábado?",
+              "Standard Arabic": "هل ستذهب إلى حفلة سارة يوم السبت؟",
+              "French": "Vas-tu à la fête de Sarah samedi ?",
+              "Bengali": "তুমি কি শনিবার সারার পার্টিতে যাচ্ছ?",
+              "Portuguese": "Você vai à festa da Sarah no sábado?",
+              "Russian": "Ты идешь на вечеринку к Саре в субботу?",
+              "Urdu": "کیا تم ہفتے کے روز سارہ کی پارٹی میں جا رہے ہو؟",
+              "Indonesian": "Apakah kamu akan pergi ke pesta Sarah hari Sabtu?",
+              "Standard German": "Gehst du am Samstag zur Party von Sarah?",
+              "Japanese": "土曜日にサラのパーティーに行く予定ですか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "celebration",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌselɪˈbreɪʃn/",
+        "meaning": "A social event to mark a special occasion.",
+        "synonyms": ["party", "festival", "festivity"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The town held a celebration for the new year.",
+            "translations": {
+              "Mandarin Chinese": "这个小镇举行了新年庆祝活动。",
+              "Hindi": "शहर ने नए साल के लिए एक उत्सव आयोजित किया।",
+              "Spanish": "El pueblo celebró una fiesta por el año nuevo.",
+              "Standard Arabic": "أقامت المدينة احتفالاً بالعام الجديد.",
+              "French": "La ville a organisé une célébration pour la nouvelle année.",
+              "Bengali": "শহরে নতুন বছরের জন্য একটি উদযাপন অনুষ্ঠিত হয়েছিল।",
+              "Portuguese": "A cidade realizou uma celebração para o ano novo.",
+              "Russian": "В городе состоялось празднование Нового года.",
+              "Urdu": "شہر میں نئے سال کے موقع پر جشن منایا گیا۔",
+              "Indonesian": "Kota itu mengadakan perayaan untuk tahun baru.",
+              "Standard German": "Die Stadt veranstaltete eine Feier zum neuen Jahr.",
+              "Japanese": "町で新年のお祝いが行われました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "invitation",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɪnvɪˈteɪʃn/",
+        "meaning": "A spoken or written request to someone to go somewhere or do something.",
+        "synonyms": ["request", "summons"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I received an invitation to his wedding.",
+            "translations": {
+              "Mandarin Chinese": "我收到了他婚礼的请柬。",
+              "Hindi": "मुझे उसकी शादी का निमंत्रण मिला।",
+              "Spanish": "Recibí una invitación para su boda.",
+              "Standard Arabic": "تلقيت دعوة لحضور حفل زفافه.",
+              "French": "J'ai reçu une invitation à son mariage.",
+              "Bengali": "আমি তার বিয়ের দাওয়াত পেয়েছি।",
+              "Portuguese": "Recebi um convite para o casamento dele.",
+              "Russian": "Я получил приглашение на его свадьбу.",
+              "Urdu": "مجھے اس کی شادی کا دعوت نامہ موصول ہوا۔",
+              "Indonesian": "Saya menerima undangan ke pernikahannya.",
+              "Standard German": "Ich habe eine Einladung zu seiner Hochzeit erhalten.",
+              "Japanese": "彼の結婚式の招待状を受け取りました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "conversation",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɑːnvərˈseɪʃn/",
+        "meaning": "A talk between two or more people.",
+        "synonyms": ["dialogue", "chat", "discussion"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We had a long conversation about our plans.",
+            "translations": {
+              "Mandarin Chinese": "我们就我们的计划进行了长谈。",
+              "Hindi": "हमने अपनी योजनाओं के बारे में लंबी बातचीत की।",
+              "Spanish": "Tuvimos una larga conversación sobre nuestros planes.",
+              "Standard Arabic": "أجرينا محادثة طويلة حول خططنا.",
+              "French": "Nous avons eu une longue conversation sur nos projets.",
+              "Bengali": "আমরা আমাদের পরিকল্পনা নিয়ে দীর্ঘ আলোচনা করেছি।",
+              "Portuguese": "Tivemos uma longa conversa sobre nossos planos.",
+              "Russian": "У нас был долгий разговор о наших планах.",
+              "Urdu": "ہم نے اپنے منصوبوں کے بارے میں طویل بات چیت کی۔",
+              "Indonesian": "Kami melakukan percakapan panjang tentang rencana kami.",
+              "Standard German": "Wir hatten eine lange Unterhaltung über unsere Pläne.",
+              "Japanese": "私たちは計画について長い会話をしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "marriage",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmærɪdʒ/",
+        "meaning": "The legal relationship between a husband and wife.",
+        "synonyms": ["wedlock", "union"],
+        "antonyms": ["divorce"],
+        "examples": [
+          {
+            "english": "They have had a very happy marriage for 20 years.",
+            "translations": {
+              "Mandarin Chinese": "他们维持了 20 年非常幸福的婚姻生活。",
+              "Hindi": "उनकी शादी को 20 साल हो गए हैं और वे बहुत खुश हैं।",
+              "Spanish": "Han tenido un matrimonio muy feliz durante 20 años.",
+              "Standard Arabic": "لقد عاشا زواجاً سعيداً جداً لمدة 20 عاماً.",
+              "French": "Ils ont eu un mariage très heureux pendant 20 ans.",
+              "Bengali": "তাদের দাম্পত্য জীবন ২০ বছর ধরে খুব সুখের।",
+              "Portuguese": "Eles tiveram um casamento muito feliz por 20 anos.",
+              "Russian": "У них был очень счастливый брак на протяжении 20 лет.",
+              "Urdu": "ان کی شادی کو 20 سال ہو چکے ہیں اور وہ بہت خوش ہیں۔",
+              "Indonesian": "Mereka telah menjalani pernikahan yang sangat bahagia selama 20 tahun.",
+              "Standard German": "Sie führen seit 20 Jahren eine sehr glückliche Ehe.",
+              "Japanese": "彼らは20年間、とても幸せな結婚生活を送っています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "wedding",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwedɪŋ/",
+        "meaning": "A marriage ceremony.",
+        "synonyms": ["nuptials", "marriage ceremony"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We are going to a wedding this weekend.",
+            "translations": {
+              "Mandarin Chinese": "这个周末我们要去参加一场婚礼。",
+              "Hindi": "हम इस सप्ताहांत एक शादी में जा रहे हैं।",
+              "Spanish": "Vamos a ir a una boda este fin de semana.",
+              "Standard Arabic": "سنذهب إلى حفل زفاف في نهاية هذا الأسبوع.",
+              "French": "Nous allons à un mariage ce week-end.",
+              "Bengali": "আমরা এই সপ্তাহান্তে একটি বিয়েতে যাচ্ছি।",
+              "Portuguese": "Vamos a um casamento neste fim de semana.",
+              "Russian": "В эти выходные мы идем на свадьбу.",
+              "Urdu": "ہم اس ویک اینڈ پر شادی میں جا رہے ہیں۔",
+              "Indonesian": "Kami akan pergi ke pernikahan akhir pekan ini.",
+              "Standard German": "Wir gehen dieses Wochenende auf eine Hochzeit.",
+              "Japanese": "今週末、結婚式に出席します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "birthday",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbɜːrθdeɪ/",
+        "meaning": "The anniversary of the day on which a person was born.",
+        "synonyms": ["birth anniversary"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Happy birthday! Did you get many gifts?",
+            "translations": {
+              "Mandarin Chinese": "生日快乐！你收到很多礼物了吗？",
+              "Hindi": "जन्मदिन मुबारक! क्या तुम्हें बहुत सारे उपहार मिले?",
+              "Spanish": "¡Feliz cumpleaños! ¿Recibiste muchos regalos?",
+              "Standard Arabic": "عيد ميلاد سعيد! هل حصلت على الكثير من الهدايا؟",
+              "French": "Joyeux anniversaire ! As-tu reçu beaucoup de cadeaux ?",
+              "Bengali": "শুভ জন্মদিন! তুমি কি অনেক উপহার পেয়েছো?",
+              "Portuguese": "Feliz aniversário! Você ganhou muitos presentes?",
+              "Russian": "С днем рождения! Ты получил много подарков?",
+              "Urdu": "سالگرہ مبارک! کیا آپ کو بہت سے تحائف ملے؟",
+              "Indonesian": "Selamat ulang tahun! Apakah kamu mendapat banyak hadiah?",
+              "Standard German": "Alles Gute zum Geburtstag! Hast du viele Geschenke bekommen?",
+              "Japanese": "お誕生日おめでとう！プレゼントはたくさんもらいましたか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "team",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/tiːm/",
+        "meaning": "A group of people playing, working, or acting together.",
+        "synonyms": ["squad", "group", "side"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She works well with the rest of the team.",
+            "translations": {
+              "Mandarin Chinese": "她与团队其他成员合作得很好。",
+              "Hindi": "वह टीम के बाकी सदस्यों के साथ अच्छा काम करती है।",
+              "Spanish": "Ella trabaja bien con el resto del equipo.",
+              "Standard Arabic": "إنها تعمل بشكل جيد مع بقية الفريق.",
+              "French": "Elle travaille bien avec le reste de l'équipe.",
+              "Bengali": "সে দলের বাকিদের সাথে ভালোভাবে কাজ করে।",
+              "Portuguese": "Ela trabalha bem com o restante da equipe.",
+              "Russian": "Она хорошо работает с остальными членами команды.",
+              "Urdu": "وہ ٹیم کے باقی ارکان کے ساتھ اچھا کام کرتی ہے۔",
+              "Indonesian": "Dia bekerja dengan baik bersama anggota tim lainnya.",
+              "Standard German": "Sie arbeitet gut mit dem Rest des Teams zusammen.",
+              "Japanese": "彼女はチームの他のメンバーとうまく連携して働きます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "club",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/klʌb/",
+        "meaning": "An organization for people with a common interest.",
+        "synonyms": ["society", "association"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I joined the school chess club last week.",
+            "translations": {
+              "Mandarin Chinese": "我上周加入了学校的国际象棋俱乐部。",
+              "Hindi": "मैं पिछले हफ्ते स्कूल के शतरंज क्लब में शामिल हुआ।",
+              "Spanish": "Me uní al club de ajedrez de la escuela la semana pasada.",
+              "Standard Arabic": "انضممت إلى نادي الشطرنج في المدرسة الأسبوع الماضي.",
+              "French": "J'ai rejoint le club d'échecs de l'école la semaine dernière.",
+              "Bengali": "আমি গত সপ্তাহে স্কুলের দাবা ক্লাবে যোগ দিয়েছি।",
+              "Portuguese": "Entrei para o clube de xadrez da escola na semana passada.",
+              "Russian": "На прошлой неделе я вступил в школьный шахматный клуб.",
+              "Urdu": "میں نے گزشتہ ہفتے اسکول کے شطرنج کلب میں شمولیت اختیار کی۔",
+              "Indonesian": "Saya bergabung dengan klub catur sekolah minggu lalu.",
+              "Standard German": "Ich bin letzte Woche dem Schachclub der Schule beigetreten.",
+              "Japanese": "先週、学校のチェス部に入部しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "group",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɡruːp/",
+        "meaning": "A number of people or things located together or classed together.",
+        "synonyms": ["collection", "gathering"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We are going on a trip with a group of friends.",
+            "translations": {
+              "Mandarin Chinese": "我们要和一群朋友去旅行。",
+              "Hindi": "हम दोस्तों के एक समूह के साथ यात्रा पर जा रहे हैं।",
+              "Spanish": "Vamos a hacer un viaje con un grupo de amigos.",
+              "Standard Arabic": "نحن ذاهبون في رحلة مع مجموعة من الأصدقاء.",
+              "French": "Nous partons en voyage avec un groupe d'amis.",
+              "Bengali": "আমরা একদল বন্ধুর সাথে ভ্রমণে যাচ্ছি।",
+              "Portuguese": "Vamos viajar com um grupo de amigos.",
+              "Russian": "Мы собираемся в поездку с группой друзей.",
+              "Urdu": "ہم دوستوں کے ایک گروپ کے ساتھ سفر پر جا رہے ہیں۔",
+              "Indonesian": "Kami akan pergi bertamasya dengan sekelompok teman.",
+              "Standard German": "Wir machen einen Ausflug mit einer Gruppe von Freunden.",
+              "Japanese": "友達のグループと一緒に旅行に行く予定です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "community",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/kəˈmjuːnəti/",
+        "meaning": "A group of people living in the same place or having a common interest.",
+        "synonyms": ["society", "public"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is important to contribute to your local community.",
+            "translations": {
+              "Mandarin Chinese": "为当地社区做出贡献很重要。",
+              "Hindi": "अपने स्थानीय समुदाय में योगदान देना महत्वपूर्ण है।",
+              "Spanish": "Es importante contribuir a tu comunidad local.",
+              "Standard Arabic": "من المهم المساهمة في مجتمعك المحلي.",
+              "French": "Il est important de contribuer à votre communauté locale.",
+              "Bengali": "আপনার স্থানীয় সম্প্রদায়ে অবদান রাখা গুরুত্বপূর্ণ।",
+              "Portuguese": "É importante contribuir para sua comunidade local.",
+              "Russian": "Важно вносить вклад в жизнь вашего местного сообщества.",
+              "Urdu": "اپنی مقامی برادری میں حصہ ڈالنا ضروری ہے۔",
+              "Indonesian": "Penting untuk berkontribusi pada komunitas lokal Anda.",
+              "Standard German": "Es ist wichtig, einen Beitrag zu Ihrer lokalen Gemeinschaft zu leisten.",
+              "Japanese": "地元の地域社会に貢献することは重要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "social event",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈsoʊʃl ɪˈvent/",
+        "meaning": "A gathering for social purposes.",
+        "synonyms": ["function", "gathering"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She enjoys attending every social event in the city.",
+            "translations": {
+              "Mandarin Chinese": "她喜欢参加城里的每一次社交活动。",
+              "Hindi": "उसे शहर के हर सामाजिक कार्यक्रम में शामिल होना पसंद है।",
+              "Spanish": "Le gusta asistir a todos los eventos sociales de la ciudad.",
+              "Standard Arabic": "تستمتع بحضور كل حدث اجتماعي في المدينة.",
+              "French": "Elle aime assister à chaque événement social de la ville.",
+              "Bengali": "সে শহরের প্রতিটি সামাজিক অনুষ্ঠানে যোগ দিতে পছন্দ করে।",
+              "Portuguese": "Ela gosta de participar de todos os eventos sociais da cidade.",
+              "Russian": "Ей нравится посещать каждое общественное мероприятие в городе.",
+              "Urdu": "اسے شہر کی ہر سماجی تقریب میں شرکت کرنا پسند ہے۔",
+              "Indonesian": "Dia senang menghadiri setiap acara sosial di kota.",
+              "Standard German": "Sie nimmt gerne an jedem sozialen Ereignis in der Stadt teil.",
+              "Japanese": "彼女は街のあらゆる社交イベントに参加することを楽しんでいます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "support",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "verb / noun",
+        "pronunciation": "/səˈpɔːrt/",
+        "meaning": "To give help, encouragement, or approval to someone.",
+        "synonyms": ["help", "assist", "back"],
+        "antonyms": ["oppose", "neglect"],
+        "examples": [
+          {
+            "english": "They provide a lot of support to each other during difficult times.",
+            "translations": {
+              "Mandarin Chinese": "在困难时期，他们互相提供很多支持。",
+              "Hindi": "मुश्किल समय में वे एक-दूसरे को बहुत सहारा देते हैं।",
+              "Spanish": "Se brindan mucho apoyo mutuo durante los momentos difíciles.",
+              "Standard Arabic": "إنهم يقدمون الكثير من الدعم لبعضهم البعض خلال الأوقات الصعبة.",
+              "French": "Ils s'apportent beaucoup de soutien durant les périodes difficiles.",
+              "Bengali": "কঠিন সময়ে তারা একে অপরকে অনেক সমর্থন দেয়।",
+              "Portuguese": "Eles se dão muito apoio durante os momentos difíceis.",
+              "Russian": "Они оказывают друг другу большую поддержку в трудные времена.",
+              "Urdu": "مشکل وقت میں وہ ایک دوسرے کی بہت حمایت کرتے ہیں۔",
+              "Indonesian": "Mereka saling memberikan banyak dukungan selama masa-masa sulit.",
+              "Standard German": "Sie unterstützen sich gegenseitig sehr in schwierigen Zeiten.",
+              "Japanese": "困難な時、彼らはお互いに多くの支えを提供し合います。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "trust",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/trʌst/",
+        "meaning": "The belief that someone is good and honest.",
+        "synonyms": ["faith", "confidence"],
+        "antonyms": ["distrust", "suspicion"],
+        "examples": [
+          {
+            "english": "You need trust to build a lasting relationship.",
+            "translations": {
+              "Mandarin Chinese": "建立持久的关系需要信任。",
+              "Hindi": "एक स्थायी संबंध बनाने के लिए विश्वास की आवश्यकता होती है।",
+              "Spanish": "Necesitas confianza para construir una relación duradera.",
+              "Standard Arabic": "أنت بحاجة إلى الثقة لبناء علاقة دائمة.",
+              "French": "Tu as besoin de confiance pour construire une relation durable.",
+              "Bengali": "একটি দীর্ঘস্থায়ী সম্পর্ক গড়ার জন্য বিশ্বাসের প্রয়োজন।",
+              "Portuguese": "Você precisa de confiança para construir um relacionamento duradouro.",
+              "Russian": "Для построения долгосрочных отношений нужно доверие.",
+              "Urdu": "ایک دیرپا تعلق قائم کرنے کے لیے اعتماد کی ضرورت ہوتی ہے۔",
+              "Indonesian": "Anda membutuhkan kepercayaan untuk membangun hubungan yang langgeng.",
+              "Standard German": "Du brauchst Vertrauen, um eine dauerhafte Beziehung aufzubauen.",
+              "Japanese": "長く続く関係を築くには信頼が必要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "respect",
+        "level": "A2",
+        "category": "Relationships & Social Life",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/rɪˈspekt/",
+        "meaning": "Polite behavior towards someone or something that you think is important.",
+        "synonyms": ["regard", "esteem"],
+        "antonyms": ["disrespect", "contempt"],
+        "examples": [
+          {
+            "english": "We should show respect for everyone's opinions.",
+            "translations": {
+              "Mandarin Chinese": "我们应该尊重每个人的意见。",
+              "Hindi": "हमें हर किसी की राय का सम्मान करना चाहिए।",
+              "Spanish": "Debemos mostrar respeto por las opiniones de todos.",
+              "Standard Arabic": "يجب أن نظهر الاحترام لآراء الجميع.",
+              "French": "Nous devrions montrer du respect pour les opinions de chacun.",
+              "Bengali": "আমাদের সবার মতামতের প্রতি শ্রদ্ধা দেখানো উচিত।",
+              "Portuguese": "Devemos mostrar respeito pelas opiniões de todos.",
+              "Russian": "Мы должны проявлять уважение к мнению каждого.",
+              "Urdu": "ہمیں ہر ایک کی رائے کا احترام کرنا چاہیے۔",
+              "Indonesian": "Kita harus menunjukkan rasa hormat terhadap pendapat semua orang.",
+              "Standard German": "Wir sollten Respekt vor den Meinungen aller zeigen.",
+              "Japanese": "私たちは皆の意見を尊重すべきです。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

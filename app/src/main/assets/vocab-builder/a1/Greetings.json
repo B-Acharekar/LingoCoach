@@ -1,0 +1,484 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "300-400",
+  "source": "Foundational English Communication",
+  "categories": {
+    "Greetings": [
+      {
+        "word": "hello",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "interjection",
+        "pronunciation": "/həˈloʊ/",
+        "meaning": "A standard way to greet someone.",
+        "synonyms": ["hi", "hey"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Hello, how are you today?",
+            "translations": {
+              "Mandarin Chinese": "你好，今天怎么样？",
+              "Spanish": "Hola, ¿cómo estás hoy?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "hi",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "interjection",
+        "pronunciation": "/haɪ/",
+        "meaning": "An informal way to greet someone.",
+        "synonyms": ["hello"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Hi! It is nice to see you.",
+            "translations": {
+              "Mandarin Chinese": "嗨！很高兴见到你。",
+              "Spanish": "¡Hola! Es un gusto verte."
+            }
+          }
+        ]
+      },
+      {
+        "word": "hey",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "interjection",
+        "pronunciation": "/heɪ/",
+        "meaning": "A very informal way to attract attention or greet someone.",
+        "synonyms": ["hi"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Hey! Over here!",
+            "translations": {
+              "Mandarin Chinese": "嘿！在这儿！",
+              "Spanish": "¡Oye! ¡Por aquí!"
+            }
+          }
+        ]
+      },
+      {
+        "word": "good morning",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/ɡʊd ˈmɔːrnɪŋ/",
+        "meaning": "Used to greet someone in the morning.",
+        "synonyms": [],
+        "antonyms": ["good night"],
+        "examples": [
+          {
+            "english": "Good morning, teacher.",
+            "translations": {
+              "Mandarin Chinese": "早上好，老师。",
+              "Spanish": "Buenos días, profesor/a."
+            }
+          }
+        ]
+      },
+      {
+        "word": "good afternoon",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/ɡʊd ˌæftərˈnuːn/",
+        "meaning": "Used to greet someone in the afternoon.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Good afternoon, how are you?",
+            "translations": {
+              "Mandarin Chinese": "下午好，你好吗？",
+              "Spanish": "Buenas tardes, ¿cómo estás?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "good evening",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/ɡʊd ˈiːvnɪŋ/",
+        "meaning": "Used to greet someone in the evening.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Good evening, everyone.",
+            "translations": {
+              "Mandarin Chinese": "大家晚上好。",
+              "Spanish": "Buenas noches a todos."
+            }
+          }
+        ]
+      },
+      {
+        "word": "good night",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/ɡʊd naɪt/",
+        "meaning": "Used when leaving at night or going to bed.",
+        "synonyms": [],
+        "antonyms": ["good morning"],
+        "examples": [
+          {
+            "english": "Good night, see you tomorrow.",
+            "translations": {
+              "Mandarin Chinese": "晚安，明天见。",
+              "Spanish": "Buenas noches, hasta mañana."
+            }
+          }
+        ]
+      },
+      {
+        "word": "goodbye",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "interjection",
+        "pronunciation": "/ˌɡʊdˈbaɪ/",
+        "meaning": "A formula used when parting or ending a conversation.",
+        "synonyms": ["bye"],
+        "antonyms": ["hello"],
+        "examples": [
+          {
+            "english": "Goodbye! Have a nice day.",
+            "translations": {
+              "Mandarin Chinese": "再见！祝你有个美好的一天。",
+              "Spanish": "Adiós. Que tengas un buen día."
+            }
+          }
+        ]
+      },
+      {
+        "word": "bye",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "interjection",
+        "pronunciation": "/baɪ/",
+        "meaning": "An informal way to say goodbye.",
+        "synonyms": ["goodbye"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Bye! See you later.",
+            "translations": {
+              "Mandarin Chinese": "再见！回头见。",
+              "Spanish": "¡Chao! Hasta luego."
+            }
+          }
+        ]
+      },
+      {
+        "word": "see you",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/siː juː/",
+        "meaning": "A friendly way to say you will meet someone again soon.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "See you tomorrow!",
+            "translations": {
+              "Mandarin Chinese": "明天见！",
+              "Spanish": "¡Nos vemos mañana!"
+            }
+          }
+        ]
+      },
+      {
+        "word": "take care",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/teɪk kɛər/",
+        "meaning": "Used to say goodbye and wish someone well.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Bye, take care!",
+            "translations": {
+              "Mandarin Chinese": "再见，保重！",
+              "Spanish": "Adiós, ¡cuídate!"
+            }
+          }
+        ]
+      },
+      {
+        "word": "welcome",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "interjection/verb",
+        "pronunciation": "/ˈwelkəm/",
+        "meaning": "Used to greet someone arriving.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Welcome to my home!",
+            "translations": {
+              "Mandarin Chinese": "欢迎来到我家！",
+              "Spanish": "¡Bienvenido a mi casa!"
+            }
+          }
+        ]
+      },
+      {
+        "word": "nice to meet you",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/naɪs tuː miːt juː/",
+        "meaning": "A polite expression used when meeting someone for the first time.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Hello, nice to meet you.",
+            "translations": {
+              "Mandarin Chinese": "你好，很高兴见到你。",
+              "Spanish": "Hola, un gusto conocerte."
+            }
+          }
+        ]
+      },
+      {
+        "word": "how are you",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/haʊ ɑːr juː/",
+        "meaning": "A standard social inquiry about someone's well-being.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "How are you doing today?",
+            "translations": {
+              "Mandarin Chinese": "你今天怎么样？",
+              "Spanish": "¿Cómo estás hoy?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "i am fine",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/aɪ æm faɪn/",
+        "meaning": "A standard polite response to 'How are you?'.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am fine, thank you.",
+            "translations": {
+              "Mandarin Chinese": "我很好，谢谢。",
+              "Spanish": "Estoy bien, gracias."
+            }
+          }
+        ]
+      },
+      {
+        "word": "please",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "adverb/interjection",
+        "pronunciation": "/pliːz/",
+        "meaning": "A polite word used to make a request.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Water, please.",
+            "translations": {
+              "Mandarin Chinese": "请给我水。",
+              "Spanish": "Agua, por favor."
+            }
+          }
+        ]
+      },
+      {
+        "word": "thank you",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/θæŋk juː/",
+        "meaning": "Used to express gratitude.",
+        "synonyms": ["thanks"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Thank you for your help.",
+            "translations": {
+              "Mandarin Chinese": "谢谢你的帮助。",
+              "Spanish": "Gracias por tu ayuda."
+            }
+          }
+        ]
+      },
+      {
+        "word": "thanks",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "noun/interjection",
+        "pronunciation": "/θæŋks/",
+        "meaning": "An informal way to say thank you.",
+        "synonyms": ["thank you"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Thanks a lot!",
+            "translations": {
+              "Mandarin Chinese": "多谢！",
+              "Spanish": "¡Muchas gracias!"
+            }
+          }
+        ]
+      },
+      {
+        "word": "sorry",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈsɒri/",
+        "meaning": "Used to express an apology.",
+        "synonyms": ["i apologize"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am sorry for being late.",
+            "translations": {
+              "Mandarin Chinese": "抱歉我迟到了。",
+              "Spanish": "Siento llegar tarde."
+            }
+          }
+        ]
+      },
+      {
+        "word": "excuse me",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/ɪkˈskjuːz miː/",
+        "meaning": "Used to politely get someone's attention or ask them to move.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Excuse me, where is the door?",
+            "translations": {
+              "Mandarin Chinese": "请问，门在哪里？",
+              "Spanish": "Disculpe, ¿dónde está la puerta?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "yes",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "adverb",
+        "pronunciation": "/jes/",
+        "meaning": "Used to give an affirmative answer.",
+        "synonyms": ["yeah", "sure"],
+        "antonyms": ["no"],
+        "examples": [
+          {
+            "english": "Yes, I would like that.",
+            "translations": {
+              "Mandarin Chinese": "是的，我想要那个。",
+              "Spanish": "Sí, me gustaría eso."
+            }
+          }
+        ]
+      },
+      {
+        "word": "no",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "adverb",
+        "pronunciation": "/noʊ/",
+        "meaning": "Used to give a negative answer.",
+        "synonyms": ["nope"],
+        "antonyms": ["yes"],
+        "examples": [
+          {
+            "english": "No, I am not hungry.",
+            "translations": {
+              "Mandarin Chinese": "不，我不饿。",
+              "Spanish": "No, no tengo hambre."
+            }
+          }
+        ]
+      },
+      {
+        "word": "maybe",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "adverb",
+        "pronunciation": "/ˈmeɪbi/",
+        "meaning": "Used to express uncertainty.",
+        "synonyms": ["perhaps"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Maybe I will go later.",
+            "translations": {
+              "Mandarin Chinese": "也许我稍后会去。",
+              "Spanish": "Tal vez iré más tarde."
+            }
+          }
+        ]
+      },
+      {
+        "word": "of course",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/əv kɔːrs/",
+        "meaning": "Used to say 'yes' very politely or naturally.",
+        "synonyms": ["certainly"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Of course, you can join us.",
+            "translations": {
+              "Mandarin Chinese": "当然，你可以加入我们。",
+              "Spanish": "Por supuesto, puedes unirte a nosotros."
+            }
+          }
+        ]
+      },
+      {
+        "word": "you're welcome",
+        "level": "A1",
+        "category": "Greetings",
+        "part_of_speech": "phrase",
+        "pronunciation": "/jʊər ˈwelkəm/",
+        "meaning": "Used to respond to 'thank you'.",
+        "synonyms": ["no problem"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Thank you! - You're welcome.",
+            "translations": {
+              "Mandarin Chinese": "谢谢！- 不客气。",
+              "Spanish": "¡Gracias! - De nada."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

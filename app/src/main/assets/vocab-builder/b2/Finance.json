@@ -1,0 +1,449 @@
+{
+  "level": "B2",
+  "approx_words": "800-1200",
+  "source": "Personal & Macro Finance",
+  "categories": {
+    "Finance": [
+      {
+        "word": "budget",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbʌdʒɪt/",
+        "meaning": "An estimate of income and expenditure for a set period of time.",
+        "synonyms": ["financial plan", "spending limit"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We need to create a monthly budget to manage our expenses.",
+            "translations": {
+              "Mandarin Chinese": "我们需要制定一份月度预算来管理支出。",
+              "Hindi": "हमें अपने खर्चों का प्रबंधन करने के लिए एक मासिक बजट बनाने की आवश्यकता है।",
+              "Spanish": "Necesitamos crear un presupuesto mensual para gestionar nuestros gastos.",
+              "French": "Nous devons créer un budget mensuel pour gérer nos dépenses.",
+              "Japanese": "支出を管理するために月次予算を作成する必要がある。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "savings",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈseɪɪŋz/",
+        "meaning": "Money that is kept, especially in a bank or similar institution, instead of being spent.",
+        "synonyms": ["nest egg", "reserves"],
+        "antonyms": ["spending"],
+        "examples": [
+          {
+            "english": "It is wise to keep some savings for unexpected emergencies.",
+            "translations": {
+              "Mandarin Chinese": "存一些钱以备不时之需是明智的。",
+              "Hindi": "अप्रत्याशित आपात स्थितियों के लिए कुछ बचत रखना बुद्धिमानी है।",
+              "Spanish": "Es prudente mantener algunos ahorros para emergencias inesperadas.",
+              "French": "Il est sage de conserver quelques économies pour les urgences imprévues.",
+              "Japanese": "予期せぬ緊急時のためにいくらか貯金しておくのは賢明だ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "investment",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪnˈvestmənt/",
+        "meaning": "The action or process of investing money for profit or material result.",
+        "synonyms": ["venture", "asset purchase"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Real estate can be a long-term investment.",
+            "translations": {
+              "Mandarin Chinese": "房地产可以是一项长期投资。",
+              "Hindi": "रियल एस्टेट एक दीर्घकालिक निवेश हो सकता है।",
+              "Spanish": "Los bienes raíces pueden ser una inversión a largo plazo.",
+              "French": "L'immobilier peut être un investissement à long terme.",
+              "Japanese": "不動産は長期的な投資になり得る。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "income",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɪnkʌm/",
+        "meaning": "Money received, especially on a regular basis, for work or through investments.",
+        "synonyms": ["earnings", "revenue"],
+        "antonyms": ["expenditure"],
+        "examples": [
+          {
+            "english": "She has a steady income from her freelance work.",
+            "translations": {
+              "Mandarin Chinese": "她通过自由职业有稳定的收入。",
+              "Hindi": "उसे अपने फ्रीलांस काम से एक स्थिर आय प्राप्त होती है।",
+              "Spanish": "Ella tiene un ingreso estable de su trabajo independiente.",
+              "French": "Elle a un revenu stable grâce à son travail en freelance.",
+              "Japanese": "彼女はフリーランスの仕事から安定した収入を得ている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "expense",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪkˈspens/",
+        "meaning": "The cost required for something; the money spent on something.",
+        "synonyms": ["cost", "outlay"],
+        "antonyms": ["income"],
+        "examples": [
+          {
+            "english": "We need to cut down on daily expenses.",
+            "translations": {
+              "Mandarin Chinese": "我们需要削减日常开支。",
+              "Hindi": "हमें दैनिक खर्चों में कटौती करने की आवश्यकता है।",
+              "Spanish": "Necesitamos reducir los gastos diarios.",
+              "French": "Nous devons réduire les dépenses quotidiennes.",
+              "Japanese": "日々の出費を切り詰める必要がある。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "debt",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/det/",
+        "meaning": "A sum of money that is owed or due.",
+        "synonyms": ["liability", "obligation"],
+        "antonyms": ["asset"],
+        "examples": [
+          {
+            "english": "They are working hard to pay off their debt.",
+            "translations": {
+              "Mandarin Chinese": "他们正在努力还清债务。",
+              "Hindi": "वे अपना कर्ज चुकाने के लिए कड़ी मेहनत कर रहे हैं।",
+              "Spanish": "Están trabajando duro para pagar su deuda.",
+              "French": "Ils travaillent dur pour rembourser leur dette.",
+              "Japanese": "彼らは借金を返済するために一生懸命働いている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "loan",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/loʊn/",
+        "meaning": "A thing that is borrowed, especially a sum of money that is expected to be paid back with interest.",
+        "synonyms": ["credit", "advance"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I took out a loan to start my small business.",
+            "translations": {
+              "Mandarin Chinese": "我申请了一笔贷款来创办我的小企业。",
+              "Hindi": "मैंने अपना छोटा व्यवसाय शुरू करने के लिए ऋण लिया।",
+              "Spanish": "Pedí un préstamo para iniciar mi pequeño negocio.",
+              "French": "J'ai contracté un prêt pour lancer ma petite entreprise.",
+              "Japanese": "小規模ビジネスを始めるためにローンを組んだ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "interest rate",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈɪntrəst reɪt/",
+        "meaning": "The proportion of a loan that is charged as interest to the borrower.",
+        "synonyms": ["APR", "cost of borrowing"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The bank lowered the interest rate on personal loans.",
+            "translations": {
+              "Mandarin Chinese": "银行降低了个人贷款的利率。",
+              "Hindi": "बैंक ने व्यक्तिगत ऋण पर ब्याज दर कम कर दी।",
+              "Spanish": "El banco bajó la tasa de interés de los préstamos personales.",
+              "French": "La banque a abaissé le taux d'intérêt sur les prêts personnels.",
+              "Japanese": "銀行が個人ローンの金利を引き下げた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "stock market",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/stɑːk ˈmɑːrkɪt/",
+        "meaning": "A place where stocks and bonds are traded.",
+        "synonyms": ["stock exchange", "securities market"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He invests in the stock market to build wealth.",
+            "translations": {
+              "Mandarin Chinese": "他通过投资股市来积累财富。",
+              "Hindi": "वह धन बनाने के लिए शेयर बाजार में निवेश करता है।",
+              "Spanish": "Él invierte en el mercado de valores para crear riqueza.",
+              "French": "Il investit en bourse pour se constituer un patrimoine.",
+              "Japanese": "彼は資産を増やすために株式市場に投資している。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "cryptocurrency",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkrɪptoʊkʌrənsi/",
+        "meaning": "A digital or virtual currency that is secured by cryptography.",
+        "synonyms": ["digital currency", "crypto"],
+        "antonyms": ["fiat currency"],
+        "examples": [
+          {
+            "english": "More people are beginning to trade in cryptocurrency.",
+            "translations": {
+              "Mandarin Chinese": "越来越多的人开始进行加密货币交易。",
+              "Hindi": "अधिक लोग क्रिप्टोकरेंसी में व्यापार करना शुरू कर रहे हैं।",
+              "Spanish": "Más personas están empezando a operar con criptomonedas.",
+              "French": "De plus en plus de gens commencent à trader des cryptomonnaies.",
+              "Japanese": "暗号資産（仮想通貨）の取引を始める人が増えている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "financial planning",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/faɪˈnænʃl ˈplænɪŋ/",
+        "meaning": "The process of managing your money to achieve personal economic goals.",
+        "synonyms": ["wealth management", "budgeting"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Effective financial planning is essential for retirement.",
+            "translations": {
+              "Mandarin Chinese": "有效的财务规划对于退休至关重要。",
+              "Hindi": "प्रभावी वित्तीय नियोजन सेवानिवृत्ति के लिए आवश्यक है।",
+              "Spanish": "Una planificación financiera eficaz es esencial para la jubilación.",
+              "French": "Une planification financière efficace est essentielle pour la retraite.",
+              "Japanese": "効果的なファイナンシャルプランニングは退職後のために不可欠だ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "tax",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/tæks/",
+        "meaning": "A compulsory contribution to state revenue, levied by the government.",
+        "synonyms": ["levy", "duty"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "You must pay income tax every year.",
+            "translations": {
+              "Mandarin Chinese": "你必须每年缴纳所得税。",
+              "Hindi": "आपको हर साल आयकर देना होगा।",
+              "Spanish": "Debes pagar impuestos sobre la renta cada año.",
+              "French": "Vous devez payer l'impôt sur le revenu chaque année.",
+              "Japanese": "毎年所得税を納めなければならない。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "insurance",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪnˈʃʊrəns/",
+        "meaning": "A practice or arrangement by which a company provides a guarantee of compensation for specified loss, damage, illness, or death.",
+        "synonyms": ["coverage", "protection"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is important to have health insurance.",
+            "translations": {
+              "Mandarin Chinese": "拥有健康保险非常重要。",
+              "Hindi": "स्वास्थ्य बीमा होना महत्वपूर्ण है।",
+              "Spanish": "Es importante tener un seguro médico.",
+              "French": "Il est important d'avoir une assurance maladie.",
+              "Japanese": "健康保険に加入しておくことは重要だ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "economic growth",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌiːkəˈnɑːmɪk ɡroʊθ/",
+        "meaning": "An increase in the production of goods and services in an economy.",
+        "synonyms": ["expansion", "development"],
+        "antonyms": ["recession"],
+        "examples": [
+          {
+            "english": "The government is trying to stimulate economic growth.",
+            "translations": {
+              "Mandarin Chinese": "政府正试图刺激经济增长。",
+              "Hindi": "सरकार आर्थिक विकास को प्रोत्साहित करने की कोशिश कर रही है।",
+              "Spanish": "El gobierno está tratando de estimular el crecimiento económico.",
+              "French": "Le gouvernement essaie de stimuler la croissance économique.",
+              "Japanese": "政府は経済成長を促進しようとしている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "inflation",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪnˈfleɪʃn/",
+        "meaning": "A general increase in prices and a fall in the purchasing value of money.",
+        "synonyms": ["rising prices", "devaluation"],
+        "antonyms": ["deflation"],
+        "examples": [
+          {
+            "english": "High inflation reduces people's purchasing power.",
+            "translations": {
+              "Mandarin Chinese": "高通胀降低了人们的购买力。",
+              "Hindi": "उच्च मुद्रास्फीति लोगों की क्रय शक्ति को कम करती है।",
+              "Spanish": "La inflación alta reduce el poder adquisitivo de las personas.",
+              "French": "Une forte inflation réduit le pouvoir d'achat des gens.",
+              "Japanese": "高インフレは人々の購買力を低下させる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "bank account",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/bæŋk əˈkaʊnt/",
+        "meaning": "An arrangement made with a bank whereby one may deposit and withdraw money.",
+        "synonyms": ["checking account", "savings account"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I opened a new bank account last week.",
+            "translations": {
+              "Mandarin Chinese": "我上周开了一个新的银行账户。",
+              "Hindi": "मैंने पिछले हफ्ते एक नया बैंक खाता खोला।",
+              "Spanish": "Abrí una nueva cuenta bancaria la semana pasada.",
+              "French": "J'ai ouvert un nouveau compte bancaire la semaine dernière.",
+              "Japanese": "先週、新しい銀行口座を開設した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "mortgage",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmɔːrɡɪdʒ/",
+        "meaning": "A legal agreement by which a bank or other creditor lends money at interest in exchange for taking title of the debtor's property.",
+        "synonyms": ["home loan"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "They are paying off their mortgage every month.",
+            "translations": {
+              "Mandarin Chinese": "他们每个月都在还房贷。",
+              "Hindi": "वे हर महीने अपना बंधक (मॉर्टगेज) चुका रहे हैं।",
+              "Spanish": "Están pagando su hipoteca cada mes.",
+              "French": "Ils remboursent leur prêt immobilier chaque mois.",
+              "Japanese": "彼らは毎月住宅ローンを返済している。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "transaction",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/trænˈzækʃn/",
+        "meaning": "An instance of buying or selling something; a business deal.",
+        "synonyms": ["deal", "exchange"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "You can check your transaction history online.",
+            "translations": {
+              "Mandarin Chinese": "你可以在线查看你的交易记录。",
+              "Hindi": "आप अपना लेनदेन इतिहास ऑनलाइन देख सकते हैं।",
+              "Spanish": "Puedes consultar tu historial de transacciones en línea.",
+              "French": "Vous pouvez consulter votre historique de transactions en ligne.",
+              "Japanese": "オンラインで取引履歴を確認できる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "profit",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈprɑːfɪt/",
+        "meaning": "A financial gain, especially the difference between the amount earned and the amount spent.",
+        "synonyms": ["earnings", "gain"],
+        "antonyms": ["loss"],
+        "examples": [
+          {
+            "english": "The company made a significant profit this year.",
+            "translations": {
+              "Mandarin Chinese": "公司今年获得了可观的利润。",
+              "Hindi": "कंपनी ने इस साल काफी मुनाफा कमाया।",
+              "Spanish": "La empresa obtuvo una ganancia significativa este año.",
+              "French": "L'entreprise a réalisé un bénéfice important cette année.",
+              "Japanese": "その会社は今年、かなりの利益を上げた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "currency exchange",
+        "level": "B2",
+        "category": "Finance",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈkɜːrənsi ɪksˈtʃeɪndʒ/",
+        "meaning": "The process of converting one currency into another.",
+        "synonyms": ["foreign exchange", "forex"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I need to check the currency exchange rates before my trip.",
+            "translations": {
+              "Mandarin Chinese": "旅行前我需要查看一下汇率。",
+              "Hindi": "मुझे अपनी यात्रा से पहले मुद्रा विनिमय दरों की जांच करने की आवश्यकता है।",
+              "Spanish": "Necesito verificar las tasas de cambio de divisas antes de mi viaje.",
+              "French": "Je dois vérifier les taux de change avant mon voyage.",
+              "Japanese": "旅行前に為替レートを確認する必要がある。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

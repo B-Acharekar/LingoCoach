@@ -1,0 +1,275 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "300-400",
+  "source": "Foundational English Descriptive Vocabulary",
+  "categories": {
+    "Colors & Shapes": [
+      {
+        "word": "red",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/red/",
+        "meaning": "The color of blood or fire.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The apple is red.",
+            "translations": {
+              "Mandarin Chinese": "苹果是红色的。",
+              "Spanish": "La manzana es roja."
+            }
+          }
+        ]
+      },
+      {
+        "word": "blue",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/bluː/",
+        "meaning": "The color of the clear sky or sea.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The sky is blue today.",
+            "translations": {
+              "Mandarin Chinese": "今天天空是蓝色的。",
+              "Spanish": "El cielo está azul hoy."
+            }
+          }
+        ]
+      },
+      {
+        "word": "green",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ɡriːn/",
+        "meaning": "The color of grass or leaves.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The grass is green.",
+            "translations": {
+              "Mandarin Chinese": "草是绿色的。",
+              "Spanish": "El césped es verde."
+            }
+          }
+        ]
+      },
+      {
+        "word": "yellow",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈjeloʊ/",
+        "meaning": "The color of the sun or bananas.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The sun is yellow.",
+            "translations": {
+              "Mandarin Chinese": "太阳是黄色的。",
+              "Spanish": "El sol es amarillo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "black",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/blæk/",
+        "meaning": "The darkest color, like night.",
+        "synonyms": [],
+        "antonyms": ["white"],
+        "examples": [
+          {
+            "english": "The cat is black.",
+            "translations": {
+              "Mandarin Chinese": "那只猫是黑色的。",
+              "Spanish": "El gato es negro."
+            }
+          }
+        ]
+      },
+      {
+        "word": "white",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/waɪt/",
+        "meaning": "The lightest color, like snow.",
+        "synonyms": [],
+        "antonyms": ["black"],
+        "examples": [
+          {
+            "english": "The paper is white.",
+            "translations": {
+              "Mandarin Chinese": "纸是白色的。",
+              "Spanish": "El papel es blanco."
+            }
+          }
+        ]
+      },
+      {
+        "word": "circle",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɜːrkl/",
+        "meaning": "A round shape with no corners.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The ball is a circle.",
+            "translations": {
+              "Mandarin Chinese": "球是一个圆形。",
+              "Spanish": "La pelota es un círculo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "square",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "noun",
+        "pronunciation": "/skwer/",
+        "meaning": "A shape with four equal sides.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The box is a square.",
+            "translations": {
+              "Mandarin Chinese": "盒子是一个正方形。",
+              "Spanish": "La caja es un cuadrado."
+            }
+          }
+        ]
+      },
+      {
+        "word": "triangle",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtraɪæŋɡl/",
+        "meaning": "A shape with three sides.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "That shape is a triangle.",
+            "translations": {
+              "Mandarin Chinese": "那个形状是一个三角形。",
+              "Spanish": "Esa forma es un triángulo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "big",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/bɪɡ/",
+        "meaning": "Large in size.",
+        "synonyms": ["large"],
+        "antonyms": ["small"],
+        "examples": [
+          {
+            "english": "The house is very big.",
+            "translations": {
+              "Mandarin Chinese": "房子非常大。",
+              "Spanish": "La casa es muy grande."
+            }
+          }
+        ]
+      },
+      {
+        "word": "small",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/smɔːl/",
+        "meaning": "Little in size.",
+        "synonyms": ["little"],
+        "antonyms": ["big"],
+        "examples": [
+          {
+            "english": "The mouse is small.",
+            "translations": {
+              "Mandarin Chinese": "老鼠很小。",
+              "Spanish": "El ratón es pequeño."
+            }
+          }
+        ]
+      },
+      {
+        "word": "long",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/lɔːŋ/",
+        "meaning": "Measuring a great distance from end to end.",
+        "synonyms": [],
+        "antonyms": ["short"],
+        "examples": [
+          {
+            "english": "The road is long.",
+            "translations": {
+              "Mandarin Chinese": "这条路很长。",
+              "Spanish": "El camino es largo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "short",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ʃɔːrt/",
+        "meaning": "Not long; measuring little from end to end.",
+        "synonyms": [],
+        "antonyms": ["long"],
+        "examples": [
+          {
+            "english": "The pencil is short.",
+            "translations": {
+              "Mandarin Chinese": "铅笔很短。",
+              "Spanish": "El lápiz es corto."
+            }
+          }
+        ]
+      },
+      {
+        "word": "round",
+        "level": "A1",
+        "category": "Colors & Shapes",
+        "part_of_speech": "adjective",
+        "pronunciation": "/raʊnd/",
+        "meaning": "Shaped like a circle or ball.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The plate is round.",
+            "translations": {
+              "Mandarin Chinese": "盘子是圆的。",
+              "Spanish": "El plato es redondo."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

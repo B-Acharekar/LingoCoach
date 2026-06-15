@@ -1,0 +1,389 @@
+{
+  "level": "C1-C2",
+  "approx_words": "1200-1500",
+  "source": "Advanced Academic Writing & Research Methodology",
+  "categories": {
+    "Academic English": [
+      {
+        "word": "hypothesis",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/haɪˈpɒθɪsɪs/",
+        "meaning": "A proposed explanation made on the basis of limited evidence as a starting point for further investigation.",
+        "synonyms": ["postulate", "supposition", "conjecture"],
+        "antonyms": ["fact", "certainty"],
+        "examples": [
+          {
+            "english": "The research team sought to test their primary hypothesis regarding neural plasticity in aging populations.",
+            "translations": {
+              "Mandarin Chinese": "研究团队旨在验证关于老龄人口神经可塑性的主要假设。",
+              "Spanish": "El equipo de investigación buscó probar su hipótesis principal sobre la plasticidad neuronal en poblaciones que envejecen."
+            }
+          }
+        ]
+      },
+      {
+        "word": "methodology",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌmeθəˈdɒlədʒi/",
+        "meaning": "A system of methods used in a particular area of study or activity.",
+        "synonyms": ["approach", "procedure", "strategy"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The paper outlines a robust methodology for quantifying complex socioeconomic variables.",
+            "translations": {
+              "Mandarin Chinese": "本文概述了一种量化复杂社会经济变量的稳健方法论。",
+              "Spanish": "El documento describe una metodología sólida para cuantificar variables socioeconómicas complejas."
+            }
+          }
+        ]
+      },
+      {
+        "word": "analysis",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈnæləsɪs/",
+        "meaning": "Detailed examination of the elements or structure of something.",
+        "synonyms": ["scrutiny", "investigation", "dissection"],
+        "antonyms": ["synthesis"],
+        "examples": [
+          {
+            "english": "A rigorous statistical analysis revealed a marked divergence between the control and experimental groups.",
+            "translations": {
+              "Mandarin Chinese": "严谨的统计分析揭示了对照组和实验组之间的显著差异。",
+              "Spanish": "Un análisis estadístico riguroso reveló una divergencia marcada entre los grupos de control y experimentales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "interpretation",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪnˌtɜːrprəˈteɪʃn/",
+        "meaning": "The action of explaining the meaning of something; an understanding or explanation of data.",
+        "synonyms": ["exegesis", "construction", "elucidation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Different researchers may offer conflicting interpretations of the same observational data.",
+            "translations": {
+              "Mandarin Chinese": "不同的研究者可能对相同的观测数据提出相互矛盾的解释。",
+              "Spanish": "Diferentes investigadores pueden ofrecer interpretaciones contradictorias de los mismos datos observacionales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "evaluation",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪˌvæljuˈeɪʃn/",
+        "meaning": "The making of a judgment about the amount, number, or value of something; assessment.",
+        "synonyms": ["appraisal", "assessment", "judgment"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The systematic evaluation of current educational policies is essential for meaningful systemic reform.",
+            "translations": {
+              "Mandarin Chinese": "对当前教育政策的系统性评估对于有意义的制度改革至关重要。",
+              "Spanish": "La evaluación sistemática de las políticas educativas actuales es esencial para una reforma sistémica significativa."
+            }
+          }
+        ]
+      },
+      {
+        "word": "framework",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfreɪmwɜːrk/",
+        "meaning": "An essential supporting structure or a basic system of ideas/rules.",
+        "synonyms": ["structure", "paradigm", "schema"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The study is grounded in a theoretical framework that integrates sociology and economics.",
+            "translations": {
+              "Mandarin Chinese": "这项研究基于一个融合社会学与经济学的理论框架。",
+              "Spanish": "El estudio se basa en un marco teórico que integra la sociología y la economía."
+            }
+          }
+        ]
+      },
+      {
+        "word": "theoretical",
+        "level": "C2",
+        "category": "Academic English",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˌθiːəˈretɪkl/",
+        "meaning": "Concerned with or involving the theory of a subject rather than its practical application.",
+        "synonyms": ["abstract", "speculative", "conceptual"],
+        "antonyms": ["empirical", "practical"],
+        "examples": [
+          {
+            "english": "While the theoretical implications are profound, experimental verification remains pending.",
+            "translations": {
+              "Mandarin Chinese": "虽然理论意义深远，但实验验证尚待进行。",
+              "Spanish": "Si bien las implicaciones teóricas son profundas, la verificación experimental sigue pendiente."
+            }
+          }
+        ]
+      },
+      {
+        "word": "empirical",
+        "level": "C2",
+        "category": "Academic English",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ɪmˈpɪrɪkl/",
+        "meaning": "Based on, concerned with, or verifiable by observation or experience rather than theory or pure logic.",
+        "synonyms": ["observational", "experimental", "evidence-based"],
+        "antonyms": ["theoretical", "speculative"],
+        "examples": [
+          {
+            "english": "Empirical evidence gathered over the last decade contradicts the initial prevailing assumptions.",
+            "translations": {
+              "Mandarin Chinese": "过去十年收集的实证证据反驳了最初的主流假设。",
+              "Spanish": "La evidencia empírica recopilada durante la última década contradice las suposiciones predominantes iniciales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "significance",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/sɪɡˈnɪfɪkəns/",
+        "meaning": "The quality of being worthy of attention; importance, or statistical relevance.",
+        "synonyms": ["consequence", "import", "relevance"],
+        "antonyms": ["triviality"],
+        "examples": [
+          {
+            "english": "The researcher found no statistical significance in the variance between the two cohorts.",
+            "translations": {
+              "Mandarin Chinese": "研究者发现两组群之间的差异不具有统计学显著性。",
+              "Spanish": "El investigador no encontró significancia estadística en la varianza entre las dos cohortes."
+            }
+          }
+        ]
+      },
+      {
+        "word": "correlation",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɒrəˈleɪʃn/",
+        "meaning": "A mutual relationship or connection between two or more things.",
+        "synonyms": ["link", "correspondence", "association"],
+        "antonyms": ["disconnection"],
+        "examples": [
+          {
+            "english": "Studies indicate a strong positive correlation between sleep hygiene and cognitive performance.",
+            "translations": {
+              "Mandarin Chinese": "研究表明睡眠卫生与认知表现之间存在很强的正相关关系。",
+              "Spanish": "Los estudios indican una fuerte correlación positiva entre la higiene del sueño y el desempeño cognitivo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "implication",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɪmplɪˈkeɪʃn/",
+        "meaning": "The conclusion that can be drawn from something, although it is not explicitly stated.",
+        "synonyms": ["ramification", "consequence", "inference"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The paper explores the ethical implications of using artificial intelligence in medical diagnostics.",
+            "translations": {
+              "Mandarin Chinese": "本文探讨了在医疗诊断中使用人工智能的伦理影响。",
+              "Spanish": "El documento explora las implicaciones éticas del uso de la inteligencia artificial en diagnósticos médicos."
+            }
+          }
+        ]
+      },
+      {
+        "word": "assessment",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈsesmənt/",
+        "meaning": "The act of assessing someone or something; a formal judgment.",
+        "synonyms": ["appraisal", "evaluation", "judgment"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "A comprehensive assessment of environmental impact is required before construction commences.",
+            "translations": {
+              "Mandarin Chinese": "在施工开始前，必须进行全面的环境影响评估。",
+              "Spanish": "Se requiere una evaluación integral del impacto ambiental antes de que comience la construcción."
+            }
+          }
+        ]
+      },
+      {
+        "word": "criterion",
+        "level": "C2",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/kraɪˈtɪəriən/",
+        "meaning": "A principle or standard by which something may be judged or decided.",
+        "synonyms": ["standard", "benchmark", "touchstone"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The primary criterion for selection was the originality of the research proposal.",
+            "translations": {
+              "Mandarin Chinese": "选择的主要标准是研究建议的原创性。",
+              "Spanish": "El criterio principal para la selección fue la originalidad de la propuesta de investigación."
+            }
+          }
+        ]
+      },
+      {
+        "word": "research findings",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/rɪˈsɜːrtʃ ˈfaɪndɪŋz/",
+        "meaning": "The results, conclusions, or discoveries yielded by a scientific investigation.",
+        "synonyms": ["results", "data", "outcomes"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The researchers presented their research findings at the annual international symposium.",
+            "translations": {
+              "Mandarin Chinese": "研究人员在年度国际研讨会上展示了他们的研究成果。",
+              "Spanish": "Los investigadores presentaron sus hallazgos de investigación en el simposio internacional anual."
+            }
+          }
+        ]
+      },
+      {
+        "word": "scholarly article",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈskɒləli ˈɑːrtɪkl/",
+        "meaning": "A paper written by an expert and peer-reviewed for a professional academic journal.",
+        "synonyms": ["academic paper", "journal article", "peer-reviewed work"],
+        "antonyms": ["popular media"],
+        "examples": [
+          {
+            "english": "The student was required to review ten scholarly articles for the literature review.",
+            "translations": {
+              "Mandarin Chinese": "学生被要求为文献综述查阅十篇学术文章。",
+              "Spanish": "Se requirió que el estudiante revisara diez artículos académicos para la revisión de literatura."
+            }
+          }
+        ]
+      },
+      {
+        "word": "citation",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/saɪˈteɪʃn/",
+        "meaning": "A reference to a published or unpublished source used in a scholarly work.",
+        "synonyms": ["reference", "attribution", "quotation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Proper citation of source material is essential to avoid allegations of plagiarism.",
+            "translations": {
+              "Mandarin Chinese": "正确标注来源材料对于避免抄袭指控至关重要。",
+              "Spanish": "La cita adecuada del material fuente es esencial para evitar acusaciones de plagio."
+            }
+          }
+        ]
+      },
+      {
+        "word": "abstract",
+        "level": "C1",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈæbstrækt/",
+        "meaning": "A summary of the contents of a book, article, or formal speech.",
+        "synonyms": ["summary", "synopsis", "precis"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The abstract provides a concise overview of the methodology and key results.",
+            "translations": {
+              "Mandarin Chinese": "摘要简明扼要地概述了方法论和主要成果。",
+              "Spanish": "El resumen proporciona una visión general concisa de la metodología y los resultados clave."
+            }
+          }
+        ]
+      },
+      {
+        "word": "argumentation",
+        "level": "C2",
+        "category": "Academic English",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɑːɡjuˈmenteɪʃn/",
+        "meaning": "The process of establishing a claim and proving it with the use of logic, reasoning, and evidence.",
+        "synonyms": ["reasoning", "debate", "logic"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The author’s argumentation is logically sound, though some premises remain debatable.",
+            "translations": {
+              "Mandarin Chinese": "作者的论证在逻辑上是合理的，尽管某些前提仍有争议。",
+              "Spanish": "La argumentación del autor es lógicamente sólida, aunque algunas premisas siguen siendo debatibles."
+            }
+          }
+        ]
+      },
+      {
+        "word": "conceptual",
+        "level": "C2",
+        "category": "Academic English",
+        "part_of_speech": "adjective",
+        "pronunciation": "/kənˈseptʃuəl/",
+        "meaning": "Relating to mental concepts or abstract ideas rather than specific instances.",
+        "synonyms": ["theoretical", "notional", "ideational"],
+        "antonyms": ["concrete"],
+        "examples": [
+          {
+            "english": "The paper provides a conceptual clarification of the term 'sustainability' in urban planning.",
+            "translations": {
+              "Mandarin Chinese": "本文对城市规划中“可持续性”一词进行了概念上的阐释。",
+              "Spanish": "El documento proporciona una aclaración conceptual del término 'sostenibilidad' en la planificación urbana."
+            }
+          }
+        ]
+      },
+      {
+        "word": "academic discourse",
+        "level": "C2",
+        "category": "Academic English",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌækəˈdemɪk ˈdɪskɔːrs/",
+        "meaning": "The formal and specialized language, conventions, and structures used by scholars in academic contexts.",
+        "synonyms": ["scholarly communication", "academic exchange"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Mastering academic discourse is a prerequisite for participating in international scholarly debates.",
+            "translations": {
+              "Mandarin Chinese": "掌握学术话语是参与国际学术辩论的前提条件。",
+              "Spanish": "Dominar el discurso académico es un requisito previo para participar en debates académicos internacionales."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

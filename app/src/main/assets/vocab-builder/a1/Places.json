@@ -1,0 +1,199 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "400-500",
+  "source": "Foundational English Vocabulary",
+  "categories": {
+    "Places": [
+      {
+        "word": "school",
+        "level": "A1",
+        "category": "Places",
+        "part_of_speech": "noun",
+        "pronunciation": "/skuːl/",
+        "meaning": "An institution for educating children or students.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I walk to school every morning.",
+            "translations": {
+              "Mandarin Chinese": "我每天早上走路去学校。",
+              "Spanish": "Camino a la escuela cada mañana."
+            }
+          }
+        ]
+      },
+      {
+        "word": "hospital",
+        "level": "A1",
+        "category": "Places",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhɒspɪtl/",
+        "meaning": "A place where sick or injured people are treated.",
+        "synonyms": ["clinic"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The hospital is in the city center.",
+            "translations": {
+              "Mandarin Chinese": "医院在市中心。",
+              "Spanish": "El hospital está en el centro de la ciudad."
+            }
+          }
+        ]
+      },
+      {
+        "word": "bank",
+        "level": "A1",
+        "category": "Places",
+        "part_of_speech": "noun",
+        "pronunciation": "/bæŋk/",
+        "meaning": "A place where money is kept.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I need to go to the bank.",
+            "translations": {
+              "Mandarin Chinese": "我需要去银行。",
+              "Spanish": "Necesito ir al banco."
+            }
+          }
+        ]
+      },
+      {
+        "word": "shop",
+        "level": "A1",
+        "category": "Places",
+        "part_of_speech": "noun",
+        "pronunciation": "/ʃɒp/",
+        "meaning": "A place where you buy goods.",
+        "synonyms": ["store"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The shop is closed now.",
+            "translations": {
+              "Mandarin Chinese": "商店现在关门了。",
+              "Spanish": "La tienda está cerrada ahora."
+            }
+          }
+        ]
+      },
+      {
+        "word": "restaurant",
+        "level": "A1",
+        "category": "Places",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈrestrɒnt/",
+        "meaning": "A place where people pay to sit and eat meals.",
+        "synonyms": ["cafe"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Let us eat at a restaurant.",
+            "translations": {
+              "Mandarin Chinese": "让我们去餐馆吃饭吧。",
+              "Spanish": "Comamos en un restaurante."
+            }
+          }
+        ]
+      },
+      {
+        "word": "park",
+        "level": "A1",
+        "category": "Places",
+        "part_of_speech": "noun",
+        "pronunciation": "/pɑːrk/",
+        "meaning": "A public area with grass and trees for recreation.",
+        "synonyms": ["garden"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The children play in the park.",
+            "translations": {
+              "Mandarin Chinese": "孩子们在公园里玩。",
+              "Spanish": "Los niños juegan en el parque."
+            }
+          }
+        ]
+      },
+      {
+        "word": "beach",
+        "level": "A1",
+        "category": "Places",
+        "part_of_speech": "noun",
+        "pronunciation": "/biːtʃ/",
+        "meaning": "A sandy or stony shore by the sea.",
+        "synonyms": ["coast"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I like walking on the beach.",
+            "translations": {
+              "Mandarin Chinese": "我喜欢在沙滩上散步。",
+              "Spanish": "Me gusta caminar en la playa."
+            }
+          }
+        ]
+      },
+      {
+        "word": "office",
+        "level": "A1",
+        "category": "Places",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɒfɪs/",
+        "meaning": "A room or building where people work.",
+        "synonyms": ["workplace"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My father is in his office.",
+            "translations": {
+              "Mandarin Chinese": "我父亲在他的办公室里。",
+              "Spanish": "Mi padre está en su oficina."
+            }
+          }
+        ]
+      },
+      {
+        "word": "library",
+        "level": "A1",
+        "category": "Places",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlaɪbrəri/",
+        "meaning": "A building where books are kept for reading.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I study in the library.",
+            "translations": {
+              "Mandarin Chinese": "我在图书馆学习。",
+              "Spanish": "Estudio en la biblioteca."
+            }
+          }
+        ]
+      },
+      {
+        "word": "city",
+        "level": "A1",
+        "category": "Places",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɪti/",
+        "meaning": "A large and important town.",
+        "synonyms": ["town"],
+        "antonyms": ["village"],
+        "examples": [
+          {
+            "english": "Mumbai is a big city.",
+            "translations": {
+              "Mandarin Chinese": "孟买是一个大城市。",
+              "Spanish": "Mumbai es una ciudad grande."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

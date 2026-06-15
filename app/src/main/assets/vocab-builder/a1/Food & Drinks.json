@@ -1,0 +1,161 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "400-500",
+  "source": "Foundational English Communication",
+  "categories": {
+    "Food & Drinks": [
+      {
+        "word": "bread",
+        "level": "A1",
+        "category": "Food & Drinks",
+        "part_of_speech": "noun",
+        "pronunciation": "/bred/",
+        "meaning": "A common food made of flour, water, and yeast.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I eat bread for breakfast.",
+            "translations": {
+              "Mandarin Chinese": "我早餐吃面包。",
+              "Spanish": "Como pan en el desayuno."
+            }
+          }
+        ]
+      },
+      {
+        "word": "water",
+        "level": "A1",
+        "category": "Food & Drinks",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwɔːtər/",
+        "meaning": "A clear, colorless liquid essential for life.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am thirsty, please give me water.",
+            "translations": {
+              "Mandarin Chinese": "我渴了，请给我水。",
+              "Spanish": "Tengo sed, por favor dame agua."
+            }
+          }
+        ]
+      },
+      {
+        "word": "apple",
+        "level": "A1",
+        "category": "Food & Drinks",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈæpl/",
+        "meaning": "A round fruit with red, yellow, or green skin.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "An apple a day is good for you.",
+            "translations": {
+              "Mandarin Chinese": "一天一个苹果对你有好处。",
+              "Spanish": "Una manzana al día es buena para ti."
+            }
+          }
+        ]
+      },
+      {
+        "word": "breakfast",
+        "level": "A1",
+        "category": "Food & Drinks",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbrekfəst/",
+        "meaning": "The first meal of the day.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "What do you like for breakfast?",
+            "translations": {
+              "Mandarin Chinese": "你早餐喜欢吃什么？",
+              "Spanish": "¿Qué te gusta desayunar?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "eat",
+        "level": "A1",
+        "category": "Food & Drinks",
+        "part_of_speech": "verb",
+        "pronunciation": "/iːt/",
+        "meaning": "To put food into the mouth and swallow it.",
+        "synonyms": ["consume"],
+        "antonyms": ["starve"],
+        "examples": [
+          {
+            "english": "It is time to eat lunch.",
+            "translations": {
+              "Mandarin Chinese": "是时候吃午餐了。",
+              "Spanish": "Es hora de almorzar."
+            }
+          }
+        ]
+      },
+      {
+        "word": "drink",
+        "level": "A1",
+        "category": "Food & Drinks",
+        "part_of_speech": "verb/noun",
+        "pronunciation": "/drɪŋk/",
+        "meaning": "To swallow liquid.",
+        "synonyms": ["sip"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I want to drink some orange juice.",
+            "translations": {
+              "Mandarin Chinese": "我想喝点橙汁。",
+              "Spanish": "Quiero beber un poco de jugo de naranja."
+            }
+          }
+        ]
+      },
+      {
+        "word": "hungry",
+        "level": "A1",
+        "category": "Food & Drinks",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈhʌŋɡri/",
+        "meaning": "Feeling a need for food.",
+        "synonyms": [],
+        "antonyms": ["full"],
+        "examples": [
+          {
+            "english": "I am very hungry.",
+            "translations": {
+              "Mandarin Chinese": "我非常饿。",
+              "Spanish": "Tengo mucha hambre."
+            }
+          }
+        ]
+      },
+      {
+        "word": "thirsty",
+        "level": "A1",
+        "category": "Food & Drinks",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈθɜːrsti/",
+        "meaning": "Feeling a need for drink.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He is thirsty after playing.",
+            "translations": {
+              "Mandarin Chinese": "他玩耍后口渴了。",
+              "Spanish": "Él tiene sed después de jugar."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

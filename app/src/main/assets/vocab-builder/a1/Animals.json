@@ -1,0 +1,199 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "300-400",
+  "source": "Foundational English Descriptive Vocabulary",
+  "categories": {
+    "Animals": [
+      {
+        "word": "dog",
+        "level": "A1",
+        "category": "Animals",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɔːɡ/",
+        "meaning": "A common domesticated carnivorous animal.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The dog is a good pet.",
+            "translations": {
+              "Mandarin Chinese": "狗是一种很好的宠物。",
+              "Spanish": "El perro es una buena mascota."
+            }
+          }
+        ]
+      },
+      {
+        "word": "cat",
+        "level": "A1",
+        "category": "Animals",
+        "part_of_speech": "noun",
+        "pronunciation": "/kæt/",
+        "meaning": "A small domesticated carnivorous mammal with soft fur.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The cat is sleeping on the chair.",
+            "translations": {
+              "Mandarin Chinese": "猫正在椅子上睡觉。",
+              "Spanish": "El gato está durmiendo en la silla."
+            }
+          }
+        ]
+      },
+      {
+        "word": "bird",
+        "level": "A1",
+        "category": "Animals",
+        "part_of_speech": "noun",
+        "pronunciation": "/bɜːrd/",
+        "meaning": "An animal with feathers and wings that usually flies.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The bird is singing.",
+            "translations": {
+              "Mandarin Chinese": "鸟儿在唱歌。",
+              "Spanish": "El pájaro está cantando."
+            }
+          }
+        ]
+      },
+      {
+        "word": "fish",
+        "level": "A1",
+        "category": "Animals",
+        "part_of_speech": "noun",
+        "pronunciation": "/fɪʃ/",
+        "meaning": "An animal that lives in water and breathes with gills.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The fish swims in the water.",
+            "translations": {
+              "Mandarin Chinese": "鱼在水里游。",
+              "Spanish": "El pez nada en el agua."
+            }
+          }
+        ]
+      },
+      {
+        "word": "horse",
+        "level": "A1",
+        "category": "Animals",
+        "part_of_speech": "noun",
+        "pronunciation": "/hɔːrs/",
+        "meaning": "A large animal used for riding or pulling loads.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The horse is very fast.",
+            "translations": {
+              "Mandarin Chinese": "马跑得很快。",
+              "Spanish": "El caballo es muy rápido."
+            }
+          }
+        ]
+      },
+      {
+        "word": "cow",
+        "level": "A1",
+        "category": "Animals",
+        "part_of_speech": "noun",
+        "pronunciation": "/kaʊ/",
+        "meaning": "A large farm animal kept for milk or meat.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The cow eats grass.",
+            "translations": {
+              "Mandarin Chinese": "牛在吃草。",
+              "Spanish": "La vaca come hierba."
+            }
+          }
+        ]
+      },
+      {
+        "word": "lion",
+        "level": "A1",
+        "category": "Animals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlaɪən/",
+        "meaning": "A large wild cat known as the king of the jungle.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The lion is a wild animal.",
+            "translations": {
+              "Mandarin Chinese": "狮子是一种野生动物。",
+              "Spanish": "El león es un animal salvaje."
+            }
+          }
+        ]
+      },
+      {
+        "word": "elephant",
+        "level": "A1",
+        "category": "Animals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈelɪfənt/",
+        "meaning": "A very large gray animal with a trunk.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The elephant is very big.",
+            "translations": {
+              "Mandarin Chinese": "大象非常大。",
+              "Spanish": "El elefante es muy grande."
+            }
+          }
+        ]
+      },
+      {
+        "word": "pet",
+        "level": "A1",
+        "category": "Animals",
+        "part_of_speech": "noun",
+        "pronunciation": "/pet/",
+        "meaning": "An animal kept for companionship.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Do you have a pet?",
+            "translations": {
+              "Mandarin Chinese": "你有宠物吗？",
+              "Spanish": "¿Tienes una mascota?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "animal",
+        "level": "A1",
+        "category": "Animals",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈænɪml/",
+        "meaning": "A living creature that is not a plant.",
+        "synonyms": ["creature"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I like every animal.",
+            "translations": {
+              "Mandarin Chinese": "我喜欢每一种动物。",
+              "Spanish": "Me gusta cada animal."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

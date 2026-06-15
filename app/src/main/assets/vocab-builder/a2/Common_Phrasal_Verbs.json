@@ -1,0 +1,109 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Common Phrasal Verbs": [
+      {
+        "verb": "wake up",
+        "meaning": "To stop sleeping.",
+        "example": "I usually wake up at 7:00 AM."
+      },
+      {
+        "verb": "turn on",
+        "meaning": "To start a machine or light.",
+        "example": "Please turn on the lamp."
+      },
+      {
+        "verb": "turn off",
+        "meaning": "To stop a machine or light.",
+        "example": "Remember to turn off the computer."
+      },
+      {
+        "verb": "sit down",
+        "meaning": "To move from standing to sitting.",
+        "example": "Please sit down and relax."
+      },
+      {
+        "verb": "stand up",
+        "meaning": "To move from sitting to standing.",
+        "example": "We had to stand up on the crowded bus."
+      },
+      {
+        "verb": "look for",
+        "meaning": "To try to find something.",
+        "example": "I am looking for my keys."
+      },
+      {
+        "verb": "find out",
+        "meaning": "To discover information.",
+        "example": "Did you find out when the meeting starts?"
+      },
+      {
+        "verb": "pick up",
+        "meaning": "To lift something from the ground.",
+        "example": "Please pick up your toys."
+      },
+      {
+        "verb": "put on",
+        "meaning": "To dress yourself with an item of clothing.",
+        "example": "Put on your coat before you go out."
+      },
+      {
+        "verb": "take off",
+        "meaning": "To remove an item of clothing.",
+        "example": "Take off your shoes at the door."
+      },
+      {
+        "verb": "give back",
+        "meaning": "To return something to its owner.",
+        "example": "Can you give back the book I lent you?"
+      },
+      {
+        "verb": "come back",
+        "meaning": "To return to a place.",
+        "example": "When will you come back from your trip?"
+      },
+      {
+        "verb": "go out",
+        "meaning": "To leave your home to go to a social event.",
+        "example": "Do you want to go out tonight?"
+      },
+      {
+        "verb": "get up",
+        "meaning": "To leave your bed.",
+        "example": "I get up early every morning."
+      },
+      {
+        "verb": "hang out",
+        "meaning": "To spend time relaxing with friends.",
+        "example": "We like to hang out at the mall."
+      },
+      {
+        "verb": "call back",
+        "meaning": "To return a phone call.",
+        "example": "I will call you back in ten minutes."
+      },
+      {
+        "verb": "write down",
+        "meaning": "To record information on paper.",
+        "example": "Please write down your phone number."
+      },
+      {
+        "verb": "fill out",
+        "meaning": "To complete a form with information.",
+        "example": "You need to fill out this application form."
+      },
+      {
+        "verb": "try on",
+        "meaning": "To put on clothes to see if they fit.",
+        "example": "I want to try on these jeans."
+      },
+      {
+        "verb": "check in",
+        "meaning": "To arrive and register at a hotel or airport.",
+        "example": "What time can we check in at the hotel?"
+      }
+    ]
+  }
+}

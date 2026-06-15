@@ -1,0 +1,449 @@
+{
+  "level": "B2",
+  "approx_words": "800-1200",
+  "source": "Professional Development & Time Management",
+  "categories": {
+    "Productivity": [
+      {
+        "word": "efficiency",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪˈfɪʃnsi/",
+        "meaning": "The state or quality of achieving maximum productivity with minimum wasted effort or expense.",
+        "synonyms": ["productivity", "competence"],
+        "antonyms": ["inefficiency", "wastefulness"],
+        "examples": [
+          {
+            "english": "Improving workflow is key to increasing efficiency in the office.",
+            "translations": {
+              "Mandarin Chinese": "改善工作流程是提高办公室效率的关键。",
+              "Hindi": "कार्यप्रवाह में सुधार करना कार्यालय में दक्षता बढ़ाने की कुंजी है।",
+              "Spanish": "Mejorar el flujo de trabajo es clave para aumentar la eficiencia en la oficina.",
+              "French": "Améliorer le flux de travail est essentiel pour augmenter l'efficacité au bureau.",
+              "Japanese": "ワークフローを改善することは、オフィスでの効率を高める鍵である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "priority",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/praɪˈɔːrəti/",
+        "meaning": "A thing that is regarded as more important than another.",
+        "synonyms": ["preference", "concern"],
+        "antonyms": ["triviality"],
+        "examples": [
+          {
+            "english": "You should make finishing this project your top priority.",
+            "translations": {
+              "Mandarin Chinese": "你应该把完成这个项目作为你的首要任务。",
+              "Hindi": "आपको इस परियोजना को पूरा करने को अपनी सर्वोच्च प्राथमिकता बनानी चाहिए।",
+              "Spanish": "Deberías hacer de la finalización de este proyecto tu máxima prioridad.",
+              "French": "Vous devriez faire de l'achèvement de ce projet votre priorité absolue.",
+              "Japanese": "このプロジェクトを完了させることを最優先事項にするべきだ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "multitasking",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmʌltiˌtæskɪŋ/",
+        "meaning": "The handling of more than one task at the same time by a person or computer.",
+        "synonyms": ["juggling"],
+        "antonyms": ["single-tasking"],
+        "examples": [
+          {
+            "english": "While multitasking seems effective, it often reduces the quality of your work.",
+            "translations": {
+              "Mandarin Chinese": "虽然多任务处理看起来很有效，但它往往会降低工作质量。",
+              "Hindi": "हालाँकि मल्टीटास्किंग प्रभावी लगती है, लेकिन यह अक्सर आपके काम की गुणवत्ता को कम कर देती है।",
+              "Spanish": "Aunque la multitarea parece efectiva, a menudo reduce la calidad de tu trabajo.",
+              "French": "Bien que le multitâche semble efficace, il réduit souvent la qualité de votre travail.",
+              "Japanese": "マルチタスクは効率的に見えるが、しばしば仕事の質を低下させる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "deadline",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdedlaɪn/",
+        "meaning": "The latest time or date by which something should be completed.",
+        "synonyms": ["time limit", "cutoff"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We are working hard to meet the deadline for the report.",
+            "translations": {
+              "Mandarin Chinese": "我们正在努力赶在截止日期前完成报告。",
+              "Hindi": "हम रिपोर्ट के लिए समय सीमा को पूरा करने के लिए कड़ी मेहनत कर रहे हैं।",
+              "Spanish": "Estamos trabajando duro para cumplir con la fecha límite del informe.",
+              "French": "Nous travaillons dur pour respecter la date limite du rapport.",
+              "Japanese": "私たちはレポートの締め切りに間に合わせるために懸命に取り組んでいる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "focus",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/ˈfoʊkəs/",
+        "meaning": "The center of interest or activity; to pay particular attention to something.",
+        "synonyms": ["concentration", "attention"],
+        "antonyms": ["distraction"],
+        "examples": [
+          {
+            "english": "It is difficult to maintain focus in a noisy environment.",
+            "translations": {
+              "Mandarin Chinese": "在嘈杂的环境中很难保持专注。",
+              "Hindi": "शोर भरे वातावरण में ध्यान केंद्रित रखना मुश्किल है।",
+              "Spanish": "Es difícil mantener la concentración en un entorno ruidoso.",
+              "French": "Il est difficile de rester concentré dans un environnement bruyant.",
+              "Japanese": "騒がしい環境では集中力を維持するのが難しい。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "workflow",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwɜːrkfloʊ/",
+        "meaning": "The sequence of industrial, administrative, or other processes through which a piece of work passes from initiation to completion.",
+        "synonyms": ["process", "system"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Optimizing your workflow can save hours of time every week.",
+            "translations": {
+              "Mandarin Chinese": "优化工作流程每周可以节省数小时的时间。",
+              "Hindi": "अपने कार्यप्रवाह को अनुकूलित करने से हर हफ्ते घंटों का समय बच सकता है।",
+              "Spanish": "Optimizar tu flujo de trabajo puede ahorrar horas de tiempo cada semana.",
+              "French": "Optimiser votre flux de travail peut économiser des heures chaque semaine.",
+              "Japanese": "ワークフローを最適化すれば、毎週数時間の節約になる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "organization",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɔːrɡənəˈzeɪʃn/",
+        "meaning": "The action of organizing something; the quality of being orderly.",
+        "synonyms": ["orderliness", "structure"],
+        "antonyms": ["disorder", "chaos"],
+        "examples": [
+          {
+            "english": "Good organization is essential for completing large tasks.",
+            "translations": {
+              "Mandarin Chinese": "良好的组织能力对于完成大型任务至关重要。",
+              "Hindi": "बड़े कार्यों को पूरा करने के लिए अच्छा संगठन आवश्यक है।",
+              "Spanish": "Una buena organización es esencial para completar tareas grandes.",
+              "French": "Une bonne organisation est essentielle pour accomplir de grandes tâches.",
+              "Japanese": "大きなタスクを完了するには、優れた組織化が不可欠である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "time management",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/taɪm ˈmænɪdʒmənt/",
+        "meaning": "The process of organizing and planning how to divide your time between specific activities.",
+        "synonyms": ["scheduling", "planning"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Effective time management helps reduce stress levels.",
+            "translations": {
+              "Mandarin Chinese": "有效的时间管理有助于降低压力水平。",
+              "Hindi": "प्रभावी समय प्रबंधन तनाव के स्तर को कम करने में मदद करता है।",
+              "Spanish": "La gestión eficaz del tiempo ayuda a reducir los niveles de estrés.",
+              "French": "Une gestion efficace du temps aide à réduire le niveau de stress.",
+              "Japanese": "効果的な時間管理はストレスレベルを下げるのに役立つ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "burnout",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbɜːrnaʊt/",
+        "meaning": "Physical or mental collapse caused by overwork or stress.",
+        "synonyms": ["exhaustion", "fatigue"],
+        "antonyms": ["energy", "vitality"],
+        "examples": [
+          {
+            "english": "Working too many hours without rest can lead to burnout.",
+            "translations": {
+              "Mandarin Chinese": "不休息地工作太长时间会导致倦怠。",
+              "Hindi": "बिना आराम किए बहुत अधिक घंटे काम करने से बर्नआउट हो सकता है।",
+              "Spanish": "Trabajar demasiadas horas sin descanso puede llevar al agotamiento.",
+              "French": "Travailler trop d'heures sans repos peut mener à l'épuisement professionnel.",
+              "Japanese": "休まずに長時間働きすぎると、燃え尽き症候群（バーンアウト）になる可能性がある。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "motivation",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌmoʊtɪˈveɪʃn/",
+        "meaning": "The reason or reasons one has for acting or behaving in a particular way.",
+        "synonyms": ["drive", "incentive"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Setting clear goals helps maintain high motivation.",
+            "translations": {
+              "Mandarin Chinese": "设定明确的目标有助于保持高度的动力。",
+              "Hindi": "स्पष्ट लक्ष्य निर्धारित करना उच्च प्रेरणा बनाए रखने में मदद करता है।",
+              "Spanish": "Establecer metas claras ayuda a mantener una alta motivación.",
+              "French": "Se fixer des objectifs clairs aide à maintenir une grande motivation.",
+              "Japanese": "明確な目標を設定することは、高いモチベーションを維持するのに役立つ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "goal setting",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ɡoʊl ˈsetɪŋ/",
+        "meaning": "The process of identifying something that you want to accomplish and establishing measurable objectives.",
+        "synonyms": ["planning", "targeting"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Goal setting is the first step toward success.",
+            "translations": {
+              "Mandarin Chinese": "设定目标是迈向成功的第一步。",
+              "Hindi": "लक्ष्य निर्धारण सफलता की दिशा में पहला कदम है।",
+              "Spanish": "El establecimiento de metas es el primer paso hacia el éxito.",
+              "French": "La définition d'objectifs est la première étape vers le succès.",
+              "Japanese": "目標設定は成功への第一歩である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "discipline",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdɪsəplɪn/",
+        "meaning": "The practice of training people to obey rules or a code of behavior.",
+        "synonyms": ["self-control", "rigor"],
+        "antonyms": ["laziness", "lack of control"],
+        "examples": [
+          {
+            "english": "Self-discipline is required to work from home effectively.",
+            "translations": {
+              "Mandarin Chinese": "在家高效办公需要自律。",
+              "Hindi": "घर से प्रभावी ढंग से काम करने के लिए आत्म-अनुशासन की आवश्यकता होती है।",
+              "Spanish": "Se requiere autodisciplina para trabajar desde casa de manera efectiva.",
+              "French": "L'autodiscipline est nécessaire pour travailler efficacement à domicile.",
+              "Japanese": "在宅勤務を効率的に行うには自己規律が必要だ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "schedule",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈskedʒuːl/",
+        "meaning": "A plan for carrying out a process or procedure, giving lists of intended events and times.",
+        "synonyms": ["timetable", "itinerary"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I have a busy schedule planned for today.",
+            "translations": {
+              "Mandarin Chinese": "我今天安排了紧凑的日程。",
+              "Hindi": "मैंने आज के लिए एक व्यस्त कार्यक्रम की योजना बनाई है।",
+              "Spanish": "Tengo un horario ocupado planeado para hoy.",
+              "French": "J'ai un emploi du temps chargé prévu pour aujourd'hui.",
+              "Japanese": "今日は忙しいスケジュールを組んでいる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "productivity tool",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌprɑːdʌkˈtɪvəti tuːl/",
+        "meaning": "Software or applications designed to help individuals accomplish tasks more effectively.",
+        "synonyms": ["utility app"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Using a productivity tool can help you organize your daily tasks.",
+            "translations": {
+              "Mandarin Chinese": "使用生产力工具可以帮助你整理日常任务。",
+              "Hindi": "उत्पादकता उपकरण का उपयोग करने से आपको अपने दैनिक कार्यों को व्यवस्थित करने में मदद मिल सकती है।",
+              "Spanish": "Usar una herramienta de productividad puede ayudarte a organizar tus tareas diarias.",
+              "French": "Utiliser un outil de productivité peut vous aider à organiser vos tâches quotidiennes.",
+              "Japanese": "生産性ツールを使うと、日々のタスクを整理するのに役立つ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "routine",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ruːˈtiːn/",
+        "meaning": "A sequence of actions regularly followed.",
+        "synonyms": ["habit", "regimen"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Developing a morning routine can improve your daily output.",
+            "translations": {
+              "Mandarin Chinese": "养成晨间习惯可以提高你的日常产出。",
+              "Hindi": "सुबह की दिनचर्या विकसित करने से आपका दैनिक आउटपुट बेहतर हो सकता है।",
+              "Spanish": "Desarrollar una rutina matutina puede mejorar tu productividad diaria.",
+              "French": "Développer une routine matinale peut améliorer votre rendement quotidien.",
+              "Japanese": "朝のルーチンを作ると、一日の生産性が向上する。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "distraction",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈstrækʃn/",
+        "meaning": "A thing that prevents someone from giving full attention to something else.",
+        "synonyms": ["interruption", "diversion"],
+        "antonyms": ["focus", "attention"],
+        "examples": [
+          {
+            "english": "He turned off his phone to avoid any distraction while working.",
+            "translations": {
+              "Mandarin Chinese": "他关掉了手机，以避免工作时分心。",
+              "Hindi": "काम करते समय किसी भी विकर्षण से बचने के लिए उसने अपना फोन बंद कर दिया।",
+              "Spanish": "Apagó su teléfono para evitar cualquier distracción mientras trabajaba.",
+              "French": "Il a éteint son téléphone pour éviter toute distraction pendant qu'il travaillait.",
+              "Japanese": "彼は仕事中の気を散らすものを避けるために電話の電源を切った。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "procrastination",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/prəˌkræstɪˈneɪʃn/",
+        "meaning": "The action of delaying or postponing something.",
+        "synonyms": ["delaying", "hesitation"],
+        "antonyms": ["action", "promptness"],
+        "examples": [
+          {
+            "english": "Procrastination is often the biggest obstacle to reaching your goals.",
+            "translations": {
+              "Mandarin Chinese": "拖延往往是实现目标的最大障碍。",
+              "Hindi": "टालमटोल करना अक्सर आपके लक्ष्यों तक पहुँचने में सबसे बड़ी बाधा है।",
+              "Spanish": "La procrastinación es a menudo el mayor obstáculo para alcanzar tus metas.",
+              "French": "La procrastination est souvent le plus grand obstacle pour atteindre vos objectifs.",
+              "Japanese": "先延ばしは、目標達成における最大の障害であることが多い。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "performance",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/pərˈfɔːrməns/",
+        "meaning": "The action or process of carrying out or accomplishing an action, task, or function.",
+        "synonyms": ["output", "achievement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Regular feedback helps improve employee performance.",
+            "translations": {
+              "Mandarin Chinese": "定期反馈有助于提高员工的工作表现。",
+              "Hindi": "नियमित फीडबैक कर्मचारियों के प्रदर्शन को बेहतर बनाने में मदद करता है।",
+              "Spanish": "La retroalimentación regular ayuda a mejorar el desempeño de los empleados.",
+              "French": "Un retour régulier aide à améliorer la performance des employés.",
+              "Japanese": "定期的なフィードバックは、従業員のパフォーマンスを向上させるのに役立つ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "self-improvement",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌself ɪmˈpruːvmənt/",
+        "meaning": "The improvement of one's knowledge, status, or character by one's own efforts.",
+        "synonyms": ["personal growth", "self-development"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He is dedicated to self-improvement through reading and learning.",
+            "translations": {
+              "Mandarin Chinese": "他致力于通过阅读和学习来提升自我。",
+              "Hindi": "वह पढ़ने और सीखने के माध्यम से आत्म-सुधार के लिए समर्पित है।",
+              "Spanish": "Está dedicado a la superación personal a través de la lectura y el aprendizaje.",
+              "French": "Il se consacre au développement personnel par la lecture et l'apprentissage.",
+              "Japanese": "彼は読書と学習を通じて自己啓発に専念している。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "optimization",
+        "level": "B2",
+        "category": "Productivity",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɑːptɪmɪˈzeɪʃn/",
+        "meaning": "The action of making the best or most effective use of a situation or resource.",
+        "synonyms": ["improvement", "fine-tuning"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Resource optimization is essential for a growing startup.",
+            "translations": {
+              "Mandarin Chinese": "资源优化对于一个成长中的初创公司来说至关重要。",
+              "Hindi": "एक बढ़ते स्टार्टअप के लिए संसाधन अनुकूलन आवश्यक है।",
+              "Spanish": "La optimización de recursos es esencial para una startup en crecimiento.",
+              "French": "L'optimisation des ressources est essentielle pour une startup en croissance.",
+              "Japanese": "リソースの最適化は、成長中のスタートアップにとって不可欠である。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

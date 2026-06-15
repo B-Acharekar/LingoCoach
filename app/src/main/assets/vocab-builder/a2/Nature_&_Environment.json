@@ -1,0 +1,589 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Nature & Environment": [
+      {
+        "word": "forest",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfɔːrɪst/",
+        "meaning": "A large area of land covered with trees and bushes.",
+        "synonyms": ["woods", "woodland"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We went for a walk in the forest to enjoy the fresh air.",
+            "translations": {
+              "Mandarin Chinese": "我们去森林里散步，呼吸新鲜空气。",
+              "Hindi": "हम ताजी हवा का आनंद लेने के लिए जंगल में सैर करने गए।",
+              "Spanish": "Fuimos a caminar por el bosque para disfrutar del aire fresco.",
+              "Standard Arabic": "ذهبنا في نزهة في الغابة للاستمتاع بالهواء النقي.",
+              "French": "Nous sommes allés nous promener dans la forêt pour profiter de l'air frais.",
+              "Bengali": "আমরা নির্মল বাতাস উপভোগ করতে বনে হাঁটতে গিয়েছিলাম।",
+              "Portuguese": "Fomos caminhar na floresta para aproveitar o ar fresco.",
+              "Russian": "Мы пошли гулять в лес, чтобы насладиться свежим воздухом.",
+              "Urdu": "ہم تازہ ہوا سے لطف اندوز ہونے کے لیے جنگل میں چہل قدمی کرنے گئے۔",
+              "Indonesian": "Kami pergi berjalan-jalan di hutan untuk menikmati udara segar.",
+              "Standard German": "Wir gingen im Wald spazieren, um die frische Luft zu genießen.",
+              "Japanese": "新鮮な空気を楽しむために、森へ散歩に行きました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "river",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈrɪvər/",
+        "meaning": "A large natural stream of water flowing in a channel to the sea, a lake, or another such stream.",
+        "synonyms": ["stream", "waterway"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The river flows through the center of the city.",
+            "translations": {
+              "Mandarin Chinese": "这条河穿过城市中心。",
+              "Hindi": "यह नदी शहर के बीचोंबीच बहती है।",
+              "Spanish": "El río fluye a través del centro de la ciudad.",
+              "Standard Arabic": "يتدفق النهر عبر وسط المدينة.",
+              "French": "La rivière traverse le centre de la ville.",
+              "Bengali": "নদীটি শহরের মাঝখান দিয়ে বয়ে গেছে।",
+              "Portuguese": "O rio flui através do centro da cidade.",
+              "Russian": "Река течет через центр города.",
+              "Urdu": "دریا شہر کے مرکز سے گزرتا ہے۔",
+              "Indonesian": "Sungai itu mengalir melalui pusat kota.",
+              "Standard German": "Der Fluss fließt durch die Stadtmitte.",
+              "Japanese": "川は街の中心を流れています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "mountain",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmaʊntən/",
+        "meaning": "A very high hill, often with rocks at the top.",
+        "synonyms": ["peak", "summit"],
+        "antonyms": ["valley", "plain"],
+        "examples": [
+          {
+            "english": "We could see the snow on the top of the mountain.",
+            "translations": {
+              "Mandarin Chinese": "我们可以看到山顶上的雪。",
+              "Hindi": "हम पहाड़ की चोटी पर बर्फ देख सकते थे।",
+              "Spanish": "Podíamos ver la nieve en la cima de la montaña.",
+              "Standard Arabic": "كنا نستطيع رؤية الثلوج على قمة الجبل.",
+              "French": "Nous pouvions voir la neige au sommet de la montagne.",
+              "Bengali": "আমরা পাহাড়ের চূড়ায় বরফ দেখতে পাচ্ছিলাম।",
+              "Portuguese": "Podíamos ver a neve no topo da montanha.",
+              "Russian": "Мы видели снег на вершине горы.",
+              "Urdu": "ہم پہاڑ کی چوٹی پر برف دیکھ سکتے تھے۔",
+              "Indonesian": "Kami bisa melihat salju di puncak gunung.",
+              "Standard German": "Wir konnten den Schnee auf dem Gipfel des Berges sehen.",
+              "Japanese": "山の頂上に雪があるのが見えました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "beach",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/biːtʃ/",
+        "meaning": "An area of sand or stones next to the sea.",
+        "synonyms": ["seaside", "shore"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "They spent the whole day playing on the sandy beach.",
+            "translations": {
+              "Mandarin Chinese": "他们整天在沙滩上玩耍。",
+              "Hindi": "उन्होंने पूरा दिन रेतीले समुद्र तट पर खेलने में बिताया।",
+              "Spanish": "Pasaron todo el día jugando en la playa de arena.",
+              "Standard Arabic": "قضوا اليوم كله يلعبون على الشاطئ الرملي.",
+              "French": "Ils ont passé toute la journée à jouer sur la plage de sable.",
+              "Bengali": "তারা সারাদিন বালুকাময় সমুদ্র সৈকতে খেলা করে কাটিয়েছে।",
+              "Portuguese": "Eles passaram o dia todo brincando na praia de areia.",
+              "Russian": "Они провели весь день, играя на песчаном пляже.",
+              "Urdu": "انہوں نے سارا دن ریتلی ساحل پر کھیلتے ہوئے گزارا۔",
+              "Indonesian": "Mereka menghabiskan sepanjang hari bermain di pantai berpasir.",
+              "Standard German": "Sie verbrachten den ganzen Tag damit, am Sandstrand zu spielen.",
+              "Japanese": "彼らは一日中、砂浜で遊んで過ごしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "environment",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪnˈvaɪrənmənt/",
+        "meaning": "The natural world, including the air, water, and land, in which people, animals, and plants live.",
+        "synonyms": ["nature", "surroundings"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We must work together to protect our environment for future generations.",
+            "translations": {
+              "Mandarin Chinese": "我们必须共同努力，为子孙后代保护我们的环境。",
+              "Hindi": "हमें भविष्य की पीढ़ियों के लिए अपने पर्यावरण की रक्षा के लिए मिलकर काम करना चाहिए।",
+              "Spanish": "Debemos trabajar juntos para proteger nuestro medio ambiente para las generaciones futuras.",
+              "Standard Arabic": "يجب أن نعمل معاً لحماية بيئتنا للأجيال القادمة.",
+              "French": "Nous devons travailler ensemble pour protéger notre environnement pour les générations futures.",
+              "Bengali": "ভবিষ্যৎ প্রজন্মের জন্য আমাদের পরিবেশ রক্ষার লক্ষ্যে আমাদের একসাথে কাজ করতে হবে।",
+              "Portuguese": "Devemos trabalhar juntos para proteger nosso meio ambiente para as gerações futuras.",
+              "Russian": "Мы должны работать вместе, чтобы защитить нашу окружающую среду для будущих поколений.",
+              "Urdu": "ہمیں آنے والی نسلوں کے لیے اپنے ماحول کی حفاظت کے لیے مل کر کام کرنا چاہیے۔",
+              "Indonesian": "Kita harus bekerja sama untuk melindungi lingkungan kita bagi generasi mendatang.",
+              "Standard German": "Wir müssen zusammenarbeiten, um unsere Umwelt für zukünftige Generationen zu schützen.",
+              "Japanese": "将来の世代のために、私たちは環境を守るよう協力しなければなりません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "pollution",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/pəˈluːʃn/",
+        "meaning": "Damage caused to water, air, or land by harmful substances.",
+        "synonyms": ["contamination", "dirtiness"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Air pollution is a major problem in many large cities.",
+            "translations": {
+              "Mandarin Chinese": "空气污染是许多大城市的主要问题。",
+              "Hindi": "वायु प्रदूषण कई बड़े शहरों में एक बड़ी समस्या है।",
+              "Spanish": "La contaminación del aire es un problema importante en muchas ciudades grandes.",
+              "Standard Arabic": "تلوث الهواء مشكلة كبيرة في العديد من المدن الكبرى.",
+              "French": "La pollution de l'air est un problème majeur dans de nombreuses grandes villes.",
+              "Bengali": "অনেক বড় শহরে বায়ু দূষণ একটি প্রধান সমস্যা।",
+              "Portuguese": "A poluição do ar é um grande problema em muitas cidades grandes.",
+              "Russian": "Загрязнение воздуха — серьезная проблема во многих крупных городах.",
+              "Urdu": "فضائی آلودگی بہت سے بڑے شہروں میں ایک بڑا مسئلہ ہے۔",
+              "Indonesian": "Polusi udara adalah masalah utama di banyak kota besar.",
+              "Standard German": "Luftverschmutzung ist ein großes Problem in vielen Großstädten.",
+              "Japanese": "大気汚染は多くの大都市において主要な問題です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "recycle",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˌriːˈsaɪkl/",
+        "meaning": "To treat used objects or materials so that they can be used again.",
+        "synonyms": ["reprocess", "reuse"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please remember to recycle your paper and plastic bottles.",
+            "translations": {
+              "Mandarin Chinese": "请记得回收纸张和塑料瓶。",
+              "Hindi": "कृपया अपने कागज और प्लास्टिक की बोतलों को रीसायकल करना याद रखें।",
+              "Spanish": "Por favor, recuerda reciclar tu papel y botellas de plástico.",
+              "Standard Arabic": "يرجى تذكر إعادة تدوير الورق والزجاجات البلاستيكية الخاصة بك.",
+              "French": "N'oubliez pas de recycler vos papiers et vos bouteilles en plastique.",
+              "Bengali": "অনুগ্রহ করে আপনার কাগজ এবং প্লাস্টিকের বোতলগুলো রিসাইকেল করতে মনে রাখবেন।",
+              "Portuguese": "Por favor, lembre-se de reciclar seu papel e garrafas plásticas.",
+              "Russian": "Пожалуйста, не забывайте сдавать на переработку бумагу и пластиковые бутылки.",
+              "Urdu": "براہ کرم اپنے کاغذ اور پلاسٹک کی بوتلوں کو ری سائیکل کرنا یاد رکھیں۔",
+              "Indonesian": "Harap ingat untuk mendaur ulang kertas dan botol plastik Anda.",
+              "Standard German": "Bitte denken Sie daran, Ihr Papier und Ihre Plastikflaschen zu recyceln.",
+              "Japanese": "紙やペットボトルをリサイクルすることを忘れないでください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "plastic",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun / adjective",
+        "pronunciation": "/ˈplæstɪk/",
+        "meaning": "A lightweight material that is made by a chemical process and can be formed into many shapes.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We are trying to reduce the amount of plastic we use every day.",
+            "translations": {
+              "Mandarin Chinese": "我们正在尝试减少每天使用的塑料数量。",
+              "Hindi": "हम हर दिन इस्तेमाल होने वाले प्लास्टिक की मात्रा को कम करने की कोशिश कर रहे हैं।",
+              "Spanish": "Estamos intentando reducir la cantidad de plástico que usamos cada día.",
+              "Standard Arabic": "نحن نحاول تقليل كمية البلاستيك التي نستخدمها كل يوم.",
+              "French": "Nous essayons de réduire la quantité de plastique que nous utilisons chaque jour.",
+              "Bengali": "আমরা প্রতিদিন যে পরিমাণ প্লাস্টিক ব্যবহার করি তা কমানোর চেষ্টা করছি।",
+              "Portuguese": "Estamos tentando reduzir a quantidade de plástico que usamos todos os dias.",
+              "Russian": "Мы стараемся уменьшить количество пластика, который используем каждый день.",
+              "Urdu": "ہم ہر روز استعمال ہونے والے پلاسٹک کی مقدار کو کم کرنے کی کوشش کر رہے ہیں۔",
+              "Indonesian": "Kami mencoba mengurangi jumlah plastik yang kami gunakan setiap hari.",
+              "Standard German": "Wir versuchen, die Menge an Plastik, die wir täglich verwenden, zu reduzieren.",
+              "Japanese": "私たちは毎日使用するプラスチックの量を減らそうとしています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "weather forecast",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈweðər fɔːrkæst/",
+        "meaning": "A report that says what the weather will be like in the future.",
+        "synonyms": ["weather report"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "According to the weather forecast, it will rain tomorrow afternoon.",
+            "translations": {
+              "Mandarin Chinese": "根据天气预报，明天下午会有雨。",
+              "Hindi": "मौसम के पूर्वानुमान के अनुसार, कल दोपहर बारिश होगी।",
+              "Spanish": "Según el pronóstico del tiempo, lloverá mañana por la tarde.",
+              "Standard Arabic": "وفقاً لتوقعات الطقس، ستمطر غداً بعد الظهر.",
+              "French": "Selon les prévisions météo, il pleuvra demain après-midi.",
+              "Bengali": "আবহাওয়ার পূর্বাভাস অনুযায়ী, আগামীকাল বিকেলে বৃষ্টি হবে।",
+              "Portuguese": "De acordo com a previsão do tempo, vai chover amanhã à tarde.",
+              "Russian": "Согласно прогнозу погоды, завтра днем будет дождь.",
+              "Urdu": "موسم کی پیش گوئی کے مطابق، کل دوپہر بارش ہوگی۔",
+              "Indonesian": "Menurut prakiraan cuaca, besok sore akan hujan.",
+              "Standard German": "Laut Wettervorhersage wird es morgen Nachmittag regnen.",
+              "Japanese": "天気予報によると、明日の午後は雨が降るでしょう。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "season",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsiːzn/",
+        "meaning": "One of the four periods of the year: spring, summer, autumn, or winter.",
+        "synonyms": ["period", "time of year"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Summer is my favorite season because the weather is warm.",
+            "translations": {
+              "Mandarin Chinese": "夏天是我最喜欢的季节，因为天气很暖和。",
+              "Hindi": "गर्मी मेरा पसंदीदा मौसम है क्योंकि मौसम गर्म होता है।",
+              "Spanish": "El verano es mi estación favorita porque el clima es cálido.",
+              "Standard Arabic": "الصيف هو فصلي المفضل لأن الطقس دافئ.",
+              "French": "L'été est ma saison préférée car il fait chaud.",
+              "Bengali": "গ্রীষ্ম আমার প্রিয় ঋতু কারণ আবহাওয়া উষ্ণ থাকে।",
+              "Portuguese": "O verão é minha estação favorita porque o tempo é quente.",
+              "Russian": "Лето — мое любимое время года, потому что погода теплая.",
+              "Urdu": "موسم گرما میرا پسندیدہ موسم ہے کیونکہ موسم گرم ہوتا ہے۔",
+              "Indonesian": "Musim panas adalah musim favorit saya karena cuacanya hangat.",
+              "Standard German": "Der Sommer ist meine Lieblingsjahreszeit, weil das Wetter warm ist.",
+              "Japanese": "天気が暖かいので、夏が一番好きな季節です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "temperature",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtemprətʃər/",
+        "meaning": "A measurement of how hot or cold something is.",
+        "synonyms": ["heat", "warmth"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The temperature drops significantly during the night in the desert.",
+            "translations": {
+              "Mandarin Chinese": "沙漠里晚上的气温会显著下降。",
+              "Hindi": "रेगिस्तान में रात के समय तापमान काफी गिर जाता है।",
+              "Spanish": "La temperatura desciende significativamente durante la noche en el desierto.",
+              "Standard Arabic": "تنخفض درجة الحرارة بشكل كبير خلال الليل في الصحراء.",
+              "French": "La température baisse de manière significative pendant la nuit dans le désert.",
+              "Bengali": "মরুভূমিতে রাতে তাপমাত্রা উল্লেখযোগ্যভাবে কমে যায়।",
+              "Portuguese": "A temperatura cai significativamente durante a noite no deserto.",
+              "Russian": "В пустыне температура ночью значительно падает.",
+              "Urdu": "صحرا میں رات کے دوران درجہ حرارت کافی گر جاتا ہے۔",
+              "Indonesian": "Suhu turun secara signifikan pada malam hari di gurun.",
+              "Standard German": "Die Temperatur fällt nachts in der Wüste deutlich ab.",
+              "Japanese": "砂漠では夜になると気温が大幅に下がります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "climate",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈklaɪmət/",
+        "meaning": "The general weather conditions usually found in a particular place.",
+        "synonyms": ["weather pattern"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Tropical countries have a warm and humid climate all year round.",
+            "translations": {
+              "Mandarin Chinese": "热带国家全年气候温暖潮湿。",
+              "Hindi": "उष्णकटिबंधीय देशों में साल भर गर्म और आर्द्र जलवायु रहती है।",
+              "Spanish": "Los países tropicales tienen un clima cálido y húmedo durante todo el año.",
+              "Standard Arabic": "تتمتع الدول الاستوائية بمناخ دافئ ورطب طوال العام.",
+              "French": "Les pays tropicaux ont un climat chaud et humide toute l'année.",
+              "Bengali": "গ্রীষ্মমণ্ডলীয় দেশগুলোতে সারা বছর উষ্ণ এবং আর্দ্র জলবায়ু থাকে।",
+              "Portuguese": "Os países tropicais têm um clima quente e úmido durante todo o ano.",
+              "Russian": "В тропических странах круглый год теплый и влажный климат.",
+              "Urdu": "استوائی ممالک میں سارا سال گرم اور مرطوب آب و ہوا رہتی ہے۔",
+              "Indonesian": "Negara-negara tropis memiliki iklim yang hangat dan lembab sepanjang tahun.",
+              "Standard German": "Tropische Länder haben das ganze Jahr über ein warmes und feuchtes Klima.",
+              "Japanese": "熱帯の国々は一年中、温暖で湿潤な気候です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "plant",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/plænt/",
+        "meaning": "A living thing that grows in the earth, such as a tree or flower.",
+        "synonyms": ["vegetation", "flora"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She keeps many small plants in her living room.",
+            "translations": {
+              "Mandarin Chinese": "她在客厅里养了许多小植物。",
+              "Hindi": "वह अपने लिविंग रूम में बहुत सारे छोटे पौधे रखती है।",
+              "Spanish": "Ella mantiene muchas plantas pequeñas en su sala de estar.",
+              "Standard Arabic": "تحتفظ بالعديد من النباتات الصغيرة في غرفة معيشتها.",
+              "French": "Elle garde de nombreuses petites plantes dans son salon.",
+              "Bengali": "সে তার বসার ঘরে অনেক ছোট ছোট গাছ রাখে।",
+              "Portuguese": "Ela mantém muitas plantas pequenas em sua sala de estar.",
+              "Russian": "У нее в гостиной много маленьких растений.",
+              "Urdu": "وہ اپنے لیونگ روم میں بہت سے چھوٹے پودے رکھتی ہے۔",
+              "Indonesian": "Dia menyimpan banyak tanaman kecil di ruang tamunya.",
+              "Standard German": "Sie hat viele kleine Pflanzen in ihrem Wohnzimmer.",
+              "Japanese": "彼女はリビングルームにたくさんの小さな植物を置いています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "flower",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈflaʊər/",
+        "meaning": "The part of a plant that is often colored and produces seeds.",
+        "synonyms": ["blossom", "bloom"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The garden is full of beautiful flowers in the spring.",
+            "translations": {
+              "Mandarin Chinese": "春天花园里开满了美丽的鲜花。",
+              "Hindi": "वसंत ऋतु में बगीचा सुंदर फूलों से भरा होता है।",
+              "Spanish": "El jardín está lleno de hermosas flores en primavera.",
+              "Standard Arabic": "الحديقة مليئة بالزهور الجميلة في فصل الربيع.",
+              "French": "Le jardin est plein de belles fleurs au printemps.",
+              "Bengali": "বসন্তকালে বাগানটি সুন্দর ফুলে ভরে ওঠে।",
+              "Portuguese": "O jardim está cheio de belas flores na primavera.",
+              "Russian": "Весной сад полон прекрасных цветов.",
+              "Urdu": "بہار میں باغ خوبصورت پھولوں سے بھرا ہوتا ہے۔",
+              "Indonesian": "Taman itu penuh dengan bunga-bunga indah di musim semi.",
+              "Standard German": "Der Garten ist im Frühling voller schöner Blumen.",
+              "Japanese": "春になると、庭は美しい花でいっぱいになります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "tree",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/triː/",
+        "meaning": "A tall plant with a hard trunk and many branches.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The children climbed the old tree in the park.",
+            "translations": {
+              "Mandarin Chinese": "孩子们爬上了公园里的那棵老树。",
+              "Hindi": "बच्चों ने पार्क में पुराने पेड़ पर चढ़ाई की।",
+              "Spanish": "Los niños treparon al viejo árbol en el parque.",
+              "Standard Arabic": "تسلق الأطفال الشجرة القديمة في الحديقة.",
+              "French": "Les enfants ont grimpé sur le vieil arbre dans le parc.",
+              "Bengali": "শিশুরা পার্কের পুরনো গাছটিতে উঠেছিল।",
+              "Portuguese": "As crianças subiram na árvore velha do parque.",
+              "Russian": "Дети залезли на старое дерево в парке.",
+              "Urdu": "بچے پارک میں پرانے درخت پر چڑھے۔",
+              "Indonesian": "Anak-anak memanjat pohon tua di taman.",
+              "Standard German": "Die Kinder kletterten auf den alten Baum im Park.",
+              "Japanese": "子供たちは公園の古い木に登りました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "animal",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈænɪml/",
+        "meaning": "A living creature that is not a plant or a human.",
+        "synonyms": ["creature", "beast"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She loves every animal, from small birds to large elephants.",
+            "translations": {
+              "Mandarin Chinese": "她热爱每一种动物，从小鸟到大象。",
+              "Hindi": "वह हर जानवर से प्यार करती है, छोटे पक्षियों से लेकर बड़े हाथियों तक।",
+              "Spanish": "Ella ama a todos los animales, desde pájaros pequeños hasta elefantes grandes.",
+              "Standard Arabic": "إنها تحب كل حيوان، من الطيور الصغيرة إلى الفيلة الكبيرة.",
+              "French": "Elle aime tous les animaux, des petits oiseaux aux grands éléphants.",
+              "Bengali": "সে ছোট পাখি থেকে শুরু করে বড় হাতি পর্যন্ত প্রতিটি প্রাণীকে ভালোবাসে।",
+              "Portuguese": "Ela ama todos os animais, desde pequenos pássaros até grandes elefantes.",
+              "Russian": "Она любит всех животных, от маленьких птиц до больших слонов.",
+              "Urdu": "وہ ہر جانور سے پیار کرتی ہے، چھوٹے پرندوں سے لے کر بڑے ہاتھیوں تک۔",
+              "Indonesian": "Dia mencintai semua hewan, dari burung kecil hingga gajah besar.",
+              "Standard German": "Sie liebt jedes Tier, von kleinen Vögeln bis zu großen Elefanten.",
+              "Japanese": "彼女は小さな鳥から大きな象まで、あらゆる動物を愛しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "nature",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈneɪtʃər/",
+        "meaning": "The physical world and everything in it that is not made by people.",
+        "synonyms": ["the outdoors", "wilderness"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is important to spend time in nature to reduce stress.",
+            "translations": {
+              "Mandarin Chinese": "花时间在大自然中对于减轻压力很重要。",
+              "Hindi": "तनाव कम करने के लिए प्रकृति में समय बिताना महत्वपूर्ण है।",
+              "Spanish": "Es importante pasar tiempo en la naturaleza para reducir el estrés.",
+              "Standard Arabic": "من المهم قضاء الوقت في الطبيعة لتقليل التوتر.",
+              "French": "Il est important de passer du temps dans la nature pour réduire le stress.",
+              "Bengali": "মানসিক চাপ কমাতে প্রকৃতির মাঝে সময় কাটানো গুরুত্বপূর্ণ।",
+              "Portuguese": "É importante passar tempo na natureza para reduzir o estresse.",
+              "Russian": "Важно проводить время на природе, чтобы снизить стресс.",
+              "Urdu": "تناؤ کو کم کرنے کے لیے فطرت میں وقت گزارنا ضروری ہے۔",
+              "Indonesian": "Penting untuk menghabiskan waktu di alam untuk mengurangi stres.",
+              "Standard German": "Es ist wichtig, Zeit in der Natur zu verbringen, um Stress abzubauen.",
+              "Japanese": "ストレスを減らすために自然の中で過ごすことは重要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "earth",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɜːrθ/",
+        "meaning": "The planet we live on; or the soil/ground.",
+        "synonyms": ["the world", "the globe", "soil"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We all have a responsibility to protect the Earth.",
+            "translations": {
+              "Mandarin Chinese": "我们都有责任保护地球。",
+              "Hindi": "हम सभी की पृथ्वी की रक्षा करने की जिम्मेदारी है।",
+              "Spanish": "Todos tenemos la responsabilidad de proteger la Tierra.",
+              "Standard Arabic": "كلنا نتحمل مسؤولية حماية الأرض.",
+              "French": "Nous avons tous la responsabilité de protéger la Terre.",
+              "Bengali": "পৃথিবী রক্ষার দায়িত্ব আমাদের সবার।",
+              "Portuguese": "Todos nós temos a responsabilidade de proteger a Terra.",
+              "Russian": "Мы все несем ответственность за защиту Земли.",
+              "Urdu": "ہم سب کی یہ ذمہ داری ہے کہ زمین کی حفاظت کریں۔",
+              "Indonesian": "Kita semua memiliki tanggung jawab untuk melindungi Bumi.",
+              "Standard German": "Wir alle haben die Verantwortung, die Erde zu schützen.",
+              "Japanese": "私たちには皆、地球を守る責任があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "ocean",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈoʊʃn/",
+        "meaning": "The very large body of salt water that covers most of the Earth.",
+        "synonyms": ["sea", "the deep"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The ocean is home to many different kinds of fish and whales.",
+            "translations": {
+              "Mandarin Chinese": "海洋是许多不同种类的鱼和鲸鱼的家园。",
+              "Hindi": "महासागर कई अलग-अलग प्रकार की मछलियों और व्हेल का घर है।",
+              "Spanish": "El océano es el hogar de muchos tipos diferentes de peces y ballenas.",
+              "Standard Arabic": "المحيط هو موطن للعديد من أنواع الأسماك والحيتان المختلفة.",
+              "French": "L'océan abrite de nombreuses espèces différentes de poissons et de baleines.",
+              "Bengali": "মহাসাগর বিভিন্ন ধরণের মাছ এবং তিমির আবাসস্থল।",
+              "Portuguese": "O oceano é o lar de muitos tipos diferentes de peixes e baleias.",
+              "Russian": "Океан является домом для многих различных видов рыб и китов.",
+              "Urdu": "سمندر مچھلیوں اور وہیل کی کئی مختلف اقسام کا مسکن ہے۔",
+              "Indonesian": "Lautan adalah rumah bagi banyak jenis ikan dan paus yang berbeda.",
+              "Standard German": "Der Ozean ist die Heimat vieler verschiedener Arten von Fischen und Walen.",
+              "Japanese": "海は多くの異なる種類の魚やクジラの住処です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "wildlife",
+        "level": "A2",
+        "category": "Nature & Environment",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwaɪldlaɪf/",
+        "meaning": "Animals and plants that grow or live in wild conditions.",
+        "synonyms": ["fauna and flora"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The national park is protected to preserve the local wildlife.",
+            "translations": {
+              "Mandarin Chinese": "国家公园受到保护，以保存当地的野生动物。",
+              "Hindi": "स्थानीय वन्यजीवों को संरक्षित करने के लिए राष्ट्रीय उद्यान की रक्षा की जाती है।",
+              "Spanish": "El parque nacional está protegido para preservar la vida silvestre local.",
+              "Standard Arabic": "تمت حماية الحديقة الوطنية للحفاظ على الحياة البرية المحلية.",
+              "French": "Le parc national est protégé pour préserver la faune locale.",
+              "Bengali": "স্থানীয় বন্যপ্রাণী সংরক্ষণের জন্য জাতীয় উদ্যানটি সুরক্ষিত রাখা হয়েছে।",
+              "Portuguese": "O parque nacional é protegido para preservar a vida selvagem local.",
+              "Russian": "Национальный парк охраняется для сохранения местной дикой природы.",
+              "Urdu": "قومی پارک کو مقامی جنگلی حیات کے تحفظ کے لیے محفوظ کیا گیا ہے۔",
+              "Indonesian": "Taman nasional dilindungi untuk melestarikan satwa liar setempat.",
+              "Standard German": "Der Nationalpark steht unter Schutz, um die lokale Tierwelt zu bewahren.",
+              "Japanese": "その国立公園は、地元の野生生物を保護するために守られています。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
