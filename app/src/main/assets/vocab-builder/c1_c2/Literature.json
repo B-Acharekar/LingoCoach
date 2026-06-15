@@ -1,0 +1,389 @@
+{
+  "level": "C1-C2",
+  "approx_words": "1200-1500",
+  "source": "Literary Theory & Analysis",
+  "categories": {
+    "Literature": [
+      {
+        "word": "protagonist",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/prəˈtæɡənɪst/",
+        "meaning": "The leading character or one of the major characters in a literary work.",
+        "synonyms": ["hero", "lead", "central figure"],
+        "antonyms": ["antagonist"],
+        "examples": [
+          {
+            "english": "The protagonist's internal moral conflict drives the tension of the entire narrative.",
+            "translations": {
+              "Mandarin Chinese": "主角内心的道德冲突推动了整个叙事的张力。",
+              "Spanish": "El conflicto moral interno del protagonista impulsa la tensión de toda la narrativa."
+            }
+          }
+        ]
+      },
+      {
+        "word": "antagonist",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/ænˈtæɡənɪst/",
+        "meaning": "A person who actively opposes or is hostile to someone or something; an adversary.",
+        "synonyms": ["adversary", "opponent", "villain"],
+        "antonyms": ["protagonist"],
+        "examples": [
+          {
+            "english": "In many classical tragedies, the antagonist is often an extension of the protagonist's own flaws.",
+            "translations": {
+              "Mandarin Chinese": "在许多古典悲剧中，反派往往是主角自身缺陷的延伸。",
+              "Spanish": "En muchas tragedias clásicas, el antagonista suele ser una extensión de las propias fallas del protagonista."
+            }
+          }
+        ]
+      },
+      {
+        "word": "narrative",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈnærətɪv/",
+        "meaning": "A spoken or written account of connected events; a story.",
+        "synonyms": ["tale", "account", "chronicle"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The author employs a non-linear narrative to reflect the fragmented memories of the narrator.",
+            "translations": {
+              "Mandarin Chinese": "作者采用非线性叙事来反映叙述者支离破碎的记忆。",
+              "Spanish": "El autor emplea una narrativa no lineal para reflejar los recuerdos fragmentados del narrador."
+            }
+          }
+        ]
+      },
+      {
+        "word": "symbolism",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɪmbəlɪzəm/",
+        "meaning": "The use of symbols to represent ideas or qualities.",
+        "synonyms": ["representation", "emblematic"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Religious symbolism is pervasive throughout the text, elevating the mundane to the metaphysical.",
+            "translations": {
+              "Mandarin Chinese": "宗教象征主义贯穿全文，将世俗提升至形而上学层面。",
+              "Spanish": "El simbolismo religioso es omnipresente en todo el texto, elevando lo mundano a lo metafísico."
+            }
+          }
+        ]
+      },
+      {
+        "word": "metaphor",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmetəfər/",
+        "meaning": "A figure of speech in which a word or phrase is applied to an object or action to which it is not literally applicable.",
+        "synonyms": ["analogy", "figure of speech"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The extended metaphor of the sea captures the protagonist's overwhelming sense of isolation.",
+            "translations": {
+              "Mandarin Chinese": "关于海洋的扩展隐喻捕捉到了主角压倒性的孤独感。",
+              "Spanish": "La metáfora extendida del mar captura el sentimiento abrumador de aislamiento del protagonista."
+            }
+          }
+        ]
+      },
+      {
+        "word": "theme",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/θiːm/",
+        "meaning": "An idea that recurs in or pervades a work of art or literature.",
+        "synonyms": ["motif", "subject", "core idea"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The central theme of the novel explores the erosion of tradition in a modernizing society.",
+            "translations": {
+              "Mandarin Chinese": "这部小说的中心主题探讨了现代化社会中传统的消蚀。",
+              "Spanish": "El tema central de la novela explora la erosión de la tradición en una sociedad en modernización."
+            }
+          }
+        ]
+      },
+      {
+        "word": "plot development",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/plɒt dɪˈveləpmənt/",
+        "meaning": "The sequence of events where each event affects the next one in the narrative.",
+        "synonyms": ["pacing", "narrative arc"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The plot development in the second act is crucial for establishing the final climax.",
+            "translations": {
+              "Mandarin Chinese": "第二幕的剧情发展对于铺垫最终高潮至关重要。",
+              "Spanish": "El desarrollo de la trama en el segundo acto es crucial para establecer el clímax final."
+            }
+          }
+        ]
+      },
+      {
+        "word": "characterization",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkærəktəraɪˈzeɪʃn/",
+        "meaning": "The creation or construction of a fictional character.",
+        "synonyms": ["portrayal", "depiction"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The author's subtle characterization allows the reader to empathize with even the most flawed individuals.",
+            "translations": {
+              "Mandarin Chinese": "作者细腻的人物刻画使读者即使对最有缺陷的人物也能产生共鸣。",
+              "Spanish": "La caracterización sutil del autor permite al lector empatizar incluso con los individuos más imperfectos."
+            }
+          }
+        ]
+      },
+      {
+        "word": "poetry",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpoʊətri/",
+        "meaning": "Literary work in which special intensity is given to the expression of feelings and ideas by the use of distinctive style and rhythm.",
+        "synonyms": ["verse", "lyricism"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Modernist poetry often abandoned traditional meter in favor of free verse.",
+            "translations": {
+              "Mandarin Chinese": "现代主义诗歌经常放弃传统格律，转而采用自由诗。",
+              "Spanish": "La poesía modernista a menudo abandonó la métrica tradicional en favor del verso libre."
+            }
+          }
+        ]
+      },
+      {
+        "word": "novel",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈnɒvl/",
+        "meaning": "A fictitious prose narrative of book length.",
+        "synonyms": ["fiction", "prose work"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The 19th-century social novel served as a lens through which to examine class inequalities.",
+            "translations": {
+              "Mandarin Chinese": "19世纪的社会小说充当了审视阶级不平等的透镜。",
+              "Spanish": "La novela social del siglo XIX sirvió como una lente a través de la cual examinar las desigualdades de clase."
+            }
+          }
+        ]
+      },
+      {
+        "word": "dramatic irony",
+        "level": "C2",
+        "category": "Literature",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/drəˈmætɪk ˈaɪrəni/",
+        "meaning": "Irony that is inherent in speeches or a situation of a drama and is understood by the audience but not grasped by the characters in the play.",
+        "synonyms": ["tragic irony"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The playwright makes masterful use of dramatic irony to heighten the suspense leading up to the catastrophe.",
+            "translations": {
+              "Mandarin Chinese": "剧作家巧妙地运用戏剧反讽来加剧通向灾难的悬念。",
+              "Spanish": "El dramaturgo hace un uso magistral de la ironía dramática para aumentar el suspenso que conduce a la catástrofe."
+            }
+          }
+        ]
+      },
+      {
+        "word": "literary device",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈlɪtərəri dɪˈvaɪs/",
+        "meaning": "Techniques that a writer uses to produce a special effect in their writing.",
+        "synonyms": ["rhetorical device", "figure of speech"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Alliteration and assonance are common literary devices used to create rhythm in poetry.",
+            "translations": {
+              "Mandarin Chinese": "头韵和元音重复是诗歌中用来创造节奏的常见文学手法。",
+              "Spanish": "La aliteración y la asonancia son recursos literarios comunes utilizados para crear ritmo en la poesía."
+            }
+          }
+        ]
+      },
+      {
+        "word": "allusion",
+        "level": "C2",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈluːʒn/",
+        "meaning": "An expression designed to call something to mind without mentioning it explicitly; an indirect or passing reference.",
+        "synonyms": ["reference", "citation", "suggestion"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The poem is filled with classical allusions that require deep knowledge of mythology.",
+            "translations": {
+              "Mandarin Chinese": "这首诗充满了需要深刻神话学知识才能理解的古典典故。",
+              "Spanish": "El poema está lleno de alusiones clásicas que requieren un profundo conocimiento de la mitología."
+            }
+          }
+        ]
+      },
+      {
+        "word": "imagery",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɪmɪdʒəri/",
+        "meaning": "Visually descriptive or figurative language in a literary work.",
+        "synonyms": ["depiction", "vivid description"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The haunting imagery of the battlefield evokes a visceral sense of grief.",
+            "translations": {
+              "Mandarin Chinese": "战场上令人难忘的意象唤起了一种直觉上的悲伤感。",
+              "Spanish": "La inquietante imaginería del campo de batalla evoca un sentido visceral de dolor."
+            }
+          }
+        ]
+      },
+      {
+        "word": "tone",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/toʊn/",
+        "meaning": "The general character or attitude of a place, piece of writing, or situation.",
+        "synonyms": ["mood", "atmosphere", "tenor"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The satirical tone of the essay serves to critique the political apathy of the era.",
+            "translations": {
+              "Mandarin Chinese": "这篇文章的讽刺基调旨在批判那个时代的政治冷漠。",
+              "Spanish": "El tono satírico del ensayo sirve para criticar la apatía política de la época."
+            }
+          }
+        ]
+      },
+      {
+        "word": "satire",
+        "level": "C2",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsætaɪər/",
+        "meaning": "The use of humor, irony, exaggeration, or ridicule to expose and criticize people's stupidity or vices.",
+        "synonyms": ["parody", "mockery", "irony"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Through sharp satire, the author unmasks the hypocrisy embedded within the institutional elite.",
+            "translations": {
+              "Mandarin Chinese": "通过尖锐的讽刺，作者揭露了制度精英内部的虚伪。",
+              "Spanish": "A través de una sátira aguda, el autor desenmascara la hipocresía incrustada dentro de la élite institucional."
+            }
+          }
+        ]
+      },
+      {
+        "word": "foreshadowing",
+        "level": "C2",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/fɔːrˈʃædoʊɪŋ/",
+        "meaning": "A warning or indication of a future event.",
+        "synonyms": ["omen", "premonition", "portent"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The stormy weather at the start of the book functions as foreshadowing for the impending tragedy.",
+            "translations": {
+              "Mandarin Chinese": "书开头的暴风雨天气暗示了即将来临的悲剧。",
+              "Spanish": "El clima tormentoso al principio del libro funciona como presagio de la tragedia inminente."
+            }
+          }
+        ]
+      },
+      {
+        "word": "narrator",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈnæreɪtər/",
+        "meaning": "A person who narrates something, especially a character who recounts the events of a novel or narrative poem.",
+        "synonyms": ["storyteller", "speaker"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The unreliable narrator forces the reader to constantly question the validity of the events being recounted.",
+            "translations": {
+              "Mandarin Chinese": "不可靠的叙述者迫使读者不断质疑所叙述事件的真实性。",
+              "Spanish": "El narrador poco confiable obliga al lector a cuestionar constantemente la validez de los eventos que se están contando."
+            }
+          }
+        ]
+      },
+      {
+        "word": "classical literature",
+        "level": "C1",
+        "category": "Literature",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈklæsɪkl ˈlɪtərətʃər/",
+        "meaning": "Literature from the ancient Greek and Roman periods, or works widely considered to be of lasting merit.",
+        "synonyms": ["the classics", "canon"],
+        "antonyms": ["contemporary literature"],
+        "examples": [
+          {
+            "english": "Studying classical literature provides a foundation for understanding the archetypes prevalent in modern storytelling.",
+            "translations": {
+              "Mandarin Chinese": "研究古典文学为理解现代叙事中流行的原型提供了基础。",
+              "Spanish": "Estudiar literatura clásica proporciona una base para comprender los arquetipos prevalentes en la narrativa moderna."
+            }
+          }
+        ]
+      },
+      {
+        "word": "literary criticism",
+        "level": "C2",
+        "category": "Literature",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈlɪtərəri ˈkrɪtɪsɪzəm/",
+        "meaning": "The study, evaluation, and interpretation of literature.",
+        "synonyms": ["critical theory", "literary analysis"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Post-colonial literary criticism has fundamentally reshaped how we analyze canonical works.",
+            "translations": {
+              "Mandarin Chinese": "后殖民文学批评从根本上重塑了我们分析正典作品的方式。",
+              "Spanish": "La crítica literaria poscolonial ha remodelado fundamentalmente la forma en que analizamos las obras canónicas."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

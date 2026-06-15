@@ -1,0 +1,449 @@
+{
+  "level": "B2-C1",
+  "approx_words": "800-1200",
+  "source": "Emotional Intelligence & Psychological Well-being",
+  "categories": {
+    "Advanced Emotions": [
+      {
+        "word": "frustrated",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈfrʌstreɪtɪd/",
+        "meaning": "Feeling or expressing distress and annoyance, especially because of inability to change or achieve something.",
+        "synonyms": ["exasperated", "thwarted"],
+        "antonyms": ["satisfied", "content"],
+        "examples": [
+          {
+            "english": "He felt frustrated because his progress was slower than expected.",
+            "translations": {
+              "Mandarin Chinese": "由于进展比预期的慢，他感到很沮丧。",
+              "Hindi": "उसे निराशा महसूस हुई क्योंकि उसकी प्रगति उम्मीद से धीमी थी।",
+              "Spanish": "Se sintió frustrado porque su progreso era más lento de lo esperado.",
+              "French": "Il s'est senti frustré car ses progrès étaient plus lents que prévu.",
+              "Japanese": "進捗が予想よりも遅かったため、彼はイライラした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "overwhelmed",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˌoʊvərˈwelmd/",
+        "meaning": "Buried or drowned beneath a huge mass; having a strong emotional effect that is difficult to resist or deal with.",
+        "synonyms": ["swamped", "overloaded"],
+        "antonyms": ["composed", "relaxed"],
+        "examples": [
+          {
+            "english": "She was overwhelmed by the amount of work she had to finish.",
+            "translations": {
+              "Mandarin Chinese": "她被必须完成的工作量压得喘不过气来。",
+              "Hindi": "वह काम के बोझ से दब गई थी जिसे उसे पूरा करना था।",
+              "Spanish": "Estaba abrumada por la cantidad de trabajo que tenía que terminar.",
+              "French": "Elle était submergée par la quantité de travail qu'elle devait finir.",
+              "Japanese": "彼女は終わらせなければならない仕事の量に圧倒された。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "grateful",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈɡreɪtfl/",
+        "meaning": "Feeling or showing an appreciation of kindness; thankful.",
+        "synonyms": ["thankful", "appreciative"],
+        "antonyms": ["ungrateful", "thankless"],
+        "examples": [
+          {
+            "english": "I am deeply grateful for your help during this difficult time.",
+            "translations": {
+              "Mandarin Chinese": "我非常感谢你在这一困难时刻提供的帮助。",
+              "Hindi": "मैं इस कठिन समय में आपकी मदद के लिए बहुत आभारी हूँ।",
+              "Spanish": "Estoy profundamente agradecido por tu ayuda durante este momento difícil.",
+              "French": "Je suis profondément reconnaissant pour votre aide pendant cette période difficile.",
+              "Japanese": "この困難な時期におけるあなたの助けに深く感謝しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "disappointed",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˌdɪsəˈpɔɪntɪd/",
+        "meaning": "Sad or displeased because someone or something has failed to fulfill one's hopes or expectations.",
+        "synonyms": ["let down", "dissatisfied"],
+        "antonyms": ["satisfied", "pleased"],
+        "examples": [
+          {
+            "english": "He was disappointed with his exam results.",
+            "translations": {
+              "Mandarin Chinese": "他对自己的考试成绩感到失望。",
+              "Hindi": "वह अपने परीक्षा परिणामों से निराश था।",
+              "Spanish": "Estaba decepcionado con sus resultados de los exámenes.",
+              "French": "Il était déçu de ses résultats d'examen.",
+              "Japanese": "彼は試験の結果にがっかりした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "anxious",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈæŋkʃəs/",
+        "meaning": "Experiencing worry, unease, or nervousness, typically about an imminent event or something with an uncertain outcome.",
+        "synonyms": ["worried", "apprehensive"],
+        "antonyms": ["calm", "confident"],
+        "examples": [
+          {
+            "english": "She felt anxious about the upcoming job interview.",
+            "translations": {
+              "Mandarin Chinese": "她对即将到来的求职面试感到焦虑。",
+              "Hindi": "वह आगामी नौकरी के साक्षात्कार को लेकर चिंतित महसूस कर रही थी।",
+              "Spanish": "Se sintió ansiosa por la próxima entrevista de trabajo.",
+              "French": "Elle se sentait anxieuse à propos de l'entretien d'embauche à venir.",
+              "Japanese": "彼女は今度の就職面接について不安を感じていた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "motivated",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈmoʊtɪveɪtɪd/",
+        "meaning": "Possessing a strong reason to act or accomplish a goal.",
+        "synonyms": ["driven", "inspired"],
+        "antonyms": ["unmotivated", "apathetic"],
+        "examples": [
+          {
+            "english": "Seeing her colleagues succeed kept her highly motivated.",
+            "translations": {
+              "Mandarin Chinese": "看到同事们的成功，她保持了高度的动力。",
+              "Hindi": "अपने सहयोगियों को सफल होते देखकर वह अत्यधिक प्रेरित रही।",
+              "Spanish": "Ver a sus colegas tener éxito la mantuvo altamente motivada.",
+              "French": "Voir ses collègues réussir l'a maintenue très motivée.",
+              "Japanese": "同僚が成功するのを見て、彼女は高いモチベーションを維持した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "ashamed",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/əˈʃeɪmd/",
+        "meaning": "Embarrassed or guilty because of one's actions, characteristics, or associations.",
+        "synonyms": ["guilty", "remorseful"],
+        "antonyms": ["proud"],
+        "examples": [
+          {
+            "english": "He felt ashamed of his rude behavior at the meeting.",
+            "translations": {
+              "Mandarin Chinese": "他对自己在会议上的无礼行为感到羞愧。",
+              "Hindi": "वह बैठक में अपने अशिष्ट व्यवहार पर शर्मिंदा था।",
+              "Spanish": "Se sintió avergonzado de su comportamiento grosero en la reunión.",
+              "French": "Il avait honte de son comportement grossier lors de la réunion.",
+              "Japanese": "彼は会議での自分の失礼な態度を恥じた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "relieved",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/rɪˈliːvd/",
+        "meaning": "Feeling happiness that a distressing or difficult situation has ended or has not happened.",
+        "synonyms": ["reassured", "at ease"],
+        "antonyms": ["worried", "distressed"],
+        "examples": [
+          {
+            "english": "I was so relieved to hear that everyone was safe.",
+            "translations": {
+              "Mandarin Chinese": "听到每个人都安全的消息，我感到非常宽慰。",
+              "Hindi": "यह सुनकर मुझे बहुत राहत मिली कि सब सुरक्षित हैं।",
+              "Spanish": "Me sentí tan aliviado al saber que todos estaban a salvo.",
+              "French": "J'étais tellement soulagé d'apprendre que tout le monde était en sécurité.",
+              "Japanese": "みんなが無事だと聞いて、とても安心した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "jealous",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈdʒeləs/",
+        "meaning": "Feeling or showing envy of someone or their achievements and advantages.",
+        "synonyms": ["envious", "resentful"],
+        "antonyms": ["generous", "content"],
+        "examples": [
+          {
+            "english": "It is easy to become jealous of someone else's success.",
+            "translations": {
+              "Mandarin Chinese": "很容易对别人的成功感到嫉妒。",
+              "Hindi": "किसी और की सफलता से ईर्ष्या करना आसान है।",
+              "Spanish": "Es fácil sentir celos del éxito de otra persona.",
+              "French": "Il est facile d'être jaloux de la réussite de quelqu'un d'autre.",
+              "Japanese": "他人の成功を羨ましく思うのは簡単だ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "guilty",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈɡɪlti/",
+        "meaning": "Culpable of or responsible for a specified wrongdoing; feeling regret.",
+        "synonyms": ["remorseful", "sorry"],
+        "antonyms": ["innocent"],
+        "examples": [
+          {
+            "english": "She felt guilty about forgetting her friend's birthday.",
+            "translations": {
+              "Mandarin Chinese": "她因为忘记了朋友的生日而感到内疚。",
+              "Hindi": "वह अपने दोस्त का जन्मदिन भूलने पर दोषी महसूस कर रही थी।",
+              "Spanish": "Se sintió culpable por olvidar el cumpleaños de su amiga.",
+              "French": "Elle se sentait coupable d'avoir oublié l'anniversaire de son amie.",
+              "Japanese": "彼女は友達の誕生日を忘れてしまったことに罪悪感を覚えた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "conflicted",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/kənˈflɪktɪd/",
+        "meaning": "Having or showing confused and mutually contradictory feelings.",
+        "synonyms": ["torn", "undecided"],
+        "antonyms": ["resolved", "decisive"],
+        "examples": [
+          {
+            "english": "I feel conflicted about accepting the new job offer.",
+            "translations": {
+              "Mandarin Chinese": "对于接受这份新工作邀请，我感到很纠结。",
+              "Hindi": "मैं नई नौकरी का प्रस्ताव स्वीकार करने को लेकर द्वंद्व महसूस कर रहा हूँ।",
+              "Spanish": "Me siento en conflicto sobre aceptar la nueva oferta de trabajo.",
+              "French": "Je me sens tiraillé à l'idée d'accepter la nouvelle offre d'emploi.",
+              "Japanese": "新しい仕事のオファーを受けるかどうか、気持ちが揺れ動いている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "satisfied",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈsætɪsfaɪd/",
+        "meaning": "Contented; pleased because you have what you wanted or needed.",
+        "synonyms": ["content", "fulfilled"],
+        "antonyms": ["dissatisfied", "disappointed"],
+        "examples": [
+          {
+            "english": "After years of hard work, he felt truly satisfied with his career.",
+            "translations": {
+              "Mandarin Chinese": "经过多年的努力工作，他对自己事业感到非常满足。",
+              "Hindi": "सालों की कड़ी मेहनत के बाद, वह अपने करियर से वास्तव में संतुष्ट महसूस करता था।",
+              "Spanish": "Después de años de arduo trabajo, se sintió verdaderamente satisfecho con su carrera.",
+              "French": "Après des années de travail acharné, il s'est senti vraiment satisfait de sa carrière.",
+              "Japanese": "長年の懸命な努力の末、彼は自分のキャリアに心から満足した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "heartbroken",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈhɑːrtbroʊkən/",
+        "meaning": "Suffering from overwhelming distress; broken-hearted.",
+        "synonyms": ["devastated", "grief-stricken"],
+        "antonyms": ["happy", "joyful"],
+        "examples": [
+          {
+            "english": "She was heartbroken when her dog passed away.",
+            "translations": {
+              "Mandarin Chinese": "当她的狗去世时，她感到心碎。",
+              "Hindi": "जब उसका कुत्ता मर गया तो वह बहुत दुखी थी।",
+              "Spanish": "Estaba desconsolada cuando su perro falleció.",
+              "French": "Elle avait le cœur brisé lorsque son chien est décédé.",
+              "Japanese": "彼女は愛犬が亡くなった時、悲しみに打ちひしがれた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "insecure",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˌɪnsɪˈkjʊr/",
+        "meaning": "Uncertain or anxious about oneself; lacking confidence.",
+        "synonyms": ["self-doubting", "anxious"],
+        "antonyms": ["confident", "secure"],
+        "examples": [
+          {
+            "english": "He felt insecure in his position at the new company.",
+            "translations": {
+              "Mandarin Chinese": "他在新公司的职位上感到没有安全感。",
+              "Hindi": "वह नई कंपनी में अपनी स्थिति को लेकर असुरक्षित महसूस करता था।",
+              "Spanish": "Se sentía inseguro en su puesto en la nueva empresa.",
+              "French": "Il se sentait peu sûr de lui dans son poste au sein de la nouvelle entreprise.",
+              "Japanese": "彼は新しい会社での自分の立ち位置に不安を感じていた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "determined",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/dɪˈtɜːrmɪnd/",
+        "meaning": "Having made a firm decision and being resolved not to change it.",
+        "synonyms": ["resolute", "focused"],
+        "antonyms": ["hesitant", "uncertain"],
+        "examples": [
+          {
+            "english": "She is determined to learn a new language this year.",
+            "translations": {
+              "Mandarin Chinese": "她决心今年学习一门新语言。",
+              "Hindi": "वह इस साल एक नई भाषा सीखने के लिए दृढ़ है।",
+              "Spanish": "Está decidida a aprender un nuevo idioma este año.",
+              "French": "Elle est déterminée à apprendre une nouvelle langue cette année.",
+              "Japanese": "彼女は今年、新しい言語を学ぶと決意している。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "lonely",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈloʊnli/",
+        "meaning": "Sad because one has no friends or company.",
+        "synonyms": ["isolated", "solitary"],
+        "antonyms": ["sociable", "content"],
+        "examples": [
+          {
+            "english": "Even in a crowded room, she sometimes felt lonely.",
+            "translations": {
+              "Mandarin Chinese": "即使在拥挤的房间里，她有时也会感到孤独。",
+              "Hindi": "भीड़ भरे कमरे में भी, वह कभी-कभी अकेलापन महसूस करती थी।",
+              "Spanish": "Incluso en una habitación llena de gente, a veces se sentía sola.",
+              "French": "Même dans une pièce bondée, elle se sentait parfois seule.",
+              "Japanese": "混雑した部屋にいても、彼女は時々孤独を感じた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "enthusiastic",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ɪnˌθuːziˈæstɪk/",
+        "meaning": "Having or showing intense and eager enjoyment, interest, or approval.",
+        "synonyms": ["eager", "keen"],
+        "antonyms": ["apathetic", "uninterested"],
+        "examples": [
+          {
+            "english": "The students were enthusiastic about the new project.",
+            "translations": {
+              "Mandarin Chinese": "学生们对这个新项目非常热情。",
+              "Hindi": "छात्र नई परियोजना को लेकर उत्साहित थे।",
+              "Spanish": "Los estudiantes estaban entusiasmados con el nuevo proyecto.",
+              "French": "Les étudiants étaient enthousiastes à propos du nouveau projet.",
+              "Japanese": "学生たちは新しいプロジェクトに熱心に取り組んでいた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "nostalgic",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/nəˈstældʒɪk/",
+        "meaning": "Characterized by or exhibiting feelings of longing for the past.",
+        "synonyms": ["wistful", "sentimental"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Looking at old photos always makes me feel nostalgic.",
+            "translations": {
+              "Mandarin Chinese": "看老照片总是让我感到怀旧。",
+              "Hindi": "पुरानी तस्वीरें देखना हमेशा मुझे पुरानी यादों से भर देता है।",
+              "Spanish": "Mirar fotos antiguas siempre me hace sentir nostálgico.",
+              "French": "Regarder de vieilles photos me rend toujours nostalgique.",
+              "Japanese": "古い写真を見ると、いつも懐かしい気分になる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "sympathetic",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˌsɪmpəˈθetɪk/",
+        "meaning": "Feeling, showing, or expressing sympathy.",
+        "synonyms": ["compassionate", "caring"],
+        "antonyms": ["unsympathetic", "indifferent"],
+        "examples": [
+          {
+            "english": "He was very sympathetic when I told him my problems.",
+            "translations": {
+              "Mandarin Chinese": "当我告诉他我的烦恼时，他表现得非常同情。",
+              "Hindi": "जब मैंने उसे अपनी समस्याएं बताईं तो वह बहुत सहानुभूतिपूर्ण था।",
+              "Spanish": "Fue muy comprensivo cuando le conté mis problemas.",
+              "French": "Il a été très compréhensif quand je lui ai raconté mes problèmes.",
+              "Japanese": "私が悩みを打ち明けると、彼はとても同情的だった。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "emotionally exhausted",
+        "level": "B2",
+        "category": "Advanced Emotions",
+        "part_of_speech": "adjective phrase",
+        "pronunciation": "/ɪˈmoʊʃənəli ɪɡˈzɔːstɪd/",
+        "meaning": "Feeling drained or depleted of energy due to prolonged emotional stress.",
+        "synonyms": ["drained", "burned out"],
+        "antonyms": ["refreshed", "energized"],
+        "examples": [
+          {
+            "english": "After weeks of dealing with the crisis, she felt emotionally exhausted.",
+            "translations": {
+              "Mandarin Chinese": "在处理了数周的危机后，她感到情绪上精疲力竭。",
+              "Hindi": "संकट से निपटने के हफ्तों के बाद, वह भावनात्मक रूप से थक गई थी।",
+              "Spanish": "Después de semanas de lidiar con la crisis, se sintió emocionalmente agotada.",
+              "French": "Après des semaines à gérer la crise, elle se sentait émotionnellement épuisée.",
+              "Japanese": "危機への対応に追われた数週間の後、彼女は精神的に疲れ果てていた。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

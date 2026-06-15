@@ -1,0 +1,589 @@
+{
+  "level": "B1",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Communication": [
+      {
+        "word": "express",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/ɪkˈspres/",
+        "meaning": "To convey a thought, feeling, or idea in words, gestures, or conduct.",
+        "synonyms": ["convey", "state", "utter"],
+        "antonyms": ["suppress", "hide"],
+        "examples": [
+          {
+            "english": "It is important to express your ideas clearly during a team discussion.",
+            "translations": {
+              "Mandarin Chinese": "在团队讨论中清晰地表达你的想法非常重要。",
+              "Hindi": "टीम चर्चा के दौरान अपने विचारों को स्पष्ट रूप से व्यक्त करना महत्वपूर्ण है।",
+              "Spanish": "Es importante expresar tus ideas con claridad durante una discusión en equipo.",
+              "Standard Arabic": "من المهم أن تعبر عن أفكارك بوضوح خلال مناقشة الفريق.",
+              "French": "Il est important d'exprimer clairement vos idées lors d'une discussion d'équipe.",
+              "Bengali": "টিম আলোচনার সময় আপনার ধারণাগুলি স্পষ্টভাবে প্রকাশ করা গুরুত্বপূর্ণ।",
+              "Portuguese": "É importante expressar suas ideias claramente durante uma discussão em equipe.",
+              "Russian": "Важно четко выражать свои идеи во время командного обсуждения.",
+              "Urdu": "ٹیم کے مباحثے کے दौरान अपने ख्यालात का वाज़ेह इज़हार करना ज़रूरी है।",
+              "Indonesian": "Penting untuk mengekspresikan ide-ide Anda dengan jelas selama diskusi tim.",
+              "Standard German": "Es ist wichtig, seine Ideen während einer Teamdiskussion klar auszudrücken.",
+              "Japanese": "チームの話し合いでは、自分の考えを明確に表現することが重要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "debate",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈbeɪt/",
+        "meaning": "A formal discussion on a particular topic in a public meeting, in which opposing arguments are put forward.",
+        "synonyms": ["discussion", "argument", "dispute"],
+        "antonyms": ["agreement", "harmony"],
+        "examples": [
+          {
+            "english": "The committee held an intense debate about the new system architecture regulations.",
+            "translations": {
+              "Mandarin Chinese": "委员会就新的系统架构规定进行了激烈的辩论。",
+              "Hindi": "समिति ने नए सिस्टम आर्किटेक्चर नियमों के बारे में एक गहन बहस की।",
+              "Spanish": "El comité mantuvo un intenso debate sobre las nuevas regulaciones de arquitectura del sistema.",
+              "Standard Arabic": "عقدت اللجنة نقاشاً مكثفاً حول لوائح هندسة النظام الجديدة.",
+              "French": "Le comité a tenu un débat intense sur les nouvelles réglementations de l'architecture du système.",
+              "Bengali": "কমিটি নতুন সিস্টেম আর্কিটেকচার নিয়মকানুন নিয়ে একটি তীব্র বিতর্ক করেছে।",
+              "Portuguese": "O comitê realizou un intenso debate sobre os novos regulamentos de arquitetura de sistema.",
+              "Russian": "Комитет провел интенсивные дебаты по поводу новых правил системной архитектуры.",
+              "Urdu": "کمیटी ने नए सिस्टम् आर्किटेक्चर के कवान्नीन के बारे में एक शदीद बहस की।",
+              "Indonesian": "Komite mengadakan debat sengit tentang peraturan arsitektur sistem yang baru.",
+              "Standard German": "Der Ausschuss führte eine intensive Debatte über die neuen Systemarchitektur-Richtlinien.",
+              "Japanese": "委員会は新しいシステムアーキテクチャの規則について激しい討論を行いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "persuade",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/pəˈsweɪd/",
+        "meaning": "To convince someone to do or believe something through reasoning or argument.",
+        "synonyms": ["convince", "influence", "sway"],
+        "antonyms": ["discourage", "dissuade"],
+        "examples": [
+          {
+            "english": "He tried to persuade his teammates to adopt the new responsive interface layout.",
+            "translations": {
+              "Mandarin Chinese": "他试图说服队友采用新的响应式界面布局。",
+              "Hindi": "उन्होंने अपने साथियों को नए रिस्पॉन्सिव इंटरफ़ेस लेआउट को अपनाने के लिए मनाने की कोशिश की।",
+              "Spanish": "Intentó persuadir a sus compañeros de equipo para कि adoptaran el nuevo diseño de interfaz responsiva.",
+              "Standard Arabic": "حاول إقناع زملائه في الفريق بتبني تخطيط الواجهة المتجاوبة الجديد.",
+              "French": "Il a essayé de persuader ses coéquipiers d'adopter la nouvelle disposition d'interface adaptative.",
+              "Bengali": "তিনি তার সতীর্থদের নতুন রেসপনসিভ ইন্টারফেস লেআউট গ্রহণ করার জন্য রাজি করানোর চেষ্টা করেছিলেন।",
+              "Portuguese": "Ele tentou persuadir seus companheiros de equipe a adotar o novo layout de interface responsiva.",
+              "Russian": "Он пытался убедить своих товарищей по команде использовать новый адаптивный макет интерфейса.",
+              "Urdu": "उसने अपने साथियों को नए रिस्पॉन्सिव इंटरफेस लेआउट को अपनाने पर आमादा करने की कोशिश की।",
+              "Indonesian": "Ia mencoba membujuk rekan timnya untuk mengadopsi tata letak antarmuka responsif yang baru.",
+              "Standard German": "Er versuchte, seine Teamkollegen davon zu überzeugen, das neue responsive Interface-Layout zu übernehmen.",
+              "Japanese": "彼はチームメイトを説得して、新しいレスポンシブなインターフェースレイアウトを採用させようとしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "explanation",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌekspləˈneɪʃn/",
+        "meaning": "A statement or account that makes something clear or easy to understand.",
+        "synonyms": ["clarification", "description", "exposition"],
+        "antonyms": ["confusion", "mystification"],
+        "examples": [
+          {
+            "english": "The documentation provides a detailed explanation of how the data sync works.",
+            "translations": {
+              "Mandarin Chinese": "该文档提供了有关数据同步如何工作的详细解释。",
+              "Hindi": "दस्तावेज़ीकरण डेटा सिंक कैसे काम करता है इसका एक विस्तृत विवरण प्रदान करता है।",
+              "Spanish": "La documentación proporciona una explicación detallada de cómo funciona la sincronización de datos.",
+              "Standard Arabic": "يوفر التوثيق شرحاً تفصيلياً لكيفية عمل مزامنة البيانات.",
+              "French": "La documentation fournit une explication détaillée du fonctionnement de la synchronisation des données.",
+              "Bengali": "ডকুমেন্টেশনটি কীভাবে ডেটা সিঙ্ক কাজ করে তার একটি বিশদ ব্যাখ্যা প্রদান করে।",
+              "Portuguese": "A documentação fornece uma explicação detalhada de como funciona a sincronização de dados.",
+              "Russian": "В документации представлено подробное объяснение того, как работает синхронизация данных.",
+              "Urdu": "دستاویزات ڈیٹا سنک کے کام کرنے کے طریقے کی تفصیلی وضاحت فراہم کرتی ہیں۔",
+              "Indonesian": "Dokumentasi tersebut memberikan penjelasan rinci tentang cara kerja sinkronisasi data.",
+              "Standard German": "Die Dokumentation bietet eine detaillierte Erklärung, wie die Datensynchronisation funktioniert.",
+              "Japanese": "ドキュメントには、データ同期がどのように機能するかについての詳細な説明が含まれています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "discussion",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈskʌʃn/",
+        "meaning": "The action or process of talking about something in order to reach a decision or to exchange ideas.",
+        "synonyms": ["conversation", "dialogue", "consultation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We had a long discussion about fixing the system bugs before the release date.",
+            "translations": {
+              "Mandarin Chinese": "在发布日期之前，我们针对修复系统错误进行了长时间的讨论。",
+              "Hindi": "रिलीज़ की तारीख से पहले सिस्टम बग्स को ठीक करने के बारे में हमारी लंबी चर्चा हुई।",
+              "Spanish": "Tuvimos una larga discusión sobre la corrección de los errores del sistema antes de la fecha de lanzamiento.",
+              "Standard Arabic": "أجرينا مناقشة طويلة حول إصلاح أخطاء النظام قبل تاريخ الإصدار.",
+              "French": "Nous avons eu une longue discussion sur la correction des bogues du système avant la date de sortie.",
+              "Bengali": "মুক্তির তারিখের আগে সিস্টেমের বাগগুলি সমাধান করার বিষয়ে আমাদের দীর্ঘ আলোচনা হয়েছিল।",
+              "Portuguese": "Tivemos uma longa discussão sobre a correção dos erros do sistema antes da data de lançamento.",
+              "Russian": "Мы долго обсуждали исправление системных ошибок до даты релиза.",
+              "Urdu": "रिलीज़ की तारीख से पहले सिस्टम बग्स को ठीक करने के बारे में हमारी लंबी बातचीत हुई।",
+              "Indonesian": "Kami melakukan diskusi panjang tentang perbaikan bug sistem sebelum tanggal rilis.",
+              "Standard German": "Wir hatten eine lange Diskussion über die Behebung der Systemfehler vor dem Veröffentlichungsdatum.",
+              "Japanese": "リリース日前にシステムのバグを修正することについて、長い間話し合いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "presentation",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌpreznˈteɪʃn/",
+        "meaning": "A speech or talk in which a new product, idea, or piece of work is shown and explained to an audience.",
+        "synonyms": ["demonstration", "address", "lecture"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Her presentation on AI architecture design systems was highly appreciated by the engineers.",
+            "translations": {
+              "Mandarin Chinese": "她关于人工智能架构设计系统的演讲受到了工程师们的高度赞赏。",
+              "Hindi": "एआई आर्किटेक्चर डिज़ाइन सिस्टम पर उनकी प्रस्तुति की इंजीनियरों द्वारा काफी सराहना की गई।",
+              "Spanish": "Su presentación sobre sistemas de diseño de arquitectura de IA fue muy apreciada por los ingenieros.",
+              "Standard Arabic": "لقي عرضها التقديمي حول أنظمة تصميم هندسة الذكاء الاصطناعي تقديراً كبيراً من قبل المهندسين.",
+              "French": "Sa présentation sur les systèmes de conception d'architecture d'IA a été très appréciée par les ingénieurs.",
+              "Bengali": "এআই আর্কিটেকচার ডিজাইন সিস্টেমের উপর তার প্রেজেন্টেশনটি ইঞ্জিনিয়ারদের দ্বারা অত্যন্ত প্রশংসিত হয়েছিল।",
+              "Portuguese": "Sua apresentação sobre sistemas de design de arquitetura de IA foi muito apreciada pelos engenheiros.",
+              "Russian": "Ее презентация о системах проектирования архитектуры ИИ была высоко оценена инженерами.",
+              "Urdu": "اے آئی آرکیٹیکچر ڈیزائن سسٹمز پر ان کی پریزنٹیشن کو انجینئرز نے بہت سراہا۔",
+              "Indonesian": "Presentasinya tentang sistem desain arsitektur AI sangat dihargai oleh para insinyur.",
+              "Standard German": "Ihre Präsentation über KI-Architektur-Designsysteme wurde von den Ingenieuren sehr geschätzt.",
+              "Japanese": "AIアーキテクチャ設計システムに関する彼女のプレゼンテーションは、エンジニアたちから高く評価されました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "announcement",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈnaʊnsmənt/",
+        "meaning": "A formal public statement about a fact, occurrence, or intention.",
+        "synonyms": ["declaration", "notification", "statement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The college made an announcement regarding the upcoming final-year project deadlines.",
+            "translations": {
+              "Mandarin Chinese": "学院就即将到来的毕业设计截止日期发布了通知。",
+              "Hindi": "कॉलेज ने आगामी अंतिम वर्ष की परियोजना समय सीमा के संबंध में एक घोषणा की।",
+              "Spanish": "La universidad hizo un anuncio sobre los próximos plazos de los proyectos de fin de carrera.",
+              "Standard Arabic": "أصدرت الكلية إعلاناً بشأن المواعيد النهائية لمشاريع السنة النهائية القادمة.",
+              "French": "L'école a fait une annonce concernant les prochaines dates limites des projets de fin d'études.",
+              "Bengali": "কলেজ আসন্ন শেষ বর্ষের প্রজেক্টের সময়সীমা সম্পর্কিত একটি ঘোষণা করেছে।",
+              "Portuguese": "A faculdade fez um anúncio oficial sobre os próximos prazos dos projetos de fim de curso.",
+              "Russian": "Колледж сделал объявление относительно предстоящих сроков сдачи проектов выпускного курса.",
+              "Urdu": "کالج نے آنے والے آخری سال کے پروجیکٹ کی آخری تاریخوں کے بارے میں ایک اعلان کیا۔",
+              "Indonesian": "Kampus membuat pengumuman mengenai tenggat waktu proyek akhir tahun yang akan datang.",
+              "Standard German": "Die Hochschule machte eine Ankündigung bezüglich der bevorstehenden Fristen für die Abschlussprojekte.",
+              "Japanese": "大学は、間近に迫った卒業プロジェクトの提出期限に関するアナウンスを行いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "conversation",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɒnvəˈseɪʃn/",
+        "meaning": "A talk, especially an informal one, between two or more people, in which news and ideas are exchanged.",
+        "synonyms": ["chat", "talk", "dialogue"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I had an interesting conversation with an AI model about user interface aesthetics.",
+            "translations": {
+              "Mandarin Chinese": "我就用户界面美学与一个人工智能模型进行了一场有趣的对话。",
+              "Hindi": "यूज़र इंटरफ़ेस सौंदर्यशास्त्र के बारे में एआई मॉडल के साथ मेरी एक दिलचस्प बातचीत हुई।",
+              "Spanish": "Tuve una conversación interesante con un modelo de IA sobre la estética de la interfaz de usuario.",
+              "Standard Arabic": "أجريت محادثة ممتعة مع نموذج ذكاء اصطناعي حول جماليات واجهة المستخدم.",
+              "French": "J'ai eu une conversation intéressante avec un modèle d'IA sur l'esthétique de l'interface utilisateur.",
+              "Bengali": "ইউজার ইন্টারফেসের নান্দনিকতা নিয়ে একটি এআই মডেলের সাথে আমার একটি আকর্ষণীয় কথোপকথন হয়েছিল।",
+              "Portuguese": "Tive uma conversa interessante con um modelo de IA sobre a estética da interface do usuário.",
+              "Russian": "У меня состоялся интересный разговор с моделью ИИ об эстетике пользовательского интерфейса.",
+              "Urdu": "صارف کے انٹرفेस की खूबसूरती के बारे में एआई मॉडल के साथ मेरी एक दिलचस्प बातचीत हुई।",
+              "Indonesian": "Saya melakukan percakapan menarik dengan model AI tentang estetika antarmuka pengguna.",
+              "Standard German": "Ich hatte ein interessantes Gespräch mit einem KI-Modell über die Ästhetik von Benutzeroberflächen.",
+              "Japanese": "ユーザーインターフェースのデザイン美学について、AIモデルと興味深い会話をしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "feedback",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfiːdbæk/",
+        "meaning": "Information about reactions to a product, a person's performance of a task, etc., used as a basis for improvement.",
+        "synonyms": ["response", "criticism", "assessment"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Constructive feedback from users is essential to refine the keyboard application layout.",
+            "translations": {
+              "Mandarin Chinese": "来自用户的建设性反馈对于优化键盘应用程序布局至关重要。",
+              "Hindi": "कीबोर्ड एप्लिकेशन लेआउट को बेहतर बनाने के लिए उपयोगकर्ताओं से रचनात्मक प्रतिक्रिया आवश्यक है।",
+              "Spanish": "Los comentarios constructivos de los usuarios son esenciales para refinar el diseño de la aplicación de teclado.",
+              "Standard Arabic": "ملاحظات المستخدمين البناءة ضرورية لتحسين تخطيط تطبيق لوحة المفاتيح.",
+              "French": "Les commentaires constructifs des utilisateurs sont essentiels pour affiner la disposition de l'application de clavier.",
+              "Bengali": "কীবোর্ড অ্যাপ্লিকেশনের লেআউট উন্নত করার জন্য ব্যবহারকারীদের কাছ থেকে গঠনমূলক প্রতিক্রিয়া অপরিহার্য।",
+              "Portuguese": "O feedback construtivo dos usuários é essencial para refinar o layout do aplicativo de teclado.",
+              "Russian": "Конструктивная обратная связь от пользователей важна для улучшения макета приложения клавиатуры.",
+              "Urdu": "कीबोर्ड एप्लिकेशन लेआउट को बेहतर बनाने के लिए उपयोगकर्ताओं से तामीरी राय ज़रूरी है।",
+              "Indonesian": "Umpan balik konstruktif dari pengguna sangat penting untuk menyempurnakan tata letak aplikasi papan ketik.",
+              "Standard German": "Konstruktives Feedback von Benutzern ist unerlässlich, um das Layout der Tastaturanwendung zu verfeinern.",
+              "Japanese": "キーボードアプリのレイアウトを洗練させるためには、ユーザーからの建設的なフィードバックが不可欠です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "opinion",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈpɪnjən/",
+        "meaning": "A view or judgment formed about something, not necessarily based on fact or knowledge.",
+        "synonyms": ["belief", "view", "stance"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "In my opinion, high-contrast dark themes offer better visual ergonomics for programming.",
+            "translations": {
+              "Mandarin Chinese": "在我看来，高对比度的暗黑主题为编程提供了更好的视觉人体工程学体验。",
+              "Hindi": "मेरी राय में, उच्च-विपरीत (हाई-कॉन्ट्रास्ट) डार्क थीम प्रोग्रामिंग के लिए बेहतर दृश्य एर्गोनॉमिक्स प्रदान करती हैं।",
+              "Spanish": "En mi opinión, los temas oscuros de alto contraste ofrecen una mejor ergonomía visual para la programación.",
+              "Standard Arabic": "في رأيي، توفر المظاهر الداكنة عالية التباين بيئة عمل بصرية أفضل للبرمجة.",
+              "French": "À mon avis, les thèmes sombres à fort contraste offrent une meilleure ergonomie visuelle pour la programmation.",
+              "Bengali": "আমার মতে, উচ্চ-কন্ট্রাস্টের ডার্ক থিমগুলি প্রোগ্রামিংয়ের জন্য আরও ভাল ভিজ্যুয়াল এরগনোমিক্স সরবরাহ করে।",
+              "Portuguese": "Na minha opinião, os temas escuros de alto contraste oferecem melhor ergonomia visual para a programação.",
+              "Russian": "По моему мнению, высококонтрастные темные темы обеспечивают лучшую визуальную эргономику для программирования.",
+              "Urdu": "मेरी राय में, हाई-कॉन्ट्रास्ट डार्क थीम प्रोग्रामिंग के लिए बेहतर विज़ुअल एर्गोनॉमिक्स प्रदान करती हैं।",
+              "Indonesian": "Menurut pendapat saya, tema gelap kontras tinggi menawarkan ergonomi visual yang lebih baik untuk pemrograman.",
+              "Standard German": "Meiner Meinung nach bieten kontrastreiche dunkle Themes eine bessere visuelle Ergonomie beim Programmieren.",
+              "Japanese": "私の意見では、高コントラストのダークテーマの方がプログラミングにおいて視覚的な人間工学（エルゴノミクス）に優れています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "suggestion",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/səˈdʒestʃən/",
+        "meaning": "An idea or plan put forward for consideration.",
+        "synonyms": ["proposal", "recommendation", "idea"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The mentor made a helpful suggestion to implement an offline fallback database framework.",
+            "translations": {
+              "Mandarin Chinese": "导师提出了一个有用的建议：实现一个离线回退数据库框架。",
+              "Hindi": "संरक्षक (मेंटर) ने एक ऑफ़लाइन फ़ॉलबैक डेटाबेस फ्रेमवर्क लागू करने का एक उपयोगी सुझाव दिया।",
+              "Spanish": "El mentor hizo una sugerencia útil para implementar un marco de base de datos de respaldo sin conexión.",
+              "Standard Arabic": "قدم الموجّه اقتراحاً مفيداً لتنفيذ إطار عمل قاعدة بيانات احتياطية دون اتصال بالإنترنت.",
+              "French": "Le mentor a fait une suggestion utile visant à mettre en œuvre une structure de base de données de secours hors ligne.",
+              "Bengali": "মেন্টর একটি অফলাইন ফলব্যাক ডেটাবেস ফ্রেমওয়ার্ক বাস্তবায়ন করার জন্য একটি দরকারী পরামর্শ দিয়েছিলেন।",
+              "Portuguese": "O mentor fez uma sugestão útil para implementar uma estrutura de banco de datos reserva offline.",
+              "Russian": "Наставник сделал полезное предложение внедрить автономную резервную структуру базы данных.",
+              "Urdu": "मेंटर ने ऑफलाइन फॉलबैक डेटाबेस फ्रेमवर्क लागू करने का एक उपयोगी सुझाव दिया।",
+              "Indonesian": "Mentor memberikan saran yang berguna untuk menerapkan kerangka kerja basis data cadangan luring.",
+              "Standard German": "Der Mentor machte einen hilfreichen Vorschlag zur Implementierung eines Offline-Fallback-Datenbank-Frameworks.",
+              "Japanese": "メンターは、オフラインのフォールバック用データベースフレームワークを実装するという、役立つ提案をしてくれました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "response",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈspɒns/",
+        "meaning": "A verbal or written answer; a reaction to something.",
+        "synonyms": ["reply", "answer", "reaction"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The server response time must be under 100 milliseconds for a smooth software feel.",
+            "translations": {
+              "Mandarin Chinese": "服务器响应时间必须保持在100毫秒以内，以确保流畅的的软件体验。",
+              "Hindi": "सुचारू सॉफ़्टवेयर अनुभव के लिए सर्वर का प्रतिक्रिया समय 100 मिलीसेकंड से कम होना चाहिए।",
+              "Spanish": "El tiempo de respuesta del servidor debe ser inferior a 100 milisegundos para una sensación de software fluida.",
+              "Standard Arabic": "يجب أن يكون وقت استجابة الخادم أقل من 100 ميلي ثانية للحصول على تجربة برمجية سلسة.",
+              "French": "Le temps de réponse du serveur doit être inférieur à 100 millisecondes pour une expérience logicielle fluide.",
+              "Bengali": "মসৃণ সফ্টওয়্যার অভিজ্ঞতার জন্য সার্ভারের রেসপন্স টাইম ১০০ মিলিসেকেন্ডের কম হতে হবে।",
+              "Portuguese": "O tempo de resposta do servidor deve ser inferior a 100 milissegundos para uma sensação de software fluida.",
+              "Russian": "Время ответа сервера должно быть меньше 100 миллисекунд для плавной работы программного обеспечения.",
+              "Urdu": "सहज सॉफ़्टवेयर अनुभव के लिए सर्वर का रिस्पॉन्स टाइम 100 मिलीसेकंड से कम होना चाहिए।",
+              "Indonesian": "Waktu respons server harus di bawah 100 milidetik untuk nuansa perangkat lunak yang lancar.",
+              "Standard German": "Die Server-Antwortzeit muss unter 100 Millisekunden liegen, damit sich die Software flüssig anfühlt.",
+              "Japanese": "スムーズなソフトウェアの操作感を実現するためには、サーバーの応答時間を100ミリ秒未満にする必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "body language",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbɒdi ˈlæŋɡwɪdʒ/",
+        "meaning": "The conscious or unconscious movements and postures by which attitudes and feelings are communicated.",
+        "synonyms": ["gestures", "posture", "non-verbal cues"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "During an interview, your body language can convey confidence and professional intent.",
+            "translations": {
+              "Mandarin Chinese": "在面试中，你的肢体语言可以传递出自信和专业意图。",
+              "Hindi": "साक्षात्कार (इंटरव्यू) के दौरान, आपकी शारीरिक भाषा (बॉडी लैंग्वेज) आत्मविश्वास और पेशेवर इरादे को व्यक्त कर सकती है।",
+              "Spanish": "Durante una entrevista, tu lenguaje corporal puede transmitir confianza e intención profesional.",
+              "Standard Arabic": "أثناء المقابلة، يمكن لغة جسدك أن تعبر عن الثقة والنية المهنية.",
+              "French": "Lors d'un entretien, votre langage corporel peut exprimer votre confiance et vos intentions professionnelles.",
+              "Bengali": "একটি সাক্ষাত্কারের সময়, আপনার বডি ল্যাঙ্গুয়েজ আত্মবিশ্বাস এবং পেশাদার উদ্দেশ্য প্রকাশ করতে পারে।",
+              "Portuguese": "Durante uma entrevista, sua linguagem corporal pode transmitir confiança e intenção profissional.",
+              "Russian": "Во время собеседования язык вашего тела может передавать уверенность и профессиональные намерения.",
+              "Urdu": "انٹرویو کے दौरान آپ کی باڈی لینگویج اعتماد اور پیشہ ورانہ ارادے کو ظاہر کر سکتی ہے۔",
+              "Indonesian": "Selama wawancara, bahasa tubuh Anda dapat menyampaikan rasa percaya diri dan niat profesional.",
+              "Standard German": "Während eines Vorstellungsgesprächs kann Ihre Körpersprache Vertrauen und professionelle Absichten vermitteln.",
+              "Japanese": "面接では、身振り手振り（ボディランゲージ）が自信やプロとしての意気込みを伝えることができます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "tone",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/təʊn/",
+        "meaning": "The general character, attitude, or mood of a piece of writing, speech, or visual design system.",
+        "synonyms": ["pitch", "inflection", "vibe"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The dark user interface design maintains a professional, moody tone.",
+            "translations": {
+              "Mandarin Chinese": "暗黑色的用户界面设计保持了一种专业且深沉的基调。",
+              "Hindi": "डार्क यूज़र इंटरफ़ेस डिज़ाइन एक पेशेवर और गहरा टोन बनाए रखता है।",
+              "Spanish": "El diseño de interfaz de usuario oscura mantiene un tono profesional y melancólico.",
+              "Standard Arabic": "يحافظ تصميم واجهة المستخدم الداكنة على نبرة احترافية وغامضة.",
+              "French": "La conception sombre de l'interface utilisateur conserve un ton professionnel et feutré.",
+              "Bengali": "ডার্ক ইউজার ইন্টারফেস ডিজাইন একটি পেশাদার এবং গভীর টোন বজায় রাখে।",
+              "Portuguese": "O design escuro da interface do usuário mantém um tom profissional e sóbrio.",
+              "Russian": "Темный дизайн пользовательского интерфейса сохраняет профессиональный, глубокий тон.",
+              "Urdu": "ڈارک صارف انٹرفیس ڈیزائن ایک پیشہ ور اور گہرا ٹون برقرار رکھتا ہے۔",
+              "Indonesian": "Desain antarmuka pengguna yang gelap mempertahankan nada profesional dan moody.",
+              "Standard German": "Das dunkle Benutzeroberflächen-Design behält einen professionellen, atmosphärischen Ton bei.",
+              "Japanese": "ダークなユーザーインターフェースデザインは、プロフェッショナルで重厚感のあるトーンを維持しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "formal",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈfɔːml/",
+        "meaning": "Done in accordance with rules of convention or etiquette; suitable for official or important situations.",
+        "synonyms": ["official", "conventional", "proper"],
+        "antonyms": ["informal", "casual"],
+        "examples": [
+          {
+            "english": "You should use a formal tone when writing emails to your project supervisor.",
+            "translations": {
+              "Mandarin Chinese": "向你的项目导师写信时，你应该使用正式的语气。",
+              "Hindi": "अपने प्रोजेक्ट सुपरवाइजर को ईमेल लिखते समय आपको औपचारिक टोन का उपयोग करना चाहिए।",
+              "Spanish": "Debes usar un tono formal al escribir correos electrónicos a tu supervisor de proyecto.",
+              "Standard Arabic": "يجب عليك استخدام نبرة رسمية عند كتابة رسائل البريد الإلكتروني إلى مشرف مشروعك.",
+              "French": "Vous devez utiliser un ton formel lorsque vous écrivez des courriels à votre superviseur de projet.",
+              "Bengali": "আপনার প্রজেক্ট সুপারিভাইজারকে ইমেল লেখার সময় আপনার একটি আনুষ্ঠানিক টোন ব্যবহার করা উচিত।",
+              "Portuguese": "Você deve usar um tom formal ao escrever e-mails para o supervisor do seu projeto.",
+              "Russian": "Вам следует использовать официальный тон при написании писем руководителю проекта.",
+              "Urdu": "अपने प्रोजेक्ट सुपरवाइजर को ईमेल लिखते समय आपको औपचारिक टोन का इस्तेमाल करना चाहिए।",
+              "Indonesian": "Anda harus menggunakan nada formal saat menulis email kepada pengawas proyek Anda.",
+              "Standard German": "Sie sollten einen formellen Ton wählen, wenn Sie E-Mails an Ihren Projektleiter schreiben.",
+              "Japanese": "プロジェクトの指導教員（スーパーバイザー）にメールを書くときは、フォーマルなトーンを使用する必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "informal",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ɪnˈfɔːml/",
+        "meaning": "Having a relaxed, friendly, or unofficial style, manner, or nature.",
+        "synonyms": ["casual", "relaxed", "unofficial"],
+        "antonyms": ["formal", "strict"],
+        "examples": [
+          {
+            "english": "Our developer community chats are informal, allowing team members to share experimental build code easily.",
+            "translations": {
+              "Mandarin Chinese": "我们开发者社区的交流是非正式的，允许团队成员轻松分享实验性的构建代码。",
+              "Hindi": "हमारे डेवलपर समुदाय की चैट अनौपचारिक होती है, जिससे टीम के सदस्य आसानी से प्रयोगात्मक कोड साझा कर सकते हैं।",
+              "Spanish": "Nuestros chats de la comunidad de desarrolladores son informales, lo que permite a los miembros del equipo compartir códigos de compilación experimentales fácilmente.",
+              "Standard Arabic": "محادثات مجتمع المطورين لدينا غير رسمية، مما يسمح لأعضاء الفريق بمشاركة أكواد البناء التجريبية بسهولة.",
+              "French": "Les discussions de notre communauté de développeurs sont informelles, permettant aux membres de l'équipe de partager facilement des codes expérimentaux.",
+              "Bengali": "আমাদের ডেভেলপার কমিউনিটির চ্যাটগুলি অনানুষ্ঠানিক, যা টিমের সদস্যদের সহজেই পরীক্ষামূলক বিল্ড কোড শেয়ার করার সুযোগ দেয়।",
+              "Portuguese": "Nossos chats da comunidade de desenvolvedores são informais, permitindo que os membros da equipe compartilhem códigos de compilação experimentais facilmente.",
+              "Russian": "Чаты нашего сообщества разработчиков носят неформальный характер, что позволяет участникам команды легко делиться экспериментальным кодом сборки.",
+              "Urdu": "ہمارے ڈویلپر کمیونٹی کے چیٹس غیر رسمی ہوتے ہیں، جس سے ٹیم کے ممبران آسانی سے تجرباتی کوڈ شیئر کر سکتے ہیں۔",
+              "Indonesian": "Obrolan komunitas pengembang kami bersifat informal, memungkinkan anggota tim untuk berbagi kode build eksperimental dengan mudah.",
+              "Standard German": "Unsere Chats in der Entwickler-Community sind informell, sodass Teammitglieder experimentelle Builds problemlos teilen können.",
+              "Japanese": "私たちの開発者コミュニティのチャットはカジュアル（インフォーマル）なので、チームメンバーが実験的なビルドコードを簡単に共有できます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "clarify",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˈklærɪfaɪ/",
+        "meaning": "To make a statement or situation less confused and more clearly comprehensible.",
+        "synonyms": ["explain", "elucidate", "clear up"],
+        "antonyms": ["confuse", "complicate"],
+        "examples": [
+          {
+            "english": "Could you please clarify the fallback mechanism used in this database model architecture?",
+            "translations": {
+              "Mandarin Chinese": "您能澄清一下在这个数据库模型架构中使用的回退机制吗？",
+              "Hindi": "क्या आप कृपया इस डेटाबेस मॉडल आर्किटेक्चर में उपयोग किए जाने वाले फ़ॉलबैक तंत्र (मेकैनिज्म) को स्पष्ट कर सकते हैं?",
+              "Spanish": "¿Podría aclarar el mecanismo de respaldo utilizado en esta arquitectura de modelo de base de datos?",
+              "Standard Arabic": "هل يمكنك من فضلك توضيح آلية الاحتياط المستخدمة في هندسة نموذج قاعدة البيانات هذه؟",
+              "French": "Pourriez-vous s'il vous plaît clarifier le mécanisme de secours utilisé dans cette architecture de modèle de base de données ?",
+              "Bengali": "আপনি কি দয়া করে এই ডাটাবেস মডেল আর্কিটেকচারে ব্যবহৃত ফলব্যাক মেকানিজমটি স্পষ্ট করবেন?",
+              "Portuguese": "Poderia, por favor, esclarecer o mecanismo de segurança utilizado nesta arquitetura de modelo de banco de dados?",
+              "Russian": "Не могли бы вы уточнить резервный механизм, используемый в этой архитектуре модели базы данных?",
+              "Urdu": "کیا آپ براہ کرم اس ڈیٹا بیس ماڈल آرکیٹیکچر میں استعمال ہونے والے فال بیک میکانزم کو واضح کر سکتے हैं?",
+              "Indonesian": "Bisakah Anda menjelaskan mekanisme cadangan yang digunakan dalam arsitektur model basis data ini?",
+              "Standard German": "Könnten Sie bitte den Fallback-Mechanismus klären, der in dieser Datenbankmodellarchitektur verwendet wird?",
+              "Japanese": "このデータベースモデルアーキテクチャで使用されているフォールバック機構を明確に説明していただけますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "interrupt",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˌɪntəˈrʌpt/",
+        "meaning": "To stop the continuous progress of an activity or a person speaking.",
+        "synonyms": ["disturb", "break in", "disrupt"],
+        "antonyms": ["continue", "resume"],
+        "examples": [
+          {
+            "english": "Please do not interrupt the speaker while they are detailing the offline database architecture specifications.",
+            "translations": {
+              "Mandarin Chinese": "当演讲者正在详细介绍离线数据库架构规范时，请不要打断他。",
+              "Hindi": "कृपया वक्ता को तब न टोकें जब वे ऑफ़लाइन डेटाबेस आर्किटेक्चर विनिर्देशों का विवरण दे रहे हों।",
+              "Spanish": "Por favor, no interrumpas al orador mientras detalla las especificaciones de la arquitectura de la base de datos sin conexión.",
+              "Standard Arabic": "يرجى عدم مقاطعة المتحدث أثناء تفصيله لمواصفات هندسة قاعدة البيانات دون اتصال بالإنترنت.",
+              "French": "S'il vous plaît, n'interrompez pas l'orateur pendant qu'il détaille les spécifications de l'architecture de la base de données hors ligne.",
+              "Bengali": "বক্তা যখন অফলাইন ডাটাবেস আর্কিটেকচার স্পেসিফিকেশন বিস্তারিতভাবে বর্ণনা করছেন তখন অনুগ্রহ করে তাকে বাধা দেবেন না।",
+              "Portuguese": "Por favor, não interrompa o palestrante enquanto ele detalha as especificações da arquitetura do banco de dados offline.",
+              "Russian": "Пожалуйста, не перебивайте докладчика, пока он подробно описывает спецификации автономной архитектуры базы данных.",
+              "Urdu": "براہ کرم اسپییکر کو اس وقت نہ ٹوکیں جب وہ آف لائن ڈیٹا بیس آرکیٹیکچر کی تفصیلات بتا رہے ہوں۔",
+              "Indonesian": "Harap jangan menyela pembicara saat mereka sedang merinci spesifikasi arsitektur basis data luring.",
+              "Standard German": "Bitte unterbrechen Sie den Redner nicht, während er die Spezifikationen der Offline-Datenbankarchitektur erläutert.",
+              "Japanese": "スピーカーがオフラインデータベースのアーキテクチャ仕様を詳しく説明している最中は、話を遮らないでください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "argument",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɑːɡjumənt/",
+        "meaning": "An exchange of diverging or opposite views, typically a heated or angry one, or a reason given in support of an idea.",
+        "synonyms": ["disagreement", "quarrel", "reasoning"],
+        "antonyms": ["agreement", "concurrence"],
+        "examples": [
+          {
+            "english": "He presented a logical argument for moving the front-end layout onto a responsive design framework.",
+            "translations": {
+              "Mandarin Chinese": "他为将前端布局迁移到响应式设计框架提出了逻辑严密的论据。",
+              "Hindi": "उन्होंने फ्रंट-एंड लेआउट को रिस्पॉन्सिव डिज़ाइन फ्रेमवर्क पर ले जाने के लिए एक तार्किक तर्क प्रस्तुत किया।",
+              "Spanish": "Presentó un argumento lógico para trasladar el diseño front-end a un marco de diseño responsivo.",
+              "Standard Arabic": "قدم حججاً منطقية لنقل تخطيط الواجهة الأمامية إلى إطار عمل تصميم متجاوب.",
+              "French": "Il a présenté un argument logique en faveur du passage de la disposition front-end à une structure de conception adaptative.",
+              "Bengali": "তিনি ফ্রন্ট-এন্ড লেআউটটিকে একটি রেসপনসিভ ডিজাইন ফ্রেমওয়ার্কে স্থানান্তর করার জন্য একটি যৌক্তিক যুক্তি উপস্থাপন করেছিলেন।",
+              "Portuguese": "Ele apresentou um argumento lógico para mover o layout do front-end para uma estrutura de design responsivo.",
+              "Russian": "Он представил логический аргумент в пользу переноса фронтенд-макета на адаптивный фреймворк проектирования.",
+              "Urdu": "اس نے فرنٹ اینڈ لے آؤٹ کو ریسپونسیو ڈیزائن فریم ورک پر منتقل کرنے کے لیے ایک منطقی دلیل پیش کی۔",
+              "Indonesian": "Ia menyajikan argumen logis untuk memindahkan tata letak ujung depan (front-end) ke kerangka kerja desain responsif.",
+              "Standard German": "Er legte ein logisches Argument für die Umstellung des Front-End-Layouts auf ein responsives Design-Framework vor.",
+              "Japanese": "彼はフロントエンドのレイアウトをレスポンシブデザインのフレームワークに移行するための論理的な主張を展開しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "public speaking",
+        "level": "B1",
+        "category": "Communication",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpʌblɪk ˈspiːkɪŋ/",
+        "meaning": "The act or process of making speech in front of a live audience.",
+        "synonyms": ["oratory", "declamation", "speechmaking"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Practicing project presentations helps engineers overcome their fear of public speaking.",
+            "translations": {
+              "Mandarin Chinese": "练习项目陈述可以帮助工程师克服对公众演讲的恐惧。",
+              "Hindi": "परियोजना प्रस्तुतियों का अभ्यास करने से इंजीनियरों को सार्वजनिक रूप से बोलने (पब्लिक स्पीकिंग) के अपने डर को दूर करने में मदद मिलती है।",
+              "Spanish": "Practicar presentaciones de proyectos ayuda a los ingenieros a superar su miedo a hablar en público.",
+              "Standard Arabic": "ممارسة العروض التقديمية للمشاريع تساعد المهندسين على التغلب على خوفهم من التحدث أمام الجمهور.",
+              "French": "S'exercer aux présentations de projets aide les ingénieurs à surmonter leur peur de parler en public.",
+              "Bengali": "প্রজেক্টের প্রেজেন্টেশন অনুশীলন করা ইঞ্জিনিয়ারদের জনসাধারণের সামনে কথা বলার ভয় কাটিয়ে উঠতে সাহায্য করে।",
+              "Portuguese": "Praticar apresentações de projetos ajuda os engenheiros a superar o medo de falar em público.",
+              "Russian": "Практика презентации проектов помогает инженерам преодолеть страх публичных выступлений.",
+              "Urdu": "پروجیکٹ کی پریزنٹیشنز کی مشق کرنے سے انجینئرز کو پبلک اسپیکنگ کے خوف پر قابو پانے میں مدد ملتی ہے۔",
+              "Indonesian": "Mempraktikkan presentasi proyek membantu para insinyur mengatasi rasa takut mereka dalam berbicara di depan umum.",
+              "Standard German": "Das Üben von Projektpräsentationen hilft Ingenieuren, ihre Angst vor dem Sprechen vor Publikum zu überwinden.",
+              "Japanese": "プロジェクトの発表を練習することは、エンジニアが人前で話す（パブリックピーキング）恐怖心を克服するのに役立ちます。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

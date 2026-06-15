@@ -1,0 +1,929 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Shopping": [
+      {
+        "word": "customer",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkʌstəmər/",
+        "meaning": "A person who buys goods or services from a shop or business.",
+        "synonyms": ["buyer", "client", "shopper"],
+        "antonyms": ["seller", "vendor"],
+        "examples": [
+          {
+            "english": "The shop assistant was helping a customer find some shoes.",
+            "translations": {
+              "Mandarin Chinese": "店员正在帮一位顾客找鞋子。",
+              "Hindi": "दुकान सहायक एक ग्राहक को जूते खोजने में मदद कर रहा था।",
+              "Spanish": "El dependiente de la tienda estaba ayudando a un cliente a buscar zapatos.",
+              "Standard Arabic": "كان مساعد المتجر يساعد زبوناً في العثور على بعض الأحذية.",
+              "French": "Le vendeur aidait un client à trouver des chaussures.",
+              "Bengali": "দোকানের সহকারী একজন ক্রেতাকে জুতো খুঁজে পেতে সাহায্য করছিলেন।",
+              "Portuguese": "O atendente da loja estava ajudando um cliente a encontrar sapatos.",
+              "Russian": "Продавец-консультант помогал покупателю найти обувь.",
+              "Urdu": "دکان کا اسسٹنٹ ایک گاہک کو جوتے تلاش کرنے میں مدد کر رہا تھا۔",
+              "Indonesian": "Pramuniaga toko sedang membantu seorang pelanggan mencari sepatu.",
+              "Standard German": "Der Verkäufer half einem Kunden, Schuhe zu finden.",
+              "Japanese": "店員はお客さんが靴を探すのを手伝っていました。"
+            }
+          },
+          {
+            "english": "We want to provide the best service for every customer.",
+            "translations": {
+              "Mandarin Chinese": "我们希望为每一位客户提供最好的服务。",
+              "Hindi": "हम हर ग्राहक को सर्वोत्तम सेवा प्रदान करना चाहते हैं।",
+              "Spanish": "Queremos ofrecer el mejor servicio a cada cliente.",
+              "Standard Arabic": "نريد تقديم أفضل خدمة لكل زبون.",
+              "French": "Nous voulons offrir le meilleur service à chaque client.",
+              "Bengali": "আমরা প্রতিটি গ্রাহককে সর্বোত্তম সেবা প্রদান করতে চাই।",
+              "Portuguese": "Queremos oferecer o melhor serviço para cada cliente.",
+              "Russian": "Мы хотим обеспечить лучший сервис для каждого клиента.",
+              "Urdu": "ہم ہر گاہک کو بہترین سروس فراہم کرنا چاہتے ہیں۔",
+              "Indonesian": "Kami ingin memberikan pelayanan terbaik untuk setiap pelanggan.",
+              "Standard German": "Wir wollen jedem Kunden den besten Service bieten.",
+              "Japanese": "すべてのお客様に最高のサービスを提供したいと考えています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "cashier",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/kæˈʃɪr/",
+        "meaning": "A person whose job is to take and pay out money in a shop, bank, or restaurant.",
+        "synonyms": ["clerk", "teller"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The cashier handed me the change and a receipt.",
+            "translations": {
+              "Mandarin Chinese": "收银员把零钱和收据递给了我。",
+              "Hindi": "कैशियर ने मुझे खुले पैसे और रसीद सौंप दी।",
+              "Spanish": "El cajero me entregó el cambio y un recibo.",
+              "Standard Arabic": "سلمني أمين الصندوق الفكة والإيصال.",
+              "French": "Le caissier m'a remis la monnaie et un reçu.",
+              "Bengali": "ক্যাশিয়ার আমাকে খুচরা টাকা এবং একটি রসিদ দিলেন।",
+              "Portuguese": "O caixa me entregou el troco e o recibo.",
+              "Russian": "Кассир передал мне сдачу и чек.",
+              "Urdu": "کیشیئر نے مجھے بقایا رقم اور رسید پکڑائی۔",
+              "Indonesian": "Kasir menyerahkan uang kembalian dan tanda terima kepada saya.",
+              "Standard German": "Der Kassierer übergab mir das Wechselgeld und eine Quittung.",
+              "Japanese": "レジ係は私におつりとレシートを手渡しました。"
+            }
+          },
+          {
+            "english": "Please pay the cashier at the front of the store.",
+            "translations": {
+              "Mandarin Chinese": "请在商店前端的收银处付款。",
+              "Hindi": "कृपया दुकान के सामने कैशियर को भुगतान करें।",
+              "Spanish": "Por favor, pague al cajero en la parte delantera de la tienda.",
+              "Standard Arabic": "يرجى الدفع لأمين الصندوق في مقدمة المتجر.",
+              "French": "Veuillez payer le caissier à l'avant du magasin.",
+              "Bengali": "দয়া করে দোকানের সামনে ক্যাশিয়ারকে টাকা পরিশোধ করুন।",
+              "Portuguese": "Por favor, pague ao caixa na frente da loja.",
+              "Russian": "Пожалуйста, оплатите кассиру на входе в магазин.",
+              "Urdu": "براہ کرم دکان کے سامنے کیشیئر کو ادائیگی کریں۔",
+              "Indonesian": "Silakan bayar ke kasir di bagian depan toko.",
+              "Standard German": "Bitte bezahlen Sie beim Kassierer im vorderen Teil des Geschäfts.",
+              "Japanese": "店の前方にあるレジでお支払いください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "receipt",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈsiːt/",
+        "meaning": "A piece of paper or electronic document that proves you have paid for something.",
+        "synonyms": ["proof of purchase", "voucher", "slip"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Keep your receipt in case you need to return the jacket.",
+            "translations": {
+              "Mandarin Chinese": "保留好你的收据，以防你需要退掉这件夹克。",
+              "Hindi": "यदि आपको जैकेट वापस करने की आवश्यकता हो तो अपनी रसीद संभाल कर रखें।",
+              "Spanish": "Guarde su recibo en caso de que necesite devolver la chaqueta.",
+              "Standard Arabic": "احتفظ بالإيصال في حال احتجت إلى إرجاع السترة.",
+              "French": "Gardez votre reçu au cas où vous devriez retourner la veste.",
+              "Bengali": "জ্যাকেটটি ফেরত দেওয়ার প্রয়োজন হতে পারে তাই আপনার রসিদটি রাখুন।",
+              "Portuguese": "Guarde o seu recibo caso precise devolver a jaqueta.",
+              "Russian": "Сохраните чек на случай, если вам понадобится вернуть куртку.",
+              "Urdu": "اگر آپ کو جیکٹ واپس کرنے کی ضرورت ہو تو اپنی رسید پاس رکھیں۔",
+              "Indonesian": "Simpan tanda terima Anda jika Anda perlu mengembalikan jaket tersebut.",
+              "Standard German": "Behalten Sie Ihre Quittung, falls Sie die Jacke zurückgeben müssen.",
+              "Japanese": "ジャケットを返品する必要がある場合に備えて、レシートを保管しておいてください。"
+            }
+          },
+          {
+            "english": "Can I have a receipt for the coffee, please?",
+            "translations": {
+              "Mandarin Chinese": "请问可以给我开一张咖啡的收据吗？",
+              "Hindi": "क्या मुझे कॉफी की रसीद मिल सकती है, कृपया?",
+              "Spanish": "¿Me da un recibo del café, por favor?",
+              "Standard Arabic": "هل يمكنني الحصول على إيصال للقهوة من فضلك؟",
+              "French": "Puis-je avoir un reçu pour le café, s'il vous plaît ?",
+              "Bengali": "দয়া করে কফির জন্য একটি রসিদ পেতে পারি কি?",
+              "Portuguese": "Gostaria de um recibo do café, por favor.",
+              "Russian": "Можно мне чек за кофе, пожалуйста?",
+              "Urdu": "کیا مجھے کافی کی رسید مل سکتی ہے، برائے مہربانی؟",
+              "Indonesian": "Bisa saya minta tanda terima untuk kopinya?",
+              "Standard German": "Kann ich bitte eine Quittung für den Kaffee haben?",
+              "Japanese": "コーヒーのレシートをいただけますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "discount",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdɪskaʊnt/",
+        "meaning": "A reduction in the usual price of something.",
+        "synonyms": ["reduction", "allowance", "markdown"],
+        "antonyms": ["premium", "markup"],
+        "examples": [
+          {
+            "english": "Students get a ten percent discount on books at this store.",
+            "translations": {
+              "Mandarin Chinese": "学生在这家店买书可以享受九折优惠。",
+              "Hindi": "इस दुकान पर छात्रों को किताबों पर दस प्रतिशत की छूट मिलती है।",
+              "Spanish": "Los estudiantes obtienen un diez por ciento de descuento en libros en esta tienda.",
+              "Standard Arabic": "يحصل الطلاب على خصم بنسبة عشرة بالمائة على الكتب في هذا المتجر.",
+              "French": "Les étudiants bénéficient d'une réduction de dix pour cent sur les livres dans ce magasin.",
+              "Bengali": "শিক্ষার্থীরা এই দোকানে বইয়ের উপর দশ শতাংশ ছাড় পায়।",
+              "Portuguese": "Estudantes ganham dez por cento de desconto em livros nesta loja.",
+              "Russian": "В этом магазине студенты получают десятипроцентную скидку на книги.",
+              "Urdu": "طلباء کو اس دکان پر کتابوں پر دس فیصد رعایت ملتی ہے۔",
+              "Indonesian": "Mahasiswa mendapatkan diskon sepuluh persen untuk buku di toko ini.",
+              "Standard German": "Studenten erhalten in diesem Geschäft zehn Prozent Rabatt auf Bücher.",
+              "Japanese": "この店では学生は本が10%割引になります。"
+            }
+          },
+          {
+            "english": "They are offering huge discounts during the summer sale.",
+            "translations": {
+              "Mandarin Chinese": "他们在夏季促销期间提供巨大的折扣。",
+              "Hindi": "वे गर्मियों की सेल के दौरान भारी छूट दे रहे हैं।",
+              "Spanish": "Están ofreciendo grandes descuentos durante las rebajas de verano.",
+              "Standard Arabic": "إنهم يقدمون خصومات ضخمة خلال تخفيضات الصيف.",
+              "French": "Ils proposent d'importantes réductions pendant les soldes d'été.",
+              "Bengali": "তারা গ্রীষ্মকালীন বিক্রয়ের সময় বিশাল ছাড় দিচ্ছে।",
+              "Portuguese": "Eles estão oferecendo grandes descontos durante a liquidação de verão.",
+              "Russian": "Они предлагают огромные скидки во время летней распродажи.",
+              "Urdu": "وہ گرمیوں کی سیل کے دوران بھاری رعایتیں دے رہے ہیں۔",
+              "Indonesian": "Mereka menawarkan diskon besar selama obral musim panas.",
+              "Standard German": "Während des Sommerchlussverkaufs werden enorme Rabatte angeboten.",
+              "Japanese": "サマーセールの期間中、彼らは大幅な割引を行っています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "price",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/praɪs/",
+        "meaning": "The amount of money that you have to pay to buy something.",
+        "synonyms": ["cost", "charge", "value"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The price of petrol has gone up again this week.",
+            "translations": {
+              "Mandarin Chinese": "本周汽油价格又上涨了。",
+              "Hindi": "इस हफ्ते पेट्रोल की कीमत फिर बढ़ गई है।",
+              "Spanish": "El precio de la gasolina ha vuelto a subir esta semana.",
+              "Standard Arabic": "ارتفع سعر البنزين مرة أخرى هذا الأسبوع.",
+              "French": "Le prix de l'essence a encore augmenté cette semaine.",
+              "Bengali": "চলতি সপ্তাহে পেট্রোলের দাম আবারও বেড়েছে।",
+              "Portuguese": "O preço da gasolina subiu de novo esta semana.",
+              "Russian": "На этой неделе цены на бензин снова выросли.",
+              "Urdu": "اس ہفتے پٹرول کی قیمت میں دوبارہ اضافہ ہوا ہے۔",
+              "Indonesian": "Harga bensin naik lagi minggu ini.",
+              "Standard German": "Der Benzinpreis ist diese Woche schon wieder gestiegen.",
+              "Japanese": "今週、ガソリンの価格がまた上がりました。"
+            }
+          },
+          {
+            "english": "Could you tell me the price of this smartphone?",
+            "translations": {
+              "Mandarin Chinese": "你能告诉我这款智能手机的价格吗？",
+              "Hindi": "क्या आप मुझे इस स्मार्टफोन की कीमत बता सकते हैं?",
+              "Spanish": "¿Podría decirme el precio de este teléfono inteligente?",
+              "Standard Arabic": "هل يمكنك إخباري بسعر هذا الهاتف الذكي؟",
+              "French": "Pourriez-vous me donner le prix de ce smartphone ?",
+              "Bengali": "আপনি কি আমাকে এই স্মার্টফোনটির দাম বলতে পারেন?",
+              "Portuguese": "Você poderia me dizer o preço deste smartphone?",
+              "Russian": "Подскажите, пожалуйста, стоимость этого смартфона?",
+              "Urdu": "کیا آپ مجھے اس اسمارٹ فون کی قیمت بتا سکتے ہیں؟",
+              "Indonesian": "Bisakah Anda memberi tahu saya harga ponsel pintar ini?",
+              "Standard German": "Könnten Sie mir bitte den Preis dieses Smartphones nennen?",
+              "Japanese": "このスマートフォンの価格を教えていただけますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "expensive",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ɪkˈspensɪv/",
+        "meaning": "Costing a lot of money.",
+        "synonyms": ["costly", "dear", "high-priced"],
+        "antonyms": ["cheap", "inexpensive"],
+        "examples": [
+          {
+            "english": "Eating out in London can be very expensive.",
+            "translations": {
+              "Mandarin Chinese": "在伦敦下馆子吃饭可能会非常贵。",
+              "Hindi": "लंदन में बाहर खाना बहुत महंगा हो सकता है।",
+              "Spanish": "Comer fuera en Londres puede ser muy caro.",
+              "Standard Arabic": "تناول الطعام في الخارج في لندن يمكن أن يكون مكلفاً للغاية.",
+              "French": "Manger au restaurant à Londres peut coûter très cher.",
+              "Bengali": "লন্ডনে বাইরে খাওয়া খুব ব্যয়বহুল হতে পারে।",
+              "Portuguese": "Comer fora em Londres pode ser muito caro.",
+              "Russian": "Питание в ресторанах Лондона может быть очень дорогим.",
+              "Urdu": "لندن میں باہر کھانا بہت مہنگا پڑ سکتا ہے۔",
+              "Indonesian": "Makan di luar di London bisa sangat mahal.",
+              "Standard German": "In London essen zu gehen kann sehr teuer sein.",
+              "Japanese": "ロンドンで外食をすると、とても高くつくことがあります。"
+            }
+          },
+          {
+            "english": "That watch is beautiful, but it is too expensive for me.",
+            "translations": {
+              "Mandarin Chinese": "那只手表很漂亮，但对我来说太贵了。",
+              "Hindi": "वह घड़ी सुंदर है, लेकिन यह मेरे लिए बहुत महंगी है।",
+              "Spanish": "Ese reloj es hermoso, pero es demasiado caro para mí.",
+              "Standard Arabic": "تلك الساعة جميلة، لكنها مكلفة للغاية بالنسبة لي.",
+              "French": "Cette montre est belle, mais elle est trop chère pour moi.",
+              "Bengali": "ওই ঘড়িটি সুন্দর, কিন্তু এটি আমার জন্য খুব ব্যয়বহুল।",
+              "Portuguese": "Aquele relógio é lindo, mas é caro demais para mim.",
+              "Russian": "Эти часы красивые, но они слишком дорогие для меня.",
+              "Urdu": "وہ گھڑی خوبصورت ہے، لیکن یہ میرے لیے بہت مہنگی ہے۔",
+              "Indonesian": "Jam tangan itu indah, tetapi terlalu mahal bagi saya.",
+              "Standard German": "Diese Uhr ist wunderschön, aber sie ist mir zu teuer.",
+              "Japanese": "その時計は素敵ですが、私には高価すぎます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "cheap",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "adjective",
+        "pronunciation": "/tʃiːp/",
+        "meaning": "Costing little money or less than standard prices.",
+        "synonyms": ["inexpensive", "low-cost", "affordable"],
+        "antonyms": ["expensive", "costly"],
+        "examples": [
+          {
+            "english": "They sell cheap clothes at the local street market.",
+            "translations": {
+              "Mandarin Chinese": "他们在本市的街头集市上卖便宜的衣服。",
+              "Hindi": "वे स्थानीय स्ट्रीट मार्केट में सस्ते कपड़े बेचते हैं।",
+              "Spanish": "Venden ropa barata en el mercado callejero local.",
+              "Standard Arabic": "يبيعون ملابس رخيصة في سوق الشارع المحلي.",
+              "French": "Ils vendent des vêtements bon marché au marché local.",
+              "Bengali": "তারা স্থানীয় রাস্তার বাজারে সস্তা কাপড় বিক্রি করে।",
+              "Portuguese": "Eles vendem roupas baratas na feira de rua local.",
+              "Russian": "Они продают дешевую одежду на местном уличном рынке.",
+              "Urdu": "وہ مقامی اسٹریٹ مارکیట్ میں سستے کپڑے بیچتے ہیں۔",
+              "Indonesian": "Mereka menjual pakaian murah di pasar jalanan setempat.",
+              "Standard German": "Auf dem örtlichen Straßenmarkt verkaufen sie billige Kleidung.",
+              "Japanese": "地元の露店市場では安い服が売られています。"
+            }
+          },
+          {
+            "english": "Flights are usually cheaper if you book them well in advance.",
+            "translations": {
+              "Mandarin Chinese": "如果你提前很久预订，机票通常会更便宜。",
+              "Hindi": "यदि आप काफी पहले बुकिंग करते हैं तो उड़ानें आमतौर पर सस्ती होती हैं।",
+              "Spanish": "Los vuelos suelen ser más baratos si los reservas con mucha antelación.",
+              "Standard Arabic": "عادة ما تكون الرحلات الجوية أرخص إذا قمت بحجزها مسبقاً بوقت كافٍ.",
+              "French": "Les vols sont généralement moins chers si vous les réservez longtemps à l'avance.",
+              "Bengali": "আপনি যদি বেশ আগে বুক করেন তবে ফ্লাইটগুলো সাধারণত সস্তা হয়।",
+              "Portuguese": "Os voos costumam ser mais baratos se você reservar com antecedência.",
+              "Russian": "Авиабилеты обычно дешевле, если бронировать их заранее.",
+              "Urdu": "اگر آپ کافی پہلے بکنگ کرواتے ہیں تو پروازیں عام طور پر سستی ہوتی ہیں۔",
+              "Indonesian": "Tiket pesawat biasanya lebih murah jika Anda memesannya jauh-jauh hari.",
+              "Standard German": "Flüge sind meist günstiger, wenn man sie lange im Voraus bucht.",
+              "Japanese": "飛行機はかなり前に予約すると通常安くなります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "affordable",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "adjective",
+        "pronunciation": "/əˈfɔːrdəbl/",
+        "meaning": "Cheap enough for ordinary people to be able to pay for it.",
+        "synonyms": ["reasonable", "modest", "budget-friendly"],
+        "antonyms": ["unaffordable", "exorbitant"],
+        "examples": [
+          {
+            "english": "The city needs more affordable housing for young families.",
+            "translations": {
+              "Mandarin Chinese": "这座城市需要更多面向年轻家庭的经济型住房。",
+              "Hindi": "शहर को युवा परिवारों के लिए अधिक किफायती आवास की आवश्यकता है।",
+              "Spanish": "La ciudad necesita más viviendas asequibles para las familias jóvenes.",
+              "Standard Arabic": "تحتاج المدينة إلى المزيد من المساكن بأسعار معقولة للأسر الشابة.",
+              "French": "La ville a besoin de plus de logements abordables pour les jeunes familles.",
+              "Bengali": "তরুণ পরিবারগুলোর জন্য শহরের আরও সাশ্রয়ী মূল্যের আবাসন প্রয়োজন।",
+              "Portuguese": "A cidade precisa de mais moradias acessíveis para famílias jovens.",
+              "Russian": "Городу нужно больше доступного жилья для молодых семей.",
+              "Urdu": "شہر کو نوجوان خاندانوں کے لیے زیادہ سستی رہائش کی ضرورت ہے۔",
+              "Indonesian": "Kota ini membutuhkan lebih banyak perumahan yang terjangkau bagi keluarga muda.",
+              "Standard German": "Die Stadt braucht mehr bezahlbaren Wohnraum für junge Familien.",
+              "Japanese": "市は若い家族向けの手頃な価格の住宅を増やす必要があります。"
+            }
+          },
+          {
+            "english": "This brand offers high-quality furniture at affordable prices.",
+            "translations": {
+              "Mandarin Chinese": "这个品牌以实惠的价格提供高质量的家具。",
+              "Hindi": "यह ब्रांड किफायती कीमतों पर उच्च गुणवत्ता वाले फर्नीचर प्रदान करता है।",
+              "Spanish": "Esta marca ofrece muebles de alta calidad a precios asequibles.",
+              "Standard Arabic": "تقدم هذه العلامة التجارية أثاثاً عالي الجودة بأسعار معقولة.",
+              "French": "Cette marque propose des meubles de haute qualité à des prix abordables.",
+              "Bengali": "এই ব্র্যান্ডটি সাশ্রয়ী মূল্যে উচ্চ মানের আসবাবপত্র অফার করে।",
+              "Portuguese": "Esta marca oferece móveis de alta qualidade a preços acessíveis.",
+              "Russian": "Этот бренд предлагает качественную мебель по доступным ценам.",
+              "Urdu": "یہ برانڈ سستی قیمتوں پر اعلیٰ معیار کا فرنیچر پیش کرتا ہے۔",
+              "Indonesian": "Merek ini menawarkan perabot berkualitas tinggi dengan harga terjangkau.",
+              "Standard German": "Diese Marke bietet hochwertige Möbel zu erschwinglichen Preisen an.",
+              "Japanese": "このブランドは、手頃な価格で高品質な家具を提供しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "payment",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpeɪmənt/",
+        "meaning": "The act of paying money, or an amount of money that is paid.",
+        "synonyms": ["remittance", "settlement", "fee"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Payment can be made by credit card or cash.",
+            "translations": {
+              "Mandarin Chinese": "可以通过信用卡或现金进行付款。",
+              "Hindi": "भुगतान क्रेडिट कार्ड या नकद द्वारा किया जा सकता है।",
+              "Spanish": "El pago se puede realizar con tarjeta de crédito o en efectivo.",
+              "Standard Arabic": "يمكن الدفع عن طريق بطاقة الائتمان أو نقداً.",
+              "French": "Le paiement peut être effectué par carte de crédit ou en espèces.",
+              "Bengali": "ক্রেডিট কার্ড বা নগদে অর্থ প্রদান করা যেতে পারে।",
+              "Portuguese": "O pagamento pode ser feito com cartão de crédito ou dinheiro.",
+              "Russian": "Оплата может быть произведена кредитной картой или наличными.",
+              "Urdu": "ادائیگی کریڈٹ کارڈ یا نقد رقم سے کی جا سکتی ہے۔",
+              "Indonesian": "Pembayaran dapat dilakukan dengan kartu kredit atau tunai.",
+              "Standard German": "Die Zahlung kann per Kreditkarte oder in bar erfolgen.",
+              "Japanese": "お支払いはクレジットカードまたは現金で可能です。"
+            }
+          },
+          {
+            "english": "They require a full payment before shipping the order.",
+            "translations": {
+              "Mandarin Chinese": "他们要求在发货前付清全款。",
+              "Hindi": "उन्हें ऑर्डर शिप करने से पहले पूरा भुगतान करना होगा।",
+              "Spanish": "Requieren el pago total antes de enviar el pedido.",
+              "Standard Arabic": "إنهم يتطلبون الدفع الكامل قبل شحن الطلب.",
+              "French": "Ils exigent un paiement complet avant d'expédier la commande.",
+              "Bengali": "অর্ডারটি পাঠানোর আগে তারা সম্পূর্ণ অর্থ প্রদানের দাবি করে।",
+              "Portuguese": "Eles exigem o pagamento integral antes de enviar o pedido.",
+              "Russian": "Они требуют полную оплату перед отправкой заказа.",
+              "Urdu": "آرڈر بھیجنے سے پہلے انہیں مکمل ادائیگی کی ضرورت ہوتی ہے۔",
+              "Indonesian": "Mereka memerlukan pembayaran penuh sebelum mengirimkan pesanan.",
+              "Standard German": "Sie verlangen die vollständige Zahlung vor dem Versand der Bestellung.",
+              "Japanese": "注文品を発送する前に全額の支払いが必要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "credit card",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkredɪt kɑːrd/",
+        "meaning": "A small plastic card that can be used as a method of payment, the money being taken from you at a later date.",
+        "synonyms": ["charge card", "plastic money"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Can I pay for these grocery items with a credit card?",
+            "translations": {
+              "Mandarin Chinese": "这些食品杂货我可以用信用卡付钱吗？",
+              "Hindi": "क्या मैं इन किराना सामानों का भुगतान क्रेडिट कार्ड سے कर सकता हूँ?",
+              "Spanish": "¿Puedo pagar estos artículos de despensa con tarjeta de crédito?",
+              "Standard Arabic": "هل يمكنني دفع ثمن مواد البقالة هذه ببطاقة الائتمان؟",
+              "French": "Puis-je payer ces courses avec une carte de crédit ?",
+              "Bengali": "আমি কি এই মুদিখানার জিনিসপত্রের জন্য একটি ক্রেডিট কার্ড দিয়ে অর্থ দিতে পারি?",
+              "Portuguese": "Posso pagar essas compras de mercado com cartão de crédito?",
+              "Russian": "Могу ли я оплатить эти продукты кредитной картой?",
+              "Urdu": "کیا میں ان کریانہ کی اشیاء کی ادائیگی کریڈٹ کارڈ سے کر سکتا ہوں؟",
+              "Indonesian": "Bisakah saya membayar barang-barang belanjaan ini dengan kartu kredit?",
+              "Standard German": "Kann ich diese Lebensmitteleinkäufe mit Kreditkarte bezahlen?",
+              "Japanese": "これらの食料品をクレジットカードで支払うことはできますか？"
+            }
+          },
+          {
+            "english": "He lost his credit card and called the bank immediately.",
+            "translations": {
+              "Mandarin Chinese": "他丢了信用卡，立刻给银行打了电话。",
+              "Hindi": "उसका क्रेडिट कार्ड खो गया और उसने तुरंत बैंक को फोन किया।",
+              "Spanish": "Perdió su tarjeta de crédito y llamó al banco de inmediato.",
+              "Standard Arabic": "فقد بطاقته الائتمانية واتصل بالبنك على الفور.",
+              "French": "Il a perdu sa carte de crédit et a immédiatement appelé la banque.",
+              "Bengali": "তিনি তার ক্রেডিট কার্ড হারিয়ে ফেলেছিলেন এবং অবিলম্বে ব্যাংকে ফোন করেছিলেন।",
+              "Portuguese": "Ele perdeu o cartão de crédito e ligou para o banco imediatamente.",
+              "Russian": "Он потерял кредитную карту и сразу же позвонил в банк.",
+              "Urdu": "اس کا کریڈٹ کارڈ کھو گیا اور اس نے فوری طور پر بینک کو فون کیا۔",
+              "Indonesian": "Dia kehilangan kartu kreditnya dan segera menelepon bank.",
+              "Standard German": "Er hat seine Kreditkarte verloren und sofort die Bank angerufen.",
+              "Japanese": "彼はクレジットカードを紛失し、すぐに銀行に電話しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "wallet",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwɑːlɪt/",
+        "meaning": "A small, flat folding case for holding money, cards, and paper documents.",
+        "synonyms": ["purse", "pouch", "billfold"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He kept his driving license in his leather wallet.",
+            "translations": {
+              "Mandarin Chinese": "他把驾照放在他的皮夹子里。",
+              "Hindi": "उसने अपना ड्राइविंग लाइसेंस अपने चमड़े के बटुए में रखा था।",
+              "Spanish": "Guardaba su licencia de conducir en su billetera de cuero.",
+              "Standard Arabic": "احتفظ برخصة قيادته في محفظته الجلدية.",
+              "French": "Il gardait son permis de conduire dans son portefeuille en cuir.",
+              "Bengali": "তিনি তার চামড়ার মানিব্যাগে ড্রাইভিং লাইসেন্স রাখতেন।",
+              "Portuguese": "Ele guardava a carteira de habilitação em sua carteira de couro.",
+              "Russian": "Он держал водительские права в кожаном кошельке.",
+              "Urdu": "اس نے اپنا ڈرائیونگ لائسنس اپنے چمڑے کے بٹوے میں رکھا تھا۔",
+              "Indonesian": "Dia menyimpan SIM-nya di dalam dompet kulitnya.",
+              "Standard German": "Er bewahrte seinen Führerschein in seiner Ledergeldbörse auf.",
+              "Japanese": "彼は運転免許証を革の財布に入れていました。"
+            }
+          },
+          {
+            "english": "I opened my wallet but realized I didn't have any cash.",
+            "translations": {
+              "Mandarin Chinese": "我打开钱包，但发现自己没有带现金。",
+              "Hindi": "मैंने अपना बटुआ खोला लेकिन महसूस किया कि मेरे पास कोई नकद नहीं है।",
+              "Spanish": "Abrí mi billetera pero me di cuenta de que no tenía dinero en efectivo.",
+              "Standard Arabic": "فتحت محفظتي لكني أدركت أنه ليس لدي أي نقود.",
+              "French": "J'ai ouvert mon portefeuille mais j'ai réalisé que je n'avais pas d'espèces.",
+              "Bengali": "আমি আমার মানিব্যাগ খুললাম কিন্তু বুঝতে পারলাম আমার কাছে কোন নগদ টাকা নেই।",
+              "Portuguese": "Abri minha carteira, mas percebi que não tinha dinheiro em espécie.",
+              "Russian": "Я открыл кошелек, но понял, что у меня нет наличных.",
+              "Urdu": "میں نے اپنا بٹوا کھولا لیکن احساس ہوا کہ میرے پاس نقد رقم نہیں ہے۔",
+              "Indonesian": "Saya membuka dompet tetapi menyadari bahwa saya tidak punya uang tunai.",
+              "Standard German": "Ich öffnete mein Portemonnaie, stellte aber fest, dass ich kein Bargeld hatte.",
+              "Japanese": "財布を開けましたが、現金が全く入っていないことに気づきました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "market",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmɑːrkɪt/",
+        "meaning": "An open area or building where people meet to buy and sell goods.",
+        "synonyms": ["marketplace", "bazaar", "fair"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We bought fresh fruit and vegetables at the Sunday market.",
+            "translations": {
+              "Mandarin Chinese": "我们在周日集市上买了新鲜的水果和蔬菜。",
+              "Hindi": "हमने रविवार के बाजार से ताजे फल और सब्जियां खरीदीं।",
+              "Spanish": "Compramos frutas y verduras frescas en el mercado dominical.",
+              "Standard Arabic": "اشترينا الفواكه والخضروات الطازجة من سوق الأحد.",
+              "French": "Nous avons acheté des fruits et légumes frais au marché du dimanche.",
+              "Bengali": "আমরা রবিবারের বাজার থেকে তাজা ফল এবং শাকসবজি কিনেছিলাম।",
+              "Portuguese": "Compramos frutas e vegetais frescos na feira de domingo.",
+              "Russian": "Мы купили свежие фрукты и овощи на воскресном рынке.",
+              "Urdu": "ہم نے اتوار بازار سے تازہ پھل اور سبزیاں خریدیں۔",
+              "Indonesian": "Kami membeli buah dan sayuran segar di pasar hari Minggu.",
+              "Standard German": "Wir haben auf dem Sonntagsmarkt frisches Obst und Gemüse gekauft.",
+              "Japanese": "私たちは日曜市で新鮮な果物と野菜を買いました。"
+            }
+          },
+          {
+            "english": "The street was busy as vendors set up the outdoor market.",
+            "translations": {
+              "Mandarin Chinese": "街道很热闹，因为摊贩们正在搭建露天集市。",
+              "Hindi": "सड़क पर व्यस्तता थी क्योंकि विक्रेता आउटडोर बाज़ार लगा रहे थे।",
+              "Spanish": "La calle estaba concurrida mientras los vendedores armaban el mercado al aire libre.",
+              "Standard Arabic": "كان الشارع مزدحماً حيث أنشأ الباعة السوق المفتوح.",
+              "French": "La rue était animée alors que les vendeurs s'installaient pour le marché en plein air.",
+              "Bengali": "রাস্তাটি ব্যস্ত ছিল কারণ বিক্রেতারা আউটডোর বাজার স্থাপন করছিল।",
+              "Portuguese": "A rua estava movimentada enquanto os vendedores montavam a feira ao ar livre.",
+              "Russian": "На улице было оживленно, так как торговцы обустраивали открытый рынок.",
+              "Urdu": "گلی میں چہل پہل تھی کیونکہ دکاندار کھلی مارکیٹ لگا رہے تھے۔",
+              "Indonesian": "Jalanan ramai saat para pedagang mendirikan pasar terbuka.",
+              "Standard German": "Die Straße war belebt, als die Händler den Außenmarkt aufbauten.",
+              "Japanese": "露店市場を業者が設営していたため、通りは賑わっていました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "store",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/stɔːr/",
+        "meaning": "A building where items are sold to the public.",
+        "synonyms": ["shop", "outlet", "boutique"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "A new department store opened in the town center.",
+            "translations": {
+              "Mandarin Chinese": "市中心新开了一家百货商店。",
+              "Hindi": "नगर केंद्र में एक नया डिपार्टमेंटल स्टोर खुला है।",
+              "Spanish": "Se abrió una nueva tienda departamental en el centro de la ciudad.",
+              "Standard Arabic": "تم افتتاح متجر متعدد الأقسام جديد في وسط المدينة.",
+              "French": "Un nouveau grand magasin a ouvert ses portes au centre-ville.",
+              "Bengali": "শহরের কেন্দ্রস্থলে একটি নতুন ডিপার্টমেন্টাল স্টোর খোলা হয়েছে।",
+              "Portuguese": "Uma nova loja de departamentos abriu no centro da cidade.",
+              "Russian": "В центре города открылся новый универмаг.",
+              "Urdu": "شہر کے مرکز میں ایک نیا ڈیپارٹمنٹل اسٹور کھلا ہے۔",
+              "Indonesian": "Sebuah toko serba ada baru dibuka di pusat kota.",
+              "Standard German": "Im Stadtzentrum hat ein neues Kaufhaus eröffnet.",
+              "Japanese": "街の中心部に新しいデパートがオープンしました。"
+            }
+          },
+          {
+            "english": "They walked from store to store looking for the right dress.",
+            "translations": {
+              "Mandarin Chinese": "他们一家店接一家店地走着，寻找那件合适的连衣裙。",
+              "Hindi": "वे सही पोशाक की तलाश में एक दुकान से दूसरी दुकान भटकते रहे।",
+              "Spanish": "Caminaron de tienda en tienda buscando el vestido adecuado.",
+              "Standard Arabic": "ساروا من متجر إلى آخر بحثاً عن الفستان المناسب.",
+              "French": "Elles ont marché de magasin en magasin à la recherche de la bonne robe.",
+              "Bengali": "তারা সঠিক পোশাকের সন্ধানে এক দোকান থেকে অন্য দোকানে ঘুরেছিল।",
+              "Portuguese": "Eles andaram de loja em loja procurando o vestido certo.",
+              "Russian": "Они ходили из магазина в магазин в поисках подходящего платья.",
+              "Urdu": "وہ مناسب لباس کی تلاش میں ایک دکان سے دوسری دکان گھومتے رہے۔",
+              "Indonesian": "Mereka berjalan dari toko ke toko mencari gaun yang tepat.",
+              "Standard German": "Sie liefen von Geschäft zu Geschäft auf der Suche nach dem richtigen Kleid.",
+              "Japanese": "彼女たちはぴったりのドレスを探して店から店へと歩き回りました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "brand",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/brænd/",
+        "meaning": "A type of product manufactured by a particular company under a particular name.",
+        "synonyms": ["label", "make", "trademark"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Which brand of toothpaste do you usually buy?",
+            "translations": {
+              "Mandarin Chinese": "你通常买哪个品牌的牙膏？",
+              "Hindi": "आप आमतौर पर किस ब्रांड का टूथपेस्ट खरीदते हैं?",
+              "Spanish": "¿Qué marca de pasta de dientes compras habitualmente?",
+              "Standard Arabic": "أي علامة تجارية من معجون الأسنان تشتريها عادة؟",
+              "French": "Quelle marque de dentifrice achètes-tu habituellement ?",
+              "Bengali": "আপনি সাধারণত কোন ব্র্যান্ডের টুথপেস্ট কিনবেন?",
+              "Portuguese": "Qual marca de pasta de dente você costuma comprar?",
+              "Russian": "Какую марку зубной пасты вы обычно покупаете?",
+              "Urdu": "آپ عام طور پر کس برانڈ کا ٹوتھ پیسٹ خریدتے ہیں؟",
+              "Indonesian": "Merek pasta gigi mana que biasa Anda beli?",
+              "Standard German": "Welche Zahnpastamarke kaufen Sie normalerweise?",
+              "Japanese": "普段はどのブランドの歯磨き粉を買っていますか？"
+            }
+          },
+          {
+            "english": "He wears expensive clothes from famous luxury brands.",
+            "translations": {
+              "Mandarin Chinese": "他穿着来自知名奢侈品牌的昂贵衣服。",
+              "Hindi": "वह प्रसिद्ध लक्ज़री ब्रांडों के महंगे कपड़े पहनता है।",
+              "Spanish": "Él usa ropa cara de marcas de lujo famosas.",
+              "Standard Arabic": "إنه يرتدي ملابس باهظة الثمن من علامات تجارية فاخرة مشهورة.",
+              "French": "Il porte des vêtements chers de célèbres marques de luxe.",
+              "Bengali": "তিনি বিখ্যাত লাক্সারি ব্র্যান্ডের দামি পোশাক পরেন।",
+              "Portuguese": "Ele usa roupas caras de marcas famosas de luxo.",
+              "Russian": "Он носит дорогую одежду известных люксовых брендов.",
+              "Urdu": "وہ مشہور لگژری برانڈز کے مہنگے کپڑے پہنتا ہے۔",
+              "Indonesian": "Dia mengenakan pakaian mahal dari merek mewah terkenal.",
+              "Standard German": "Er trägt teure Kleidung von bekannten Luxusmarken.",
+              "Japanese": "彼は有名な高級ブランドの比類なき高価な服を着ています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "size",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/saɪz/",
+        "meaning": "How large or small something is, or one of a series of standard measurements for clothing and shoes.",
+        "synonyms": ["dimensions", "measurement", "scale"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Do you have these leather boots in a size 8?",
+            "translations": {
+              "Mandarin Chinese": "这双皮靴你们有8码的吗？",
+              "Hindi": "क्या आपके पास ये चमड़े के जूते 8 नंबर में हैं?",
+              "Spanish": "¿Tiene estas botas de cuero en talla 8?",
+              "Standard Arabic": "هل لديك هذه الأحذية الجلدية بمقاس 8؟",
+              "French": "Avez-vous ces bottes en cuir en taille 39 ?",
+              "Bengali": "আপনার কাছে কি এই চামড়ার বুটগুলোর ৮ সাইজ আছে?",
+              "Portuguese": "Você tem essas botas de couro no tamanho 8?",
+              "Russian": "У вас есть эти кожаные сапоги 8-го размера?",
+              "Urdu": "کیا آپ کے پاس یہ چمڑے کے بوٹ 8 سائز میں ہیں؟",
+              "Indonesian": "Apakah Anda memiliki sepatu bot kulit ini dalam ukuran 8?",
+              "Standard German": "Haben Sie diese Lederstiefel in Größe 8?",
+              "Japanese": "この革のブーツのサイズ8はありますか？"
+            }
+          },
+          {
+            "english": "The jacket fits perfectly, but the pants are the wrong size.",
+            "translations": {
+              "Mandarin Chinese": "夹克非常合身，但裤子尺寸不对。",
+              "Hindi": "जैकेट बिल्कुल फिट है, लेकिन पैंट का आकार गलत है।",
+              "Spanish": "La chaqueta le queda perfecta, pero los pantalones son de la talla equivocada.",
+              "Standard Arabic": "السترة تناسب تماماً، لكن السراويل بمقاس خاطئ.",
+              "French": "La veste va parfaitement, mais le pantalon n'est pas de la bonne taille.",
+              "Bengali": "জ্যাকেটটি পুরোপুরি ফিট হয়েছে, তবে প্যান্টের সাইজটি ভুল।",
+              "Portuguese": "A jaqueta serve perfeitamente, mas as calças estão no tamanho errado.",
+              "Russian": "Куртка сидит идеально, но брюки не того размера.",
+              "Urdu": "جیکٹ بالکل فٹ بیٹھتی ہے، لیکن پینٹ کا سائز غلط ہے۔",
+              "Indonesian": "Jaketnya pas sekali, tetapi celananya salah ukuran.",
+              "Standard German": "Die Jacke passt perfekt, aber die Hose hat die falsche Größe.",
+              "Japanese": "ジャケットはぴったりですが、ズボンのサイズが違います。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "try on",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "phrasal verb",
+        "pronunciation": "/traɪ ɑːn/",
+        "meaning": "To put on a piece of clothing to see if it fits or looks good.",
+        "synonyms": ["test", "sample", "fit"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "You should try on the dress before buying it.",
+            "translations": {
+              "Mandarin Chinese": "你应该在买这条连衣裙之前先试穿一下。",
+              "Hindi": "आपको पोशाक खरीदने से पहले उसे पहनकर देखना चाहिए।",
+              "Spanish": "Deberías probarte el vestido antes de comprarlo.",
+              "Standard Arabic": "يجب عليك تجربة الفستان قبل شرائه.",
+              "French": "Tu devrais essayer la robe avant de l'acheter.",
+              "Bengali": "পোশাকটি কেনার আগে আপনার এটি ট্রাই করা উচিত।",
+              "Portuguese": "Você deveria experimentar o vestido antes de comprá-lo.",
+              "Russian": "Вам стоит примерить платье перед покупкой.",
+              "Urdu": "آپ کو لباس خریدنے سے پہلے اسے پہن کر دیکھنا چاہیے۔",
+              "Indonesian": "Anda harus mencoba gaun itu sebelum membelinya.",
+              "Standard German": "Sie sollten das Kleid anprobieren, bevor Sie es kaufen.",
+              "Japanese": "買う前にそのドレスを試着してみたほうがいいですよ。"
+            }
+          },
+          {
+            "english": "Where can I try on these blue jeans?",
+            "translations": {
+              "Mandarin Chinese": "我可以在哪里试穿这条蓝色牛仔裤？",
+              "Hindi": "मैं इन नीली जींस को कहाँ पहनकर देख सकता हूँ?",
+              "Spanish": "¿Dónde puedo probarme estos vaqueros azules?",
+              "Standard Arabic": "أين يمكنني تجربة هذه الجينزات الزرقاء؟",
+              "French": "Où puis-je essayer ce jean bleu ?",
+              "Bengali": "আমি এই নীল জিন্সটি কোথায় ট্রাই করতে পারি?",
+              "Portuguese": "Onde posso experimentar esta calça jeans azul?",
+              "Russian": "Где я могу примерить эти синие джинсы?",
+              "Urdu": "میں یہ نیلی جینز کہاں پہن کر دیکھ سکتا ہوں؟",
+              "Indonesian": "Di mana saya bisa mencoba celana jin biru ini?",
+              "Standard German": "Wo kann ich diese blaue Jeans anprobieren?",
+              "Japanese": "このブルージーンズはどこで試着できますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "purchase",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "verb",
+        "pronunciation": "/ˈpɜːrtʃəs/",
+        "meaning": "To buy something, especially as a formal or large action.",
+        "synonyms": ["buy", "acquire", "procure"],
+        "antonyms": ["sell", "vended"],
+        "examples": [
+          {
+            "english": "Tickets can be purchased online or at the entrance gate.",
+            "translations": {
+              "Mandarin Chinese": "门票可以在网上购买，也可以在入口处购买。",
+              "Hindi": "टिकट ऑनलाइन या प्रवेश द्वार पर खरीदे जा सकते हैं।",
+              "Spanish": "Los boletos se pueden comprar en línea o en la puerta de entrada.",
+              "Standard Arabic": "يمكن شراء التذاكر عبر الإنترنت أو عند بوابة الدخول.",
+              "French": "Les billets peuvent être achetés en ligne ou à la billetterie à l'entrée.",
+              "Bengali": "টিকিট অনলাইনে বা প্রবেশদ্বারে কেনা যাবে।",
+              "Portuguese": "Os ingressos podem ser comprados online ou no portão de entrada.",
+              "Russian": "Билеты можно приобрести онлайн или у входных ворот.",
+              "Urdu": "ٹکٹ آن لائن یا داخلی گیٹ پر خریدے جا سکتے ہیں۔",
+              "Indonesian": "Tiket dapat dibeli secara daring atau di pintu masuk.",
+              "Standard German": "Tickets können online oder am Eingangstor erworben werden.",
+              "Japanese": "チケットはオンラインまたは入場ゲートで購入できます。"
+            }
+          },
+          {
+            "english": "She purchased a beautiful painting during her trip to Florence.",
+            "translations": {
+              "Mandarin Chinese": "她在佛罗伦萨旅行期间购买了一幅美丽的画作。",
+              "Hindi": "उन्होंने फ्लोरेंस की अपनी यात्रा के दौरान एक सुंदर पेंटिंग खरीदी।",
+              "Spanish": "Ella compró una pintura hermosa durante su viaje a Florencia.",
+              "Standard Arabic": "اشترت لوحة جميلة خلال رحلتها إلى فلورنسا.",
+              "French": "Elle a acheté un magnifique tableau lors de son voyage à Florence.",
+              "Bengali": "তিনি ফ্লোরেন্স ভ্রমণের সময় একটি সুন্দর পেইন্টিং কিনেছিলেন।",
+              "Portuguese": "Ela comprou uma linda pintura durante sua viagem a Florença.",
+              "Russian": "Она приобрела красивую картину во время поездки во Флоренцию.",
+              "Urdu": "اس نے فلورنس کے سفر کے دوران ایک خوبصورت پینٹنگ خریدی۔",
+              "Indonesian": "Dia membeli lukisan yang indah selama perjalanannya ke Firenze.",
+              "Standard German": "Sie kaufte während ihrer Reise nach Florenz ein wunderschönes Gemälde.",
+              "Japanese": "彼女はフィレンツェへの旅行中に素晴らしい絵画を購入しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "return",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "verb",
+        "pronunciation": "/rɪˈtɜːrn/",
+        "meaning": "To take or send something back to a shop because you do not want it or it is damaged.",
+        "synonyms": ["send back", "take back", "refund"],
+        "antonyms": ["keep"],
+        "examples": [
+          {
+            "english": "If the shoes do not fit, you can return them within 14 days.",
+            "translations": {
+              "Mandarin Chinese": "如果鞋子不合脚，您可以在14天内退货。",
+              "Hindi": "यदि जूते फिट नहीं होते हैं, तो आप उन्हें 14 दिनों के भीतर वापस कर सकते हैं।",
+              "Spanish": "Si los zapatos no le quedan, puede devolverlos dentro de los 14 días.",
+              "Standard Arabic": "إذا لم تكن الأحذية مناسبة، يمكنك إرجاعها في غضون 14 يوماً.",
+              "French": "Si les chaussures ne vont pas, vous pouvez les retourner sous 14 jours.",
+              "Bengali": "জুতো ফিট না হলে, আপনি ১৪ দিনের মধ্যে ফেরত দিতে পারেন।",
+              "Portuguese": "Se os sapatos não servirem, você pode devolvê-los em até 14 dias.",
+              "Russian": "Если обувь не подойдет, вы можете вернуть ее в течение 14 дней.",
+              "Urdu": "اگر جوتے فٹ نہیں آتے ہیں، تو آپ انہیں 14 دنوں کے اندر واپس کر سکتے ہیں۔",
+              "Indonesian": "Jika sepatunya tidak pas, Anda dapat mengembalikannya dalam waktu 14 hari.",
+              "Standard German": "Wenn die Schuhe nicht passen, können Sie sie innerhalb von 14 Tagen zurückgeben.",
+              "Japanese": "靴が合わない場合は、14日以内であれば返品できます。"
+            }
+          },
+          {
+            "english": "I need to return this broken toaster to the store.",
+            "translations": {
+              "Mandarin Chinese": "我需要把这个坏掉的面包机退回给商店。",
+              "Hindi": "मुझे यह टूटा हुआ टोस्टर दुकान पर वापस करना होगा।",
+              "Spanish": "Necesito devolver esta tostadora rota a la tienda.",
+              "Standard Arabic": "أنا بحاجة لإرجاع هذه المحمصة المكسورة إلى المتجر.",
+              "French": "Je dois retourner ce grille-pain cassé au magasin.",
+              "Bengali": "আমার এই ভাঙা টোস্টারটি দোকানে ফেরত দেওয়া দরকার।",
+              "Portuguese": "Preciso devolver esta torradeira quebrada para a loja.",
+              "Russian": "Мне нужно вернуть этот сломанный тостер в магазин.",
+              "Urdu": "مجھے یہ ٹوٹا ہوا ٹوسٹر دکان پر واپس کرنے کی ضرورت ہے۔",
+              "Indonesian": "Saya harus mengembalikan pemanggang roti yang rusak ini ke toko.",
+              "Standard German": "Ich muss diesen kaputten Toaster ins Geschäft zurückbringen.",
+              "Japanese": "この壊れたトースターを店に返品しなければなりません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "exchange",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "verb",
+        "pronunciation": "/ɪksˈtʃeɪndʒ/",
+        "meaning": "To give something back to a shop and get a different item instead.",
+        "synonyms": ["swap", "trade", "substitute"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I would like to exchange this medium shirt for a large one.",
+            "translations": {
+              "Mandarin Chinese": "我想把这件中号衬衫换成大号的。",
+              "Hindi": "मैं इस मीडियम शर्ट को लार्ज शर्ट से बदलना चाहूँगा।",
+              "Spanish": "Me gustaría cambiar esta camisa mediana por una grande.",
+              "Standard Arabic": "أود استبدال هذا القميص المتوسط بآخر كبير.",
+              "French": "Je voudrais échanger cette chemise de taille M contre une taille L.",
+              "Bengali": "আমি এই মাঝারি শার্টটি বদলে একটি বড় শার্ট নিতে চাই।",
+              "Portuguese": "Eu gostaria de trocar esta camisa média por uma grande.",
+              "Russian": "Я хотел бы обменять эту рубашку среднего размера на большую.",
+              "Urdu": "میں اس درمیانے سائز کی شرٹ کو بڑے سائز سے تبدیل کرنا چاہوں گا۔",
+              "Indonesian": "Saya ingin menukar kemeja ukuran sedang ini dengan yang ukuran besar.",
+              "Standard German": "Ich möchte dieses Hemd in Größe M gegen eines in Größe L umtauschen.",
+              "Japanese": "このMサイズのシャツをLサイズに交換したいのですが。"
+            }
+          },
+          {
+            "english": "The shop allows customers to exchange goods if they have a receipt.",
+            "translations": {
+              "Mandarin Chinese": "如果顾客有收据，商店允许他们调换商品。",
+              "Hindi": "यदि ग्राहकों के पास रसीद हो तो दुकान सामान बदलने की अनुमति देती है।",
+              "Spanish": "La tienda permite a los clientes cambiar productos si tienen un recibo.",
+              "Standard Arabic": "يسمح المتجر للزبائن باستبدال البضائع إذا كان لديهم إيصال.",
+              "French": "Le magasin permet aux clients d'échanger des marchandises s'ils ont un reçu.",
+              "Bengali": "গ্রাহকদের কাছে রসিদ থাকলে দোকানটি পণ্য বিনিময়ের অনুমতি দেয়।",
+              "Portuguese": "A loja permite que os clientes troquem mercadorias se tiverem o recibo.",
+              "Russian": "Магазин разрешает покупателям обменивать товары при наличии чека.",
+              "Urdu": "اگر گاہکوں کے پاس رسید ہو تو دکان سامان تبدیل کرنے کی اجازت دیتی ہے۔",
+              "Indonesian": "Toko mengizinkan pelanggan untuk menukar barang jika mereka memiliki tanda terima.",
+              "Standard German": "Das Geschäft erlaubt den Umtausch von Waren, wenn der Kunde eine Quittung hat.",
+              "Japanese": "レシートがあれば、店で商品の交換が可能です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "online shopping",
+        "level": "A2",
+        "category": "Shopping",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɑːnlaɪn ˈʃɑːpɪŋ/",
+        "meaning": "The activity of buying goods or services over the internet.",
+        "synonyms": ["e-commerce", "electronic shopping", "web shopping"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Online shopping saves time because you don't have to leave home.",
+            "translations": {
+              "Mandarin Chinese": "网上购物节省时间，因为你不需要出门。",
+              "Hindi": "ऑनलाइन शॉपिंग से समय बचता है क्योंकि आपको घर से बाहर नहीं निकलना पड़ता।",
+              "Spanish": "Comprar en línea ahorra tiempo porque no tienes que salir de casa.",
+              "Standard Arabic": "التسوق عبر الإنترنت يوفر الوقت لأنك لا تحتاج إلى مغادرة المنزل.",
+              "French": "Le lèche-vitrine en ligne permet de gagner du temps car on n'a pas besoin de quitter la maison.",
+              "Bengali": "অনলাইন শপিং সময় বাঁচায় কারণ আপনাকে বাড়ি থেকে বের হতে হবে না।",
+              "Portuguese": "Fazer compras online economiza tempo porque você não precisa sair de casa.",
+              "Russian": "Онлайн-покупки экономят время, так как вам не нужно выходить из дома.",
+              "Urdu": "آن لائن شاپنگ سے وقت بچتا ہے کیونکہ آپ کو گھر سے باہر نہیں نکلنا پڑتا۔",
+              "Indonesian": "Belanja daring menghemat waktu karena Anda tidak perlu keluar rumah.",
+              "Standard German": "Online-Shopping spart Zeit, weil man das Haus nicht verlassen muss.",
+              "Japanese": "オンラインショッピングは家から出る必要がないので時間を節約できます。"
+            }
+          },
+          {
+            "english": "Many traditional stores are struggling due to the popularity of online shopping.",
+            "translations": {
+              "Mandarin Chinese": "由于网上购物的流行，许多传统实体店都在艰难求生。",
+              "Hindi": "ऑनलाइन शॉपिंग की लोकप्रियता के कारण कई पारंपरिक स्टोर संघर्ष कर रहे हैं।",
+              "Spanish": "Muchas tiendas tradicionales están luchando debido a la popularidad de las compras en línea.",
+              "Standard Arabic": "تكافح العديد من المتاجر التقليدية بسبب شعبية التسوق عبر الإنترنت.",
+              "French": "De nombreux magasins traditionnels sont en difficulté en raison de la popularité des achats en ligne.",
+              "Bengali": "অনলাইন শপিংয়ের জনপ্রিয়তার কারণে অনেক ঐতিহ্যবাহী দোকান টিকে থাকতে হিমশিম খাচ্ছে।",
+              "Portuguese": "Muitas lojas tradicionais estão enfrentando dificuldades devido à popularidade das compras online.",
+              "Russian": "Многие традиционные магазины испытывают трудности из-за популярности онлайн-покупок.",
+              "Urdu": "آن لائن شاپنگ کی مقبولیت کی وجہ سے بہت سے روایتی اسٹورز مشکلات کا شکار ہیں۔",
+              "Indonesian": "Banyak toko tradisional yang kesulitan karena popularitas belanja daring.",
+              "Standard German": "Viele traditionelle Geschäfte haben aufgrund der Beliebtheit des Online-Shoppings zu kämpfen.",
+              "Japanese": "オンラインショッピングの人気により、多くの従来の店舗が苦戦しています。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

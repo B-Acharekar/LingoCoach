@@ -1,0 +1,589 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Emotions & Personality": [
+      {
+        "word": "confident",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈkɑːnfɪdənt/",
+        "meaning": "Feeling sure about your own ability to do things and be successful.",
+        "synonyms": ["self-assured", "certain"],
+        "antonyms": ["insecure", "shy"],
+        "examples": [
+          {
+            "english": "She feels confident about passing the exam because she studied hard.",
+            "translations": {
+              "Mandarin Chinese": "她对通过考试感到自信，因为她努力学习了。",
+              "Hindi": "वह परीक्षा पास करने को लेकर आत्मविश्वासी (कॉन्फिडेंट) महसूस कर रही है क्योंकि उसने कड़ी मेहनत की है।",
+              "Spanish": "Se siente segura de aprobar el examen porque estudió mucho.",
+              "Standard Arabic": "إنها تشعر بالثقة بشأن اجتياز الامتحان لأنها درست بجد.",
+              "French": "Elle se sent confiante quant à la réussite de l'examen car elle a beaucoup étudié.",
+              "Bengali": "সে পরীক্ষা পাস করার ব্যাপারে আত্মবিশ্বাসী কারণ সে কঠোর পড়াশোনা করেছে।",
+              "Portuguese": "Ela se sente confiante em passar no exame porque estudou muito.",
+              "Russian": "Она уверена в том, что сдаст экзамен, потому что много училась.",
+              "Urdu": "وہ امتحان پاس کرنے کے بارے میں پراعتماد ہے کیونکہ اس نے سخت محنت کی ہے۔",
+              "Indonesian": "Dia merasa percaya diri untuk lulus ujian karena dia belajar dengan giat.",
+              "Standard German": "Sie fühlt sich zuversichtlich, die Prüfung zu bestehen, weil sie hart gelernt hat.",
+              "Japanese": "彼女は一生懸命勉強したので、試験に合格する自信があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "nervous",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈnɜːrvəs/",
+        "meaning": "Feeling worried or frightened about something.",
+        "synonyms": ["anxious", "worried"],
+        "antonyms": ["calm", "relaxed"],
+        "examples": [
+          {
+            "english": "I always get nervous before giving a presentation in front of the class.",
+            "translations": {
+              "Mandarin Chinese": "在全班同学面前做报告之前，我总是感到紧张。",
+              "Hindi": "क्लास के सामने प्रेजेंटेशन देने से पहले मैं हमेशा घबरा (नर्वस) जाता हूँ।",
+              "Spanish": "Siempre me pongo nervioso antes de dar una presentación frente a la clase.",
+              "Standard Arabic": "أشعر دائماً بالتوتر قبل تقديم عرض تقديمي أمام الفصل.",
+              "French": "Je suis toujours nerveux avant de faire une présentation devant la classe.",
+              "Bengali": "ক্লাসের সামনে প্রেজেন্টেশন দেওয়ার আগে আমি সবসময় নার্ভাস হয়ে পড়ি।",
+              "Portuguese": "Sempre fico nervoso antes de fazer uma apresentação na frente da turma.",
+              "Russian": "Я всегда нервничаю перед тем, как выступать с презентацией перед классом.",
+              "Urdu": "کلاس کے سامنے پریزنٹیشن دینے سے پہلے میں ہمیشہ گھبرا جاتا ہوں۔",
+              "Indonesian": "Saya selalu merasa gugup sebelum memberikan presentasi di depan kelas.",
+              "Standard German": "Ich werde immer nervös, bevor ich eine Präsentation vor der Klasse halte.",
+              "Japanese": "クラスの前で発表する前は、いつも緊張してしまいます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "excited",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ɪkˈsaɪtɪd/",
+        "meaning": "Feeling very happy and enthusiastic about something that will happen.",
+        "synonyms": ["thrilled", "enthusiastic"],
+        "antonyms": ["bored", "calm"],
+        "examples": [
+          {
+            "english": "The children are so excited about the school trip next week.",
+            "translations": {
+              "Mandarin Chinese": "孩子们对下周的学校旅行感到非常兴奋。",
+              "Hindi": "बच्चे अगले हफ्ते की स्कूल ट्रिप को लेकर बहुत उत्साहित (एक्साइटेड) हैं।",
+              "Spanish": "Los niños están muy emocionados por el viaje escolar de la próxima semana.",
+              "Standard Arabic": "الأطفال متحمسون جداً لرحلة المدرسة الأسبوع المقبل.",
+              "French": "Les enfants sont très enthousiastes à propos du voyage scolaire de la semaine prochaine.",
+              "Bengali": "বাচ্চারা আগামী সপ্তাহের স্কুলের ট্রিপ নিয়ে খুব উত্তেজিত।",
+              "Portuguese": "As crianças estão muito animadas com a viagem da escola na próxima semana.",
+              "Russian": "Дети очень взволнованы предстоящей школьной поездкой на следующей неделе.",
+              "Urdu": "بچے اگلے ہفتے ہونے والے اسکول ٹرپ کے بارے میں بہت پرجوش ہیں۔",
+              "Indonesian": "Anak-anak sangat bersemangat tentang perjalanan sekolah minggu depan.",
+              "Standard German": "Die Kinder sind sehr aufgeregt wegen des Schulausflugs nächste Woche.",
+              "Japanese": "子供たちは来週の遠足を楽しみにしています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "embarrassed",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ɪmˈbærəst/",
+        "meaning": "Feeling ashamed or shy, especially in front of other people.",
+        "synonyms": ["ashamed", "self-conscious"],
+        "antonyms": ["proud", "confident"],
+        "examples": [
+          {
+            "english": "He felt embarrassed when he forgot his lines during the play.",
+            "translations": {
+              "Mandarin Chinese": "在演戏时忘记台词，他感到很尴尬。",
+              "Hindi": "नाटक के दौरान अपनी लाइन भूल जाने पर उसे शर्मिंदगी (एम्बैरेस्ड) महसूस हुई।",
+              "Spanish": "Se sintió avergonzado cuando olvidó sus líneas durante la obra.",
+              "Standard Arabic": "شعر بالارتباك عندما نسي سطوره أثناء المسرحية.",
+              "French": "Il s'est senti embarrassé quand il a oublié ses répliques pendant la pièce.",
+              "Bengali": "নাটকের সময় নিজের সংলাপ ভুলে যাওয়ায় সে বিব্রত বোধ করেছিল।",
+              "Portuguese": "Ele ficou envergonhado quando esqueceu suas falas durante a peça.",
+              "Russian": "Он почувствовал смущение, когда забыл свои слова во время спектакля.",
+              "Urdu": "ڈرامے کے دوران اپنی لائنیں بھول جانے پر اسے شرمندگی محسوس ہوئی۔",
+              "Indonesian": "Dia merasa malu ketika melupakan dialognya selama pertunjukan.",
+              "Standard German": "Er fühlte sich verlegen, als er während des Stücks seinen Text vergaß.",
+              "Japanese": "劇の最中にセリフを忘れてしまい、彼はとても恥ずかしい思いをしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "proud",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/praʊd/",
+        "meaning": "Feeling pleased and satisfied about something you own or have done.",
+        "synonyms": ["pleased", "satisfied"],
+        "antonyms": ["ashamed", "humble"],
+        "examples": [
+          {
+            "english": "Her parents were so proud of her when she won the award.",
+            "translations": {
+              "Mandarin Chinese": "她获奖时，她的父母为她感到非常骄傲。",
+              "Hindi": "जब उसने पुरस्कार जीता तो उसके माता-पिता उसे लेकर बहुत गर्व (प्राउड) महसूस कर रहे थे।",
+              "Spanish": "Sus padres estaban muy orgullosos de ella cuando ganó el premio.",
+              "Standard Arabic": "كان والداها فخورين جداً بها عندما فازت بالجائزة.",
+              "French": "Ses parents étaient très fiers d'elle quand elle a gagné le prix.",
+              "Bengali": "পুরস্কার জেতার পর তার বাবা-মা তাকে নিয়ে খুব গর্বিত ছিলেন।",
+              "Portuguese": "Seus pais ficaram muito orgulhosos dela quando ela ganhou o prêmio.",
+              "Russian": "Ее родители очень гордились ею, когда она получила награду.",
+              "Urdu": "جب اس نے انعام جیتا تو اس کے والدین کو اس پر بہت فخر تھا۔",
+              "Indonesian": "Orang tuanya sangat bangga padanya ketika dia memenangkan penghargaan tersebut.",
+              "Standard German": "Ihre Eltern waren so stolz auf sie, als sie die Auszeichnung gewann.",
+              "Japanese": "彼女が賞を受賞したとき、両親は彼女をとても誇りに思いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "friendly",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈfrendli/",
+        "meaning": "Behaving in a kind and pleasant way towards other people.",
+        "synonyms": ["kind", "amiable", "sociable"],
+        "antonyms": ["unfriendly", "hostile"],
+        "examples": [
+          {
+            "english": "The new neighbors are very friendly and always say hello.",
+            "translations": {
+              "Mandarin Chinese": "新邻居非常友好，总是打招呼。",
+              "Hindi": "नए पड़ोसी बहुत मिलनसार (फ्रेंडली) हैं और हमेशा हैलो कहते हैं।",
+              "Spanish": "Los nuevos vecinos son muy amigables y siempre saludan.",
+              "Standard Arabic": "الجيران الجدد ودودون للغاية ودائماً ما يلقون التحية.",
+              "French": "Les nouveaux voisins sont très sympathiques et disent toujours bonjour.",
+              "Bengali": "নতুন প্রতিবেশীরা খুব বন্ধুত্বপূর্ণ এবং সবসময় হ্যালো বলে।",
+              "Portuguese": "Os novos vizinhos são muito amigáveis e sempre dizem olá.",
+              "Russian": "Новые соседи очень дружелюбны и всегда здороваются.",
+              "Urdu": "نئے پڑوسی بہت دوستانہ ہیں اور ہمیشہ ہیلو کہتے ہیں۔",
+              "Indonesian": "Tetangga baru sangat ramah dan selalu menyapa.",
+              "Standard German": "Die neuen Nachbarn sind sehr freundlich und sagen immer Hallo.",
+              "Japanese": "新しい隣人たちはとてもフレンドリーで、いつも挨拶をしてくれます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "polite",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/pəˈlaɪt/",
+        "meaning": "Having good manners and showing respect for others.",
+        "synonyms": ["well-mannered", "respectful"],
+        "antonyms": ["rude", "impolite"],
+        "examples": [
+          {
+            "english": "It is polite to say thank you when someone helps you.",
+            "translations": {
+              "Mandarin Chinese": "别人帮助你时，说谢谢是礼貌的表现。",
+              "Hindi": "जब कोई आपकी मदद करे तो थैंक यू कहना विनम्र (पोलाइट) होता है।",
+              "Spanish": "Es educado decir gracias cuando alguien te ayuda.",
+              "Standard Arabic": "من الأدب أن تقول شكراً عندما يساعدك شخص ما.",
+              "French": "Il est poli de dire merci quand quelqu'un vous aide.",
+              "Bengali": "কেউ আপনাকে সাহায্য করলে ধন্যবাদ বলাটা ভদ্রতা।",
+              "Portuguese": "É educado dizer obrigado quando alguém te ajuda.",
+              "Russian": "Вежливо говорить «спасибо», когда кто-то вам помогает.",
+              "Urdu": "جب کوئی آپ کی مدد کرے تو شکریہ کہنا شائستگی ہے۔",
+              "Indonesian": "Sangat sopan untuk mengucapkan terima kasih ketika seseorang membantu Anda.",
+              "Standard German": "Es ist höflich, Danke zu sagen, wenn dir jemand hilft.",
+              "Japanese": "誰かが助けてくれたときに「ありがとう」と言うのは礼儀正しいことです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "honest",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈɑːnɪst/",
+        "meaning": "Telling the truth and not cheating or stealing.",
+        "synonyms": ["truthful", "sincere"],
+        "antonyms": ["dishonest", "lying"],
+        "examples": [
+          {
+            "english": "She is an honest person and never tells lies to her friends.",
+            "translations": {
+              "Mandarin Chinese": "她是一个诚实的人，从不对朋友撒谎。",
+              "Hindi": "वह एक ईमानदार (ऑनेस्ट) व्यक्ति है और कभी भी अपने दोस्तों से झूठ नहीं बोलती।",
+              "Spanish": "Ella es una persona honesta y nunca le dice mentiras a sus amigos.",
+              "Standard Arabic": "إنها شخص صادق ولا تكذب أبداً على أصدقائها.",
+              "French": "C'est une personne honnête qui ne ment jamais à ses amis.",
+              "Bengali": "সে একজন সৎ মানুষ এবং তার বন্ধুদের কাছে কখনোই মিথ্যা বলে না।",
+              "Portuguese": "Ela é uma pessoa honesta e nunca conta mentiras para seus amigos.",
+              "Russian": "Она честный человек и никогда не лжет своим друзьям.",
+              "Urdu": "وہ ایک دیانتدار انسان ہے اور کبھی اپنے دوستوں سے جھوٹ نہیں بولتی۔",
+              "Indonesian": "Dia adalah orang yang jujur dan tidak pernah berbohong kepada teman-temannya.",
+              "Standard German": "Sie ist ein ehrlicher Mensch und lügt ihre Freunde nie an.",
+              "Japanese": "彼女は正直な人で、友達に嘘をつくことはありません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "lazy",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈleɪzi/",
+        "meaning": "Not wanting to work or do anything active.",
+        "synonyms": ["idle", "sluggish"],
+        "antonyms": ["hard-working", "active"],
+        "examples": [
+          {
+            "english": "He is too lazy to clean his room on the weekends.",
+            "translations": {
+              "Mandarin Chinese": "他太懒了，周末都不打扫房间。",
+              "Hindi": "वह इतना आलसी (लेजी) है कि सप्ताहांत पर अपना कमरा भी साफ नहीं करता।",
+              "Spanish": "Es demasiado perezoso para limpiar su habitación los fines de semana.",
+              "Standard Arabic": "إنه كسول جداً بحيث لا ينظف غرفته في عطلة نهاية الأسبوع.",
+              "French": "Il est trop paresseux pour nettoyer sa chambre le week-end.",
+              "Bengali": "সে এতটাই অলস যে সপ্তাহান্তে নিজের ঘর পরিষ্কার করে না।",
+              "Portuguese": "Ele é muito preguiçoso para limpar seu quarto nos finais de semana.",
+              "Russian": "Он слишком ленив, чтобы убирать в своей комнате по выходным.",
+              "Urdu": "وہ اتنا سست ہے کہ ویک اینڈ پر اپنا کمرہ بھی صاف نہیں کرتا۔",
+              "Indonesian": "Dia terlalu malas untuk membersihkan kamarnya di akhir pekan.",
+              "Standard German": "Er ist zu faul, um an Wochenenden sein Zimmer aufzuräumen.",
+              "Japanese": "彼は週末に自分の部屋を掃除するのさえ面倒がるほど怠け者です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "active",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈæktɪv/",
+        "meaning": "Always busy doing things; full of energy.",
+        "synonyms": ["energetic", "lively"],
+        "antonyms": ["lazy", "passive"],
+        "examples": [
+          {
+            "english": "She leads an active lifestyle and goes hiking every weekend.",
+            "translations": {
+              "Mandarin Chinese": "她过着一种积极的生活方式，每个周末都去徒步旅行。",
+              "Hindi": "वह एक सक्रिय (एक्टिव) जीवनशैली जीती है और हर सप्ताहांत हाइकिंग पर जाती है।",
+              "Spanish": "Lleva un estilo de vida activo y va de excursión todos los fines de semana.",
+              "Standard Arabic": "إنها تعيش نمط حياة نشط وتذهب للمشي لمسافات طويلة في كل عطلة نهاية أسبوع.",
+              "French": "Elle mène une vie active et fait de la randonnée tous les week-ends.",
+              "Bengali": "সে একটি সক্রিয় জীবনধারা মেনে চলে এবং প্রতি সপ্তাহান্তে হাইকিংয়ে যায়।",
+              "Portuguese": "Ela leva um estilo de vida ativo e faz trilhas todo fim de semana.",
+              "Russian": "Она ведет активный образ жизни и каждые выходные ходит в походы.",
+              "Urdu": "وہ ایک متحرک طرز زندگی گزارتی ہے اور ہر ویک اینڈ پر ہائیکنگ کے لیے جاتی ہے۔",
+              "Indonesian": "Dia menjalani gaya hidup aktif dan pergi mendaki setiap akhir pekan.",
+              "Standard German": "Sie führt einen aktiven Lebensstil und geht jedes Wochenende wandern.",
+              "Japanese": "彼女は活動的なライフスタイルを送っており、毎週末ハイキングに行きます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "patient",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈpeɪʃnt/",
+        "meaning": "Able to stay calm and not get angry when waiting for a long time.",
+        "synonyms": ["tolerant", "calm"],
+        "antonyms": ["impatient"],
+        "examples": [
+          {
+            "english": "You need to be patient when teaching young children how to read.",
+            "translations": {
+              "Mandarin Chinese": "教小孩子阅读时，你需要有耐心。",
+              "Hindi": "छोटे बच्चों को पढ़ना सिखाते समय आपको धैर्यवान (पेशेंट) रहना होगा।",
+              "Spanish": "Necesitas ser paciente al enseñarle a leer a los niños pequeños.",
+              "Standard Arabic": "تحتاج إلى التحلي بالصبر عند تعليم الأطفال الصغار القراءة.",
+              "French": "Vous devez être patient lorsque vous apprenez à lire aux jeunes enfants.",
+              "Bengali": "ছোট বাচ্চাদের পড়া শেখানোর সময় আপনাকে ধৈর্যশীল হতে হবে।",
+              "Portuguese": "Você precisa ser paciente ao ensinar crianças pequenas a ler.",
+              "Russian": "Нужно быть терпеливым, когда учишь маленьких детей читать.",
+              "Urdu": "چھوٹے بچوں کو پڑھنا سکھاتے وقت آپ کو صبر کرنے کی ضرورت ہے۔",
+              "Indonesian": "Anda harus bersabar saat mengajari anak kecil membaca.",
+              "Standard German": "Man muss geduldig sein, wenn man kleinen Kindern das Lesen beibringt.",
+              "Japanese": "小さな子供に読み方を教えるときは、忍耐強くある必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "kind",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/kaɪnd/",
+        "meaning": "Having a friendly, generous, and considerate nature.",
+        "synonyms": ["nice", "caring", "generous"],
+        "antonyms": ["unkind", "cruel"],
+        "examples": [
+          {
+            "english": "It was very kind of you to help me carry these heavy bags.",
+            "translations": {
+              "Mandarin Chinese": "你帮我提这些重包真是太善良了。",
+              "Hindi": "मेरे इन भारी बैगों को उठाने में मदद करना आपकी बहुत दयालुता (काइंड) थी।",
+              "Spanish": "Fue muy amable de tu parte ayudarme a llevar estas bolsas pesadas.",
+              "Standard Arabic": "كان من اللطيف جداً منك مساعدتي في حمل هذه الحقائب الثقيلة.",
+              "French": "C'était très gentil de votre part de m'aider à porter ces sacs lourds.",
+              "Bengali": "আমাকে এই ভারী ব্যাগগুলো বহন করতে সাহায্য করার জন্য আপনি খুব দয়ালু।",
+              "Portuguese": "Foi muito gentil da sua parte me ajudar a carregar essas bolsas pesadas.",
+              "Russian": "Было очень любезно с вашей стороны помочь мне донести эти тяжелые сумки.",
+              "Urdu": "ان بھاری تھیلوں کو اٹھانے میں میری مدد کرنا آپ کی بہت بڑی مہربانی تھی۔",
+              "Indonesian": "Sangat baik Anda membantu saya membawa tas berat ini.",
+              "Standard German": "Es war sehr nett von dir, mir beim Tragen dieser schweren Taschen zu helfen.",
+              "Japanese": "この重い荷物を運ぶのを手伝ってくれて、とても親切ですね。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "careful",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈkerfl/",
+        "meaning": "Giving a lot of attention to what you are doing so that you do not have an accident or make a mistake.",
+        "synonyms": ["cautious", "attentive"],
+        "antonyms": ["careless"],
+        "examples": [
+          {
+            "english": "Please be careful with the glass; it breaks very easily.",
+            "translations": {
+              "Mandarin Chinese": "请小心玻璃，它很容易碎。",
+              "Hindi": "कृपया गिलास के साथ सावधान (केयरफुल) रहें; यह बहुत आसानी से टूट जाता है।",
+              "Spanish": "Por favor, ten cuidado con el vaso; se rompe muy fácilmente.",
+              "Standard Arabic": "يرجى توخي الحذر مع الزجاج؛ فهو ينكسر بسهولة بالغة.",
+              "French": "S'il vous plaît soyez prudent avec le verre; il se casse très facilement.",
+              "Bengali": "দয়া করে গ্লাসটি সাবধানে ধরুন; এটি খুব সহজেই ভেঙে যায়।",
+              "Portuguese": "Por favor, tenha cuidado com o vidro; ele quebra muito facilmente.",
+              "Russian": "Пожалуйста, будьте осторожны со стеклом; оно очень легко разбивается.",
+              "Urdu": "براہ کرم گلاس کے ساتھ محتاط رہیں؛ یہ بہت آسانی سے ٹوٹ جاتا ہے۔",
+              "Indonesian": "Harap berhati-hati dengan gelas itu; sangat mudah pecah.",
+              "Standard German": "Bitte sei vorsichtig mit dem Glas; es zerbricht sehr leicht.",
+              "Japanese": "ガラスには気をつけてください。とても割れやすいですから。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "creative",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/kriˈeɪtɪv/",
+        "meaning": "Having good imagination or original ideas.",
+        "synonyms": ["imaginative", "artistic"],
+        "antonyms": ["unimaginative"],
+        "examples": [
+          {
+            "english": "She has a creative mind and loves painting and writing stories.",
+            "translations": {
+              "Mandarin Chinese": "她很有创造力，喜欢画画和写故事。",
+              "Hindi": "उसका दिमाग बहुत रचनात्मक (क्रिएटिव) है और उसे पेंटिंग करना और कहानियां लिखना पसंद है।",
+              "Spanish": "Ella tiene una mente creativa y le encanta pintar y escribir historias.",
+              "Standard Arabic": "لديها عقل مبدع وتحب الرسم وكتابة القصص.",
+              "French": "Elle a un esprit créatif et adore peindre et écrire des histoires.",
+              "Bengali": "তার একটি সৃজনশীল মন আছে এবং সে ছবি আঁকতে ও গল্প লিখতে ভালোবাসে।",
+              "Portuguese": "Ela tem uma mente criativa e adora pintar e escrever histórias.",
+              "Russian": "У нее творческий ум, она любит рисовать и писать рассказы.",
+              "Urdu": "اس کا ذہن بہت تخلیقی ہے اور اسے پینٹنگ کرنے اور کہانیاں لکھنے کا شوق ہے۔",
+              "Indonesian": "Dia memiliki pikiran yang kreatif dan suka melukis serta menulis cerita.",
+              "Standard German": "Sie hat einen kreativen Geist und liebt es, zu malen und Geschichten zu schreiben.",
+              "Japanese": "彼女は創造的な心を持っていて、絵を描いたり物語を書いたりするのが大好きです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "funny",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈfʌni/",
+        "meaning": "Causing laughter; humorous.",
+        "synonyms": ["humorous", "amusing"],
+        "antonyms": ["serious", "boring"],
+        "examples": [
+          {
+            "english": "My brother is a very funny guy who always makes us laugh.",
+            "translations": {
+              "Mandarin Chinese": "我哥哥是一个非常有趣的人，总是逗我们笑。",
+              "Hindi": "मेरा भाई एक बहुत ही मजाकिया (फनी) इंसान है जो हमेशा हमें हंसाता रहता है।",
+              "Spanish": "Mi hermano es un tipo muy divertido que siempre nos hace reír.",
+              "Standard Arabic": "أخي شخص مضحك جداً ودائماً ما يجعلنا نضحك.",
+              "French": "Mon frère est un gars très drôle qui nous fait toujours rire.",
+              "Bengali": "আমার ভাই খুব মজার একজন মানুষ, যে সবসময় আমাদের হাসায়।",
+              "Portuguese": "Meu irmão é um cara muito engraçado que sempre nos faz rir.",
+              "Russian": "Мой брат — очень забавный парень, который всегда нас смешит.",
+              "Urdu": "میرا بھائی بہت مزاحیہ آدمی ہے جو ہمیشہ ہمیں ہنساتا ہے۔",
+              "Indonesian": "Saudara laki-laki saya adalah orang yang sangat lucu yang selalu membuat kami tertawa.",
+              "Standard German": "Mein Bruder ist ein sehr lustiger Kerl, der uns immer zum Lachen bringt.",
+              "Japanese": "兄はいつも私たちを笑わせてくれる、とても面白い人です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "serious",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈsɪriəs/",
+        "meaning": "Not joking or playing; thoughtful and quiet.",
+        "synonyms": ["grave", "earnest"],
+        "antonyms": ["funny", "silly"],
+        "examples": [
+          {
+            "english": "He is a very serious student who focuses entirely on his work.",
+            "translations": {
+              "Mandarin Chinese": "他是一个非常认真的学生，全神贯注于学习。",
+              "Hindi": "वह एक बहुत ही गंभीर (सीरियस) छात्र है जो पूरी तरह से अपने काम पर ध्यान केंद्रित करता है।",
+              "Spanish": "Es un estudiante muy serio que se centra totalmente en su trabajo.",
+              "Standard Arabic": "إنه طالب جاد جداً يركز تماماً على عمله.",
+              "French": "C'est un étudiant très sérieux qui se concentre entièrement sur son travail.",
+              "Bengali": "সে একজন খুব গম্ভীর ছাত্র যে তার পড়াশোনার উপর সম্পূর্ণ মনোযোগ দেয়।",
+              "Portuguese": "Ele é um estudante muito sério que se concentra inteiramente em seu trabalho.",
+              "Russian": "Он очень серьезный студент, который полностью сосредоточен на своей работе.",
+              "Urdu": "وہ ایک بہت سنجیدہ طالب علم ہے جو مکمل طور پر اپنے کام پر توجہ مرکوز کرتا ہے۔",
+              "Indonesian": "Dia adalah siswa yang sangat serius yang sepenuhnya fokus pada pekerjaannya.",
+              "Standard German": "Er ist ein sehr ernster Schüler, der sich ganz auf seine Arbeit konzentriert.",
+              "Japanese": "彼はとても真面目な学生で、勉強に完全に集中しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "quiet",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈkwaɪət/",
+        "meaning": "Not speaking very much; reserved.",
+        "synonyms": ["reserved", "shy", "silent"],
+        "antonyms": ["talkative", "loud"],
+        "examples": [
+          {
+            "english": "She is a quiet person who prefers listening to talking.",
+            "translations": {
+              "Mandarin Chinese": "她是一个安静的人，比起说话，她更喜欢倾听。",
+              "Hindi": "वह एक शांत (क्वाइट) व्यक्ति है जो बोलने से ज्यादा सुनना पसंद करती है।",
+              "Spanish": "Es una persona callada que prefiere escuchar antes que hablar.",
+              "Standard Arabic": "إنها شخص هادئ يفضل الاستماع على التحدث.",
+              "French": "C'est une personne calme qui préfère écouter plutôt que parler.",
+              "Bengali": "সে একজন শান্ত মানুষ যে কথা বলার চেয়ে শুনতে বেশি পছন্দ করে।",
+              "Portuguese": "Ela é uma pessoa quieta que prefere ouvir a falar.",
+              "Russian": "Она тихий человек, который предпочитает слушать, а не говорить.",
+              "Urdu": "وہ ایک خاموش طبع انسان ہے جو بولنے کی بجائے سننا پسند کرتی ہے۔",
+              "Indonesian": "Dia adalah orang yang pendiam yang lebih suka mendengarkan daripada berbicara.",
+              "Standard German": "Sie ist ein ruhiger Mensch, der lieber zuhört, als spricht.",
+              "Japanese": "彼女は話すことよりも聞くことを好む、静かな人です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "helpful",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈhelpfl/",
+        "meaning": "Ready to give help to others.",
+        "synonyms": ["cooperative", "useful"],
+        "antonyms": ["unhelpful"],
+        "examples": [
+          {
+            "english": "Thank you for your helpful advice; it made the project much easier.",
+            "translations": {
+              "Mandarin Chinese": "谢谢你提供的有用建议，这让项目简单多了。",
+              "Hindi": "आपकी उपयोगी (हेल्पफुल) सलाह के लिए धन्यवाद; इससे प्रोजेक्ट बहुत आसान हो गया।",
+              "Spanish": "Gracias por tus consejos útiles; hicieron que el proyecto fuera mucho más fácil.",
+              "Standard Arabic": "شكراً لنصيحتك المفيدة؛ فقد جعلت المشروع أسهل بكثير.",
+              "French": "Merci pour vos conseils utiles ; cela a rendu le projet beaucoup plus facile.",
+              "Bengali": "আপনার সহায়ক পরামর্শের জন্য ধন্যবাদ; এটি প্রজেক্টটিকে অনেক সহজ করে তুলেছে।",
+              "Portuguese": "Obrigado por seus conselhos úteis; eles tornaram o projeto muito mais fácil.",
+              "Russian": "Спасибо за ваш полезный совет; это значительно облегчило проект.",
+              "Urdu": "آپ کے مددگار مشورے کا شکریہ؛ اس نے پروجیکٹ کو بہت آسان بنا دیا۔",
+              "Indonesian": "Terima kasih atas saran Anda yang bermanfaat; itu membuat proyek ini jauh lebih mudah.",
+              "Standard German": "Danke für deine hilfreichen Ratschläge; sie haben das Projekt viel einfacher gemacht.",
+              "Japanese": "役立つアドバイスをありがとうございます。おかげでプロジェクトがずっと楽になりました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "brave",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/breɪv/",
+        "meaning": "Showing no fear of dangerous or difficult situations.",
+        "synonyms": ["courageous", "fearless"],
+        "antonyms": ["cowardly", "fearful"],
+        "examples": [
+          {
+            "english": "The brave firefighter rescued the cat from the burning house.",
+            "translations": {
+              "Mandarin Chinese": "勇敢的消防员从着火的房子里救出了那只猫。",
+              "Hindi": "बहादुर (ब्रेव) फायरफाइटर ने जलते हुए घर से बिल्ली को बचाया।",
+              "Spanish": "El valiente bombero rescató al gato de la casa en llamas.",
+              "Standard Arabic": "أنقذ رجل الإطفاء الشجاع القطة من المنزل المحترق.",
+              "French": "Le courageux pompier a sauvé le chat de la maison en feu.",
+              "Bengali": "সাহসী অগ্নিনির্বাপক কর্মী জ্বলন্ত বাড়ি থেকে বিড়ালটিকে উদ্ধার করেছিলেন।",
+              "Portuguese": "O bravo bombeiro resgatou o gato da casa em chamas.",
+              "Russian": "Храбрый пожарный спас кошку из горящего дома.",
+              "Urdu": "بہادر فائر فائٹر نے جلتے ہوئے گھر سے بلی کو بچایا۔",
+              "Indonesian": "Petugas pemadam kebakaran yang berani menyelamatkan kucing itu dari rumah yang terbakar.",
+              "Standard German": "Der tapfere Feuerwehrmann rettete die Katze aus dem brennenden Haus.",
+              "Japanese": "勇敢な消防士が、燃えている家から猫を救い出しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "shy",
+        "level": "A2",
+        "category": "Emotions & Personality",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ʃaɪ/",
+        "meaning": "Feeling nervous or timid in the company of other people.",
+        "synonyms": ["timid", "reserved"],
+        "antonyms": ["confident", "sociable"],
+        "examples": [
+          {
+            "english": "She is very shy and doesn't like meeting new people.",
+            "translations": {
+              "Mandarin Chinese": "她很害羞，不喜欢见陌生人。",
+              "Hindi": "वह बहुत शर्मीली (शाय) है और उसे नए लोगों से मिलना पसंद नहीं है।",
+              "Spanish": "Ella es muy tímida y no le gusta conocer gente nueva.",
+              "Standard Arabic": "إنها خجولة جداً ولا تحب مقابلة أشخاص جدد.",
+              "French": "Elle est très timide et n'aime pas rencontrer de nouvelles personnes.",
+              "Bengali": "সে খুব লাজুক এবং নতুন মানুষের সাথে দেখা করা পছন্দ করে না।",
+              "Portuguese": "Ela é muito tímida e não gosta de conhecer novas pessoas.",
+              "Russian": "Она очень застенчива и не любит знакомиться с новыми людьми.",
+              "Urdu": "وہ بہت شرمیلی ہے اور اسے نئے لوگوں سے ملنا پسند نہیں ہے۔",
+              "Indonesian": "Dia sangat pemalu dan tidak suka bertemu orang baru.",
+              "Standard German": "Sie ist sehr schüchtern und trifft nicht gerne neue Leute.",
+              "Japanese": "彼女はとても恥ずかしがり屋で、新しい人と会うのが好きではありません。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

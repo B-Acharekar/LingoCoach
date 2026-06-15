@@ -1,0 +1,389 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "300-400",
+  "source": "Foundational English Communication",
+  "categories": {
+    "Personal Information": [
+      {
+        "word": "name",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/neɪm/",
+        "meaning": "The word or words by which a person is known.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My name is John.",
+            "translations": {
+              "Mandarin Chinese": "我的名字是约翰。",
+              "Spanish": "Mi nombre es John."
+            }
+          }
+        ]
+      },
+      {
+        "word": "age",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/eɪdʒ/",
+        "meaning": "The length of time that a person has lived.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "What is your age?",
+            "translations": {
+              "Mandarin Chinese": "你多大了？",
+              "Spanish": "¿Cuál es tu edad?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "birthday",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbɜːrθdeɪ/",
+        "meaning": "The anniversary of the day on which a person was born.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My birthday is in June.",
+            "translations": {
+              "Mandarin Chinese": "我的生日在六月。",
+              "Spanish": "Mi cumpleaños es en junio."
+            }
+          }
+        ]
+      },
+      {
+        "word": "address",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈdres/",
+        "meaning": "The details of where a person lives.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please write your address here.",
+            "translations": {
+              "Mandarin Chinese": "请在这里写下你的地址。",
+              "Spanish": "Por favor, escribe tu dirección aquí."
+            }
+          }
+        ]
+      },
+      {
+        "word": "phone number",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/foʊn ˈnʌmbər/",
+        "meaning": "The set of numbers used to call a person's telephone.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "What is your phone number?",
+            "translations": {
+              "Mandarin Chinese": "你的电话号码是多少？",
+              "Spanish": "¿Cuál es tu número de teléfono?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "country",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkʌntri/",
+        "meaning": "A nation with its own government.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am from India.",
+            "translations": {
+              "Mandarin Chinese": "我来自印度。",
+              "Spanish": "Soy de la India."
+            }
+          }
+        ]
+      },
+      {
+        "word": "city",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɪti/",
+        "meaning": "A large town.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I live in Mumbai.",
+            "translations": {
+              "Mandarin Chinese": "我住在孟买。",
+              "Spanish": "Vivo en Mumbai."
+            }
+          }
+        ]
+      },
+      {
+        "word": "language",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlæŋɡwɪdʒ/",
+        "meaning": "The method of human communication used by a country or community.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "What language do you speak?",
+            "translations": {
+              "Mandarin Chinese": "你说什么语言？",
+              "Spanish": "¿Qué idioma hablas?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "job",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/dʒɒb/",
+        "meaning": "A person's role in society; work.",
+        "synonyms": ["work", "career"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Do you have a job?",
+            "translations": {
+              "Mandarin Chinese": "你有工作吗？",
+              "Spanish": "¿Tienes un trabajo?"
+            }
+          }
+        ]
+      },
+      {
+        "word": "student",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈstjuːdnt/",
+        "meaning": "A person who is studying at a school or college.",
+        "synonyms": [],
+        "antonyms": ["teacher"],
+        "examples": [
+          {
+            "english": "I am a student.",
+            "translations": {
+              "Mandarin Chinese": "我是一名学生。",
+              "Spanish": "Soy estudiante."
+            }
+          }
+        ]
+      },
+      {
+        "word": "teacher",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtiːtʃər/",
+        "meaning": "A person who teaches.",
+        "synonyms": [],
+        "antonyms": ["student"],
+        "examples": [
+          {
+            "english": "She is my teacher.",
+            "translations": {
+              "Mandarin Chinese": "她是我的老师。",
+              "Spanish": "Ella es mi profesora."
+            }
+          }
+        ]
+      },
+      {
+        "word": "man",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/mæn/",
+        "meaning": "An adult male human.",
+        "synonyms": [],
+        "antonyms": ["woman"],
+        "examples": [
+          {
+            "english": "The man is tall.",
+            "translations": {
+              "Mandarin Chinese": "那个男人很高。",
+              "Spanish": "El hombre es alto."
+            }
+          }
+        ]
+      },
+      {
+        "word": "woman",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwʊmən/",
+        "meaning": "An adult female human.",
+        "synonyms": [],
+        "antonyms": ["man"],
+        "examples": [
+          {
+            "english": "She is a kind woman.",
+            "translations": {
+              "Mandarin Chinese": "她是一位善良的女性。",
+              "Spanish": "Ella es una mujer amable."
+            }
+          }
+        ]
+      },
+      {
+        "word": "boy",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/bɔɪ/",
+        "meaning": "A male child or adolescent.",
+        "synonyms": [],
+        "antonyms": ["girl"],
+        "examples": [
+          {
+            "english": "The boy is playing.",
+            "translations": {
+              "Mandarin Chinese": "那个男孩在玩耍。",
+              "Spanish": "El niño está jugando."
+            }
+          }
+        ]
+      },
+      {
+        "word": "girl",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɡɜːrl/",
+        "meaning": "A female child or adolescent.",
+        "synonyms": [],
+        "antonyms": ["boy"],
+        "examples": [
+          {
+            "english": "The girl is happy.",
+            "translations": {
+              "Mandarin Chinese": "那个女孩很开心。",
+              "Spanish": "La niña está feliz."
+            }
+          }
+        ]
+      },
+      {
+        "word": "friend",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/frend/",
+        "meaning": "A person whom one knows and with whom one has a bond of mutual affection.",
+        "synonyms": [],
+        "antonyms": ["enemy"],
+        "examples": [
+          {
+            "english": "He is my best friend.",
+            "translations": {
+              "Mandarin Chinese": "他是我最好的朋友。",
+              "Spanish": "Él es mi mejor amigo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "person",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpɜːrsn/",
+        "meaning": "A human being.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He is a good person.",
+            "translations": {
+              "Mandarin Chinese": "他是一个好人。",
+              "Spanish": "Él es una buena persona."
+            }
+          }
+        ]
+      },
+      {
+        "word": "people",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpiːpl/",
+        "meaning": "Human beings in general or considered collectively (plural of person).",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "There are many people here.",
+            "translations": {
+              "Mandarin Chinese": "这里有很多人。",
+              "Spanish": "Hay muchas personas aquí."
+            }
+          }
+        ]
+      },
+      {
+        "word": "child",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/tʃaɪld/",
+        "meaning": "A young human being below the age of puberty.",
+        "synonyms": [],
+        "antonyms": ["adult"],
+        "examples": [
+          {
+            "english": "The child is sleeping.",
+            "translations": {
+              "Mandarin Chinese": "那个孩子在睡觉。",
+              "Spanish": "El niño está durmiendo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "adult",
+        "level": "A1",
+        "category": "Personal Information",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈædʌlt/",
+        "meaning": "A person who is fully grown or developed.",
+        "synonyms": [],
+        "antonyms": ["child"],
+        "examples": [
+          {
+            "english": "She is an adult now.",
+            "translations": {
+              "Mandarin Chinese": "她现在是一个成年人了。",
+              "Spanish": "Ella es una adulta ahora."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

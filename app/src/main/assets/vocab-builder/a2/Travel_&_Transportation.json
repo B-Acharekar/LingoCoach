@@ -1,0 +1,1067 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Travel & Transportation": [
+      {
+        "word": "passport",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpæspɔːrt/",
+        "meaning": "An official government document containing your name, photograph, and personal details that you need to travel to other countries.",
+        "synonyms": ["travel document", "identification"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Don't forget to pack your passport before leaving for the airport.",
+            "translations": {
+              "Mandarin Chinese": "出发去机场 business 前别忘了带上你的护照。",
+              "Hindi": "हवाई अड्डे के लिए निकलने से पहले अपना पासपोर्ट पैक करना न भूलें।",
+              "Spanish": "No olvides empacar tu pasaporte antes de salir para el aeropuerto.",
+              "Standard Arabic": "لا تنسَ حزم جواز سفرك قبل المغادرة إلى المطار.",
+              "French": "N'oublie pas de prendre ton passeport avant de partir pour l'aéroport.",
+              "Bengali": "বিমানবন্দরের উদ্দেশ্যে রওনা হওয়ার আগে আপনার পাসপোর্টটি প্যাক করতে ভুলবেন না।",
+              "Portuguese": "Não se esqueça de levar seu passaporte antes de ir para o aeroporto.",
+              "Russian": "Не забудьте положить паспорт перед отъездом в аэропорт.",
+              "Urdu": "ایئرپورٹ جانے سے پہلے اپنا پاسپورٹ رکھنا نہ بھولیں۔",
+              "Indonesian": "Jangan lupa mengemas paspor Anda sebelum berangkat ke bandara.",
+              "Standard German": "Vergessen Sie nicht, Ihren Reisepass einzupacken, bevor Sie zum Flughafen aufbrechen.",
+              "Japanese": "空港に出発する前にパスポートを入れるのを忘れないでください。"
+            }
+          },
+          {
+            "english": "The officer checked my passport at the border border crossing.",
+            "translations": {
+              "Mandarin Chinese": "官员在边境检查了我的护照。",
+              "Hindi": "अधिकारी ने सीमा पर मेरे पासपोर्ट की जांच की।",
+              "Spanish": "El oficial revisó mi pasaporte en la frontera.",
+              "Standard Arabic": "فحص الضابط جواز سفري عند الحدود.",
+              "French": "L'agent a vérifié mon passeport à la frontière.",
+              "Bengali": "কর্মকর্তা সীমান্তে আমার পাসপোর্ট পরীক্ষা করেছিলেন।",
+              "Portuguese": "O oficial verificou meu passaporte na fronteira.",
+              "Russian": "Офицер проверил мой паспорт на границе.",
+              "Urdu": "آفیسر نے بارڈر پر میرا پاسپورٹ چیک کیا۔",
+              "Indonesian": "Petugas memeriksa paspor saya di perbatasan.",
+              "Standard German": "Der Beamte kontrollierte meinen Reisepass an der Grenze.",
+              "Japanese": "係員は国境で私のパスポートをチェックしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "visa",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈviːzə/",
+        "meaning": "An official stamp or mark made in a passport which allows you to enter or leave a specific country.",
+        "synonyms": ["travel permit", "endorsement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "You need a tourist visa if you want to visit that country for a month.",
+            "translations": {
+              "Mandarin Chinese": "如果你想去那个国家旅游一个月，你需要一个旅游签证。",
+              "Hindi": "यदि आप एक महीने के लिए उस देश का दौरा करना चाहते हैं तो आपको एक पर्यटक वीज़ा की आवश्यकता होगी।",
+              "Spanish": "Necesitas una visa de turista si quieres visitar ese país por un mes.",
+              "Standard Arabic": "تحتاج إلى تأشيرة سياحية إذا كنت ترغب في زيارة ذلك البلد لمدة شهر.",
+              "French": "Tu as besoin d'un visa de touriste si tu veux visiter ce pays pendant un mois.",
+              "Bengali": "আপনি যদি এক মাসের জন্য সেই দেশ ভ্রমণ করতে চান তবে আপনার একটি ট্যুরিস্ট ভিসা লাগবে।",
+              "Portuguese": "Você precisa de um visto de turista se quiser visitar aquele país por um mês.",
+              "Russian": "Вам понадобится туристическая виза, если вы хотите посетить эту страну на месяц.",
+              "Urdu": "اگر آپ ایک مہینے کے لیے اس ملک کا دورہ کرنا چاہتے ہیں تو آپ کو ٹورسٹ ویزا کی ضرورت ہوگی۔",
+              "Indonesian": "Anda memerlukan visa turis jika ingin mengunjungi negara itu selama sebulan.",
+              "Standard German": "Sie benötigen ein Touristenvisum, wenn Sie dieses Land für einen Monat besuchen möchten.",
+              "Japanese": "その国を1ヶ月間観光したい場合は、観光ビザが必要です。"
+            }
+          },
+          {
+            "english": "My application for a student visa was finally approved.",
+            "translations": {
+              "Mandarin Chinese": "我的学生签证申请终于被批准了。",
+              "Hindi": "छात्र वीज़ा के लिए मेरा आवेदन आखिरकार स्वीकृत हो गया।",
+              "Spanish": "Mi solicitud de visa de estudiante finalmente fue aprobada.",
+              "Standard Arabic": "تمت الموافقة أخيراً على طلبي للحصول على تأشيرة طالب.",
+              "French": "Ma demande de visa d'étudiant a enfin été approuvée.",
+              "Bengali": "আমার স্টুডেন্ট ভিসার আবেদন অবশেষে অনুমোদিত হয়েছে।",
+              "Portuguese": "Meu pedido de visto de estudante foi finalmente aprovado.",
+              "Russian": "Мое заявление на студенческую визу наконец-то одобрили.",
+              "Urdu": "اسٹوڈنٹ ویزا کے لیے میری درخواست بالاخر منظور ہو گئی۔",
+              "Indonesian": "Permohonan visa pelajar saya akhirnya disetujui.",
+              "Standard German": "Mein Antrag auf ein Studentenvisum wurde endlich genehmigt.",
+              "Japanese": "学生ビザの申請がようやく承認されました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "luggage",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlʌɡɪdʒ/",
+        "meaning": "Bags and cases that you carry with you when you are traveling.",
+        "synonyms": ["baggage", "suitcases", "gear"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "They left their luggage at the hotel reception.",
+            "translations": {
+              "Mandarin Chinese": "他们把行李寄存在酒店前台了。",
+              "Hindi": "उन्होंने अपना सामान होटल के रिसेप्शन पर छोड़ दिया।",
+              "Spanish": "Dejaron su equipaje en la recepción del hotel.",
+              "Standard Arabic": "تركوا أمتعتهم في مكتب استقبال الفندق.",
+              "French": "Ils ont laissé leurs bagages à la réception de l'hôtel.",
+              "Bengali": "তারা হোটেলের রিসেপশনে তাদের লাগেজ রেখেছিল।",
+              "Portuguese": "Eles deixaram suas bagagens na recepção do hotel.",
+              "Russian": "Они оставили свой багаж на стойке регистрации отеля.",
+              "Urdu": "انہوں نے اپنا سامان ہوٹل کے ریسیپشن پر چھوڑ دیا۔",
+              "Indonesian": "Mereka meninggalkan barang bawaan mereka di resepsionis hotel.",
+              "Standard German": "Sie ließen ihr Gepäck an der Hotelrezeption.",
+              "Japanese": "彼らはホテルのフロントに荷物を預けました。"
+            }
+          },
+          {
+            "english": "Passengers are allowed only one piece of hand luggage.",
+            "translations": {
+              "Mandarin Chinese": "乘客只允许携带一件手提行李。",
+              "Hindi": "यात्रियों को केवल एक हाथ का सामान ले जाने की अनुमति है।",
+              "Spanish": "A los pasajeros solo se les permite una pieza de equipaje de mano.",
+              "Standard Arabic": "يُسمح للمسافرين بقطعة واحدة فقط من أمتعة اليد.",
+              "French": "Les passagers ne sont autorisés à transporter qu'un seul bagage à main.",
+              "Bengali": "যাত্রীদের কেবল একটি হ্যান্ড লাগেজ বহন করার অনুমতি রয়েছে।",
+              "Portuguese": "Os passageiros têm direito a apenas uma peça de bagagem de mão.",
+              "Russian": "Пассажирам разрешено иметь только одно место ручной клади.",
+              "Urdu": "مسافروں کو صرف ایک ہاتھ کا سامان لے جانے کی اجازت ہے۔",
+              "Indonesian": "Penumpang hanya diperbolehkan membawa satu buah bagasi kabin.",
+              "Standard German": "Passagiere dürfen nur ein Stück Handgepäck mitführen.",
+              "Japanese": "乗客は手荷物を1個だけ持ち込むことが許されています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "suitcase",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsuːtkeɪs/",
+        "meaning": "A large rectangular container with a handle, used for carrying clothes when traveling.",
+        "synonyms": ["case", "bag", "trunk"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He carried a heavy suitcase up the stairs.",
+            "translations": {
+              "Mandarin Chinese": "他提着一个沉重的行李箱走上楼梯。",
+              "Hindi": "वह एक भारी सूटकेस लेकर सीढ़ियाँ चढ़ गया।",
+              "Spanish": "Él subió una maleta pesada por las escaleras.",
+              "Standard Arabic": "حمل حقيبة سفر ثقيلة لأعلى الدرج.",
+              "French": "Il a monté une lourde valise dans les escaliers.",
+              "Bengali": "সে একটি ভারী সুটকেস নিয়ে সিঁড়ি বেয়ে উপরে উঠল।",
+              "Portuguese": "Ele carregou uma mala pesada escada acima.",
+              "Russian": "Он понес тяжелый чемодан по лестнице.",
+              "Urdu": "وہ ایک بھاری سوٹ کیس لے کر سیڑھیاں چڑھا۔",
+              "Indonesian": "Dia membawa koper yang berat menaiki tangga.",
+              "Standard German": "Er trug einen schweren Koffer die Treppe hinauf.",
+              "Japanese": "彼は重いスーツケースを持って階段を上りました。"
+            }
+          },
+          {
+            "english": "I need to buy a new suitcase with wheels for my trip.",
+            "translations": {
+              "Mandarin Chinese": "为了旅行，我需要买一个新的带轮子的行李箱。",
+              "Hindi": "मुझे अपनी यात्रा के लिए पहियों वाला एक नया सूटकेस खरीदना होगा।",
+              "Spanish": "Necesito comprar una maleta nueva con ruedas para mi viaje.",
+              "Standard Arabic": "أحتاج لشراء حقيبة سفر جديدة بعجلات لرحلتي.",
+              "French": "Je dois acheter une nouvelle valise à roulettes pour mon voyage.",
+              "Bengali": "আমার ভ্রমণের জন্য চাকাওয়ালা একটি নতুন সুটকেস কেনা দরকার।",
+              "Portuguese": "Preciso comprar uma mala nova com rodinhas para a minha viagem.",
+              "Russian": "Мне нужно купить новый чемодан на колесиках для поездки.",
+              "Urdu": "مجھے اپنے سفر کے لیے پہیوں والا ایک نیا سوٹ کیس خریدنے کی ضرورت ہے۔",
+              "Indonesian": "Saya perlu membeli koper baru beroda untuk perjalanan saya.",
+              "Standard German": "Ich muss für meine Reise einen neuen Koffer mit Rollen kaufen.",
+              "Japanese": "旅行のために、キャスター付きの新しいスーツケースを買う必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "boarding pass",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbɔːrdɪŋ pæs/",
+        "meaning": "A document given to a passenger before boarding a plane or ship, showing their seat number and flight details.",
+        "synonyms": ["boarding card"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please show your boarding pass and passport at the gate.",
+            "translations": {
+              "Mandarin Chinese": "请在登机口出示您的登机牌和护照。",
+              "Hindi": "कृपया गेट पर अपना बोर्डिंग पास और पासपोर्ट दिखाएं।",
+              "Spanish": "Por favor, muestre su tarjeta de embarque y pasaporte en la puerta.",
+              "Standard Arabic": "يرجى إبراز بطاقة صعود الطائرة وجواز السفر عند البوابة.",
+              "French": "Veuillez présenter votre carte d'embarquement et votre passeport à la porte.",
+              "Bengali": "দয়া করে গেটে আপনার বোর্ডিং পাস এবং পাসপোর্ট দেখান।",
+              "Portuguese": "Por favor, mostre seu cartão de embarque e passaporte no portão.",
+              "Russian": "Пожалуйста, предъявите посадочный талон и паспорт у выхода на посадку.",
+              "Urdu": "براہ کرم گیٹ پر اپنا بورڈنگ پاس اور پاسپورٹ دکھائیں۔",
+              "Indonesian": "Silakan tunjukkan pas masuk (boarding pass) dan paspor Anda di pintu keberangkatan.",
+              "Standard German": "Bitte zeigen Sie Ihre Bordkarte und Ihren Reisepass am Gate.",
+              "Japanese": "搭乗口で搭乗券とパスポートをご提示ください。"
+            }
+          },
+          {
+            "english": "You can print your boarding pass at the self-service kiosk.",
+            "translations": {
+              "Mandarin Chinese": "您可以在自助机上打印您的登机牌。",
+              "Hindi": "आप स्वयं सेवा कियोस्क पर अपना बोर्डिंग पास प्रिंट कर सकते हैं।",
+              "Spanish": "Puede imprimir su tarjeta de embarque en el quiosco de autoservicio.",
+              "Standard Arabic": "يمكنك طباعة بطاقة صعود الطائرة من كشك الخدمة الذاتية.",
+              "French": "Vous pouvez imprimer votre carte d'embarquement à la borne libre-service.",
+              "Bengali": "আপনি সেলফ-সার্ভিস কিয়স্কে আপনার বোর্ডিং পাসটি প্রিন্ট করতে পারেন।",
+              "Portuguese": "Você pode imprimir seu cartão de embarque no terminal de autoatendimento.",
+              "Russian": "Вы можете распечатать посадочный талон в киоске самообслуживания.",
+              "Urdu": "آپ سیلف سروس کیوسک پر اپنا بورڈنگ پاس پرنٹ کر سکتے ہیں۔",
+              "Indonesian": "Anda dapat mencetak pas masuk Anda di kios mandiri.",
+              "Standard German": "Sie können Ihre Bordkarte am Self-Service-Kiosk ausdrucken.",
+              "Japanese": "自動チェックイン機で搭乗券を印刷できます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "reservation",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌrezərˈveɪʃn/",
+        "meaning": "An arrangement to lock or save a room, table, or seat for a specific time.",
+        "synonyms": ["booking", "appointment"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I made a hotel reservation for three nights.",
+            "translations": {
+              "Mandarin Chinese": "我预订了三晚的酒店房间。",
+              "Hindi": "मैंने तीन रातों के लिए होटल का आरक्षण किया है।",
+              "Spanish": "Hice una reservación de hotel por tres noches.",
+              "Standard Arabic": "لقد قمت بحجز فندقي لثلاث ليالٍ.",
+              "French": "J'ai fait une réservation d'hôtel pour trois nuits.",
+              "Bengali": "আমি তিন রাতের জন্য হোটেল বুকিং করেছি।",
+              "Portuguese": "Fiz uma reserva de hotel por três noites.",
+              "Russian": "Я забронировал отель на три ночи.",
+              "Urdu": "میں نے تین راتوں کے لیے ہوٹل کی بکنگ کروائی۔",
+              "Indonesian": "Saya membuat reservasi hotel untuk tiga malam.",
+              "Standard German": "Ich habe eine Hotelreservierung für drei Nächte vorgenommen.",
+              "Japanese": "ホテルの予約を3泊分入れました。"
+            }
+          },
+          {
+            "english": "The restaurant is very popular, so you should make a reservation.",
+            "translations": {
+              "Mandarin Chinese": "这家餐厅非常受欢迎，所以你最好提前预约。",
+              "Hindi": "रेस्तरां बहुत लोकप्रिय है, इसलिए आपको आरक्षण करा लेना चाहिए।",
+              "Spanish": "El restaurante es muy popular, así que deberías hacer una reservación.",
+              "Standard Arabic": "المطعم شعبي للغاية، لذا يجب عليك إجراء حجز.",
+              "French": "Le restaurant est très populaire, vous devriez donc faire une réservation.",
+              "Bengali": "রেস্তোরাঁটি খুব জনপ্রিয়, তাই আপনার একটি বুকিং করা উচিত।",
+              "Portuguese": "O restaurante é muito popular, então você deve fazer uma reserva.",
+              "Russian": "Ресторан очень популярен, поэтому вам следует сделать бронь.",
+              "Urdu": "ریسٹورنٹ بہت مشہور ہے، اس لیے آپ کو بکنگ کروا لینی چاہیے۔",
+              "Indonesian": "Restoran ini sangat populer, jadi Anda harus membuat reservasi.",
+              "Standard German": "Das Restaurant ist sehr beliebt, daher sollten Sie eine Reservierung vornehmen.",
+              "Japanese": "そのレストランはとても人気があるので、予約したほうがいいですよ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "tourist",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtʊrɪst/",
+        "meaning": "A person who travels to a place for pleasure instead of business.",
+        "synonyms": ["traveler", "visitor", "sightseer"],
+        "antonyms": ["local", "resident"],
+        "examples": [
+          {
+            "english": "Millions of tourists visit Paris every year.",
+            "translations": {
+              "Mandarin Chinese": "每年有数百万游客到访巴黎。",
+              "Hindi": "हर साल लाखों पर्यटक पेरिस आते हैं।",
+              "Spanish": "Millones de turistas visitan París cada año.",
+              "Standard Arabic": "الملايين من السياح يزورون باريس كل عام.",
+              "French": "Des millions de touristes visitent Paris chaque année.",
+              "Bengali": "প্রতি বছর লক্ষ লক্ষ পর্যটক প্যারিস ভ্রমণ করেন।",
+              "Portuguese": "Milhões de turistas visitam Paris todos os anos.",
+              "Russian": "Миллионы туристов посещают Париж каждый год.",
+              "Urdu": "ہر سال لاکھوں سیاح پیرس آتے ہیں۔",
+              "Indonesian": "Jutaan turis mengunjungi Paris setiap tahun.",
+              "Standard German": "Millionen von Touristen besuchen Paris jedes Jahr.",
+              "Japanese": "毎年、何百万人もの観光客がパリを訪れます。"
+            }
+          },
+          {
+            "english": "They bought a map from a local tourist information office.",
+            "translations": {
+              "Mandarin Chinese": "他们从当地的旅游咨询处买了一份地图。",
+              "Hindi": "उन्होंने एक स्थानीय पर्यटक सूचना कार्यालय से एक मानचित्र खरीदा।",
+              "Spanish": "Compraron un mapa en una oficina local de información turística.",
+              "Standard Arabic": "اشتروا خريطة من مكتب معلومات سياحي محلي.",
+              "French": "Ils ont acheté une carte dans un office de tourisme local.",
+              "Bengali": "তারা একটি স্থানীয় পর্যটন তথ্য অফিস থেকে একটি মানচিত্র কিনেছিল।",
+              "Portuguese": "Eles compraram um mapa em um posto de informações turísticas local.",
+              "Russian": "Они купили карту в местном туристическом информационном бюро.",
+              "Urdu": "انہوں نے مقامی سیاحتی معلوماتی دفتر سے ایک نقشہ خریدا۔",
+              "Indonesian": "Mereka membeli peta dari kantor informasi turis setempat.",
+              "Standard German": "Sie kauften eine Karte in einer örtlichen Tourismusinformation.",
+              "Japanese": "彼らは地元の観光案内所で地図を買いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "journey",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdʒɜːrni/",
+        "meaning": "An act of traveling from one place to another, especially over a long distance.",
+        "synonyms": ["voyage", "travel", "trek"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The train journey across the mountains took six hours.",
+            "translations": {
+              "Mandarin Chinese": "横跨山脉的火车旅程花了六个小时。",
+              "Hindi": "पहाड़ों के पार ट्रेन की यात्रा में छह घंटे लगे।",
+              "Spanish": "El viaje en tren a través de las montañas duró seis horas.",
+              "Standard Arabic": "استغرقت رحلة القطار عبر الجبال ست ساعات.",
+              "French": "Le voyage en train à travers les montagnes a duré six heures.",
+              "Bengali": "পাহাড়ের বুক চিরে ট্রেন যাত্রা করতে ছয় ঘণ্টা সময় লেগেছে।",
+              "Portuguese": "A viagem de trem pelas montanhas levou seis horas.",
+              "Russian": "Поездка на поезде через горы заняла шесть часов.",
+              "Urdu": "پہاڑوں کے درمیان سے ٹرین کا سفر چھ گھنٹے کا تھا۔",
+              "Indonesian": "Perjalanan kereta melewati pegunungan memakan waktu enam jam.",
+              "Standard German": "Die Zugfahrt über die Berge dauerte sechs Stunden.",
+              "Japanese": "山を越える電車の旅は6時間かかりました。"
+            }
+          },
+          {
+            "english": "We wish you a safe and pleasant journey.",
+            "translations": {
+              "Mandarin Chinese": "我们祝你旅途平安愉快。",
+              "Hindi": "हम आपकी सुरक्षित और सुखद यात्रा की कामना करते हैं।",
+              "Spanish": "Te deseamos un viaje seguro y agradable.",
+              "Standard Arabic": "نتمنى لك رحلة آمنة وممتعة.",
+              "French": "Nous vous souhaitons un voyage sûr et agréable.",
+              "Bengali": "আমরা আপনার নিরাপদ এবং আনন্দদায়ক যাত্রা কামনা করি।",
+              "Portuguese": "Desejamos a você uma viagem segura e agradável.",
+              "Russian": "Мы желаем вам безопасного и приятного путешествия.",
+              "Urdu": "ہم آپ کے محفوظ اور خوشگوار سفر کے لیے دعاگو ہیں۔",
+              "Indonesian": "Kami berharap perjalanan Anda aman dan menyenangkan.",
+              "Standard German": "Wir wünschen Ihnen eine sichere und angenehme Reise.",
+              "Japanese": "安全で楽しい旅になりますよう、お祈り申し上げます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "trip",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/trɪp/",
+        "meaning": "A short journey to a place and back again, for business or pleasure.",
+        "synonyms": ["excursion", "outing", "tour"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Our class is going on a day trip to the museum.",
+            "translations": {
+              "Mandarin Chinese": "我们班要去博物馆进行一日游。",
+              "Hindi": "हमारी कक्षा संग्रहालय की एक दिवसीय यात्रा पर जा रही है।",
+              "Spanish": "Nuestra clase va a hacer una excursión de un día al museo.",
+              "Standard Arabic": "صفنا يذهب في رحلة ليوم واحد إلى المتحف.",
+              "French": "Notre classe part en excursion d'une journée au musée.",
+              "Bengali": "আমাদের ক্লাস যাদুঘরে ডে ট্রিপে যাচ্ছে।",
+              "Portuguese": "Nossa turma vai fazer uma excursão de um dia ao museu.",
+              "Russian": "Наш класс отправляется в однодневную поездку в музей.",
+              "Urdu": "ہماری کلاس میوزیم کے ایک دن کے دورے پر جا رہی ہے۔",
+              "Indonesian": "Kelas kami akan melakukan perjalanan wisata satu hari ke museum.",
+              "Standard German": "Unsere Klasse macht einen Tagesausflug ins Museum.",
+              "Japanese": "私たちのクラスは博物館への日帰り旅行に行きます。"
+            }
+          },
+          {
+            "english": "How was your business trip to London?",
+            "translations": {
+              "Mandarin Chinese": "你往伦敦的出差还顺利吗？",
+              "Hindi": "आपकी लंदन की व्यावसायिक यात्रा कैसी रही?",
+              "Spanish": "¿Cómo te fue en tu viaje de negocios a Londres?",
+              "Standard Arabic": "كيف كانت رحلة عملك إلى لندن؟",
+              "French": "Comment s'est passé ton voyage d'affaires à Londres ?",
+              "Bengali": "লন্ডনে আপনার ব্যবসায়িক সফর কেমন ছিল?",
+              "Portuguese": "Como foi a sua viagem de negócios a Londres?",
+              "Russian": "Как прошла ваша деловая поездка в Лондон?",
+              "Urdu": "آپ کا لندن کا کاروباری دورہ کیسا رہا؟",
+              "Indonesian": "Bagaimana perjalanan bisnis Anda ke London?",
+              "Standard German": "Wie war Ihre Geschäftsreise nach London?",
+              "Japanese": "ロンドンへの出張はいかがでしたか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "vacation",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/veɪˈkeɪʃn/",
+        "meaning": "A period of time when you do not go to work or school and can relax or travel.",
+        "synonyms": ["holiday", "leave", "break"],
+        "antonyms": ["worktime"],
+        "examples": [
+          {
+            "english": "We are planning to go to Hawaii for our summer vacation.",
+            "translations": {
+              "Mandarin Chinese": "我们计划暑假去夏威夷玩。",
+              "Hindi": "हम अपनी गर्मियों की छुट्टियों के लिए हवाई जाने की योजना बना रहे हैं।",
+              "Spanish": "Estamos planeando ir a Hawái para nuestras vacaciones de verano.",
+              "Standard Arabic": "نحن نخطط للذهاب إلى هاواي في إجازتنا الصيفية.",
+              "French": "Nous prévoyons d'aller à Hawaï pour nos vacances d'été.",
+              "Bengali": "আমরা আমাদের গ্রীষ্মের ছুটিতে হাওয়াই যাওয়ার পরিকল্পনা করছি।",
+              "Portuguese": "Estamos planejando ir para o Havaí em nossas férias de verão.",
+              "Russian": "Мы планируем поехать на Гавайи на летние каникулы.",
+              "Urdu": "ہم گرمیوں کی چھٹیوں میں ہوائی جانے کا منصوبہ بنا رہے ہیں۔",
+              "Indonesian": "Kami berencana pergi ke Hawaii untuk liburan musim panas kami.",
+              "Standard German": "Wir planen, in den Sommerferien nach Hawaii zu fliegen.",
+              "Japanese": "私たちは夏休みにハワイへ行く計画を立てています。"
+            }
+          },
+          {
+            "english": "He took a two-week vacation to relax at home.",
+            "translations": {
+              "Mandarin Chinese": "他休了两个星期的假在家休息。",
+              "Hindi": "उन्होंने घर पर आराम करने के लिए दो सप्ताह की छुट्टी ली।",
+              "Spanish": "Se tomó unas vacaciones de dos semanas para relajarse en casa.",
+              "Standard Arabic": "أخذ إجازة لمدة أسبوعين للاسترخاء في المنزل.",
+              "French": "Il a pris deux semaines de vacances pour se détendre à la maison.",
+              "Bengali": "তিনি বাড়িতে বিশ্রাম নেওয়ার জন্য দুই সপ্তাহের ছুটি নিয়েছিলেন।",
+              "Portuguese": "Ele tirou duas semanas de férias para relaxar em casa.",
+              "Russian": "Он взял двухнедельный отпуск, чтобы отдохнуть дома.",
+              "Urdu": "اس نے گھر پر آرام کرنے کے لیے دو ہفتوں کی چھٹی لی۔",
+              "Indonesian": "Dia mengambil liburan dua minggu untuk bersantai di rumah.",
+              "Standard German": "Er nahm sich zwei Wochen Urlaub, um sich zu Hause zu erholen.",
+              "Japanese": "彼は自宅でリラックスするために2週間の休暇を取りました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "holiday",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhɑːlədeɪ/",
+        "meaning": "A special day or period of time when schools and businesses are closed, or a trip taken during this time.",
+        "synonyms": ["vacation", "festival", "day off"],
+        "antonyms": ["workday"],
+        "examples": [
+          {
+            "english": "Christmas is a major national holiday in many countries.",
+            "translations": {
+              "Mandarin Chinese": "圣诞节在许多国家是一个主要的国家法定假日。",
+              "Hindi": "कई देशों में क्रिसमस एक प्रमुख राष्ट्रीय अवकाश है।",
+              "Spanish": "La Navidad es un día festivo nacional importante en muchos países.",
+              "Standard Arabic": "عيد الميلاد هو عطلة وطنية رئيسية في العديد من البلدان.",
+              "French": "Noël est un jour férié national majeur dans de nombreux pays.",
+              "Bengali": "বড়দিন অনেক দেশে একটি প্রধান জাতীয় ছুটির দিন।",
+              "Portuguese": "O Natal é um feriado nacional importante em muitos países.",
+              "Russian": "Рождество — крупный государственный праздник во многих странах.",
+              "Urdu": "کرسمس بہت سے ممالک میں ایک اہم قومی تعطیل ہے۔",
+              "Indonesian": "Natal adalah hari libur nasional yang besar di banyak negara.",
+              "Standard German": "Weihnachten ist in vielen Ländern ein wichtiger gesetzlicher Feiertag.",
+              "Japanese": "クリスマスは多くの国で主要な国民の祝日です。"
+            }
+          },
+          {
+            "english": "Where are you going for your winter holiday?",
+            "translations": {
+              "Mandarin Chinese": "你寒假准备去哪里？",
+              "Hindi": "आप अपनी सर्दियों की छुट्टियों के लिए कहाँ जा रहे हैं?",
+              "Spanish": "¿A dónde vas para tus vacaciones de invierno?",
+              "Standard Arabic": "إلى أين ستذهب في عطلتك الشتوية؟",
+              "French": "Où vas-tu pour tes vacances d'hiver ?",
+              "Bengali": "আপনি আপনার শীতকালীন ছুটিতে কোথায় যাচ্ছেন?",
+              "Portuguese": "Para onde você vai nas suas férias de inverno?",
+              "Russian": "Куда вы собираетесь на зимние каникулы?",
+              "Urdu": "آپ سردیوں کی چھٹیوں میں کہاں جا رہے ہیں؟",
+              "Indonesian": "Ke mana Anda akan pergi untuk liburan musim dingin?",
+              "Standard German": "Wohin fahren Sie in den Winterurlaub?",
+              "Japanese": "冬休みはどこへ行く予定ですか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "flight",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/flaɪt/",
+        "meaning": "A journey made by flying in an aircraft.",
+        "synonyms": ["air travel", "aviation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Our flight to Tokyo leaves at midnight.",
+            "translations": {
+              "Mandarin Chinese": "我们去东京的航班在半夜起飞。",
+              "Hindi": "टोक्यो के लिए हमारी उड़ान आधी रात को रवाना होगी।",
+              "Spanish": "Nuestro vuelo a Tokio sale a medianoche.",
+              "Standard Arabic": "رحلتنا إلى طوكيو تغادر في منتصف الليل.",
+              "French": "Notre vol pour Tokyo part à minuit.",
+              "Bengali": "টোকিওগামী আমাদের ফ্লাইটটি মধ্যরাতে ছেড়ে যাবে।",
+              "Portuguese": "Nosso voo para Tóquio sai à meia-noite.",
+              "Russian": "Наш рейс в Токио вылетает в полночь.",
+              "Urdu": "ٹوکیو کے لیے ہماری فلائٹ آدھی رات کو روانہ ہوگی۔",
+              "Indonesian": "Penerbangan kami ke Tokyo berangkat tengah malam.",
+              "Standard German": "Unser Flug nach Tokio geht um Mitternacht.",
+              "Japanese": "東京行きの飛行機は夜中の12時に出発します。"
+            }
+          },
+          {
+            "english": "It was a smooth flight with no turbulence.",
+            "translations": {
+              "Mandarin Chinese": "那是一次很平稳的飞行，没有颠簸。",
+              "Hindi": "यह बिना किसी हलचल के एक आसान उड़ान थी।",
+              "Spanish": "Fue un vuelo tranquilo y sin turbulencias.",
+              "Standard Arabic": "كانت رحلة سلسة دون أي مطبات هوائية.",
+              "French": "C'était un vol tranquille, sans turbulences.",
+              "Bengali": "কোনোরকম ঝাঁকুনি ছাড়াই এটি একটি মসৃণ ফ্লাইট ছিল।",
+              "Portuguese": "Foi um voo tranquilo, sem turbulência.",
+              "Russian": "Это был спокойный полет, без турбулентности.",
+              "Urdu": "بغیر کسی ہچکولے کے یہ ایک ہموار پرواز تھی۔",
+              "Indonesian": "Penerbangan berjalan lancar tanpa turbulensi.",
+              "Standard German": "Es war ein ruhiger Flug ohne Turbulenzen.",
+              "Japanese": "揺れもなく快適なフライトでした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "departure",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈpɑːrtʃər/",
+        "meaning": "The act of leaving a place, especially to start a journey.",
+        "synonyms": ["leaving", "exit", "farewell"],
+        "antonyms": ["arrival"],
+        "examples": [
+          {
+            "english": "Please check the departure board for your flight time.",
+            "translations": {
+              "Mandarin Chinese": "请查看离港牌以确认您的起飞时间。",
+              "Hindi": "कृपया अपनी उड़ान के समय के लिए प्रस्थान बोर्ड की जाँच करें।",
+              "Spanish": "Por favor, consulte la pantalla de salidas para ver la hora de su vuelo.",
+              "Standard Arabic": "يرجى التحقق من لوحة المغادرة لمعرفة وقت رحلتك.",
+              "French": "Veuillez vérifier le panneau des départs pour connaître l'heure de votre vol.",
+              "Bengali": "আপনার ফ্লাইটের সময় জানতে অনুগ্রহ করে ডিপার্চার বোর্ডটি পরীক্ষা করুন।",
+              "Portuguese": "Por favor, verifique o painel de partidas para ver o horário do seu voo.",
+              "Russian": "Пожалуйста, проверьте табло вылета, чтобы узнать время вашего рейса.",
+              "Urdu": "فلائٹ کے وقت کے لیے براہ کرم ڈیپارچر بورڈ چیک کریں۔",
+              "Indonesian": "Silakan periksa papan keberangkatan untuk melihat waktu penerbangan Anda.",
+              "Standard German": "Bitte überprüfen Sie die Abflugtafel, um Ihre Flugzeit zu erfahren.",
+              "Japanese": "フライト時間については、出発案内板をご確認ください。"
+            }
+          },
+          {
+            "english": "The sudden departure of the manager surprised everyone.",
+            "translations": {
+              "Mandarin Chinese": "经理的突然离开让所有人都感到意外。",
+              "Hindi": "प्रबंधक के अचानक चले जाने से सभी हैरान रह गए।",
+              "Spanish": "La repentina salida del gerente sorprendió a todos.",
+              "Standard Arabic": "المغادرة المفاجئة للمدير فاجأت الجميع.",
+              "French": "Le départ soudain du directeur a surpris tout le monde.",
+              "Bengali": "ম্যানেজারের আকস্মিক চলে যাওয়া সবাইকে অবাক করেছিল।",
+              "Portuguese": "A partida repentina do gerente surpreendeu a todos.",
+              "Russian": "Внезапный уход менеджера удивил всех.",
+              "Urdu": "مینیجر کی اچانک روانگی نے سب کو حیران کر دیا۔",
+              "Indonesian": "Kepergian manajer yang tiba-tiba mengejutkan semua orang.",
+              "Standard German": "Das plötzliche Ausscheiden des Managers überraschte alle.",
+              "Japanese": "マネージャーの突然の退職は全員を驚かせました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "arrival",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈraɪvl/",
+        "meaning": "The act of reaching a place at the end of a journey.",
+        "synonyms": ["appearance", "entry", "landing"],
+        "antonyms": ["departure"],
+        "examples": [
+          {
+            "english": "We waited in the arrival lounge for our guests to step out.",
+            "translations": {
+              "Mandarin Chinese": "我们在接机大厅等候客人走出来。",
+              "Hindi": "हमने अपने मेहमानों के बाहर आने के लिए आगमन लाउंज में इंतजार किया।",
+              "Spanish": "Esperamos en la sala de llegadas a que salieran nuestros invitados.",
+              "Standard Arabic": "انتظرنا في صالة الوصول خروج ضيوفنا.",
+              "French": "Nous avons attendu nos invités dans le hall des arrivées.",
+              "Bengali": "আমরা অ্যারাইভাল লাউঞ্জে আমাদের অতিথিদের বাইরে আসার জন্য অপেক্ষা করছিলাম।",
+              "Portuguese": "Esperamos no saguão de desembarque para os nossos convidados saírem.",
+              "Russian": "Мы ждали в зале прибытия, пока выйдут наши гости.",
+              "Urdu": "ہم نے آمد کے لاؤنج میں اپنے مہمانوں کے باہر آنے کا انتظار کیا۔",
+              "Indonesian": "Kami menunggu di ruang kedatangan sampai tamu kami keluar.",
+              "Standard German": "Wir warteten in der Ankunftshalle darauf, dass unsere Gäste herauskamen.",
+              "Japanese": "私たちはゲストが出てくるのを到着ロビーで待っていました。"
+            }
+          },
+          {
+            "english": "The flight's expected arrival time is 4:00 PM.",
+            "translations": {
+              "Mandarin Chinese": "该航班的预计到达时间是下午4点。",
+              "Hindi": "उड़ान का अपेक्षित आगमन समय शाम 4:00 बजे है।",
+              "Spanish": "La hora prevista de llegada del vuelo son las 4:00 PM.",
+              "Standard Arabic": "وقت الوصول المتوقع للرحلة هو الساعة 4:00 مساءً.",
+              "French": "L'heure d'arrivée prévue du vol est 16 h 00.",
+              "Bengali": "ফ্লাইটের সম্ভাব্য পৌঁছানোর সময় বিকেল ৪:০০ টা।",
+              "Portuguese": "O horário de chegada previsto do voo é às 16h.",
+              "Russian": "Ожидаемое время прибытия рейса — 16:00.",
+              "Urdu": "فلائٹ کی متوقع آمد کا وقت شام 4:00 بجے ہے۔",
+              "Indonesian": "Waktu kedatangan penerbangan yang diperkirakan adalah jam 4:00 sore.",
+              "Standard German": "Die voraussichtliche Ankunftszeit des Fluges ist 16:00 Uhr.",
+              "Japanese": "飛行機の到着予定時刻は午後4時です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "delay",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈleɪ/",
+        "meaning": "A period of time when you must wait because something is late or slow.",
+        "synonyms": ["holdup", "postponement", "pause"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "There is a two-hour delay on all trains due to the storm.",
+            "translations": {
+              "Mandarin Chinese": "由于暴风雨，所有火车都延误了两个小时。",
+              "Hindi": "तूफान के कारण सभी ट्रेनें दो घंटे की देरी से चल रही हैं।",
+              "Spanish": "Hay un retraso de dos horas en todos los trenes debido a la tormenta.",
+              "Standard Arabic": "هناك تأخير لمدة ساعتين في جميع القطارات بسبب العاصفة.",
+              "French": "Il y a un retard de deux heures sur tous les trains en raison de la tempête.",
+              "Bengali": "ঝড়ের কারণে সব ট্রেনে দুই ঘণ্টার বিলম্ব ঘটছে।",
+              "Portuguese": "Há um atraso de duas horas em todos os trens devido à tempestad.",
+              "Russian": "Из-за шторма все поезда задерживаются на два часа.",
+              "Urdu": "طوفان کی وجہ سے تمام ٹرینیں دو گھنٹے کی تاخیر کا شکار ہیں۔",
+              "Indonesian": "Ada penundaan dua jam pada semua kereta karena badai.",
+              "Standard German": "Wegen des Sturms gibt es bei allen Zügen eine Verspätung von zwei Stunden.",
+              "Japanese": "嵐の影響で、すべての電車に2時間の遅れが出ています。"
+            }
+          },
+          {
+            "english": "We apologize for the long delay in answering your message.",
+            "translations": {
+              "Mandarin Chinese": "对于未能及时回复您的消息，我们深表歉意。",
+              "Hindi": "आपके संदेश का उत्तर देने में हुई लंबी देरी के लिए हम क्षमा चाहते हैं।",
+              "Spanish": "Pedimos disculpas por la larga demora en responder a su mensaje.",
+              "Standard Arabic": "نعتذر عن التأخير الطويل في الرد على رسالتك.",
+              "French": "Nous vous prions de nous excuser pour le long retard pris pour répondre à votre message.",
+              "Bengali": "আপনার বার্তার উত্তর দিতে দীর্ঘ বিলম্বের জন্য আমরা দুঃখিত।",
+              "Portuguese": "Pedimos desculpas pela longa demora em responder à sua mensagem.",
+              "Russian": "Мы приносим извинения за долгую задержку с ответом на ваше сообщение.",
+              "Urdu": "آپ کے پیغام کا جواب دینے میں لمبی تاخیر کے لیے ہم معذرت خواہ ہیں۔",
+              "Indonesian": "Kami mohon maaf atas keterlambatan yang lama dalam membalas pesan Anda.",
+              "Standard German": "Wir entschuldigen uns für die lange Verzögerung bei der Beantwortung Ihrer Nachricht.",
+              "Japanese": "メッセージへの返信が大変遅くなりましたことをお詫び申し上げます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "platform",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈplætfɔːrm/",
+        "meaning": "The flat raised area at a train station where passengers get on or off trains.",
+        "synonyms": ["track", "quay", "stage"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The train for London is waiting at platform 4.",
+            "translations": {
+              "Mandarin Chinese": "开往伦敦的火车正在4号站台等候。",
+              "Hindi": "लंदन जाने वाली ट्रेन प्लेटफॉर्म 4 पर खड़ी है।",
+              "Spanish": "El tren hacia Londres está esperando en el andén 4.",
+              "Standard Arabic": "القطار المتوجه إلى لندن ينتظر في الرصيف رقم 4.",
+              "French": "Le train pour Londres attend sur le quai 4.",
+              "Bengali": "লন্ডনগামী ট্রেনটি ৪ নম্বর প্ল্যাটফর্মে অপেক্ষা করছে।",
+              "Portuguese": "O trem para Londres está esperando na plataforma 4.",
+              "Russian": "Поезд в Лондон стоит на 4-й платформе.",
+              "Urdu": "لندن جانے والی ٹرین پلیٹ فارم 4 پر کھڑی ہے۔",
+              "Indonesian": "Kereta menuju London sedang menunggu di peron 4.",
+              "Standard German": "Der Zug nach London wartet auf Gleis 4.",
+              "Japanese": "ロンドン行きの電車は4番線ホームに停まっています。"
+            }
+          },
+          {
+            "english": "Be careful when walking near the edge of the platform.",
+            "translations": {
+              "Mandarin Chinese": "在站台边缘行走时请小心。",
+              "Hindi": "प्लेटफॉर्म के किनारे के पास चलते समय सावधान रहें।",
+              "Spanish": "Tenga cuidado al caminar cerca del borde del andén.",
+              "Standard Arabic": "كن حذراً عند المشي بالقرب من حافة الرصيف.",
+              "French": "Faites attention en marchant près du bord du quai.",
+              "Bengali": "প্ল্যাটফর্মের ধারের কাছ দিয়ে হাঁটার সময় সতর্ক থাকুন।",
+              "Portuguese": "Tenha cuidado ao caminhar perto da borda da plataforma.",
+              "Russian": "Будьте осторожны, когда идете у края платформы.",
+              "Urdu": "پلیٹ فارم کے کنارے کے پاس چلتے وقت محتاط رہیں۔",
+              "Indonesian": "Berhati-hatilah saat berjalan di dekat tepi peron.",
+              "Standard German": "Seien Sie vorsichtig, wenn Sie nahe am Bahnsteigrand gehen.",
+              "Japanese": "ホームの端の近くを歩くときは注意してください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "subway",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsʌbweɪ/",
+        "meaning": "An underground railway system used for public transportation in cities.",
+        "synonyms": ["underground", "metro", "tube"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Taking the subway is often faster than driving in heavy traffic.",
+            "translations": {
+              "Mandarin Chinese": "在交通拥堵时，坐地铁通常比开车更快。",
+              "Hindi": "भारी ट्रैफिक में गाड़ी चलाने की तुलना में मेट्रो लेना अक्सर तेज़ होता है।",
+              "Spanish": "Tomar el metro suele ser más rápido que conducir con mucho tráfico.",
+              "Standard Arabic": "غالباً ما يكون ركوب مترو الأنفاق أسرع من القيادة في حركة المرور المزدحمة.",
+              "French": "Prendre le métro est souvent plus rapide que de conduire dans les embouteillages.",
+              "Bengali": "ভারী ট্রাফিকের মধ্যে গাড়ি চালানোর চেয়ে পাতাল রেলে যাওয়া প্রায়শই দ্রুত হয়।",
+              "Portuguese": "Pegar o metrô costuma ser mais rápido do que dirigir no trânsito pesado.",
+              "Russian": "Поездка на метро часто бывает быстрее, чем на машине в пробках.",
+              "Urdu": "بھاری ٹریفک میں گاڑی چلانے کے مقابلے میں سب وے لینا اکثر تیز ہوتا ہے۔",
+              "Indonesian": "Naik kereta bawah tanah sering kali lebih cepat daripada menyetir di tengah kemacetan.",
+              "Standard German": "Die U-Bahn zu nehmen ist oft schneller, als im dichten Verkehr zu fahren.",
+              "Japanese": "渋滞の中を運転するよりも、地下鉄に乗るほうが早いことが多いです。"
+            }
+          },
+          {
+            "english": "Which subway line goes directly to the Central Station?",
+            "translations": {
+              "Mandarin Chinese": "哪条地铁线可以直接到中央车站？",
+              "Hindi": "कौन सी मेट्रो लाइन सीधे सेंट्रल स्टेशन जाती है?",
+              "Spanish": "¿Qué línea de metro va directo a la Estación Central?",
+              "Standard Arabic": "أي خط مترو أنفاق يذهب مباشرة إلى المحطة المركزية؟",
+              "French": "Quelle ligne de métro va directement à la gare centrale ?",
+              "Bengali": "কোন সাবওয়ে লাইনটি সরাসরি সেন্ট্রাল স্টেশনে যায়?",
+              "Portuguese": "Qual linha de metrô vai direto para a Estação Central?",
+              "Russian": "Какая линия метро идет прямо до Центрального вокзала?",
+              "Urdu": "کون سی سب وے لائن براہ راست سینٹرل اسٹیشن جاتی ہے؟",
+              "Indonesian": "Jalur kereta bawah tanah mana yang langsung menuju ke Stasiun Pusat?",
+              "Standard German": "Welche U-Bahn-Linie fährt direkt zum Hauptbahnhof?",
+              "Japanese": "どの地下鉄の路線が中央駅に直通していますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "traffic",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtræfɪk/",
+        "meaning": "All the vehicles driving on a particular road or in an area at a certain time.",
+        "synonyms": ["vehicles", "congestion", "gridlock"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "There was a lot of traffic on the motorway this morning.",
+            "translations": {
+              "Mandarin Chinese": "今天早上高速公路上的车辆非常多。",
+              "Hindi": "आज सुबह मोटरवे पर बहुत ट्रैफिक था।",
+              "Spanish": "Había mucho tráfico en la autopista esta mañana.",
+              "Standard Arabic": "كان هناك الكثير من حركة المرور على الطريق السريع هذا الصباح.",
+              "French": "Il y avait beaucoup de circulation sur l'autoroute ce matin.",
+              "Bengali": "আজ সকালে মোটরওয়েতে অনেক ট্রাফিক ছিল।",
+              "Portuguese": "Havia muito trânsito na rodovia esta manhã.",
+              "Russian": "Сегодня утром на автомагистрали было оживленное движение.",
+              "Urdu": "آج صبح موٹر وے پر بہت زیادہ ٹریفک تھا۔",
+              "Indonesian": "Ada banyak lalu lintas di jalan tol pagi ini.",
+              "Standard German": "Heute Morgen war viel Verkehr auf der Autobahn.",
+              "Japanese": "今朝は高速道路がとても混雑していました。"
+            }
+          },
+          {
+            "english": "I got stuck in a traffic jam and missed my appointment.",
+            "translations": {
+              "Mandarin Chinese": "我遇到了交通堵塞，错过了我的约会。",
+              "Hindi": "मैं ट्रैफिक जाम में फंस गया और अपनी अपॉइंटमेंट चूक गया।",
+              "Spanish": "Me quedé atrapado en un embotellamiento y perdí mi cita.",
+              "Standard Arabic": "لقد علقت في زحام مروري وفاتني موعدي.",
+              "French": "J'ai été coincé dans un embouteillage et j'ai raté mon rendez-vous.",
+              "Bengali": "আমি ট্রাফিক জ্যামে আটকে গিয়েছিলাম এবং আমার অ্যাপয়েন্টমেন্ট মিস করেছি।",
+              "Portuguese": "Fiquei preso em um engarrafamento e perdi meu compromisso.",
+              "Russian": "Я застрял в пробке и пропустил встречу.",
+              "Urdu": "میں ٹریفک جام میں پھنس گیا اور اپنی ملاقات کا وقت کھو دیا۔",
+              "Indonesian": "Saya terjebak macet dan melewatkan janji temu saya.",
+              "Standard German": "Ich stand im Stau und habe meinen Termin verpasst.",
+              "Japanese": "交通渋滞に巻き込まれて、約束の時間に遅れてしまいました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "direction",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/dəˈrekʃn/",
+        "meaning": "The path along which someone or something moves, points, or faces.",
+        "synonyms": ["way", "route", "course"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "They walked away in the opposite direction.",
+            "translations": {
+              "Mandarin Chinese": "他们朝着相反的方向走开了。",
+              "Hindi": "वे विपरीत दिशा में चले गये।",
+              "Spanish": "Ellos se alejaron en la dirección opuesta.",
+              "Standard Arabic": "مشوا بعيداً في الاتجاه المعاكس.",
+              "French": "Ils sont partis dans la direction opposée.",
+              "Bengali": "তারা বিপরীত দিকে হেঁটে চলে গেল।",
+              "Portuguese": "Eles caminharam na direção oposta.",
+              "Russian": "Они ушли в противоположном направлении.",
+              "Urdu": "وہ مخالف سمت میں چلے گئے۔",
+              "Indonesian": "Mereka berjalan pergi ke arah yang berlawanan.",
+              "Standard German": "Sie gingen in die entgegengesetzte Richtung weg.",
+              "Japanese": "彼らは反対の方向へ歩いていきました。"
+            }
+          },
+          {
+            "english": "Are you sure we are heading in the right direction?",
+            "translations": {
+              "Mandarin Chinese": "你确定我们的走法方向对吗？",
+              "Hindi": "क्या आप आश्वस्त हैं कि हम सही दिशा में जा रहे हैं?",
+              "Spanish": "¿Estás seguro de que vamos en la dirección correcta?",
+              "Standard Arabic": "هل أنت متأكد من أننا نسير في الاتجاه الصحيح؟",
+              "French": "Es-tu sûr que nous allons dans la bonne direction ?",
+              "Bengali": "আপনি কি নিশ্চিত যে আমরা সঠিক দিকে যাচ্ছি?",
+              "Portuguese": "Você tem certeza de que estamos indo na direção certa?",
+              "Russian": "Вы уверены, что мы движемся в правильном направлении?",
+              "Urdu": "کیا آپ کو یقین ہے کہ ہم صحیح سمت میں جا رہے ہیں؟",
+              "Indonesian": "Apakah Anda yakin kita menuju ke arah yang benar?",
+              "Standard German": "Sind Sie sicher, dass wir in die richtige Richtung fahren?",
+              "Japanese": "本当に正しい方向に向かっていますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "crossroad",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkrɔːsroʊd/",
+        "meaning": "A place where two or more roads intersect or cross each other.",
+        "synonyms": ["intersection", "junction"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Turn left when you reach the crossroad.",
+            "translations": {
+              "Mandarin Chinese": "当你到达十字路口时向左转。",
+              "Hindi": "जब आप चौराहे पर पहुँचें तो बाएँ मुड़ें।",
+              "Spanish": "Gira a la izquierda cuando llegues al cruce de caminos.",
+              "Standard Arabic": "انعطف يساراً عندما تصل إلى مفترق الطرق.",
+              "French": "Tournez à gauche lorsque vous arrivez au carrefour.",
+              "Bengali": "মোড়ে পৌঁছালে বাম দিকে মোড় নিন।",
+              "Portuguese": "Vire à esquerda quando chegar ao cruzamento.",
+              "Russian": "Поверните налево, когда дойдете до перекрестка.",
+              "Urdu": "جب آپ چوراہے پر پہنچیں تو بائیں مڑیں۔",
+              "Indonesian": "Belok kiri setelah Anda sampai di perempatan.",
+              "Standard German": "Biegen Sie an der Kreuzung links ab.",
+              "Japanese": "交差点に来たら左に曲がってください。"
+            }
+          },
+          {
+            "english": "There is a small gas station near the crossroad.",
+            "translations": {
+              "Mandarin Chinese": "十字路口附近有一个小加油站。",
+              "Hindi": "चौराहे के पास एक छोटा गैस स्टेशन है।",
+              "Spanish": "Hay una pequeña estación de servicio cerca del cruce.",
+              "Standard Arabic": "هناك محطة وقود صغيرة بالقرب من مفترق الطرق.",
+              "French": "Il y a une petite station-service près du carrefour.",
+              "Bengali": "মোড়ের কাছে একটি ছোট গ্যাস স্টেশন আছে।",
+              "Portuguese": "Há um pequeno posto de gasolina perto do cruzamento.",
+              "Russian": "Рядом с перекрестком есть небольшая заправка.",
+              "Urdu": "چوراہے کے پاس ایک چھوٹا گیس اسٹیشن ہے۔",
+              "Indonesian": "Ada pom bensin kecil di dekat perempatan.",
+              "Standard German": "Es gibt eine kleine Tankstelle in der Nähe der Kreuzung.",
+              "Japanese": "交差点を少し行ったところに小さなガソリンスタンドがあります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "highway",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhaɪweɪ/",
+        "meaning": "A main public road connecting cities or towns, often allowing higher speed driving.",
+        "synonyms": ["freeway", "expressway", "main road"],
+        "antonyms": ["lane", "alley"],
+        "examples": [
+          {
+            "english": "The highway links the capital to the coastal cities.",
+            "translations": {
+              "Mandarin Chinese": "这条公路连接了首都和沿海城市。",
+              "Hindi": "यह राजमार्ग राजधानी को तटीय शहरों से जोड़ता है।",
+              "Spanish": "La carretera conecta la capital con las ciudades costeras.",
+              "Standard Arabic": "يربط الطريق السريع العاصمة بالمدن الساحلية.",
+              "French": "L'autoroute relie la capitale aux villes côtières.",
+              "Bengali": "হাইওয়েটি রাজধানীকে উপকূলীয় শহরগুলোর সাথে সংযুক্ত করেছে।",
+              "Portuguese": "A rodovia liga a capital às cidades litorâneas.",
+              "Russian": "Шоссе соединяет столицу с прибрежными городами.",
+              "Urdu": "یہ ہائی وے دارالحکومت کو ساحلی شہروں سے ملاتی ہے۔",
+              "Indonesian": "Jalan raya tersebut menghubungkan ibu kota dengan kota-kota pesisir.",
+              "Standard German": "Die Autobahn verbindet die Hauptstadt mit den Küstenstädten.",
+              "Japanese": "その幹線道路は首都と沿岸の都市を結んでいます。"
+            }
+          },
+          {
+            "english": "We drove along the coastal highway to enjoy the sea views.",
+            "translations": {
+              "Mandarin Chinese": "我们沿着沿海公路行驶，欣赏海景。",
+              "Hindi": "हमने समुद्र के दृश्यों का आनंद लेने के लिए तटीय राजमार्ग पर गाड़ी चलाई।",
+              "Spanish": "Condujimos por la carretera costera para disfrutar de las vistas al mar.",
+              "Standard Arabic": "قدنا السيارة على طول الطريق السريع الساحلي للاستمتاع بمناظر البحر.",
+              "French": "Nous avons roulé sur l'autoroute côtière pour profiter de la vue sur la mer.",
+              "Bengali": "আমরা সমুদ্রের দৃশ্য উপভোগ করতে উপকূলীয় হাইওয়ে ধরে গাড়ি চালিয়েছিলাম।",
+              "Portuguese": "Dirigimos pela rodovia costeira para curtir a vista do mar.",
+              "Russian": "Мы ехали по прибрежному шоссе, чтобы насладиться видом на море.",
+              "Urdu": "ہم نے سمندر کے نظاروں سے لطف اندوز ہونے کے لیے ساحلی ہائی وے پر گاڑی چلائی۔",
+              "Indonesian": "Kami berkendara di sepanjang jalan raya pesisir pantai untuk menikmati pemandangan laut.",
+              "Standard German": "Wir fuhren die Küstenstraße entlang, um den Meerblick zu genießen.",
+              "Japanese": "私たちは海の景色を楽しむために海岸沿いの高速道路をドライブしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "map",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/mæp/",
+        "meaning": "A drawing or picture showing the streets, rivers, or landmarks of an area.",
+        "synonyms": ["chart", "plan", "blueprint"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Can you show me where the museum is on this map?",
+            "translations": {
+              "Mandarin Chinese": "你能在这张地图上指给我看博物馆在哪里吗？",
+              "Hindi": "क्या आप मुझे इस मानचित्र पर दिखा सकते हैं कि संग्रहालय कहाँ है?",
+              "Spanish": "¿Puedes mostrarme dónde está el museo en este mapa?",
+              "Standard Arabic": "هل يمكنك أن تريني أين يقع المتحف على هذه الخريطة؟",
+              "French": "Peux-tu me montrer où se trouve le musée sur cette carte ?",
+              "Bengali": "আপনি কি এই মানচিত্রে আমাকে দেখাতে পারেন যাদুঘরটি কোথায়?",
+              "Portuguese": "Você pode me mostrar onde fica o museu neste mapa?",
+              "Russian": "Можете показать мне на этой карте, где находится музей?",
+              "Urdu": "کیا آپ مجھے اس نقشے پر دکھا سکتے ہیں کہ میوزیم کہاں ہے؟",
+              "Indonesian": "Bisakah Anda menunjukkan letak museum di peta ini?",
+              "Standard German": "Können Sie mir auf dieser Karte zeigen, wo das Museum ist?",
+              "Japanese": "この地図上で博物館がどこにあるか教えてもらえますか？"
+            }
+          },
+          {
+            "english": "It is always good to have a paper map just in case phone battery dies.",
+            "translations": {
+              "Mandarin Chinese": "以防手机没电，有一张纸质地图总是好的。",
+              "Hindi": "फ़ोन की बैटरी खत्म होने की स्थिति में कागज़ का नक्शा होना हमेशा अच्छा होता है।",
+              "Spanish": "Siempre es bueno tener un mapa de papel por si se acaba la batería del teléfono.",
+              "Standard Arabic": "من الجيد دائماً الحصول على خريطة ورقية في حال نفاد بطارية الهاتف.",
+              "French": "Il est toujours bon d'avoir une carte papier au cas où la batterie du téléphone s'épuiserait.",
+              "Bengali": "ফোনের ব্যাটারি শেষ হয়ে যাওয়ার ক্ষেত্রে একটি কাগজের মানচিত্র থাকা সর্বদা ভালো।",
+              "Portuguese": "Sempre é bom ter um mapa de papel caso a bateria do celular acabe.",
+              "Russian": "Всегда полезно иметь бумажную карту на случай, если разрядится аккумулятор телефона.",
+              "Urdu": "فون کی بیٹری ختم ہونے کی صورت میں کاغذ کا نقشہ ہونا ہمیشہ اچھا ہوتا ہے۔",
+              "Indonesian": "Selalu baik untuk memiliki peta kertas untuk jaga-jaga jika baterai ponsel habis.",
+              "Standard German": "Es ist immer gut, eine Papierkarte zu haben, falls der Telefonakku leer wird.",
+              "Japanese": "携帯の電池が切れた場合に備えて、紙の地図を持っておくことは常に良いことです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "guide",
+        "level": "A2",
+        "category": "Travel & Transportation",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɡaɪd/",
+        "meaning": "A person whose job is to show tourists around a town or museum, or a book packed with information about a place.",
+        "synonyms": ["advisor", "leader", "guidebook"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Our tour guide explained the history of the ancient temple.",
+            "translations": {
+              "Mandarin Chinese": "我们的导游讲解了这座古老寺庙的历史。",
+              "Hindi": "हमारे टूर गाइड ने प्राचीन मंदिर के इतिहास के बारे में बताया।",
+              "Spanish": "Nuestro guía turístico nos explicó la historia del templo antiguo.",
+              "Standard Arabic": "شرح مرشدنا السياحي تاريخ المعبد القديم.",
+              "French": "Notre guide touristique a expliqué l'histoire du temple antique.",
+              "Bengali": "আমাদের ট্যুর গাইড প্রাচীন মন্দিরের ইতিহাস ব্যাখ্যা করেছিলেন।",
+              "Portuguese": "Nosso guia de turismo explicou a história do antigo templo.",
+              "Russian": "Наш гид рассказал об истории древнего храма.",
+              "Urdu": "ہمارے ٹور گائیڈ نے قدیم مندر کی تاریخ بیان کی۔",
+              "Indonesian": "Pemandu wisata kami menjelaskan sejarah kuil kuno tersebut.",
+              "Standard German": "Unser Reiseleiter erklärte die Geschichte des alten Tempels.",
+              "Japanese": "ツアーガイドがその古い寺院の歴史を説明してくれました。"
+            }
+          },
+          {
+            "english": "I bought a useful guide to London before my trip.",
+            "translations": {
+              "Mandarin Chinese": "在旅行前，我买了一本很有用的伦敦旅游指南。",
+              "Hindi": "मैंने अपनी यात्रा से पहले लंदन के लिए एक उपयोगी गाइड खरीदी थी।",
+              "Spanish": "Compré una guía útil de Londres antes de mi viaje.",
+              "Standard Arabic": "اشتريت دليلاً مفيداً للندن قبل رحلتي.",
+              "French": "J'ai acheté un guide utile de Londres avant mon voyage.",
+              "Bengali": "ভ্রমণের আগে আমি লন্ডনের একটি দরকারী গাইডবই কিনেছিলাম।",
+              "Portuguese": "Comprei um guia útil de Londres antes da minha viagem.",
+              "Russian": "Перед поездкой я купил полезный путеводитель по Лондону.",
+              "Urdu": "میں نے اپنے سفر سے پہلے لندن کے لیے ایک مفید گائیڈ خریدی۔",
+              "Indonesian": "Saya membeli buku panduan London yang berguna sebelum perjalanan saya.",
+              "Standard German": "Ich habe mir vor meiner Reise einen nützlichen Reiseführer für London gekauft.",
+              "Japanese": "旅行の前にロンドンの便利なガイドブックを買いました。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

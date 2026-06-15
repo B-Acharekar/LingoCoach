@@ -1,0 +1,929 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Work & Jobs": [
+      {
+        "word": "career",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/kəˈrɪər/",
+        "meaning": "A job or profession that someone does for a long period of their life.",
+        "synonyms": ["profession", "occupation", "vocation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She wants to start a career in marketing after university.",
+            "translations": {
+              "Mandarin Chinese": "大学毕业后，她想在市场营销领域开启自己的职业生涯。",
+              "Hindi": "वह विश्वविद्यालय के बाद मार्केटिंग में अपना करियर शुरू करना चाहती है।",
+              "Spanish": "Ella quiere comenzar una carrera en marketing después de la universidad.",
+              "Standard Arabic": "تريد أن تبدأ مسيرة مهنية في مجال التسويق بعد الجامعة.",
+              "French": "Elle veut commencer une carrière dans le marketing après l'université.",
+              "Bengali": "তিনি বিশ্ববিদ্যালয় শেষ করার পর মার্কেটিংয়ে ক্যারিয়ার শুরু করতে চান।",
+              "Portuguese": "Ela quer começar uma carreira em marketing depois da universidade.",
+              "Russian": "Она хочет начать карьеру в сфере маркетинга после университета.",
+              "Urdu": "وہ یونیورسٹی کے بعد مارکیٹنگ میں اپنا کیریئر شروع کرنا چاہتی ہے۔",
+              "Indonesian": "Dia ingin memulai karier di bidang pemasaran setelah lulus universitas.",
+              "Standard German": "Sie möchte nach der Universität eine Karriere im Marketing beginnen.",
+              "Japanese": "彼女は大学卒業後、マーケティングの仕事（キャリア）を始めたいと考えています。"
+            }
+          },
+          {
+            "english": "He had a long and successful career as a high school teacher.",
+            "translations": {
+              "Mandarin Chinese": "作为一名高中教师，他有着漫长而成功的职业生涯。",
+              "Hindi": "हाई स्कूल शिक्षक के रूप में उनका करियर लंबा और सफल रहा।",
+              "Spanish": "Él tuvo una larga y exitosa carrera como maestro de secundaria.",
+              "Standard Arabic": "لقد حظي بمسيرة مهنية طويلة وناجحة كمعلم في المدرسة الثانوية.",
+              "French": "Il a eu une longue et fructueuse carrière d'enseignant au lycée.",
+              "Bengali": "হাই স্কুলের শিক্ষক হিসেবে তার দীর্ঘ ও সফল ক্যারিয়ার ছিল।",
+              "Portuguese": "Ele teve uma carreira longa e de sucesso como professor de ensino médio.",
+              "Russian": "У него была долгая и успешная карьера школьного учителя.",
+              "Urdu": "ہائی اسکول کے ٹیچر کے طور پر ان کا کیریئر لمبا اور کامیاب رہا۔",
+              "Indonesian": "Dia memiliki karier yang panjang dan sukses sebagai guru sekolah menengah atas.",
+              "Standard German": "Er hatte eine lange und erfolgreiche Karriere als Gymnasiallehrer.",
+              "Japanese": "彼は高校の教師として、長年成功したキャリアを築きました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "salary",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsæləri/",
+        "meaning": "A fixed amount of money that you receive regularly, usually every month, for doing a job.",
+        "synonyms": ["income", "pay", "earnings"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The company offers a good starting salary for new employees.",
+            "translations": {
+              "Mandarin Chinese": "这家公司为新员工提供不错的起薪。",
+              "Hindi": "कंपनी नए कर्मचारियों के लिए एक अच्छा शुरुआती वेतन प्रदान करती है।",
+              "Spanish": "La empresa ofrece un buen salario inicial para los nuevos empleados.",
+              "Standard Arabic": "تقدم الشركة راتباً ابتدائياً جيداً للموظفين الجدد.",
+              "French": "L'entreprise offre un bon salaire de départ pour les nouveaux employés.",
+              "Bengali": "কোম্পানিটি নতুন কর্মচারীদের জন্য একটি ভালো প্রারম্ভিক বেতন অফার করে।",
+              "Portuguese": "A empresa oferece um bom salário inicial para novos funcionários.",
+              "Russian": "Компания предлагает хорошую начальную зарплату для новых сотрудников.",
+              "Urdu": "کمپنی نئے ملازمین کے لیے ایک اچھا ابتدائی تنخواہ پیش کرتی ہے۔",
+              "Indonesian": "Perusahaan menawarkan gaji awal yang baik untuk karyawan baru.",
+              "Standard German": "Das Unternehmen bietet ein gutes Einstiegsgehalt für neue Mitarbeiter.",
+              "Japanese": "その会社は新入社員に良い初任給を提供しています。"
+            }
+          },
+          {
+            "english": "She is happy because she got a higher salary this month.",
+            "translations": {
+              "Mandarin Chinese": "她很高兴，因为她这个月拿到了更高的薪水。",
+              "Hindi": "वह खुश है क्योंकि इस महीने उसे अधिक वेतन मिला है।",
+              "Spanish": "Ella está feliz porque recibió un salario más alto este mes.",
+              "Standard Arabic": "هي سعيدة لأنها حصلت على راتب أعلى هذا الشهر.",
+              "French": "Elle est heureuse parce qu'elle a reçu un salaire plus élevé ce mois-ci.",
+              "Bengali": "তিনি খুশি কারণ এই মাসে তিনি উচ্চতর বেতন পেয়েছেন।",
+              "Portuguese": "Ela está feliz porque recebeu un salário maior este mês.",
+              "Russian": "Она счастлива, потому что в этом месяце получила более высокую зарплату.",
+              "Urdu": "وہ خوش ہے کیونکہ اس مہینے اسے زیادہ تنخواہ ملی ہے۔",
+              "Indonesian": "Dia senang karena mendapatkan gaji yang lebih tinggi bulan ini.",
+              "Standard German": "Sie ist glücklich, weil sie diesen Monat ein höheres Gehalt bekommen hat.",
+              "Japanese": "今月は給料が上がったので、彼女は喜んでいます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "interview",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈɪntərvjuː/",
+        "meaning": "A formal meeting where someone asks you questions to see if you are suitable for a job.",
+        "synonyms": ["meeting", "evaluation", "interrogation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I have a job interview tomorrow, so I need to wear formal clothes.",
+            "translations": {
+              "Mandarin Chinese": "我明天有一个求职面试，所以我需要穿正装。",
+              "Hindi": "कल मेरा नौकरी के लिए इंटरव्यू है, इसलिए मुझे औपचारिक कपड़े पहनने होंगे।",
+              "Spanish": "Tengo una entrevista de trabajo mañana, así que necesito usar ropa formal.",
+              "Standard Arabic": "عندي مقابلة عمل غداً، لذا أحتاج إلى ارتداء ملابس رسمية.",
+              "French": "J'ai un entretien d'embauche demain, je dois donc porter des vêtements formels.",
+              "Bengali": "আগামীকাল আমার একটি চাকরির ইন্টারভিউ আছে, তাই আমাকে আনুষ্ঠানিক পোশাক পরতে হবে।",
+              "Portuguese": "Tenho uma entrevista de emprego amanhã, então preciso usar roupas formais.",
+              "Russian": "Завтра у меня собеседование, поэтому мне нужно надеть официальную одежду.",
+              "Urdu": "کل میرا نوکری کا انٹرویو ہے، اس لیے مجھے فارمل (رسمی) کپڑے پہننے کی ضرورت ہے۔",
+              "Indonesian": "Saya ada wawancara kerja besok, jadi saya perlu memakai pakaian formal.",
+              "Standard German": "Ich habe morgen ein Vorstellungsgespräch, also muss ich formelle Kleidung tragen.",
+              "Japanese": "明日は就職面接があるので、フォーマルな服を着る必要があります。"
+            }
+          },
+          {
+            "english": "The manager will interview three candidates for the office job.",
+            "translations": {
+              "Mandarin Chinese": "经理将对该办公室职位的三个候选人进行面试。",
+              "Hindi": "प्रबंधक कार्यालय की नौकरी के लिए तीन उम्मीदवारों का इंटरव्यू लेंगे।",
+              "Spanish": "El gerente entrevistará a tres candidatos para el puesto de oficina.",
+              "Standard Arabic": "سيجري المدير مقابلة مع ثلاثة مرشحين لوظيفة المكتب.",
+              "French": "Le manager va interviewer trois candidats pour le poste de bureau.",
+              "Bengali": "ম্যানেজার অফিসের চাকরির জন্য তিনজন প্রার্থীর ইন্টারভিউ নেবেন।",
+              "Portuguese": "O gerente vai entrevistar três candidatos para a vaga de escritório.",
+              "Russian": "Менеджер проведет собеседование с тремя кандидатами на должность в офисе.",
+              "Urdu": "مینیجر آفس کی نوکری کے لیے تین امیدواروں کا انٹرویو کرے گا۔",
+              "Indonesian": "Manajer akan mewawancarai tiga kandidat untuk pekerjaan kantor tersebut.",
+              "Standard German": "Der Manager wird drei Kandidaten für die Bürostelle interviewen.",
+              "Japanese": "マネージャーは事務職のために3人の候補者を面接する予定です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "manager",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmænɪdʒər/",
+        "meaning": "A person who is in charge of a department, project, or group of employees in a company.",
+        "synonyms": ["boss", "supervisor", "director"],
+        "antonyms": ["employee", "subordinate"],
+        "examples": [
+          {
+            "english": "If you have a problem with your schedule, you should talk to the manager.",
+            "translations": {
+              "Mandarin Chinese": "如果你的日程安排有任何问题，你应该跟经理谈谈。",
+              "Hindi": "यदि आपको अपने शेड्यूल को लेकर कोई समस्या है, तो आपको प्रबंधक से बात करनी चाहिए।",
+              "Spanish": "Si tienes un problema con tu horario, deberías hablar con el gerente.",
+              "Standard Arabic": "إذا كان لديك مشكلة في جدولك، يجب عليك التحدث مع المدير.",
+              "French": "Si vous avez un problème avec votre emploi du temps, vous devriez en parler au manager.",
+              "Bengali": "আপনার সময়সূচী নিয়ে কোনো সমস্যা হলে আপনার ম্যানেজারের সাথে কথা বলা উচিত।",
+              "Portuguese": "Se você tiver um problema com a sua agenda, deve falar com o gerente.",
+              "Russian": "Если у вас проблемы с графиком, вам следует поговорить с менеджером.",
+              "Urdu": "اگر آپ کو اپنے شیڈول میں کوئی مسئلہ ہے تو آپ کو مینیجر سے بات کرنی چاہیے۔",
+              "Indonesian": "Jika Anda memiliki masalah dengan jadwal Anda, Anda harus berbicara dengan manajer.",
+              "Standard German": "Wenn Sie ein Problem mit Ihrem Zeitplan haben, sollten Sie mit dem Manager sprechen.",
+              "Japanese": "スケジュールに問題がある場合は、マネージャーに相談する必要があります。"
+            }
+          },
+          {
+            "english": "Our restaurant manager always ensures that the customers are happy.",
+            "translations": {
+              "Mandarin Chinese": "我们餐厅的经理总是确保顾客感到满意。",
+              "Hindi": "हमारे रेस्तरां प्रबंधक हमेशा यह सुनिश्चित करते हैं कि ग्राहक खुश रहें।",
+              "Spanish": "El gerente de nuestro restaurante siempre se asegura de que los clientes estén contentos.",
+              "Standard Arabic": "يحرص مدير مطعمنا دائماً على أن يكون الزبائن سعداء.",
+              "French": "Le manager de notre restaurant s'assure toujours que les clients sont satisfaits.",
+              "Bengali": "আমাদের রেস্তোরাঁর ম্যানেজার সর্বদা নিশ্চিত করেন যে গ্রাহকরা যেন খুশি থাকেন।",
+              "Portuguese": "O gerente do nosso restaurante sempre garante que os clientes estejam felizes.",
+              "Russian": "Менеджер нашего ресторана всегда заботится о том, чтобы клиенты были довольны.",
+              "Urdu": "ہمارے ریسٹورنٹ کا مینیجر ہمیشہ اس بات کو یقینی بناتا ہے کہ گاہک خوش رہیں۔",
+              "Indonesian": "Manajer restoran kami selalu memastikan pelanggan merasa puas.",
+              "Standard German": "Unser Restaurantleiter sorgt immer dafür, dass die Kunden zufrieden sind.",
+              "Japanese": "私たちのレストランのマネージャーは、常にお客様が満足しているかを確認しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "employee",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪmˈplɔɪiː/",
+        "meaning": "A person who is paid to work for a company or another person.",
+        "synonyms": ["worker", "staff member", "hand"],
+        "antonyms": ["employer", "boss"],
+        "examples": [
+          {
+            "english": "The company has more than two hundred employees in this city.",
+            "translations": {
+              "Mandarin Chinese": "这家公司在这座城市拥有两百多名员工。",
+              "Hindi": "इस शहर में कंपनी के दो सौ से अधिक कर्मचारी हैं।",
+              "Spanish": "La empresa tiene más de doscientos empleados en esta ciudad.",
+              "Standard Arabic": "لدى الشركة أكثر من مئتي موظف في هذه المدينة.",
+              "French": "L'entreprise compte plus de deux cents employés dans cette ville.",
+              "Bengali": "এই শহরে কোম্পানিটির দুই শতাধিক কর্মচারী রয়েছে।",
+              "Portuguese": "A empresa tem mais de duzentos funcionários nesta cidade.",
+              "Russian": "В этом городе у компании работает более двухсот сотрудников.",
+              "Urdu": "اس شہر میں کمپنی کے دو سو سے زائد ملازمین ہیں۔",
+              "Indonesian": "Perusahaan ini memiliki lebih dari dua ratus karyawan di kota ini.",
+              "Standard German": "Das Unternehmen hat mehr als zweihundert Mitarbeiter in dieser Stadt.",
+              "Japanese": "この会社には、この街に200人以上の従業員がいます。"
+            }
+          },
+          {
+            "english": "Every new employee receives training during their first week.",
+            "translations": {
+              "Mandarin Chinese": "每位新员工在第一周都会接受培训。",
+              "Hindi": "प्रत्येक नए कर्मचारी को उनके पहले सप्ताह के दौरान प्रशिक्षण मिलता है।",
+              "Spanish": "Cada nuevo empleado recibe capacitación durante su primera semana.",
+              "Standard Arabic": "يتلقى كل موظف جديد تدريباً خلال أسبوعه الأول.",
+              "French": "Chaque nouvel employé reçoit une formation au cours de sa première semaine.",
+              "Bengali": "প্রতিটি নতুন কর্মচারী তাদের প্রথম সপ্তাহের মধ্যে প্রশিক্ষণ পান।",
+              "Portuguese": "Cada novo funcionário recebe treinamento durante a primeira semana.",
+              "Russian": "Каждый новый сотрудник проходит обучение в течение первой недели.",
+              "Urdu": "ہر نئے ملازم کو اپنے پہلے ہفتے کے دوران ٹریننگ (تربیت) ملتی ہے۔",
+              "Indonesian": "Setiap karyawan baru menerima pelatihan selama minggu pertama mereka.",
+              "Standard German": "Jeder neue Mitarbeiter erhält in seiner ersten Woche eine Schulung.",
+              "Japanese": "すべての新入社員は最初の1週間に研修を受けます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "colleague",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɑːliːɡ/",
+        "meaning": "A person that you work with, especially in a profession or an office.",
+        "synonyms": ["coworker", "teammate", "associate"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am having lunch with a colleague from the accounting department.",
+            "translations": {
+              "Mandarin Chinese": "我正和会计部的一位同事一起吃午饭。",
+              "Hindi": "मैं अकाउंटिंग विभाग के एक सहकर्मी के साथ दोपहर का भोजन कर रहा हूँ।",
+              "Spanish": "Estoy almorzando con un compañero de trabajo del departamento de contabilidad.",
+              "Standard Arabic": "أنا أتلقى الغداء مع زميل من قسم المحاسبة.",
+              "French": "Je déjeune avec un collègue du service comptabilité.",
+              "Bengali": "আমি অ্যাকাউন্টিং বিভাগের এক সহকর্মীর সাথে দুপুরের খাবার খাচ্ছি।",
+              "Portuguese": "Estou almoçando com um colega de trabalho do departamento de contabilidade.",
+              "Russian": "Я обедаю с коллегой из бухгалтерии.",
+              "Urdu": "میں اکاؤنٹنگ ڈپارٹمنٹ کے ایک دفتری ساتھی کے ساتھ دوپہر کا کھانا کھا رہا ہوں۔",
+              "Indonesian": "Saya sedang makan siang bersama seorang rekan kerja dari departemen akuntansi.",
+              "Standard German": "Ich esse mit einem Kollegen aus der Buchhaltung zu Mittag.",
+              "Japanese": "経理部の同僚とランチを食べています。"
+            }
+          },
+          {
+            "english": "My colleagues are very helpful and always answer my questions.",
+            "translations": {
+              "Mandarin Chinese": "我的同事们非常乐意提供帮助，总是回答我的问题。",
+              "Hindi": "मेरे सहकर्मी बहुत मददगार हैं और हमेशा मेरे सवालों के जवाब देते हैं।",
+              "Spanish": "Mis compañeros de trabajo son muy atentos y siempre responden a mis preguntas.",
+              "Standard Arabic": "زملاء عملي متعاونون للغاية ويجيبون دائماً على أسئلتي.",
+              "French": "Mes collègues sont très serviables et répondent toujours à vos questions.",
+              "Bengali": "আমার সহকর্মীরা খুব সহায়ক এবং সর্বদা আমার প্রশ্নের উত্তর দেন।",
+              "Portuguese": "Meus colegas de trabalho são muito prestativos e sempre respondem às minhas perguntas.",
+              "Russian": "Мои коллеги очень отзывчивы и всегда отвечают на мои вопросы.",
+              "Urdu": "میرے دفتری ساتھی بہت مددگار ہیں اور ہمیشہ میرے سوالات کے جوابات دیتے ہیں۔",
+              "Indonesian": "Rekan-rekan kerja saya sangat membantu dan selalu menjawab pertanyaan saya.",
+              "Standard German": "Meine Kollegen sind sehr hilfsbereit und beantworten immer meine Fragen.",
+              "Japanese": "同僚たちはとても親切で、いつも私の質問に答えてくれます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "meeting",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmiːtɪŋ/",
+        "meaning": "An occasion when people come together to discuss something or make decisions.",
+        "synonyms": ["conference", "discussion", "gathering"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We have an important staff meeting at two o'clock this afternoon.",
+            "translations": {
+              "Mandarin Chinese": "今天下午两点我们有一个重要的全体员工会议。",
+              "Hindi": "आज दोपहर दो बजे हमारी एक महत्वपूर्ण स्टाफ बैठक है।",
+              "Spanish": "Tenemos una reunión de personal importante a las dos de la tarde.",
+              "Standard Arabic": "لدينا اجتماع موظفين مهم في الساعة الثانية بعد ظهر اليوم.",
+              "French": "Nous avons une réunion d'équipe importante à deux heures cet après-midi.",
+              "Bengali": "আজ দুপুর দুইটায় আমাদের একটি গুরুত্বপূর্ণ স্টাফ মিটিং আছে।",
+              "Portuguese": "Temos uma reunião de equipe importante às duas horas desta tarde.",
+              "Russian": "Сегодня в два часа дня у нас важное собрание сотрудников.",
+              "Urdu": "آج دوپہر دو بجے ہماری اسٹاف کی ایک اہم میٹنگ ہے۔",
+              "Indonesian": "Kami ada rapat staf yang penting jam dua siang ini.",
+              "Standard German": "Wir haben heute Nachmittag um zwei Uhr eine wichtige Teambesprechung.",
+              "Japanese": "今日の午後2時に、重要なスタッフ会議（ミーティング）があります。"
+            }
+          },
+          {
+            "english": "The meeting lasted for two hours but we solved all the problems.",
+            "translations": {
+              "Mandarin Chinese": "会议持续了两个小时，但我们解决了所有问题。",
+              "Hindi": "बैठक दो घंटे तक चली लेकिन हमने सभी समस्याओं का समाधान कर लिया।",
+              "Spanish": "La reunión duró dos horas pero resolvimos todos los problemas.",
+              "Standard Arabic": "استمر الاجتماع لمدة ساعتين لكننا حللنا جميع المشاكل.",
+              "French": "La réunion a duré deux heures mais nous avons résolu tous les problèmes.",
+              "Bengali": "মিটিংটি দুই ঘণ্টা স্থায়ী হয়েছিল কিন্তু আমরা সব সমস্যার সমাধান করেছি।",
+              "Portuguese": "A reunião durou duas horas, mas resolvemos todos os problemas.",
+              "Russian": "Встреча продолжалась два часа, но мы решили все проблемы.",
+              "Urdu": "میٹنگ دو گھنٹے جاری رہی لیکن ہم نے تمام مسائل حل کر لیے۔",
+              "Indonesian": "Rapat berlangsung selama dua jam tetapi kami menyelesaikan semua masalah.",
+              "Standard German": "Das Treffen dauerte zwei Stunden, aber wir haben alle Probleme gelöst.",
+              "Japanese": "会議は2時間続きましたが、すべての問題を解決することができました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "office",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɑːfɪs/",
+        "meaning": "A room or building where people work at desks, managing a business or organization.",
+        "synonyms": ["workplace", "headquarters", "bureau"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He works in a modern office in the center of London.",
+            "translations": {
+              "Mandarin Chinese": "他在伦敦市中心一间现代化的办公室里工作。",
+              "Hindi": "वह लंदन के केंद्र में एक आधुनिक कार्यालय में काम करता है।",
+              "Spanish": "Él trabaja en una oficina moderna en el centro de Londres.",
+              "Standard Arabic": "يعمل في مكتب حديث في وسط لندن.",
+              "French": "Il travaille dans un bureau moderne au centre de Londres.",
+              "Bengali": "তিনি লন্ডনের কেন্দ্রে একটি আধুনিক অফিসে কাজ করেন।",
+              "Portuguese": "Ele trabalha em um escritório moderno no centro de Londres.",
+              "Russian": "Он работает в современном офисе в центре Лондона.",
+              "Urdu": "وہ لندن کے مرکز میں ایک جدید آفس میں کام کرتا ہے۔",
+              "Indonesian": "Dia bekerja di kantor modern di pusat kota London.",
+              "Standard German": "Er arbeitet in einem modernen Büro im Zentrum von London.",
+              "Japanese": "彼はロンドンの中心部にあるモダンなオフィスで働いています。"
+            }
+          },
+          {
+            "english": "The main company office is closed on weekends.",
+            "translations": {
+              "Mandarin Chinese": "公司总部办公室在周末关闭。",
+              "Hindi": "कंपनी का मुख्य कार्यालय सप्ताहांत पर बंद रहता है।",
+              "Spanish": "La oficina principal de la empresa está cerrada los fines de semana.",
+              "Standard Arabic": "مكتب الشركة الرئيسي مغلق في عطلات نهاية الأسبوع.",
+              "French": "Le bureau principal de l'entreprise est fermé le week-end.",
+              "Bengali": "কোম্পানির প্রধান অফিস ছুটির দিনে বন্ধ থাকে।",
+              "Portuguese": "O escritório principal da empresa fecha aos fins de semana.",
+              "Russian": "Главный офис компании закрыт по выходным.",
+              "Urdu": "کمپنی کا مین آفس ویک اینڈ پر بند رہتا ہے۔",
+              "Indonesian": "Kantor pusat perusahaan tutup pada akhir pekan.",
+              "Standard German": "Das Hauptbüro des Unternehmens ist am Wochenende geschlossen.",
+              "Japanese": "会社のメインオフィスは週末に閉まっています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "project",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈprɑːdʒekt/",
+        "meaning": "A planned piece of work that is designed to find information or create something new over a period of time.",
+        "synonyms": ["task", "assignment", "enterprise"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Our team is working on a new software project for the government.",
+            "translations": {
+              "Mandarin Chinese": "我们团队正在为一个政府的新软件项目而努力工作。",
+              "Hindi": "हमारी टीम सरकार के लिए एक नए सॉफ्टवेयर प्रोजेक्ट पर काम कर रही है।",
+              "Spanish": "Nuestro equipo está trabajando en un nuevo proyecto de software para el gobierno.",
+              "Standard Arabic": "يعمل فريقنا على مشروع برمجيات جديد للحكومة.",
+              "French": "Notre équipe travaille sur un nouveau projet de logiciel pour le gouvernement.",
+              "Bengali": "আমাদের দল সরকারের জন্য একটি নতুন সফটওয়্যার প্রকল্প নিয়ে কাজ করছে।",
+              "Portuguese": "Nossa equipe está trabalhando em um novo projeto de software para o governo.",
+              "Russian": "Наша команда работает над новым программным проектом для правительства.",
+              "Urdu": "ہماری ٹیم حکومت کے لیے سافٹ ویئر کے ایک نئے پروجیک্ট پر کام کر رہی ہے۔",
+              "Indonesian": "Tim kami sedang mengerjakan proyek perangkat lunak baru untuk pemerintah.",
+              "Standard German": "Unser Team arbeitet an einem neuen Softwareprojekt für die Regierung.",
+              "Japanese": "私たちのチームは、政府向けの新しいソフトウェアのプロジェクトに取り組んでいます。"
+            }
+          },
+          {
+            "english": "We need to finish this project before the end of the month.",
+            "translations": {
+              "Mandarin Chinese": "我们需要在月底前完成这个项目。",
+              "Hindi": "हमें इस महीने के अंत से पहले इस प्रोजेक्ट को पूरा करना होगा।",
+              "Spanish": "Necesitamos terminar este proyecto antes de fin de mes.",
+              "Standard Arabic": "نحن بحاجة إلى إنهاء هذا المشروع قبل نهاية الشهر.",
+              "French": "Nous devons terminer ce projet avant la fin du mois.",
+              "Bengali": "চলতি মাসের শেষ হওয়ার আগেই আমাদের এই প্রকল্পটি শেষ করতে হবে।",
+              "Portuguese": "Precisamos terminar este projeto antes do fim do mês.",
+              "Russian": "Нам нужно закончить этот проект до конца месяца.",
+              "Urdu": "ہمیں اس مہینے کے آخر سے پہلے اس پروجیکٹ کو ختم کرنے کی ضرورت ہے۔",
+              "Indonesian": "Kita harus menyelesaikan proyek ini sebelum akhir bulan.",
+              "Standard German": "Wir müssen dieses Projekt vor Ende des Monats abschließen.",
+              "Japanese": "今月末までにこのプロジェクトを終わらせる必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "experience",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ɪkˈspɪriəns/",
+        "meaning": "The knowledge or skill that you get from doing a job or activity for a long time.",
+        "synonyms": ["knowledge", "practice", "background"],
+        "antonyms": ["inexperience"],
+        "examples": [
+          {
+            "english": "You don't need any previous experience to apply for this entry-level job.",
+            "translations": {
+              "Mandarin Chinese": "申请这个初级职位不需要任何先前的经验。",
+              "Hindi": "इस शुरुआती स्तर की नौकरी के लिए आवेदन करने के लिए आपको किसी पिछले अनुभव की आवश्यकता नहीं है।",
+              "Spanish": "No necesitas experiencia previa para postularte a este trabajo de nivel inicial.",
+              "Standard Arabic": "لا تحتاج إلى أي خبرة سابقة للتقدم لهذه الوظيفة المبتدئة.",
+              "French": "Vous n'avez besoin d'aucune expérience préalable pour postuler à cet emploi de premier échelon.",
+              "Bengali": "এই এন্ট্রি-লেভেলের চাকরির জন্য আবেদন করার জন্য আপনার আগের কোনো অভিজ্ঞতার প্রয়োজন নেই।",
+              "Portuguese": "Você não precisa de nenhuma experiência anterior para se candidatar a esta vaga de nível iniciante.",
+              "Russian": "Вам не нужен предыдущий опыт, чтобы претендовать на эту работу начального уровня.",
+              "Urdu": "اس ابتدائی سطح کی نوکری کے لیے درخواست دینے کے لیے آپ کو کسی سابقہ ​​تجربے کی ضرورت نہیں ہے۔",
+              "Indonesian": "Anda tidak memerlukan pengalaman sebelumnya untuk melamar pekerjaan tingkat pemula ini.",
+              "Standard German": "Sie benötigen keine Vorkenntnisse, um sich für diesen Einstiegsjob zu bewerben.",
+              "Japanese": "この未経験から始められる仕事に応募するのに、事前の経験は必要ありません。"
+            }
+          },
+          {
+            "english": "Working at the summer camp was a wonderful experience for me.",
+            "translations": {
+              "Mandarin Chinese": "在夏令营工作对我来说是一次美妙的经历。",
+              "Hindi": "समर कैंप में काम करना मेरे लिए एक अद्भुत अनुभव था।",
+              "Spanish": "Trabajar en el campamento de verano fue una experiencia maravillosa para mí.",
+              "Standard Arabic": "كان العمل في المخيم الصيفي تجربة رائعة بالنسبة لي.",
+              "French": "Travailler au camp d'été a été une expérience merveilleuse pour moi.",
+              "Bengali": "সামার ক্যাম্পে কাজ করা আমার জন্য এক চমৎকার অভিজ্ঞতা ছিল।",
+              "Portuguese": "Trabalhar no acampamento de verão foi uma experiência maravilhosa para mim.",
+              "Russian": "Работа в летнем лагере стала для меня прекрасным опытом.",
+              "Urdu": "سمر کیمپ میں کام کرنا میرے لیے ایک شاندار تجربہ تھا۔",
+              "Indonesian": "Bekerja di perkemahan musim panas adalah pengalaman yang luar biasa bagi saya.",
+              "Standard German": "Die Arbeit im Sommerlager war eine wunderbare Erfahrung für mich.",
+              "Japanese": "サマーキャンプでの仕事は、私にとって素晴らしい経験でした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "responsibility",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˌspɑːnsəˈbɪləti/",
+        "meaning": "A duty to deal with or take care of something, so that it is your fault if something goes wrong.",
+        "synonyms": ["duty", "obligation", "charge"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is the manager's responsibility to make sure the office is safe.",
+            "translations": {
+              "Mandarin Chinese": "确保办公室的安全是经理的责任。",
+              "Hindi": "कार्यालय सुरक्षित है यह सुनिश्चित करना प्रबंधक की जिम्मेदारी है।",
+              "Spanish": "Es responsabilidad del gerente asegurarse de que la oficina sea segura.",
+              "Standard Arabic": "من مسؤولية المدير التأكد من أن المكتب آمن.",
+              "French": "Il est de la responsabilité du manager de s'assurer que le bureau est sûr.",
+              "Bengali": "অফিস নিরাপদ রাখা নিশ্চিত করা ম্যানেজারের দায়িত্ব।",
+              "Portuguese": "É responsabilidade do gerente garantir que o escritório seja seguro.",
+              "Russian": "Обеспечение безопасности в офисе — обязанность менеджера.",
+              "Urdu": "آفس کے محفوظ ہونے کو یقینی بنانا مینیجر کی ذمہ داری ہے۔",
+              "Indonesian": "Adalah tanggung jawab manajer untuk memastikan kantor dalam keadaan aman.",
+              "Standard German": "Es liegt in der Verantwortung des Managers, dafür zu sorgen, dass das Büro sicher ist.",
+              "Japanese": "オフィスの安全を確保することはマネージャーの責任です。"
+            }
+          },
+          {
+            "english": "In my new job, I have more responsibility and a higher salary.",
+            "translations": {
+              "Mandarin Chinese": "在我的新工作中，我有了更多的责任和更高的薪水。",
+              "Hindi": "मेरी नई नौकरी में, मेरे पास अधिक जिम्मेदारी और अधिक वेतन है।",
+              "Spanish": "In mi nuevo trabajo, tengo más responsabilidad y un salario más alto.",
+              "Standard Arabic": "في وظيفتي الجديدة، لدي مسؤولية أكبر وراتب أعلى.",
+              "French": "Dans mon nouvel emploi, j'ai plus de responsabilités et un salaire plus élevé.",
+              "Bengali": "আমার নতুন চাকরিতে, আমার আরও বেশি দায়িত্ব এবং উচ্চতর বেতন রয়েছে।",
+              "Portuguese": "No meu novo emprego, tenho mais responsabilidade e um salário mais alto.",
+              "Russian": "На новой работе у меня больше ответственности и выше зарплата.",
+              "Urdu": "میری نئی نوکری میں، میرے پاس زیادہ ذمہ داری اور زیادہ تنخواہ ہے۔",
+              "Indonesian": "Di pekerjaan baru saya, saya memiliki lebih banyak tanggung jawab dan gaji yang lebih tinggi.",
+              "Standard German": "In meinem neuen Job habe ich mehr Verantwortung und ein höheres Gehalt.",
+              "Japanese": "新しい仕事では、責任が増えましたが、給料も上がりました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "task",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/tæsk/",
+        "meaning": "A piece of work that someone has to do, especially one that is difficult or unpleasant.",
+        "synonyms": ["job", "duty", "chore"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My first task today is to answer twenty emails from customers.",
+            "translations": {
+              "Mandarin Chinese": "我今天的第一项任务是回复来自客人的二十封邮件。",
+              "Hindi": "आज मेरा पहला काम ग्राहकों के बीस ईमेल का जवाब देना है।",
+              "Spanish": "Mi primera tarea de hoy es responder veinte correos electrónicos de los clientes.",
+              "Standard Arabic": "مهمتي الأولى اليوم هي الرد على عشرين رسالة إلكترونية من العملاء.",
+              "French": "Ma première tâche aujourd'hui est de répondre à vingt courriels de clients.",
+              "Bengali": "আজ আমার প্রথম কাজ হলো গ্রাহকদের বিশটি ইমেলের উত্তর দেওয়া।",
+              "Portuguese": "Minha primeira tarefa hoje é responder a vinte e-mails de clientes.",
+              "Russian": "Моя первая задача на сегодня — ответить на двадцать электронных писем от клиентов.",
+              "Urdu": "آج میرا پہلا کام گاہکوں کے بیس ای میلز کا جواب دینا ہے۔",
+              "Indonesian": "Tugas pertama saya hari ini adalah membalas dua puluh email dari pelanggan.",
+              "Standard German": "Meine erste Aufgabe heute ist es, zwanzig E-Mails von Kunden zu beantworten.",
+              "Japanese": "今日の私の最初のタスクは、顧客からの20通のメールに返信することです。"
+            }
+          },
+          {
+            "english": "Cleaning the warehouse was a long and difficult task.",
+            "translations": {
+              "Mandarin Chinese": "清理仓库是一项漫长而艰巨的任务。",
+              "Hindi": "गोदाम की सफाई करना एक लंबा और कठिन काम था।",
+              "Spanish": "Limpiar el almacén fue una tarea larga y difícil.",
+              "Standard Arabic": "كان تنظيف المستودع مهمة طويلة وصعبة.",
+              "French": "Nettoyer l'entrepôt était une tâche longue et difficile.",
+              "Bengali": "গুদাম পরিষ্কার করা একটি দীর্ঘ এবং কঠিন কাজ ছিল।",
+              "Portuguese": "Limpar o armazém foi uma tarefa longa e difícil.",
+              "Russian": "Уборка склада была долгой и трудной задачей.",
+              "Urdu": "گودام کی صفائی کرنا ایک طویل اور مشکل کام تھا۔",
+              "Indonesian": "Membersihkan gudang adalah tugas yang lama dan sulit.",
+              "Standard German": "Das Reinigen des Lagers war eine lange und schwierige Aufgabe.",
+              "Japanese": "倉庫の清掃は長くて大変な作業でした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "application",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌæplɪˈkeɪʃn/",
+        "meaning": "A formal written request for a job, a place at a college, or permission to do something.",
+        "synonyms": ["request", "form", "appeal"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He sent his job application to three different design companies.",
+            "translations": {
+              "Mandarin Chinese": "他向三家不同的设计公司发送了自己的求职申请。",
+              "Hindi": "उन्होंने तीन अलग-अलग डिज़ाइन कंपनियों में अपनी नौकरी का आवेदन भेजा।",
+              "Spanish": "Él envió su solicitud de empleo a tres empresas de diseño diferentes.",
+              "Standard Arabic": "أرسل طلب عمله إلى ثلاث شركات تصميم مختلفة.",
+              "French": "Il a envoyé sa demande d'emploi à trois agences de design différentes.",
+              "Bengali": "তিনি তিনটি ভিন্ন ডিজাইন কোম্পানিতে তার চাকরির আবেদন পাঠিয়েছেন।",
+              "Portuguese": "Ele enviou sua candidatura de emprego para três empresas de design diferentes.",
+              "Russian": "Он отправил свое заявление о приеме на работу в три разные дизайнерские компании.",
+              "Urdu": "اس نے تین مختلف ڈیزائن کمپنیوں میں اپنی نوکری کی درخواست بھیجی۔",
+              "Indonesian": "Dia mengirimkan surat lamaran kerjanya ke tiga perusahaan desain yang berbeda.",
+              "Standard German": "Er hat seine Bewerbung an drei verschiedene Designfirmen geschickt.",
+              "Japanese": "彼は3つの異なるデザイン会社に求职の応募書類を送りました。"
+            }
+          },
+          {
+            "english": "The deadline for the university application is next Friday.",
+            "translations": {
+              "Mandarin Chinese": "大学入学申请的截止日期是下周五。",
+              "Hindi": "विश्वविद्यालय के आवेदन की अंतिम तिथि अगले शुक्रवार को है।",
+              "Spanish": "La fecha límite para la solicitud universitaria es el próximo viernes.",
+              "Standard Arabic": "الموعد النهائي لطلب الجامعة هو الجمعة المقبلة.",
+              "French": "La date limite pour l'inscription à l'université est vendredi prochain.",
+              "Bengali": "বিশ্ববিদ্যালয়ে আবেদনের শেষ সময় আগামী শুক্রবার।",
+              "Portuguese": "O prazo final para a inscrição na universidade é na próxima sexta-feira.",
+              "Russian": "Срок подачи документов в университет — следующая пятница.",
+              "Urdu": "یونیورسٹی کی درخواست کی آخری تاریخ اگلا جمعہ ہے۔",
+              "Indonesian": "Batas waktu pendaftaran universitas adalah Jumat depan.",
+              "Standard German": "Die Frist für die Bewerbung an der Universität endet nächsten Freitag.",
+              "Japanese": "大学の入学願書の締め切りは来週の金曜日です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "uniform",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈjuːnɪfɔːrm/",
+        "meaning": "The special set of clothes worn by all members of an organization, such as soldiers, police officers, or schoolchildren.",
+        "synonyms": ["costume", "livery", "garb"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The security guards at the bank wear a dark blue uniform.",
+            "translations": {
+              "Mandarin Chinese": "银行的保安穿着深蓝色的制服。",
+              "Hindi": "बैंक के सुरक्षा गार्ड गहरे नीले रंग की वर्दी पहनते हैं।",
+              "Spanish": "Los guardias de seguridad del banco usan un uniforme azul oscuro.",
+              "Standard Arabic": "يرتدي حراس الأمن في البنك زياً موحداً باللون الأزرق الداكن.",
+              "French": "Les agents de sécurité de la banque portent un uniforme bleu marine.",
+              "Bengali": "ব্যাংকের নিরাপত্তা প্রহরীরা গাঢ় নীল রঙের ইউনিফর্ম পরেন।",
+              "Portuguese": "Os guardas de segurança do banco usam um uniforme azul-escuro.",
+              "Russian": "Охранники в банке носят темно-синюю униформу.",
+              "Urdu": "بینک کے سیکیورٹی گارڈز گہرے نیلے رنگ کی یونیفارم (वर्दी) پہنتے ہیں۔",
+              "Indonesian": "Petugas keamanan di bank mengenakan seragam biru tua.",
+              "Standard German": "Die Sicherheitskräfte bei der Bank tragen eine dunkelblaue Uniform.",
+              "Japanese": "銀行の警備員は濃紺の制服を着用しています。"
+            }
+          },
+          {
+            "english": "I don't like wearing a uniform because it is not very comfortable.",
+            "translations": {
+              "Mandarin Chinese": "我不喜欢穿制服，因为感觉不太舒服。",
+              "Hindi": "मुझे वर्दी पहनना पसंद नहीं है क्योंकि यह बहुत आरामदायक नहीं होती।",
+              "Spanish": "No me gusta usar uniforme porque no es muy cómodo.",
+              "Standard Arabic": "لا أحب ارتداء الزي الموحد لأنه ليس مريحاً للغاية.",
+              "French": "Je n'aime pas porter d'uniforme parce qu'il n'est pas très confortable.",
+              "Bengali": "আমি ইউনিফর্ম পরতে পছন্দ করি না কারণ এটি খুব একটা আরামদায়ক নয়।",
+              "Portuguese": "Não gosto de usar uniforme porque não é muito confortável.",
+              "Russian": "Мне не нравится носить форму, потому что она не очень удобная.",
+              "Urdu": "مجھے یونیفارم پہننا پسند نہیں ہے کیونکہ یہ زیادہ آرام دہ نہیں ہوتی۔",
+              "Indonesian": "Saya tidak suka memakai seragam karena kurang nyaman.",
+              "Standard German": "Ich trage nicht gerne eine Uniform, weil sie nicht sehr bequem ist.",
+              "Japanese": "あまり着心地が良くないので、制服を着るのが好きではありません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "training",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtreɪnɪŋ/",
+        "meaning": "The process of learning the skills that you need to do a particular job or activity.",
+        "synonyms": ["coaching", "education", "instruction"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "New employees have two weeks of computer training before starting work.",
+            "translations": {
+              "Mandarin Chinese": "新员工在开始工作前要接受两周的电脑培训。",
+              "Hindi": "नए कर्मचारियों को काम शुरू करने से पहले दो सप्ताह का कंप्यूटर प्रशिक्षण मिलता है।",
+              "Spanish": "Los nuevos empleados tienen dos semanas de capacitación en computación antes de comenzar a trabajar.",
+              "Standard Arabic": "يخضع الموظفون الجدد لتدريب على الكمبيوتر لمدة أسبوعين قبل بدء العمل.",
+              "French": "Les nouveaux employés bénéficient de deux semaines de formation en informatique avant de commencer à travailler.",
+              "Bengali": "নতুন কর্মচারীদের কাজ শুরু করার আগে দুই সপ্তাহের কম্পিউটার প্রশিক্ষণ দেওয়া হয়।",
+              "Portuguese": "Novos funcionários passam por duas semanas de treinamento em informática antes de começar a trabalhar.",
+              "Russian": "Новые сотрудники проходят двухнедельное обучение работе на компьютере перед началом работы.",
+              "Urdu": "نئے ملازمین کو کام شروع کرنے سے پہلے دو ہفتے کی کمپیوٹر ٹریننگ (تربیت) دی جاتی ہے۔",
+              "Indonesian": "Karyawan baru mendapatkan dua minggu pelatihan komputer sebelum mulai bekerja.",
+              "Standard German": "Neue Mitarbeiter erhalten vor Arbeitsbeginn eine zweiwöchige Computerschulung.",
+              "Japanese": "新入社員は仕事を始める前に2週間のコンピューター研修を受けます。"
+            }
+          },
+          {
+            "english": "Athletes spend many hours in intensive training before the competition.",
+            "translations": {
+              "Mandarin Chinese": "运动员在比赛前要花很多时间进行高强度训练。",
+              "Hindi": "एथलीट प्रतियोगिता से पहले गहन प्रशिक्षण में कई घंटे बिताते हैं।",
+              "Spanish": "Los atletas pasan muchas horas en entrenamiento intensivo antes de la competencia.",
+              "Standard Arabic": "يقضي الرياضيون ساعات طويلة في تدريب مكثف قبل المنافسة.",
+              "French": "Les athlètes passent de nombreuses heures à s'entraîner intensivement avant la compétition.",
+              "Bengali": "ক্রীড়াবিদরা প্রতিযোগিতার আগে নিবিড় প্রশিক্ষণে অনেক ঘন্টা ব্যয় করেন।",
+              "Portuguese": "Os atletas passam muitas horas em treinamento intensivo antes da competição.",
+              "Russian": "Спортсмены проводят много часов в интенсивных тренировках перед соревнованиями.",
+              "Urdu": "ایتھلیٹس مقابلے سے پہلے کئی گھنٹے سخت ٹریننگ میں گزارتے ہیں۔",
+              "Indonesian": "Para atlet menghabiskan waktu berjam-jam dalam pelatihan intensif sebelum kompetisi.",
+              "Standard German": "Athleten verbringen vor dem Wettkampf viele Stunden im intensiven Training.",
+              "Japanese": "アスリートたちは大会前に長時間の激しいトレーニングを行います。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "promotion",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/prəˈmoʊʃn/",
+        "meaning": "A move to a more important job or position in a company.",
+        "synonyms": ["advancement", "upgrade", "elevation"],
+        "antonyms": ["demotion"],
+        "examples": [
+          {
+            "english": "After working hard for two years, she finally got a promotion to assistant manager.",
+            "translations": {
+              "Mandarin Chinese": "努力工作两年后，她终于获得了晋升，成为助理经理。",
+              "Hindi": "दो साल तक कड़ी मेहनत करने के बाद, आखिरकार उन्हें सहायक प्रबंधक के पद पर पदोन्नति (प्रमोशन) मिली।",
+              "Spanish": "Después de trabajar duro durante dos años, finalmente obtuvo un ascenso a gerente asistente.",
+              "Standard Arabic": "بعد العمل الجاد لمدة عامين، حصلت أخيراً على ترقية إلى منصب مساعد مدير.",
+              "French": "Après avoir travaillé dur pendant deux ans, elle a finalement obtenu une promotion au poste de directrice adjointe.",
+              "Bengali": "দুই বছর কঠোর পরিশ্রম করার পর, অবশেষে তিনি সহকারী ম্যানেজার পদে পদোন্নতি পান।",
+              "Portuguese": "Depois de trabalhar duro por dois anos, ela finalmente conseguiu uma promoção a gerente assistente.",
+              "Russian": "После двух лет усердной работы она наконец получила повышение до помощника менеджера.",
+              "Urdu": "دو سال تک سخت محنت کرنے کے بعد، آخر کار اسے اسسٹنٹ مینیجر کے عہدے پر ترقی (ترقی) مل گئی۔",
+              "Indonesian": "Setelah bekerja keras selama dua tahun, dia akhirnya mendapatkan promosi menjadi asisten manajer.",
+              "Standard German": "Nachdem sie zwei Jahre lang hart gearbeitet hatte, wurde sie schließlich zur stellvertretenden Managerin befördert.",
+              "Japanese": "2年間熱心に働いた後、彼女はついにアシスタントマネージャーへの昇進を果たしました。"
+            }
+          },
+          {
+            "english": "The supermarket has a special promotion on fresh organic fruit this week.",
+            "translations": {
+              "Mandarin Chinese": "这家超市本周对新鲜有机水果有特别的促销活动。",
+              "Hindi": "सुपरमार्केट में इस सप्ताह ताजे जैविक फलों पर एक विशेष प्रचार (प्रमोशन) है।",
+              "Spanish": "El supermercado tiene una promoción especial en frutas orgánicas frescas esta semana.",
+              "Standard Arabic": "يقدم السوبرماركت عرضاً ترويجياً خاصاً على الفاكهة العضوية الطازجة هذا الأسبوع.",
+              "French": "Le supermarché propose une promotion spéciale sur les fruits biologiques frais cette semaine.",
+              "Bengali": "সুপারমার্কেটটিতে এই সপ্তাহে তাজা জৈব ফলের উপর একটি বিশেষ অফার/প্রমোশন রয়েছে।",
+              "Portuguese": "O supermercado está com uma promoção especial de frutas orgânicas frescas esta semana.",
+              "Russian": "На этой неделе в супермаркете действует специальная акция на свежие органические фрукты.",
+              "Urdu": "سپر مارکیٹ میں اس ہفتے تازہ آرگینک پھلوں پر ایک خاص پروموشن (رعایتی آفر) ہے۔",
+              "Indonesian": "Supermarket mengadakan promosi spesial untuk buah organik segar minggu ini.",
+              "Standard German": "Der Supermarkt hat diese Woche eine Sonderaktion für frisches Bio-Obst.",
+              "Japanese": "そのスーパーマーケットでは、今週新鮮な有機栽培の果物の特別セール（プロモーション）を行っています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "part-time",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "adjective / adverb",
+        "pronunciation": "/ˌpɑːrt ˈtaɪm/",
+        "meaning": "Working for only a part of each day or week, not full-time.",
+        "synonyms": ["half-time", "temporary"],
+        "antonyms": ["full-time"],
+        "examples": [
+          {
+            "english": "Many university students choose to do part-time work in restaurants.",
+            "translations": {
+              "Mandarin Chinese": "许多大学生选择在餐厅做兼职工作。",
+              "Hindi": "कई विश्वविद्यालय के छात्र रेस्तरां में अंशकालिक (पार्ट-टाइम) काम करना चुनते हैं।",
+              "Spanish": "Muchos estudiantes universitarios eligen hacer un trabajo de medio tiempo en restaurantes.",
+              "Standard Arabic": "يختار العديد من طلاب الجامعة القيام بعمل بدوام جزئي في المطاعم.",
+              "French": "De nombreux étudiants universitaires choisissent de travailler à temps partiel dans des restaurants.",
+              "Bengali": "অনেক বিশ্ববিদ্যালয়ের ছাত্র রেস্তোরাঁয় খণ্ডকালীন বা পার্ট-টাইম কাজ করা বেছে নেন।",
+              "Portuguese": "Muitos estudantes universitários optam por fazer trabalho de meio período em restaurantes.",
+              "Russian": "Многие студенты университетов выбирают частичную занятость в ресторанах.",
+              "Urdu": "کئی یونیورسٹی کے طلباء ریسٹورنٹس میں پارٹ ٹائم کام کرنے کا انتخاب کرتے ہیں۔",
+              "Indonesian": "Banyak mahasiswa memilih untuk melakukan pekerjaan paruh waktu di restoran.",
+              "Standard German": "Viele Universitätsstudenten entscheiden sich für eine Teilzeitbeschäftigung in Restaurants.",
+              "Japanese": "多くの大学生がレストランでアルバイト（パートタイム）をすることを選びます。"
+            }
+          },
+          {
+            "english": "She works part-time so she can spend more time with her young children.",
+            "translations": {
+              "Mandarin Chinese": "她兼职工作，这样就能有更多时间陪伴幼小的孩子。",
+              "Hindi": "वह अंशकालिक (पार्ट-टाइम) काम करती है ताकि वह अपने छोटे बच्चों के साथ अधिक समय बिता सके।",
+              "Spanish": "Ella trabaja a tiempo parcial para poder pasar más tiempo con sus hijos pequeños.",
+              "Standard Arabic": "تعمل بدوام جزئي لتتمكن من قضاء المزيد من الوقت مع أطفالها الصغار.",
+              "French": "Elle travaille à temps partiel pour pouvoir passer plus de temps avec ses jeunes enfants.",
+              "Bengali": "সে খণ্ডকালীন বা পার্ট-টাইম কাজ করে যাতে সে তার ছোট বাচ্চাদের সাথে বেশি সময় কাটাতে পারে।",
+              "Portuguese": "Ela trabalha em meio período para poder passar mais tempo com os filhos pequenos.",
+              "Russian": "Она работает неполный рабочий день, чтобы иметь возможность проводить больше времени со своими маленькими детьми.",
+              "Urdu": "وہ پارٹ ٹائم کام کرتی ہے تاکہ وہ اپنے چھوٹے بچوں کے ساتھ زیادہ وقت گزار سکے۔",
+              "Indonesian": "Dia bekerja paruh waktu sehingga bisa menghabiskan lebih banyak waktu dengan anak-anaknya yang masih kecil.",
+              "Standard German": "Sie arbeitet in Teilzeit, damit sie mehr Zeit mit ihren kleinen Kindern verbringen kann.",
+              "Japanese": "彼女は幼い子供たちともっと一緒に過ごせるよう、パートタイムで働いています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "full-time",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "adjective / adverb",
+        "pronunciation": "/ˌfʊl ˈtaɪm/",
+        "meaning": "Working for the whole of each normal working week, usually 35 to 40 hours.",
+        "synonyms": ["permanent"],
+        "antonyms": ["part-time"],
+        "examples": [
+          {
+            "english": "He was lucky to find a full-time job immediately after finishing high school.",
+            "translations": {
+              "Mandarin Chinese": "他很幸运，高中毕业后就立刻找到了一份全职工作。",
+              "Hindi": "हाई स्कूल खत्म करने के तुरंत बाद पूर्णकालिक (फुल-टाइम) नौकरी पाकर वह भाग्यशाली था।",
+              "Spanish": "Él tuvo suerte de encontrar un trabajo de tiempo completo inmediatamente después de terminar la secundaria.",
+              "Standard Arabic": "كان محظوظاً بالعثور على وظيفة بدوام كامل فور انتهائه من المدرسة الثانوية.",
+              "French": "Il a eu de la chance de trouver un emploi à plein temps immédiatement après avoir terminé le lycée.",
+              "Bengali": "হাই স্কুল শেষ করার পরপরই একটি ফুল-টাইম চাকরি পেয়ে সে ভাগ্যবান ছিল।",
+              "Portuguese": "Ele teve sorte de encontrar un emprego de tempo integral imediatamente após terminar o ensino médio.",
+              "Russian": "Ему повезло найти работу на полный рабочий день сразу после окончания средней школы.",
+              "Urdu": "ہائی اسکول ختم کرنے کے فوراً بعد فل ٹائم نوکری ملنے پر وہ خوش قسمت تھا۔",
+              "Indonesian": "Dia beruntung menemukan pekerjaan purna waktu segera setelah menyelesaikan sekolah menengah atas.",
+              "Standard German": "Er hatte Glück, gleich nach dem Highschool-Abschluss einen Vollzeitjob zu finden.",
+              "Japanese": "彼は高校を卒業してすぐにフルタイムの仕事を見つけることができて幸運でした。"
+            }
+          },
+          {
+            "english": "A full-time employee usually receives benefits like paid holidays and health insurance.",
+            "translations": {
+              "Mandarin Chinese": "全职员工通常享有带薪假期和医疗保险等福利。",
+              "Hindi": "एक पूर्णकालिक (फुल-टाइम) कर्मचारी को आमतौर पर सवैतनिक छुट्टियां और स्वास्थ्य बीमा जैसे लाभ मिलते हैं।",
+              "Spanish": "Un empleado de tiempo completo generalmente recibe beneficios como vacaciones pagadas y seguro médico.",
+              "Standard Arabic": "عادة ما يتلقى الموظف بدوام كامل مزايا مثل الإجازات مدفوعة الأجر والتأمين الصحي.",
+              "French": "Un employé à plein temps bénéficie généralement d'avantages tels que des congés payés et une assurance maladie.",
+              "Bengali": "একজন ফুল-টাইম কর্মচারী সাধারণত পেইড ছুটি এবং স্বাস্থ্য বীমার মতো সুবিধা পেয়ে থাকেন।",
+              "Portuguese": "Um funcionário em tempo integral geralmente recebe benefícios como férias remuneradas e seguro saúde.",
+              "Russian": "Сотрудник, работающий полный рабочий день, обычно получает такие льготы, как оплачиваемый отпуск и медицинская страховка.",
+              "Urdu": "فل ٹائم ملازم کو عام طور پر بامعاوضہ چھٹیاں اور ہیلتھ انشورنس جیسے فوائد ملتے ہیں۔",
+              "Indonesian": "Karyawan purna waktu biasanya menerima tunjangan seperti libur berbayar dan asuransi kesehatan.",
+              "Standard German": "Ein Vollzeitmitarbeiter erhält in der Regel Leistungen wie bezahlten Urlaub und Krankenversicherung.",
+              "Japanese": "フルタイムの従業員は通常、有給休暇や健康保険などの福利厚生を受けられます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "workplace",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwɜːrkpleɪs/",
+        "meaning": "The building or location where people do their jobs.",
+        "synonyms": ["office", "factory", "site"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The company tries to create a happy and creative workplace for everyone.",
+            "translations": {
+              "Mandarin Chinese": "这家公司努力为每个人营造一个快乐和富有创造力的工作场所。",
+              "Hindi": "कंपनी सभी के लिए एक खुशहाल और रचनात्मक कार्यस्थल बनाने का प्रयास करती है।",
+              "Spanish": "La empresa intenta crear un lugar de trabajo feliz y creativo para todos.",
+              "Standard Arabic": "تحاول الشركة خلق مكان عمل سعيد ومبدع للجميع.",
+              "French": "L'entreprise s'efforce de créer un lieu de travail agréable et créatif pour tous.",
+              "Bengali": "কোম্পানিটি সবার জন্য একটি আনন্দদায়ক এবং সৃজনশীল কর্মক্ষেত্র তৈরি করার চেষ্টা করে।",
+              "Portuguese": "A empresa tenta criar um local de trabalho feliz e criativo para todos.",
+              "Russian": "Компания старается создать счастливое и творческое рабочее место для каждого.",
+              "Urdu": "کمپنی ہر ایک کے لیے ایک خوشگوار اور تخلیقی کام کی جگہ (कार्यस्थल) بنانے کی کوشش کرتی ہے۔",
+              "Indonesian": "Perusahaan mencoba menciptakan tempat kerja yang bahagia dan kreatif untuk semua orang.",
+              "Standard German": "Das Unternehmen versucht, einen glücklichen und kreativen Arbeitsplatz für alle zu schaffen.",
+              "Japanese": "その会社は、誰もが楽しくクリエイティブに働ける職場（ワークプレイス）を作ろうとしています。"
+            }
+          },
+          {
+            "english": "Smoking is not permitted anywhere inside the workplace.",
+            "translations": {
+              "Mandarin Chinese": "工作场所内任何地方都不允许吸烟。",
+              "Hindi": "कार्यस्थल के अंदर कहीं भी धूम्रपान की अनुमति नहीं है।",
+              "Spanish": "No se permite fumar en ningún lugar dentro del centro de trabajo.",
+              "Standard Arabic": "التدخين غير مسموح به في أي مكان داخل مكان العمل.",
+              "French": "Il est interdit de fumer à l'intérieur du lieu de travail.",
+              "Bengali": "কর্মক্ষেত্রের ভিতরে কোথাও ধূমপান করার অনুমতি নেই।",
+              "Portuguese": "Não é permitido fumar em nenhum lugar dentro do local de trabalho.",
+              "Russian": "Курение запрещено в любом месте внутри рабочего помещения.",
+              "Urdu": "کام کی جگہ کے اندر کہیں بھی تمباکو نوشی کی اجازت نہیں ہے۔",
+              "Indonesian": "Merokok tidak diizinkan di mana pun di dalam tempat kerja.",
+              "Standard German": "Rauchen ist am Arbeitsplatz nirgendwo gestattet.",
+              "Japanese": "職場内はどこでも禁煙です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "company",
+        "level": "A2",
+        "category": "Work & Jobs",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkʌmpəni/",
+        "meaning": "A business organization that makes or sells goods or provides services.",
+        "synonyms": ["business", "firm", "enterprise"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She works for a large international company that manufactures car parts.",
+            "translations": {
+              "Mandarin Chinese": "她在一家制造汽车零件的大型国际公司工作。",
+              "Hindi": "वह कार के पुर्जे बनाने वाली एक बड़ी अंतर्राष्ट्रीय कंपनी में काम करती हैं।",
+              "Spanish": "Ella trabaja para una gran empresa internacional que fabrica piezas de automóviles.",
+              "Standard Arabic": "تعمل في شركة دولية كبيرة تصنع قطع غيار السيارات.",
+              "French": "Elle travaille pour une grande entreprise internationale qui fabrique des pièces automobiles.",
+              "Bengali": "তিনি একটি বড় আন্তর্জাতিক কোম্পানিতে কাজ করেন যা গাড়ির যন্ত্রাংশ তৈরি করে।",
+              "Portuguese": "Ela trabalha para uma grande empresa internacional que fabrica autopeças.",
+              "Russian": "Она работает в крупной международной компании, производящей автомобильные запчасти.",
+              "Urdu": "وہ کار کے پرزے بنانے والی ایک بڑی بین الاقوامی کمپنی میں کام کرتی ہے۔",
+              "Indonesian": "Dia bekerja di perusahaan internasional besar yang memproduksi suku cadang mobil.",
+              "Standard German": "Sie arbeitet für ein großes internationales Unternehmen, das Autoteile herstellt.",
+              "Japanese": "彼女は自動車部品を製造する大手国際企業で働いています。"
+            }
+          },
+          {
+            "english": "He started his own IT company when he was only twenty-five years old.",
+            "translations": {
+              "Mandarin Chinese": "他年仅二十五岁时就创立了自己的IT公司。",
+              "Hindi": "उन्होंने मात्र पच्चीस वर्ष की आयु में अपनी खुद की आईटी कंपनी शुरू की थी।",
+              "Spanish": "Él comenzó su propia empresa de TI cuando tenía solo veinticinco años.",
+              "Standard Arabic": "بدأ شركة تكنولوجيا المعلومات الخاصة به عندما كان عمره خمسة وعشرين عاماً فقط.",
+              "French": "Il a créé sa propre entreprise d'informatique alors qu'il n'avait que vingt-cinq ans.",
+              "Bengali": "তিনি মাত্র পঁচিশ বছর বয়সে নিজের আইটি কোম্পানি শুরু করেছিলেন।",
+              "Portuguese": "Ele abriu sua própria empresa de TI quando tinha apenas vinte e cinco anos.",
+              "Russian": "Он открыл собственную IT-компанию, когда ему было всего двадцать пять лет.",
+              "Urdu": "اس نے اپنی آئی ٹی کمپنی اس وقت شروع کی جب وہ صرف پچیس سال کا تھا۔",
+              "Indonesian": "Dia mendirikan perusahaan TI sendiri ketika dia baru berusia dua puluh lima tahun.",
+              "Standard German": "Er gründete seine eigene IT-Firma, als er erst fünfundzwanzig Jahre alt war.",
+              "Japanese": "彼はわずか25歳のときに自身のIT企業を立ち上げました。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

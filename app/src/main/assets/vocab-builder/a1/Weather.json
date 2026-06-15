@@ -1,0 +1,161 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "300-400",
+  "source": "Foundational English Descriptive Vocabulary",
+  "categories": {
+    "Weather": [
+      {
+        "word": "sunny",
+        "level": "A1",
+        "category": "Weather",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈsʌni/",
+        "meaning": "Bright with sunlight.",
+        "synonyms": [],
+        "antonyms": ["cloudy"],
+        "examples": [
+          {
+            "english": "It is a sunny day.",
+            "translations": {
+              "Mandarin Chinese": "今天是晴天。",
+              "Spanish": "Es un día soleado."
+            }
+          }
+        ]
+      },
+      {
+        "word": "rainy",
+        "level": "A1",
+        "category": "Weather",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈreɪni/",
+        "meaning": "Having a lot of rain.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I do not like rainy weather.",
+            "translations": {
+              "Mandarin Chinese": "我不喜欢下雨天。",
+              "Spanish": "No me gusta el clima lluvioso."
+            }
+          }
+        ]
+      },
+      {
+        "word": "cloudy",
+        "level": "A1",
+        "category": "Weather",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈklaʊdi/",
+        "meaning": "Covered with clouds.",
+        "synonyms": [],
+        "antonyms": ["sunny"],
+        "examples": [
+          {
+            "english": "The sky is very cloudy.",
+            "translations": {
+              "Mandarin Chinese": "天空多云。",
+              "Spanish": "El cielo está muy nublado."
+            }
+          }
+        ]
+      },
+      {
+        "word": "windy",
+        "level": "A1",
+        "category": "Weather",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈwɪndi/",
+        "meaning": "With a lot of wind.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is very windy today.",
+            "translations": {
+              "Mandarin Chinese": "今天风很大。",
+              "Spanish": "Hace mucho viento hoy."
+            }
+          }
+        ]
+      },
+      {
+        "word": "hot",
+        "level": "A1",
+        "category": "Weather",
+        "part_of_speech": "adjective",
+        "pronunciation": "/hɒt/",
+        "meaning": "Having a high temperature.",
+        "synonyms": [],
+        "antonyms": ["cold"],
+        "examples": [
+          {
+            "english": "It is too hot to play outside.",
+            "translations": {
+              "Mandarin Chinese": "外面太热了，不能出去玩。",
+              "Spanish": "Hace demasiado calor para jugar afuera."
+            }
+          }
+        ]
+      },
+      {
+        "word": "cold",
+        "level": "A1",
+        "category": "Weather",
+        "part_of_speech": "adjective",
+        "pronunciation": "/koʊld/",
+        "meaning": "Having a low temperature.",
+        "synonyms": [],
+        "antonyms": ["hot"],
+        "examples": [
+          {
+            "english": "It is cold in the winter.",
+            "translations": {
+              "Mandarin Chinese": "冬天很冷。",
+              "Spanish": "Hace frío en invierno."
+            }
+          }
+        ]
+      },
+      {
+        "word": "snow",
+        "level": "A1",
+        "category": "Weather",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/snoʊ/",
+        "meaning": "Atmospheric water vapor frozen into ice crystals.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Look! It is starting to snow.",
+            "translations": {
+              "Mandarin Chinese": "看！开始下雪了。",
+              "Spanish": "¡Mira! Está empezando a nevar."
+            }
+          }
+        ]
+      },
+      {
+        "word": "weather",
+        "level": "A1",
+        "category": "Weather",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈweðər/",
+        "meaning": "The state of the atmosphere at a place and time.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "How is the weather today?",
+            "translations": {
+              "Mandarin Chinese": "今天天气怎么样？",
+              "Spanish": "¿Cómo está el clima hoy?"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

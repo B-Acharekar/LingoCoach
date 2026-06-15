@@ -1,0 +1,449 @@
+{
+  "level": "B2",
+  "approx_words": "800-1200",
+  "source": "Civics & Political Science",
+  "categories": {
+    "Politics": [
+      {
+        "word": "government",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɡʌvərnmənt/",
+        "meaning": "The group of people with the authority to govern a country or state.",
+        "synonyms": ["administration", "regime"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The government has introduced new measures to reduce unemployment.",
+            "translations": {
+              "Mandarin Chinese": "政府已采取新措施以减少失业。",
+              "Hindi": "सरकार ने बेरोजगारी कम करने के लिए नए उपाय शुरू किए हैं।",
+              "Spanish": "El gobierno ha introducido nuevas medidas para reducir el desempleo.",
+              "French": "Le gouvernement a introduit de nouvelles mesures pour réduire le chômage.",
+              "Japanese": "政府は失業を減らすための新しい措置を導入した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "election",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪˈlekʃn/",
+        "meaning": "A formal and organized process of electing or being elected, especially of members of a political body.",
+        "synonyms": ["vote", "ballot"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The general election will be held in the autumn.",
+            "translations": {
+              "Mandarin Chinese": "大选将在秋季举行。",
+              "Hindi": "आम चुनाव शरद ऋतु में होंगे।",
+              "Spanish": "Las elecciones generales se celebrarán en otoño.",
+              "French": "Les élections générales auront lieu à l'automne.",
+              "Japanese": "総選挙は秋に行われる予定だ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "democracy",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈmɑːkrəsi/",
+        "meaning": "A system of government by the whole population, typically through elected representatives.",
+        "synonyms": ["representative government"],
+        "antonyms": ["dictatorship"],
+        "examples": [
+          {
+            "english": "The country has a long tradition of democracy.",
+            "translations": {
+              "Mandarin Chinese": "这个国家有着悠久的民主传统。",
+              "Hindi": "देश में लोकतंत्र की एक लंबी परंपरा है।",
+              "Spanish": "El país tiene una larga tradición de democracia.",
+              "French": "Le pays a une longue tradition de démocratie.",
+              "Japanese": "その国には長い民主主義の伝統がある。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "policy",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpɑːləsi/",
+        "meaning": "A course or principle of action adopted or proposed by a government, party, or business.",
+        "synonyms": ["strategy", "guideline"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Foreign policy is a major topic in the upcoming debate.",
+            "translations": {
+              "Mandarin Chinese": "外交政策是即将到来的辩论中的一个主要议题。",
+              "Hindi": "विदेश नीति आगामी बहस में एक प्रमुख विषय है।",
+              "Spanish": "La política exterior es un tema importante en el próximo debate.",
+              "French": "La politique étrangère est un sujet majeur dans le prochain débat.",
+              "Japanese": "外交政策は、次の討論会における主要なトピックである。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "president",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈprezɪdənt/",
+        "meaning": "The elected head of state of a republic.",
+        "synonyms": ["head of state", "leader"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The president addressed the nation on television.",
+            "translations": {
+              "Mandarin Chinese": "总统在电视上对全国发表了讲话。",
+              "Hindi": "राष्ट्रपति ने टेलीविजन पर राष्ट्र को संबोधित किया।",
+              "Spanish": "El presidente se dirigió a la nación en televisión.",
+              "French": "Le président s'est adressé à la nation à la télévision.",
+              "Japanese": "大統領はテレビで国民に向けて演説した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "parliament",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpɑːrləmənt/",
+        "meaning": "The highest legislature, consisting of a sovereign, the House of Lords, and the House of Commons.",
+        "synonyms": ["legislature", "congress"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The new law was passed by parliament last week.",
+            "translations": {
+              "Mandarin Chinese": "新法律上周由议会通过。",
+              "Hindi": "नया कानून पिछले हफ्ते संसद द्वारा पारित किया गया था।",
+              "Spanish": "La nueva ley fue aprobada por el parlamento la semana pasada.",
+              "French": "La nouvelle loi a été adoptée par le parlement la semaine dernière.",
+              "Japanese": "新しい法律は先週、議会で可決された。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "campaign",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/kæmˈpeɪn/",
+        "meaning": "A series of military or political operations intended to achieve a particular goal.",
+        "synonyms": ["drive", "movement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The candidate's election campaign was focused on healthcare reform.",
+            "translations": {
+              "Mandarin Chinese": "候选人的竞选活动集中在医疗改革上。",
+              "Hindi": "उम्मीदवार का चुनाव अभियान स्वास्थ्य देखभाल सुधार पर केंद्रित था।",
+              "Spanish": "La campaña electoral del candidato se centró en la reforma sanitaria.",
+              "French": "La campagne électorale du candidat était axée sur la réforme de la santé.",
+              "Japanese": "候補者の選挙キャンペーンは医療改革に焦点を当てていた。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "law",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/lɔː/",
+        "meaning": "The system of rules that a particular country or community recognizes as regulating the actions of its members.",
+        "synonyms": ["legislation", "statute"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Everyone is equal before the law.",
+            "translations": {
+              "Mandarin Chinese": "在法律面前人人平等。",
+              "Hindi": "कानून के समक्ष सब बराबर हैं।",
+              "Spanish": "Todos son iguales ante la ley.",
+              "French": "Tout le monde est égal devant la loi.",
+              "Japanese": "法の前では皆平等である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "human rights",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈhjuːmən raɪts/",
+        "meaning": "Rights that are believed to belong justifiably to every person.",
+        "synonyms": ["fundamental rights", "civil liberties"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The organization works to protect human rights globally.",
+            "translations": {
+              "Mandarin Chinese": "该组织致力于在全球范围内保护人权。",
+              "Hindi": "संगठन वैश्विक स्तर पर मानवाधिकारों की रक्षा के लिए काम करता है।",
+              "Spanish": "La organización trabaja para proteger los derechos humanos a nivel mundial.",
+              "French": "L'organisation travaille à la protection des droits de l'homme à l'échelle mondiale.",
+              "Japanese": "その組織は世界中で人権を保護するために活動している。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "political party",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/pəˈlɪtɪkl ˈpɑːrti/",
+        "meaning": "An organized group of people who have the same ideology and field candidates for elections.",
+        "synonyms": ["faction", "grouping"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She is a member of the leading political party.",
+            "translations": {
+              "Mandarin Chinese": "她是主要政党的成员。",
+              "Hindi": "वह प्रमुख राजनीतिक दल की सदस्य है।",
+              "Spanish": "Ella es miembro del principal partido político.",
+              "French": "Elle est membre du principal parti politique.",
+              "Japanese": "彼女は主要な政党の党員である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "voter",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈvoʊtər/",
+        "meaning": "A person who has the right to vote in an election.",
+        "synonyms": ["elector", "constituent"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is important for every eligible voter to cast their ballot.",
+            "translations": {
+              "Mandarin Chinese": "每一位合格的选民去投票都很重要。",
+              "Hindi": "हर पात्र मतदाता के लिए अपना वोट डालना महत्वपूर्ण है।",
+              "Spanish": "Es importante que cada votante elegible ejerza su derecho al voto.",
+              "French": "Il est important que chaque électeur éligible aille voter.",
+              "Japanese": "有権者一人ひとりが投票することが重要である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "constitution",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɑːnstɪˈtuːʃn/",
+        "meaning": "A body of fundamental principles according to which a state is acknowledged to be governed.",
+        "synonyms": ["charter", "fundamental law"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The constitution guarantees freedom of speech.",
+            "translations": {
+              "Mandarin Chinese": "宪法保障言论自由。",
+              "Hindi": "संविधान अभिव्यक्ति की स्वतंत्रता की गारंटी देता है।",
+              "Spanish": "La constitución garantiza la libertad de expresión.",
+              "French": "La constitution garantit la liberté d'expression.",
+              "Japanese": "憲法は言論の自由を保障している。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "international relations",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌɪntərˈnæʃnəl rɪˈleɪʃnz/",
+        "meaning": "The study of the relationships between countries.",
+        "synonyms": ["foreign affairs", "geopolitics"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She is studying international relations at the university.",
+            "translations": {
+              "Mandarin Chinese": "她在大学学习国际关系。",
+              "Hindi": "वह विश्वविद्यालय में अंतरराष्ट्रीय संबंधों का अध्ययन कर रही है।",
+              "Spanish": "Ella estudia relaciones internacionales en la universidad.",
+              "French": "Elle étudie les relations internationales à l'université.",
+              "Japanese": "彼女は大学で国際関係学を学んでいる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "freedom",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfriːdəm/",
+        "meaning": "The power or right to act, speak, or think as one wants.",
+        "synonyms": ["liberty", "independence"],
+        "antonyms": ["oppression", "slavery"],
+        "examples": [
+          {
+            "english": "Freedom is a core value in our society.",
+            "translations": {
+              "Mandarin Chinese": "自由是我们社会的核心价值观。",
+              "Hindi": "स्वतंत्रता हमारे समाज का एक मूल मूल्य है।",
+              "Spanish": "La libertad es un valor central en nuestra sociedad.",
+              "French": "La liberté est une valeur fondamentale de notre société.",
+              "Japanese": "自由は我々の社会の中核的な価値である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "economic policy",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌiːkəˈnɑːmɪk ˈpɑːləsi/",
+        "meaning": "The range of actions taken by a government to influence the economy.",
+        "synonyms": ["fiscal policy", "monetary policy"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The president presented his new economic policy to the nation.",
+            "translations": {
+              "Mandarin Chinese": "总统向全国提出了他的新经济政策。",
+              "Hindi": "राष्ट्रपति ने राष्ट्र के सामने अपनी नई आर्थिक नीति प्रस्तुत की।",
+              "Spanish": "El presidente presentó su nueva política económica a la nación.",
+              "French": "Le président a présenté sa nouvelle politique économique à la nation.",
+              "Japanese": "大統領は新しい経済政策を国民に向けて発表した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "debate",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/dɪˈbeɪt/",
+        "meaning": "A formal discussion on a particular topic in a public meeting or legislative assembly.",
+        "synonyms": ["argument", "discussion"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "They engaged in a long debate over the new tax law.",
+            "translations": {
+              "Mandarin Chinese": "他们就新税法进行了长期的辩论。",
+              "Hindi": "उन्होंने नए कर कानून पर एक लंबी बहस की।",
+              "Spanish": "Participaron en un largo debate sobre la nueva ley fiscal.",
+              "French": "Ils se sont engagés dans un long débat sur la nouvelle loi fiscale.",
+              "Japanese": "彼らは新しい税法をめぐって長い議論を交わした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "protest",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/ˈproʊtest/",
+        "meaning": "A statement or action expressing disapproval of or objection to something.",
+        "synonyms": ["demonstration", "objection"],
+        "antonyms": ["approval", "agreement"],
+        "examples": [
+          {
+            "english": "Thousands of people joined the protest against the new bill.",
+            "translations": {
+              "Mandarin Chinese": "成千上万的人参加了抗议新法案的活动。",
+              "Hindi": "हजारों लोग नए बिल के खिलाफ विरोध प्रदर्शन में शामिल हुए।",
+              "Spanish": "Miles de personas se unieron a la protesta contra el nuevo proyecto de ley.",
+              "French": "Des milliers de personnes ont rejoint la manifestation contre le nouveau projet de loi.",
+              "Japanese": "何千人もの人々が新しい法案に対する抗議に参加した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "public opinion",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈpʌblɪk əˈpɪnjən/",
+        "meaning": "The views prevalent among the general public.",
+        "synonyms": ["popular sentiment", "consensus"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Public opinion has shifted significantly regarding this issue.",
+            "translations": {
+              "Mandarin Chinese": "公众对这个问题的看法已经发生了重大转变。",
+              "Hindi": "इस मुद्दे के संबंध में जनमत काफी बदल गया है।",
+              "Spanish": "La opinión pública ha cambiado significativamente con respecto a este tema.",
+              "French": "L'opinion publique a considérablement changé sur cette question.",
+              "Japanese": "この問題に関して世論は大きく変化した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "leadership",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈliːdərʃɪp/",
+        "meaning": "The action of leading a group of people or an organization.",
+        "synonyms": ["management", "direction"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Strong leadership is essential during a time of crisis.",
+            "translations": {
+              "Mandarin Chinese": "在危机时刻，强有力的领导至关重要。",
+              "Hindi": "संकट के समय में मजबूत नेतृत्व आवश्यक है।",
+              "Spanish": "Un liderazgo fuerte es esencial durante un tiempo de crisis.",
+              "French": "Un leadership fort est essentiel en période de crise.",
+              "Japanese": "危機の間には強力なリーダーシップが不可欠である。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "diplomacy",
+        "level": "B2",
+        "category": "Politics",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈpləʊməsi/",
+        "meaning": "The profession, activity, or skill of managing international relations.",
+        "synonyms": ["negotiation", "statecraft"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The conflict was resolved through quiet diplomacy.",
+            "translations": {
+              "Mandarin Chinese": "冲突通过冷静的外交手段得到了解决。",
+              "Hindi": "संघर्ष को शांत कूटनीति के माध्यम से हल किया गया।",
+              "Spanish": "El conflicto se resolvió mediante la diplomacia discreta.",
+              "French": "Le conflit a été résolu par la diplomatie discrète.",
+              "Japanese": "その対立は静かな外交を通じて解決された。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

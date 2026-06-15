@@ -1,0 +1,449 @@
+{
+  "level": "B2",
+  "approx_words": "800-1200",
+  "source": "Modern Digital Communication",
+  "categories": {
+    "Internet Slang": [
+      {
+        "word": "meme",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun",
+        "pronunciation": "/miːm/",
+        "meaning": "An image, video, piece of text, etc., typically humorous in nature, that is copied and spread rapidly by internet users.",
+        "synonyms": ["viral content"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "That new meme has been trending on social media all day.",
+            "translations": {
+              "Mandarin Chinese": "那个新梗在社交媒体上火了一整天。",
+              "Hindi": "वह नया मीम पूरे दिन सोशल मीडिया पर ट्रेंड कर रहा है।",
+              "Spanish": "Ese nuevo meme ha sido tendencia en las redes sociales todo el día.",
+              "French": "Ce nouveau mème fait le buzz sur les réseaux sociaux toute la journée.",
+              "Japanese": "その新しいミームが一日中ソーシャルメディアでトレンド入りしている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "viral",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈvaɪrəl/",
+        "meaning": "Becoming very popular very quickly on the internet.",
+        "synonyms": ["trending", "popular"],
+        "antonyms": ["obscure"],
+        "examples": [
+          {
+            "english": "The video of the cat went viral within hours.",
+            "translations": {
+              "Mandarin Chinese": "那段猫的视频在几小时内就火了。",
+              "Hindi": "बिल्ली का वीडियो घंटों के भीतर वायरल हो गया।",
+              "Spanish": "El video del gato se volvió viral en cuestión de horas.",
+              "French": "La vidéo du chat est devenue virale en quelques heures.",
+              "Japanese": "その猫の動画は数時間でバイラル（拡散）した。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "cringe",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "adjective/verb",
+        "pronunciation": "/krɪndʒ/",
+        "meaning": "Feeling embarrassment or awkwardness for someone else's actions.",
+        "synonyms": ["awkward", "embarrassing"],
+        "antonyms": ["cool", "impressive"],
+        "examples": [
+          {
+            "english": "His attempt at a joke was so cringe.",
+            "translations": {
+              "Mandarin Chinese": "他试图讲笑话的样子真是太尴尬了。",
+              "Hindi": "उसका जोक मारने का प्रयास बहुत ही अजीब था।",
+              "Spanish": "Su intento de broma fue muy vergonzoso.",
+              "French": "Sa tentative de blague était tellement gênante.",
+              "Japanese": "彼が冗談を言おうとしたのは、本当に見ていて恥ずかしかった。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "spam",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/spæm/",
+        "meaning": "Irrelevant or unsolicited messages sent over the internet, typically to a large number of users.",
+        "synonyms": ["junk", "unsolicited"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My inbox is full of spam emails.",
+            "translations": {
+              "Mandarin Chinese": "我的收件箱里全是垃圾邮件。",
+              "Hindi": "मेरा इनबॉक्स स्पैम ईमेल से भरा हुआ है।",
+              "Spanish": "Mi bandeja de entrada está llena de correos basura.",
+              "French": "Ma boîte de réception est pleine de spams.",
+              "Japanese": "私の受信トレイはスパムメールでいっぱいだ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "ghosting",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/ˈɡoʊstɪŋ/",
+        "meaning": "The practice of ending a personal relationship with someone by suddenly and without explanation withdrawing from all communication.",
+        "synonyms": ["ignoring", "cutting contact"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She stopped replying to his texts—she is ghosting him.",
+            "translations": {
+              "Mandarin Chinese": "她不再回他的短信——她在躲着他。",
+              "Hindi": "उसने उसके टेक्स्ट का जवाब देना बंद कर दिया—वह उसे घोस्ट कर रही है।",
+              "Spanish": "Dejó de responder a sus mensajes; le está haciendo ghosting.",
+              "French": "Elle a arrêté de répondre à ses messages, elle le ghoste.",
+              "Japanese": "彼女は彼からのメールに返信しなくなった。彼を無視しているのだ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "flex",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "verb",
+        "pronunciation": "/fleks/",
+        "meaning": "To show off or brag about one's possessions or achievements.",
+        "synonyms": ["brag", "show off"],
+        "antonyms": ["humble"],
+        "examples": [
+          {
+            "english": "He's just posting that picture to flex his new car.",
+            "translations": {
+              "Mandarin Chinese": "他发那张照片只是为了炫耀他的新车。",
+              "Hindi": "वह अपनी नई कार दिखाने के लिए वह तस्वीर पोस्ट कर रहा है।",
+              "Spanish": "Solo está publicando esa foto para presumir su auto nuevo.",
+              "French": "Il publie cette photo juste pour frimer avec sa nouvelle voiture.",
+              "Japanese": "彼は新しい車を自慢するためにその写真を投稿しているだけだ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "cancelled",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈkænseld/",
+        "meaning": "The state of being socially or professionally boycotted or ostracized because of offensive behavior.",
+        "synonyms": ["boycotted", "publicly shamed"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The celebrity got cancelled after those offensive comments.",
+            "translations": {
+              "Mandarin Chinese": "那位名人在发表了那些冒犯言论后被抵制了。",
+              "Hindi": "उन अपमानजनक टिप्पणियों के बाद सेलिब्रिटी को कैंसिल कर दिया गया।",
+              "Spanish": "La celebridad fue cancelada después de esos comentarios ofensivos.",
+              "French": "La célébrité a été boycottée après ces commentaires offensants.",
+              "Japanese": "そのセレブは、不適切な発言をした後でキャンセル（ボイコット）された。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "troll",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/troʊl/",
+        "meaning": "A person who makes deliberately offensive or provocative posts online with the intent of upsetting others.",
+        "synonyms": ["provocateur", "instigator"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Don't feed the trolls; just ignore them.",
+            "translations": {
+              "Mandarin Chinese": "别理那些喷子，直接无视他们就好。",
+              "Hindi": "ट्रोल्स को बढ़ावा मत दो; बस उन्हें नजरअंदाज कर दो।",
+              "Spanish": "No alimentes a los trolls; solo ignóralos.",
+              "French": "Ne nourrissez pas les trolls ; ignorez-les simplement.",
+              "Japanese": "荒らし（トロル）を相手にするな。無視するだけでいい。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "clickbait",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈklɪkbeɪt/",
+        "meaning": "Content whose main purpose is to attract attention and encourage clicks, often using misleading headlines.",
+        "synonyms": ["sensationalism"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The article title was just clickbait.",
+            "translations": {
+              "Mandarin Chinese": "那篇文章的标题纯粹是骗点击的。",
+              "Hindi": "लेख का शीर्षक केवल क्लिकबेट था।",
+              "Spanish": "El título del artículo era solo clickbait.",
+              "French": "Le titre de l'article n'était que du clickbait (putaclic).",
+              "Japanese": "その記事のタイトルは単なる釣り広告（クリックベイト）だった。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "DM",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/diː em/",
+        "meaning": "A Direct Message sent privately on a social media platform.",
+        "synonyms": ["private message", "PM"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Send me a DM if you want the details.",
+            "translations": {
+              "Mandarin Chinese": "如果你想要详细信息，发我私信。",
+              "Hindi": "यदि आप विवरण चाहते हैं तो मुझे डीएम करें।",
+              "Spanish": "Envíame un DM si quieres los detalles.",
+              "French": "Envoie-moi un DM si tu veux les détails.",
+              "Japanese": "詳細を知りたければ私にDMを送って。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "LOL",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "interjection",
+        "pronunciation": "/el oʊ el/",
+        "meaning": "Laugh out loud; used to indicate something is funny.",
+        "synonyms": ["haha"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "That video is so funny, LOL!",
+            "translations": {
+              "Mandarin Chinese": "那视频太搞笑了，哈哈！",
+              "Hindi": "वह वीडियो बहुत मज़ेदार है, LOL!",
+              "Spanish": "¡Ese video es muy gracioso, LOL!",
+              "French": "Cette vidéo est tellement drôle, LOL !",
+              "Japanese": "その動画、めっちゃウケる、笑（LOL）！"
+            }
+          }
+        ]
+      },
+      {
+        "word": "FOMO",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfoʊmoʊ/",
+        "meaning": "Fear Of Missing Out; the anxiety that an exciting or interesting event may currently be happening elsewhere.",
+        "synonyms": ["anxiety of exclusion"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I have such FOMO seeing everyone at the party on Instagram.",
+            "translations": {
+              "Mandarin Chinese": "看到大家都在Instagram上发聚会照片，我产生了错失恐惧感。",
+              "Hindi": "इंस्टाग्राम पर सबको पार्टी में देखकर मुझे बहुत FOMO हो रहा है।",
+              "Spanish": "Siento mucho FOMO al ver a todos en la fiesta en Instagram.",
+              "French": "J'ai tellement peur de rater quelque chose (FOMO) en voyant tout le monde à la fête sur Instagram.",
+              "Japanese": "インスタでみんながパーティーにいるのを見て、取り残される不安（FOMO）を感じる。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "simp",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/sɪmp/",
+        "meaning": "Someone who does way too much for a person they like, often without reciprocation.",
+        "synonyms": ["desperate"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Stop being such a simp and focus on yourself.",
+            "translations": {
+              "Mandarin Chinese": "别再当舔狗了，关注一下你自己吧。",
+              "Hindi": "इतने सिम्प मत बनो और खुद पर ध्यान दो।",
+              "Spanish": "Deja de ser un simp y enfócate en ti mismo.",
+              "French": "Arrête de te comporter comme un simp et concentre-toi sur toi-même.",
+              "Japanese": "そんなに尽くすのはやめて、自分自身に集中して。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "ratio",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun/verb",
+        "pronunciation": "/ˈreɪʃioʊ/",
+        "meaning": "When a reply to a post gets more likes/attention than the original post, usually because the original post is bad.",
+        "synonyms": ["outshined"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "That tweet got ratioed immediately.",
+            "translations": {
+              "Mandarin Chinese": "那条推特立刻被回帖碾压了。",
+              "Hindi": "उस ट्वीट का रेशियो तुरंत हो गया।",
+              "Spanish": "Ese tweet fue ratioed inmediatamente.",
+              "French": "Ce tweet a été ratio immédiatement.",
+              "Japanese": "そのツイートはすぐに返信が上回られた（レシオされた）。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "sus",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "adjective",
+        "pronunciation": "/sʌs/",
+        "meaning": "Short for suspicious.",
+        "synonyms": ["suspicious", "sketchy"],
+        "antonyms": ["trustworthy"],
+        "examples": [
+          {
+            "english": "He's acting kind of sus today.",
+            "translations": {
+              "Mandarin Chinese": "他今天表现得有点可疑。",
+              "Hindi": "वह आज थोड़ा संदिग्ध व्यवहार कर रहा है।",
+              "Spanish": "Está actuando un poco sospechoso hoy.",
+              "French": "Il agit de manière un peu suspecte aujourd'hui.",
+              "Japanese": "彼は今日、少し怪しい動きをしている。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "streamer",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈstriːmər/",
+        "meaning": "A person who broadcasts themselves live on the internet, usually playing games or talking.",
+        "synonyms": ["broadcaster"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She's a popular streamer on Twitch.",
+            "translations": {
+              "Mandarin Chinese": "她是Twitch上的一位人气主播。",
+              "Hindi": "वह ट्विच पर एक लोकप्रिय स्ट्रीमर है।",
+              "Spanish": "Es una streamer popular en Twitch.",
+              "French": "C'est une streameuse populaire sur Twitch.",
+              "Japanese": "彼女はTwitchで人気のあるストリーマーだ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "lowkey",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "adverb/adjective",
+        "pronunciation": "/ˈloʊkiː/",
+        "meaning": "Secretly, or to a small extent; quiet or restrained.",
+        "synonyms": ["subtly", "privately"],
+        "antonyms": ["highkey", "openly"],
+        "examples": [
+          {
+            "english": "I lowkey want to go home right now.",
+            "translations": {
+              "Mandarin Chinese": "我其实悄悄地想现在就回家。",
+              "Hindi": "मैं दबी जुबान में चाहता हूँ कि अभी घर जाऊँ।",
+              "Spanish": "Lowkey quiero irme a casa ahora mismo.",
+              "French": "J'ai secrètement envie de rentrer à la maison tout de suite.",
+              "Japanese": "実は少しだけ、今すぐ帰りたいんだ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "based",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "adjective",
+        "pronunciation": "/beɪst/",
+        "meaning": "Admirable, courageous, or authentic; not caring about what others think.",
+        "synonyms": ["authentic", "brave"],
+        "antonyms": ["cringe"],
+        "examples": [
+          {
+            "english": "Sharing his unpopular opinion like that was based.",
+            "translations": {
+              "Mandarin Chinese": "那样分享他不受欢迎的观点真是太真实了。",
+              "Hindi": "अपने उस अलोकप्रिय विचार को वैसे साझा करना बेस्ड था।",
+              "Spanish": "Compartir su opinión impopular de esa manera fue based.",
+              "French": "Partager son opinion impopulaire comme ça était based.",
+              "Japanese": "あのように自分の不人気な意見を共有するのは、勇敢（Based）だった。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "AFK",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "adverb",
+        "pronunciation": "/eɪ ef keɪ/",
+        "meaning": "Away From Keyboard; used in gaming to indicate being temporarily unavailable.",
+        "synonyms": ["unavailable", "offline"],
+        "antonyms": ["online", "active"],
+        "examples": [
+          {
+            "english": "I'll be AFK for five minutes to grab a snack.",
+            "translations": {
+              "Mandarin Chinese": "我去拿点零食，五分钟内不在电脑前。",
+              "Hindi": "मैं नाश्ता लेने के लिए पांच मिनट के लिए AFK रहूँगा।",
+              "Spanish": "Estaré AFK por cinco minutos para ir por un snack.",
+              "French": "Je serai AFK (absent) pendant cinq minutes pour aller prendre un en-cas.",
+              "Japanese": "ちょっと軽食をとるから5分ほど離席するよ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "clout",
+        "level": "B2",
+        "category": "Internet Slang",
+        "part_of_speech": "noun",
+        "pronunciation": "/klaʊt/",
+        "meaning": "Influence or power, especially in social media or celebrity culture.",
+        "synonyms": ["influence", "popularity"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He's just chasing clout with that video.",
+            "translations": {
+              "Mandarin Chinese": "他发那个视频只是为了博取名声。",
+              "Hindi": "वह उस वीडियो के साथ सिर्फ क्लाउट (प्रसिद्धि) का पीछा कर रहा है।",
+              "Spanish": "Solo está buscando fama con ese video.",
+              "French": "Il cherche juste à gagner en influence avec cette vidéo.",
+              "Japanese": "彼はその動画でただ売名（クラウト）しようとしているだけだ。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

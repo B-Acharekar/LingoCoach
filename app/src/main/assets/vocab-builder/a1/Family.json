@@ -1,0 +1,199 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "300-400",
+  "source": "Foundational English Communication",
+  "categories": {
+    "Family": [
+      {
+        "word": "mother",
+        "level": "A1",
+        "category": "Family",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmʌðər/",
+        "meaning": "A female parent.",
+        "synonyms": ["mom"],
+        "antonyms": ["father"],
+        "examples": [
+          {
+            "english": "My mother is a teacher.",
+            "translations": {
+              "Mandarin Chinese": "我的母亲是一名老师。",
+              "Spanish": "Mi madre es profesora."
+            }
+          }
+        ]
+      },
+      {
+        "word": "father",
+        "level": "A1",
+        "category": "Family",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfɑːðər/",
+        "meaning": "A male parent.",
+        "synonyms": ["dad"],
+        "antonyms": ["mother"],
+        "examples": [
+          {
+            "english": "My father works in a bank.",
+            "translations": {
+              "Mandarin Chinese": "我的父亲在银行工作。",
+              "Spanish": "Mi padre trabaja en un banco."
+            }
+          }
+        ]
+      },
+      {
+        "word": "brother",
+        "level": "A1",
+        "category": "Family",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbrʌðər/",
+        "meaning": "A male child of the same parents.",
+        "synonyms": [],
+        "antonyms": ["sister"],
+        "examples": [
+          {
+            "english": "I have one brother.",
+            "translations": {
+              "Mandarin Chinese": "我有一个兄弟。",
+              "Spanish": "Tengo un hermano."
+            }
+          }
+        ]
+      },
+      {
+        "word": "sister",
+        "level": "A1",
+        "category": "Family",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɪstər/",
+        "meaning": "A female child of the same parents.",
+        "synonyms": [],
+        "antonyms": ["brother"],
+        "examples": [
+          {
+            "english": "My sister is very tall.",
+            "translations": {
+              "Mandarin Chinese": "我的姐妹很高。",
+              "Spanish": "Mi hermana es muy alta."
+            }
+          }
+        ]
+      },
+      {
+        "word": "grandmother",
+        "level": "A1",
+        "category": "Family",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɡrænmʌðər/",
+        "meaning": "The mother of one's father or mother.",
+        "synonyms": [],
+        "antonyms": ["grandfather"],
+        "examples": [
+          {
+            "english": "I visit my grandmother on Sundays.",
+            "translations": {
+              "Mandarin Chinese": "我周日去看望我的祖母。",
+              "Spanish": "Visito a mi abuela los domingos."
+            }
+          }
+        ]
+      },
+      {
+        "word": "grandfather",
+        "level": "A1",
+        "category": "Family",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɡrænfɑːðər/",
+        "meaning": "The father of one's father or mother.",
+        "synonyms": [],
+        "antonyms": ["grandmother"],
+        "examples": [
+          {
+            "english": "My grandfather is old but happy.",
+            "translations": {
+              "Mandarin Chinese": "我的祖父年纪大了但很开心。",
+              "Spanish": "Mi abuelo es mayor pero feliz."
+            }
+          }
+        ]
+      },
+      {
+        "word": "husband",
+        "level": "A1",
+        "category": "Family",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhʌzbənd/",
+        "meaning": "A married man.",
+        "synonyms": [],
+        "antonyms": ["wife"],
+        "examples": [
+          {
+            "english": "Her husband is a doctor.",
+            "translations": {
+              "Mandarin Chinese": "她的丈夫是一名医生。",
+              "Spanish": "Su esposo es médico."
+            }
+          }
+        ]
+      },
+      {
+        "word": "wife",
+        "level": "A1",
+        "category": "Family",
+        "part_of_speech": "noun",
+        "pronunciation": "/waɪf/",
+        "meaning": "A married woman.",
+        "synonyms": [],
+        "antonyms": ["husband"],
+        "examples": [
+          {
+            "english": "His wife is very kind.",
+            "translations": {
+              "Mandarin Chinese": "他的妻子很善良。",
+              "Spanish": "Su esposa es muy amable."
+            }
+          }
+        ]
+      },
+      {
+        "word": "family",
+        "level": "A1",
+        "category": "Family",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfæməli/",
+        "meaning": "A group of people related by blood or marriage.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I love my family.",
+            "translations": {
+              "Mandarin Chinese": "我爱我的家人。",
+              "Spanish": "Amo a mi familia."
+            }
+          }
+        ]
+      },
+      {
+        "word": "parents",
+        "level": "A1",
+        "category": "Family",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpɛərənts/",
+        "meaning": "A father and/or a mother.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My parents live in the city.",
+            "translations": {
+              "Mandarin Chinese": "我的父母住在城市里。",
+              "Spanish": "Mis padres viven en la ciudad."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,929 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Daily Life": [
+      {
+        "word": "appointment",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈpɔɪntmənt/",
+        "meaning": "An arrangement to meet someone at a particular time and place.",
+        "synonyms": ["meeting", "engagement", "arrangement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I have a doctor's appointment tomorrow morning at nine o'clock.",
+            "translations": {
+              "Mandarin Chinese": "我明天早上九点有一个医生的预约。",
+              "Hindi": "कल सुबह नौ बजे मेरा डॉक्टर के साथ अपॉइंटमेंट है।",
+              "Spanish": "Tengo una cita médica mañana por la mañana a las nueve en punto.",
+              "Standard Arabic": "عندي موعد مع الطبيب غداً صباحاً في الساعة التاسعة تماماً.",
+              "French": "J'ai un rendez-vous chez le médecin demain matin à neuf heures pile.",
+              "Bengali": "আগামীকাল সকাল নয়টায় আমার ডাক্তারের অ্যাপয়েন্টমেন্ট আছে।",
+              "Portuguese": "Eu tenho uma consulta médica amanhã de manhã às nove horas.",
+              "Russian": "У меня завтра в девять часов утра прием у врача.",
+              "Urdu": "کل صبح نو بجے میرا ڈاکٹر کے ساتھ اپوائنٹمنٹ ہے۔",
+              "Indonesian": "Saya ada janji temu dengan dokter besok pagi jam sembilan tepat.",
+              "Standard German": "Ich habe morgen früh um neun Uhr einen Arzttermin.",
+              "Japanese": "明日の朝9時に医者の予約があります。"
+            }
+          },
+          {
+            "english": "Please call the office if you need to change your appointment.",
+            "translations": {
+              "Mandarin Chinese": "如果您需要更改预约，请给办公室打电话。",
+              "Hindi": "यदि आपको अपना अपॉइंटमेंट बदलना हो तो कृपया कार्यालय में फोन करें。",
+              "Spanish": "Por favor, llame a la oficina si necesita cambiar su cita.",
+              "Standard Arabic": "يرجى الاتصال بالمكتب إذا كنت بحاجة إلى تغيير موعدك.",
+              "French": "Veuillez appeler le bureau si vous devez modifier votre rendez-vous.",
+              "Bengali": "আপনার অ্যাপয়েন্টমেন্ট পরিবর্তন করার প্রয়োজন হলে দয়া করে অফিসে কল করুন।",
+              "Portuguese": "Por favor, ligue para o escritório se precisar alterar seu compromisso.",
+              "Russian": "Пожалуйста, позвоните в офис, если вам нужно перенести встречу.",
+              "Urdu": "اگر آپ کو اپنا اپوائنٹمنٹ تبدیل کرنا ہو تو براہ کرم دفتر میں فون کریں۔",
+              "Indonesian": "Silakan hubungi kantor jika Anda perlu mengubah janji temu Anda.",
+              "Standard German": "Bitte rufen Sie im Büro an, wenn Sie Ihren Termin ändern müssen.",
+              "Japanese": "予約を変更する必要がある場合は、オフィスにお電話ください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "schedule",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈskedʒuːl/",
+        "meaning": "A plan that lists all the work or activities that you have to do and when you must do them.",
+        "synonyms": ["timetable", "agenda", "plan"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "With my busy schedule, I rarely have time to watch television.",
+            "translations": {
+              "Mandarin Chinese": "由于我的日程安排很忙，我很少有时间看电视。",
+              "Hindi": "अपने व्यस्त कार्यक्रम के कारण, मुझे शायद ही कभी टेलीविजन देखने का समय मिलता है।",
+              "Spanish": "Con mi agenda tan ocupada, rara vez tengo tiempo para ver la televisión.",
+              "Standard Arabic": "مع جدولي المزدحم، نادراً ما يكون لدي وقت لمشاهدة التلفزيون.",
+              "French": "Avec mon emploi du temps chargé, j'ai rarement le temps de regarder la télévision.",
+              "Bengali": "আমার ব্যস্ত সময়সূচীর কারণে, আমি টেলিভিশন দেখার সময় খুব কমই পাই।",
+              "Portuguese": "Com a minha agenda cheia, raramente tenho tempo para assistir à televisão.",
+              "Russian": "С моим плотным графиком у меня редко находится время на просмотр телевизора.",
+              "Urdu": "اپنے مصروف شیڈول کی وجہ سے، مجھے شاید ہی کبھی ٹیلی ویژن دیکھنے کا وقت ملتا ہے۔",
+              "Indonesian": "Dengan jadwal saya yang padat, saya jarang punya waktu untuk menonton televisi.",
+              "Standard German": "Bei meinem vollen Zeitplan habe ich selten Zeit, fernzusehen.",
+              "Japanese": "スケジュールが忙しくて、テレビを見る時間がほとんどありません。"
+            }
+          },
+          {
+            "english": "We need to schedule a meeting to discuss the new project.",
+            "translations": {
+              "Mandarin Chinese": "我们需要安排一次会议来讨论新项目。",
+              "Hindi": "हमें नई परियोजना पर चर्चा करने के लिए एक बैठक निर्धारित करने की आवश्यकता है।",
+              "Spanish": "Necesitamos programar una reunión para discutir el nuevo proyecto.",
+              "Standard Arabic": "نحن بحاجة إلى جدولة اجتماع لمناقشة المشروع الجديد.",
+              "French": "Nous devons planifier une réunion pour discuter du nouveau projet.",
+              "Bengali": "নতুন প্রকল্প নিয়ে আলোচনা করার জন্য আমাদের একটি মিটিং নির্ধারণ করা দরকার।",
+              "Portuguese": "Precisamos agendar uma reunião para discutir o novo projeto.",
+              "Russian": "Нам нужно запланировать встречу для обсуждения нового проекта.",
+              "Urdu": "ہمیں نئے پروجیکٹ پر تبادلہ خیال کرنے کے لیے ایک میٹنگ شیڈول کرنے کی ضرورت ہے۔",
+              "Indonesian": "Kita perlu menjadwalkan pertemuan untuk membahas proyek baru.",
+              "Standard German": "Wir müssen ein Treffen vereinbaren, um das neue Projekt zu besprechen.",
+              "Japanese": "新しいプロジェクトについて話し合うための会議を設定する必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "routine",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ruːˈtiːn/",
+        "meaning": "The usual, fixed series of actions or events that you do regularly.",
+        "synonyms": ["habit", "practice", "custom"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Reading a book before bed is part of my daily routine.",
+            "translations": {
+              "Mandarin Chinese": "睡前读书是我日常生活的一部分。",
+              "Hindi": "सोने से पहले किताब पढ़ना मेरी दिनचर्या का हिस्सा है।",
+              "Spanish": "Leer un libro antes de dormir es parte de mi rutina diaria.",
+              "Standard Arabic": "قراءة كتاب قبل النوم هي جزء من روتيني اليومي.",
+              "French": "Lire un livre avant de se coucher fait partie de ma routine quotidienne.",
+              "Bengali": "ঘুমানোর আগে বই পড়া আমার দৈনন্দিন রুটিনের অংশ।",
+              "Portuguese": "Ler un livro antes de dormir faz parte da minha rotina diária.",
+              "Russian": "Чтение книги перед сном — часть моего ежедневного распорядка.",
+              "Urdu": "سونے سے پہلے کتاب پڑھنا میری روزمرہ کی روٹین کا حصہ ہے۔",
+              "Indonesian": "Membaca buku sebelum tidur adalah bagian dari rutinitas harian saya.",
+              "Standard German": "Vor dem Schlafengehen ein Buch zu lesen, gehört zu meiner täglichen Routine.",
+              "Japanese": "寝る前に本を読むことは、私の毎日のルーティンの一部です。"
+            }
+          },
+          {
+            "english": "Exercise will break your boring weekly routine and give you energy.",
+            "translations": {
+              "Mandarin Chinese": "运动会打破你无聊的每周例行公事，并带给你活力。",
+              "Hindi": "व्यायाम आपकी उबाऊ साप्ताहिक दिनचर्या को तोड़ देगा और आपको ऊर्जा देगा।",
+              "Spanish": "El ejercicio romperá tu aburrida rutina semanal y te dará energía.",
+              "Standard Arabic": "ممارسة الرياضة ستكسر روتينك الأسبوعي الممل وتمنحك الطاقة.",
+              "French": "L'exercice brisera votre routine hebdomadaire ennuyeuse et vous donnera de l'énergie.",
+              "Bengali": "ব্যায়াম আপনার বিরক্তিকর সাপ্তাহিক রুটিন ভেঙে দেবে এবং আপনাকে শক্তি জোগাবে।",
+              "Portuguese": "O exercício vai quebrar sua rotina semanal chata e te dar energia.",
+              "Russian": "Физические упражнения разрушат вашу скучную недельную рутину и добавят энергии.",
+              "Urdu": "ورزش آپ کی بورنگ ہفتہ وار روٹین کو بدل دے گی اور آپ کو توانائی دے گی۔",
+              "Indonesian": "Olahraga akan memecah rutinitas mingguan Anda yang membosankan dan memberi Anda energi.",
+              "Standard German": "Sport bricht Ihre langweilige wöchentliche Routine und gibt Ihnen Energie.",
+              "Japanese": "運動は退屈な週のルーティンを打破し、エネルギーを与えてくれます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "activity",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ækˈtɪvəti/",
+        "meaning": "Something that you do for interest, pleasure, or as part of a group.",
+        "synonyms": ["action", "pursuit", "pastime"],
+        "antonyms": ["inactivity"],
+        "examples": [
+          {
+            "english": "The school offers many outdoor activities like football and hiking.",
+            "translations": {
+              "Mandarin Chinese": "学校提供许多户外活动，如足球和远足。",
+              "Hindi": "स्कूल फुटबॉल और लंबी पैदल यात्रा जैसी कई बाहरी गतिविधियाँ प्रदान करता है।",
+              "Spanish": "La escuela ofrece muchas actividades al aire libre como fútbol y senderismo.",
+              "Standard Arabic": "تقدم المدرسة العديد من الأنشطة الخارجية مثل كرة القدم والمشي لمسافات طويلة.",
+              "French": "L'école propose de nombreuses activités de plein air comme le football et la randonnée.",
+              "Bengali": "স্কুলটি ফুটবল এবং হাইকিংয়ের মতো অনেক আউটডোর কার্যক্রম অফার করে।",
+              "Portuguese": "A escola oferece muitas atividades ao ar livre, como futebol e caminhada.",
+              "Russian": "Школа предлагает множество мероприятий на свежем воздухе, таких как футбол и пешие прогулки.",
+              "Urdu": "اسکول فٹ بال اور ہائیکنگ جیسی بہت سی آؤٹ ڈور سرگرمیاں پیش کرتا ہے۔",
+              "Indonesian": "Sekolah menawarkan banyak aktivitas luar ruangan seperti sepak bola dan mendaki gunung.",
+              "Standard German": "Die Schule bietet viele Outdoor-Aktivitäten wie Fußball und Wandern an.",
+              "Japanese": "学校はサッカーやハイキングなど、多くの屋外アクティビティを提供しています。"
+            }
+          },
+          {
+            "english": "Cooking can be a fun activity to enjoy with your family.",
+            "translations": {
+              "Mandarin Chinese": "做饭可以是一项与家人共同享受的有趣活动。",
+              "Hindi": "खाना बनाना आपके परिवार के साथ आनंद लेने के लिए एक मजेदार गतिविधि हो सकती है।",
+              "Spanish": "Cocinar puede ser una actividad divertida para disfrutar con la familia.",
+              "Standard Arabic": "يمكن أن يكون الطهي نشاطاً ممتعاً للاستمتاع به مع عائلتك.",
+              "French": "Cuisiner peut être une activité amusante à partager en famille.",
+              "Bengali": "রান্না করা আপনার পরিবারের সাথে উপভোগ করার মতো একটি মজার কাজ হতে পারে।",
+              "Portuguese": "Cozinhar pode ser uma atividade divertida para aproveitar com a família.",
+              "Russian": "Готовка может стать отличным занятием, которым можно наслаждаться всей семьей.",
+              "Urdu": "کھانا پکانا آپ کے خاندان کے ساتھ لطف اندوز ہونے کے لیے ایک تفریحی سرگرمی ہو سکتی ہے۔",
+              "Indonesian": "Memasak bisa menjadi aktivitas menyenangkan untuk dinikmati bersama keluarga.",
+              "Standard German": "Kochen kann eine lustige Aktivität sein, die man mit der Familie genießt.",
+              "Japanese": "料理は家族と一緒に楽しめる楽しいアクティビティになります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "exercise",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈeksərsaɪz/",
+        "meaning": "Physical activity that you do to make your body strong and healthy.",
+        "synonyms": ["workout", "training", "movement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Walking the dog every evening is a good form of exercise.",
+            "translations": {
+              "Mandarin Chinese": "每天傍晚遛狗是一种很好的运动形式。",
+              "Hindi": "हर शाम कुत्ते को टहलाना व्यायाम का एक अच्छा तरीका है।",
+              "Spanish": "Pasear al perro todas las tardes es una buena forma de ejercicio.",
+              "Standard Arabic": "تنزيّه الكلب كل مساء هو شكل جيد من أشكال ممارسة الرياضة.",
+              "French": "Promener le chien tous les soirs est une bonne forme d'exercice.",
+              "Bengali": "প্রতিদিন সন্ধ্যায় কুকুরকে হাঁটানো ব্যায়ামের একটি ভালো মাধ্যম।",
+              "Portuguese": "Passear com o cachorro toda noite é uma boa forma de exercício.",
+              "Russian": "Выгул собаки каждый вечер — это хорошая форма физической нагрузки.",
+              "Urdu": "ہر شام کتے کو ٹہلانا ورزش کی ایک اچھی شکل ہے۔",
+              "Indonesian": "Mengajak anjing berjalan-jalan setiap sore adalah bentuk olahraga yang baik.",
+              "Standard German": "Jeden Abend mit dem Hund spazieren zu gehen ist eine gute Form der Bewegung.",
+              "Japanese": "毎晩犬の散歩をすることは、良い運動になります。"
+            }
+          },
+          {
+            "english": "You should exercise at least three times a week.",
+            "translations": {
+              "Mandarin Chinese": "你每周应该至少运动三次。",
+              "Hindi": "आपको सप्ताह में कम से कम तीन बार व्यायाम करना चाहिए।",
+              "Spanish": "Deberías hacer ejercicio al menos tres veces a la semana.",
+              "Standard Arabic": "يجب عليك ممارسة الرياضة ثلاث مرات في الأسبوع على الأقل.",
+              "French": "Tu devrais faire de l'exercice au moins trois fois par semaine.",
+              "Bengali": "আপনার সপ্তাহে অন্তত তিনবার ব্যায়াম করা উচিত।",
+              "Portuguese": "Você deve se exercitar pelo menos três vezes por semana.",
+              "Russian": "Вам следует делать физические упражнения не менее трех раз в неделю.",
+              "Urdu": "آپ کو ہفتے میں کم از کم تین بار ورزش کرنی چاہیے۔",
+              "Indonesian": "Anda harus berolahraga setidaknya tiga kali seminggu.",
+              "Standard German": "Sie sollten mindestens dreimal pro Woche Sport treiben.",
+              "Japanese": "少なくとも週に3回は運動するべきです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "relax",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "verb",
+        "pronunciation": "/rɪˈlæks/",
+        "meaning": "To rest or do something enjoyable after work or effort.",
+        "synonyms": ["unwind", "rest", "chill"],
+        "antonyms": ["stress", "work"],
+        "examples": [
+          {
+            "english": "I like to listen to jazz music to relax after a hard day at work.",
+            "translations": {
+              "Mandarin Chinese": "在辛苦工作一天后，我喜欢听爵士乐来放松一下。",
+              "Hindi": "काम पर एक कठिन दिन के बाद आराम करने के लिए मुझे जैज़ संगीत सुनना पसंद है।",
+              "Spanish": "Me gusta escuchar música de jazz para relajarme después de un día duro de trabajo.",
+              "Standard Arabic": "أحب الاستماع إلى موسيقى الجاز للاسترخاء بعد يوم عمل شاق.",
+              "French": "J'aime écouter de la musique jazz pour me détendre après une dure journée de travail.",
+              "Bengali": "কাজের একটি কঠিন দিন পরে ক্লান্তি দূর করতে আমি জ্যাজ সঙ্গীত শুনতে পছন্দ করি।",
+              "Portuguese": "Gosto de ouvir jazz para relaxar após um dia duro de trabalho.",
+              "Russian": "Мне нравится слушать джаз, чтобы расслабиться после тяжелого рабочего дня.",
+              "Urdu": "میں کام کے ایک مشکل دن کے بعد آرام کرنے کے لیے جاز میوزک سننا پسند کرتا ہوں۔",
+              "Indonesian": "Saya suka mendengarkan musik jazz untuk bersantai setelah seharian bekerja keras.",
+              "Standard German": "Ich höre gerne Jazzmusik, um mich nach einem anstrengenden Arbeitstag zu entspannen.",
+              "Japanese": "仕事で大変な一日の後、リラックスするためにジャズを聴くのが好きです。"
+            }
+          },
+          {
+            "english": "Just sit down, relax, and enjoy the beautiful view.",
+            "translations": {
+              "Mandarin Chinese": "只需坐下来，放松，享受美丽的风景。",
+              "Hindi": "बस बैठ जाएं, आराम करें और सुंदर दृश्य का आनंद लें।",
+              "Spanish": "Solo siéntate, relájate y disfruta de la hermosa vista.",
+              "Standard Arabic": "فقط اجلس، واسترخِ، واستمتع بالمنظر الجميل.",
+              "French": "Asseyez-vous, détendez-vous et profitez de la vue magnifique.",
+              "Bengali": "শুধু বসুন, আরাম করুন এবং সুন্দর দৃশ্যটি উপভোগ করুন।",
+              "Portuguese": "Apenas sente-se, relaxe e aproveite a vista linda.",
+              "Russian": "Просто сядьте, расслабьтесь и наслаждайтесь прекрасным видом.",
+              "Urdu": "بس بیٹھ جائیں، آرام کریں اور خوبصورت منظر سے لطف اندوز ہوں۔",
+              "Indonesian": "Duduk saja, bersantai, dan nikmati pemandangan yang indah.",
+              "Standard German": "Setzen Sie sich einfach hin, entspannen Sie sich und genießen Sie die schöne Aussicht.",
+              "Japanese": "ただ座って、リラックスして、美しい景色を楽しんでください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "hobby",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhɑːbi/",
+        "meaning": "An activity that you enjoy doing in your free time.",
+        "synonyms": ["pastime", "interest", "leisure activity"],
+        "antonyms": ["vocation", "profession"],
+        "examples": [
+          {
+            "english": "My main hobby is photography, and I take my camera everywhere.",
+            "translations": {
+              "Mandarin Chinese": "我的主要爱好是摄影，我走到哪儿都带着相机。",
+              "Hindi": "मेरा मुख्य शौक फोटोग्राफी है, और मैं अपने कैमरे को हर जगह ले जाता हूँ।",
+              "Spanish": "Mi pasatiempo principal es la fotografía, y llevo mi cámara a todas partes.",
+              "Standard Arabic": "هوايتي الرئيسية هي التصوير الفوتوغرافي، وآخذ كاميرتي في كل مكان.",
+              "French": "Mon principal passe-temps est la photographie, et j'emmène mon appareil partout.",
+              "Bengali": "আমার প্রধান শখ ফটোগ্রাফি, এবং আমি আমার ক্যামেরা সব জায়গায় নিয়ে যাই।",
+              "Portuguese": "Meu hobby principal é fotografia, e levo minha câmera para todo lugar.",
+              "Russian": "Мое главное хобби — фотография, и я везде беру с собой камеру.",
+              "Urdu": "میرا بنیادی مشغلہ فوٹوگرافی ہے، اور میں اپنا کیمرہ ہر جگہ اپنے ساتھ لے جاتا ہوں۔",
+              "Indonesian": "Hobi utama saya adalah fotografi, dan saya membawa kamera saya ke mana saja.",
+              "Standard German": "Mein Haupthobby ist das Fotografieren, und ich nehme meine Kamera überallhin mit.",
+              "Japanese": "私の主な趣味は写真撮影で、どこにでもカメラを持っていきます。"
+            }
+          },
+          {
+            "english": "He needs a hobby to keep himself busy during retirement.",
+            "translations": {
+              "Mandarin Chinese": "他需要一个爱好来让自己在退休期间保持忙碌。",
+              "Hindi": "सेवानिवृत्ति के दौरान खुद को व्यस्त रखने के लिए उन्हें एक शौक की आवश्यकता है।",
+              "Spanish": "Necesita un pasatiempo para mantenerse ocupado durante la jubilación.",
+              "Standard Arabic": "هو بحاجة إلى هواية ليبقى مشغولاً خلال فترة التقاعد.",
+              "French": "Il a besoin d'un passe-temps pour s'occuper pendant sa retraite.",
+              "Bengali": "অবসর গ্রহণের সময় নিজেকে ব্যস্ত রাখার জন্য তার একটি শখ প্রয়োজন।",
+              "Portuguese": "Ele precisa de um hobby para se manter ocupado durante a aposentadoria.",
+              "Russian": "Ему нужно хобби, чтобы занять себя на пенсии.",
+              "Urdu": "ریٹائرمنٹ کے دوران خود کو مصروف رکھنے کے لیے اسے کسی مشغلے کی ضرورت ہے۔",
+              "Indonesian": "Dia butuh hobi untuk menjaga dirinya tetap sibuk selama masa pensiun.",
+              "Standard German": "Er braucht ein Hobby, um sich im Ruhestand zu beschäftigen.",
+              "Japanese": "彼は定年退職後に退屈しないよう、趣味を必要としています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "interest",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈɪntrest/",
+        "meaning": "The feeling of wanting to know or learn about something, or a quality that attracts attention.",
+        "synonyms": ["curiosity", "concern", "passion"],
+        "antonyms": ["boredom", "indifference"],
+        "examples": [
+          {
+            "english": "She showed a strong interest in history from a young age.",
+            "translations": {
+              "Mandarin Chinese": "她从小就对历史表现出强烈的兴趣。",
+              "Hindi": "उन्होंने कम उम्र से ही इतिहास में गहरी रुचि दिखाई।",
+              "Spanish": "Ella mostró un fuerte interés por la historia desde muy joven.",
+              "Standard Arabic": "أبدت اهتماماً قوياً بالتاريخ منذ صغرها.",
+              "French": "Elle a montré un vif intérêt pour l'histoire dès son plus jeune âge.",
+              "Bengali": "সে ছোটবেলা থেকেই ইতিহাসের প্রতি তীব্র আগ্রহ দেখিয়েছিল।",
+              "Portuguese": "Ela demonstrou um forte interesse por história desde jovem.",
+              "Russian": "Она с раннего возраста проявляла большой интерес к истории.",
+              "Urdu": "اس نے چھوٹی عمر ہی سے تاریخ میں گہری دلچسپی دکھائی۔",
+              "Indonesian": "Dia menunjukkan ketertarikan yang kuat pada sejarah sejak usia muda.",
+              "Standard German": "Sie zeigte schon в jungen Jahren ein großes Interesse an Geschichte.",
+              "Japanese": "彼女は若い頃から歴史に強い興味を示していました。"
+            }
+          },
+          {
+            "english": "Does computer programming interest you at all?",
+            "translations": {
+              "Mandarin Chinese": "你对计算机编程有一点兴趣吗？",
+              "Hindi": "क्या कंप्यूटर प्रोग्रामिंग में आपकी बिल्कुल भी रुचि है?",
+              "Spanish": "¿Te interesa en algo la programación informática?",
+              "Standard Arabic": "هل تثير برمجة الكمبيوتر اهتمامك على الإطلاق؟",
+              "French": "La programmation informatique t'intéresse-t-elle un tant soit peu ?",
+              "Bengali": "কম্পিউটার প্রোগ্রামিং কি আপনাকে মোটেও আগ্রহী করে?",
+              "Portuguese": "A programação de computadores te interessa de alguma forma?",
+              "Russian": "Вас вообще интересует программирование?",
+              "Urdu": "کیا کمپیوٹر پروگرامنگ میں آپ کو بالکل بھی دلچسپی ہے؟",
+              "Indonesian": "Apakah pemrograman komputer menarik bagi Anda?",
+              "Standard German": "Interessiert dich Computerprogrammierung überhaupt?",
+              "Japanese": "コンピューターのプログラミングに少しは興味がありますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "movie",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmuːvi/",
+        "meaning": "A series of moving pictures recorded with sound that tells a story, shown in a cinema or on television.",
+        "synonyms": ["film", "motion picture", "flick"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Let's go to the cinema to watch the new action movie.",
+            "translations": {
+              "Mandarin Chinese": "我们去电影院看那部新的动作片吧。",
+              "Hindi": "चलो नई एक्शन फिल्म देखने सिनेमाघर चलते हैं।",
+              "Spanish": "Vamos al cine a ver la nueva película de acción.",
+              "Standard Arabic": "فلنذهب إلى السينما لمشاهدة فيلم الحركة الجديد.",
+              "French": "Allons au cinéma pour voir le nouveau film d'action.",
+              "Bengali": "চলুন নতুন অ্যাকশন মুভিটি দেখতে সিনেমা হলে যাই।",
+              "Portuguese": "Vamos ao cinema assistir ao novo filme de ação.",
+              "Russian": "Давай пойдем в кинотеатр посмотреть новый боевик.",
+              "Urdu": "آئیں نئی ایکشن فلم دیکھنے سینما چلتے ہیں۔",
+              "Indonesian": "Ayo pergi ke bioskop untuk menonton film aksi yang baru.",
+              "Standard German": "Lass uns ins Kino gehen, um den neuen Actionfilm anzusehen.",
+              "Japanese": "新しいアクション映画を観に映画館へ行きましょう。"
+            }
+          },
+          {
+            "english": "What is your favorite movie of all time?",
+            "translations": {
+              "Mandarin Chinese": "你有史以来最喜欢的电影是什么？",
+              "Hindi": "आपकी अब तक की पसंदीदा फिल्म कौन सी है?",
+              "Spanish": "¿Cuál es tu película favorita de todos los tiempos?",
+              "Standard Arabic": "ما هو فيلمك المفضل على مر العصور؟",
+              "French": "Quel est ton film préféré de tous les temps ?",
+              "Bengali": "আপনার সর্বকালের প্রিয় সিনেমা কোনটি?",
+              "Portuguese": "Qual é o seu filme favorito de todos os tempos?",
+              "Russian": "Какой твой самый любимый фильм за все времена?",
+              "Urdu": "آپ کی اب تک کی پسندیدہ فلم کونسی ہے؟",
+              "Indonesian": "Apa film favorit Anda sepanjang masa?",
+              "Standard German": "Was ist dein absoluter Lieblingsfilm?",
+              "Japanese": "あなたの歴代のお気に入りの映画は何ですか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "music",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmjuːzɪk/",
+        "meaning": "Sounds that are sung or played by instruments, arranged in a way that is pleasant to hear.",
+        "synonyms": ["melody", "tune", "sound"],
+        "antonyms": ["noise"],
+        "examples": [
+          {
+            "english": "She studies with her headphones on while listening to classical music.",
+            "translations": {
+              "Mandarin Chinese": "她戴着耳机一边听古典音乐一边学习。",
+              "Hindi": "वह शास्त्रीय संगीत सुनते हुए हेडफ़ोन लगाकर पढ़ाई करती है।",
+              "Spanish": "Ella estudia con los auriculares puestos mientras escucha música clásica.",
+              "Standard Arabic": "هي تدرس وتضع سماعات الرأس بينما تستمع إلى الموسيقى الكلاسيكية.",
+              "French": "Elle étudie avec son casque sur les oreilles en écoutant de la musique classique.",
+              "Bengali": "সে হেডফোন লাগিয়ে শাস্ত্রীয় সঙ্গীত শোনার পাশাপাশি পড়াশোনা করে।",
+              "Portuguese": "Ela estuda com os fones de ouvido ouvindo música clássica.",
+              "Russian": "Она учится в наушниках, слушая классическую музыку.",
+              "Urdu": "وہ کلاسیکی موسیقی سنتے ہوئے ہیڈ فون لگا کر پڑھائی کرتی ہے۔",
+              "Indonesian": "Dia belajar memakai fon kepala sambil mendengarkan musik klasik.",
+              "Standard German": "Sie lernt mit Kopfhörern und hört dabei klassische Musik.",
+              "Japanese": "彼女はクラシック音楽を聴きながら、ヘッドホンをつけて勉強しています。"
+            }
+          },
+          {
+            "english": "Can you turn down the music? It is too loud.",
+            "translations": {
+              "Mandarin Chinese": "你能把音乐开小点声吗？声音太大了。",
+              "Hindi": "क्या आप संगीत की आवाज कम कर सकते हैं? यह बहुत तेज़ है।",
+              "Spanish": "¿Puedes bajar la música? Está demasiado alta.",
+              "Standard Arabic": "هل يمكنك خفض صوت الموسيقى؟ إنه مرتفع جداً.",
+              "French": "Peux-tu baisser la musique ? Elle est trop forte.",
+              "Bengali": "আপনি কি মিউজিকটা একটু কমিয়ে দিতে পারেন? শব্দটা খুব বেশি জোরে হচ্ছে।",
+              "Portuguese": "Você pode abaixar a música? Está muito alta.",
+              "Russian": "Можешь сделать музыку потише? Она слишком громкая.",
+              "Urdu": "کیا آپ میوزک کی آواز کم کر سکتے ہیں؟ یہ بہت تیز ہے۔",
+              "Indonesian": "Bisa tolong kecilkan musiknya? Suaranya terlalu keras.",
+              "Standard German": "Kannst du die Musik leiser machen? Sie ist zu laut.",
+              "Japanese": "音楽の音量を下げてもらえますか？音が大きすぎます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "television",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtelɪvɪʒn/",
+        "meaning": "A device with a screen for receiving television broadcasts, or the programs that are broadcast.",
+        "synonyms": ["TV", "receiver", "telly"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The kids are watching a cartoon on the living room television.",
+            "translations": {
+              "Mandarin Chinese": "孩子们正在客厅的电视上看卡通片。",
+              "Hindi": "बच्चे लिविंग रूम के टेलीविजन पर कार्टून देख रहे हैं।",
+              "Spanish": "Los niños están viendo una caricatura en la televisión de la sala.",
+              "Standard Arabic": "الأطفال يشاهدون الرسوم المتحركة على تلفزيون غرفة المعيشة.",
+              "French": "Les enfants regardent un dessin animé sur la télévision du salon.",
+              "Bengali": "বাচ্চারা বসার ঘরের টেলিভিশনে কার্টুন দেখছে।",
+              "Portuguese": "As crianças estão assistindo a um desenho animado na televisão da sala.",
+              "Russian": "Дети смотрят мультфильм по телевизору в гостиной.",
+              "Urdu": "بچے لونگ روم کے ٹیلی ویژن پر کارٹون دیکھ رہے ہیں۔",
+              "Indonesian": "Anak-anak sedang menonton kartun di televisi ruang tamu.",
+              "Standard German": "Die Kinder sehen sich einen Zeichentrickfilm auf dem Fernseher im Wohnzimmer an.",
+              "Japanese": "子供たちは居間のテレビでアニメを見ています。"
+            }
+          },
+          {
+            "english": "He bought a large smart television during the black Friday sale.",
+            "translations": {
+              "Mandarin Chinese": "他在黑色星期五促销期间买了一台大型智能电视。",
+              "Hindi": "उन्होंने ब्लैक फ्राइडे सेल के दौरान एक बड़ा स्मार्ट टेलीविजन खरीदा।",
+              "Spanish": "Compró una televisión inteligente grande durante las rebajas del Black Friday.",
+              "Standard Arabic": "اشترى تلفزيوناً ذكياً كبيراً خلال تخفيضات الجمعة السوداء.",
+              "French": "Il a acheté un grand téléviseur connecté pendant les soldes du Black Friday.",
+              "Bengali": "তিনি ব্ল্যাক ফ্রাইডে সেলের সময় একটি বড় স্মার্ট টেলিভিশন কিনেছিলেন।",
+              "Portuguese": "Ele comprou uma smart TV grande durante a promoção da Black Friday.",
+              "Russian": "Он купил большой смарт-телевизор во время распродажи в Черную пятницу.",
+              "Urdu": "اس نے بلیک فرائیڈے سیل کے دوران ایک بڑا سمارٹ ٹیلی ویژن خریدا۔",
+              "Indonesian": "Dia membeli televisi pintar yang besar selama obral Black Friday.",
+              "Standard German": "Er hat während des Black-Friday-Ausverkaufs einen großen Smart-TV gekauft.",
+              "Japanese": "彼はブラックフライデーのセールで大型のスマートテレビを買いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "radio",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈreɪdioʊ/",
+        "meaning": "The system of sending sound signals through the air, or the electronic device used to listen to these signals.",
+        "synonyms": ["receiver", "tuner"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I always listen to the morning news on the radio while driving to work.",
+            "translations": {
+              "Mandarin Chinese": "我开车上班时总是在收音机里听早间新闻。",
+              "Hindi": "काम पर जाते समय मैं हमेशा रेडियो पर सुबह के समाचार सुनता हूँ।",
+              "Spanish": "Siempre escucho las noticias de la mañana en la radio mientras conduzco al trabajo.",
+              "Standard Arabic": "أستمع دائماً إلى أخبار الصباح على الراديو أثناء القيادة إلى العمل.",
+              "French": "J'écoute toujours les informations du matin à la radio en allant au travail en voiture.",
+              "Bengali": "গাড়ি চালিয়ে কর্মস্থলে যাওয়ার সময় আমি সব সময় রেডিওতে সকালের খবর শুনি।",
+              "Portuguese": "Sempre escuto as notícias da manhã no rádio enquanto dirijo para o trabalho.",
+              "Russian": "Я всегда слушаю утренние новости по радио, когда еду на работу.",
+              "Urdu": "کام پر جاتے ہوئے میں ہمیشہ ریڈیو پر صبح کی خبریں سنتا ہوں۔",
+              "Indonesian": "Saya selalu mendengarkan berita pagi di radio sambil menyetir ke tempat kerja.",
+              "Standard German": "Ich höre auf dem Weg zur Arbeit im Auto immer die Morgennachrichten im Radio.",
+              "Japanese": "私は仕事へ車で向かう途中、いつもラジオで朝のニュースを聴いています。"
+            }
+          },
+          {
+            "english": "This radio station plays classic hits from the 1980s.",
+            "translations": {
+              "Mandarin Chinese": "这家广播电台播放20世纪80年代的经典老歌。",
+              "Hindi": "यह रेडियो स्टेशन 1980 के दशक के क्लासिक हिट गाने बजाता है।",
+              "Spanish": "Esta estación de radio transmite grandes éxitos clásicos de la década de 1980.",
+              "Standard Arabic": "تبث محطة الراديو هذه الأغاني الكلاسيكية الناجحة من ثمانينيات القرن الماضي.",
+              "French": "Cette station de radio diffuse des succès classiques des années 1980.",
+              "Bengali": "এই রেডিও স্টেশনটি ১৯৮০-এর দশকের ক্লাসিক হিট গানগুলো বাজায়।",
+              "Portuguese": "Esta estação de rádio toca sucessos clássicos dos anos 1980.",
+              "Russian": "Эта радиостанция передает классические хиты 1980-х годов.",
+              "Urdu": "یہ ریڈیو اسٹیشن 1980 کی دہائی کے کلاسک ہٹ گانے چلاتا ہے۔",
+              "Indonesian": "Stasiun radio ini memutar lagu-lagu hits klasik dari tahun 1980-an.",
+              "Standard German": "Dieser Radiosender spielt klassische Hits aus den 1980er Jahren.",
+              "Japanese": "このラジオ局は1980年代のクラシックなヒット曲を流しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "newspaper",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈnuːzpeɪpər/",
+        "meaning": "Large folded sheets of paper printed with news, articles, and advertisements, published daily or weekly.",
+        "synonyms": ["paper", "journal", "gazette"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My father reads the local newspaper every morning with his coffee.",
+            "translations": {
+              "Mandarin Chinese": "我父亲每天早上一边喝咖啡一边看当地的报纸。",
+              "Hindi": "मेरे पिता हर सुबह अपनी कॉफी के साथ स्थानीय समाचार पत्र पढ़ते हैं।",
+              "Spanish": "Mi padre lee el periódico local todas las mañanas con su café.",
+              "Standard Arabic": "يقرأ والدي الصحيفة المحلية كل صباح مع قهوته.",
+              "French": "Mon père lit le journal local tous les matins en prenant son café.",
+              "Bengali": "আমার বাবা প্রতিদিন সকালে কফি খাওয়ার সাথে সাথে স্থানীয় সংবাদপত্র পড়েন।",
+              "Portuguese": "Meu pai lê o jornal local toda manhã com o seu café.",
+              "Russian": "Мой отец каждое утро читает местную газету за чашкой кофе.",
+              "Urdu": "میرے والد ہر صبح اپنی کافی کے ساتھ مقامی اخبار پڑھتے ہیں۔",
+              "Indonesian": "Ayah saya membaca koran lokal setiap pagi bersama kopi-nya.",
+              "Standard German": "Mein Vater liest jeden Morgen beim Kaffee die Lokalzeitung.",
+              "Japanese": "父は毎朝コーヒーを飲みながら地元の新聞を読んでいます。"
+            }
+          },
+          {
+            "english": "There was an interesting article about global warming in the newspaper.",
+            "translations": {
+              "Mandarin Chinese": "报纸上有一篇关于全球变暖的有趣文章。",
+              "Hindi": "समाचार पत्र में ग्लोबल वार्मिंग के बारे में एक दिलचस्प लेख था।",
+              "Spanish": "Había un artículo interesante sobre el calentamiento global en el periódico.",
+              "Standard Arabic": "كان هناك مقال مثير للاهتمام حول الاحتباس الحراري في الصحيفة.",
+              "French": "Il y avait un article intéressant sur le réchauffement climatique dans le journal.",
+              "Bengali": "সংবাদপত্রে গ্লোবাল ওয়ার্মিং নিয়ে একটি আকর্ষণীয় নিবন্ধ ছিল।",
+              "Portuguese": "Havia um artigo interessante sobre o aquecimento global no jornal.",
+              "Russian": "В газете была интересная статья о глобальном потеплении.",
+              "Urdu": "اخبار میں گلوبل وارمنگ کے بارے میں ایک دلچسپ مضمون تھا۔",
+              "Indonesian": "Ada artikel menarik tentang pemanasan global di koran.",
+              "Standard German": "In der Zeitung stand ein interessanter Artikel über die Erderwärmung.",
+              "Japanese": "新聞に地球温暖化に関する興味深い記事が載っていました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "magazine",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmæɡəziːn/",
+        "meaning": "A type of thin book with a paper cover contains stories, essays, and pictures, published regularly.",
+        "synonyms": ["periodical", "journal", "glossy"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She bought a fashion magazine to read on the train journey.",
+            "translations": {
+              "Mandarin Chinese": "她买了一本时尚杂志，准备在火车旅行中阅读。",
+              "Hindi": "उसने ट्रेन यात्रा में पढ़ने के लिए एक फैशन पत्रिका खरीदी।",
+              "Spanish": "Compró una revista de moda para leerla durante el viaje en tren.",
+              "Standard Arabic": "اشترت مجلة أزياء لتقرأها أثناء رحلة القطار.",
+              "French": "Elle a acheté un magazine de mode pour le lire pendant le voyage en train.",
+              "Bengali": "তিনি ট্রেনে ভ্রমণের সময় পড়ার জন্য একটি ফ্যাশন ম্যাগাজিন কিনেছিলেন।",
+              "Portuguese": "Ela comprou uma revista de moda para ler na viagem de trem.",
+              "Russian": "Она купила модный журнал, чтобы почитать в поезде.",
+              "Urdu": "اس نے ٹرین کے سفر میں پڑھنے کے لیے ایک فیشن میگزین خریدا۔",
+              "Indonesian": "Dia membeli majalah mode untuk dibaca dalam perjalanan kereta.",
+              "Standard German": "Sie kaufte eine Modezeitschrift, um sie während der Zugfahrt zu lesen.",
+              "Japanese": "彼女は電車の旅で読むためにファッション雑誌を買いました。"
+            }
+          },
+          {
+            "english": "This weekly magazine covers topics from science to cooking.",
+            "translations": {
+              "Mandarin Chinese": "这本周刊涵盖了从科学到烹饪的内容。",
+              "Hindi": "यह साप्ताहिक पत्रिका विज्ञान से लेकर खाना पकाने तक के विषयों को कवर करती है।",
+              "Spanish": "Esta revista semanal cubre temas que van desde la ciencia hasta la cocina.",
+              "Standard Arabic": "تغطي هذه المجلة الأسبوعية مواضيع تتراوح من العلوم إلى الطهي.",
+              "French": "Ce magazine hebdomadaire traite de sujets allant de la science à la cuisine.",
+              "Bengali": "এই সাপ্তাহিক ম্যাগাজিনটি বিজ্ঞান থেকে রান্না পর্যন্ত বিভিন্ন বিষয় কভার করে।",
+              "Portuguese": "Esta revista semanal aborda tópicos que vão desde a ciência até a culinária.",
+              "Russian": "Этот еженедельный журнал охватывает темы от науки до кулинарии.",
+              "Urdu": "یہ ہفتہ وار میگزین سائنس سے لے کر کھانا پکانے تک کے موضوعات کا احاطہ کرتا ہے۔",
+              "Indonesian": "Majalah mingguan ini mencakup topik mulai dari sains hingga memasak.",
+              "Standard German": "Diese Wochenzeitschrift deckt Themen von der Wissenschaft bis zum Kochen ab.",
+              "Japanese": "この週刊誌は、科学から料理まで幅広いトピックを扱っています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "weekend",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwiːkend/",
+        "meaning": "Saturday and Sunday, the two days when most people do not go to work or school.",
+        "synonyms": ["days off", "rest days"],
+        "antonyms": ["workday", "weekday"],
+        "examples": [
+          {
+            "english": "What are your plans for the upcoming weekend?",
+            "translations": {
+              "Mandarin Chinese": "你对即将到来的周末有什么计划？",
+              "Hindi": "आने वाले सप्ताहांत के लिए आपकी क्या योजनाएँ हैं?",
+              "Spanish": "¿Cuáles son tus planes para el próximo fin de semana?",
+              "Standard Arabic": "ما هي خططك لعطلة نهاية الأسبوع القادمة؟",
+              "French": "Quels sont tes projets pour le week-end prochain ?",
+              "Bengali": "আসন্ন উইকএন্ড বা ছুটির দিনের জন্য আপনার পরিকল্পনা কি?",
+              "Portuguese": "Quais são os seus planos para o próximo fim de semana?",
+              "Russian": "Какие у тебя планы на предстоящие выходные?",
+              "Urdu": "آنے والے ویک اینڈ (ہفتہ وار چھٹی) کے لیے آپ کے کیا منصوبے ہیں؟",
+              "Indonesian": "Apa rencana Anda untuk akhir pekan mendatang?",
+              "Standard German": "Was sind deine Pläne für das kommende Wochenende?",
+              "Japanese": "今度の週末の予定は何ですか？"
+            }
+          },
+          {
+            "english": "We love to spend our weekends hiking in the mountains.",
+            "translations": {
+              "Mandarin Chinese": "我们喜欢在周末去山里徒步旅行。",
+              "Hindi": "हमें अपना सप्ताहांत पहाड़ों में लंबी पैदल यात्रा करते हुए बिताना पसंद है।",
+              "Spanish": "Nos encanta pasar los fines de semana haciendo senderismo en las montañas.",
+              "Standard Arabic": "نحن نحب قضاء عطلات نهاية الأسبوع في المشي لمسافات طويلة في الجبال.",
+              "French": "Nous adorons passer nos week-ends à faire de la randonnée à la montagne.",
+              "Bengali": "আমরা আমাদের উইকএন্ড পাহাড়ে হাইকিং করে কাটাতে ভালোবাসি।",
+              "Portuguese": "Adoramos passar os fins de semana fazendo trilha nas montanhas.",
+              "Russian": "Мы любим проводить выходные в походах по горам.",
+              "Urdu": "ہمیں اپنے ویک اینڈ پہاڑوں میں ہائیکنگ کرتے ہوئے گزارنا پسند ہے۔",
+              "Indonesian": "Kami senang menghabiskan akhir pekan kami dengan mendaki gunung.",
+              "Standard German": "Wir lieben es, unsere Wochenenden mit Wandern in den Bergen zu verbringen.",
+              "Japanese": "私たちは週末、山へハイキングに行って過ごすのが大好きです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "free time",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/friː taɪm/",
+        "meaning": "Time when you do not have to work or study and can do what you want.",
+        "synonyms": ["leisure time", "spare time", "downtime"],
+        "antonyms": ["work hours"],
+        "examples": [
+          {
+            "english": "In my free time, I enjoy painting landscapes and listening to music.",
+            "translations": {
+              "Mandarin Chinese": "在我的空闲时间里，我喜欢画风景画和听音乐。",
+              "Hindi": "अपने खाली समय में, मुझे परिदृश्य (लैंडस्केप) पेंट करना और संगीत सुनना पसंद है।",
+              "Spanish": "En mi tiempo libre, disfruto pintando paisajes y escuchando música.",
+              "Standard Arabic": "في وقت فراغي، أستمتع برسم المناظر الطبيعية والاستماع إلى الموسيقى.",
+              "French": "Pendant mon temps libre, j'aime peindre des paysages et écouter de la musique.",
+              "Bengali": "আমার অবসর সময়ে, আমি ল্যান্ডস্কেপ পেইন্টিং করতে এবং গান শুনতে পছন্দ করি।",
+              "Portuguese": "No meu tempo livre, gosto de pintar paisagens e ouvir música.",
+              "Russian": "В свободное время мне нравится рисовать пейзажи и слушать музыку.",
+              "Urdu": "اپنے فارغ وقت میں، میں لینڈ اسکیپ پینٹ کرنے اور موسیقی سننے سے لطف اندوز ہوتا ہوں۔",
+              "Indonesian": "Di waktu luang, saya senang melukis pemandangan dan mendengarkan musik.",
+              "Standard German": "In meiner Freizeit male ich gerne Landschaften und höre Musik.",
+              "Japanese": "自由な時間には、風景画を描いたり音楽を聴いたりして楽しんでいます。"
+            }
+          },
+          {
+            "english": "She doesn't have much free time because she works two jobs.",
+            "translations": {
+              "Mandarin Chinese": "她没有太多空闲时间，因为她做两份工作。",
+              "Hindi": "उसके पास ज्यादा खाली समय नहीं है क्योंकि वह दो नौकरियां करती है।",
+              "Spanish": "No tiene mucho tiempo libre porque trabaja en dos empleos.",
+              "Standard Arabic": "ليس لديها الكثير من وقت الفراغ لأنها تعمل في وظيفتين.",
+              "French": "Elle n'a pas beaucoup de temps libre car elle cumule deux emplois.",
+              "Bengali": "তার খুব বেশি অবসর সময় নেই কারণ সে দুটি চাকরি করে।",
+              "Portuguese": "Ela não tem muito tempo livre porque trabalha em dois empregos.",
+              "Russian": "У нее мало свободного времени, потому что она работает на двух работах.",
+              "Urdu": "اس کے پاس زیادہ فارغ وقت نہیں ہے کیونکہ وہ دو نوکریاں کرتی ہے۔",
+              "Indonesian": "Dia tidak punya banyak waktu luang karena bekerja di dua tempat.",
+              "Standard German": "Sie hat nicht viel Freizeit, weil sie zwei Jobs hat.",
+              "Japanese": "彼女は仕事を掛け持ちしているので、自由な時間が多くありません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "shopping center",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈʃɑːpɪŋ ˈsentər/",
+        "meaning": "A group of shops built together, sometimes under one roof, with a parking area.",
+        "synonyms": ["mall", "shopping precinct", "arcade"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The new shopping center has a big cinema and twenty different stores.",
+            "translations": {
+              "Mandarin Chinese": "新的购物中心有一家大型电影院和二十家不同的商店。",
+              "Hindi": "नए शॉपिंग सेंटर में एक बड़ा सिनेमाघर और बीस विभिन्न दुकानें हैं।",
+              "Spanish": "El nuevo centro comercial tiene un cine grande y veinte tiendas diferentes.",
+              "Standard Arabic": "يحتوي مركز التسوق الجديد على سينما كبيرة وعشرين متجراً مختلفاً.",
+              "French": "Le nouveau centre commercial comprend un grand cinéma et vingt magasins différents.",
+              "Bengali": "নতুন শপিং সেন্টারটিতে একটি বড় সিনেমা হল এবং বিশটি বিভিন্ন দোকান রয়েছে।",
+              "Portuguese": "O novo centro comercial tem um cinema grande e vinte lojas diferentes.",
+              "Russian": "В новом торговом центре есть большой кинотеатр и двадцать разных магазинов.",
+              "Urdu": "نئے شاپنگ سینٹر میں ایک بڑا سینما اور بیس مختلف دکانیں ہیں۔",
+              "Indonesian": "Pusat perbelanjaan yang baru memiliki bioskop besar dan dua puluh toko yang berbeda.",
+              "Standard German": "Das neue Einkaufszentrum hat ein großes Kino und zwanzig verschiedene Geschäfte.",
+              "Japanese": "新しいショッピングセンターには、大きな映画館と20の異なる店舗があります。"
+            }
+          },
+          {
+            "english": "It is difficult to find a parking space at the shopping center on Saturdays.",
+            "translations": {
+              "Mandarin Chinese": "周六在购物中心很难找到停车位。",
+              "Hindi": "शनिवार को शॉपिंग सेंटर में पार्किंग की जगह ढूंढना मुश्किल होता है।",
+              "Spanish": "Es difícil encontrar un lugar para estacionarse en el centro comercial los sábados.",
+              "Standard Arabic": "من الصعب العثور على مكان لموقف السيارات في مركز التسوق أيام السبت.",
+              "French": "Il est difficile de trouver une place de parking au centre commercial le samedi.",
+              "Bengali": "শনিবার শপিং সেন্টারে পার্কিংয়ের জায়গা খুঁজে পাওয়া কঠিন।",
+              "Portuguese": "É difícil encontrar uma vaga de estacionamento no centro comercial aos sábados.",
+              "Russian": "По субботам в торговом центре трудно найти парковочное место.",
+              "Urdu": "ہفتے کے دن شاپنگ سینٹر میں پارکنگ کی جگہ تلاش کرنا مشکل ہوتا ہے۔",
+              "Indonesian": "Sulit untuk menemukan tempat parkir di pusat perbelanjaan pada hari Sabtu.",
+              "Standard German": "Am Samstag ist es schwierig, einen Parkplatz am Einkaufszentrum zu finden.",
+              "Japanese": "土曜日のショッピングセンターは、駐車場を見つけるのが大変です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "neighbor",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈneɪbər/",
+        "meaning": "A person who lives next to or near you.",
+        "synonyms": ["next-door resident", "fellow citizen"],
+        "antonyms": ["stranger"],
+        "examples": [
+          {
+            "english": "Our next-door neighbor helped us water the plants while we were away.",
+            "translations": {
+              "Mandarin Chinese": "在我们外出期间，我们的隔壁邻居帮我们浇了花。",
+              "Hindi": "जब हम बाहर थे तो हमारे अगले दरवाजे के पड़ोसी ने पौधों को पानी देने में हमारी मदद की।",
+              "Spanish": "Nuestro vecino de al lado nos ayudó a regar las plantas mientras estábamos fuera.",
+              "Standard Arabic": "ساعدنا جارنا المجاور في سقاية النباتات أثناء غيابنا.",
+              "French": "Notre voisin d'en face nous a aidés à arroser les plantes pendant notre absence.",
+              "Bengali": "আমরা যখন বাইরে ছিলাম তখন আমাদের পাশের বাড়ির প্রতিবেশী গাছগুলিতে জল দিতে সাহায্য করেছিলেন।",
+              "Portuguese": "Nosso vizinho ao lado nos ajudou a regar as plantas enquanto estávamos fora.",
+              "Russian": "Наш сосед по дому помог нам поливать растения, пока мы были в отъезде.",
+              "Urdu": "جب ہم باہر گئے ہوئے تھے تو ہمارے پڑوسی نے پودوں کو پانی دینے میں ہماری مدد کی۔",
+              "Indonesian": "Tetangga sebelah rumah kami membantu menyiram tanaman saat kami sedang pergi.",
+              "Standard German": "Unser Nachbar von nebenan hat uns geholfen, die Pflanzen zu gießen, während wir weg waren.",
+              "Japanese": "私たちが留守の間、隣の家の隣人が植物に水をやるのを手伝ってくれました。"
+            }
+          },
+          {
+            "english": "She is a friendly neighbor who always says hello when we pass.",
+            "translations": {
+              "Mandarin Chinese": "她是一个友好的邻居，每当我们路过时她总会打招呼。",
+              "Hindi": "वह एक मिलनसार पड़ोसी है जो हमारे गुजरने पर हमेशा नमस्ते कहती है।",
+              "Spanish": "Es una vecina amable que siempre saluda cuando pasamos.",
+              "Standard Arabic": "إنها جارة ودودة دائماً ما تلقي التحية عندما نمر.",
+              "French": "C'est une voisine amicale qui dit toujours bonjour quand on se croise.",
+              "Bengali": "তিনি একজন বন্ধুত্বপূর্ণ প্রতিবেশী যিনি আমরা যাওয়ার সময় সর্বদা হ্যালো বলেন।",
+              "Portuguese": "Ela é uma vizinha amigável que sempre diz olá quando passamos.",
+              "Russian": "Она дружелюбная соседка, которая всегда здоровается, когда мы проходим мимо.",
+              "Urdu": "وہ ایک ملنسار پڑوسی ہے جو ہمارے پاس سے گزرتے ہوئے ہمیشہ ہیلو کہتی ہے۔",
+              "Indonesian": "Dia adalah tetangga yang ramah yang selalu menyapa ketika kami lewat.",
+              "Standard German": "Sie ist eine freundliche Nachbarin, die uns immer grüßt, wenn wir vorbeigehen.",
+              "Japanese": "彼女は私たちが通りかかるといつも挨拶をしてくれる、親切な隣人です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "community",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/kəˈmjuːnəti/",
+        "meaning": "The people living in one particular area or people who share common interests or identity.",
+        "synonyms": ["neighborhood", "society", "public"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The local community raised money to build a new playground for children.",
+            "translations": {
+              "Mandarin Chinese": "当地社区筹集资金为孩子们建造了一个新的游乐场。",
+              "Hindi": "स्थानीय समुदाय ने बच्चों के लिए एक नया खेल का मैदान बनाने के लिए धन जुटाया।",
+              "Spanish": "La comunidad local recaudó dinero para construir un nuevo parque infantil.",
+              "Standard Arabic": "جمع المجتمع المحلي الأموال لبناء ملعب جديد للأطفال.",
+              "French": "La communauté locale a collecté des fonds pour construire un terrain de jeux pour les enfants.",
+              "Bengali": "স্থানীয় সম্প্রদায় শিশুদের জন্য একটি নতুন খেলার মাঠ তৈরির জন্য অর্থ সংগ্রহ করেছে।",
+              "Portuguese": "A comunidade local arrecadou dinheiro para construir um parquinho para as crianças.",
+              "Russian": "Местное сообщество собрало деньги на строительство новой детской площадки.",
+              "Urdu": "مقامی کمیونٹی نے بچوں کے لیے کھیل کا نیا میدان بنانے کے لیے رقم جمع کی۔",
+              "Indonesian": "Masyarakat setempat mengumpulkan uang untuk membangun tempat bermain baru bagi anak-anak.",
+              "Standard German": "Die örtliche Gemeinde hat Geld gesammelt, um einen neuen Spielplatz für Kinder zu bauen.",
+              "Japanese": "地域社会（コミュニティ）が、子供たちのための新しい遊び場を作るために資金を集めました。"
+            }
+          },
+          {
+            "english": "Living here makes you feel like you are part of a warm community.",
+            "translations": {
+              "Mandarin Chinese": "住在这里让你觉得你是一个温暖社区的一部分。",
+              "Hindi": "यहाँ रहने से आपको ऐसा महसूस होता है जैसे आप एक उत्साही समुदाय का हिस्सा हैं।",
+              "Spanish": "Vivir aquí te hace sentir parte de una comunidad cálida.",
+              "Standard Arabic": "العيش هنا يجعلك تشعر وكأنك جزء من مجتمع دافئ.",
+              "French": "Vivre ici vous donne l'impression de faire partie d'une communauté chaleureuse.",
+              "Bengali": "এখানে বসবাস করলে মনে হয় আপনি একটি আন্তরিক সম্প্রদায়ের অংশ।",
+              "Portuguese": "Morar aqui faz você se sentir parte de uma comunidade calorosa.",
+              "Russian": "Жизнь здесь позволяет почувствовать себя частью теплого сообщества.",
+              "Urdu": "یہاں رہنا آپ کو یہ احساس دلاتا ہے کہ آپ ایک پُرمحبت کمیونٹی کا حصہ ہیں۔",
+              "Indonesian": "Tinggal di sini membuat Anda merasa seperti bagian dari komunitas yang hangat.",
+              "Standard German": "Hier zu leben gibt einem das Gefühl, Teil einer herzlichen Gemeinschaft zu sein.",
+              "Japanese": "ここに住んでいると、温かいコミュニティの一員であるように感じられます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "event",
+        "level": "A2",
+        "category": "Daily Life",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪˈvent/",
+        "meaning": "A planned public or social occasion, or something important that happens.",
+        "synonyms": ["occasion", "happening", "incident"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The annual music festival is the biggest event in our town.",
+            "translations": {
+              "Mandarin Chinese": "一年一度的音乐节是我们小镇上最大的盛事。",
+              "Hindi": "वार्षिक संगीत उत्सव हमारे शहर का सबसे बड़ा आयोजन है।",
+              "Spanish": "El festival anual de música es el evento más grande de nuestro pueblo.",
+              "Standard Arabic": "مهرجان الموسيقى السنوي هو أكبر حدث في بلدتنا.",
+              "French": "Le festival de musique annuel est le plus grand événement de notre ville.",
+              "Bengali": "বার্ষিক সঙ্গীত উত্সব আমাদের শহরের সবচেয়ে বড় অনুষ্ঠান।",
+              "Portuguese": "O festival anual de música é o maior evento da nossa cidade.",
+              "Russian": "Ежегодный музыкальный фестиваль — самое грандиозное событие в нашем городе.",
+              "Urdu": "سالانہ میوزک فیسٹیول ہمارے شہر کا سب سے بڑا ایونٹ ہے۔",
+              "Indonesian": "Festival musik tahunan adalah acara terbesar di kota kami.",
+              "Standard German": "Das jährliche Musikfestival ist das größte Ereignis in unserer Stadt.",
+              "Japanese": "年に一度の音楽祭は、私たちの街で最大のイベントです。"
+            }
+          },
+          {
+            "english": "We need to prepare decorations for the school sports event.",
+            "translations": {
+              "Mandarin Chinese": "我们需要为学校体育活动准备装饰品。",
+              "Hindi": "हमें स्कूल के खेल आयोजन के लिए सजावट तैयार करनी होगी।",
+              "Spanish": "Necesitamos preparar decoraciones para el evento deportivo escolar.",
+              "Standard Arabic": "نحن بحاجة إلى إعداد الزينة للحدث الرياضي المدرسي.",
+              "French": "Nous devons préparer les décorations pour l'événement sportif de l'école.",
+              "Bengali": "আমাদের স্কুলের ক্রীড়া অনুষ্ঠানের জন্য সাজসজ্জা প্রস্তুত করতে হবে।",
+              "Portuguese": "Precisamos preparar decorações para o evento esportivo da escola.",
+              "Russian": "Нам нужно подготовить украшения для школьного спортивного мероприятия.",
+              "Urdu": "ہمیں اسکول کے کھیلوں کے ایवेंट کے لیے سجاوٹ تیار کرنے کی ضرورت ہے۔",
+              "Indonesian": "Kita perlu mempersiapkan dekorasi untuk acara olahraga sekolah.",
+              "Standard German": "Wir müssen Dekorationen für das Schulsportfest vorbereiten.",
+              "Japanese": "学校のスポーツイベント（体育祭）のために装飾を用意する必要があります。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "400-500",
+  "source": "Foundational English Communication",
+  "categories": {
+    "Home & Furniture": [
+      {
+        "word": "house",
+        "level": "A1",
+        "category": "Home",
+        "part_of_speech": "noun",
+        "pronunciation": "/haʊs/",
+        "meaning": "A building for human habitation.",
+        "synonyms": ["residence"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I live in a small house.",
+            "translations": {
+              "Mandarin Chinese": "我住在一个小房子里。",
+              "Spanish": "Vivo en una casa pequeña."
+            }
+          }
+        ]
+      },
+      {
+        "word": "bedroom",
+        "level": "A1",
+        "category": "Home",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbedruːm/",
+        "meaning": "A room for sleeping.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My bed is in the bedroom.",
+            "translations": {
+              "Mandarin Chinese": "我的床在卧室里。",
+              "Spanish": "Mi cama está en el dormitorio."
+            }
+          }
+        ]
+      },
+      {
+        "word": "kitchen",
+        "level": "A1",
+        "category": "Home",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɪtʃɪn/",
+        "meaning": "A room for cooking and preparing food.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I cook in the kitchen.",
+            "translations": {
+              "Mandarin Chinese": "我在厨房做饭。",
+              "Spanish": "Cocino en la cocina."
+            }
+          }
+        ]
+      },
+      {
+        "word": "living room",
+        "level": "A1",
+        "category": "Home",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlɪvɪŋ ruːm/",
+        "meaning": "A room for relaxing or receiving guests.",
+        "synonyms": ["lounge"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We watch television in the living room.",
+            "translations": {
+              "Mandarin Chinese": "我们在客厅看电视。",
+              "Spanish": "Vemos la televisión en la sala de estar."
+            }
+          }
+        ]
+      },
+      {
+        "word": "chair",
+        "level": "A1",
+        "category": "Home",
+        "part_of_speech": "noun",
+        "pronunciation": "/tʃɛər/",
+        "meaning": "A separate seat for one person.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please sit on the chair.",
+            "translations": {
+              "Mandarin Chinese": "请坐在椅子上。",
+              "Spanish": "Por favor, siéntate en la silla."
+            }
+          }
+        ]
+      },
+      {
+        "word": "bed",
+        "level": "A1",
+        "category": "Home",
+        "part_of_speech": "noun",
+        "pronunciation": "/bed/",
+        "meaning": "A piece of furniture for sleeping.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The bed is soft.",
+            "translations": {
+              "Mandarin Chinese": "床很软。",
+              "Spanish": "La cama es suave."
+            }
+          }
+        ]
+      },
+      {
+        "word": "window",
+        "level": "A1",
+        "category": "Home",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwɪndoʊ/",
+        "meaning": "An opening in a wall to let in light or air.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Open the window, please.",
+            "translations": {
+              "Mandarin Chinese": "请打开窗户。",
+              "Spanish": "Por favor, abre la ventana."
+            }
+          }
+        ]
+      },
+      {
+        "word": "key",
+        "level": "A1",
+        "category": "Home",
+        "part_of_speech": "noun",
+        "pronunciation": "/kiː/",
+        "meaning": "A small metal object used to open a lock.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I cannot find my house key.",
+            "translations": {
+              "Mandarin Chinese": "我找不到我的家门钥匙了。",
+              "Spanish": "No puedo encontrar la llave de mi casa."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

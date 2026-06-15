@@ -1,0 +1,449 @@
+{
+  "level": "B2",
+  "approx_words": "800-1200",
+  "source": "Social Sciences & Humanities",
+  "categories": {
+    "Culture": [
+      {
+        "word": "tradition",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/trəˈdɪʃn/",
+        "meaning": "The transmission of customs or beliefs from generation to generation.",
+        "synonyms": ["ritual", "convention"],
+        "antonyms": ["innovation"],
+        "examples": [
+          {
+            "english": "It is a family tradition to have a big dinner on New Year's Eve.",
+            "translations": {
+              "Mandarin Chinese": "除夕吃顿大餐是我们家的传统。",
+              "Hindi": "नए साल की पूर्व संध्या पर बड़ा रात्रिभोज करना एक पारिवारिक परंपरा है।",
+              "Spanish": "Es una tradición familiar tener una gran cena en Nochevieja.",
+              "French": "C'est une tradition familiale de faire un grand dîner le soir du Nouvel An.",
+              "Japanese": "大晦日に盛大な夕食をとるのは家族の伝統です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "custom",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkʌstəm/",
+        "meaning": "A traditional and widely accepted way of behaving or doing something in a specific society.",
+        "synonyms": ["habit", "practice"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "In many cultures, it is the custom to remove your shoes before entering a home.",
+            "translations": {
+              "Mandarin Chinese": "在许多文化中，进屋前脱鞋是一种习俗。",
+              "Hindi": "कई संस्कृतियों में, घर में प्रवेश करने से पहले जूते उतारना एक रिवाज है।",
+              "Spanish": "En muchas culturas, es costumbre quitarse los zapatos antes de entrar en una casa.",
+              "French": "Dans de nombreuses cultures, il est d'usage de retirer ses chaussures avant d'entrer dans une maison.",
+              "Japanese": "多くの文化では、家に入る前に靴を脱ぐのが習慣です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "heritage",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈherɪtɪdʒ/",
+        "meaning": "Property or culture that is inherited or passed down through generations.",
+        "synonyms": ["legacy", "inheritance"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The historic castle is an important part of our national heritage.",
+            "translations": {
+              "Mandarin Chinese": "这座古老的城堡是我们国家遗产的重要组成部分。",
+              "Hindi": "ऐतिहासिक किला हमारी राष्ट्रीय विरासत का एक महत्वपूर्ण हिस्सा है।",
+              "Spanish": "El castillo histórico es una parte importante de nuestro patrimonio nacional.",
+              "French": "Le château historique est une partie importante de notre patrimoine national.",
+              "Japanese": "その歴史的な城は、私たちの国宝（遺産）の重要な一部です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "diversity",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/daɪˈvɜːrsəti/",
+        "meaning": "The state of being composed of different elements or qualities; variety.",
+        "synonyms": ["variety", "range"],
+        "antonyms": ["uniformity"],
+        "examples": [
+          {
+            "english": "Cultural diversity enriches the learning environment in schools.",
+            "translations": {
+              "Mandarin Chinese": "文化多样性丰富了学校的学习环境。",
+              "Hindi": "सांस्कृतिक विविधता स्कूलों में सीखने के माहौल को समृद्ध बनाती है।",
+              "Spanish": "La diversidad cultural enriquece el entorno de aprendizaje en las escuelas.",
+              "French": "La diversité culturelle enrichit l'environnement d'apprentissage dans les écoles.",
+              "Japanese": "文化的多様性は学校の学習環境を豊かにします。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "belief system",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/bɪˈliːf ˌsɪstəm/",
+        "meaning": "A set of principles or tenets that together form the basis of a religion, philosophy, or moral code.",
+        "synonyms": ["ideology", "worldview"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Their belief system emphasizes the importance of community and harmony.",
+            "translations": {
+              "Mandarin Chinese": "他们的信仰体系强调社区与和谐的重要性。",
+              "Hindi": "उनकी विश्वास प्रणाली समुदाय और सद्भाव के महत्व पर जोर देती है।",
+              "Spanish": "Su sistema de creencias enfatiza la importancia de la comunidad y la armonía.",
+              "French": "Leur système de croyances souligne l'importance de la communauté et de l'harmonie.",
+              "Japanese": "彼らの信念体系は、共同体と調和の重要性を強調しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "festival",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfestɪvl/",
+        "meaning": "A day or period of celebration, typically for religious or cultural reasons.",
+        "synonyms": ["celebration", "gala"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Thousands of people travel to attend the annual music festival.",
+            "translations": {
+              "Mandarin Chinese": "成千上万的人前往参加一年一度的音乐节。",
+              "Hindi": "हजारों लोग वार्षिक संगीत समारोह में भाग लेने के लिए यात्रा करते हैं।",
+              "Spanish": "Miles de personas viajan para asistir al festival de música anual.",
+              "French": "Des milliers de personnes voyagent pour assister au festival de musique annuel.",
+              "Japanese": "何千人もの人々が毎年恒例の音楽フェスティバルに参加するために旅行します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "lifestyle",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlaɪfstaɪl/",
+        "meaning": "The way in which a person or group lives.",
+        "synonyms": ["way of life", "existence"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Urban living has significantly changed his lifestyle.",
+            "translations": {
+              "Mandarin Chinese": "城市生活极大地改变了他的生活方式。",
+              "Hindi": "शहरी जीवन ने उनकी जीवन शैली को काफी बदल दिया है।",
+              "Spanish": "La vida urbana ha cambiado significativamente su estilo de vida.",
+              "French": "La vie urbaine a considérablement changé son mode de vie.",
+              "Japanese": "都会の生活は彼のライフスタイルを大きく変えました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "generation",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌdʒenəˈreɪʃn/",
+        "meaning": "All of the people born and living at about the same time.",
+        "synonyms": ["age group", "era"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "There is often a gap in values between each generation.",
+            "translations": {
+              "Mandarin Chinese": "每一代人之间的价值观往往存在代沟。",
+              "Hindi": "हर पीढ़ी के बीच मूल्यों में अक्सर अंतर होता है।",
+              "Spanish": "A menudo existe una brecha en los valores entre cada generación.",
+              "French": "Il existe souvent un fossé dans les valeurs entre chaque génération.",
+              "Japanese": "世代ごとに価値観のギャップがあることがよくあります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "identity",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/aɪˈdentəti/",
+        "meaning": "The fact of being who or what a person or thing is.",
+        "synonyms": ["selfhood", "personality"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Language is a core component of one's cultural identity.",
+            "translations": {
+              "Mandarin Chinese": "语言是一个人文化身份的核心组成部分。",
+              "Hindi": "भाषा किसी की सांस्कृतिक पहचान का एक मुख्य घटक है।",
+              "Spanish": "El lenguaje es un componente central de la identidad cultural de uno.",
+              "French": "La langue est une composante essentielle de l'identité culturelle d'une personne.",
+              "Japanese": "言語は文化的なアイデンティティの中心的な要素です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "social norm",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈsoʊʃl nɔːrm/",
+        "meaning": "Unspoken rules of behavior that are considered acceptable in a group or society.",
+        "synonyms": ["standard", "convention"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He was criticized for failing to follow the social norms of the group.",
+            "translations": {
+              "Mandarin Chinese": "他因为未能遵守团体的社会规范而受到批评。",
+              "Hindi": "समूह के सामाजिक मानदंडों का पालन न करने के लिए उनकी आलोचना की गई थी।",
+              "Spanish": "Fue criticado por no seguir las normas sociales del grupo.",
+              "French": "Il a été critiqué pour ne pas avoir suivi les normes sociales du groupe.",
+              "Japanese": "彼はグループの社会規範に従わなかったために批判されました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "ethnic group",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈeθnɪk ɡruːp/",
+        "meaning": "A community of people who share a common cultural background or descent.",
+        "synonyms": ["minority", "community"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The region is home to several different ethnic groups.",
+            "translations": {
+              "Mandarin Chinese": "该地区是几个不同族群的家园。",
+              "Hindi": "यह क्षेत्र कई अलग-अलग जातीय समूहों का घर है।",
+              "Spanish": "La región alberga a varios grupos étnicos diferentes.",
+              "French": "La région abrite plusieurs groupes ethniques différents.",
+              "Japanese": "この地域にはいくつかの異なる民族グループが住んでいます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "ceremony",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈserəməʊni/",
+        "meaning": "A formal event held on a special occasion.",
+        "synonyms": ["rite", "ritual"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The opening ceremony of the Olympics was spectacular.",
+            "translations": {
+              "Mandarin Chinese": "奥运会的开幕式非常壮观。",
+              "Hindi": "ओलंपिक का उद्घाटन समारोह शानदार था।",
+              "Spanish": "La ceremonia de apertura de los Juegos Olímpicos fue espectacular.",
+              "French": "La cérémonie d'ouverture des Jeux olympiques était spectaculaire.",
+              "Japanese": "オリンピックの開会式は壮大でした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "multicultural",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˌmʌltiˈkʌltʃərəl/",
+        "meaning": "Relating to or constituting several cultural or ethnic groups within a society.",
+        "synonyms": ["diverse", "inclusive"],
+        "antonyms": ["monocultural"],
+        "examples": [
+          {
+            "english": "London is known for being a very multicultural city.",
+            "translations": {
+              "Mandarin Chinese": "伦敦以其多元文化而闻名。",
+              "Hindi": "लंदन एक बहुत ही बहुसांस्कृतिक शहर होने के लिए जाना जाता है।",
+              "Spanish": "Londres es conocida por ser una ciudad muy multicultural.",
+              "French": "Londres est connue pour être une ville très multiculturelle.",
+              "Japanese": "ロンドンは非常に多文化的な都市として知られています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "cultural exchange",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈkʌltʃərəl ɪksˈtʃeɪndʒ/",
+        "meaning": "The sharing of cultural ideas, practices, and values between different groups.",
+        "synonyms": ["cross-cultural interaction"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Student programs are a great way to foster cultural exchange.",
+            "translations": {
+              "Mandarin Chinese": "学生交流项目是促进文化交流的好方法。",
+              "Hindi": "छात्र कार्यक्रम सांस्कृतिक आदान-प्रदान को बढ़ावा देने का एक शानदार तरीका हैं।",
+              "Spanish": "Los programas para estudiantes son una excelente manera de fomentar el intercambio cultural.",
+              "French": "Les programmes étudiants sont un excellent moyen de favoriser les échanges culturels.",
+              "Japanese": "学生プログラムは文化交流を促進する素晴らしい方法です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "religion",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈlɪdʒən/",
+        "meaning": "A system of faith and worship.",
+        "synonyms": ["faith", "creed"],
+        "antonyms": ["atheism"],
+        "examples": [
+          {
+            "english": "People of many different religions live together in this neighborhood.",
+            "translations": {
+              "Mandarin Chinese": "在这个社区里住着许多不同宗教的人。",
+              "Hindi": "इस पड़ोस में कई अलग-अलग धर्मों के लोग एक साथ रहते हैं।",
+              "Spanish": "En este barrio conviven personas de muchas religiones diferentes.",
+              "French": "Des personnes de nombreuses religions différentes vivent ensemble dans ce quartier.",
+              "Japanese": "この地域には多くの異なる宗教の人々が一緒に住んでいます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "language barrier",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈlæŋɡwɪdʒ ˈbæriər/",
+        "meaning": "The difficulty in communication between people who do not speak the same language.",
+        "synonyms": ["communication obstacle"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The language barrier made it difficult to ask for directions.",
+            "translations": {
+              "Mandarin Chinese": "语言障碍使得问路变得困难。",
+              "Hindi": "भाषा की बाधा के कारण रास्ता पूछना मुश्किल हो गया।",
+              "Spanish": "La barrera del idioma dificultó preguntar cómo llegar.",
+              "French": "La barrière de la langue a rendu difficile la demande d'itinéraire.",
+              "Japanese": "言葉の壁があったため、道を尋ねるのが困難でした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "artistic expression",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ɑːrˈtɪstɪk ɪkˈspreʃn/",
+        "meaning": "The use of art to communicate ideas or emotions.",
+        "synonyms": ["creative output"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Painting is a powerful form of artistic expression.",
+            "translations": {
+              "Mandarin Chinese": "绘画是一种强大的艺术表达形式。",
+              "Hindi": "चित्रकला कलात्मक अभिव्यक्ति का एक शक्तिशाली रूप है।",
+              "Spanish": "La pintura es una forma poderosa de expresión artística.",
+              "French": "La peinture est une forme puissante d'expression artistique.",
+              "Japanese": "絵画は芸術的表現の強力な形式です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "society",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun",
+        "pronunciation": "/səˈsaɪəti/",
+        "meaning": "A group of people living together in an organized community.",
+        "synonyms": ["community", "public"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The role of the individual in society has changed over time.",
+            "translations": {
+              "Mandarin Chinese": "个人在社会中的作用随着时间的推移而发生了变化。",
+              "Hindi": "समाज में व्यक्ति की भूमिका समय के साथ बदली है।",
+              "Spanish": "El papel del individuo en la sociedad ha cambiado con el tiempo.",
+              "French": "Le rôle de l'individu dans la société a changé au fil du temps.",
+              "Japanese": "社会における個人の役割は時代とともに変化してきました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "historical background",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/hɪˈstɔːrɪkl ˈbækraʊnd/",
+        "meaning": "The events and conditions that happened in the past that affect the present.",
+        "synonyms": ["history", "context"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "To understand the conflict, you need to look at its historical background.",
+            "translations": {
+              "Mandarin Chinese": "要理解这场冲突，你需要了解其历史背景。",
+              "Hindi": "संघर्ष को समझने के लिए, आपको इसकी ऐतिहासिक पृष्ठभूमि को देखने की आवश्यकता है।",
+              "Spanish": "Para entender el conflicto, necesitas mirar su contexto histórico.",
+              "French": "Pour comprendre le conflit, vous devez regarder son contexte historique.",
+              "Japanese": "その対立を理解するためには、歴史的背景を見る必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "cultural influence",
+        "level": "B2",
+        "category": "Culture",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈkʌltʃərəl ˈɪnfluəns/",
+        "meaning": "The impact that one culture has on another.",
+        "synonyms": ["effect", "impact"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The cultural influence of the West is visible in many countries.",
+            "translations": {
+              "Mandarin Chinese": "西方的文化影响在许多国家都很明显。",
+              "Hindi": "पश्चिम का सांस्कृतिक प्रभाव कई देशों में दिखाई देता है।",
+              "Spanish": "La influencia cultural de Occidente es visible en muchos países.",
+              "French": "L'influence culturelle de l'Occident est visible dans de nombreux pays.",
+              "Japanese": "西洋の文化的影響は多くの国で見られます。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

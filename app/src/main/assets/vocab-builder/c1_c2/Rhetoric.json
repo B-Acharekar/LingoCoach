@@ -1,0 +1,389 @@
+{
+  "level": "C1-C2",
+  "approx_words": "1200-1500",
+  "source": "Classical Rhetoric & Contemporary Persuasion",
+  "categories": {
+    "Rhetoric": [
+      {
+        "word": "persuasion",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun",
+        "pronunciation": "/pərˈsweɪʒn/",
+        "meaning": "The action or fact of persuading someone or of being persuaded to do or believe something.",
+        "synonyms": ["conviction", "influence", "inducement"],
+        "antonyms": ["coercion"],
+        "examples": [
+          {
+            "english": "Mastery of rhetorical devices is essential for effective persuasion in public speaking.",
+            "translations": {
+              "Mandarin Chinese": "精通修辞手法对于公开演讲中的有效说服至关重要。",
+              "Spanish": "El dominio de los dispositivos retóricos es esencial para una persuasión efectiva en la oratoria."
+            }
+          }
+        ]
+      },
+      {
+        "word": "counterargument",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkaʊntərˌɑːrɡjumənt/",
+        "meaning": "An argument or set of reasons put forward to oppose an idea or theory developed in another argument.",
+        "synonyms": ["rebuttal", "opposing view"],
+        "antonyms": ["agreement"],
+        "examples": [
+          {
+            "english": "A strong essay anticipates potential counterarguments and addresses them proactively.",
+            "translations": {
+              "Mandarin Chinese": "一篇优秀的论文会预见到潜在的反论点并主动应对。",
+              "Spanish": "Un ensayo sólido anticipa posibles contraargumentos y los aborda de manera proactiva."
+            }
+          }
+        ]
+      },
+      {
+        "word": "rhetorical question",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/rɪˈtɒrɪkl ˈkwestʃən/",
+        "meaning": "A question asked in order to create a dramatic effect or to make a point rather than to get an answer.",
+        "synonyms": ["leading question"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The speaker used a rhetorical question to highlight the absurdity of the current policy.",
+            "translations": {
+              "Mandarin Chinese": "演讲者用一个修辞性问题突显了当前政策的荒谬。",
+              "Spanish": "El orador utilizó una pregunta retórica para resaltar lo absurdo de la política actual."
+            }
+          }
+        ]
+      },
+      {
+        "word": "credibility",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkredəˈbɪləti/",
+        "meaning": "The quality of being trusted and believed in.",
+        "synonyms": ["authority", "reliability", "trustworthiness"],
+        "antonyms": ["skepticism"],
+        "examples": [
+          {
+            "english": "Establishing credibility, or ethos, is the first step in winning over an audience.",
+            "translations": {
+              "Mandarin Chinese": "建立可信度（即“气质”）是赢得受众的第一步。",
+              "Spanish": "Establecer credibilidad, o ethos, es el primer paso para ganarse a una audiencia."
+            }
+          }
+        ]
+      },
+      {
+        "word": "logical appeal",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈlɒdʒɪkl əˈpiːl/",
+        "meaning": "A mode of persuasion that relies on reasoning, data, and facts; known as logos.",
+        "synonyms": ["logos", "rational appeal"],
+        "antonyms": ["emotional appeal"],
+        "examples": [
+          {
+            "english": "By utilizing statistical evidence, the analyst provided a powerful logical appeal for her proposal.",
+            "translations": {
+              "Mandarin Chinese": "通过利用统计证据，分析师为她的提案提供了强有力的逻辑诉求。",
+              "Spanish": "Al utilizar evidencia estadística, la analista proporcionó un poderoso apelativo lógico para su propuesta."
+            }
+          }
+        ]
+      },
+      {
+        "word": "emotional appeal",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ɪˈmoʊʃənl əˈpiːl/",
+        "meaning": "A mode of persuasion that attempts to persuade the reader by creating an emotional response; known as pathos.",
+        "synonyms": ["pathos", "affective appeal"],
+        "antonyms": ["logical appeal"],
+        "examples": [
+          {
+            "english": "The campaign video relied on emotional appeal to inspire sympathy for the cause.",
+            "translations": {
+              "Mandarin Chinese": "宣传视频依靠情感诉求来激发对该事业的同情。",
+              "Spanish": "El video de la campaña se basó en un apelativo emocional para inspirar simpatía por la causa."
+            }
+          }
+        ]
+      },
+      {
+        "word": "debate strategy",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/dɪˈbeɪt ˈstrætədʒi/",
+        "meaning": "A systematic plan or method employed to win an argument or discussion.",
+        "synonyms": ["argumentation tactics"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "A effective debate strategy includes knowing when to concede minor points to win the larger argument.",
+            "translations": {
+              "Mandarin Chinese": "有效的辩论策略包括知道何时让步小点以赢得更大的论点。",
+              "Spanish": "Una estrategia de debate efectiva incluye saber cuándo conceder puntos menores para ganar el argumento más amplio."
+            }
+          }
+        ]
+      },
+      {
+        "word": "assertion",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈsɜːrʃn/",
+        "meaning": "A confident and forceful statement of fact or belief.",
+        "synonyms": ["declaration", "claim", "pronouncement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "An unverified assertion rarely holds weight in a formal academic debate.",
+            "translations": {
+              "Mandarin Chinese": "在正式的学术辩论中，未经验证的断言很少有说服力。",
+              "Spanish": "Una afirmación no verificada rara vez tiene peso en un debate académico formal."
+            }
+          }
+        ]
+      },
+      {
+        "word": "evidence-based argument",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈevɪdəns beɪst ˈɑːrɡjumənt/",
+        "meaning": "An argument supported by empirical evidence rather than opinions.",
+        "synonyms": ["reasoned argument"],
+        "antonyms": ["speculative argument"],
+        "examples": [
+          {
+            "english": "Policy makers prioritize an evidence-based argument when determining public funding.",
+            "translations": {
+              "Mandarin Chinese": "决策者在决定公共资金时优先考虑基于证据的论点。",
+              "Spanish": "Los responsables de las políticas priorizan un argumento basado en evidencia al determinar los fondos públicos."
+            }
+          }
+        ]
+      },
+      {
+        "word": "public discourse",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈpʌblɪk ˈdɪskɔːrs/",
+        "meaning": "The exchange of ideas and information that inform the public about important issues.",
+        "synonyms": ["civic debate", "communal conversation"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Healthy public discourse is vital for the survival of a diverse society.",
+            "translations": {
+              "Mandarin Chinese": "健康的公共话语对于多元社会的生存至关重要。",
+              "Spanish": "El discurso público saludable es vital para la supervivencia de una sociedad diversa."
+            }
+          }
+        ]
+      },
+      {
+        "word": "convincing",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "adjective",
+        "pronunciation": "/kənˈvɪnsɪŋ/",
+        "meaning": "Capable of causing someone to believe that something is true or real.",
+        "synonyms": ["compelling", "persuasive", "cogent"],
+        "antonyms": ["unpersuasive"],
+        "examples": [
+          {
+            "english": "She presented a convincing case for the necessity of immediate action.",
+            "translations": {
+              "Mandarin Chinese": "她为立即采取行动的必要性提出了令人信服的理由。",
+              "Spanish": "Ella presentó un caso convincente sobre la necesidad de una acción inmediata."
+            }
+          }
+        ]
+      },
+      {
+        "word": "rebuttal",
+        "level": "C2",
+        "category": "Rhetoric",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈbʌtl/",
+        "meaning": "A contradiction of an opposing argument; a refutation.",
+        "synonyms": ["disproof", "counter-statement"],
+        "antonyms": ["concession"],
+        "examples": [
+          {
+            "english": "The lawyer's rebuttal effectively dismantled the opposing counsel's central premise.",
+            "translations": {
+              "Mandarin Chinese": "律师的反驳有效地瓦解了对方律师的核心前提。",
+              "Spanish": "La refutación del abogado desmanteló eficazmente la premisa central del abogado contrario."
+            }
+          }
+        ]
+      },
+      {
+        "word": "oratory",
+        "level": "C2",
+        "category": "Rhetoric",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɔːrətɔːri/",
+        "meaning": "The art or practice of formal speaking in public.",
+        "synonyms": ["public speaking", "elocution", "rhetoric"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Historical figures are often remembered for their masterful oratory and ability to mobilize the masses.",
+            "translations": {
+              "Mandarin Chinese": "历史人物常因其精湛的演说术和动员群众的能力而被人们铭记。",
+              "Spanish": "Las figuras históricas a menudo son recordadas por su maestría en la oratoria y su capacidad para movilizar a las masas."
+            }
+          }
+        ]
+      },
+      {
+        "word": "tone of voice",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/toʊn əv vɔɪs/",
+        "meaning": "The quality of a speaker's voice that conveys emotion or attitude.",
+        "synonyms": ["inflection", "expression"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Adjusting one's tone of voice can significantly alter the reception of a critical message.",
+            "translations": {
+              "Mandarin Chinese": "调整语调可以显著改变人们对批评性信息的接受度。",
+              "Spanish": "Ajustar el tono de voz puede alterar significativamente la recepción de un mensaje crítico."
+            }
+          }
+        ]
+      },
+      {
+        "word": "parallel structure",
+        "level": "C2",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈpærəlel ˈstrʌktʃər/",
+        "meaning": "The repetition of a chosen grammatical form within a sentence for emphasis.",
+        "synonyms": ["parallelism"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The use of parallel structure in the speech gave the message a rhythmic, memorable quality.",
+            "translations": {
+              "Mandarin Chinese": "演讲中平行结构的使用赋予了信息节奏感和令人难忘的品质。",
+              "Spanish": "El uso de una estructura paralela en el discurso le dio al mensaje una cualidad rítmica y memorable."
+            }
+          }
+        ]
+      },
+      {
+        "word": "speech delivery",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/spiːtʃ dɪˈlɪvəri/",
+        "meaning": "The manner in which a speech is presented to an audience, including physical presence, pace, and vocal control.",
+        "synonyms": ["presentation", "performance"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Even the best-written speech can fail if the speech delivery is uninspired.",
+            "translations": {
+              "Mandarin Chinese": "如果演讲交付缺乏灵感，即使是写得最好的演讲也会失败。",
+              "Spanish": "Incluso el discurso mejor escrito puede fallar si la entrega del discurso no es inspirada."
+            }
+          }
+        ]
+      },
+      {
+        "word": "argumentative writing",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌɑːrɡjuˈmentətɪv ˈraɪtɪŋ/",
+        "meaning": "A genre of writing that requires the student to investigate a topic, collect, generate, and evaluate evidence, and establish a position on the topic in a concise manner.",
+        "synonyms": ["persuasive writing"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Argumentative writing is the foundation of university-level research papers.",
+            "translations": {
+              "Mandarin Chinese": "论证性写作是大学级研究论文的基础。",
+              "Spanish": "La escritura argumentativa es la base de los trabajos de investigación a nivel universitario."
+            }
+          }
+        ]
+      },
+      {
+        "word": "reasoned judgment",
+        "level": "C2",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈriːzənd ˈdʒʌdʒmənt/",
+        "meaning": "A conclusion reached through logical reasoning and careful evaluation of facts.",
+        "synonyms": ["informed opinion", "sound decision"],
+        "antonyms": ["impulsive decision"],
+        "examples": [
+          {
+            "english": "Citizens are expected to make a reasoned judgment when evaluating political candidates.",
+            "translations": {
+              "Mandarin Chinese": "公民在评估政治候选人时被期望做出理性的判断。",
+              "Spanish": "Se espera que los ciudadanos emitan un juicio razonado al evaluar a los candidatos políticos."
+            }
+          }
+        ]
+      },
+      {
+        "word": "influential language",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌɪnfluˈenʃl ˈlæŋɡwɪdʒ/",
+        "meaning": "Language that is designed to have a significant effect on the thoughts or behavior of others.",
+        "synonyms": ["persuasive diction"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Political leaders often master the use of influential language to unify their supporters.",
+            "translations": {
+              "Mandarin Chinese": "政治领袖常精通使用有影响力的语言来团结他们的支持者。",
+              "Spanish": "Los líderes políticos a menudo dominan el uso de un lenguaje influyente para unificar a sus seguidores."
+            }
+          }
+        ]
+      },
+      {
+        "word": "communication strategy",
+        "level": "C1",
+        "category": "Rhetoric",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/kəˌmjuːnɪˈkeɪʃn ˈstrætədʒi/",
+        "meaning": "A planned approach to conveying information to a specific audience to achieve a desired outcome.",
+        "synonyms": ["messaging plan", "dissemination approach"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "An effective communication strategy considers the medium, timing, and framing of the message.",
+            "translations": {
+              "Mandarin Chinese": "有效的沟通策略会考虑信息的媒介、时机和框架。",
+              "Spanish": "Una estrategia de comunicación efectiva considera el medio, el momento y el encuadre del mensaje."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

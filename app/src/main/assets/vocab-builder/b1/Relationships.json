@@ -1,0 +1,589 @@
+{
+  "level": "B1",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Relationships": [
+      {
+        "word": "trust",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/trʌst/",
+        "meaning": "The belief that someone is good, honest, and reliable, and will not try to harm or trick you.",
+        "synonyms": ["confidence", "faith", "reliance"],
+        "antonyms": ["distrust", "suspicion"],
+        "examples": [
+          {
+            "english": "It takes years to build deep trust in a working team, but it can be broken in a second.",
+            "translations": {
+              "Mandarin Chinese": "在团队中建立深厚的信任需要很多年，但瞬间就可能被摧毁。",
+              "Hindi": "एक कार्यशील टीम में गहरा विश्वास बनाने में वर्षों लगते हैं, लेकिन यह एक सेकंड में टूट सकता है।",
+              "Spanish": "Lleva años construir una confianza profunda en un equipo de trabajo, pero se puede romper en un segundo.",
+              "Standard Arabic": "يستغرق بناء ثقة عميقة في فريق العمل سنوات، ولكن يمكن تدميرها في ثانية واحدة.",
+              "French": "Il faut des années pour instaurer une confiance profonde au sein d'une équipe, mais elle peut être brisée en une seconde.",
+              "Bengali": "একটি কর্মীবাহিনীর মধ্যে গভীর বিশ্বাস তৈরি করতে বহু বছর সময় লাগে, তবে এটি এক সেকেন্ডের মধ্যে ভেঙে যেতে পারে।",
+              "Portuguese": "Leva anos para construir uma confiança profunda em uma equipe de trabalho, mas ela pode ser quebrada em um segundo.",
+              "Russian": "На создание глубокого доверия в рабочем коллективе уходят годы, но его можно разрушить за одну секунду.",
+              "Urdu": "کسی ورکنگ ٹیم میں گہرا اعتماد پیدا کرنے میں برسوں لگتے ہیں، لیکن یہ ایک سیکنڈ میں ٹوٹ سکتا ہے۔",
+              "Indonesian": "Butuh bertahun-tahun untuk membangun kepercayaan yang mendalam dalam tim kerja, tetapi bisa hancur dalam sedetik.",
+              "Standard German": "Es dauert Jahre, um tiefes Vertrauen in einem Arbeitsteam aufzubauen, aber es kann in einer Sekunde zerstört werden.",
+              "Japanese": "仕事のチーム内で深い信頼関係を築くには何年もかかりますが、一瞬で崩れることもあります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "support",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/səˈpɔːrt/",
+        "meaning": "Help, encouragement, or practical assistance given to someone to help them succeed or get through a difficult time.",
+        "synonyms": ["assistance", "help", "backing"],
+        "antonyms": ["opposition", "hindrance"],
+        "examples": [
+          {
+            "english": "She expressed gratitude for the emotional support her friends gave during the difficult project launch.",
+            "translations": {
+              "Mandarin Chinese": "她对朋友们在艰难的项目启动期间给予的精神支持表示感谢。",
+              "Hindi": "उन्होंने कठिन परियोजना शुरू करने के दौरान अपने दोस्तों द्वारा दिए गए भावनात्मक समर्थन के लिए आभार व्यक्त किया।",
+              "Spanish": "Ella expresó su gratitud por el apoyo emocional que le dieron sus amigos durante el difícil lanzamiento del proyecto.",
+              "Standard Arabic": "أعربت عن امتنانها للدعم العاطفي الذي قدمه أصدقاؤها خلال فترة إطلاق المشروع الصعبة.",
+              "French": "Elle a exprimé sa gratitude pour le soutien émotionnel que ses amis lui ont apporté lors du lancement difficile du projet.",
+              "Bengali": "কঠিন প্রজেক্ট লঞ্চের সময় বন্ধুরা যে মানসিক সমর্থন দিয়েছিল তার জন্য তিনি কৃতজ্ঞতা প্রকাশ করেছিলেন।",
+              "Portuguese": "Ela expressou gratidão pelo apoio emocional que seus amigos deram durante o difícil lançamento do projeto.",
+              "Russian": "Она выразила благодарность за эмоциональную поддержку, которую оказали её друзья во время сложного запуска проекта.",
+              "Urdu": "اس نے مشکل پروجیکٹ کے آغاز کے دوران اپنے دوستوں کی طرف سے دی جانے والی جذباتی مدد پر اظہار تشکر کیا۔",
+              "Indonesian": "Dia mengungkapkan rasa terima kasih atas dukungan emosional yang diberikan teman-temannya selama peluncuran proyek yang sulit.",
+              "Standard German": "Sie drückte ihre Dankbarkeit für die emotionale Unterstützung aus, die ihre Freunde während des schwierigen Projektstarts gaben.",
+              "Japanese": "彼女は、困難なプロジェクトの立ち上げ時に友人たちがくれた精神的な支えに対して感謝の意を表しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "argument",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɑːrɡjumənt/",
+        "meaning": "An angry disagreement or conversation between people who do not agree on a particular topic.",
+        "synonyms": ["disagreement", "quarrel", "dispute"],
+        "antonyms": ["agreement", "harmony"],
+        "examples": [
+          {
+            "english": "An unexpected misunderstanding led to a heated argument between the two close teammates.",
+            "translations": {
+              "Mandarin Chinese": "一个意外的误会引发了两位密友团队成员之间的激烈争吵。",
+              "Hindi": "एक अप्रत्याशित गलतफहमी के कारण टीम के दो करीबी सदस्यों के बीच तीखी बहस हो गई।",
+              "Spanish": "Un malentendido inesperado llevó a una acalorada discusión entre los dos compañeros de equipo cercanos.",
+              "Standard Arabic": "أدى سوء تفاهم غير متوقع إلى جدال حاد بين زميلي الفريق المقربين.",
+              "French": "Un malentendu inattendu a entraîné une vive dispute entre les deux coéquipiers proches.",
+              "Bengali": "একটি অপ্রত্যাশিত ভুল বোঝাবুঝি দুই ঘনিষ্ঠ সহকর্মীর মধ্যে উত্তপ্ত যুক্তিতর্কের সৃষ্টি করেছিল।",
+              "Portuguese": "Un desentendimento inesperado levou a uma discussão acalorada entre os dois companheiros de equipe próximos.",
+              "Russian": "Неожиданное недопонимание привело к горячему спору между двумя близкими товарищами по команде.",
+              "Urdu": "ایک غیر متوقع غلط فہمی کی وجہ से ٹیم کے دو قریبی ارکان کے درمیان گرما گرم بحث ہو گئی۔",
+              "Indonesian": "Kesalahpahaman yang tidak terduga menyebabkan perdebatan sengit antara dua rekan tim yang dekat.",
+              "Standard German": "Ein unerwartetes Missverständnis führte zu einem heftigen Streit zwischen den beiden engen Teamkollegen.",
+              "Japanese": "予期せぬ誤解から、親しいチームメイト二人の間で激しい口論になってしまいました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "relationship",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈleɪʃnʃɪp/",
+        "meaning": "The way in which two or more people, groups, or countries behave toward each other or are connected.",
+        "synonyms": ["connection", "bond", "association"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Open communication is vital to maintaining a healthy relationship with your family members.",
+            "translations": {
+              "Mandarin Chinese": "坦诚的沟通对于与家人保持良好的关系至关重要。",
+              "Hindi": "अपने परिवार के सदस्यों के साथ स्वस्थ संबंध बनाए रखने के लिए खुला संवाद अत्यंत महत्वपूर्ण है।",
+              "Spanish": "La comunicación abierta es vital para mantener una relación saludable con los miembros de tu familia.",
+              "Standard Arabic": "التواصل المفتوح ضروري للحفاظ على علاقة صحية مع أفراد عائلتك.",
+              "French": "Une communication ouverte est essentielle pour maintenir une relation saine avec les membres de votre famille.",
+              "Bengali": "আপনার পরিবারের সদস্যদের সাথে একটি স্বাস্থ্যকর সম্পর্ক বজায় রাখার জন্য উন্মুক্ত যোগাযোগ অত্যন্ত গুরুত্বপূর্ণ।",
+              "Portuguese": "A comunicação aberta é vital para manter um relacionamento saudável com os membros da sua família.",
+              "Russian": "Открытое общение жизненно важно для поддержания здоровых отношений с членами семьи.",
+              "Urdu": "اپنے خاندان کے ارکان کے ساتھ صحت مند تعلقات برقرار رکھنے کے لیے کھلی گفتگو انتہائی ضروری ہے۔",
+              "Indonesian": "Komunikasi yang terbuka sangat penting untuk menjaga hubungan yang sehat dengan anggota keluarga Anda.",
+              "Standard German": "Offene Kommunikation ist entscheidend, um eine gesunde Beziehung zu den Familienmitgliedern aufrechtzuerhalten.",
+              "Japanese": "家族と健全な関係を維持するためには、オープンなコミュニケーションが不可欠です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "friendship",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfrendʃɪp/",
+        "meaning": "A friendly and supportive relationship between people who share common interests, trust, and values.",
+        "synonyms": ["companionship", "fellowship", "amity"],
+        "antonyms": ["enmity", "hostility"],
+        "examples": [
+          {
+            "english": "Their strong friendship started during their first year studying together at the engineering college.",
+            "translations": {
+              "Mandarin Chinese": "他们深厚的友谊始于在工程学院共同学习的第一年。",
+              "Hindi": "उनकी गहरी दोस्ती इंजीनियरिंग कॉलेज में एक साथ पढ़ाई के पहले साल के दौरान शुरू हुई थी।",
+              "Spanish": "Su sólida amistad comenzó durante su primer año de estudios juntos en la universidad de ingeniería.",
+              "Standard Arabic": "بدأت صداقتهما القوية خلال عامهما الأول في الدراسة معاً في كلية الهندسة.",
+              "French": "Leur solide amitié a commencé au cours de leur première année d'études ensemble à l'école d'ingénieurs.",
+              "Bengali": "ইঞ্জিনিয়ারিং কলেজে একসঙ্গে পড়ার প্রথম বছরেই তাদের দৃঢ় বন্ধুত্বের সূচনা হয়।",
+              "Portuguese": "A forte amizade deles começou durante o primeiro ano de estudos juntos na faculdade de engenharia.",
+              "Russian": "Их крепкая дружба началась на первом курсе совместного обучения в инженерном колледже.",
+              "Urdu": "ان کی گہری دوستی انجینئرنگ کالج میں ایک ساتھ پڑھائی کے پہلے سال کے دوران شروع ہوئی۔",
+              "Indonesian": "Persahabatan mereka yang kuat dimulai pada tahun pertama mereka belajar bersama di kampus teknik.",
+              "Standard German": "Ihre enge Freundschaft begann während ihres ersten gemeinsamen Studienjahres an der Ingenieurhochschule.",
+              "Japanese": "彼らの強い友情は、エンジニアリング大学で共に学び始めた1年目に始まりました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "respect",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈspekt/",
+        "meaning": "A feeling of deep admiration for someone elicited by their abilities, qualities, or achievements.",
+        "synonyms": ["admiration", "esteem", "regard"],
+        "antonyms": ["disrespect", "contempt"],
+        "examples": [
+          {
+            "english": "Mutual respect for each other's technical opinions is key to successful software collaboration.",
+            "translations": {
+              "Mandarin Chinese": "相互尊重对方的技术观点是成功软件合作的关键。",
+              "Hindi": "एक-दूसरे के तकनीकी विचारों के प्रति आपसी सम्मान सफल सॉफ्टवेयर सहयोग की कुंजी है。",
+              "Spanish": "El respeto mutuo por las opiniones técnicas de cada uno es clave para una colaboración exitosa en software.",
+              "Standard Arabic": "الاحترام المتبادل للآراء التقنية لبعضنا البعض هو مفتاح التعاون الناجح في مجال البرمجيات.",
+              "French": "Le respect mutuel des opinions techniques de chacun est la clé d'une collaboration logicielle réussie.",
+              "Bengali": "একে অপরের প্রযুক্তিগত মতামতের প্রতি পারস্পরিক শ্রদ্ধা সফল সফ্টওয়্যার সহযোগিতার চাবিকাঠি।",
+              "Portuguese": "O respeito mútuo pelas opiniões técnicas de cada um é fundamental para o sucesso da colaboração em software.",
+              "Russian": "Взаимное уважение к техническому мнению друг друга — ключ к успешному сотрудничеству в сфере программного обеспечения.",
+              "Urdu": "ایک دوسرے کی تکنیکی آراء کا باہمی احترام سافٹ ویئر کے کامیاب تعاون کی کلید ہے۔",
+              "Indonesian": "Saling menghormati pendapat teknis satu sama lain adalah kunci keberhasilan kolaborasi perangkat lunak.",
+              "Standard German": "Gegenseitiger Respekt vor den technischen Meinungen des anderen ist der Schlüssel zu einer erfolgreichen Software-Zusammenarbeit.",
+              "Japanese": "お互いの技術的な意見を尊重し合うことが、ソフトウェア開発のコラボレーションを成功させる鍵です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "romantic",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "adjective",
+        "pronunciation": "/rəʊˈmæntɪk/",
+        "meaning": "Connected with, expressing, or showing love or a close loving relationship between two people.",
+        "synonyms": ["loving", "passionate", "amorous"],
+        "antonyms": ["platonic", "unromantic"],
+        "examples": [
+          {
+            "english": "They decided to celebrate their anniversary by going to a quiet, romantic restaurant downtown.",
+            "translations": {
+              "Mandarin Chinese": "他们决定去市中心一家安静、浪漫的餐厅吃饭来庆祝他们的周年纪念日。",
+              "Hindi": "उन्होंने शहर के एक शांत, रोमांटिक रेस्तरां में जाकर अपनी सालगिरह मनाने का फैसला किया।",
+              "Spanish": "Decidieron celebrar su aniversario yendo a un restaurante tranquilo y romántico en el centro.",
+              "Standard Arabic": "قررا الاحتفال بذكرى زواجهما بالذهاب إلى مطعم هادئ ورومانسي وسط المدينة.",
+              "French": "Ils ont décidé de fêter leur anniversaire en se rendant dans un restaurant calme et romantique en centre-ville.",
+              "Bengali": "তারা শহরের কেন্দ্রস্থলের একটি শান্ত, রোমান্টিক রেস্তোরাঁয় গিয়ে তাদের বার্ষিকী উদযাপনের সিদ্ধান্ত নিয়েছে।",
+              "Portuguese": "Eles decidiram comemorar o aniversário indo a um restaurante calmo e romântico no centro da cidade.",
+              "Russian": "Они решили отпраздновать годовщину, отправившись в тихий романтичный ресторан в центре города.",
+              "Urdu": "انہوں نے شہر کے ایک پرسکون، رومانوی ریستوراں میں جا کر اپنی سالگرہ منانے کا فیصلہ کیا۔",
+              "Indonesian": "Mereka memutuskan untuk merayakan hari jadi mereka dengan pergi ke restoran yang tenang dan romantis di pusat kota.",
+              "Standard German": "Sie beschlossen, ihr Jubiläum in einem ruhigen, romantischen Restaurant in der Innenstadt zu feiern.",
+              "Japanese": "彼らは記念日を祝うために、ダウンタウンにある静かでロマンチックなレストランに行くことにしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "partner",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpɑːrtnər/",
+        "meaning": "A person who takes part in an undertaking with another, or a spouse/companion in a romantic relationship.",
+        "synonyms": ["companion", "associate", "spouse"],
+        "antonyms": ["opponent", "rival"],
+        "examples": [
+          {
+            "english": "He thanked his long-term partner for supporting him through his tough educational career path.",
+            "translations": {
+              "Mandarin Chinese": "他感谢他的长期伴侣在他艰难的长远求学职业生涯中给予的支持。",
+              "Hindi": "उन्होंने अपने कठिन शैक्षिक करियर पथ के दौरान उनका समर्थन करने के लिए अपने दीर्घकालिक साथी को धन्यवाद दिया।",
+              "Spanish": "Agradeció a su pareja de muchos años por apoyarlo a lo largo de su difícil trayectoria profesional y educativa.",
+              "Standard Arabic": "شكر شريكته طويلة الأمد على دعمها له طوال مسيرته التعليمية الصعبة.",
+              "French": "Il a remercié sa partenaire de longue date pour son soutien tout au long de son difficile parcours scolaire.",
+              "Bengali": "তিনি তার কঠিন শিক্ষাগত কর্মজীবনের পথে পাশে থাকার জন্য তার দীর্ঘমেয়াদী সঙ্গীকে ধন্যবাদ জানিয়েছেন।",
+              "Portuguese": "Ele agradeceu à sua parceira de longa data por apoiá-lo ao longo de sua difícil trajetória educacional e profissional.",
+              "Russian": "Он поблагодарил своего давнего партнера за поддержку на его трудном образовательном и карьерном пути.",
+              "Urdu": "اس نے اپنے مشکل تعلیمی کیریئر کے دوران ساتھ دینے پر اپنے دیرینہ ساتھی کا شکریہ ادا کیا۔",
+              "Indonesian": "Ia berterima kasih kepada pasangan jangka panjangnya yang telah mendukungnya melalui jalur karier pendidikan yang sulit.",
+              "Standard German": "Er dankte seinem langjährigen Partner dafür, dass er ihn auf seinem schwierigen Ausbildungsweg unterstützt hat.",
+              "Japanese": "彼は、苦しかった学生生活とキャリアの道を支えてくれた長年のパートナーに感謝しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "communication",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/kəˌmjuːnɪˈkeɪʃn/",
+        "meaning": "The imparting or exchanging of information, ideas, or feelings by speaking, writing, or using another medium.",
+        "synonyms": ["interaction", "correspondence", "dialogue"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Good communication prevents minor code design errors from ruining team productivity.",
+            "translations": {
+              "Mandarin Chinese": "良好的沟通可以防止微小的代码设计错误破坏团队的生产力。",
+              "Hindi": "अच्छा संचार कोड डिज़ाइन की मामूली गलतियों को टीम की उत्पादकता को बर्बाद करने से रोकता है।",
+              "Spanish": "La buena comunicación evita que errores menores de diseño de código arruinen la productividad del equipo.",
+              "Standard Arabic": "يمنع التواصل الجيد الأخطاء البسيطة في تصميم الأكواد من تدمير إنتاجية الفريق.",
+              "French": "Une bonne communication évite que de mineures erreurs de conception de code ne gâchent la productivité de l'équipe.",
+              "Bengali": "উত্তম যোগাযোগ কোড ডিজাইনের ছোটখাটো ত্রুটির কারণে টিমের উৎপাদনশীলতা নষ্ট হওয়া রোধ করে।",
+              "Portuguese": "Uma boa comunicação evita que pequenos erros de design de código arruínem a produtividade da equipe.",
+              "Russian": "Хорошее общение предотвращает мелкие ошибки в проектировании кода, способные снизить продуктивность команды.",
+              "Urdu": "اچھی گفتگو کوڈ ڈیزائن کی معمولی غلطیوں کو ٹیم کی پیداواری صلاحیت کو برباد کرنے سے روکتی ہے۔",
+              "Indonesian": "Komunikasi yang baik mencegah kesalahan desain kode kecil merusak produktivitas tim.",
+              "Standard German": "Gute Kommunikation verhindert, dass kleinere Code-Designfehler die Produktivität des Teams ruinieren.",
+              "Japanese": "良好なコミュニケーションがあれば、些細なコード設計のミスでチームの生産性が台無しになるのを防ぐことができます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "misunderstanding",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌmɪsʌndərˈstændɪŋ/",
+        "meaning": "A failure to understand something correctly, often causing a disagreement or mistake.",
+        "synonyms": ["misconception", "misinterpretation", "mix-up"],
+        "antonyms": ["understanding", "comprehension"],
+        "examples": [
+          {
+            "english": "Clear documentation is necessary to avoid a misunderstanding about how the system handles user entries.",
+            "translations": {
+              "Mandarin Chinese": "清晰的文档非常有必要，这能避免对系统如何处理用户条目产生误解。",
+              "Hindi": "सिस्टम उपयोगकर्ता प्रविष्टियों को कैसे संभालता है, इसके बारे में गलतफहमी से बचने के लिए स्पष्ट दस्तावेज़ीकरण आवश्यक है।",
+              "Spanish": "Es necesaria una documentación clara para evitar un malentendido sobre cómo el sistema maneja las entradas de los usuarios.",
+              "Standard Arabic": "يعد التوثيق الواضح ضرورياً لتجنب سوء الفهم حول كيفية تعامل النظام مع مدخلات المستخدم.",
+              "French": "Une documentation claire est nécessaire pour éviter tout malentendu sur la manière dont le système gère les entrées des utilisateurs.",
+              "Bengali": "সিস্টেম কীভাবে ব্যবহারকারীর এন্ট্রিগুলি পরিচালনা করে সে সম্পর্কে ভুল বোঝাবুঝি এড়াতে স্পষ্ট ডকুমেন্টেশন প্রয়োজনীয়।",
+              "Portuguese": "Uma documentação clara é necessária para evitar um malentendido sobre como o sistema trata as entradas dos usuários.",
+              "Russian": "Четкая документация необходима, чтобы избежать недопонимания относительно того, как система обрабатывает данные пользователей.",
+              "Urdu": "سسٹم صارف کے اندراجات کو کس طرح ہینڈل کرتا ہے اس بارے میں غلط فہمی سے بچنے کے لیے واضح دستاویزات ضروری ہیں۔",
+              "Indonesian": "Dokumentasi yang jelas diperlukan untuk menghindari kesalahpahaman tentang bagaimana sistem menangani entri pengguna.",
+              "Standard German": "Eine klare Dokumentation ist erforderlich, um Missverständnisse darüber zu vermeiden, wie das System Benutzereingaben verarbeitet.",
+              "Japanese": "システムがユーザー入力をどのように処理するかについての誤解を避けるために、明確なドキュメント作成が必要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "loyal",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈlɔɪəl/",
+        "meaning": "Giving or showing firm and constant support or allegiance to a person, institution, or cause.",
+        "synonyms": ["faithful", "devoted", "trustworthy"],
+        "antonyms": ["disloyal", "traitorous"],
+        "examples": [
+          {
+            "english": "A loyal companion stays supportive even when your business encounters heavy financial stress.",
+            "translations": {
+              "Mandarin Chinese": "即使你的业务遇到沉重的财务压力，忠实的伙伴也会依然支持你。",
+              "Hindi": "एक वफादार साथी तब भी सहायक बना रहता है जब आपका व्यवसाय भारी वित्तीय तनाव का सामना करता है।",
+              "Spanish": "Un compañero leal sigue brindando apoyo incluso cuando tu negocio enfrenta una fuerte presión financiera.",
+              "Standard Arabic": "الرفيق المخلص يبقى داعماً لك حتى عندما يواجه عملك ضغوطاً مالية شديدة.",
+              "French": "Un partenaire loyal reste un soutien même lorsque votre entreprise traverse de lourdes difficultés financières.",
+              "Bengali": "আপনার ব্যবসা ভারী আর্থিক চাপের সম্মুখীন হলেও একজন অনুগত সঙ্গী পাশে থাকেন।",
+              "Portuguese": "Um companheiro leal continua apoiando mesmo quando seu negócio enfrenta forte pressão financeira.",
+              "Russian": "Верный соратник сохраняет поддержку, даже когда ваш бизнес сталкивается с серьезными финансовыми трудностями.",
+              "Urdu": "ایک وفادار ساتھی اس وقت بھی معاون رہتا ہے جب آپ کے کاروبار کو شدید مالی دباؤ کا سامنا ہو۔",
+              "Indonesian": "Pendamping yang setia tetap mendukung bahkan ketika bisnis Anda menghadapi tekanan finansial yang berat.",
+              "Standard German": "Ein loyaler Begleiter bleibt auch dann unterstützend, wenn Ihr Unternehmen in schwere finanzielle Belastungen gerät.",
+              "Japanese": "忠実な仲間は、ビジネスが深刻な資金難に直面しているときでも、変わらず支えてくれます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "honest",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈɑːnɪst/",
+        "meaning": "Free of deceit and untruthfulness; sincere, telling the truth and acting with integrity.",
+        "synonyms": ["truthful", "sincere", "upright"],
+        "antonyms": ["dishonest", "deceitful"],
+        "examples": [
+          {
+            "english": "Giving honest feedback about system flaws helps the development team improve software safety.",
+            "translations": {
+              "Mandarin Chinese": "对系统缺陷给予诚实的反馈有助于开发团队提高软件安全性。",
+              "Hindi": "सिस्टम की खामियों के बारे में ईमानदारी से प्रतिक्रिया देने से विकास टीम को सॉफ्टवेयर सुरक्षा में सुधार करने में मदद मिलती cabbage है।",
+              "Spanish": "Dar comentarios honestos sobre las fallas del sistema ayuda al equipo de desarrollo a mejorar la seguridad del software.",
+              "Standard Arabic": "تقديم ملاحظات صادقة حول عيوب النظام يساعد فريق التطوير على تحسين سلامة البرمجيات.",
+              "French": "Donner un avis honnête sur les failles du système aide l'équipe de développement à améliorer la sécurité du logiciel.",
+              "Bengali": "সিস্টেমের ত্রুটিগুলি সম্পর্কে সৎ প্রতিক্রিয়া দেওয়া ডেভেলপমেন্ট টিমকে সফ্টওয়্যার সুরক্ষা উন্নত করতে সহায়তা করে।",
+              "Portuguese": "Dar um feedback honesto sobre as falhas do sistema ajuda a equipe de desenvolvimento a melhorar a segurança do software.",
+              "Russian": "Честные отзывы о недостатках системы помогают команде разработчиков повысить безопасность программного обеспечения.",
+              "Urdu": "سسٹم کی خامیوں کے بارے में ایمانداری سے رائے دینے سے ڈویلپمنٹ ٹیم کو سافٹ ویئر کی حفاظت کو بہتر بنانے میں مدد ملتی ہے۔",
+              "Indonesian": "Memberikan umpan balik yang jujur tentang kelemahan sistem membantu tim pengembang meningkatkan keamanan perangkat lunak.",
+              "Standard German": "Ehrliches Feedback zu Systemfehlern hilft dem Entwicklungsteam, die Softwaresicherheit zu verbessern.",
+              "Japanese": "システムの欠陥について正直なフィードバックを提供することは、開発团队がソフトウェアの安全性を向上させるのに役立ちます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "encouragement",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪnˈkɜːrɪdʒmənt/",
+        "meaning": "The action of giving someone support, confidence, or hope to continue doing something.",
+        "synonyms": ["inspiration", "motivation", "stimulation"],
+        "antonyms": ["discouragement"],
+        "examples": [
+          {
+            "english": "Words of encouragement from his father gave him the energy to finish his engineering thesis.",
+            "translations": {
+              "Mandarin Chinese": "父亲的鼓励话语赋予了他完成工程论文的力量。",
+              "Hindi": "उनके पिता के प्रोत्साहन के शब्दों ने उन्हें अपने इंजीनियरिंग थीसिस को पूरा करने की ऊर्जा दी।",
+              "Spanish": "Las palabras de aliento de su padre le dieron la energía para terminar su tesis de ingeniería.",
+              "Standard Arabic": "أعطته كلمات التشجيع من والده الطاقة لإكمال أطروحته الهندسية.",
+              "French": "Les mots d'encouragement de son père lui ont donné l'énergie nécessaire pour terminer sa thèse d'ingénieur.",
+              "Bengali": "তার বাবার উত্সাহব্যঞ্জক কথাগুলি তাকে তার ইঞ্জিনিয়ারিং থিসিস শেষ করার শক্তি জুগিয়েছিল।",
+              "Portuguese": "As palavras de incentivo de seu pai lhe deram energia para terminar sua tese de engenharia.",
+              "Russian": "Слова поощрения от отца придали ему сил для завершения инженерной диссертации.",
+              "Urdu": "ان کے والد کے حوصلہ افزا الفاظ نے انہیں اپنی انجینئرنگ تھیسس مکمل کرنے کی توانائی دی۔",
+              "Indonesian": "Kata-kata penyemangat dari ayahnya memberinya energi untuk menyelesaikan tesis tekniknya.",
+              "Standard German": "Die Worte der Aufmunterung von seinem Vater gaben ihm die Energie, seine Bachelorarbeit im Ingenieurwesen fertigzustellen.",
+              "Japanese": "父親からの励ましの言葉が、彼にエンジニアリングの論文を完成させる活力を与えました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "emotion",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪˈməʊʃn/",
+        "meaning": "A strong feeling deriving from one's circumstances, mood, or relationships with others.",
+        "synonyms": ["feeling", "sentiment", "passion"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "It is critical to manage your emotion during an argument to avoid saying hurtful words.",
+            "translations": {
+              "Mandarin Chinese": "在争吵中管理好自己的情绪至关重要，以避免说出伤人的话。",
+              "Hindi": "बहस के दौरान अपनी भावनाओं को नियंत्रित करना महत्वपूर्ण है ताकि आहत करने वाले शब्द बोलने से बचा जा सके।",
+              "Spanish": "Es fundamental controlar tus emociones durante una discusión para evitar decir palabras hirientes.",
+              "Standard Arabic": "من الضروري التحكم في مشاعرك أثناء الجدال لتجنب قول كلمات جارحة.",
+              "French": "Il est essentiel de gérer ses émotions lors d'une dispute pour éviter de dire des mots blessants.",
+              "Bengali": "উত্তপ্ত যুক্তিতর্কের সময় আঘাতমূলক কথা বলা এড়াতে নিজের আবেগকে নিয়ন্ত্রণ করা অত্যন্ত গুরুত্বপূর্ণ।",
+              "Portuguese": "É fundamental controlar suas emoções durante uma discussão para evitar dizer palavras dolorosas.",
+              "Russian": "Крайне важно управлять своими эмоциями во время спора, чтобы не сказать обидных слов.",
+              "Urdu": "بحث کے دوران اپنے جذبات پر قابو رکھنا بہت ضروری ہے تاکہ تکلیف دہ باتیں کہنے سے بچا جا سکے۔",
+              "Indonesian": "Sangat penting untuk mengelola emosi Anda selama perdebatan untuk menghindari mengucapkan kata-kata yang menyakitkan.",
+              "Standard German": "Es ist wichtig, seine Emotionen während eines Streits zu kontrollieren, um verletzende Worte zu vermeiden.",
+              "Japanese": "傷つける言葉を口にしないよう、口論の最中は感情をコントロールすることが重要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "connection",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/kəˈnekʃn/",
+        "meaning": "A relationship in which a person, thing, or idea is linked or associated with something else.",
+        "synonyms": ["link", "bond", "tie"],
+        "antonyms": ["detachment", "disconnection"],
+        "examples": [
+          {
+            "english": "They shared a deep musical connection and spent hours discussing high-fidelity audio equipment.",
+            "translations": {
+              "Mandarin Chinese": "他们在音乐上有着深厚的联系，花了好几个小时讨论高保真音响设备。",
+              "Hindi": "उन्होंने एक गहरा संगीतमय संबंध साझा किया और हाई-फिडेलिटी ऑडियो उपकरणों पर चर्चा करने में घंटों बिताए।",
+              "Spanish": "Compartían una profunda conexión musical y pasaban horas discutiendo sobre equipos de audio de alta fidelidad.",
+              "Standard Arabic": "كان بينهما رابط موسيقي عميق وقضيا ساعات في مناقشة معدات الصوت عالية الدقة.",
+              "French": "Ils partageaient une profonde connexion musicale et passaient des heures à discuter d'équipements audio haute fidélité.",
+              "Bengali": "তাদের মধ্যে একটি গভীর সুরের সংযোগ ছিল এবং তারা হাই-ফিডেলিটি অডিও সরঞ্জাম নিয়ে আলোচনা করতে কয়েক ঘণ্টা সময় কাটিয়েছিলেন।",
+              "Portuguese": "Eles compartilhavam uma conexão musical profunda e passavam horas discutindo equipamentos de áudio de alta fidelidade.",
+              "Russian": "Их связывала глубокая музыкальная связь, и они часами обсуждали аудиооборудование класса High-Fidelity.",
+              "Urdu": "ان کے درمیان ایک گہرا میوزیکل تعلق تھا اور انہوں نے ہائی فیڈلٹی آڈیو آلات پر بحث کرنے میں گھنٹوں گزارے۔",
+              "Indonesian": "Mereka berbagi hubungan musik yang mendalam dan menghabiskan berjam-jam mendiskusikan peralatan audio kesetiaan tinggi.",
+              "Standard German": "Sie teilten eine tiefe musikalische Verbindung und verbrachten Stunden damit, über High-Fidelity-Audiogeräte zu diskutieren.",
+              "Japanese": "彼らは音楽を通じて深い結びつきを感じ、ハイファイ（高再現性）オーディオ機器について何時間も語り合いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "marriage",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmærɪdʒ/",
+        "meaning": "The legally or formally recognized union of two people as partners in a personal relationship.",
+        "synonyms": ["matrimony", "wedlock", "union"],
+        "antonyms": ["divorce"],
+        "examples": [
+          {
+            "english": "A successful marriage requires constant effort, compromise, and strong emotional support systems.",
+            "translations": {
+              "Mandarin Chinese": "成功的婚姻需要不断的努力、妥协和强大的情感支持系统。",
+              "Hindi": "एक सफल विवाह के लिए निरंतर प्रयास, समझौते और मजबूत भावनात्मक समर्थन प्रणाली की आवश्यकता होती है।",
+              "Spanish": "Un matrimonio exitoso requiere un esfuerzo constante, compromiso y sólidos sistemas de apoyo emocional.",
+              "Standard Arabic": "يتطلب الزواج الناجح جهداً مستمراً وتنازلات وأنظمة دعم عاطفي قوية.",
+              "French": "Un mariage réussi exige des efforts constants, des compromis et de solides systèmes de soutien émotionnel.",
+              "Bengali": "একটি সফল দাম্পত্য জীবনের জন্য ক্রমাগত প্রচেষ্টা, আপস এবং শক্তিশালী মানসিক সমর্থন ব্যবস্থার প্রয়োজন।",
+              "Portuguese": "Um casamento de sucesso requer esforço constante, compromisso e sistemas de apoio emocional fortes.",
+              "Russian": "Успешный брак требует постоянных усилий, компромиссов и надежной системы эмоциональной поддержки.",
+              "Urdu": "ایک کامیاب شادی کے لیے مسلسل کوشش، سمجھوتے اور مضبوط جذباتی تعاون کے نظام کی ضرورت ہوتی ہے۔",
+              "Indonesian": "Pernikahan yang sukses membutuhkan usaha yang konstan, kompromi, dan sistem dukungan emosional yang kuat.",
+              "Standard German": "Eine erfolgreiche Ehe erfordert ständige Bemühungen, Kompromisse und ein starkes emotionales Unterstützungssystem.",
+              "Japanese": "結婚生活を成功させるには、絶え間ない努力、妥協、そして強力な精神的支えの仕組みが必要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "breakup",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbreɪkʌp/",
+        "meaning": "The separation or end of a romantic relationship, marriage, or close partnership.",
+        "synonyms": ["separation", "split", "parting"],
+        "antonyms": ["reconciliation", "union"],
+        "examples": [
+          {
+            "english": "Focusing on building custom software tools helped him recover from a painful emotional breakup.",
+            "translations": {
+              "Mandarin Chinese": "专注于构建定制软件工具帮助他从痛苦的情感分手落差中恢复过来。",
+              "Hindi": "कस्टम सॉफ़्टवेयर टूल बनाने पर ध्यान केंद्रित करने से उन्हें एक दर्दनाक भावनात्मक ब्रेकअप से उबरने में मदद मिली।",
+              "Spanish": "Centrarse en la creación de herramientas de software personalizadas lo ayudó a recuperarse de una dolorosa ruptura emocional.",
+              "Standard Arabic": "ساعده التركيز على بناء أدوات برمجية مخصصة على التعافي من انفصال عاطفي مؤلم.",
+              "French": "Le fait de se concentrer sur la création d'outils logiciels personnalisés l'a aidé à se remettre d'une douloureuse rupture amoureuse.",
+              "Bengali": "কাস্টম সফ্টওয়্যার টুল তৈরির দিকে মনোনিবেশ করা তাকে একটি বেদনাদায়ক মানসিক ব্রেকআপ থেকে পুনরুদ্ধার করতে সহায়তা করেছিল।",
+              "Portuguese": "Concentrar-se na criação de ferramentas de software personalizadas ajudou-o a recuperar-se de um rompimento emocional doloroso.",
+              "Russian": "Фокус на создании пользовательских программных инструментов помог ему оправиться от болезненного эмоционального расставания.",
+              "Urdu": "کسٹم سافٹ ویئر ٹولز بنانے پر توجہ دینے سے انہیں ایک دردناک جذباتی بریک اپ سے نکلنے میں مدد ملی۔",
+              "Indonesian": "Fokus pada pembuatan alat perangkat lunak khusus membantunya pulih dari perpisahan emosional yang menyakitkan.",
+              "Standard German": "Die Konzentration auf die Entwicklung maßgeschneiderter Software-Tools half ihm, sich von einer schmerzhaften emotionalen Trennung zu erholen.",
+              "Japanese": "独自のソフトウェアツールの開発に没頭したことで、彼はつらい失恋の傷から立ち直ることができました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "family member",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfæməli ˈmembər/",
+        "meaning": "A person who belongs to a specific family, related by blood, marriage, or adoption.",
+        "synonyms": ["relative", "relation", "kin"],
+        "antonyms": ["stranger"],
+        "examples": [
+          {
+            "english": "Every family member contributed ideas for planning the joint home purchase setup.",
+            "translations": {
+              "Mandarin Chinese": "每个家庭成员都为共同购买房屋的规划贡献了想法。",
+              "Hindi": "संयुक्त घर खरीद सेटअप की योजना बनाने के लिए परिवार के प्रत्येक सदस्य ने विचारों का योगदान दिया।",
+              "Spanish": "Cada miembro de la familia aportó ideas para planificar la compra conjunta de la vivienda.",
+              "Standard Arabic": "ساهم كل فرد من أفراد الأسرة بأفكار للتخطيط لترتيبات الشراء المشترك للمنزل.",
+              "French": "Chaque membre de la famille a apporté des idées pour planifier le projet d'achat d'un logement commun.",
+              "Bengali": "যৌথ বাড়ি কেনার পরিকল্পনার জন্য পরিবারের প্রতিটি সদস্য তাদের ধারণা দিয়ে অবদান রেখেছিলেন।",
+              "Portuguese": "Cada membro da família contribuiu com ideias para o planejamento da compra conjunta da casa.",
+              "Russian": "Каждый член семьи внес свои идеи в планирование совместной покупки жилья.",
+              "Urdu": "مشترکہ مکان کی خریداری کے سیٹ اپ کی منصوبہ بندی کے لیے خاندان کے ہر رکن نے خیالات کا حصہ ڈالا।",
+              "Indonesian": "Setiap anggota keluarga menyumbangkan ide untuk merencanakan pengaturan pembelian rumah bersama.",
+              "Standard German": "Jedes Familienmitglied steuerte Ideen zur Planung des gemeinsamen Hauskaufs bei.",
+              "Japanese": "家族の全員が、共同での住宅購入計画に向けてアイデアを出し合いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "relative",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈrelətɪv/",
+        "meaning": "A person connected by blood or marriage, often outside the immediate household group.",
+        "synonyms": ["relation", "kinsperson", "family connection"],
+        "antonyms": ["stranger"],
+        "examples": [
+          {
+            "english": "An older relative shared stories about traditional Indian culinary masala blends.",
+            "translations": {
+              "Mandarin Chinese": "一位年长的亲戚分享了关于传统印度烹饪马萨拉调料配方的故事。",
+              "Hindi": "एक बुजुर्ग रिश्तेदार ने पारंपरिक भारतीय पाक मसाला मिश्रणों के बारे में कहानियाँ साझा कीं।",
+              "Spanish": "Un pariente mayor compartió historias sobre las mezclas tradicionales de masala de la cocina india.",
+              "Standard Arabic": "شارك أحد الأقارب أكبر سناً قصصاً عن خلطات الماسالا التقليدية في المطبخ الهندي.",
+              "French": "Un parent plus âgé a partagé des histoires sur les mélanges traditionnels de masala de la cuisine indienne.",
+              "Bengali": "একজন বয়স্ক আত্মীয় ঐতিহ্যবাহী ভারতীয় রন্ধনশৈলীর মশলার মিশ্রণ সম্পর্কে গল্প শুনিয়েছিলেন।",
+              "Portuguese": "Um parente mais velho compartilhou histórias sobre as misturas tradicionais de massala da culinária indiana.",
+              "Russian": "Пожилой родственник поделился историями о традиционных смесях индийских специй масала.",
+              "Urdu": "ایک بزرگ رشتہ دار نے روایتی ہندوستانی پکوان مسالا کے آمیزے کے بارے میں کہانیاں شیئر کیں۔",
+              "Indonesian": "Seorang kerabat yang lebih tua berbagi cerita tentang campuran masala kuliner tradisional India.",
+              "Standard German": "Ein älterer Verwandter erzählte Geschichten über traditionelle indische Masala-Gewürzmischungen.",
+              "Japanese": "年配の親戚が、インドの伝統的な料理用スパイス「マサラ」のブレンドに関する話を聞かせてくれました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "close friend",
+        "level": "B1",
+        "category": "Relationships",
+        "part_of_speech": "noun",
+        "pronunciation": "/kləʊs frend/",
+        "meaning": "A companion with whom one shares a deep bond of mutual trust, frequent interaction, and shared history.",
+        "synonyms": ["best friend", "intimate companion", "confidant"],
+        "antonyms": ["acquaintance", "stranger"],
+        "examples": [
+          {
+            "english": "He invited his close friend to collaborate as the primary tester for the newly built keyboard application.",
+            "translations": {
+              "Mandarin Chinese": "他邀请他的挚友合作，担任新建键盘应用程序的主要测试人员。",
+              "Hindi": "उन्होंने अपने करीबी दोस्त को नए बने कीबोर्ड एप्लिकेशन के प्राथमिक परीक्षक के रूप में सहयोग करने के लिए आमंत्रित किया।",
+              "Spanish": "Invitó a su amigo cercano a colaborar como el probador principal de la aplicación de teclado recién creada.",
+              "Standard Arabic": "دعا صديقه المقرب للتعاون كمختبر رئيسي لتطبيق لوحة المفاتيح الذي تم إنشاؤه حديثاً.",
+              "French": "Il a invité son ami proche à collaborer en tant que testeur principal pour l'application de clavier récemment développée.",
+              "Bengali": "তিনি তার ঘনিষ্ঠ বন্ধুকে নতুন তৈরি করা কীবোর্ড অ্যাপ্লিকেশনের প্রধান পরীক্ষক (টেস্টার) হিসেবে কাজ করার জন্য আমন্ত্রণ জানিয়েছিলেন envied।",
+              "Portuguese": "Ele convidou seu amigo próximo para colaborar como o testador principal do aplicativo de teclado recém-criado.",
+              "Russian": "Он пригласил своего близкого друга сотрудничать в качестве основного тестировщика недавно созданного приложения клавиатуры.",
+              "Urdu": "اس نے اپنے قریبی دوست کو نئے بنائے گئے کی بورڈ ایپلیکیشن کے بنیادی ٹیسٹر کے طور پر تعاون کرنے کی دعوت دی۔",
+              "Indonesian": "Ia mengundang teman dekatnya untuk berkolaborasi sebagai penguji utama untuk aplikasi papan ketik yang baru dibuat.",
+              "Standard German": "Er lud seinen engen Freund ein, als Haupttester für die neu entwickelte Tastaturanwendung mitzuarbeiten.",
+              "Japanese": "彼は親しい友人を、新しく開発したキーボードアプリのメインテスターとして協力してくれるよう招待しました。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

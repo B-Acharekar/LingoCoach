@@ -1,0 +1,69 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Basic Idioms & Expressions": [
+      {
+        "idiom": "how's it going",
+        "meaning": "A friendly way to ask 'how are you?'.",
+        "example": "Hey! How's it going?"
+      },
+      {
+        "idiom": "take care",
+        "meaning": "A way to say goodbye and wish someone well.",
+        "example": "It was great to see you! Take care."
+      },
+      {
+        "idiom": "see you later",
+        "meaning": "A common way to say goodbye.",
+        "example": "I have to leave now, see you later!"
+      },
+      {
+        "idiom": "sounds good",
+        "meaning": "Used to show agreement or approval of a suggestion.",
+        "example": "- 'Let's meet at noon.' - 'Sounds good!'"
+      },
+      {
+        "idiom": "no problem",
+        "meaning": "Used to say that something is okay or that you are happy to help.",
+        "example": "- 'Thank you for the help.' - 'No problem!'"
+      },
+      {
+        "idiom": "i don't mind",
+        "meaning": "Used to say that you have no preference.",
+        "example": "- 'Do you want tea or coffee?' - 'I don't mind.'"
+      },
+      {
+        "idiom": "in a hurry",
+        "meaning": "Moving fast because you have little time.",
+        "example": "I'm in a hurry, I can't talk right now."
+      },
+      {
+        "idiom": "a piece of cake",
+        "meaning": "Something that is very easy to do.",
+        "example": "The test was a piece of cake."
+      },
+      {
+        "idiom": "good luck",
+        "meaning": "Used to wish someone success.",
+        "example": "Good luck with your job interview tomorrow!"
+      },
+      {
+        "idiom": "on time",
+        "meaning": "Not late; at the correct scheduled time.",
+        "example": "The train arrived exactly on time."
+      },
+      {
+        "idiom": "from time to time",
+        "meaning": "Sometimes; occasionally.",
+        "example": "I go to the beach from time to time."
+      },
+      {
+        "idiom": "once in a while",
+        "meaning": "Occasionally; not very often.",
+        "example": "We eat out at a restaurant once in a while."
+      }
+    ]
+  }
+}

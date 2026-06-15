@@ -1,0 +1,389 @@
+{
+  "level": "C1-C2",
+  "approx_words": "1200-1500",
+  "source": "Continental & Analytic Philosophy",
+  "categories": {
+    "Philosophy": [
+      {
+        "word": "existentialism",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌeɡzɪˈstenʃəlɪzəm/",
+        "meaning": "A philosophical theory that emphasizes the existence of the individual person as a free and responsible agent determining their own development through acts of the will.",
+        "synonyms": ["philosophy of existence"],
+        "antonyms": ["essentialism"],
+        "examples": [
+          {
+            "english": "Existentialism posits that individuals must define their own meaning in an inherently indifferent universe.",
+            "translations": {
+              "Mandarin Chinese": "存在主义认为，个人必须在本质上冷漠的宇宙中定义自己的意义。",
+              "Spanish": "El existencialismo postula que los individuos deben definir su propio significado en un universo inherentemente indiferente."
+            }
+          }
+        ]
+      },
+      {
+        "word": "ethics",
+        "level": "C1",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈeθɪks/",
+        "meaning": "The branch of knowledge that deals with moral principles.",
+        "synonyms": ["moral philosophy", "deontology"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Medical ethics requires a delicate balance between patient autonomy and the duty of care.",
+            "translations": {
+              "Mandarin Chinese": "医学伦理需要在患者自主权和护理职责之间取得微妙的平衡。",
+              "Spanish": "La ética médica requiere un equilibrio delicado entre la autonomía del paciente y el deber de cuidado."
+            }
+          }
+        ]
+      },
+      {
+        "word": "morality",
+        "level": "C1",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/məˈræləti/",
+        "meaning": "Principles concerning the distinction between right and wrong or good and bad behavior.",
+        "synonyms": ["ethics", "virtue"],
+        "antonyms": ["immorality"],
+        "examples": [
+          {
+            "english": "The debate over the objectivity of morality continues to divide analytic and continental philosophers.",
+            "translations": {
+              "Mandarin Chinese": "关于道德客观性的争论继续使分析哲学家和大陆哲学家产生分歧。",
+              "Spanish": "El debate sobre la objetividad de la moralidad continúa dividiendo a los filósofos analíticos y continentales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "consciousness",
+        "level": "C1",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɒnʃəsnəs/",
+        "meaning": "The state of being aware of and responsive to one's surroundings; the quality or state of awareness.",
+        "synonyms": ["sentience", "awareness", "subjectivity"],
+        "antonyms": ["unconsciousness"],
+        "examples": [
+          {
+            "english": "The 'hard problem' of consciousness addresses why and how physical processes give rise to subjective experience.",
+            "translations": {
+              "Mandarin Chinese": "意识的“难题”探讨了物理过程为何以及如何产生主观体验。",
+              "Spanish": "El 'problema difícil' de la conciencia aborda por qué y cómo los procesos físicos dan lugar a la experiencia subjetiva."
+            }
+          }
+        ]
+      },
+      {
+        "word": "free will",
+        "level": "C1",
+        "category": "Philosophy",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/friː wɪl/",
+        "meaning": "The power of acting without the constraint of necessity or fate; the ability to act at one's own discretion.",
+        "synonyms": ["volition", "self-determination"],
+        "antonyms": ["determinism"],
+        "examples": [
+          {
+            "english": "Compatibilism attempts to reconcile the existence of free will with a deterministic worldview.",
+            "translations": {
+              "Mandarin Chinese": "相容论试图调和自由意志的存在与决定论的世界观。",
+              "Spanish": "El compatibilismo intenta reconciliar la existencia del libre albedrío con una cosmovisión determinista."
+            }
+          }
+        ]
+      },
+      {
+        "word": "determinism",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈtɜːrmɪnɪzəm/",
+        "meaning": "The philosophical view that all events, including moral choices, are determined completely by previously existing causes.",
+        "synonyms": ["fatalism", "causality"],
+        "antonyms": ["indeterminism", "free will"],
+        "examples": [
+          {
+            "english": "Hard determinism argues that since every event is necessitated by antecedent conditions, free will is an illusion.",
+            "translations": {
+              "Mandarin Chinese": "强决定论认为，由于每一个事件都是由先行条件所决定的，自由意志是一种幻觉。",
+              "Spanish": "El determinismo fuerte argumenta que, dado que cada evento está determinado por condiciones antecedentes, el libre albedrío es una ilusión."
+            }
+          }
+        ]
+      },
+      {
+        "word": "metaphysics",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌmetəˈfɪzɪks/",
+        "meaning": "The branch of philosophy that deals with the first principles of things, including abstract concepts such as being, knowing, substance, cause, identity, time, and space.",
+        "synonyms": ["ontology", "first philosophy"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Metaphysics seeks to answer the fundamental question: 'Why is there something rather than nothing?'",
+            "translations": {
+              "Mandarin Chinese": "形而上学旨在回答这个根本问题：“为什么是有，而不是无？”",
+              "Spanish": "La metafísica busca responder a la pregunta fundamental: '¿Por qué hay algo en lugar de nada?'"
+            }
+          }
+        ]
+      },
+      {
+        "word": "epistemology",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪˌpɪstəˈmɒlədʒi/",
+        "meaning": "The theory of knowledge, especially with regard to its methods, validity, and scope.",
+        "synonyms": ["theory of knowledge"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Contemporary epistemology often grapples with the justification of belief in the face of skepticism.",
+            "translations": {
+              "Mandarin Chinese": "当代认识论经常在怀疑论面前努力争取信念的辩护。",
+              "Spanish": "La epistemología contemporánea a menudo lidia con la justificación de la creencia frente al escepticismo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "logic",
+        "level": "C1",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlɒdʒɪk/",
+        "meaning": "Reasoning conducted or assessed according to strict principles of validity.",
+        "synonyms": ["deduction", "rationality"],
+        "antonyms": ["fallacy"],
+        "examples": [
+          {
+            "english": "Formal logic provides the structural rules for valid argumentation.",
+            "translations": {
+              "Mandarin Chinese": "形式逻辑为有效的论证提供了结构性规则。",
+              "Spanish": "La lógica formal proporciona las reglas estructurales para una argumentación válida."
+            }
+          }
+        ]
+      },
+      {
+        "word": "reasoning",
+        "level": "C1",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈriːzənɪŋ/",
+        "meaning": "The action of thinking about something in a logical, sensible way.",
+        "synonyms": ["inference", "rationalization"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Inductive reasoning involves drawing generalizations from specific observations.",
+            "translations": {
+              "Mandarin Chinese": "归纳推理涉及从具体的观察中得出概括。",
+              "Spanish": "El razonamiento inductivo implica extraer generalizaciones a partir de observaciones específicas."
+            }
+          }
+        ]
+      },
+      {
+        "word": "subjective",
+        "level": "C1",
+        "category": "Philosophy",
+        "part_of_speech": "adjective",
+        "pronunciation": "/səbˈdʒektɪv/",
+        "meaning": "Based on or influenced by personal feelings, tastes, or opinions.",
+        "synonyms": ["personal", "relative", "individual"],
+        "antonyms": ["objective"],
+        "examples": [
+          {
+            "english": "The quality of aesthetic experience is often considered to be fundamentally subjective.",
+            "translations": {
+              "Mandarin Chinese": "审美体验的质量通常被认为本质上是主观的。",
+              "Spanish": "La calidad de la experiencia estética a menudo se considera fundamentalmente subjetiva."
+            }
+          }
+        ]
+      },
+      {
+        "word": "objective",
+        "level": "C1",
+        "category": "Philosophy",
+        "part_of_speech": "adjective",
+        "pronunciation": "/əbˈdʒektɪv/",
+        "meaning": "Not influenced by personal feelings or opinions in considering and representing facts.",
+        "synonyms": ["impartial", "unbiased", "factual"],
+        "antonyms": ["subjective"],
+        "examples": [
+          {
+            "english": "Scientific realism argues that objective truth exists independently of our perceptions.",
+            "translations": {
+              "Mandarin Chinese": "科学实在论主张客观真理独立于我们的感知而存在。",
+              "Spanish": "El realismo científico sostiene que la verdad objetiva existe independientemente de nuestras percepciones."
+            }
+          }
+        ]
+      },
+      {
+        "word": "paradox",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpærədɒks/",
+        "meaning": "A seemingly absurd or self-contradictory statement or proposition that when investigated or explained may prove to be well-founded or true.",
+        "synonyms": ["contradiction", "antinomy"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Zeno's paradoxes challenge our conventional understanding of motion and infinity.",
+            "translations": {
+              "Mandarin Chinese": "芝诺悖论挑战了我们对运动和无限的传统理解。",
+              "Spanish": "Las paradojas de Zenón desafían nuestra comprensión convencional del movimiento y el infinito."
+            }
+          }
+        ]
+      },
+      {
+        "word": "rationalism",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈræʃənəlɪzəm/",
+        "meaning": "A belief or theory that opinions and actions should be based on reason and knowledge rather than on religious belief or emotional response.",
+        "synonyms": ["reason-based inquiry"],
+        "antonyms": ["empiricism"],
+        "examples": [
+          {
+            "english": "Rationalism asserts that certain truths exist prior to sensory experience.",
+            "translations": {
+              "Mandarin Chinese": "理性主义断言，某些真理先于感官经验而存在。",
+              "Spanish": "El racionalismo afirma que ciertas verdades existen antes de la experiencia sensorial."
+            }
+          }
+        ]
+      },
+      {
+        "word": "empiricism",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪmˈpɪrɪsɪzəm/",
+        "meaning": "The theory that all knowledge is derived from sense-experience.",
+        "synonyms": ["experientialism"],
+        "antonyms": ["rationalism"],
+        "examples": [
+          {
+            "english": "Locke's empiricism suggests that the mind is a 'tabula rasa' at birth.",
+            "translations": {
+              "Mandarin Chinese": "洛克的经验主义认为，心灵在出生时是一块“白板”。",
+              "Spanish": "El empirismo de Locke sugiere que la mente es una 'tabula rasa' al nacer."
+            }
+          }
+        ]
+      },
+      {
+        "word": "nihilism",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈnaɪɪlɪzəm/",
+        "meaning": "The rejection of all religious and moral principles, often in the belief that life is meaningless.",
+        "synonyms": ["skepticism", "pessimism"],
+        "antonyms": ["idealism"],
+        "examples": [
+          {
+            "english": "Nietzsche warned that nihilism could follow the decline of traditional religious values.",
+            "translations": {
+              "Mandarin Chinese": "尼采警告说，虚无主义可能会随传统宗教价值观的衰落而出现。",
+              "Spanish": "Nietzsche advirtió que el nihilismo podría seguir al declive de los valores religiosos tradicionales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "stoicism",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈstoʊɪsɪzəm/",
+        "meaning": "An ancient Greek school of philosophy that teaches the development of self-control and fortitude as a means of overcoming destructive emotions.",
+        "synonyms": ["equanimity", "imperturbability"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Stoicism encourages focusing only on what is within our control.",
+            "translations": {
+              "Mandarin Chinese": "斯多葛主义鼓励只关注我们能控制的事情。",
+              "Spanish": "El estoicismo fomenta centrarse solo en lo que está bajo nuestro control."
+            }
+          }
+        ]
+      },
+      {
+        "word": "human nature",
+        "level": "C1",
+        "category": "Philosophy",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈhjuːmən ˈneɪtʃər/",
+        "meaning": "The fundamental dispositions and traits of humans.",
+        "synonyms": ["the human condition", "innate characteristics"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Political philosophers often disagree on whether human nature is inherently altruistic or selfish.",
+            "translations": {
+              "Mandarin Chinese": "政治哲学家们对于人性本质上是利他还是自私的往往存在分歧。",
+              "Spanish": "Los filósofos políticos a menudo discrepan sobre si la naturaleza humana es inherentemente altruista o egoísta."
+            }
+          }
+        ]
+      },
+      {
+        "word": "philosophical inquiry",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌfɪləˈsɒfɪkl ɪnˈkwaɪəri/",
+        "meaning": "The process of critically examining fundamental questions about existence, knowledge, and values.",
+        "synonyms": ["critical reflection", "philosophical analysis"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Rigorous philosophical inquiry demands that we examine our most deeply held assumptions.",
+            "translations": {
+              "Mandarin Chinese": "严谨的哲学探究要求我们审视我们最深层的假设。",
+              "Spanish": "La investigación filosófica rigurosa exige que examinemos nuestras suposiciones más profundamente arraigadas."
+            }
+          }
+        ]
+      },
+      {
+        "word": "perception of reality",
+        "level": "C2",
+        "category": "Philosophy",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/pərˈsepʃn əv riˈæləti/",
+        "meaning": "The way in which one interprets or makes sense of the world, which may differ from reality itself.",
+        "synonyms": ["epistemic perspective", "worldview"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Plato's Allegory of the Cave illustrates how our perception of reality may be merely a shadow of the truth.",
+            "translations": {
+              "Mandarin Chinese": "柏拉图的洞穴寓言说明了我们对现实的感知可能仅仅是真理的影子。",
+              "Spanish": "La alegoría de la caverna de Platón ilustra cómo nuestra percepción de la realidad puede ser simplemente una sombra de la verdad."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

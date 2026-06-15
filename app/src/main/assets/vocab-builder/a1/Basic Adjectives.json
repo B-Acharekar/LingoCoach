@@ -1,0 +1,218 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "400-500",
+  "source": "Foundational English Descriptive Vocabulary",
+  "categories": {
+    "Basic Adjectives": [
+      {
+        "word": "good",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ɡʊd/",
+        "meaning": "Of high quality or standard.",
+        "synonyms": ["great"],
+        "antonyms": ["bad"],
+        "examples": [
+          {
+            "english": "This is a good book.",
+            "translations": {
+              "Mandarin Chinese": "这是一本好书。",
+              "Spanish": "Este es un buen libro."
+            }
+          }
+        ]
+      },
+      {
+        "word": "bad",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/bæd/",
+        "meaning": "Of poor quality or low standard.",
+        "synonyms": [],
+        "antonyms": ["good"],
+        "examples": [
+          {
+            "english": "The weather is bad today.",
+            "translations": {
+              "Mandarin Chinese": "今天天气不好。",
+              "Spanish": "El clima está mal hoy."
+            }
+          }
+        ]
+      },
+      {
+        "word": "beautiful",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈbjuːtɪfl/",
+        "meaning": "Pleasing the senses or mind aesthetically.",
+        "synonyms": ["pretty"],
+        "antonyms": ["ugly"],
+        "examples": [
+          {
+            "english": "She has a beautiful smile.",
+            "translations": {
+              "Mandarin Chinese": "她有美丽的笑容。",
+              "Spanish": "Ella tiene una sonrisa hermosa."
+            }
+          }
+        ]
+      },
+      {
+        "word": "fast",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/fæst/",
+        "meaning": "Moving or capable of moving at high speed.",
+        "synonyms": ["quick"],
+        "antonyms": ["slow"],
+        "examples": [
+          {
+            "english": "The car is very fast.",
+            "translations": {
+              "Mandarin Chinese": "这辆车非常快。",
+              "Spanish": "El coche es muy rápido."
+            }
+          }
+        ]
+      },
+      {
+        "word": "slow",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/sloʊ/",
+        "meaning": "Moving or operating at a low speed.",
+        "synonyms": [],
+        "antonyms": ["fast"],
+        "examples": [
+          {
+            "english": "The turtle is slow.",
+            "translations": {
+              "Mandarin Chinese": "乌龟很慢。",
+              "Spanish": "La tortuga es lenta."
+            }
+          }
+        ]
+      },
+      {
+        "word": "new",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/nuː/",
+        "meaning": "Not existing before; recently made or discovered.",
+        "synonyms": [],
+        "antonyms": ["old"],
+        "examples": [
+          {
+            "english": "I have a new phone.",
+            "translations": {
+              "Mandarin Chinese": "我有一部新手机。",
+              "Spanish": "Tengo un teléfono nuevo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "old",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/oʊld/",
+        "meaning": "Having lived or existed for a long time.",
+        "synonyms": ["ancient"],
+        "antonyms": ["new", "young"],
+        "examples": [
+          {
+            "english": "My house is very old.",
+            "translations": {
+              "Mandarin Chinese": "我的房子很旧。",
+              "Spanish": "Mi casa es muy vieja."
+            }
+          }
+        ]
+      },
+      {
+        "word": "clean",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/kliːn/",
+        "meaning": "Free from dirt or stains.",
+        "synonyms": [],
+        "antonyms": ["dirty"],
+        "examples": [
+          {
+            "english": "My room is clean.",
+            "translations": {
+              "Mandarin Chinese": "我的房间很干净。",
+              "Spanish": "Mi habitación está limpia."
+            }
+          }
+        ]
+      },
+      {
+        "word": "dirty",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈdɜːrti/",
+        "meaning": "Covered or marked with an unclean substance.",
+        "synonyms": ["messy"],
+        "antonyms": ["clean"],
+        "examples": [
+          {
+            "english": "These clothes are dirty.",
+            "translations": {
+              "Mandarin Chinese": "这些衣服很脏。",
+              "Spanish": "Esta ropa está sucia."
+            }
+          }
+        ]
+      },
+      {
+        "word": "easy",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈiːzi/",
+        "meaning": "Achieved without great effort.",
+        "synonyms": ["simple"],
+        "antonyms": ["difficult"],
+        "examples": [
+          {
+            "english": "This exercise is easy.",
+            "translations": {
+              "Mandarin Chinese": "这个练习很容易。",
+              "Spanish": "Este ejercicio es fácil."
+            }
+          }
+        ]
+      },
+      {
+        "word": "difficult",
+        "level": "A1",
+        "category": "Basic Adjectives",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈdɪfɪkəlt/",
+        "meaning": "Needing much effort or skill to accomplish.",
+        "synonyms": ["hard"],
+        "antonyms": ["easy"],
+        "examples": [
+          {
+            "english": "The test is very difficult.",
+            "translations": {
+              "Mandarin Chinese": "考试非常难。",
+              "Spanish": "El examen es muy difícil."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

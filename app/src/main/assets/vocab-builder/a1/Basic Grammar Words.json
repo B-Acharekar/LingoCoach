@@ -1,0 +1,123 @@
+{
+  "level": "A1 (Beginner)",
+  "approx_words": "400-500",
+  "source": "Foundational English Grammar",
+  "categories": {
+    "Basic Grammar Words": [
+      {
+        "word": "and",
+        "level": "A1",
+        "category": "Basic Grammar Words",
+        "part_of_speech": "conjunction",
+        "pronunciation": "/ænd/",
+        "meaning": "Used to connect words or parts of a sentence.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I have a pen and a book.",
+            "translations": {
+              "Mandarin Chinese": "我有一支笔和一本书。",
+              "Spanish": "Tengo un bolígrafo y un libro."
+            }
+          }
+        ]
+      },
+      {
+        "word": "but",
+        "level": "A1",
+        "category": "Basic Grammar Words",
+        "part_of_speech": "conjunction",
+        "pronunciation": "/bʌt/",
+        "meaning": "Used to introduce a phrase or clause that contrasts with what has been mentioned.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am tired, but I must study.",
+            "translations": {
+              "Mandarin Chinese": "我很累，但我必须学习。",
+              "Spanish": "Estoy cansado, pero debo estudiar."
+            }
+          }
+        ]
+      },
+      {
+        "word": "because",
+        "level": "A1",
+        "category": "Basic Grammar Words",
+        "part_of_speech": "conjunction",
+        "pronunciation": "/bɪˈkəz/",
+        "meaning": "For the reason that.",
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am happy because it is sunny.",
+            "translations": {
+              "Mandarin Chinese": "我很开心，因为今天晴天。",
+              "Spanish": "Estoy feliz porque está soleado."
+            }
+          }
+        ]
+      },
+      {
+        "word": "always",
+        "level": "A1",
+        "category": "Basic Grammar Words",
+        "part_of_speech": "adverb",
+        "pronunciation": "/ˈɔːlweɪz/",
+        "meaning": "At all times; on all occasions.",
+        "synonyms": [],
+        "antonyms": ["never"],
+        "examples": [
+          {
+            "english": "I always wake up at 7 am.",
+            "translations": {
+              "Mandarin Chinese": "我总是早上7点醒来。",
+              "Spanish": "Siempre me despierto a las 7 am."
+            }
+          }
+        ]
+      },
+      {
+        "word": "can",
+        "level": "A1",
+        "category": "Basic Grammar Words",
+        "part_of_speech": "modal verb",
+        "pronunciation": "/kæn/",
+        "meaning": "Used to express ability or permission.",
+        "synonyms": ["be able to"],
+        "antonyms": ["cannot"],
+        "examples": [
+          {
+            "english": "I can speak English.",
+            "translations": {
+              "Mandarin Chinese": "我会说英语。",
+              "Spanish": "Puedo hablar inglés."
+            }
+          }
+        ]
+      },
+      {
+        "word": "under",
+        "level": "A1",
+        "category": "Basic Grammar Words",
+        "part_of_speech": "preposition",
+        "pronunciation": "/ˈʌndər/",
+        "meaning": "Directly below something.",
+        "synonyms": [],
+        "antonyms": ["over"],
+        "examples": [
+          {
+            "english": "The cat is under the table.",
+            "translations": {
+              "Mandarin Chinese": "猫在桌子下面。",
+              "Spanish": "El gato está debajo de la mesa."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

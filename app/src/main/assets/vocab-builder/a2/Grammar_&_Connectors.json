@@ -1,0 +1,127 @@
+{
+  "level": "A2-B1",
+  "category": "Grammar & Connectors",
+  "description": "Functional words used to link ideas, indicate time, or modify sentences.",
+  "items": [
+    {
+      "word": "although",
+      "function": "Conjunction (contrast)",
+      "meaning": "In spite of the fact that; even though.",
+      "example": "Although it was raining, we went for a walk."
+    },
+    {
+      "word": "however",
+      "function": "Adverb (contrast)",
+      "meaning": "Used to introduce a statement that contrasts with the previous one.",
+      "example": "I wanted to go; however, I had too much work."
+    },
+    {
+      "word": "therefore",
+      "function": "Adverb (result)",
+      "meaning": "For that reason; consequently.",
+      "example": "He studied hard; therefore, he passed the exam."
+    },
+    {
+      "word": "while",
+      "function": "Conjunction (time/contrast)",
+      "meaning": "During the time that; at the same time as.",
+      "example": "Please be quiet while I am working."
+    },
+    {
+      "word": "during",
+      "function": "Preposition (time)",
+      "meaning": "Throughout the course of a period of time.",
+      "example": "We met many people during our holiday."
+    },
+    {
+      "word": "unless",
+      "function": "Conjunction (condition)",
+      "meaning": "Except if.",
+      "example": "We will be late unless we leave now."
+    },
+    {
+      "word": "since",
+      "function": "Preposition/Conjunction (time/reason)",
+      "meaning": "From a particular time in the past until now; because.",
+      "example": "I have lived here since 2020."
+    },
+    {
+      "word": "already",
+      "function": "Adverb (time)",
+      "meaning": "Before now or before a specific time.",
+      "example": "I have already finished my homework."
+    },
+    {
+      "word": "yet",
+      "function": "Adverb (time)",
+      "meaning": "Up to this time (usually in negative or questions).",
+      "example": "Have you eaten yet?"
+    },
+    {
+      "word": "still",
+      "function": "Adverb (time)",
+      "meaning": "Continuing to happen or exist.",
+      "example": "It is still raining."
+    },
+    {
+      "word": "ever",
+      "function": "Adverb (time)",
+      "meaning": "At any time.",
+      "example": "Have you ever been to Paris?"
+    },
+    {
+      "word": "never",
+      "function": "Adverb (time)",
+      "meaning": "Not at any time.",
+      "example": "I have never seen that movie."
+    },
+    {
+      "word": "sometimes",
+      "function": "Adverb (frequency)",
+      "meaning": "Occasionally; now and then.",
+      "example": "Sometimes we go to the cinema."
+    },
+    {
+      "word": "usually",
+      "function": "Adverb (frequency)",
+      "meaning": "Most of the time; normally.",
+      "example": "I usually drink coffee in the morning."
+    },
+    {
+      "word": "recently",
+      "function": "Adverb (time)",
+      "meaning": "Not long ago.",
+      "example": "I have recently moved to a new house."
+    },
+    {
+      "word": "suddenly",
+      "function": "Adverb (manner)",
+      "meaning": "Quickly and unexpectedly.",
+      "example": "Suddenly, the lights went out."
+    },
+    {
+      "word": "probably",
+      "function": "Adverb (certainty)",
+      "meaning": "Very likely.",
+      "example": "It will probably snow tomorrow."
+    },
+    {
+      "word": "especially",
+      "function": "Adverb (degree)",
+      "meaning": "More than usually; particularly.",
+      "example": "I like music, especially jazz."
+    },
+    {
+      "word": "finally",
+      "function": "Adverb (sequence)",
+      "meaning": "After a long time; at last.",
+      "example": "We finally arrived at the hotel."
+    },
+    {
+      "word": "immediately",
+      "function": "Adverb (time)",
+      "meaning": "Without delay; instantly.",
+      "example": "Please call me immediately."
+    }
+  ]
+}

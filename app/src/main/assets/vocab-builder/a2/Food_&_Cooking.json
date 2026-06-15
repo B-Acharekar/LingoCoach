@@ -1,0 +1,929 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Food & Cooking": [
+      {
+        "word": "recipe",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈresəpi/",
+        "meaning": "A set of instructions telling you how to cook something, including the ingredients needed.",
+        "synonyms": ["formula", "directions", "method"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My grandmother gave me a secret recipe for chocolate cake.",
+            "translations": {
+              "Mandarin Chinese": "我祖母给了我一个做巧克力蛋糕的秘密食谱。",
+              "Hindi": "मेरी दादी ने मुझे चॉकलेट केक की एक गुप्त रेसिपी दी थी।",
+              "Spanish": "Mi abuela me dio una receta secreta para el pastel de chocolate.",
+              "Standard Arabic": "أعطتني جدتي وصفة سرية لكعكة الشوكولاتة.",
+              "French": "Ma grand-mère m'a donné une recette secrète de gâteau au chocolat.",
+              "Bengali": "আমার ঠাকুমা আমাকে চকোলেট কেকের একটি গোপন রেসিপি দিয়েছিলেন।",
+              "Portuguese": "Minha avó me deu uma receita secreta de bolo de chocolate.",
+              "Russian": "Моя бабушка дала мне секретный рецепт шоколадного торта.",
+              "Urdu": "میری دادی نے مجھے چاکلیट کیک کی ایک خفیہ ریسپی دی تھی۔",
+              "Indonesian": "Nenek saya memberi saya resep rahasia untuk kue cokelat.",
+              "Standard German": "Meine Oma hat mir ein Geheimrezept für Schokoladenkuchen gegeben.",
+              "Japanese": "祖母がチョコレートケーキの秘密のレシピを教えてくれました。"
+            }
+          },
+          {
+            "english": "This soup is easy to make if you follow the recipe closely.",
+            "translations": {
+              "Mandarin Chinese": "如果你严格按食谱做，这道汤很容易做。",
+              "Hindi": "यदि आप रेसिपी का बारीकी से पालन करते हैं तो यह सूप बनाना आसान है।",
+              "Spanish": "Esta sopa es fácil de hacer si sigues la receta al pie de la letra.",
+              "Standard Arabic": "هذا الحساء سهل التحضير إذا اتبعت الوصفة بدقة.",
+              "French": "Cette soupe est facile à faire si vous suivez attentivement la recette.",
+              "Bengali": "আপনি যদি রেসিপিটি ঘনিষ্ঠভাবে অনুসরণ করেন তবে এই স্যুপটি তৈরি করা সহজ।",
+              "Portuguese": "Esta sopa é fácil de fazer se você seguir a receita de perto.",
+              "Russian": "Этот суп легко приготовить, если точно следовать рецепту.",
+              "Urdu": "اگر آپ ریسپی پر اچھی طرح عمل کریں تو یہ سوپ بنانا آسان ہے۔",
+              "Indonesian": "Sup ini mudah dibuat jika Anda mengikuti resepnya dengan cermat.",
+              "Standard German": "Diese Suppe ist einfach zuzubereiten, wenn man sich genau an das Rezept hält.",
+              "Japanese": "レシピ通りに作れば、このスープは簡単にできます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "ingredient",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪnˈɡriːdiənt/",
+        "meaning": "One of the items of food you need to combine to make a particular dish.",
+        "synonyms": ["element", "component", "part"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Flour, eggs, and sugar are the main ingredients for a cake.",
+            "translations": {
+              "Mandarin Chinese": "面粉、鸡蛋和糖是做蛋糕的主要原料。",
+              "Hindi": "आटा, अंडे और चीनी केक के मुख्य घटक हैं।",
+              "Spanish": "La harina, los huevos y el azúcar son los ingredientes principales para un pastel.",
+              "Standard Arabic": "الدقيق والبيض والسكر هي المكونات الرئيسية للكعكة.",
+              "French": "La farine, les œufs et le sucre sont les ingrédients principaux d'un gâteau.",
+              "Bengali": "ময়দা, ডিম এবং চিনি একটি কেকের প্রধান উপাদান।",
+              "Portuguese": "Farinha, ovos e açúcar são os ingredientes principais de um bolo.",
+              "Russian": "Мука, яйца и сахар — основные ингредиенты для торта.",
+              "Urdu": "آٹا، انڈے اور چینی کیک کے بنیادی اجزاء ہیں۔",
+              "Indonesian": "Tepung, telur, dan gula adalah bahan-bahan utama untuk membuat kue.",
+              "Standard German": "Mehl, Eier und Zucker sind die Hauptzutaten für einen Kuchen.",
+              "Japanese": "小麦粉、卵、砂糖はケーキの主な材料です。"
+            }
+          },
+          {
+            "english": "Mix all the fresh ingredients together in a large bowl.",
+            "translations": {
+              "Mandarin Chinese": "将所有新鲜原料在一个大碗里混合在一起。",
+              "Hindi": "सभी ताजी सामग्रियों को एक बड़े कटोरे में एक साथ मिला लें।",
+              "Spanish": "Mezcla todos los ingredientes frescos en un tazón grande.",
+              "Standard Arabic": "اخلط جميع المكونات الطازجة معاً في وعاء كبير.",
+              "French": "Mélangez tous les ingrédients frais dans un grand bol.",
+              "Bengali": "একটি বড় পাত্রে সমস্ত তাজা উপাদান একসাথে মিশ্রিত করুন।",
+              "Portuguese": "Misture todos os ingredientes frescos em uma tigela grande.",
+              "Russian": "Смешайте все свежие ингредиенты в большой миске.",
+              "Urdu": "تمام تازہ اجزاء کو ایک بڑے پیالے میں اکٹھا ملا لیں۔",
+              "Indonesian": "Campurkan semua bahan segar ke dalam mangkuk besar.",
+              "Standard German": "Mischen Sie alle frischen Zutaten in einer großen Schüssel zusammen.",
+              "Japanese": "新鮮な材料をすべて大きなボウルに入れて混ぜ合わせます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "fried",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "adjective",
+        "pronunciation": "/fraɪd/",
+        "meaning": "Cooked in hot oil or fat.",
+        "synonyms": ["deep-fried", "sauteed", "pan-fried"],
+        "antonyms": ["boiled", "raw"],
+        "examples": [
+          {
+            "english": "I usually have fried rice and chicken for lunch on Sundays.",
+            "translations": {
+              "Mandarin Chinese": "我周日午餐通常吃炒饭和鸡肉。",
+              "Hindi": "मैं आमतौर पर रविवार को दोपहर के भोजन में फ्राइड राइस और चिकन खाता हूँ।",
+              "Spanish": "Suelo comer arroz frito y pollo para el almuerzo los domingos.",
+              "Standard Arabic": "عادة ما أتناول الأرز المقلي والدجاج في الغداء أيام الأحد.",
+              "French": "Je mange généralement du riz frit et du poulet pour le déjeuner le dimanche.",
+              "Bengali": "আমি সাধারণত রবিবারে দুপুরের খাবারে ফ্রাইড রাইস এবং চিকেন খাই।",
+              "Portuguese": "Eu costumo comer arroz frito e frango no almoço aos domingos.",
+              "Russian": "По воскресеньям на обед я обычно ем жареный рис с курицей.",
+              "Urdu": "میں عام طور پر اتوار کو دوپہر کے کھانے میں فرائیڈ رائس اور چکن کھاتا ہوں۔",
+              "Indonesian": "Saya biasanya makan nasi goreng dan ayam untuk makan siang di hari Minggu.",
+              "Standard German": "Sonntags esse ich zum Mittagessen meist gebratenen Reis und Hähnchen.",
+              "Japanese": "私は普段、日曜日の昼食にチャーハンとチキンを食べます。"
+            }
+          },
+          {
+            "english": "Fried foods can taste delicious but are not always healthy.",
+            "translations": {
+              "Mandarin Chinese": "油炸食品可能很好吃，但并不总是健康的。",
+              "Hindi": "तला हुआ खाना स्वादिष्ट हो सकता है लेकिन हमेशा स्वास्थ्यवर्धक नहीं होता।",
+              "Spanish": "Los alimentos fritos pueden ser deliciosos pero no siempre son saludables.",
+              "Standard Arabic": "يمكن أن يكون الطعام المقلي لذيذاً ولكنه ليس صحياً دائماً.",
+              "French": "Les aliments frits peuvent être délicieux mais ne sont pas toujours sains.",
+              "Bengali": "ভাজা খাবার সুস্বাদু হতে পারে তবে তা সবসময় স্বাস্থ্যের জন্য ভালো নয়।",
+              "Portuguese": "Alimentos fritos podem ser deliciosos, mas nem sempre são saudáveis.",
+              "Russian": "Жареная пища может быть вкусной, но она не всегда полезна для здоровья.",
+              "Urdu": "فرائیڈ کھانے لذیذ ہو سکتے ہیں لیکن ہمیشہ صحت بخش نہیں ہوتے۔",
+              "Indonesian": "Makanan yang digoreng rasanya enak tetapi tidak selalu sehat.",
+              "Standard German": "Frittierte Lebensmittel können lecker schmecken, sind aber nicht immer gesund.",
+              "Japanese": " 揚げ物は美味しいですが、いつも健康的とは限りません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "boiled",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "adjective",
+        "pronunciation": "/bɔɪld/",
+        "meaning": "Cooked in boiling water.",
+        "synonyms": ["steamed", "poached"],
+        "antonyms": ["fried", "raw"],
+        "examples": [
+          {
+            "english": "She likes to eat boiled eggs with a little salt for breakfast.",
+            "translations": {
+              "Mandarin Chinese": "她早餐喜欢吃加了一点盐的水煮蛋。",
+              "Hindi": "वह नाश्ते में थोड़ा सा नमक डालकर उबले अंडे खाना पसंद करती है।",
+              "Spanish": "A ella le gusta comer huevos cocidos con un poco de sal para el desayuno.",
+              "Standard Arabic": "تحب تناول البيض المسلوق مع قليل من الملح في الإفطار.",
+              "French": "Elle aime manger des œufs bouillis avec un peu de sel au petit-déjeuner.",
+              "Bengali": "সে সকালের নাস্তায় সামান্য লবণ দিয়ে সেদ্ধ ডিম খেতে পছন্দ করে।",
+              "Portuguese": "Ela gosta de comer ovos cozidos com um pouco de sal no café da manhã.",
+              "Russian": "Она любит есть вареные яйца с небольшим количеством соли на завтрак.",
+              "Urdu": "وہ ناشتے میں تھوڑے سے نمک کے ساتھ ابلے ہوئے انڈے کھانا پسند کرتی ہے۔",
+              "Indonesian": "Dia suka makan telur rebus dengan sedikit garam untuk sarapan.",
+              "Standard German": "Sie isst zum Frühstück gerne gekochte Eier mit etwas Salz.",
+              "Japanese": "彼女は朝食に、少し塩をかけたゆで卵を食べるのが好きです。"
+            }
+          },
+          {
+            "english": "Serve the grilled fish with some boiled vegetables.",
+            "translations": {
+              "Mandarin Chinese": "将烤鱼与一些水煮蔬菜一起上桌。",
+              "Hindi": "ग्रिल्ड फिश को कुछ उबली हुई सब्जियों के साथ परोसें।",
+              "Spanish": "Sirva el pescado a la parrilla con algunas verduras cocidas.",
+              "Standard Arabic": "قدّم السمك المشوي مع بعض الخضار المسلوقة.",
+              "French": "Servez le poisson grillé avec quelques légumes bouillis.",
+              "Bengali": "গ্রিলড ফিশ কিছু সেদ্ধ সবজির সাথে পরিবেশন করুন।",
+              "Portuguese": "Sirva o peixe grelhado com alguns legumes cozidos.",
+              "Russian": "Подавайте рыбу на гриле с отварными овощами.",
+              "Urdu": "گرل مچھلی کو کچھ ابلے ہوئے سبزیوں کے ساتھ پیش کریں۔",
+              "Indonesian": "Sajikan ikan panggang dengan beberapa sayuran rebus.",
+              "Standard German": "Servieren Sie den gegrillten Fisch mit gekochtem Gemüse.",
+              "Japanese": "焼き魚にゆでた野菜を添えて出してください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "baked",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "adjective",
+        "pronunciation": "/beɪkt/",
+        "meaning": "Cooked in an oven using dry heat, without extra oil.",
+        "synonyms": ["roasted", "oven-cooked"],
+        "antonyms": ["fried", "boiled"],
+        "examples": [
+          {
+            "english": "Baked potatoes are a simple and healthy side dish.",
+            "translations": {
+              "Mandarin Chinese": "烤土豆是一道简单又健康的配菜。",
+              "Hindi": "बेक्ड आलू एक सरल और स्वास्थ्यवर्धक साइड डिश है।",
+              "Spanish": "Las papas al horno son una guarnición sencilla y saludable.",
+              "Standard Arabic": "البطاطس المخبوزة هي طبق جانبي بسيط وصحي.",
+              "French": "Les pommes de terre au four sont un accompagnement simple et sain.",
+              "Bengali": "বেকড আলু একটি সহজ এবং স্বাস্থ্যকর সাইড ডিশ।",
+              "Portuguese": "Batatas assadas são um acompanhamento simples e saudável.",
+              "Russian": "Запеченный картофель — простой и полезный гарнир.",
+              "Urdu": "बेक्ड (تندوری) آلو ایک آسان اور صحت بخش سائیڈ ڈش ہے۔",
+              "Indonesian": "Kentang panggang adalah hidangan pendamping yang sederhana dan sehat.",
+              "Standard German": "Ofenkartoffeln sind eine einfache und gesunde Beilage.",
+              "Japanese": "ベイクドポテトは、簡単で健康的な付け合わせです。"
+            }
+          },
+          {
+            "english": "The kitchen smelled wonderful with fresh baked bread.",
+            "translations": {
+              "Mandarin Chinese": "厨房里弥漫着新鲜烘焙面包的美妙香味。",
+              "Hindi": "ताज़ी बेक्ड ब्रेड से रसोई की महक अद्भुत थी।",
+              "Spanish": "La cocina olía maravilloso con el pan recién horneado.",
+              "Standard Arabic": "كانت رائحة المطبخ رائعة مع الخبز الطازج المخبوز.",
+              "French": "La cuisine sentait merveilleusement bon le pain frais cuit au four.",
+              "Bengali": "তাজা বেকড রুটির চমৎকার গন্ধে রান্নাঘর ভরে উঠেছিল।",
+              "Portuguese": "A cozinha cheirava maravilhosamente com o pão fresco assado.",
+              "Russian": "На кухне чудесно пахло свежеиспеченным хлебом.",
+              "Urdu": "تازہ تندوری روٹی سے کچن میں شاندار خوشبو آ رہی تھی۔",
+              "Indonesian": "Dapur berbau harum dengan roti panggang segar.",
+              "Standard German": "In der Küche duftete es herrlich nach frisch gebackenem Brot.",
+              "Japanese": "キッチンは焼き立てのパンの素晴らしい香りがしていました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "spicy",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈspaɪsi/",
+        "meaning": "Having a strong, hot flavor because of spices like chili or pepper.",
+        "synonyms": ["hot", "peppery", "seasoned"],
+        "antonyms": ["bland", "mild"],
+        "examples": [
+          {
+            "english": "I love spicy Indian food, especially curry.",
+            "translations": {
+              "Mandarin Chinese": "我喜欢辛辣的印度食物，尤其是咖喱。",
+              "Hindi": "मुझे मसालेदार भारतीय खाना बहुत पसंद है, खासकर करी।",
+              "Spanish": "Me encanta la comida india picante, especialmente el curry.",
+              "Standard Arabic": "أنا أحب الطعام الهندي الحار، وخاصة الكاري.",
+              "French": "J'adore la nourriture indienne épicée, surtout le curry.",
+              "Bengali": "আমি মশলাদার ভারতীয় খাবার পছন্দ করি, বিশেষ করে তরকারি।",
+              "Portuguese": "Eu amo comida indiana apimentada, especialmente curry.",
+              "Russian": "Я люблю острую индийскую еду, особенно карри.",
+              "Urdu": "مجھے مسالے دار ہندوستانی کھانا پسند ہے، خاص طور پر کڑی۔",
+              "Indonesian": "Saya suka makanan India yang pedas, terutama kari.",
+              "Standard German": "Ich liebe scharfes indisches Essen, besonders Curry.",
+              "Japanese": "私は辛いインド料理、特にカレーが大好きです。"
+            }
+          },
+          {
+            "english": "Be careful, this red sauce is very spicy.",
+            "translations": {
+              "Mandarin Chinese": "小心点，这个红酱非常辣。",
+              "Hindi": "सावधान रहें, यह लाल चटनी बहुत तीखी है।",
+              "Spanish": "Ten cuidado, esta salsa roja es muy picante.",
+              "Standard Arabic": "كن حذراً، هذه الصلصة الحمراء حارة جداً.",
+              "French": "Attention, cette sauce rouge est très épicée.",
+              "Bengali": "সতর্ক থাকুন, এই লাল সসটি খুব মশলাদার।",
+              "Portuguese": "Cuidado, este molho vermelho é muito apimentado.",
+              "Russian": "Будьте осторожны, этот красный соус очень острый.",
+              "Urdu": "محتاط رہیں، یہ لال چٹنی بہت مسالے دار ہے۔",
+              "Indonesian": "Hati-hati, saus merah ini sangat pedas.",
+              "Standard German": "Vorsicht, diese rote Soße ist sehr scharf.",
+              "Japanese": "注意してください、この赤いソースはとても辛いです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "sweet",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "adjective",
+        "pronunciation": "/swiːt/",
+        "meaning": "Containing a lot of sugar, or having a taste like sugar or honey.",
+        "synonyms": ["sugary", "honeyed"],
+        "antonyms": ["sour", "bitter", "savory"],
+        "examples": [
+          {
+            "english": "Strawberries are very sweet and juicy in the summer.",
+            "translations": {
+              "Mandarin Chinese": "草莓在夏天非常甜且多汁。",
+              "Hindi": "गर्मियों में स्ट्रॉबेरी बहुत मीठी और रसीली होती हैं।",
+              "Spanish": "Las fresas son muy dulces y jugosas en el verano.",
+              "Standard Arabic": "الفراولة حلوة جداً ومليئة بالعصير في الصيف.",
+              "French": "Les fraises sont très douces et juteuses en été.",
+              "Bengali": "গ্রীষ্মকালে স্ট্রবেরি খুব মিষ্টি এবং রসালো হয়।",
+              "Portuguese": "Os morangos são muito doces e suculentos no verão.",
+              "Russian": "Летом клубника очень сладкая и сочная.",
+              "Urdu": "گرمیاں میں اسٹرابیری بہت میٹھی اور رسیلی ہوتی ہیں۔",
+              "Indonesian": "Stroberi sangat manis dan berair di musim panas.",
+              "Standard German": "Erdbeeren sind im Sommer sehr süß und saftig.",
+              "Japanese": "夏のイチゴはとても甘くてジューシーです。"
+            }
+          },
+          {
+            "english": "I prefer tea without sugar because it's already too sweet.",
+            "translations": {
+              "Mandarin Chinese": "我更喜欢不加糖的茶，因为加了就太甜了。",
+              "Hindi": "मैं बिना चीनी की चाय पसंद करता हूँ क्योंकि यह पहले से ही बहुत मीठी होती है।",
+              "Spanish": "Prefiero el té sin azúcar porque ya es demasiado dulce.",
+              "Standard Arabic": "أفضل الشاي بدون سكر لأنه حلو بالفعل.",
+              "French": "Je préfère le thé sans sucre car il est déjà trop sucré.",
+              "Bengali": "আমি চিনি ছাড়া চা পছন্দ করি কারণ এটি ইতিমধ্যে খুব মিষ্টি।",
+              "Portuguese": "Prefiro chá sem açúcar porque já é doce demais.",
+              "Russian": "Я предпочитаю чай без сахара, потому что он и так слишком сладкий.",
+              "Urdu": "میں چینی کے بغیر چائے کو ترجیح دیتا ہوں کیونکہ یہ پہلے ہی بہت میٹھی ہوتی ہے۔",
+              "Indonesian": "Saya lebih suka teh tanpa gula karena rasanya sudah terlalu manis.",
+              "Standard German": "Ich trinke Tee lieber ohne Zucker, weil er sonst zu süß ist.",
+              "Japanese": "すでに甘すぎるので、私は砂糖抜きの紅茶のほうが好きです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "sour",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈsaʊər/",
+        "meaning": "Having an acid taste like lemon, vinegar, or unripe fruit.",
+        "synonyms": ["acidic", "tart", "tangy"],
+        "antonyms": ["sweet"],
+        "examples": [
+          {
+            "english": "Lemons have a very sour taste.",
+            "translations": {
+              "Mandarin Chinese": "柠檬有一种非常酸的味道。",
+              "Hindi": "नींबू का स्वाद बहुत खट्टा होता है।",
+              "Spanish": "Los limones tienen un sabor muy agrio.",
+              "Standard Arabic": "الليمون له طعم حامض للغاية.",
+              "French": "Les citrons ont un goût très acide.",
+              "Bengali": "লেবুর স্বাদ খুব টক হয়।",
+              "Portuguese": "Limões têm um gosto muito azedo.",
+              "Russian": "Лимоны очень кислые на вкус.",
+              "Urdu": "لیمو کا ذائقہ بہت کھٹا ہوتا ہے۔",
+              "Indonesian": "Lemon memiliki rasa yang sangat asam.",
+              "Standard German": "Zitronen haben einen sehr sauren Geschmack.",
+              "Japanese": "レモンはとても酸っぱい味がします。"
+            }
+          },
+          {
+            "english": "The milk went sour because it was left out of the fridge.",
+            "translations": {
+              "Mandarin Chinese": "牛奶变酸了，因为没有放进冰箱里。",
+              "Hindi": "दूध खट्टा हो गया क्योंकि उसे फ्रिज से बाहर छोड़ दिया गया था।",
+              "Spanish": "La leche se agrió porque se quedó fuera del refrigerador.",
+              "Standard Arabic": "حمض الحليب لأنه تُرِك خارج الثلاجة.",
+              "French": "Le lait a tourné car il a été laissé hors du réfrigérateur.",
+              "Bengali": "ফ্রিজের বাইরে রেখে দেওয়ায় দুধ টক হয়ে গেছে।",
+              "Portuguese": "O leite azedou porque foi deixado fora da geladeira.",
+              "Russian": "Молоко прокисло, потому что его оставили вне холодильника.",
+              "Urdu": "دودھ فریج سے باہر رہنے کی وجہ سے کھٹا ہو گیا۔",
+              "Indonesian": "Susu itu menjadi basi (asam) karena ditinggalkan di luar lemari es.",
+              "Standard German": "Die Milch ist sauer geworden, weil sie nicht im Kühlschrank stand.",
+              "Japanese": "冷蔵庫に入れっぱなしにしていなかったので、牛乳が酸っぱくなってしまいました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "delicious",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "adjective",
+        "pronunciation": "/dɪˈlɪʃəs/",
+        "meaning": "Having a very pleasant taste or smell.",
+        "synonyms": ["tasty", "yummy", "flavorful"],
+        "antonyms": ["disgusting", "tasteless"],
+        "examples": [
+          {
+            "english": "Thank you for the delicious dinner last night.",
+            "translations": {
+              "Mandarin Chinese": "谢谢你昨晚准备的美味晚餐。",
+              "Hindi": "कल रात के स्वादिष्ट रात्रिभोज के लिए धन्यवाद।",
+              "Spanish": "Gracias por la deliciosa cena de anoche.",
+              "Standard Arabic": "شكراً لك على العشاء اللذيذ الليلة الماضية.",
+              "French": "Merci pour ce délicieux dîner hier soir.",
+              "Bengali": "গতকালের সুস্বাদু রাতের খাবারের জন্য আপনাকে ধন্যবাদ।",
+              "Portuguese": "Obrigado pelo jantar delicioso ontem à noite.",
+              "Russian": "Спасибо за вкусный ужин вчера вечером.",
+              "Urdu": "کل رات کے لذیذ رات کے کھانے کا شکریہ۔",
+              "Indonesian": "Terima kasih atas makan malam yang lezat tadi malam.",
+              "Standard German": "Vielen Dank für das köstliche Abendessen gestern Abend.",
+              "Japanese": "昨夜は美味しいディナーをありがとうございました。"
+            }
+          },
+          {
+            "english": "The bakery sells delicious chocolate cookies.",
+            "translations": {
+              "Mandarin Chinese": "这家面包店卖好吃的巧克力饼干。",
+              "Hindi": "बेकरी स्वादिष्ट चॉकलेट कुकीज़ बेचती है।",
+              "Spanish": "La panadería vende deliciosas galletas de chocolate.",
+              "Standard Arabic": "يبيع المخبز بسكويت الشوكولاتة اللذيذ.",
+              "French": "La boulangerie vend de délicieux biscuits au chocolat.",
+              "Bengali": "বেকারিটি সুস্বাদু চকোলেট কুকিজ বিক্রি করে।",
+              "Portuguese": "A padaria vende biscoitos de chocolate deliciosos.",
+              "Russian": "В пекарне продается вкусное шоколадное печенье.",
+              "Urdu": "بیکری لذیذ چاکلیट کوکیز بیچتی ہے۔",
+              "Indonesian": "Toko roti itu menjual kue kering cokelat yang lezat.",
+              "Standard German": "Die Bäckerei verkauft leckere Schokoladenkekse.",
+              "Japanese": "そのパン屋では美味しいチョコレートクッキーを販売しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "fresh",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "adjective",
+        "pronunciation": "/freʃ/",
+        "meaning": "Recently produced, picked, or cooked; not frozen or old.",
+        "synonyms": ["new", "recent", "raw"],
+        "antonyms": ["stale", "frozen", "rotten"],
+        "examples": [
+          {
+            "english": "I always buy fresh vegetables from the local market.",
+            "translations": {
+              "Mandarin Chinese": "我总是从当地市场买新鲜蔬菜。",
+              "Hindi": "मैं हमेशा स्थानीय बाजार से ताजी सब्जियां खरीदता हूँ।",
+              "Spanish": "Siempre compro verduras frescas en el mercado local.",
+              "Standard Arabic": "أشتري دائماً الخضار الطازجة من السوق المحلي.",
+              "French": "J'achète toujours des légumes frais au marché local.",
+              "Bengali": "আমি সবসময় স্থানীয় বাজার থেকে তাজা শাকসবজি কিনি।",
+              "Portuguese": "Eu sempre compro vegetais frescos no mercado local.",
+              "Russian": "Я всегда покупаю свежие овощи на местном рынке.",
+              "Urdu": "میں ہمیشہ مقامی مارکیٹ سے تازہ سبزیاں خریدتا ہوں۔",
+              "Indonesian": "Saya selalu membeli sayuran segar dari pasar lokal.",
+              "Standard German": "Ich kaufe mein Gemüse immer frisch auf dem örtlichen Markt.",
+              "Japanese": "私はいつも地元の市場で新鮮な野菜を買います。"
+            }
+          },
+          {
+            "english": "Take a breath of fresh air outside the kitchen.",
+            "translations": {
+              "Mandarin Chinese": "到厨房外面去呼吸一下新鲜空气吧。",
+              "Hindi": "रसोई के बाहर ताजी हवा में सांस लें।",
+              "Spanish": "Toma un respiro de aire fresco fuera de la cocina.",
+              "Standard Arabic": "خذ نفساً من الهواء النقي خارج المطبخ.",
+              "French": "Allez respirer un peu d'air frais à l'extérieur de la cuisine.",
+              "Bengali": "রান্নাঘরের বাইরে গিয়ে একটু তাজা বাতাস নিন।",
+              "Portuguese": "Respire um pouco de ar fresco fora da cozinha.",
+              "Russian": "Подышите свежим воздухом за пределами кухни.",
+              "Urdu": "کچن کے باہر تازہ ہوا کا جھونکا لیں۔",
+              "Indonesian": "Hiruplah udara segar di luar dapur.",
+              "Standard German": "Schnappen Sie außerhalb der Küche etwas frische Luft.",
+              "Japanese": "キッチンの外で新鮮な空気を吸ってきてください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "frozen",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ˈfroʊzn/",
+        "meaning": "Preserved by being kept at a very low temperature below freezing point.",
+        "synonyms": ["iced", "chilled", "deep-frozen"],
+        "antonyms": ["fresh", "melted"],
+        "examples": [
+          {
+            "english": "We keep a stock of frozen peas in the freezer.",
+            "translations": {
+              "Mandarin Chinese": "我们在冷冻柜里存了一些冷冻豌豆。",
+              "Hindi": "हम फ्रीजर में फ्रोजन मटर का स्टॉक रखते हैं।",
+              "Spanish": "Tenemos una reserva de guisantes congelados en el congelador.",
+              "Standard Arabic": "نحتفظ بمخزون من البازلاء المجمدة في المجمد.",
+              "French": "Nous gardons un stock de petits pois congelés au congélateur.",
+              "Bengali": "আমরা ফ্রিজারে হিমায়িত মটরের স্টক রাখি।",
+              "Portuguese": "Mantemos um estoque de ervilhas congeladas no freezer.",
+              "Russian": "Мы храним запас замороженного горошка в морозильной камере.",
+              "Urdu": "ہم فریزر میں منجمد مٹر کا اسٹاک رکھتے ہیں۔",
+              "Indonesian": "Kami menyimpan persediaan kacang polong beku di dalam freezer.",
+              "Standard German": "Wir haben immer einen Vorrat an Tiefkühlerbsen im Gefrierschrank.",
+              "Japanese": "私たちは冷凍庫に冷凍のグリーンピースを常備しています。"
+            }
+          },
+          {
+            "english": "Frozen pizza is convenient when you don't have time to cook.",
+            "translations": {
+              "Mandarin Chinese": "当你没有时间做饭时，冷冻比萨很方便。",
+              "Hindi": "जब आपके पास खाना बनाने का समय न हो तो फ्रोजन पिज्जा सुविधाजनक होता है।",
+              "Spanish": "La pizza congelada es conveniente cuando no tienes tiempo para cocinar.",
+              "Standard Arabic": "البيتزا المجمدة مريحة عندما لا يكون لديك وقت للطهي.",
+              "French": "La pizza surgelée est pratique quand on n'a pas le temps de cuisiner.",
+              "Bengali": "রান্না করার সময় না থাকলে হিমায়িত পিৎজা সুবিধাজনক।",
+              "Portuguese": "Pizza congelada é prática quando você não tem tempo para cozinhar.",
+              "Russian": "Замороженная пицца удобна, когда нет времени готовить.",
+              "Urdu": "جب آپ کے پاس کھانا پکانے کا وقت نہ ہو تو منجمد پیزا آسان رہتا ہے۔",
+              "Indonesian": "Piza beku sangat praktis saat Anda tidak punya waktu untuk memasak.",
+              "Standard German": "Tiefkühlpizza ist praktisch, wenn man keine Zeit zum Kochen hat.",
+              "Japanese": "冷凍ピザは、料理をする時間がないときに便利です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "healthy diet",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhelθi ˈdaɪət/",
+        "meaning": "The food and drink usually eaten by a person that is good for their physical condition and long-term health.",
+        "synonyms": ["balanced diet", "nutritious diet"],
+        "antonyms": ["unhealthy diet", "junk food diet"],
+        "examples": [
+          {
+            "english": "A healthy diet should include plenty of water and fresh fruit.",
+            "translations": {
+              "Mandarin Chinese": "健康的饮食应该包括充足的水和新鲜水果。",
+              "Hindi": "एक स्वस्थ आहार में भरपूर पानी और ताजे फल शामिल होने चाहिए।",
+              "Spanish": "Una dieta saludable debe incluir mucha agua y fruta fresca.",
+              "Standard Arabic": "يجب أن يتضمن النظام الغذائي الصحي الكثير من الماء والفاكهة الطازجة.",
+              "French": "Une alimentation saine doit comprendre beaucoup d'eau et des fruits frais.",
+              "Bengali": "একটি স্বাস্থ্যকর খাদ্যাভ্যাসে প্রচুর পানি এবং তাজা ফল অন্তর্ভুক্ত করা উচিত।",
+              "Portuguese": "Uma dieta saudável deve incluir bastante água e frutas frescas.",
+              "Russian": "Здоровая диета должна включать много воды и свежих фруктов.",
+              "Urdu": "صحت بخش غذا میں وافر مقدار میں پانی اور تازہ پھل شامل ہونے چاہئیں۔",
+              "Indonesian": "Diet sehat harus mencakup banyak air dan buah segar.",
+              "Standard German": "Eine gesunde Ernährung sollte viel Wasser und frisches Obst enthalten.",
+              "Japanese": "健康的な食事には、十分な水分と新鮮な果物が含まれるべきです。"
+            }
+          },
+          {
+            "english": "Eating less fast food helped him maintain a healthy diet.",
+            "translations": {
+              "Mandarin Chinese": "少吃快餐帮助他保持了健康的饮食。",
+              "Hindi": "कम फास्ट फूड खाने से उन्हें स्वस्थ आहार बनाए रखने में मदद मिली।",
+              "Spanish": "Comer menos comida rápida le ayudó a mantener una dieta saludable.",
+              "Standard Arabic": "ساعده تناول كميات أقل من الوجبات السريعة على الحفاظ على نظام غذائي صحي.",
+              "French": "Manger moins de fast-food l'a aidé à maintenir un régime alimentaire sain.",
+              "Bengali": "কম ফাস্টফুড খাওয়া তাকে স্বাস্থ্যকর খাদ্যাভ্যাস বজায় রাখতে সাহায্য করেছিল।",
+              "Portuguese": "Comer menos fast-food o ajudou a manter uma dieta saudável.",
+              "Russian": "Употребление меньшего количества фастфуда помогло ему придерживаться здоровой диеты.",
+              "Urdu": "کم فاسٹ فوڈ کھانے سے اسے صحت بخش غذا برقرار رکھنے میں مدد ملی۔",
+              "Indonesian": "Mengurangi makan makanan cepat saji membantunya menjaga diet sehat.",
+              "Standard German": "Weniger Fast Food zu essen, half ihm, eine gesunde Ernährung beizubehalten.",
+              "Japanese": "ファーストフードを減らすことで、彼は健康的な食生活を維持することができました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "vegetarian",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "noun / adjective",
+        "pronunciation": "/ˌvedʒəˈteriən/",
+        "meaning": "A person who does not eat meat or fish, or relating to food that does not contain meat.",
+        "synonyms": ["plant-based", "veggie"],
+        "antonyms": ["carnivore", "meat-eater"],
+        "examples": [
+          {
+            "english": "He became a vegetarian because he cares about animal welfare.",
+            "translations": {
+              "Mandarin Chinese": "他成为了一名素食主义者，因为他关心动物福利。",
+              "Hindi": "वह शाकाहारी बन गये क्योंकि उन्हें पशु कल्याण की चिंता है।",
+              "Spanish": "Se hizo vegetariano porque se preocupa por el bienestar animal.",
+              "Standard Arabic": "أصبح نباتياً لأنه يهتم برعاية الحيوان.",
+              "French": "Il est devenu végétarien parce qu'il se soucie du bien-être des animaux.",
+              "Bengali": "তিনি পশু কল্যাণের কথা চিন্তা করে নিরামিষাশী হয়েছেন।",
+              "Portuguese": "Ele se tornou vegetariano porque se importa com o bem-estar dos animais.",
+              "Russian": "Он стал вегетарианцем, потому что заботится о благополучии животных.",
+              "Urdu": "وہ جانوروں کی فلاح و بہبود کی فکر کی وجہ سے ویجیٹیرین (سبزی خور) بن گیا۔",
+              "Indonesian": "Dia menjadi vegetarian karena peduli dengan kesejahteraan hewan.",
+              "Standard German": "Er wurde Vegetarier, weil ihm das Wohl der Tiere am Herzen liegt.",
+              "Japanese": "彼は動物愛護を考えてベジタリアンになりました。"
+            }
+          },
+          {
+            "english": "Does this restaurant have any good vegetarian options?",
+            "translations": {
+              "Mandarin Chinese": "这家餐馆有什么不错的素食选择吗？",
+              "Hindi": "क्या इस रेस्तरां में कोई अच्छे शाकाहारी विकल्प हैं?",
+              "Spanish": "¿Tiene este restaurante buenas opciones vegetarianas?",
+              "Standard Arabic": "هل يحتوي هذا المطعم على أي خيارات نباتية جيدة؟",
+              "French": "Ce restaurant propose-t-il de bonnes options végétariennes ?",
+              "Bengali": "এই রেস্তোরাঁয় কি কোনো ভালো নিরামিষ বিকল্প আছে?",
+              "Portuguese": "Este restaurante tem boas opções vegetarianas?",
+              "Russian": "Есть ли в этом ресторане хорошие вегетарианские блюда?",
+              "Urdu": "کیا اس ریسٹورنٹ میں کوئی اچھے ویجیٹیرین آپشنز ہیں؟",
+              "Indonesian": "Apakah restoran ini memiliki pilihan menu vegetarian yang enak?",
+              "Standard German": "Gibt es in diesem Restaurant gute vegetarische Gerichte?",
+              "Japanese": "このレストランには、美味しいベジタリアン向けのメニューはありますか？"
+            }
+          }
+        ]
+      },
+      {
+        "word": "menu",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmenjuː/",
+        "meaning": "A list of the food and drinks available in a restaurant.",
+        "synonyms": ["bill of fare", "food list"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Could we look at the dessert menu, please?",
+            "translations": {
+              "Mandarin Chinese": "请问我们可以看一下甜点单吗？",
+              "Hindi": "क्या हम डेज़र्ट मेनू देख सकते हैं, कृपया?",
+              "Spanish": "¿Podríamos ver el menú de postres, por favor?",
+              "Standard Arabic": "هل يمكننا الاطلاع على قائمة الحلويات من فضلك؟",
+              "French": "Puis-je voir la carte des desserts, s'il vous plaît ?",
+              "Bengali": "দয়া করে আমরা কি ডেজার্ট মেনুটি দেখতে পারি?",
+              "Portuguese": "Poderíamos ver o cardápio de sobremesas, por favor?",
+              "Russian": "Можно нам посмотреть десертное меню, пожалуйста?",
+              "Urdu": "کیا ہم میٹھے کا مینو دیکھ سکتے ہیں، برائے مہربانی؟",
+              "Indonesian": "Bisa kami lihat menu pencuci mulutnya?",
+              "Standard German": "Könnten wir bitte die Dessertkarte sehen?",
+              "Japanese": "デザートのメニューを見せていただけますか？"
+            }
+          },
+          {
+            "english": "The prices on the menu do not include service charge.",
+            "translations": {
+              "Mandarin Chinese": "菜单上的价格不包括服务费。",
+              "Hindi": "मेनू की कीमतों में सेवा शुल्क शामिल नहीं है।",
+              "Spanish": "Los precios del menú no incluyen el cargo por servicio.",
+              "Standard Arabic": "الأسعار في القائمة لا تشمل رسوم الخدمة.",
+              "French": "Les prix sur le menu ne comprennent pas les frais de service.",
+              "Bengali": "মেনুর দামের মধ্যে সার্ভিস চার্জ অন্তর্ভুক্ত নেই।",
+              "Portuguese": "Os preços no cardápio não incluem a taxa de serviço.",
+              "Russian": "Цены в меню не включают плату за обслуживание.",
+              "Urdu": "مینو کی قیمتوں میں سروس چارج شامل نہیں ہے۔",
+              "Indonesian": "Harga di menu belum termasuk biaya layanan.",
+              "Standard German": "Die Preise auf der Speisekarte enthalten keine Servicegebühr.",
+              "Japanese": "メニューの価格にはサービス料が含まれておりません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "order",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "verb / noun",
+        "pronunciation": "/ˈɔːrdər/",
+        "meaning": "To ask for food or drink in a restaurant, or the request itself.",
+        "synonyms": ["request", "command", "book"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Are you ready to order your main course now?",
+            "translations": {
+              "Mandarin Chinese": "您现在准备好点主菜了吗？",
+              "Hindi": "क्या आप अब अपना मुख्य भोजन ऑर्डर करने के लिए तैयार हैं?",
+              "Spanish": "¿Está listo para pedir su plato principal ahora?",
+              "Standard Arabic": "هل أنت جاهز لطلب طبقك الرئيسي الآن؟",
+              "French": "Êtes-vous prêt à commander votre plat principal maintenant ?",
+              "Bengali": "আপনি কি এখন আপনার প্রধান খাবার অর্ডার করতে প্রস্তুত?",
+              "Portuguese": "Você está pronto para pedir o prato principal agora?",
+              "Russian": "Вы готовы заказать основное блюдо?",
+              "Urdu": "کیا آپ اب اپنا مین کورس آرڈر کرنے کے لیے تیار ہیں؟",
+              "Indonesian": "Apakah Anda siap untuk memesan hidangan utama sekarang?",
+              "Standard German": "Sind Sie bereit, Ihr Hauptgericht zu bestellen?",
+              "Japanese": "メインディッシュのご注文はお決まりですか？"
+            }
+          },
+          {
+            "english": "The waiter took our order and went back to the kitchen.",
+            "translations": {
+              "Mandarin Chinese": "服务员记下了我们点的菜，然后回到了厨房。",
+              "Hindi": "वेटर ने हमारा ऑर्डर लिया और वापस रसोई में चला गया।",
+              "Spanish": "El mesero tomó nuestra orden y regresó a la cocina.",
+              "Standard Arabic": "أخذ النادل طلبنا وعاد إلى المطبخ.",
+              "French": "Le serveur a pris notre commande et est retourné en cuisine.",
+              "Bengali": "ওয়েটার আমাদের অর্ডার নিয়ে রান্নাঘরে ফিরে গেলেন।",
+              "Portuguese": "O garçom anotou nosso pedido e voltou para a cozinha.",
+              "Russian": "Официант принял наш заказ и вернулся на кухню.",
+              "Urdu": "ویٹر نے ہمارا آرڈر لیا اور واپس کچেন میں چلا گیا۔",
+              "Indonesian": "Pelayan mencatat pesanan kami dan kembali ke dapur.",
+              "Standard German": "Der Kellner nahm unsere Bestellung auf und ging zurück in die Küche.",
+              "Japanese": "ウェイターは私たちの注文を取って厨房へ戻っていきました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "restaurant",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈrestrɑːnt/",
+        "meaning": "A place where people pay to sit and eat meals that are cooked on the premises.",
+        "synonyms": ["bistro", "eatery", "diner"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We are having dinner at an Italian restaurant tonight.",
+            "translations": {
+              "Mandarin Chinese": "我们今天晚上要去一家意大利餐厅吃晚饭。",
+              "Hindi": "हम आज रात एक इतालवी रेस्तरां में रात का खाना खा रहे हैं।",
+              "Spanish": "Cenaremos en un restaurante italiano esta noche.",
+              "Standard Arabic": "سنتناول العشاء في مطعم إيطالي الليلة.",
+              "French": "Nous dînons dans un restaurant italien ce soir.",
+              "Bengali": "আমরা আজ রাতে একটি ইতালীয় রেস্তোরাঁয় রাতের খাবার খাচ্ছি।",
+              "Portuguese": "Vamos jantar em um restaurante italiano hoje à noite.",
+              "Russian": "Сегодня вечером мы ужинаем в итальянском ресторане.",
+              "Urdu": "ہم آج رات ایک اطالوی ریسٹورنٹ میں کھانا کھا رہے ہیں۔",
+              "Indonesian": "Kami akan makan malam di restoran Italia malam ini.",
+              "Standard German": "Wir essen heute Abend in einem italienischen Restaurant.",
+              "Japanese": "今夜はイタリアンレストランでディナーを食べます。"
+            }
+          },
+          {
+            "english": "The service at this small restaurant is always excellent.",
+            "translations": {
+              "Mandarin Chinese": "这家小餐馆的服务总是非常好。",
+              "Hindi": "इस छोटे से रेस्तरां में सेवा हमेशा उत्कृष्ट होती है।",
+              "Spanish": "El servicio en este pequeño restaurante siempre es excelente.",
+              "Standard Arabic": "الخدمة في هذا المطعم الصغير ممتازة دائماً.",
+              "French": "Le service dans ce petit restaurant est toujours excellent.",
+              "Bengali": "এই ছোট রেস্তোরাঁটির সার্ভিস সবসময় চমৎকার।",
+              "Portuguese": "O serviço neste pequeno restaurante é sempre excelente.",
+              "Russian": "Обслуживание в этом маленьком ресторане всегда отличное.",
+              "Urdu": "اس چھوٹے سے ریسٹورنٹ میں سروس ہمیشہ بہترین ہوتی ہے۔",
+              "Indonesian": "Pelayanan di restoran kecil ini selalu memuaskan.",
+              "Standard German": "Der Service in diesem kleinen Restaurant ist immer hervorragend.",
+              "Japanese": "この小さなレストランのサービスはいつも素晴らしいです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "chef",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "noun",
+        "pronunciation": "/ʃef/",
+        "meaning": "A professional cook, especially the chief cook in a restaurant.",
+        "synonyms": ["head cook", "culinary artist"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The head chef prepared a special menu for the wedding banquet.",
+            "translations": {
+              "Mandarin Chinese": "主厨为婚礼宴会准备了特别的菜单。",
+              "Hindi": "मुख्य शेफ ने शादी के भोज के लिए एक विशेष मेनू तैयार किया।",
+              "Spanish": "El chef ejecutivo preparó un menú especial para el banquete de bodas.",
+              "Standard Arabic": "أعد رئيس الطهاة قائمة طعام خاصة لمأدبة الزفاف.",
+              "French": "Le chef cuisinier a préparé un menu spécial pour le banquet de mariage.",
+              "Bengali": "প্রধান শেফ বিয়ের ভোজের জন্য একটি বিশেষ মেনু তৈরি করেছিলেন।",
+              "Portuguese": "O chef principal preparou um cardápio especial para o banquete de casamento.",
+              "Russian": "Шеф-повар приготовил специальное меню для свадебного банкета.",
+              "Urdu": "ہیڈ شیف نے شادی کی دعوت کے لیے ایک خاص مینو تیار کیا۔",
+              "Indonesian": "Kepala koki menyiapkan menu spesial untuk perjamuan pernikahan.",
+              "Standard German": "Der Küchenchef bereitete ein besonderes Menü für das Hochzeitsbankett vor.",
+              "Japanese": "総料理長が婚礼の宴のために特別なメニューを用意しました。"
+            }
+          },
+          {
+            "english": "He works as a chef in a five-star hotel.",
+            "translations": {
+              "Mandarin Chinese": "他在一家五星级酒店当厨师。",
+              "Hindi": "वह एक पांच सितारा होटल में शेफ के रूप में काम करता है।",
+              "Spanish": "Él trabaja como chef en un hotel de cinco estrellas.",
+              "Standard Arabic": "يعمل كطاهٍ في فندق خمس نجوم.",
+              "French": "Il travaille comme chef dans un hôtel cinq étoiles.",
+              "Bengali": "তিনি একটি পাঁচতারা হোটেলে শেফ হিসেবে কাজ করেন।",
+              "Portuguese": "Ele trabalha como chef em um hotel cinco estrelas.",
+              "Russian": "Он работает поваром в пятизвездочном отеле.",
+              "Urdu": "وہ ایک فائیو اسٹار ہوٹل میں شیف کے طور पर کام کرتا ہے۔",
+              "Indonesian": "Dia bekerja sebagai koki di hotel bintang lima.",
+              "Standard German": "Er arbeitet als Koch in einem Fünf-Sterne-Hotel.",
+              "Japanese": "彼は5つ星ホテルでシェフとして働いています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "kitchen",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɪtʃɪn/",
+        "meaning": "A room or area where food is prepared and cooked.",
+        "synonyms": ["galley", "scullery"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The family gathered around the wooden table in the kitchen.",
+            "translations": {
+              "Mandarin Chinese": "一家人聚集在厨房的木桌旁。",
+              "Hindi": "परिवार रसोई में लकड़ी की मेज के चारों ओर इकट्ठा हुआ।",
+              "Spanish": "La familia se reunió alrededor de la mesa de madera en la cocina.",
+              "Standard Arabic": "تجمعت العائلة حول الطاولة الخشبية في المطبخ.",
+              "French": "La famille s'est rassemblée autour de la table en bois dans la cuisine.",
+              "Bengali": "পরিবারের সবাই রান্নাঘরের কাঠের টেবিলটির চারপাশে জড়ো হয়েছিল।",
+              "Portuguese": "A família se reuniu ao redor da mesa de madeira na cozinha.",
+              "Russian": "Семья собралась вокруг деревянного стола на кухне.",
+              "Urdu": "خاندان کے لوگ کچن میں لکڑی کی میز کے گرد جمع ہو گئے۔",
+              "Indonesian": "Keluarga itu berkumpul di sekitar meja kayu di dapur.",
+              "Standard German": "Die Familie versammelte sich um den Holztisch in der Küche.",
+              "Japanese": "家族はキッチンの木製のテーブルの周りに集まりました。"
+            }
+          },
+          {
+            "english": "Please help me clean up the kitchen after dinner.",
+            "translations": {
+              "Mandarin Chinese": "晚饭后请帮我把厨房收拾干净。",
+              "Hindi": "कृपया रात के खाने के बाद रसोई साफ करने में मेरी मदद करें।",
+              "Spanish": "Por favor, ayúdame a limpiar la cocina después de la cena.",
+              "Standard Arabic": "يرجى مساعدتي في تنظيف المطبخ بعد العشاء.",
+              "French": "S'il vous plaît, aidez-moi à nettoyer la cuisine après le dîner.",
+              "Bengali": "দয়া করে রাতের খাবারের পর রান্নাঘর পরিষ্কার করতে আমাকে সাহায্য করুন।",
+              "Portuguese": "Por favor, ajude-me a limpar a cozinha depois do jantar.",
+              "Russian": "Пожалуйста, помоги мне убраться на кухне после ужина.",
+              "Urdu": "براہ کرم رات کے کھانے کے بعد کچن صاف کرنے میں میری مدد کریں۔",
+              "Indonesian": "Tolong bantu saya membersihkan dapur setelah makan malam.",
+              "Standard German": "Bitte hilf mir, nach dem Abendessen die Küche aufzuräumen.",
+              "Japanese": "夕食の後、キッチンの片付けを手伝ってください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "snack",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "noun",
+        "pronunciation": "/snæk/",
+        "meaning": "A small amount of food eaten between main meals.",
+        "synonyms": ["light meal", "refreshment", "bite"],
+        "antonyms": ["feast", "banquet"],
+        "examples": [
+          {
+            "english": "I usually have an apple or some nuts as an afternoon snack.",
+            "translations": {
+              "Mandarin Chinese": "我通常吃一个苹果或一些坚果作为下午的点心。",
+              "Hindi": "मैं आमतौर पर दोपहर के नाश्ते के रूप में एक सेब या कुछ मेवे खाता हूँ।",
+              "Spanish": "Suelo comer una manzana o algunas nueces como merienda por la tarde.",
+              "Standard Arabic": "عادة ما أتناول تفاحة أو بعض المكسرات كوجبة خفيفة في فترة بعد الظهر.",
+              "French": "Je prends généralement une pomme ou des noix comme collation l'après-midi.",
+              "Bengali": "আমি সাধারণত বিকেলের নাস্তা হিসেবে একটি আপেল বা কিছু বাদাম খাই।",
+              "Portuguese": "Eu costumo comer uma maçã ou algumas nozes como lanche da tarde.",
+              "Russian": "Обычно в качестве полдника я ем яблоко или немного орехов.",
+              "Urdu": "میں عام طور پر دوپہر کے اسنیک (ہلکی غذا) کے طور پر ایک سیب یا کچھ گری دار میوے کھاتا ہوں۔",
+              "Indonesian": "Saya biasanya makan apel atau kacang-kacangan sebagai camilan sore.",
+              "Standard German": "Ich esse nachmittags meistens einen Apfel oder ein paar Nüsse als Snack.",
+              "Japanese": "私は普段、午後のおやつにリンゴやナッツを食べます。"
+            }
+          },
+          {
+            "english": "Don't eat too many snacks before dinner or you won't be hungry.",
+            "translations": {
+              "Mandarin Chinese": "晚饭前不要吃太多零食，否则你就不饿了。",
+              "Hindi": "रात के खाने से पहले बहुत अधिक स्नैक्स न खाएं अन्यथा आपको भूख नहीं लगेगी।",
+              "Spanish": "No comas demasiados bocadillos antes de la cena o no tendrás hambre.",
+              "Standard Arabic": "لا تأكل الكثير من الوجبات الخفيفة قبل العشاء وإلا فلن تشعر بالجوع.",
+              "French": "Ne mange pas trop d'en-cas avant le dîner, sinon tu n'auras plus faim.",
+              "Bengali": "রাতের খাবারের আগে খুব বেশি স্ন্যাকস খাবেন না নতুবা আপনার ক্ষুধা থাকবে না।",
+              "Portuguese": "Não coma muitos lanches antes do jantar, senão você não terá fome.",
+              "Russian": "Не ешьте слишком много перекусов перед ужином, иначе не проголодаетесь.",
+              "Urdu": "رات کے کھانے سے پہلے بہت زیادہ اسنیکس نہ کھائیں ورنہ آپ کو بھوک نہیں لگے گی۔",
+              "Indonesian": "Jangan makan terlalu banyak camilan sebelum makan malam atau Anda tidak akan lapar.",
+              "Standard German": "Iss vor dem Abendessen nicht zu viele Snacks, sonst hast du keinen Hunger mehr.",
+              "Japanese": "夕食前にスナック菓子を食べすぎないでください。お腹が空かなくなりますよ。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "dessert",
+        "level": "A2",
+        "category": "Food & Cooking",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈzɜːrt/",
+        "meaning": "Sweet food eaten at the end of a meal.",
+        "synonyms": ["sweet course", "pudding"],
+        "antonyms": ["starter", "appetizer"],
+        "examples": [
+          {
+            "english": "For dessert, we had vanilla ice cream with fresh berries.",
+            "translations": {
+              "Mandarin Chinese": "至于甜点，我们吃了香草冰淇淋配新鲜浆果。",
+              "Hindi": "डेज़र्ट में, हमने ताज़ी बेरीज़ के साथ वैनिला आइसक्रीम खाई।",
+              "Spanish": "De postre, comimos helado de vainilla con bayas frescas.",
+              "Standard Arabic": "بالنسبة للحلوى، تناولنا آيس كريم الفانيليا مع التوت الطازج.",
+              "French": "En dessert, nous avons mangé de la glace à la vanille avec des baies fraîches.",
+              "Bengali": "ডেজার্ট হিসেবে আমরা তাজা বেরি সহ ভ্যানিলা আইসক্রিম খেয়েছিলাম।",
+              "Portuguese": "De sobremesa, comemos sorvete de baunilha com frutas vermelhas frescas.",
+              "Russian": "На десерт у нас было ванильное мороженое со свежими ягодами.",
+              "Urdu": "میٹھے میں، ہم نے تازہ بیریز کے ساتھ وینیلا آئس کریم کھائی۔",
+              "Indonesian": "Untuk pencuci mulut, kami menyantap es krim vanila dengan buah beri segar.",
+              "Standard German": "Als Dessert hatten wir Vanilleeis mit frischen Beeren.",
+              "Japanese": "デザートには、新鮮なベリーを添えたバニラアイスクリームを食べました。"
+            }
+          },
+          {
+            "english": "She skipped the main course just to save room for dessert.",
+            "translations": {
+              "Mandarin Chinese": "她跳过主菜只是为了留出肚子吃甜点。",
+              "Hindi": "उसने सिर्फ डेज़र्ट के लिए जगह बचाने के लिए मुख्य भोजन छोड़ दिया।",
+              "Spanish": "Se saltó el plato principal solo para dejar espacio para el postre.",
+              "Standard Arabic": "لقد تخطت الطبق الرئيسي فقط لتوفر مكاناً للحلوى.",
+              "French": "Elle a sauté le plat principal juste pour se réserver une place pour le dessert.",
+              "Bengali": "সে কেবল ডেজার্টের জন্য জায়গা রাখতে প্রধান খাবারটি এড়িয়ে গিয়েছিল।",
+              "Portuguese": "Ela pulou o prato principal só para guardar espaço para a sobremesa.",
+              "Russian": "Она пропустила основное блюдо только для того, чтобы оставить место для десерта.",
+              "Urdu": "اس نے صرف میٹھے کے لیے جگہ بچانے کے لیے مین کورس چھوڑ دیا۔",
+              "Indonesian": "Dia melewatkan hidangan utama hanya demi menyisakan ruang untuk pencuci mulut.",
+              "Standard German": "Sie hat das Hauptgericht ausgelassen, nur um Platz für den Nachtisch zu lassen.",
+              "Japanese": "彼女はデザートを食べるお腹を残すためだけに、メインディッシュをスキップしました。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

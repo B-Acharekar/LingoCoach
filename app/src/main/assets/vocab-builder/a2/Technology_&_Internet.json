@@ -1,0 +1,929 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Technology & Internet": [
+      {
+        "word": "computer",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/kəmˈpjuːtər/",
+        "meaning": "An electronic device that receives, stores, and processes data to perform various tasks.",
+        "synonyms": ["PC", "desktop", "machine"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She uses her desktop computer to write long articles for work.",
+            "translations": {
+              "Mandarin Chinese": "她使用台式电脑写工作用的长篇文章。",
+              "Hindi": "वह काम के लिए लंबे लेख लिखने के लिए अपने डेस्कटॉप कंप्यूटर का उपयोग करती है।",
+              "Spanish": "Ella usa su computadora de escritorio para escribir artículos largos para el trabajo.",
+              "Standard Arabic": "تستخدم كمبيوتر المكتب الخاص بها لكتابة مقالات طويلة للعمل.",
+              "French": "Elle utilise son ordinateur de bureau pour écrire de longs articles pour le travail.",
+              "Bengali": "তিনি কাজের জন্য দীর্ঘ নিবন্ধ লিখতে তার ডেস্কটপ কম্পিউটার ব্যবহার করেন।",
+              "Portuguese": "Ela usa seu computador de mesa para escrever artigos longos para o trabalho.",
+              "Russian": "Она использует свой настольный компьютер для написания длинных статей для работы.",
+              "Urdu": "وہ کام کے لیے لمبے مضامین لکھنے کے لیے اپنے ڈیسک ٹاپ کمپیوٹر کا استعمال کرتی ہے۔",
+              "Indonesian": "Dia menggunakan komputer mejanya untuk menulis artikel panjang untuk pekerjaan.",
+              "Standard German": "Sie benutzt ihren Desktop-Computer, um lange Artikel für die Arbeit zu schreiben.",
+              "Japanese": "彼女は仕事用の長い記事を書くためにデスクトップコンピューターを使っています。"
+            }
+          },
+          {
+            "english": "Restart the computer if the screen freezes completely.",
+            "translations": {
+              "Mandarin Chinese": "如果屏幕完全卡死，请重启电脑。",
+              "Hindi": "यदि स्क्रीन पूरी तरह से जम (फ्रीज) जाए तो कंप्यूटर को रीस्टार्ट करें।",
+              "Spanish": "Reinicia la computadora si la pantalla se congela por completo.",
+              "Standard Arabic": "أعد تشغيل الكمبيوتر إذا تجمدت الشاشة تماماً.",
+              "French": "Redémarrez l'ordinateur si l'écran se fige complètement.",
+              "Bengali": "স্ক্রিনটি সম্পূর্ণ লক হয়ে গেলে কম্পিউটারটি রিস্টার্ট করুন।",
+              "Portuguese": "Reinicie o computador se a tela congelar completamente.",
+              "Russian": "Перезагрузите компьютер, если экран полностью зависнет.",
+              "Urdu": "اگر اسکرین مکمل طور پر فریز (جام) ہو جائے تو کمپیوٹر کو ری اسٹार्ट کریں۔",
+              "Indonesian": "Nyalakan ulang komputer jika layarnya membeku sama sekali.",
+              "Standard German": "Starten Sie den Computer neu, wenn der Bildschirm komplett einfriert.",
+              "Japanese": "画面が完全にフリーズした場合は、コンピューターを再起動してください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "smartphone",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsmɑːrtfoʊn/",
+        "meaning": "A mobile phone that performs many of the functions of a computer, typically having a touchscreen interface and internet access.",
+        "synonyms": ["mobile phone", "cellphone"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He bought a new smartphone with an excellent camera.",
+            "translations": {
+              "Mandarin Chinese": "他买了一部配有极好相机的全新智能手机。",
+              "Hindi": "उन्होंने एक बेहतरीन कैमरे वाला नया स्मार्टफोन खरीदा।",
+              "Spanish": "Compró un nuevo teléfono inteligente con una excelente cámara.",
+              "Standard Arabic": "اشترى هاتفاً ذكياً جديداً بكاميرا ممتازة.",
+              "French": "Il a acheté un nouveau smartphone avec un excellent appareil photo.",
+              "Bengali": "তিনি একটি দুর্দান্ত ক্যামেরা সহ একটি নতুন স্মার্টফোন কিনেছেন।",
+              "Portuguese": "Ele comprou um smartphone novo com uma excelente câmera.",
+              "Russian": "Он купил новый смартфон с отличной камерой.",
+              "Urdu": "اس نے ایک بہترین کیمرے والا نیا اسمارٹ فون خریدا۔",
+              "Indonesian": "Dia membeli ponsel pintar baru dengan kamera yang luar biasa.",
+              "Standard German": "Er hat ein neues Smartphone mit einer hervorragenden Kamera gekauft.",
+              "Japanese": "彼は優れたカメラを搭載した新しいスマートフォンを買いました。"
+            }
+          },
+          {
+            "english": "Please turn off your smartphone before the movie begins.",
+            "translations": {
+              "Mandarin Chinese": "电影开始前请关闭您的智能手机。",
+              "Hindi": "कृपया फिल्म शुरू होने से पहले अपना स्मार्टफोन बंद कर दें।",
+              "Spanish": "Por favor, apaga tu teléfono inteligente antes de que comience la película.",
+              "Standard Arabic": "يرجى إغلاق هاتفك الذكي قبل بدء الفيلم.",
+              "French": "Veuillez éteindre votre smartphone avant le début du film.",
+              "Bengali": "দয়া করে সিনেমা শুরু হওয়ার আগে আপনার স্মার্টফোনটি বন্ধ করুন।",
+              "Portuguese": "Por favor, desligue o seu smartphone antes do filme começar.",
+              "Russian": "Пожалуйста, выключите свой смартфон перед началом фильма.",
+              "Urdu": "براہ کرم فلم شروع ہونے سے پہلے اپنا اسمارٹ فون بند کر دیں۔",
+              "Indonesian": "Tolong matikan ponsel pintar Anda sebelum film dimulai.",
+              "Standard German": "Bitte schalten Sie Ihr Smartphone aus, bevor der Film beginnt.",
+              "Japanese": "映画が始まる前にスマートフォンの電源を切ってください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "tablet",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtæblət/",
+        "meaning": "A small, flat computer that you operate by touching the screen.",
+        "synonyms": ["tablet PC", "ipad"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The kids love to play educational games on the tablet.",
+            "translations": {
+              "Mandarin Chinese": "孩子们喜欢在平板电脑上玩教育游戏。",
+              "Hindi": "बच्चे टैबलेट पर शैक्षिक खेल खेलना पसंद करते हैं।",
+              "Spanish": "A los niños les encanta jugar juegos educativos en la tableta.",
+              "Standard Arabic": "يحب الأطفال لعب الألعاب التعليمية على التابلت.",
+              "French": "Les enfants adorent jouer à des jeux éducatifs sur la tablette.",
+              "Bengali": "বাচ্চারা ট্যাবলেটে শিক্ষামূলক গেম খেলতে পছন্দ করে।",
+              "Portuguese": "As crianças adoram jogar jogos educativos no tablet.",
+              "Russian": "Дети любят играть в развивающие игры на планшете.",
+              "Urdu": "بچے ٹیبلٹ پر تعلیمی کھیل کھیلنا پسند کرتے ہیں۔",
+              "Indonesian": "Anak-anak suka bermain gim edukatif di tablet.",
+              "Standard German": "Die Kinder spielen gerne Lernspiele auf dem Tablet.",
+              "Japanese": "子供たちはタブレットで教育的なゲームをするのが大好きです。"
+            }
+          },
+          {
+            "english": "A tablet is lighter than a laptop and easier to carry around.",
+            "translations": {
+              "Mandarin Chinese": "平板电脑比笔记本电脑更轻，更容易随身携带。",
+              "Hindi": "एक टैबलेट लैपटॉप से ​​हल्का होता है और इसे इधर-उधर ले जाना आसान होता है।",
+              "Spanish": "Una tableta es más ligera que una computadora portátil y más fácil de llevar.",
+              "Standard Arabic": "التابلت أخف وزناً من اللاب توب وأسهل في الحمل.",
+              "French": "Une tablette est plus légère qu'un ordinateur portable et plus facile à transporter.",
+              "Bengali": "একটি ট্যাবলেট ল্যাপটপের চেয়ে হালকা এবং বহন করা সহজ।",
+              "Portuguese": "Um tablet é mais leve que um notebook e mais fácil de carregar por aí.",
+              "Russian": "Планшет легче ноутбука, и его удобнее носить с собой.",
+              "Urdu": "ایک ٹیبلٹ لیپ ٹاپ سے ہلکا ہوتا ہے اور اسے ادھر ادھر لے جانا آسان ہوتا ہے۔",
+              "Indonesian": "Tablet lebih ringan daripada laptop dan lebih mudah dibawa ke mana-mana.",
+              "Standard German": "Ein Tablet ist leichter als ein Laptop und einfacher mitzunehmen.",
+              "Japanese": "タブレットはノートパソコンよりも軽くて持ち運びが簡単です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "keyboard",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkiːbɔːrd/",
+        "meaning": "The set of keys on a computer or typewriter that you press to type letters and numbers.",
+        "synonyms": ["keypad"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He typed his report quickly using the mechanical keyboard.",
+            "translations": {
+              "Mandarin Chinese": "他使用机械键盘快速输入了他的报告。",
+              "Hindi": "उन्होंने मैकेनिकल कीबोर्ड का उपयोग करके अपनी रिपोर्ट जल्दी से टाइप की।",
+              "Spanish": "Escribió su informe rápidamente usando el teclado mecánico.",
+              "Standard Arabic": "كتب تقريره بسرعة باستخدام لوحة المفاتيح الميكانيكية.",
+              "French": "Il a tapé son rapport rapidement à l'aide du clavier mécanique.",
+              "Bengali": "তিনি মেকানিক্যাল কিবোর্ড ব্যবহার করে দ্রুত তার প্রতিবেদনটি টাইপ করেছেন।",
+              "Portuguese": "Ele digitou seu relatório rapidamente usando o teclado mecânico.",
+              "Russian": "Он быстро набрал свой отчет, используя механическую клавиатуру.",
+              "Urdu": "اس نے مکینیکل کی بورڈ کا استعمال کرتے ہوئے اپنی رپورٹ جلدی سے ٹائپ کی۔",
+              "Indonesian": "Dia mengetik laporannya dengan cepat menggunakan papan ketik mekanis.",
+              "Standard German": "Er tippte seinen Bericht schnell auf der mechanischen Tastatur.",
+              "Japanese": "彼はメカニカルキーボードを使ってレポートを素早く打ち込みました。"
+            }
+          },
+          {
+            "english": "You can clean the keyboard with a soft cloth.",
+            "translations": {
+              "Mandarin Chinese": "您可以用软布清洁键盘。",
+              "Hindi": "आप कीबोर्ड को एक मुलायम कपड़े से साफ कर सकते हैं।",
+              "Spanish": "Puedes limpiar el teclado con un paño suave.",
+              "Standard Arabic": "يمكنك تنظيف لوحة المفاتيح بقطعة قماش ناعمة.",
+              "French": "Vous pouvez nettoyer le clavier avec un chiffon doux.",
+              "Bengali": "আপনি একটি নরম কাপড় দিয়ে কিবোর্ড পরিষ্কার করতে পারেন।",
+              "Portuguese": "Você pode limpar o teclado com um pano macio.",
+              "Russian": "Вы можете почистить клавиатуру мягкой тканью.",
+              "Urdu": "آپ کی بورڈ کو نرم کپڑے سے صاف کر سکتے ہیں۔",
+              "Indonesian": "Anda dapat membersihkan papan ketik dengan kain lembut.",
+              "Standard German": "Sie können die Tastatur mit einem weichen Tuch reinigen.",
+              "Japanese": "キーボードは柔らかい布できれいに拭くことができます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "screen",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/skriːn/",
+        "meaning": "The flat glass surface on a computer, television, or smartphone that shows images or text.",
+        "synonyms": ["display", "monitor"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The touch screen on my phone is broken, so I cannot unlock it.",
+            "translations": {
+              "Mandarin Chinese": "我手机的触摸屏坏了，所以我无法解锁它。",
+              "Hindi": "मेरे फोन की टच स्क्रीन टूट गई है, इसलिए मैं इसे अनलॉक नहीं कर सकता।",
+              "Spanish": "La pantalla táctil de mi teléfono está rota, así que no puedo desbloquearlo.",
+              "Standard Arabic": "شاشة اللمس في هاتفي مكسورة، لذا لا يمكنني إلغاء قفله.",
+              "French": "L'écran tactile de mi téléphone est cassé, je ne peux donc pas le déverrouiller.",
+              "Bengali": "আমার ফোনের টাচ স্ক্রিনটি ভেঙে গেছে, তাই আমি এটি আনলক করতে পারছি না।",
+              "Portuguese": "A tela sensível ao toque do meu telefone está quebrada, então não consigo desbloqueá-lo.",
+              "Russian": "Сенсорный экран моего телефона сломался, поэтому я не могу его разблокировать.",
+              "Urdu": "میرا فون کا ٹچ اسکرین ٹوٹ گیا ہے، اس لیے میں اسے انلاک نہیں کر سکتا۔",
+              "Indonesian": "Layar sentuh di ponsel saya rusak, jadi saya tidak bisa membukanya.",
+              "Standard German": "Der Touchscreen meines Telefons ist kaputt, sodass ich es nicht entsperren kann.",
+              "Japanese": "スマートフォンのタッチスクリーンが壊れてしまい、ロックを解除できません。"
+            }
+          },
+          {
+            "english": "Looking at a computer screen for too long can hurt your eyes.",
+            "translations": {
+              "Mandarin Chinese": "盯着电脑屏幕看太久可能会伤害你的眼睛。",
+              "Hindi": "लंबे समय तक कंप्यूटर स्क्रीन को देखने से आपकी आँखें खराब हो सकती हैं।",
+              "Spanish": "Mirar una pantalla de computadora por demasiado tiempo puede lastimar tus ojos.",
+              "Standard Arabic": "النظر إلى شاشة الكمبيوتر لفترة طويلة جداً يمكن أن يؤذي عينيك.",
+              "French": "Regarder un écran d'ordinateur trop longtemps peut faire mal aux yeux.",
+              "Bengali": "দীর্ঘক্ষণ কম্পিউটারের স্ক্রিনের দিকে তাকালে চোখের ক্ষতি হতে পারে।",
+              "Portuguese": "Olhar para a tela do computador por muito tempo pode prejudicar seus olhos.",
+              "Russian": "Слишком долгий взгляд на экран компьютера может повредить глаза.",
+              "Urdu": "زیادہ دیر تک کمپیوٹر اسکرین کو دیکھنے سے آپ کی آنکھوں کو نقصان پہنچ سکتا ہے۔",
+              "Indonesian": "Menatap layar komputer terlalu lama dapat merusak mata Anda.",
+              "Standard German": "Zu langes Starren auf einen Computerbildschirm kann den Augen schaden.",
+              "Japanese": "長い間コンピューターの画面を見つめていると、目が痛くなることがあります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "battery",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbætəri/",
+        "meaning": "A device that stores electrical energy and provides power to smartphones, laptops, and other gadgets.",
+        "synonyms": ["power cell", "accumulator"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My smartphone battery dies quickly when I play heavy games.",
+            "translations": {
+              "Mandarin Chinese": "当我玩大型游戏时，我的智能手机电池很快就会没电。",
+              "Hindi": "जब मैं भारी गेम खेलता हूँ तो मेरे स्मार्टफोन की बैटरी जल्दी खत्म हो जाती है।",
+              "Spanish": "La batería de mi teléfono inteligente se agota rápido cuando juego videojuegos pesados.",
+              "Standard Arabic": "تنفد بطارية هاتفي الذكي بسرعة عندما ألعب ألعاباً ثقيلة.",
+              "French": "La batterie de mon smartphone se décharge rapidement lorsque je joue à des jeux lourds.",
+              "Bengali": "আমি যখন ভারী গেম খেলি তখন আমার স্মার্টফোনের ব্যাটারি দ্রুত শেষ হয়ে যায়।",
+              "Portuguese": "A bateria do meu smartphone acaba rápido quando eu jogo jogos pesados.",
+              "Russian": "Батарея моего смартфона быстро садится, когда я играю в тяжелые игры.",
+              "Urdu": "جب میں ہیوی (بھاری) گیمز کھیلتا ہوں تو میرے اسمارٹ فون کی بیٹری جلدی ختم ہو جاتی ہے۔",
+              "Indonesian": "Baterai ponsel pintar saya cepat habis saat saya bermain gim berat.",
+              "Standard German": "Der Akku meines Smartphones wird schnell leer, wenn ich aufwendige Spiele spiele.",
+              "Japanese": "負荷の大きいゲームをすると、スマートフォンのバッテリーがすぐに減ってしまいます。"
+            }
+          },
+          {
+            "english": "This laptop has a strong battery that lasts for ten hours.",
+            "translations": {
+              "Mandarin Chinese": "这台笔记本电脑配有强劲的电池，可以持续使用十个小时。",
+              "Hindi": "इस लैपटॉप में एक शक्तिशाली बैटरी है जो दस घंटे तक चलती है।",
+              "Spanish": "Esta computadora portátil tiene una batería potente que dura diez horas.",
+              "Standard Arabic": "يحتوي هذا اللاب توب على بطارية قوية تدوم لمدة عشر ساعات.",
+              "French": "Cet ordinateur portable dispose d'une batterie puissante qui dure dix heures.",
+              "Bengali": "এই ল্যাপটপটিতে একটি শক্তিশালী ব্যাটারি রয়েছে যা দশ ঘন্টা স্থায়ী হয়।",
+              "Portuguese": "Este notebook tem uma bateria potente que dura dez horas.",
+              "Russian": "У этого ноутбука мощный аккумулятор, которого хватает на десять часов.",
+              "Urdu": "اس لیپ ٹاپ میں ایک طاقتور بیٹری ہے جو دس گھنٹے تک چلتی ہے۔",
+              "Indonesian": "Laptop ini memiliki baterai kuat yang bertahan selama sepuluh jam.",
+              "Standard German": "Dieser Laptop hat einen starken Akku, der zehn Stunden hält.",
+              "Japanese": "このノートパソコンには、10時間持続する強力なバッテリーが搭載されています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "charger",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtʃɑːrdʒər/",
+        "meaning": "A piece of equipment used to put electricity into a battery.",
+        "synonyms": ["power adapter", "charging cord"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Can I borrow your phone charger? My phone is at five percent.",
+            "translations": {
+              "Mandarin Chinese": "能借用一下你的手机充电器吗？我的手机只有5%的电了。",
+              "Hindi": "क्या मैं आपका फोन चार्जर उधार ले सकता हूँ? मेरा फोन पांच प्रतिशत पर है।",
+              "Spanish": "¿Puedo pedir prestado tu cargador de teléfono? Mi teléfono está al cinco por ciento.",
+              "Standard Arabic": "هل يمكنني استعارة شاحن هاتفك؟ بطارية هاتفي عند خمسة بالمئة.",
+              "French": "Puis-je emprunter ton chargeur de téléphone ? Mon téléphone est à cinq pour cent.",
+              "Bengali": "আমি কি আপনার ফোন চার্জারটি ধার নিতে পারি? আমার ফোনে পাঁচ শতাংশ চার্জ আছে।",
+              "Portuguese": "Posso pegar seu carregador de celular emprestado? Meu telefone está em cinco por cento.",
+              "Russian": "Могу я одолжить твою зарядку для телефона? У меня осталось пять процентов.",
+              "Urdu": "کیا میں آپ کا فون چارجر ادھار لے سکتا ہوں؟ میرا فون پانچ فیصد پر ہے۔",
+              "Indonesian": "Boleh saya pinjam pengisi daya ponsel Anda? Ponsel saya tersisa lima persen.",
+              "Standard German": "Kann ich mir dein Ladegerät leihen? Mein Handy ist bei fünf Prozent.",
+              "Japanese": "スマートフォンの充電器を借りてもいいですか？バッテリーが5％しかありません。"
+            }
+          },
+          {
+            "english": "Make sure to pack the laptop charger before we leave for the trip.",
+            "translations": {
+              "Mandarin Chinese": "在我们出发去旅行前，记得把笔记本电脑充电器装好。",
+              "Hindi": "सुनिश्चित करें कि यात्रा पर जाने से पहले आप लैपटॉप चार्जर पैक कर लें।",
+              "Spanish": "Asegúrate de empacar el cargador de la computadora portátil antes de irnos de viaje.",
+              "Standard Arabic": "تأكد من حزم شاحن اللاب توب قبل أن نغادر في الرحلة.",
+              "French": "Assurez-vous d'emporter le chargeur de l'ordinateur portable avant de partir en voyage.",
+              "Bengali": "ভ্রমণে যাওয়ার আগে ল্যাপটপের চার্জারটি গুছিয়ে নিতে ভুলবেন না।",
+              "Portuguese": "Certifique-se de levar o carregador do notebook antes de sairmos de viagem.",
+              "Russian": "Не забудьте положить зарядное устройство для ноутбука перед поездкой.",
+              "Urdu": "سفر پر جانے سے پہلے یقینی بنائیں کہ آپ نے لیپ ٹاپ کا چارجر پیک کر لیا ہے۔",
+              "Indonesian": "Pastikan untuk mengemas pengisi daya laptop sebelum kita pergi berlibur.",
+              "Standard German": "Vergessen Sie nicht, das Laptop-Ladegerät einzupacken, bevor wir die Reise antreten.",
+              "Japanese": "旅行に出発する前に、ノートパソコンの充電器を忘れずにバッグに入れてください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "internet",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɪntərnet/",
+        "meaning": "The global network connecting millions of computers, allowing people to share information and communicate.",
+        "synonyms": ["the Web", "cyberspace", "online network"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The internet is very slow today, so the videos are not loading.",
+            "translations": {
+              "Mandarin Chinese": "今天的网络非常慢，所以视频都加载不出来。",
+              "Hindi": "आज इंटरनेट बहुत धीमा है, इसलिए वीडियो लोड नहीं हो रहे हैं।",
+              "Spanish": "El internet está muy lento hoy, así que los videos no cargan.",
+              "Standard Arabic": "الإنترنت بطيء جداً اليوم، لذا لا يتم تحميل مقاطع الفيديو.",
+              "French": "Internet est très lent aujourd'hui, donc les vidéos ne se chargent pas.",
+              "Bengali": "আজ ইন্টারনেট খুব ধীরগতির, তাই ভিডিওগুলো লোড হচ্ছে না।",
+              "Portuguese": "A internet está muito lenta hoje, então os vídeos não estão carregando.",
+              "Russian": "Интернет сегодня очень медленный, поэтому видео не загружаются.",
+              "Urdu": "آج انٹرنیٹ بہت سست ہے، اس لیے ویڈیوز لوڈ نہیں ہو رہی ہیں۔",
+              "Indonesian": "Internet sangat lambat hari ini, jadi videonya tidak bisa dimuat.",
+              "Standard German": "Das Internet ist heute sehr langsam, sodass die Videos nicht geladen werden.",
+              "Japanese": "今日はインターネットがとても遅いので、動画が読み込まれません。"
+            }
+          },
+          {
+            "english": "You need an internet connection to use this online application.",
+            "translations": {
+              "Mandarin Chinese": "您需要互联网连接才能使用这款在线应用程序。",
+              "Hindi": "इस ऑनलाइन एप्लिकेशन का उपयोग करने के लिए आपको इंटरनेट कनेक्शन की आवश्यकता है।",
+              "Spanish": "Necesitas una conexión a internet para usar esta aplicación en línea.",
+              "Standard Arabic": "أنت بحاجة إلى اتصال بالإنترنت لاستخدام هذا التطبيق عبر الإنترنت.",
+              "French": "Vous avez besoin d'une connexion Internet pour utiliser cette application en ligne.",
+              "Bengali": "এই অনলাইন অ্যাপ্লিকেশনটি ব্যবহার করার জন্য আপনার একটি ইন্টারনেট সংযোগ প্রয়োজন।",
+              "Portuguese": "Você precisa de uma conexão com a internet para usar este aplicativo online.",
+              "Russian": "Для использования этого онлайн-приложения вам необходимо подключение к интернету.",
+              "Urdu": "اس آن لائن ایپلیکیشن کو استعمال کرنے کے لیے آپ کو انٹرنیٹ کنکشن کی ضرورت ہے۔",
+              "Indonesian": "Anda memerlukan koneksi internet untuk menggunakan aplikasi daring ini.",
+              "Standard German": "Sie benötigen eine Internetverbindung, um diese Online-Anwendung zu nutzen.",
+              "Japanese": "このオンラインアプリを使用するには、インターネット接続が必要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "website",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈwebsaɪt/",
+        "meaning": "A set of pages on the internet that contains information about a particular person, company, or topic.",
+        "synonyms": ["site", "web page"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I visited the official website to book my train tickets.",
+            "translations": {
+              "Mandarin Chinese": "我访问了官方网站来预订火车票。",
+              "Hindi": "मैंने अपनी ट्रेन टिकट बुक करने के लिए आधिकारिक वेबसाइट देखी।",
+              "Spanish": "Visité el sitio web oficial para reservar mis boletos de tren.",
+              "Standard Arabic": "زرت الموقع الرسمي لحجز تذاكر القطار الخاصة بي.",
+              "French": "J'ai visité le site officiel pour réserver mes billets de train.",
+              "Bengali": "আমি ট্রেনের টিকিট বুক করতে অফিসিয়াল ওয়েবসাইটটি ভিজিট করেছি।",
+              "Portuguese": "Visitei o site oficial para reservar minhas passagens de trem.",
+              "Russian": "Я зашел на официальный сайт, чтобы забронировать билеты на поезд.",
+              "Urdu": "میں نے ٹرین کے ٹکٹ بک کرنے کے لیے آفیشل ویب سائٹ وزٹ کی۔",
+              "Indonesian": "Saya mengunjungi situs web resmi untuk memesan tiket kereta saya.",
+              "Standard German": "Ich habe die offizielle Website besucht, um meine Zugtickets zu buchen.",
+              "Japanese": "電車のチケットを予約するために公式サイトを訪問しました。"
+            }
+          },
+          {
+            "english": "The school website has all the information about the holiday schedule.",
+            "translations": {
+              "Mandarin Chinese": "学校网站上有关于假期安排的所有信息。",
+              "Hindi": "स्कूल की वेबसाइट पर छुट्टियों के शेड्यूल के बारे में सारी जानकारी है।",
+              "Spanish": "El sitio web de la escuela tiene toda la información sobre el calendario de vacaciones.",
+              "Standard Arabic": "يحتوي موقع المدرسة الإلكتروني على جميع المعلومات حول جدول العطلات.",
+              "French": "Le site Web de l'école contient toutes les informations sur le calendrier des vacances.",
+              "Bengali": "স্কুলের ওয়েবসাইটে ছুটির সময়সূচী সম্পর্কে সমস্ত তথ্য রয়েছে।",
+              "Portuguese": "O site da escola tem todas as informações sobre a agenda de férias.",
+              "Russian": "На школьном сайте есть вся информация о графике каникул.",
+              "Urdu": "اسکول کی ویب سائٹ پر چھٹیوں کے شیڈول کے بارے में تمام معلومات موجود ہیں۔",
+              "Indonesian": "Situs web sekolah memiliki semua informasi tentang jadwal libur.",
+              "Standard German": "Die Schulwebsite enthält alle Informationen über den Ferienplan.",
+              "Japanese": "学校のウェブサイトには、休日のスケジュールに関するすべての情報が掲載されています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "application",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌæplɪˈkeɪʃn/",
+        "meaning": "A software program designed to perform a specific task for a user, commonly called an app on smartphones.",
+        "synonyms": ["app", "program", "utility"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I downloaded a language learning application on my new smartphone.",
+            "translations": {
+              "Mandarin Chinese": "我在新智能手机上下载了一个语言学习应用程序。",
+              "Hindi": "मैंने अपने नए स्मार्टफोन पर एक भाषा सीखने का एप्लिकेशन डाउनलोड किया।",
+              "Spanish": "Descargué una aplicación para aprender idiomas en mi nuevo teléfono inteligente.",
+              "Standard Arabic": "قمت بتنزيل تطبيق لتعلم اللغات على هاتفي الذكي الجديد.",
+              "French": "J'ai téléchargé une application d'apprentissage des langues sur mi nouveau smartphone.",
+              "Bengali": "আমি আমার নতুন স্মার্টফোনে ভাষা শেখার একটি অ্যাপ্লিকেশন ডাউনলোড করেছি।",
+              "Portuguese": "Baixei um aplicativo de aprendizado de idiomas no meu novo smartphone.",
+              "Russian": "Я скачал приложение для изучения языков на свой новый смартфон.",
+              "Urdu": "میں نے اپنے نئے اسمارٹ فون پر زبان سیکھنے کی ایک ایپلیکیشن ڈاؤن لوڈ کی۔",
+              "Indonesian": "Saya mengunduh aplikasi pembelajaran bahasa di ponsel pintar baru saya.",
+              "Standard German": "Ich habe eine App zum Sprachenlernen auf mein neues Smartphone heruntergeladen.",
+              "Japanese": "新しいスマートフォンに語学学習のアプリ（アプリケーション）をダウンロードしました。"
+            }
+          },
+          {
+            "english": "This navigation application helps you find the fastest route.",
+            "translations": {
+              "Mandarin Chinese": "这款导航应用程序可以帮助您找到最快的路线。",
+              "Hindi": "यह नेविगेशन एप्लिकेशन आपको सबसे तेज़ रास्ता खोजने में मदद करता है।",
+              "Spanish": "Esta aplicación de navegación te ayuda a encontrar la ruta más rápida.",
+              "Standard Arabic": "يساعدك تطبيق الملاحة هذا في العثور على أسرع طريق.",
+              "French": "Cette application de navigation vous aide à trouver l'itinéraire le plus rapide.",
+              "Bengali": "এই নেভিগেশন অ্যাপ্লিকেশনটি আপনাকে দ্রুততম রুট খুঁজে পেতে সহায়তা করে।",
+              "Portuguese": "Este aplicativo de navegação ajuda você a encontrar a rota mais rápida.",
+              "Russian": "Это навигационное приложение помогает найти самый быстрый маршрут.",
+              "Urdu": "یہ نیویگیشن ایپلیکیشن آپ کو تیز ترین راستہ تلاش کرنے میں مدد کرتی ہے۔",
+              "Indonesian": "Aplikasi navigasi ini membantu Anda menemukan rute tercepat.",
+              "Standard German": "Diese Navigations-App hilft Ihnen, die schnellste Route zu finden.",
+              "Japanese": "このナビゲーションアプリは、最も速いルートを見つけるのに役立ちます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "software",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsɔːftwer/",
+        "meaning": "The programs and other operating information used by a computer.",
+        "synonyms": ["programs", "systems", "applications"],
+        "antonyms": ["hardware"],
+        "examples": [
+          {
+            "english": "You need to update the computer software to protect against viruses.",
+            "translations": {
+              "Mandarin Chinese": "您需要更新电脑软件以防范病毒。",
+              "Hindi": "कंप्यूटर को वायरस से बचाने के लिए आपको उसके सॉफ्टवेयर को अपडेट करना होगा।",
+              "Spanish": "Necesitas actualizar el software de la computadora para protegerla contra virus.",
+              "Standard Arabic": "تحتاج إلى تحديث برامج الكمبيوتر للحماية من الفيروسات.",
+              "French": "Vous devez mettre à jour le logiciel de l'ordinateur pour le protéger contre les virus.",
+              "Bengali": "ভাইরাস থেকে রক্ষা করতে আপনার কম্পিউটারের সফটওয়্যার আপডেট করতে হবে।",
+              "Portuguese": "Você precisa atualizar o software do computador para protegê-lo contra vírus.",
+              "Russian": "Вam необходимо обновить программное обеспечение компьютера для защиты от вирусов.",
+              "Urdu": "وائرس سے بچنے کے لیے آپ کو کمپیوٹر سافٹ ویئر کو اپ ڈیٹ کرنے کی ضرورت ہے۔",
+              "Indonesian": "Anda perlu memperbarui perangkat lunak komputer untuk melindunginya dari virus.",
+              "Standard German": "Sie müssen die Computersoftware aktualisieren, um sich vor Viren zu schützen.",
+              "Japanese": "ウイルスから保護するために、コンピューターのソフトウェアを更新する必要があります。"
+            }
+          },
+          {
+            "english": "He works as a software engineer for a tech company in Silicon Valley.",
+            "translations": {
+              "Mandarin Chinese": "他在硅谷的一家科技公司担任软件工程师。",
+              "Hindi": "वह सिलिकॉन वैली में एक टेक कंपनी के लिए सॉफ्टवेयर इंजीनियर के रूप में काम करता है।",
+              "Spanish": "Trabaja como ingeniero de software para una empresa de tecnología en Silicon Valley.",
+              "Standard Arabic": "يعمل كمهندس برمجيات في شركة تكنولوجيا في وادي السيليكون.",
+              "French": "Il travaille comme ingénieur logiciel pour une entreprise technologique de la Silicon Valley.",
+              "Bengali": "তিনি সিলিকন ভ্যালির একটি টেক কোম্পানিতে সফটওয়্যার ইঞ্জিনিয়ার হিসেবে কাজ করেন।",
+              "Portuguese": "Ele trabalha como engenheiro de software para uma empresa de tecnologia no Vale do Silício.",
+              "Russian": "Он работает инженером-программистом в технологической компании в Кремниевой долине.",
+              "Urdu": "وہ سلیکان ویلی میں ایک ٹیک کمپنی کے لیے سافٹ ویئر انجینئر کے طور पर کام کرتا ہے۔",
+              "Indonesian": "Dia bekerja sebagai insinyur perangkat lunak di perusahaan teknologi di Silicon Valley.",
+              "Standard German": "Er arbeitet als Softwareentwickler für ein Technologieunternehmen im Silicon Valley.",
+              "Japanese": "彼はシリコンバレーのIT企業でソフトウェアエンジニアとして働いています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "download",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "verb / noun",
+        "pronunciation": "/ˌdaʊnˈloʊd/",
+        "meaning": "To copy data, files, or software from the internet onto your own device.",
+        "synonyms": ["fetch", "save", "transfer"],
+        "antonyms": ["upload"],
+        "examples": [
+          {
+            "english": "I want to download a movie to watch on the airplane tomorrow.",
+            "translations": {
+              "Mandarin Chinese": "我想下载一部电影，以便明天在飞机上看。",
+              "Hindi": "मैं कल हवाई जहाज में देखने के लिए एक फिल्म डाउनलोड करना चाहता हूँ।",
+              "Spanish": "Quiero descargar una película para verla en el avión mañana.",
+              "Standard Arabic": "أريد تنزيل فيلم لمشاهدته على الطائرة غداً.",
+              "French": "Je veux télécharger un film pour le regarder dans l'avion demain.",
+              "Bengali": "আমি আগামীকাল প্লেনে দেখার জন্য একটি মুভি ডাউনলোড করতে চাই।",
+              "Portuguese": "Quero baixar um filme para assistir no avião amanhã.",
+              "Russian": "Я хочу скачать фильм, чтобы посмотреть его завтра в самолете.",
+              "Urdu": "میں کل ہوائی جہاز میں دیکھنے کے لیے ایک فلم ڈاؤن لوڈ کرنا چاہتا ہوں۔",
+              "Indonesian": "Saya ingin mengunduh film untuk ditonton di pesawat besok.",
+              "Standard German": "Ich möchte einen Film herunterladen, um ihn morgen im Flugzeug anzusehen.",
+              "Japanese": "明日飛行機の中で見るために映画をダウンロードしたいです。"
+            }
+          },
+          {
+            "english": "The download of the new album took only thirty seconds.",
+            "translations": {
+              "Mandarin Chinese": "新专辑的下载只花了三十秒。",
+              "Hindi": "नए एल्बम को डाउनलोड होने में केवल तीस सेकंड का समय लगा।",
+              "Spanish": "La descarga del nuevo álbum tardó solo treinta segundos.",
+              "Standard Arabic": "استغرق تنزيل الألبوم الجديد ثلاثين ثانية فقط.",
+              "French": "Le téléchargement du nouvel album n'a pris que trente secondes.",
+              "Bengali": "নতুন অ্যালবামটি ডাউনলোড হতে মাত্র ত্রিশ সেকেন্ড সময় লেগেছে।",
+              "Portuguese": "O download do álbum novo demorou apenas trinta segundos.",
+              "Russian": "Скачивание нового альбома заняло всего тридцать секунд.",
+              "Urdu": "نئے البم کا ڈاؤن لوڈ صرف تیس سیکنڈ میں ہو گیا۔",
+              "Indonesian": "Pengunduhan album baru hanya memakan waktu tiga puluh detik.",
+              "Standard German": "Der Download des neuen Albums dauerte nur dreißig Sekunden.",
+              "Japanese": "新しいアルバムのダウンロードはわずか30秒で完了しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "upload",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "verb / noun",
+        "pronunciation": "/ˌʌpˈloʊd/",
+        "meaning": "To transfer data or files from your own device onto the internet or a larger computer system.",
+        "synonyms": ["post", "send", "publish"],
+        "antonyms": ["download"],
+        "examples": [
+          {
+            "english": "She wants to upload her vacation photos to social media.",
+            "translations": {
+              "Mandarin Chinese": "她想把她的度假照片上传到社交媒体上。",
+              "Hindi": "वह अपनी छुट्टियों की तस्वीरें सोशल मीडिया पर अपलोड करना चाहती है।",
+              "Spanish": "Ella quiere subir las fotos de sus vacaciones a las redes sociales.",
+              "Standard Arabic": "تريد تحميل صور عطلتها على وسائل التواصل الاجتماعي.",
+              "French": "Elle veut charger ses photos de vacances sur les réseaux sociaux.",
+              "Bengali": "সে তার ছুটির ছবিগুলো সোশ্যাল মিডিয়ায় আপলোড করতে চায়।",
+              "Portuguese": "Ela quer carregar as fotos das suas férias nas redes sociais.",
+              "Russian": "Она хочет загрузить фотографии из отпуска в социальные сети.",
+              "Urdu": "وہ اپنی چھٹیوں کی تصاویر سوشل میڈیا پر اپ لوڈ کرنا چاہتی ہے۔",
+              "Indonesian": "Dia ingin mengunggah foto-foto liburannya ke media sosial.",
+              "Standard German": "Sie möchte ihre Urlaubsfotos in den sozialen Medien hochladen.",
+              "Japanese": "彼女は休暇の写真をSNSにアップロードしたいと考えています。"
+            }
+          },
+          {
+            "english": "It takes longer to upload a video than to download it.",
+            "translations": {
+              "Mandarin Chinese": "上传一段视频比下载它花的时间更长。",
+              "Hindi": "किसी वीडियो को डाउनलोड करने की तुलना में उसे अपलोड करने में अधिक समय लगता है।",
+              "Spanish": "Se tarda más tiempo en subir un video que en descargarlo.",
+              "Standard Arabic": "يستغرق تحميل مقطع فيديو وقتاً أطول من تنزيله.",
+              "French": "Le chargement d'une vidéo prend plus de temps que son téléchargement.",
+              "Bengali": "একটি ভিডিও ডাউনলোড করার চেয়ে আপলোড করতে বেশি সময় লাগে।",
+              "Portuguese": "Demora mais para enviar um vídeo do que para baixá-lo.",
+              "Russian": "Загрузка видео в сеть занимает больше времени, чем его скачивание.",
+              "Urdu": "ویڈیو ڈاؤن لوڈ کرنے کے مقابلے میں اسے اپ لوڈ کرنے میں زیادہ وقت لگتا ہے۔",
+              "Indonesian": "Mengunggah video membutuhkan waktu lebih lama daripada mengunduhnya.",
+              "Standard German": "Es dauert länger, ein Video hochzuladen als es herunterzuladen.",
+              "Japanese": "動画のアップロードは、ダウンロードするよりも時間がかかります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "password",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpæswɜːrd/",
+        "meaning": "A secret word or phrase that you must type into a computer or website to use it.",
+        "synonyms": ["passcode", "secret key"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "You should choose a strong password with letters, numbers, and symbols.",
+            "translations": {
+              "Mandarin Chinese": "您应该选择一个包含字母、数字和符号的强密码。",
+              "Hindi": "आपको अक्षरों, संख्याओं और प्रतीकों वाला एक मजबूत पासवर्ड चुनना चाहिए।",
+              "Spanish": "Deberías elegir una contraseña segura con letras, números y símbolos.",
+              "Standard Arabic": "يجب عليك اختيار كلمة مرور قوية تحتوي على حروف وأرقام ورموز.",
+              "French": "Vous devriez choisir un mot de passe fort contenant des lettres, des chiffres et des symboles.",
+              "Bengali": "আপনার অক্ষর, সংখ্যা এবং চিহ্ন সহ একটি শক্তিশালী পাসওয়ার্ড চয়ন করা উচিত।",
+              "Portuguese": "Você deve escolher uma senha forte com letras, números e símbolos.",
+              "Russian": "Вам следует выбрать сложный пароль, состоящий из букв, цифр и символов.",
+              "Urdu": "آپ کو حروف، نمبرز اور علامتوں والا ایک مضبوط پاس ورڈ منتخب کرنا چاہیے۔",
+              "Indonesian": "Anda harus memilih kata sandi yang kuat dengan huruf, angka, dan simbol.",
+              "Standard German": "Sie sollten ein sicheres Passwort mit Buchstaben, Zahlen und Symbolen wählen.",
+              "Japanese": "文字、数字、記号を含んだ強力なパスワードを選ぶべきです。"
+            }
+          },
+          {
+            "english": "I forgot my password and had to reset my email account.",
+            "translations": {
+              "Mandarin Chinese": "我忘记了密码，不得不重置我的电子邮箱账户。",
+              "Hindi": "मैं अपना पासवर्ड भूल गया और मुझे अपना ईमेल खाता रीसेट करना पड़ा।",
+              "Spanish": "Olvidé mi contraseña y tuve que restablecer mi cuenta de correo electrónico.",
+              "Standard Arabic": "لقد نسيت كلمة المرور الخاصة بي واضطررت إلى إعادة تعيين حساب البريد الإلكتروني الخاص بي.",
+              "French": "J'ai oublié mon mot de passe et j'ai dû réinitialiser mon compte de messagerie.",
+              "Bengali": "আমি আমার পাসওয়ার্ড ভুলে গেছি এবং আমার ইমেল অ্যাকাউন্টটি রিসেট করতে হয়েছিল।",
+              "Portuguese": "Esqueci minha senha e tive que redefinir minha conta de e-mail.",
+              "Russian": "Я забыл свой пароль, и мне пришлось сбросить настройки электронной почты.",
+              "Urdu": "میں اپنا پاس ورڈ بھول گیا اور مجھے اپنا ای میل اکاؤنٹ ری سیٹ کرنا پڑا۔",
+              "Indonesian": "Saya lupa kata sandi saya dan harus mengatur ulang akun email saya.",
+              "Standard German": "Ich habe mein Passwort vergessen und musste mein E-Mail-Konto zurücksetzen.",
+              "Japanese": "パスワードを忘れてしまい、メールアカウントをリセットしなければなりませんでした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "username",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈjuːzərneɪm/",
+        "meaning": "A specific name used to identify a person when logging into a computer system or website.",
+        "synonyms": ["login name", "user ID", "handle"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Please type your username and password to log into your online bank account.",
+            "translations": {
+              "Mandarin Chinese": "请输入您的用户名和密码以登录您的网银账户。",
+              "Hindi": "कृपया अपने ऑनलाइन बैंक खाते में लॉग इन करने के लिए अपना उपयोगकर्ता नाम (यूज़रनेम) और पासवर्ड टाइप करें।",
+              "Spanish": "Por favor, escribe tu nombre de usuario y contraseña para iniciar sesión en tu cuenta bancaria en línea.",
+              "Standard Arabic": "يرجى كتابة اسم المستخدم وكلمة المرور الخاصة بك لتسجيل الدخول إلى حسابك البنكي عبر الإنترنت.",
+              "French": "Veuillez saisir votre nom d'utilisateur et votre mot de passe pour vous connecter à votre compte bancaire en ligne.",
+              "Bengali": "আপনার অনলাইন ব্যাঙ্ক অ্যাকাউন্টে লগ ইন করতে দয়া করে আপনার ইউজারনেম এবং পাসওয়ার্ড টাইপ করুন।",
+              "Portuguese": "Por favor, digite seu nome de usuário e senha para acessar sua conta bancária online.",
+              "Russian": "Пожалуйста, введите свое имя пользователя и пароль, чтобы войти в свой аккаунт онлайн-банка.",
+              "Urdu": "براہ کرم اپنے آن لائن بینک اکاؤنٹ میں لاگ ان کرنے کے لیے اپنا صارف نام (یوزر نیم) اور پاس ورڈ ٹائپ کریں۔",
+              "Indonesian": "Silakan ketik nama pengguna dan kata sandi Anda untuk masuk ke akun bank daring Anda.",
+              "Standard German": "Bitte geben Sie Ihren Benutzernamen und Ihr Passwort ein, um sich in Ihr Online-Bankkonto einzuloggen.",
+              "Japanese": "オンライン銀行口座にログインするために、ユーザー名とパスワードを入力してください。"
+            }
+          },
+          {
+            "english": "That username is already taken; please choose a different one.",
+            "translations": {
+              "Mandarin Chinese": "该用户名已被占用；请选择一个不同的用户名。",
+              "Hindi": "वह उपयोगकर्ता नाम (यूज़रनेम) पहले से ही लिया जा चुका है; कृपया दूसरा चुनें।",
+              "Spanish": "Ese nombre de usuario ya está ocupado; por favor elige uno diferente.",
+              "Standard Arabic": "اسم المستخدم هذا مأخوذ بالفعل؛ يرجى اختيار اسم آخر.",
+              "French": "Ce nom d'utilisateur est déjà pris ; veuillez en choisir un autre.",
+              "Bengali": "ওই ইউজারনেমটি ইতিমধ্যে ব্যবহার করা হয়েছে; দয়া করে অন্য একটি চয়ন করুন।",
+              "Portuguese": "Esse nome de usuário já está sendo usado; por favor, escolha outro.",
+              "Russian": "Это имя пользователя уже занято, выберите другое.",
+              "Urdu": "وہ صارف نام پہلے ہی لیا جا چکا ہے؛ براہ کرم کوئی دوسرا منتخب کریں۔",
+              "Indonesian": "Nama pengguna itu sudah digunakan; silakan pilih yang lain.",
+              "Standard German": "Dieser Benutzername ist bereits vergeben; Bitte wählen Sie einen anderen.",
+              "Japanese": "そのユーザー名はすでに使用されています。別の名前を選んでください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "social media",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌsoʊʃl ˈmiːdiə/",
+        "meaning": "Websites and applications that enable users to create and share content or to participate in social networking.",
+        "synonyms": ["social networks", "online networking"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She spends too many hours scrolling through social media every evening.",
+            "translations": {
+              "Mandarin Chinese": "她每天晚上花太多时间浏览社交媒体。",
+              "Hindi": "वह हर शाम सोशल मीडिया पर स्क्रॉल करने में बहुत सारे घंटे बिताती है।",
+              "Spanish": "Ella pasa demasiadas horas revisando las redes sociales cada noche.",
+              "Standard Arabic": "تقضي ساعات طويلة جداً في تصفح وسائل التواصل الاجتماعي كل مساء.",
+              "French": "Elle passe trop d'heures à faire défiler les réseaux sociaux tous les soirs.",
+              "Bengali": "সে প্রতিদিন সন্ধ্যায় সোশ্যাল মিডিয়ায় স্ক্রোল করতে অনেক ঘন্টা সময় ব্যয় করে।",
+              "Portuguese": "Ela passa horas demais navegando pelas redes sociais toda noite.",
+              "Russian": "Она проводит слишком много часов, листая социальные сети каждый вечер.",
+              "Urdu": "وہ ہر شام سوشل मीडिया پر اسکرول کرنے میں بہت زیادہ گھنٹے گزارتی ہے۔",
+              "Indonesian": "Dia menghabiskan terlalu banyak waktu menjelajahi media sosial setiap malam.",
+              "Standard German": "Sie verbringt jeden Abend zu viele Stunden damit, durch die sozialen Medien zu scrollen.",
+              "Japanese": "彼女は毎晩、SNS（ソーシャルメディア）の画面をスクロールするのに何時間も費やしています。"
+            }
+          },
+          {
+            "english": "Companies use social media to advertise their products to young people.",
+            "translations": {
+              "Mandarin Chinese": "公司利用社交媒体向年轻人宣传他们的产品。",
+              "Hindi": "कंपनियां युवाओं को अपने उत्पादों का विज्ञापन देने के लिए सोशल मीडिया का उपयोग करती हैं।",
+              "Spanish": "Las empresas utilizan las redes sociales para publicitar sus productos a los jóvenes.",
+              "Standard Arabic": "تستخدم الشركات وسائل التواصل الاجتماعي للإعلان عن منتجاتها للشباب.",
+              "French": "Les entreprises utilisent les réseaux sociaux pour faire de la publicité pour leurs produits auprès des jeunes.",
+              "Bengali": "কোম্পানিগুলো তরুণদের কাছে তাদের পণ্যের বিজ্ঞাপন দিতে সোশ্যাল মিডিয়া ব্যবহার করে।",
+              "Portuguese": "As empresas usam as redes sociais para anunciar seus produtos para os jovens.",
+              "Russian": "Компании используют социальные сети для рекламы своих товаров среди молодежи.",
+              "Urdu": "کمپنیاں نوجوانوں کو اپنی مصنوعات کا اشتہار دینے کے لیے سوشل میڈیا کا استعمال کرتی ہیں۔",
+              "Indonesian": "Perusahaan menggunakan media sosial untuk mengiklankan produk mereka kepada anak muda.",
+              "Standard German": "Unternehmen nutzen soziale Medien, um ihre Produkte bei jungen Menschen zu bewerben.",
+              "Japanese": "企業は若者に向けて自社製品を宣伝するために、ソーシャルメディアを活用しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "online",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "adjective / adverb",
+        "pronunciation": "/ˌɑːnˈlaɪn/",
+        "meaning": "Connected to the internet or available through a computer network.",
+        "synonyms": ["connected", "web-based"],
+        "antonyms": ["offline"],
+        "examples": [
+          {
+            "english": "I prefer to buy my clothes online because it saves time.",
+            "translations": {
+              "Mandarin Chinese": "我更喜欢在线买衣服，因为这样省时间。",
+              "Hindi": "मैं अपने कपड़े ऑनलाइन खरीदना पसंद करता हूँ क्योंकि इससे समय की बचत होती है।",
+              "Spanish": "Prefiero comprar mi ropa en línea porque ahorra tiempo.",
+              "Standard Arabic": "أفضل شراء ملابسي عبر الإنترنت لأن ذلك يوفر الوقت.",
+              "French": "Je préfère acheter mes vêtements en ligne parce que cela gagne du temps.",
+              "Bengali": "আমি অনলাইনে কাপড় কিনতে পছন্দ করি কারণ এতে সময় বাঁচে।",
+              "Portuguese": "Prefiro comprar minhas roupas online porque economiza tempo.",
+              "Russian": "Я предпочитаю покупать одежду онлайн, потому что это экономит время.",
+              "Urdu": "میں اپنے کپڑے آن لائن خریدنے کو ترجیح دیتا ہوں کیونکہ اس سے وقت بچتا ہے۔",
+              "Indonesian": "Saya lebih suka membeli pakaian secara daring karena menghemat waktu.",
+              "Standard German": "Ich kaufe meine Kleidung lieber online, weil das Zeit spart.",
+              "Japanese": "時間を節約できるので、服はオンラインで買う方が好きです。"
+            }
+          },
+          {
+            "english": "The teacher posted the homework assignments on the online portal.",
+            "translations": {
+              "Mandarin Chinese": "老师把家庭作业发布在在线门户网站上。",
+              "Hindi": "शिक्षक ने गृहकार्य के असाइनमेंट ऑनलाइन पोर्टल पर पोस्ट किए।",
+              "Spanish": "El maestro publicó las tareas en el portal en línea.",
+              "Standard Arabic": "نشر المعلم واجبات الفروض المنزلية على البوابة الإلكترونية.",
+              "French": "L'enseignant a publié les devoirs sur le portail en ligne.",
+              "Bengali": "শিক্ষক অনলাইন পোর্টালে হোমওয়ার্কের অ্যাসাইনমেন্টগুলো পোস্ট করেছেন।",
+              "Portuguese": "O professor postou as tarefas de casa no portal online.",
+              "Russian": "Учитель выложил домашнее задание на онлайн-портале.",
+              "Urdu": "استاد نے ہوم ورک کے اسائنمنٹس آن لائن پورٹل پر پوسٹ کیے۔",
+              "Indonesian": "Guru memposting tugas rumah di portal daring.",
+              "Standard German": "Der Lehrer hat die Hausaufgaben im Online-Portal veröffentlicht.",
+              "Japanese": "先生は宿題の課題をオンラインのポータルサイトに投稿しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "offline",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "adjective / adverb",
+        "pronunciation": "/ˌɔːfˈlaɪn/",
+        "meaning": "Not connected to the internet or a computer network.",
+        "synonyms": ["disconnected", "unplugged"],
+        "antonyms": ["online"],
+        "examples": [
+          {
+            "english": "You can read this electronic book offline while traveling in the mountains.",
+            "translations": {
+              "Mandarin Chinese": "在山里旅行时，您可以离线阅读这本电子书。",
+              "Hindi": "पहाड़ों में यात्रा करते समय आप इस इलेक्ट्रॉनिक पुस्तक को ऑफ़लाइन पढ़ सकते हैं।",
+              "Spanish": "Puedes leer este libro electrónico sin conexión mientras viajas por las montañas.",
+              "Standard Arabic": "يمكنك قراءة هذا الكتاب الإلكتروني دون اتصال بالإنترنت أثناء السفر في الجبال.",
+              "French": "Vous pouvez lire ce livre électronique hors ligne pendant un voyage à la montagne.",
+              "Bengali": "পাহাড়ে ভ্রমণের সময় আপনি এই ইলেকট্রনিক বইটি অফলাইনে পড়তে পারেন।",
+              "Portuguese": "Você pode ler este livro digital offline enquanto viaja pelas montanhas.",
+              "Russian": "Вы можете читать эту электронную книгу офлайн во время путешествия по горам.",
+              "Urdu": "پہاڑوں میں سفر کرتے ہوئے آپ یہ الیکٹرانک کتاب آف لائن پڑھ سکتے ہیں۔",
+              "Indonesian": "Anda dapat membaca buku elektronik ini secara luring saat bepergian di pegunungan.",
+              "Standard German": "Sie können dieses E-Book offline lesen, während Sie in den Bergen reisen.",
+              "Japanese": "山の中を旅している間でも、この電子書籍をオフラインで読むことができます。"
+            }
+          },
+          {
+            "english": "The banking application goes offline for maintenance every Sunday night.",
+            "translations": {
+              "Mandarin Chinese": "该银行应用程序在每个周日晚上都会因维护而下线。",
+              "Hindi": "बैंकिंग एप्लिकेशन हर रविवार की रात रखरखाव के लिए ऑफ़लाइन हो जाता है।",
+              "Spanish": "La aplicación bancaria se desconecta por mantenimiento todos los domingos por la noche.",
+              "Standard Arabic": "يتوقف تطبيق البنك عن العمل للصيانة كل ليلة أحد.",
+              "French": "L'application bancaire se met hors ligne pour maintenance tous les dimanches soir.",
+              "Bengali": "ব্যাঙ্কিং অ্যাপ্লিকেশনটি প্রতি রবিবার রাতে রক্ষণাবেক্ষণের জন্য অফলাইন হয়ে যায়।",
+              "Portuguese": "O aplicativo bancário fica offline para manutenção todo domingo à noite.",
+              "Russian": "Банковское приложение уходит в офлайн для обслуживания каждое воскресенье вечером.",
+              "Urdu": "بینکنگ ایپلی کیشن ہر اتوار کی رات مینٹیننس (دیکھ بھال) کے لیے آف لائن ہو جاتی ہے۔",
+              "Indonesian": "Aplikasi perbankan menjadi luring untuk pemeliharaan setiap Minggu malam.",
+              "Standard German": "Die Banking-App geht jeden Sonntagabend wegen Wartungsarbeiten offline.",
+              "Japanese": "その銀行アプリは、毎週日曜日の夜にメンテナンスのためオフラインになります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "video call",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈvɪdioʊ kɔːl/",
+        "meaning": "A phone call or internet connection in which the people can see each other on screen while speaking.",
+        "synonyms": ["video chat", "video conference"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I make a video call to my parents every weekend since they live abroad.",
+            "translations": {
+              "Mandarin Chinese": "因为我父母住在国外，我每个周末都会和他们打视频电话。",
+              "Hindi": "मैं हर सप्ताहांत अपने माता-पिता को वीडियो कॉल करता हूँ क्योंकि वे विदेश में रहते हैं।",
+              "Spanish": "Hago una videollamada a mis padres cada fin de semana ya que viven en el extranjero.",
+              "Standard Arabic": "أجري مكالمة فيديو مع والديّ كل عطلة نهاية أسبوع لأنهما يعيشان في الخارج.",
+              "French": "Je passe un appel vidéo à mes parents tous les week-ends car ils vivent à l'étranger.",
+              "Bengali": "আমার বাবা-মা বিদেশে থাকার কারণে আমি প্রতি উইকএন্ডে তাদের সাথে ভিডিও কল করি।",
+              "Portuguese": "Faço uma videochamada para os meus pais todo fim de semana, já que eles moram no exterior.",
+              "Russian": "Я делаю видеозвонок своим родителям каждые выходные, так как они живут за границей.",
+              "Urdu": "میں ہر ویک اینڈ پر اپنے والدین کو ویڈیو کال کرتا ہوں کیونکہ وہ بیرون ملک رہتے ہیں۔",
+              "Indonesian": "Saya melakukan panggilan video ke orang tua saya setiap akhir pekan karena mereka tinggal di luar negeri.",
+              "Standard German": "Ich mache jedes Wochenende einen Videoanruf mit meinen Eltern, da sie im Ausland leben.",
+              "Japanese": "両親は海外に住んでいるので、私は毎週末、彼らにビデオ通話をしています。"
+            }
+          },
+          {
+            "english": "The business partners had a quick video call to discuss the budget.",
+            "translations": {
+              "Mandarin Chinese": "业务合作伙伴打了一个简短的视频电话来讨论预算。",
+              "Hindi": "बिजनेस पार्टनर्स ने बजट पर चर्चा करने के लिए एक त्वरित वीडियो कॉल की।",
+              "Spanish": "Los socios comerciales tuvieron una videollamada rápida para discutir el presupuesto.",
+              "Standard Arabic": "أجرى شركاء العمل مكالمة فيديو سريعة لمناقشة الميزانية.",
+              "French": "Les partenaires commerciaux ont passé un court appel vidéo pour discuter du budget.",
+              "Bengali": "ব্যবসায়িক অংশীদাররা বাজেট নিয়ে আলোচনা করার জন্য একটি সংক্ষিপ্ত ভিডিও কল করেছিলেন।",
+              "Portuguese": "Os parceiros de negócios fizeram uma videochamada rápida para discutir o orçamento.",
+              "Russian": "Деловые партнеры сделали короткий видеозвонок, чтобы обсудить бюджет.",
+              "Urdu": "بزنس پارٹنرز نے بجٹ پر تبادلہ خیال کرنے کے لیے ایک مختصر ویڈیو کال کی۔",
+              "Indonesian": "Mitra bisnis melakukan panggilan video singkat untuk membahas anggaran.",
+              "Standard German": "Die Geschäftspartner führten einen kurzen Videoanruf, um das Budget zu besprechen.",
+              "Japanese": "ビジネスパートナーたちは予算について話し合うため、短いビデオ通話を行いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "notification",
+        "level": "A2",
+        "category": "Technology & Internet",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌnoʊtɪfɪˈkeɪʃn/",
+        "meaning": "An automated message from an application or website that appears on your device screen to inform you about something.",
+        "synonyms": ["alert", "pop-up", "notice"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I received a notification on my phone when she liked my picture.",
+            "translations": {
+              "Mandarin Chinese": "当她给我的照片点赞时，我的手机上收到了一条通知。",
+              "Hindi": "जब उसने मेरी तस्वीर को पसंद (लाइक) किया तो मुझे अपने फोन पर एक नोटिफिकेशन मिला।",
+              "Spanish": "Recibí una notificación en mi teléfono cuando a ella le gustó mi foto.",
+              "Standard Arabic": "تلقيت إشعاراً على هاتفي عندما أعجبت بصورتي.",
+              "French": "J'ai reçu une notification sur mon téléphone lorsqu'elle a aimé ma photo.",
+              "Bengali": "সে আমার ছবিতে লাইক দিলে আমি আমার ফোনে একটি নোটিফিকেশন পেয়েছি।",
+              "Portuguese": "Recebi uma notificação no meu celular quando ela curtiu minha foto.",
+              "Russian": "Я получил уведомление на телефон, когда она лайкнула мою фотографию.",
+              "Urdu": "جب اس نے میری تصویر کو لائک کیا تو مجھے اپنے فون پر ایک نوٹیفکیشن موصول ہوا۔",
+              "Indonesian": "Saya menerima notifikasi di ponsel saya ketika dia menyukai foto saya.",
+              "Standard German": "Ich habe eine Benachrichtigung auf meinem Handy erhalten, als ihr mein Bild gefiel.",
+              "Japanese": "彼女が私の写真に「いいね！」をしてくれたとき、スマートフォンに通知（通知メッセージ）が届きました。"
+            }
+          },
+          {
+            "english": "You can turn off app notifications in the device settings menu.",
+            "translations": {
+              "Mandarin Chinese": "您可以在设备设置菜单中关闭应用程序通知。",
+              "Hindi": "आप डिवाइस सेटिंग मेनू में ऐप नोटिफिकेशन बंद कर सकते हैं।",
+              "Spanish": "Puedes desactivar las notificaciones de las aplicaciones en el menú de configuración del dispositivo.",
+              "Standard Arabic": "يمكنك إيقاف تشغيل إشعارات التطبيق في قائمة إعدادات الجهاز.",
+              "French": "Vous pouvez désactiver les notifications des applications dans le menu des paramètres de l'appareil.",
+              "Bengali": "আপনি ডিভাইস সেটিংস মেনু থেকে অ্যাপ নোটিফিকেশন বন্ধ করতে পারেন।",
+              "Portuguese": "Você pode desativar as notificações de aplicativos no menu de configurações do dispositivo.",
+              "Russian": "Вы можете отключить уведомления приложений в меню настроек устройства.",
+              "Urdu": "آپ ڈیوائس کی سیٹنگز مینیو میں ایپ نوٹیفیکیشنز کو بند کر سکتے ہیں۔",
+              "Indonesian": "Anda dapat mematikan notifikasi aplikasi di menu pengaturan perangkat.",
+              "Standard German": "Sie können App-Benachrichtigungen im Einstellungsmenü des Geräts ausschalten.",
+              "Japanese": "端末の設定メニューから、アプリの通知をオフにすることができます。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,389 @@
+{
+  "level": "C1-C2",
+  "approx_words": "1200-1500",
+  "source": "Media Studies & Journalistic Practice",
+  "categories": {
+    "Journalism": [
+      {
+        "word": "headline",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhedlaɪn/",
+        "meaning": "The title of a news article or the main story in a broadcast, printed in large letters.",
+        "synonyms": ["title", "banner"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The headline was designed to grab the reader's attention while remaining accurate to the story.",
+            "translations": {
+              "Mandarin Chinese": "标题旨在吸引读者的注意力，同时保持对报道的准确性。",
+              "Spanish": "El titular fue diseñado para captar la atención del lector sin dejar de ser fiel a la historia."
+            }
+          }
+        ]
+      },
+      {
+        "word": "editorial",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌedɪˈtɔːriəl/",
+        "meaning": "A newspaper article written by or on behalf of an editor that gives an opinion on a topical issue.",
+        "synonyms": ["opinion piece", "commentary"],
+        "antonyms": ["news report"],
+        "examples": [
+          {
+            "english": "The editorial criticized the government's recent decision regarding environmental policy.",
+            "translations": {
+              "Mandarin Chinese": "该社论批评了政府近期在环境政策方面的决定。",
+              "Spanish": "El editorial criticó la reciente decisión del gobierno sobre la política ambiental."
+            }
+          }
+        ]
+      },
+      {
+        "word": "investigative reporting",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ɪnˈvestɪɡətɪv rɪˈpɔːrtɪŋ/",
+        "meaning": "A form of journalism in which reporters deeply investigate a single topic of interest, such as crime, political corruption, or corporate wrongdoing.",
+        "synonyms": ["in-depth journalism", "muckraking"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Investigative reporting is essential for maintaining accountability in democratic institutions.",
+            "translations": {
+              "Mandarin Chinese": "调查性报道对于维持民主制度的问责制至关重要。",
+              "Spanish": "El periodismo de investigación es esencial para mantener la rendición de cuentas en las instituciones democráticas."
+            }
+          }
+        ]
+      },
+      {
+        "word": "source verification",
+        "level": "C2",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/sɔːrs ˌverɪfɪˈkeɪʃn/",
+        "meaning": "The rigorous process of checking the reliability, authenticity, and accuracy of information provided by a source.",
+        "synonyms": ["fact-checking", "vetting"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Strict source verification is the primary defense against the spread of misinformation.",
+            "translations": {
+              "Mandarin Chinese": "严格的来源核实是防止虚假信息传播的主要防线。",
+              "Spanish": "La verificación estricta de fuentes es la principal defensa contra la propagación de información errónea."
+            }
+          }
+        ]
+      },
+      {
+        "word": "broadcast journalism",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈbrɔːdkɑːst ˈdʒɜːrnəlɪzəm/",
+        "meaning": "News reporting presented on radio or television.",
+        "synonyms": ["electronic media"],
+        "antonyms": ["print journalism"],
+        "examples": [
+          {
+            "english": "Broadcast journalism has evolved rapidly with the advent of real-time digital streaming.",
+            "translations": {
+              "Mandarin Chinese": "随着实时数字流媒体的出现，广播新闻学的发展十分迅速。",
+              "Spanish": "El periodismo de radiodifusión ha evolucionado rápidamente con la llegada de la transmisión digital en tiempo real."
+            }
+          }
+        ]
+      },
+      {
+        "word": "media outlet",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈmiːdiə ˈaʊtlet/",
+        "meaning": "A publication or broadcast program that provides news and feature stories to the public.",
+        "synonyms": ["news organization", "publisher"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Each media outlet maintains a different editorial stance on current global affairs.",
+            "translations": {
+              "Mandarin Chinese": "每家媒体机构在当前全球事务上保持着不同的编辑立场。",
+              "Spanish": "Cada medio de comunicación mantiene una postura editorial diferente sobre los asuntos globales actuales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "press release",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/pres rɪˈliːs/",
+        "meaning": "An official statement issued to newspapers giving information on a particular matter.",
+        "synonyms": ["news release", "public statement"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Journalists rarely publish a press release verbatim without seeking independent comment.",
+            "translations": {
+              "Mandarin Chinese": "记者很少会不经寻求独立评论就逐字发布新闻稿。",
+              "Spanish": "Los periodistas rara vez publican un comunicado de prensa palabra por palabra sin buscar comentarios independientes."
+            }
+          }
+        ]
+      },
+      {
+        "word": "breaking news",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈbreɪkɪŋ njuːz/",
+        "meaning": "Current information about an event that is currently happening or developing.",
+        "synonyms": ["flash news", "urgent updates"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The news channel interrupted its scheduled programming to cover the breaking news.",
+            "translations": {
+              "Mandarin Chinese": "新闻频道中断了预定节目以报道突发新闻。",
+              "Spanish": "El canal de noticias interrumpió su programación habitual para cubrir la noticia de última hora."
+            }
+          }
+        ]
+      },
+      {
+        "word": "interviewee",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɪntərvjuːˈiː/",
+        "meaning": "A person who is interviewed.",
+        "synonyms": ["subject", "respondent"],
+        "antonyms": ["interviewer"],
+        "examples": [
+          {
+            "english": "The journalist asked the interviewee to clarify their previous statement.",
+            "translations": {
+              "Mandarin Chinese": "记者要求受访者澄清其之前的言论。",
+              "Spanish": "El periodista pidió al entrevistado que aclarara su declaración anterior."
+            }
+          }
+        ]
+      },
+      {
+        "word": "news coverage",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/njuːz ˈkʌvərɪdʒ/",
+        "meaning": "The reporting of news events and issues by media organizations.",
+        "synonyms": ["reporting", "journalistic effort"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Diverse news coverage ensures that multiple perspectives are represented.",
+            "translations": {
+              "Mandarin Chinese": "多样化的新闻报道确保了多种视角的呈现。",
+              "Spanish": "La cobertura informativa diversa asegura que múltiples perspectivas estén representadas."
+            }
+          }
+        ]
+      },
+      {
+        "word": "public interest",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈpʌblɪk ˈɪntrəst/",
+        "meaning": "The welfare or well-being of the general public; matters that impact society at large.",
+        "synonyms": ["common good", "social concern"],
+        "antonyms": ["private interest"],
+        "examples": [
+          {
+            "english": "Journalists have a duty to prioritize matters of public interest over sensationalism.",
+            "translations": {
+              "Mandarin Chinese": "记者有义务将公共利益置于耸人听闻的报道之上。",
+              "Spanish": "Los periodistas tienen el deber de priorizar los asuntos de interés público sobre el sensacionalismo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "fact-checking",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈfækt tʃekɪŋ/",
+        "meaning": "The process of verifying factual information before publication.",
+        "synonyms": ["verification", "accuracy audit"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Rigorous fact-checking is the cornerstone of responsible journalism.",
+            "translations": {
+              "Mandarin Chinese": "严谨的事实核查是负责任新闻报道的基石。",
+              "Spanish": "La verificación rigurosa de los hechos es la piedra angular del periodismo responsable."
+            }
+          }
+        ]
+      },
+      {
+        "word": "correspondent",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkɒrəˈspɒndənt/",
+        "meaning": "A person who writes letters or reports for a newspaper or broadcasts news from a distant place.",
+        "synonyms": ["reporter", "journalist on assignment"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The foreign correspondent reported live from the center of the unfolding events.",
+            "translations": {
+              "Mandarin Chinese": "该外国通讯员在事件发展的中心进行了现场报道。",
+              "Spanish": "El corresponsal extranjero informó en vivo desde el centro de los acontecimientos en desarrollo."
+            }
+          }
+        ]
+      },
+      {
+        "word": "bias",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbaɪəs/",
+        "meaning": "Inclination or prejudice for or against one person or group, especially in a way considered to be unfair.",
+        "synonyms": ["prejudice", "partiality", "leaning"],
+        "antonyms": ["impartiality", "objectivity"],
+        "examples": [
+          {
+            "english": "Awareness of potential media bias is crucial for developing media literacy.",
+            "translations": {
+              "Mandarin Chinese": "意识到潜在的媒体偏见对于培养媒体素养至关重要。",
+              "Spanish": "La conciencia sobre el posible sesgo de los medios es crucial para desarrollar la alfabetización mediática."
+            }
+          }
+        ]
+      },
+      {
+        "word": "freedom of the press",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈfriːdəm əv ðə pres/",
+        "meaning": "The right to circulate opinions in print without censorship by the government.",
+        "synonyms": ["press freedom"],
+        "antonyms": ["censorship"],
+        "examples": [
+          {
+            "english": "Freedom of the press is a fundamental pillar of a healthy democracy.",
+            "translations": {
+              "Mandarin Chinese": "新闻自由是健全民主制度的基本支柱。",
+              "Spanish": "La libertad de prensa es un pilar fundamental de una democracia saludable."
+            }
+          }
+        ]
+      },
+      {
+        "word": "news article",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/njuːz ˈɑːrtɪkl/",
+        "meaning": "A written piece that informs the public about a recent event or issue.",
+        "synonyms": ["report", "story", "piece"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The news article provided a concise summary of the major legislative changes.",
+            "translations": {
+              "Mandarin Chinese": "这篇新闻文章简要总结了重大的立法变革。",
+              "Spanish": "El artículo de noticias proporcionó un resumen conciso de los cambios legislativos importantes."
+            }
+          }
+        ]
+      },
+      {
+        "word": "journalistic ethics",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌdʒɜːrnəˈlɪstɪk ˈeθɪks/",
+        "meaning": "The principles of conduct and moral judgment that govern the practice of journalism.",
+        "synonyms": ["professional standards"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Upholding journalistic ethics prevents the manipulation of public perception.",
+            "translations": {
+              "Mandarin Chinese": "坚持新闻伦理可以防止公众认知的被操纵。",
+              "Spanish": "Defender la ética periodística evita la manipulación de la percepción pública."
+            }
+          }
+        ]
+      },
+      {
+        "word": "audience engagement",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˈɔːdiəns ɪnˈɡeɪdʒmənt/",
+        "meaning": "The process of involving readers, viewers, or listeners in the content of journalism through interaction and feedback.",
+        "synonyms": ["reader interaction"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Modern media outlets use digital platforms to boost audience engagement.",
+            "translations": {
+              "Mandarin Chinese": "现代媒体机构利用数字平台来提高受众参与度。",
+              "Spanish": "Los medios de comunicación modernos utilizan plataformas digitales para aumentar la participación de la audiencia."
+            }
+          }
+        ]
+      },
+      {
+        "word": "documentary report",
+        "level": "C1",
+        "category": "Journalism",
+        "part_of_speech": "noun phrase",
+        "pronunciation": "/ˌdɒkjʊˈmentri rɪˈpɔːrt/",
+        "meaning": "An in-depth, factual investigation or exploration of a subject, typically in video or audio format.",
+        "synonyms": ["feature story", "extended coverage"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The documentary report exposed the long-term impact of deforestation on local communities.",
+            "translations": {
+              "Mandarin Chinese": "这份纪录片报道揭露了森林砍伐对当地社区的长期影响。",
+              "Spanish": "El informe documental expuso el impacto a largo plazo de la deforestación en las comunidades locales."
+            }
+          }
+        ]
+      },
+      {
+        "word": "sensationalism",
+        "level": "C2",
+        "category": "Journalism",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌsenˈseɪʃənəlɪzəm/",
+        "meaning": "The presentation of stories in a way that is intended to provoke public interest or excitement, at the expense of accuracy.",
+        "synonyms": ["yellow journalism", "exaggeration"],
+        "antonyms": ["objective reporting"],
+        "examples": [
+          {
+            "english": "Critics argue that the rise of online clicks has fueled the trend of sensationalism.",
+            "translations": {
+              "Mandarin Chinese": "批评家们认为，网络点击量的兴起加剧了耸人听闻的倾向。",
+              "Spanish": "Los críticos argumentan que el aumento de los clics en línea ha alimentado la tendencia al sensacionalismo."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

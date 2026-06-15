@@ -1,0 +1,929 @@
+{
+  "level": "A2",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Education": [
+      {
+        "word": "subject",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsʌbdʒɪkt/",
+        "meaning": "An area of knowledge that you study at a school, college, or university.",
+        "synonyms": ["topic", "discipline", "field"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "History is my favorite subject because I love learning about ancient civilizations.",
+            "translations": {
+              "Mandarin Chinese": "历史是我最喜欢的科目，因为我喜欢了解古代文明。",
+              "Hindi": "इतिहास मेरा पसंदीदा विषय है क्योंकि मुझे प्राचीन सभ्यताओं के बारे में जानना पसंद है।",
+              "Spanish": "La historia es mi materia favorita porque me encanta aprender sobre las civilizaciones antiguas.",
+              "Standard Arabic": "التاريخ هو مادتي المفضلة لأنني أحب التعلم عن الحضارات القديمة.",
+              "French": "L'histoire est ma matière préférée parce que j'aime découvrir les civilisations anciennes.",
+              "Bengali": "ইতিহাস আমার প্রিয় বিষয় কারণ আমি প্রাচীন সভ্যতা সম্পর্কে জানতে ভালোবাসি।",
+              "Portuguese": "História é a minha matéria favorita porque eu amo aprender sobre civilizações antigas.",
+              "Russian": "История — мой любимый предмет, потому что я люблю изучать древние цивилизации.",
+              "Urdu": "تاریخ میرا پسندیدہ مضمون ہے کیونکہ مجھے قدیم تہذیبوں کے بارے में जानना पसंद है।",
+              "Indonesian": "Sejarah adalah mata pelajaran favorit saya karena saya suka belajar tentang peradaban kuno.",
+              "Standard German": "Geschichte ist mein Lieblingsfach, weil ich es liebe, etwas über alte Zivilisationen zu lernen.",
+              "Japanese": "古代文明について学ぶのが好きなので、歴史は私の大好きな教科です。"
+            }
+          },
+          {
+            "english": "Students must choose three science subjects in their final school year.",
+            "translations": {
+              "Mandarin Chinese": "学生在毕业学年必须选择三个理科科目。",
+              "Hindi": "छात्रों को अपने अंतिम स्कूल वर्ष में तीन विज्ञान विषयों का चयन करना होगा।",
+              "Spanish": "Los estudiantes deben elegir tres materias de ciencias en su último año escolar.",
+              "Standard Arabic": "يجب على الطلاب اختيار ثلاث مواد علمية في سنتهم الدراسية الأخيرة.",
+              "French": "Les étudiants doivent choisir trois matières scientifiques au cours de leur dernière année scolaire.",
+              "Bengali": "শিক্ষার্থীদের তাদের শেষ স্কুল বছরে তিনটি বিজ্ঞান বিষয় বেছে নিতে হবে।",
+              "Portuguese": "Os alunos devem escolher três disciplinas de ciências no último ano escolar.",
+              "Russian": "В последнем учебном году студенты должны выбрать три естественнонаучных предмета.",
+              "Urdu": "طلباء کو اپنے آخری اسکولی سال میں سائنس کے تین مضامین کا انتخاب کرنا ہوگا۔",
+              "Indonesian": "Siswa harus memilih tiga mata pelajaran sains di tahun terakhir sekolah mereka.",
+              "Standard German": "Die Schüler müssen in ihrem letzten Schuljahr drei naturwissenschaftliche Fächer wählen.",
+              "Japanese": "生徒は学校の最終学年に科学の科目を3つ選ばなければなりません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "course",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/kɔːrs/",
+        "meaning": "A series of lessons or lectures on a particular subject.",
+        "synonyms": ["program", "class", "curriculum"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She is taking an intensive English course to prepare for her studies abroad.",
+            "translations": {
+              "Mandarin Chinese": "她正在修读一门密集的英语课程，为出国留学做准备。",
+              "Hindi": "वह विदेश में अपनी पढ़ाई की तैयारी के लिए एक गहन अंग्रेजी कोर्स कर रही है।",
+              "Spanish": "Ella está tomando un curso intensivo de inglés para prepararse para sus estudios en el extranjero.",
+              "Standard Arabic": "إنها تأخذ دورة مكثفة في اللغة الإنجليزية للاستعداد لدراستها في الخارج.",
+              "French": "Elle suit un cours d'anglais intensif pour se préparer à ses études à l'étranger.",
+              "Bengali": "তিনি বিদেশে পড়াশোনার প্রস্তুতির জন্য একটি নিবিড় ইংরেজি কোর্স করছেন।",
+              "Portuguese": "Ela está fazendo um curso intensivo de inglês para se preparar para os estudos no exterior.",
+              "Russian": "Она проходит интенсивный курс английского языка, чтобы подготовиться к учебе за границей.",
+              "Urdu": "وہ بیرون ملک اپنی پڑھائی کی تیاری کے لیے انگریزی کا ایک گہرا کورس کر رہی ہے۔",
+              "Indonesian": "Dia sedang mengambil kursus bahasa Inggris intensif untuk mempersiapkan studinya di luar negeri.",
+              "Standard German": "Sie macht einen Intensiv-Englischkurs, um sich auf ihr Studium im Ausland vorzubereiten.",
+              "Japanese": "彼女は留学の準備のために、英語の短期集中講座（コース）を受けています。"
+            }
+          },
+          {
+            "english": "The college offers a great variety of online courses for working adults.",
+            "translations": {
+              "Mandarin Chinese": "这所学院为在职成人提供了丰富多样的在线课程。",
+              "Hindi": "यह कॉलेज कामकाजी वयस्कों के लिए विभिन्न प्रकार के ऑनलाइन पाठ्यक्रम प्रदान करता है।",
+              "Spanish": "La universidad ofrece una gran variedad de cursos en línea para adultos que trabajan.",
+              "Standard Arabic": "تقدم الكلية مجموعة متنوعة من الدورات عبر الإنترنت للبالغين العاملين.",
+              "French": "Le collège propose une grande variété de cours en ligne pour les adultes qui travaillent.",
+              "Bengali": "কলেজটি চাকরিজীবী প্রাপ্তবয়স্কদের জন্য বিভিন্ন ধরণের অনলাইন কোর্স অফার করে।",
+              "Portuguese": "A faculdade oferece uma grande variedade de cursos online para adultos que trabalham.",
+              "Russian": "Колледж предлагает большой выбор онлайн-курсов для работающих взрослых.",
+              "Urdu": "کالج کام کرنے والے بالغوں کے لیے مختلف قسم کے آن لائن کورسز پیش کرتا ہے۔",
+              "Indonesian": "Perguruan tinggi ini menawarkan berbagai macam kursus daring untuk orang dewasa yang bekerja.",
+              "Standard German": "Das College bietet eine große Vielfalt an Online-Kursen für berufstätige Erwachsene.",
+              "Japanese": "その大学は、働く大人向けに多種多様なオンライン講座を提供しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "grade",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ɡreɪd/",
+        "meaning": "A letter or number that shows how good a student's work is.",
+        "synonyms": ["mark", "score", "rating"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He was very happy because he got an excellent grade on his math exam.",
+            "translations": {
+              "Mandarin Chinese": "他非常高兴，因为他的数学考试取得了优异的成绩。",
+              "Hindi": "वह बहुत खुश था क्योंकि उसे अपनी गणित की परीक्षा में बेहतरीन ग्रेड मिला था।",
+              "Spanish": "Estaba muy feliz porque obtuvo una excelente calificación en su examen de matemáticas.",
+              "Standard Arabic": "كان سعيداً جداً لأنه حصل على درجة ممتازة في امتحان الرياضيات.",
+              "French": "Il était très heureux car il a obtenu une excellente note à son examen de mathématiques.",
+              "Bengali": "তিনি খুব খুশি ছিলেন কারণ তিনি তার গণিত পরীক্ষায় একটি দুর্দান্ত গ্রেড পেয়েছিলেন।",
+              "Portuguese": "Ele ficou muito feliz porque tirou uma nota excelente na prova de matemática.",
+              "Russian": "Он был очень счастлив, потому что получил отличную оценку за экзамен по математике.",
+              "Urdu": "وہ بہت خوش تھا کیونکہ اسے ریاضی کے امتحان میں بہترین گریڈ ملا تھا۔",
+              "Indonesian": "Dia sangat senang his karena mendapatkan nilai yang sangat bagus dalam ujian matematika.",
+              "Standard German": "Er war sehr glücklich, weil er in seiner Matheprüfung eine hervorragende Note bekommen hatte.",
+              "Japanese": "数学の試験で素晴らしい成績（グレード）を取ったので、彼はとても喜んでいました。"
+            }
+          },
+          {
+            "english": "The teacher spent the whole weekend grading final essays.",
+            "translations": {
+              "Mandarin Chinese": "老师花了一整个周末来批改期末论文。",
+              "Hindi": "शिक्षक ने पूरा सप्ताहांत अंतिम निबंधों के मूल्यांकन (ग्रेडिंग) में बिताया।",
+              "Spanish": "El maestro pasó todo el fin de semana calificando los ensayos finales.",
+              "Standard Arabic": "قضى المعلم عطلة نهاية الأسبوع بأكملها في تصحيح المقالات النهائية.",
+              "French": "L'enseignant a passé tout le week-end à corriger les dissertations de fin d'année.",
+              "Bengali": "শিক্ষক পুরো সপ্তাহান্ত জুড়ে চূড়ান্ত প্রবন্ধগুলোর মূল্যায়ন/গ্রেডিং করেছেন।",
+              "Portuguese": "O professor passou o fim de semana inteiro corrigindo as redações finais.",
+              "Russian": "Учитель провел все выходные, проверяя и оценивая итоговые эссе.",
+              "Urdu": "استاد نے پورا ویک اینڈ فائنل مضامین کی گریڈنگ میں گزارا۔",
+              "Indonesian": "Guru menghabiskan sepanjang akhir pekan untuk menilai esai akhir.",
+              "Standard German": "Der Lehrer verbrachte das ganze Wochenende damit, die Abschlussaufsätze zu benoten.",
+              "Japanese": "先生は週末ずっと、期末レポートの採点（グレーディング）をして過ごしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "dictionary",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdɪkʃəneri/",
+        "meaning": "A book or electronic resource that lists words and explains their meanings or translates them into another language.",
+        "synonyms": ["lexicon", "wordbook", "glossary"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "If you do not know the meaning of the word, look it up in the dictionary.",
+            "translations": {
+              "Mandarin Chinese": "如果你不知道这个词的意思，就在词典里查一下。",
+              "Hindi": "यदि आप शब्द का अर्थ नहीं जानते हैं, तो इसे शब्दकोश (डिक्शनरी) में देखें।",
+              "Spanish": "Si no sabes el significado de la palabra, búscala en el diccionario.",
+              "Standard Arabic": "إذا كنت لا تعرف معنى الكلمة، فابحث عنها في القاموس.",
+              "French": "Si vous ne connaissez pas le sens du mot, cherchez-le dans le dictionnaire.",
+              "Bengali": "আপনি যদি শব্দটির অর্থ না জানেন তবে এটি অভিধানে খুঁজে দেখুন।",
+              "Portuguese": "Se você não souber o significado da palavra, procure-a no dicionário.",
+              "Russian": "Если вы не знаете значения слова, посмотрите его в словаре.",
+              "Urdu": "اگر آپ لفظ کا مطلب نہیں جانتے ہیں تو اسے لغت (ڈکشنری) میں دیکھیں۔",
+              "Indonesian": "Jika Anda tidak tahu arti kata tersebut, carilah di kamus.",
+              "Standard German": "Wenn Sie die Bedeutung des Wortes nicht kennen, schlagen Sie es im Wörterbuch nach.",
+              "Japanese": "単語の意味がわからない場合は、辞書で調べてみてください。"
+            }
+          },
+          {
+            "english": "She bought a bilingual pocket dictionary for her trip to Italy.",
+            "translations": {
+              "Mandarin Chinese": "她买了一本双语便携词典，以便去意大利旅行时使用。",
+              "Hindi": "उन्होंने इटली की अपनी यात्रा के लिए एक द्विभाषी पॉकेट शब्दकोश खरीदा।",
+              "Spanish": "Compró un diccionario de bolsillo bilingüe para su viaje a Italia.",
+              "Standard Arabic": "اشترت قاموساً جيبياً ثنائي اللغة لرحلتها إلى إيطاليا.",
+              "French": "Elle a acheté un dictionnaire de poche bilingue pour son voyage en Italie.",
+              "Bengali": "তিনি ইতালি ভ্রমণের জন্য একটি দ্বিভাষিক পকেট অভিধান কিনেছেন।",
+              "Portuguese": "Ela comprou um dicionário bilingue de bolso para sua viagem à Itália.",
+              "Russian": "Она купила двуязычный карманный словарь для поездки в Италию.",
+              "Urdu": "اس نے اٹلی کے سفر کے لیے ایک دو لسانی پاکٹ لغت خریدی۔",
+              "Indonesian": "Dia membeli kamus saku dwibahasa untuk perjalanannya ke Italia.",
+              "Standard German": "Sie hat für ihre Reise nach Italien ein zweisprachiges Taschenwörterbuch gekauft.",
+              "Japanese": "彼女はイタリア旅行のために、2言語対応のポケット辞書を買いました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "project",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈprɑːdʒekt/",
+        "meaning": "A planned piece of school or university work that involves careful study or research over a period of time.",
+        "synonyms": ["assignment", "task", "study"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We need to work together in groups of four to complete the science project.",
+            "translations": {
+              "Mandarin Chinese": "我们需要分成四人一组共同努力完成这个科学项目。",
+              "Hindi": "विज्ञान प्रोजेक्ट को पूरा करने के लिए हमें चार-चार के समूहों में मिलकर काम करना होगा।",
+              "Spanish": "Necesitamos trabajar juntos en grupos de cuatro para completar el proyecto de ciencias.",
+              "Standard Arabic": "نحن بحاجة إلى العمل معاً في مجموعات من أربعة أفراد لإكمال مشروع العلوم.",
+              "French": "Nous devons travailler ensemble par groupes de quatre pour mener à bien le projet scientifique.",
+              "Bengali": "বিজ্ঞান প্রকল্পটি সম্পূর্ণ করার জন্য আমাদের চারজনের দলে একসাথে কাজ করতে হবে।",
+              "Portuguese": "Precisamos trabalhar juntos em grupos de quatro para concluir o projeto de ciências.",
+              "Russian": "Нам нужно работать вместе в группах по четыре человека, чтобы завершить научный проект.",
+              "Urdu": "سائنس پروجیکٹ کو پورا کرنے کے لیے ہمیں چار چار کے گروپوں میں مل کر کام کرنا ہوگا۔",
+              "Indonesian": "Kita perlu bekerja sama dalam kelompok beranggotakan empat orang untuk menyelesaikan proyek sains.",
+              "Standard German": "Wir müssen in Vierergruppen zusammenarbeiten, um das Wissenschaftsprojekt abzuschließen.",
+              "Japanese": "科学の課題（プロジェクト）を完成させるために、私たちは4人のグループで協力して取り組む必要があります。"
+            }
+          },
+          {
+            "english": "Her history project focused on the life of common people in the middle ages.",
+            "translations": {
+              "Mandarin Chinese": "她的历史项目主要关注中世纪普通人的生活。",
+              "Hindi": "उनका इतिहास प्रोजेक्ट मध्य युग में आम लोगों के जीवन पर केंद्रित था।",
+              "Spanish": "Su proyecto de historia se centró en la vida de la gente común en la Edad Media.",
+              "Standard Arabic": "ركز مشروع التاريخ الخاص بها على حياة عامة الناس في العصور الوسطى.",
+              "French": "Son projet d'histoire portait sur la vie des gens ordinaires au Moyen Âge.",
+              "Bengali": "তার ইতিহাসের প্রকল্পটি মধ্যযুগের সাধারণ মানুষের জীবনের ওপর আলোকপাত করেছিল।",
+              "Portuguese": "Seu projeto de história focou na vida das pessoas comuns na Idade Média.",
+              "Russian": "Ее исторический проект был посвящен жизни обычных людей в Средние века.",
+              "Urdu": "ان کا ہسٹری پروجیکٹ قرون وسطیٰ میں عام لوگوں کی زندگی پر مرکوز تھا۔",
+              "Indonesian": "Proyek sejarahnya berfokus pada kehidupan masyarakat umum di abad pertengahan.",
+              "Standard German": "Ihr Geschichtsprojekt konzentrierte sich auf das Leben der einfachen Menschen im Mittelalter.",
+              "Japanese": "彼女の歴史の研究課題は、中世の一般庶民の生活に焦点を当てたものでした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "presentation",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌpriːzenˈteɪʃn/",
+        "meaning": "A talk giving information about something to a group of people, often using slides or visual aids.",
+        "synonyms": ["talk", "lecture", "speech"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Each student must give a ten-minute presentation about their favorite book.",
+            "translations": {
+              "Mandarin Chinese": "每个学生必须做一个十分钟的关于自己最喜欢的一本书的演示报告。",
+              "Hindi": "प्रत्येक छात्र को अपनी पसंदीदा पुस्तक के बारे में दस मिनट की प्रस्तुति (प्रेजेंटेशन) देनी होगी।",
+              "Spanish": "Cada estudiante debe dar una presentación de diez minutos sobre su libro favorito.",
+              "Standard Arabic": "يجب على كل طالب تقديم عرض تقديمي مدته عشر دقائق عن كتابه المفضل.",
+              "French": "Chaque étudiant doit faire une présentation de dix minutes sur son livre préféré.",
+              "Bengali": "প্রত্যেক শিক্ষার্থীকে তাদের প্রিয় বই সম্পর্কে দশ মিনিটের একটি প্রেজেন্টেশন দিতে হবে।",
+              "Portuguese": "Cada aluno deve fazer uma apresentação de dez minutos sobre seu livro favorito.",
+              "Russian": "Каждый студент должен сделать десятиминутную презентацию о своей любимой книге.",
+              "Urdu": "ہر طالب علم کو اپنی پسندیدہ کتاب کے بارے میں دس منٹ کی پریزنٹیشن دینی ہوگی۔",
+              "Indonesian": "Setiap siswa harus memberikan presentasi selama sepuluh menit tentang buku favorit mereka.",
+              "Standard German": "Jeder Schüler muss eine zehnminütige Präsentation über sein Lieblingsbuch halten.",
+              "Japanese": "生徒はそれぞれ、お気に入りの本について10分間の発表（プレゼンテーション）をしなければなりません。"
+            }
+          },
+          {
+            "english": "She used colorful charts to make her biology presentation more interesting.",
+            "translations": {
+              "Mandarin Chinese": "她使用彩色的图表使自己的生物学演示报告更加有趣。",
+              "Hindi": "उन्होंने अपने जीवविज्ञान प्रेज़ेंटेशन को और अधिक रोचक बनाने के लिए रंगीन चार्ट का उपयोग किया।",
+              "Spanish": "Ella usó gráficos coloridos para hacer más interesante su presentación de biología.",
+              "Standard Arabic": "استخدمت مخططات ملونة لجعل عرضها التقديمي في علم الأحياء أكثر تشويقاً.",
+              "French": "Elle a utilisé des graphiques colorés pour rendre sa présentation de biologie plus intéressante.",
+              "Bengali": "তিনি তার জীববিজ্ঞানের প্রেজেন্টেশনটিকে আরও আকর্ষণীয় করতে রঙিন চার্ট ব্যবহার করেছিলেন।",
+              "Portuguese": "Ela usou gráficos coloridos para tornar sua apresentação de biologia mais interessante.",
+              "Russian": "Она использовала красочные графики, чтобы сделать презентацию по биологии более интересной.",
+              "Urdu": "انہوں نے اپنی بائیولوجی پریزنٹیشن کو مزید دلچسپ بنانے کے لیے رنگین چارٹس کا استعمال کیا۔",
+              "Indonesian": "Dia menggunakan bagan warna-warni untuk membuat presentasi biologinya lebih menarik.",
+              "Standard German": "Sie verwendete bunte Diagramme, um ihre Biologiepräsentation interessanter zu gestalten.",
+              "Japanese": "彼女は生物学の発表をより面白くするために、カラフルな図表を使用しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "practice",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈpræktɪs/",
+        "meaning": "The act of doing something regularly in order to become better or skilled at it.",
+        "synonyms": ["exercise", "training", "rehearsal"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Learning to speak a language fluently requires a lot of daily practice.",
+            "translations": {
+              "Mandarin Chinese": "要流利地学会说一种语言需要每天大量的练习。",
+              "Hindi": "किसी भाषा को धाराप्रवाह बोलना सीखने के लिए बहुत अधिक दैनिक अभ्यास की आवश्यकता होती है।",
+              "Spanish": "Aprender a hablar un idioma con fluidez requiere mucha práctica diaria.",
+              "Standard Arabic": "يتطلب تعلم التحدث بلغة بطلاقة الكثير من الممارسة اليومية.",
+              "French": "Apprendre à parler couramment une langue nécessite beaucoup de pratique quotidienne.",
+              "Bengali": "কোনো ভাষা সাবলীলভাবে বলতে শেখার জন্য প্রতিদিন প্রচুর অনুশীলনের প্রয়োজন হয়।",
+              "Portuguese": "Aprender a falar um idioma fluentemente exige muita prática diária.",
+              "Russian": "Чтобы научиться свободно говорить на языке, требуется много ежедневной практики.",
+              "Urdu": "کسی زبان کو روانی سے بولنا سیکھنے کے لیے روزانہ بہت زیادہ مشق (پریکٹس) کی ضرورت ہوتی ہے۔",
+              "Indonesian": "Belajar berbicara suatu bahasa dengan lancar membutuhkan banyak latihan setiap hari.",
+              "Standard German": "Eine Sprache fließend sprechen zu lernen, erfordert viel tägliche Praxis.",
+              "Japanese": "言葉を流暢に話せるようになるには、毎日のたくさんの練習が必要です。"
+            }
+          },
+          {
+            "english": "You should practice writing essays before taking the official exam.",
+            "translations": {
+              "Mandarin Chinese": "在参加正式考试之前，你应该练习写论文。",
+              "Hindi": "आपको आधिकारिक परीक्षा देने से पहले निबंध लिखने का अभ्यास करना चाहिए।",
+              "Spanish": "Deberías practicar la escritura de ensayos antes de tomar el examen oficial.",
+              "Standard Arabic": "يجب عليك ممارسة كتابة المقالات قبل خوض الامتحان الرسمي.",
+              "French": "Vous devriez vous entraîner à écrire des dissertations avant de passer l'examen officiel.",
+              "Bengali": "অফিসিয়াল পরীক্ষা দেওয়ার আগে আপনার প্রবন্ধ লেখার অনুশীলন করা উচিত।",
+              "Portuguese": "Você deve praticar a escrita de redações antes de fazer o exame oficial.",
+              "Russian": "Вам следует попрактиковаться в написании эссе перед сдачей официального экзамена.",
+              "Urdu": "آپ کو آفیشل امتحان دینے سے پہلے مضامین لکھنے کی مشق کرنی چاہیے۔",
+              "Indonesian": "Anda harus berlatih menulis esai sebelum mengikuti ujian resmi.",
+              "Standard German": "Sie sollten das Schreiben von Aufsätzen üben, bevor Sie die offizielle Prüfung ablegen.",
+              "Japanese": "公式な試験を受ける前に、小論文を書く練習をするべきです。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "research",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈriːsɜːrtʃ/",
+        "meaning": "A detailed study of a subject, especially in order to discover new facts or information.",
+        "synonyms": ["investigation", "study", "analysis"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The professors are carrying out research into the effects of climate change.",
+            "translations": {
+              "Mandarin Chinese": "教授们正在对气候变化的影响进行研究。",
+              "Hindi": "प्रोफेसर जलवायु परिवर्तन के प्रभावों पर शोध (रिसर्च) कर रहे हैं।",
+              "Spanish": "Los profesores están realizando investigaciones sobre los efectos del cambio climático.",
+              "Standard Arabic": "يجري الأساتذة أبحاثاً حول آثار تغير المناخ.",
+              "French": "Les professeurs mènent des recherches sur les effets du changement climatique.",
+              "Bengali": "অধ্যাপকেরা জলবায়ু পরিবর্তনের প্রভাব নিয়ে গবেষণা করছেন।",
+              "Portuguese": "Os professores estão realizando pesquisas sobre os efeitos das mudanças climáticas.",
+              "Russian": "Профессора проводят исследование влияния изменения климата.",
+              "Urdu": "پروفیسرز موسمیاتی تبدیلی کے اثرات پر تحقیق (ریسرچ) کر رہے ہیں۔",
+              "Indonesian": "Para profesor sedang melakukan penelitian tentang efek perubahan iklim.",
+              "Standard German": "Die Professoren forschen zu den Auswirkungen des Klimawandels.",
+              "Japanese": "教授たちは気候変動の影響に関する研究を行っています。"
+            }
+          },
+          {
+            "english": "Students need to research historical documents on the internet for their assignment.",
+            "translations": {
+              "Mandarin Chinese": "学生们需要上网调查历史文献以完成他们的作业。",
+              "Hindi": "छात्रों को अपने असाइनमेंट के लिए इंटरनेट पर ऐतिहासिक दस्तावेजों पर शोध करना होगा।",
+              "Spanish": "Los estudiantes necesitan investigar documentos históricos en internet para su tarea.",
+              "Standard Arabic": "يحتاج الطلاب إلى البحث عن وثائق تاريخية على الإنترنت من أجل واجباتهم.",
+              "French": "Les étudiants doivent faire des recherches sur des documents historiques sur Internet pour leur devoir.",
+              "Bengali": "শিক্ষার্থীদের তাদের অ্যাসাইনমেন্টের জন্য ইন্টারনেটে ঐতিহাসিক নথিপত্র অনুসন্ধান বা গবেষণা করতে হবে।",
+              "Portuguese": "Os alunos precisam pesquisar documentos históricos na internet para o seu trabalho.",
+              "Russian": "Студентам необходимо найти исторические документы в интернете для своего задания.",
+              "Urdu": "طلباء کو اپنے اسائنمنٹ کے لیے انٹرنیٹ پر تاریخی دستاویزات پر تحقیق کرنے کی ضرورت ہے۔",
+              "Indonesian": "Siswa perlu meneliti dokumen sejarah di internet untuk tugas mereka.",
+              "Standard German": "Die Studierenden müssen für ihre Hausarbeit historische Dokumente im Internet recherchieren.",
+              "Japanese": "生徒たちは課題のために、インターネットで歴史的な資料を調べる（研究する）必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "university",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌjuːnɪˈvɜːrsəti/",
+        "meaning": "An institution of higher education where students study for degrees and academic research is done.",
+        "synonyms": ["college", "academy", "higher education"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "She hopes to study medicine at a top university next year.",
+            "translations": {
+              "Mandarin Chinese": "她希望明年能在一家顶尖大学学习医学。",
+              "Hindi": "वह अगले साल एक शीर्ष विश्वविद्यालय में चिकित्सा (मेडिसिन) की पढ़ाई करने की उम्मीद करती है।",
+              "Spanish": "Ella espera estudiar medicina en una universidad de primer nivel el próximo año.",
+              "Standard Arabic": "تأمل في دراسة الطب في جامعة مرموقة العام المقبل.",
+              "French": "Elle espère étudier la médecine dans une grande université l'année prochaine.",
+              "Bengali": "তিনি আগামী বছর একটি শীর্ষ বিশ্ববিদ্যালয়ে চিকিৎসাবিদ্যা পড়ার আশা করছেন।",
+              "Portuguese": "Ela espera estudar medicina em uma universidade de ponta no próximo ano.",
+              "Russian": "Она надеется изучать медицину в одном из лучших университетов в следующем году.",
+              "Urdu": "وہ اگلے سال ایک اعلیٰ یونیورسٹی میں میڈیسن پڑھنے کی امید کرتی ہے۔",
+              "Indonesian": "Dia berharap bisa belajar kedokteran di universitas terkemuka tahun depan.",
+              "Standard German": "Sie hofft, nächstes Jahr an einer Spitzenuniversität Medizin studieren zu können.",
+              "Japanese": "彼女は来年、一流大学で医学を学びたいと考えています。"
+            }
+          },
+          {
+            "english": "The university campus has a massive library and three modern laboratories.",
+            "translations": {
+              "Mandarin Chinese": "大学校园里有一个庞大的图书馆和三个现代化的实验室。",
+              "Hindi": "विश्वविद्यालय परिसर में एक विशाल पुस्तकालय और तीन आधुनिक प्रयोगशालाएँ हैं।",
+              "Spanish": "El campus universitario tiene una biblioteca enorme y tres laboratorios modernos.",
+              "Standard Arabic": "يحتوي الحرم الجامعي على مكتبة ضخمة وثلاثة مختبرات حديثة.",
+              "French": "Le campus universitaire comprend une bibliothèque massive et trois laboratoires modernes.",
+              "Bengali": "বিশ্ববিদ্যালয় ক্যাম্পাসে একটি বিশাল লাইব্রেরি এবং তিনটি আধুনিক গবেষণাগার রয়েছে।",
+              "Portuguese": "O campus universitário tem uma biblioteca enorme e três laboratórios modernos.",
+              "Russian": "На территории университетского кампуса есть огромная библиотека и три современные лаборатории.",
+              "Urdu": "یونیورسٹی کیمپس میں ایک بہت بڑی لائبریری اور تین جدید تجربہ گاہیں ہیں۔",
+              "Indonesian": "Kampus universitas memiliki perpustakaan yang sangat besar dan tiga laboratorium modern.",
+              "Standard German": "Der Universitätscampus verfügt über eine riesige Bibliothek und drei moderne Labore.",
+              "Japanese": "大学のキャンパスには、巨大な図書館と3つの近代的な実験室があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "college",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɑːlɪdʒ/",
+        "meaning": "An educational institution providing higher education or specialized training.",
+        "synonyms": ["academy", "school", "institute"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He went to a local business college to learn accounting skills.",
+            "translations": {
+              "Mandarin Chinese": "他去了一所当地的商业学院学习会计技能。",
+              "Hindi": "वह अकाउंटिंग कौशल सीखने के लिए एक स्थानीय बिजनेस कॉलेज गए।",
+              "Spanish": "Él fue a una escuela de negocios local para aprender habilidades de contabilidad.",
+              "Standard Arabic": "ذهب إلى كلية إدارة أعمال محلية لتعلم مهارات المحاسبة.",
+              "French": "Il est allé dans un collège de commerce local pour acquérir des compétences en comptabilité.",
+              "Bengali": "তিনি অ্যাকাউন্টিং এর দক্ষতা শিখতে একটি স্থানীয় বিজনেস কলেজে গিয়েছিলেন।",
+              "Portuguese": "Ele frequentou uma faculdade de administração local para aprender habilidades de contabilidade.",
+              "Russian": "Он поступил в местный бизнес-колледж, чтобы обучиться бухгалтерскому учету.",
+              "Urdu": "وہ اکاؤنٹنگ کی مہارتیں سیکھنے کے لیے مقامی بزنس کالج گیا۔",
+              "Indonesian": "Dia pergi ke sekolah tinggi bisnis setempat untuk mempelajari keterampilan akuntansi.",
+              "Standard German": "Er ging auf ein örtliches Wirtschaftscollege, um Buchhaltungskenntnisse zu erwerben.",
+              "Japanese": "彼は会計のスキルを身につけるために、地元のビジネス専門学校（カレッジ）に通いました。"
+            }
+          },
+          {
+            "english": "Many students live in residential halls while attending college.",
+            "translations": {
+              "Mandarin Chinese": "许多学生在读学院期间住在学生宿舍里。",
+              "Hindi": "कई छात्र कॉलेज जाने के दौरान आवासीय हॉलों (छात्रावास) में रहते हैं।",
+              "Spanish": "Muchos estudiantes viven en residencias universitarias mientras asisten a la universidad.",
+              "Standard Arabic": "يعيش العديد من الطلاب في السكن الجامعي أثناء دراستهم في الكلية.",
+              "French": "De nombreux étudiants vivent dans des résidences universitaires pendant leurs études.",
+              "Bengali": "অনেক শিক্ষার্থী কলেজে পড়ার সময় আবাসিক হলে বসবাস করেন।",
+              "Portuguese": "Muitos estudantes moram em residências universitárias enquanto frequentam a faculdade.",
+              "Russian": "Многие студенты живут в общежитиях во время учебы в коллежде.",
+              "Urdu": "بہت سے طلباء کالج جانے کے دوران ہاسٹلز میں رہتے ہیں۔",
+              "Indonesian": "Banyak siswa tinggal di asrama selama menempuh pendidikan di perguruan tinggi.",
+              "Standard German": "Viele Studierende wohnen während des Colleges in Studentenwohnheimen.",
+              "Japanese": "多くの学生が大学に通っている間、学生寮で暮らしています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "classmate",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈklæsmeɪt/",
+        "meaning": "A member of the same class at a school, college, or university.",
+        "synonyms": ["peer", "fellow student", "schoolmate"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "My classmate lent me his notes because I missed yesterday's lecture.",
+            "translations": {
+              "Mandarin Chinese": "我的同学把他的笔记借给了我，因为我错过了昨天的讲座。",
+              "Hindi": "मेरे सहपाठी ने मुझे अपने नोट्स उधार दिए क्योंकि मैं कल के लेक्चर में नहीं आ पाया था।",
+              "Spanish": "Mi compañero de clase me prestó sus apuntes porque me perdí la clase de ayer.",
+              "Standard Arabic": "أعارني زميلي في الدراسة ملاحظاته لأنني غبت عن محاضرة الأمس.",
+              "French": "Mon camarade de classe m'a prêté ses notes parce que j'ai manqué le cours d'hier.",
+              "Bengali": "আমার সহপাঠী আমাকে তার নোট ধার দিয়েছিল কারণ আমি গতকালের লেকচারটি মিস করেছিলাম।",
+              "Portuguese": "Meu colega de classe me emprestou as anotações dele porque perdi a aula de ontem.",
+              "Russian": "Мой одноклассник одолжил мне свои конспекты, так как я пропустил вчерашнюю лекцию.",
+              "Urdu": "میرے ہم جماعت نے مجھے اپنے نوٹس ادھار دیے کیونکہ میں کل کا لیکچر نہیں سن سکا تھا۔",
+              "Indonesian": "Teman sekelas saya meminjamkan catatannya karena saya melewatkan kuliah kemarin.",
+              "Standard German": "Mein Klassenkamerad hat mir seine Notizen geliehen, weil ich die gestrige Vorlesung verpasst habe.",
+              "Japanese": "昨日の講義を欠席した私に、クラスメイトがノートを貸してくれました。"
+            }
+          },
+          {
+            "english": "We are planning a big reunion party with our high school classmates.",
+            "translations": {
+              "Mandarin Chinese": "我们正计划和高中的同学举办一个大型的同学聚会。",
+              "Hindi": "हम अपने हाई स्कूल के सहपाठियों के साथ एक बड़ी पुनर्मिलन (रीयूनियन) पार्टी की योजना बना रहे हैं।",
+              "Spanish": "Estamos planeando una gran fiesta de reencuentro con nuestros compañeros de la escuela secundaria.",
+              "Standard Arabic": "نحن نخطط لحفل لم شمل كبير مع زملائنا في المدرسة الثانوية.",
+              "French": "Nous prévoyons une grande fête de retrouvailles avec nos camarades de lycée.",
+              "Bengali": "আমরা আমাদের হাই স্কুলের সহপাঠীদের সাথে একটি বড় পুনর্মিলনী পার্টির পরিকল্পনা করছি।",
+              "Portuguese": "Estamos planejando uma grande festa de reencontro com nossos colegas de ensino médio.",
+              "Russian": "Мы планируем большую встречу выпускников с нашими одноклассниками по средней школе.",
+              "Urdu": "ہم اپنے ہائی اسکول کے ہم جماعتوں کے ساتھ ایک بڑی رीयूनियन پارٹی کی منصوبہ بندی کر رہے ہیں۔",
+              "Indonesian": "Kami sedang merencanakan pesta reuni besar dengan teman-teman sekelas SMA kami.",
+              "Standard German": "Wir planen eine große Klassentreffen-Party mit unseren alten Klassenkameraden aus der Highschool.",
+              "Japanese": "高校のクラスメイトたちと、大規模な同窓会（リユニオン）を計画しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "certificate",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/sərˈtɪfɪkət/",
+        "meaning": "An official document proving that you have completed a course of study or passed an exam.",
+        "synonyms": ["diploma", "document", "credential"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "You will receive a certificate of completion on the final day of the training.",
+            "translations": {
+              "Mandarin Chinese": "您将在培训的最后一天获得结业证书。",
+              "Hindi": "प्रशिक्षण के अंतिम दिन आपको पूर्णता का प्रमाण पत्र (सर्टिफिकेट) प्राप्त होगा।",
+              "Spanish": "Recibirás un certificado de finalización el último día de la capacitación.",
+              "Standard Arabic": "ستتلقى شهادة إتمام في اليوم الأخير من التدريب.",
+              "French": "Vous recevrez un certificat de réussite le dernier jour de la formation.",
+              "Bengali": "প্রশিক্ষণের শেষ দিনে আপনি একটি সমাপ্তির শংসাপত্র বা সার্টিফিকেট পাবেন।",
+              "Portuguese": "Você receberá um certificado de conclusão no último dia do treinamento.",
+              "Russian": "В последний день обучения вы получите сертификат об окончании курса.",
+              "Urdu": "آپ کو ٹریننگ کے آخری دن تکمیل کا سرٹیفکیٹ ملے گا۔",
+              "Indonesian": "Anda akan menerima sertifikat kelulusan pada hari terakhir pelatihan.",
+              "Standard German": "Am letzten Tag der Schulung erhalten Sie eine Abschlussbescheinigung.",
+              "Japanese": "研修の最終日に修了証書（証明書）を受け取ることができます。"
+            }
+          },
+          {
+            "english": "He attached his language proficiency certificate to his job application.",
+            "translations": {
+              "Mandarin Chinese": "他在自己的求职申请中附上了语言能力证书。",
+              "Hindi": "उन्होंने अपने नौकरी के आवेदन के साथ अपना भाषा प्रवीणता प्रमाण पत्र संलग्न किया।",
+              "Spanish": "Adjuntó su certificado de dominio del idioma a su solicitud de empleo.",
+              "Standard Arabic": "أرفق شهادة إتقان اللغة بطلب العمل الخاص به.",
+              "French": "Il a joint son certificat de compétence linguistique à sa demande d'emploi.",
+              "Bengali": "তিনি তার চাকরির আবেদনের সাথে তার ভাষা দক্ষতার শংসাপত্রটি সংযুক্ত করেছেন।",
+              "Portuguese": "Ele anexou seu certificado de proficiência em idioma à sua candidatura de emprego.",
+              "Russian": "Он прикрепил свой сертификат о знании языка к заявлению о приеме на работу.",
+              "Urdu": "اس نے نوکری کی درخواست کے ساتھ اپنا زبان کی مہارت کا سرٹیفکیٹ منسلک کیا۔",
+              "Indonesian": "Dia melampirkan sertifikat kemahiran bahasanya pada surat lamaran kerjanya.",
+              "Standard German": "Er hat seiner Bewerbung sein Sprachzertifikat beigefügt.",
+              "Japanese": "彼は求職の応募書類に語学能力の証明書を添付しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "language",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈlæŋɡwɪdʒ/",
+        "meaning": "The system of communication in speech and writing that is used by people of a particular country or area.",
+        "synonyms": ["speech", "tongue", "dialect"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Learning a foreign language can help you understand different cultures better.",
+            "translations": {
+              "Mandarin Chinese": "学习一门外语可以帮助你更好地了解不同的文化。",
+              "Hindi": "एक विदेशी भाषा सीखने से आपको विभिन्न संस्कृतियों को बेहतर ढंग से समझने में मदद मिल सकती है।",
+              "Spanish": "Aprender un idioma extranjero puede ayudarte a comprender mejor las diferentes culturas.",
+              "Standard Arabic": "يمكن أن يساعدك تعلم لغة أجنبية في فهم الثقافات المختلفة بشكل أفضل.",
+              "French": "Apprendre une langue étrangère peut vous aider à mieux comprendre d'autres cultures.",
+              "Bengali": "একটি বিদেশী ভাষা শেখা আপনাকে বিভিন্ন সংস্কৃতি আরও ভালভাবে বুঝতে সাহায্য করতে পারে।",
+              "Portuguese": "Aprender uma língua estrangeira pode ajudar você a entender melhor culturas diferentes.",
+              "Russian": "Изучение иностранного языка может помочь вам лучше понять другие культуры.",
+              "Urdu": "غیر ملکی زبان سیکھنے سے آپ کو مختلف ثقافتوں کو بہتر طور پر سمجھنے میں مدد مل سکتی ہے۔",
+              "Indonesian": "Belajar bahasa asing dapat membantu Anda memahami budaya yang berbeda dengan lebih baik.",
+              "Standard German": "Das Erlernen einer Fremdsprache kann Ihnen helfen, andere Kulturen besser zu verstehen.",
+              "Japanese": "外国語を学ぶことは、異なる文化をより深く理解するのに役立ちます。"
+            }
+          },
+          {
+            "english": "English has become the main language of science and international business.",
+            "translations": {
+              "Mandarin Chinese": "英语已成为科学和国际商务的主要语言。",
+              "Hindi": "अंग्रेजी विज्ञान और अंतर्राष्ट्रीय व्यापार की मुख्य भाषा बन गई है।",
+              "Spanish": "El inglés se ha convertido en el idioma principal de la ciencia y los negocios internacionales.",
+              "Standard Arabic": "أصبحت اللغة الإنجليزية اللغة الأساسية للعلوم والأعمال الدولية.",
+              "French": "L'anglais est devenu la langue principale de la science et du commerce international.",
+              "Bengali": "ইংরেজি বিজ্ঞান ও আন্তর্জাতিক ব্যবসার প্রধান ভাষা হয়ে উঠেছে।",
+              "Portuguese": "O inglês se tornou a língua principal da ciência e dos negócios internacionais.",
+              "Russian": "Английский язык стал основным языком науки и международного бизнеса.",
+              "Urdu": "انگریزی سائنس اور بین الاقوامی کاروبار کی بنیادی زبان بن چکی ہے۔",
+              "Indonesian": "Bahasa Inggris telah menjadi bahasa utama sains dan bisnis internasional.",
+              "Standard German": "Englisch ist zur Hauptsprache der Wissenschaft und der internationalen Wirtschaft geworden.",
+              "Japanese": "英語は科学や国際ビジネスの主要な言語になっています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "education",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌedʒuˈkeɪʃn/",
+        "meaning": "The process of teaching or learning, especially in a school, college, or university.",
+        "synonyms": ["instruction", "teaching", "schooling"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Every child has the fundamental right to receive a primary school education.",
+            "translations": {
+              "Mandarin Chinese": "每个儿童都拥有接受小学教育的基本权利。",
+              "Hindi": "प्रत्येक बच्चे को प्राथमिक विद्यालय की शिक्षा प्राप्त करने का मौलिक अधिकार है।",
+              "Spanish": "Cada niño tiene el derecho fundamental a recibir educación primaria.",
+              "Standard Arabic": "لكل طفل الحق الأساسي في الحصول على تعليم في المدرسة الابتدائية.",
+              "French": "Chaque enfant a le droit fondamental de recevoir une éducation primaire.",
+              "Bengali": "প্রতিটি শিশুর প্রাথমিক বিদ্যালয়ের শিক্ষা পাওয়ার মৌলিক অধিকার রয়েছে।",
+              "Portuguese": "Toda criança tem o direito fundamental de receber educação primária.",
+              "Russian": "Каждый ребенок имеет фундаментальное право на получение начального образования.",
+              "Urdu": "ہر بچے کو پرائمری اسکول کی تعلیم حاصل کرنے کا بنیادی حق حاصل ہے۔",
+              "Indonesian": "Setiap anak memiliki hak mendasar untuk menerima pendidikan sekolah dasar.",
+              "Standard German": "Jedes Kind hat das Grundrecht auf eine Grundschulbildung.",
+              "Japanese": "すべての子供には、小学校の教育を受けるという基本的な権利があります。"
+            }
+          },
+          {
+            "english": "She believes that a good education is the key to a successful career.",
+            "translations": {
+              "Mandarin Chinese": "她认为，良好的教育是成功职业生涯的关键。",
+              "Hindi": "उसका मानना ​​है कि एक अच्छी शिक्षा ही सफल करियर की कुंजी है।",
+              "Spanish": "Ella cree que una buena educación es la clave para una carrera exitosa.",
+              "Standard Arabic": "إنها تؤمن بأن التعليم الجيد هو مفتاح المسيرة المهنية الناجحة.",
+              "French": "Elle pense qu'une bonne éducation est la clé d'une carrière réussie.",
+              "Bengali": "তিনি বিশ্বাস করেন যে একটি ভালো শিক্ষা একটি সফল ক্যারিয়ারের চাবিকাঠি।",
+              "Portuguese": "Ela acredita que uma boa educação é a chave para uma carreira de sucesso.",
+              "Russian": "Она считает, что хорошее образование — это ключ к успешной карьере.",
+              "Urdu": "ان کا मानना ہے کہ اچھی تعلیم ہی کامیاب کیریئر کی چابی ہے۔",
+              "Indonesian": "Dia percaya bahwa pendidikan yang baik adalah kunci menuju karier yang sukses.",
+              "Standard German": "Sie glaubt, dass eine gute Ausbildung der Schlüssel zu einer erfolgreichen Karriere ist.",
+              "Japanese": "彼女は、優れた教育を受けることが成功するキャリアへの鍵であると信じています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "skill",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/skɪl/",
+        "meaning": "The ability to do something well, usually gained through training or experience.",
+        "synonyms": ["ability", "talent", "expertise"],
+        "antonyms": ["inability"],
+        "examples": [
+          {
+            "english": "Cooking is a useful practical skill that everyone should learn.",
+            "translations": {
+              "Mandarin Chinese": "烹饪是一项每个人都应该学习的实用技能。",
+              "Hindi": "खाना पकाना एक उपयोगी व्यावहारिक कौशल (स्किल्ल) है जिसे हर किसी को सीखना चाहिए।",
+              "Spanish": "Cocinar es una habilidad práctica útil que todo el mundo debería aprender.",
+              "Standard Arabic": "الطبخ مهارة عملية مفيدة يجب على الجميع تعلمها.",
+              "French": "La cuisine est une compétence pratique utile que tout le monde devrait acquérir.",
+              "Bengali": "রান্না করা একটি দরকারী ব্যবহারিক দক্ষতা যা প্রত্যেকের শেখা উচিত।",
+              "Portuguese": "Cozinhar é uma habilidade prática útil que todo mundo deveria aprender.",
+              "Russian": "Приготовление еды — полезный практический навык, которому должен научиться каждый.",
+              "Urdu": "کھانا پکانا ایک مفید عملی مہارت ہے جسے ہر کسی کو سیکھنا چاہیے۔",
+              "Indonesian": "Memasak adalah keterampilan praktis yang berguna yang harus dipelajari semua orang.",
+              "Standard German": "Kochen ist eine nützliche praktische Fertigkeit, die jeder lernen sollte.",
+              "Japanese": "料理は誰もが学ぶべき、便利な実用的なスキルです。"
+            }
+          },
+          {
+            "english": "The training course helps students improve their computer communication skills.",
+            "translations": {
+              "Mandarin Chinese": "该培训课程可以帮助学生提高他们的计算机沟通技能。",
+              "Hindi": "यह प्रशिक्षण पाठ्यक्रम छात्रों को उनके कंप्यूटर संचार कौशल को सुधारने में मदद करता है।",
+              "Spanish": "El curso de capacitación ayuda a los estudiantes a mejorar sus habilidades de comunicación por computadora.",
+              "Standard Arabic": "تساعد الدورة التدريبية الطلاب على تحسين مهارات الاتصال بالكمبيوتر لديهم.",
+              "French": "Le cours de formation aide les étudiants à améliorer leurs compétences en communication informatique.",
+              "Bengali": "প্রশিক্ষণ কোর্সটি শিক্ষার্থীদের তাদের কম্পিউটার যোগাযোগ দক্ষতা উন্নত করতে সহায়তা করে।",
+              "Portuguese": "O curso de treinamento ajuda os alunos a melhorar suas habilidades de comunicação no computador.",
+              "Russian": "Этот учебный курс помогает студентам улучшить свои навыки компьютерной коммуникации.",
+              "Urdu": "یہ ٹریننگ کورس طلباء کو کمپیوٹر پر بات چیت کی مہارت کو بہتر بنانے میں مدد کرتا ہے۔",
+              "Indonesian": "Kursus pelatihan membantu siswa meningkatkan keterampilan komunikasi komputer mereka.",
+              "Standard German": "Der Schulungskurs hilft den Schülern, ihre Fähigkeiten in der Computerkommunikation zu verbessern.",
+              "Japanese": "この研修コースは、生徒たちがコンピューターを使ったコミュニケーション技術（スキル）を高めるのに役立ちます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "knowledge",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈnɑːlɪdʒ/",
+        "meaning": "Information, understanding, or skills that you get through experience or education.",
+        "synonyms": ["wisdom", "understanding", "awareness"],
+        "antonyms": ["ignorance"],
+        "examples": [
+          {
+            "english": "Books are an endless source of knowledge about the world.",
+            "translations": {
+              "Mandarin Chinese": "书籍是关于这个世界的无尽知识源泉。",
+              "Hindi": "पुस्तकें दुनिया के बारे में ज्ञान का एक अंतहीन स्रोत हैं।",
+              "Spanish": "Los libros son una fuente infinita de conocimiento sobre el mundo.",
+              "Standard Arabic": "الكتب مصدر لا ينتهي للمعرفة عن العالم.",
+              "French": "Les livres sont une source infinie de connaissances sur le monde.",
+              "Bengali": "বই হলো পৃথিবী সম্পর্কে জ্ঞানের এক অন্তহীন উৎস।",
+              "Portuguese": "Os libros são uma fonte infinita de conhecimento sobre o mundo.",
+              "Russian": "Книги — это бесконечный источник знаний о мире.",
+              "Urdu": "کتابیں دنیا کے بارے میں علم کا ایک نہ ختم ہونے والا ذریعہ ہیں۔",
+              "Indonesian": "Buku adalah sumber pengetahuan yang tiada habisnya tentang dunia.",
+              "Standard German": "Bücher sind eine unendliche Quelle des Wissens über die Welt.",
+              "Japanese": "本は世界に関する知識の尽きることのない源です。"
+            }
+          },
+          {
+            "english": "She has a broad knowledge of European art and classical music.",
+            "translations": {
+              "Mandarin Chinese": "她对欧洲艺术和古典音乐有着广泛的知识。",
+              "Hindi": "उन्हें यूरोपीय कला और शास्त्रीय संगीत का व्यापक ज्ञान है।",
+              "Spanish": "Ella tiene un amplio conocimiento del arte europeo y la música clásica.",
+              "Standard Arabic": "لدىها معرفة واسعة بالفن الأوروبي والموسيقى الكلاسيكية.",
+              "French": "Elle possède une vaste connaissance de l'art européen et de la musique classique.",
+              "Bengali": "ইউরোপীয় শিল্প এবং শাস্ত্রীয় সঙ্গীত সম্পর্কে তার ব্যাপক জ্ঞান রয়েছে।",
+              "Portuguese": "Ela tem um amplo conhecimento de arte europeia e música clássica.",
+              "Russian": "Она обладает обширными знаниями в области европейского искусства и классической музыки.",
+              "Urdu": "انہیں یورپی آرٹ اور کلاسیکی موسیقی کا وسیع علم ہے۔",
+              "Indonesian": "Dia memiliki pengetahuan yang luas tentang seni Eropa dan musik klasik.",
+              "Standard German": "Sie verfügt über ein breites Wissen über europäische Kunst und klassische Musik.",
+              "Japanese": "彼女はヨーロッパの芸術やクラシック音楽について幅広い知識を持っています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "online class",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɑːnˈlaɪn klæs/",
+        "meaning": "A course of study conducted over the internet rather than in a physical classroom.",
+        "synonyms": ["virtual class", "distance learning"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I have an online class at nine tomorrow morning, so I must wake up early.",
+            "translations": {
+              "Mandarin Chinese": "我明天早上九点有一堂网课，所以我必须早起。",
+              "Hindi": "कल सुबह नौ बजे मेरी एक ऑनलाइन क्लास है, इसलिए मुझे जल्दी उठना होगा।",
+              "Spanish": "Tengo una clase en línea a las nueve mañana por la mañana, así que debo despertarme temprano.",
+              "Standard Arabic": "عندي حصة عبر الإنترنت في الساعة التاسعة صباح غد، لذا يجب أن أستيقظ مبكراً.",
+              "French": "J'ai un cours en ligne demain matin à neuf heures, je dois donc me réveiller tôt.",
+              "Bengali": "আগামীকাল সকাল নয়টায় আমার একটি অনলাইন ক্লাস আছে, তাই আমাকে তাড়াতাড়ি ঘুম থেকে উঠতে হবে।",
+              "Portuguese": "Tenho uma aula online às nove da manhã de amanhã, por isso preciso acordar cedo.",
+              "Russian": "Завтра в девять утра у меня онлайн-занятие, поэтому мне нужно проснуться пораньше.",
+              "Urdu": "کل صبح نو بجے میری ایک آن لائن کلاس ہے، اس لیے مجھے جلدی اٹھنا ہو گا۔",
+              "Indonesian": "Saya ada kelas daring jam sembilan esok pagi, jadi saya harus bangun pagi.",
+              "Standard German": "Ich habe morgen früh um neun Uhr einen Online-Kurs, also muss ich früh aufstehen.",
+              "Japanese": "明日の朝9時からオンライン授業があるので、早起きしなければなりません。"
+            }
+          },
+          {
+            "english": "The online class allows students to study comfortably from home.",
+            "translations": {
+              "Mandarin Chinese": "网络课堂能让学生在家里舒舒服服地学习。",
+              "Hindi": "ऑनलाइन क्लास छात्रों को घर से आराम से पढ़ाई करने की अनुमति देती है।",
+              "Spanish": "La clase en línea permite a los estudiantes estudiar cómodamente desde casa.",
+              "Standard Arabic": "تتيح الحصة عبر الإنترنت للطلاب الدراسة براحة من المنزل.",
+              "French": "Le cours en ligne permet aux étudiants d'étudier confortablement depuis chez eux.",
+              "Bengali": "অনলাইন ক্লাস শিক্ষার্থীদের ঘরে বসে আরামে পড়াশোনা করার সুযোগ করে দেয়।",
+              "Portuguese": "A aula online permite que os alunos estudem confortavelmente de casa.",
+              "Russian": "Онлайн-занятия позволяют студентам с комфортом учиться из дома.",
+              "Urdu": "آن لائن کلاس طلباء کو گھر بیٹھے آرام سے پڑھائی کرنے کی اجازت دیتی ہے۔",
+              "Indonesian": "Kelas daring memungkinkan siswa untuk belajar dengan nyaman dari rumah.",
+              "Standard German": "Der Online-Unterricht ermöglicht es den Schülern, bequem von zu Hause aus zu lernen.",
+              "Japanese": "オンライン授業のおかげで、生徒たちは自宅から快適に勉強することができます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "assignment",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈsaɪnmənt/",
+        "meaning": "A piece of work or task given to a student as part of their studies.",
+        "synonyms": ["homework", "task", "project"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We must submit our geography assignment before the teacher leaves today.",
+            "translations": {
+              "Mandarin Chinese": "我们必须在老师今天离开之前提交我们的地理作业。",
+              "Hindi": "शिक्षक के आज जाने से पहले हमें अपना भूगोल का असाइनमेंट जमा करना होगा।",
+              "Spanish": "Debemos entregar nuestra tarea de geografía antes de que el maestro se vaya hoy.",
+              "Standard Arabic": "يجب أن نسلم واجب الجغرافيا قبل أن يغادر المعلم اليوم.",
+              "French": "Nous devons rendre notre devoir de géographie avant que l'enseignant ne parte aujourd'hui.",
+              "Bengali": "শিক্ষক আজ চলে যাওয়ার আগে আমাদের ভূগোলের অ্যাসাইনমেন্ট জমা দিতে হবে।",
+              "Portuguese": "Devemos entregar nosso trabalho de geografia antes do professor ir embora hoje.",
+              "Russian": "Мы должны сдать наше задание по географии до того, как учитель уйдет сегодня.",
+              "Urdu": "استاد کے آج جانے سے پہلے ہمیں اپنا جغرافیہ کا اسائنمنٹ جمع کرانا ہوگا۔",
+              "Indonesian": "Kita harus mengumpulkan tugas geografi kita sebelum guru pulang hari ini.",
+              "Standard German": "Wir müssen unsere Erdkunde-Hausarbeit abgeben, bevor der Lehrer heute geht.",
+              "Japanese": "先生が今日帰る前に、地理の課題（アサインメント）を提出しなければなりません。"
+            }
+          },
+          {
+            "english": "The reading assignment for this week is twenty pages of the history book.",
+            "translations": {
+              "Mandarin Chinese": "本周的阅读任务是历史书的二十页内容。",
+              "Hindi": "इस सप्ताह के लिए पढ़ने का असाइनमेंट इतिहास की पुस्तक के बीस पृष्ठ हैं।",
+              "Spanish": "La tarea de lectura para esta semana son veinte páginas del libro de historia.",
+              "Standard Arabic": "واجب القراءة لهذا الأسبوع هو عشرون صفحة من كتاب التاريخ.",
+              "French": "Le travail de lecture pour cette semaine est de vingt pages du livre d'histoire.",
+              "Bengali": "এই সপ্তাহের পড়ার অ্যাসাইনমেন্ট হলো ইতিহাস বইয়ের বিশ পৃষ্ঠা।",
+              "Portuguese": "A tarefa de leitura para esta semana são vinte páginas do livro de história.",
+              "Russian": "Задание по чтению на эту неделю — двадцать страниц книги по истории.",
+              "Urdu": "اس ہفتے کے لیے پڑھنے کا اسائنمنٹ تاریخ کی کتاب کے بیس صفحات ہیں۔",
+              "Indonesian": "Tugas membaca untuk minggu ini adalah dua puluh halaman dari buku sejarah.",
+              "Standard German": "Die Leseaufgabe für diese Woche umfasst zwanzig Seiten des Geschichtsbuchs.",
+              "Japanese": "今週の読書の課題は、歴史の教科書の20ページ分です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "attendance",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun",
+        "pronunciation": "/əˈtendəns/",
+        "meaning": "The act of being present at a place like a school, class, or meeting.",
+        "synonyms": ["presence", "appearance"],
+        "antonyms": ["absence"],
+        "examples": [
+          {
+            "english": "Daily attendance is recorded at the beginning of every morning class.",
+            "translations": {
+              "Mandarin Chinese": "每天早课开始时都会记录考勤。",
+              "Hindi": "हर सुबह की कक्षा की शुरुआत में दैनिक उपस्थिति (अटेंडेंस) दर्ज की जाती है।",
+              "Spanish": "La asistencia diaria se registra al comienzo de cada clase de la mañana.",
+              "Standard Arabic": "يتم تسجيل الحضور اليومي في بداية كل حصة صباحية.",
+              "French": "La présence quotidienne est enregistrée au début de chaque cours du matin.",
+              "Bengali": "প্রতিদিন সকালে ক্লাস শুরু হওয়ার সময় দৈনিক উপস্থিতি রেকর্ড করা হয়।",
+              "Portuguese": "A presença diária é registrada no início de cada aula da manhã.",
+              "Russian": "Ежедневная посещаемость регистрируется в начале каждого утреннего занятия.",
+              "Urdu": "ہر صبح کلاس کے آغاز میں روزانہ کی حاضری (اٹینڈنس) ریکارڈ کی جاتی ہے۔",
+              "Indonesian": "Kehadiran harian dicatat pada awal setiap kelas pagi.",
+              "Standard German": "Die tägliche Anwesenheit wird zu Beginn jedes morgendlichen Unterrichts erfasst.",
+              "Japanese": "毎朝の授業の始めに、毎日の出席が記録されます。"
+            }
+          },
+          {
+            "english": "Her low attendance at lectures affected her final exam score.",
+            "translations": {
+              "Mandarin Chinese": "她讲座的低出勤率影响了她的期末考试成绩。",
+              "Hindi": "लेक्चरों में उसकी कम उपस्थिति ने उसकी अंतिम परीक्षा के स्कोर को प्रभावित किया।",
+              "Spanish": "Su baja asistencia a las conferencias afectó su puntaje en el examen final.",
+              "Standard Arabic": "أثر حضورها المنخفض للمحاضرات على درجتها في الامتحان النهائي.",
+              "French": "Sa faible assiduité aux cours a affecté sa note à l'examen final.",
+              "Bengali": "লেকচারে তার কম উপস্থিতি তার চূড়ান্ত পরীক্ষার স্কোরকে প্রভাবিত করেছিল।",
+              "Portuguese": "Sua baixa frequência nas aulas afetou a nota do exame final.",
+              "Russian": "Ее низкая посещаемость лекций повлияла на оценку за итоговый экзамен.",
+              "Urdu": "لیکچرز میں ان کی کم حاضری نے ان کے فائنل امتحان کے اسکور کو متاثر کیا۔",
+              "Indonesian": "Kehadirannya yang rendah dalam perkuliahan memengaruhi nilai ujian akhir.",
+              "Standard German": "Ihre geringe Anwesenheit bei den Vorlesungen wirkte sich auf ihre Abschlussprüfungsnote aus.",
+              "Japanese": "講義への出席率が低かったことが、彼女の期末試験の点数に影響しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "lecture",
+        "level": "A2",
+        "category": "Education",
+        "part_of_speech": "noun / verb",
+        "pronunciation": "/ˈlektʃər/",
+        "meaning": "A formal talk given to a group of people, especially students at a university, to teach them about a subject.",
+        "synonyms": ["talk", "presentation", "address"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The chemistry professor gave a fascinating lecture on organic compounds.",
+            "translations": {
+              "Mandarin Chinese": "化学教授做了一场关于有机化合物的精彩讲座。",
+              "Hindi": "रसायन विज्ञान के प्रोफेसर ने कार्बनिक यौगिकों पर एक आकर्षक व्याख्यान (लेक्चर) दिया।",
+              "Spanish": "El profesor de química dio una conferencia fascinante sobre compuestos orgánicos.",
+              "Standard Arabic": "ألقى بروفيسور الكيمياء محاضرة رائعة عن المركبات العضوية.",
+              "French": "Le professeur de chimie a donné un cours magistral passionnant sur les composés organiques.",
+              "Bengali": "রসায়নের অধ্যাপক জৈব যৌগের উপর একটি চমৎকার বক্তৃতা বা লেকচার দিয়েছিলেন।",
+              "Portuguese": "O professor de química deu uma palestra fascinante sobre compostos orgânicos.",
+              "Russian": "Профессор химии прочитал увлекательную лекцию об органических соединениях.",
+              "Urdu": "کیمسٹری کے پروفیسر نے نامیاتی مرکبات پر ایک شاندار لیکچر دیا۔",
+              "Indonesian": "Profesor kimia memberikan kuliah yang menarik tentang senyawa organik.",
+              "Standard German": "Der Chemieprofessor hielt eine faszinierende Vorlesung über organische Verbindungen.",
+              "Japanese": "化学の教授が、有機化合物に関する非常に興味深い講義を行いました。"
+            }
+          },
+          {
+            "english": "I have to attend a history lecture at two o'clock this afternoon.",
+            "translations": {
+              "Mandarin Chinese": "今天下午两点我必须参加一场历史大课。",
+              "Hindi": "मुझे आज दोपहर दो बजे इतिहास के एक व्याख्यान (लेक्चर) में शामिल होना है।",
+              "Spanish": "Tengo que asistir a una conferencia de historia a las dos de la tarde.",
+              "Standard Arabic": "يجب أن أحضر محاضرة تاريخ في الساعة الثانية بعد ظهر اليوم.",
+              "French": "Je dois assister à un cours d'histoire à deux heures cet après-midi.",
+              "Bengali": "আজ দুপুর দুইটায় আমাকে একটি ইতিহাস লেকচারে উপস্থিত থাকতে হবে।",
+              "Portuguese": "Tenho que assistir a uma palestra de história às duas horas desta tarde.",
+              "Russian": "Сегодня в два часа дня я должен пойти на лекцию по истории.",
+              "Urdu": "مجھے آج دوپہر دو بجے تاریخ کے ایک لیکچر میں شرکت کرنی ہے۔",
+              "Indonesian": "Saya harus menghadiri kuliah sejarah jam dua siang ini.",
+              "Standard German": "Ich muss heute Nachmittag um zwei Uhr eine Geschichtsvorlesung besuchen.",
+              "Japanese": "今日の午後2時に歴史の講義に出席しなければなりません。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

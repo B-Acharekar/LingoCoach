@@ -1,0 +1,589 @@
+{
+  "level": "B1",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "Workplace": [
+      {
+        "word": "deadline",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdedlaɪn/",
+        "meaning": "A point in time by which something must be completed or finished.",
+        "synonyms": ["due date", "limit", "target time"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We must work hard to meet the final deadline for this project.",
+            "translations": {
+              "Mandarin Chinese": "我们必须努力工作以赶上这个项目的最后截止日期。",
+              "Hindi": "हमें इस परियोजना की अंतिम समय-सीमा को पूरा करने के लिए कड़ी मेहनत करनी चाहिए।",
+              "Spanish": "Debemos trabajar duro para cumplir con la fecha límite final de este proyecto.",
+              "Standard Arabic": "يجب أن نعمل بجد للوفاء بالموعد النهائي النهائي لهذا المشروع.",
+              "French": "Nous devons travailler dur pour respecter la date limite finale de ce projet.",
+              "Bengali": "এই প্রকল্পের শেষ সময়সীমাটি পূরণ করতে আমাদের কঠোর পরিশ্রম করতে হবে。",
+              "Portuguese": "Devemos trabalhar duro para cumprir o prazo final deste projeto.",
+              "Russian": "Мы должны усердно работать, чтобы уложиться в окончательный срок по этому проекту.",
+              "Urdu": "ہمیں اس پروجیکٹ کی آخری آخری تاریخ को پورا کرنے کے لیے سخت محنت کرنی چاہیے۔",
+              "Indonesian": "Kita harus bekerja keras untuk memenuhi tenggat waktu akhir proyek ini.",
+              "Standard German": "Wir müssen hart arbeiten, um die endgültige Frist für dieses Projekt einzuhalten.",
+              "Japanese": "このプロジェクトの最終締め切りに間に合わせるために、私たちは一生懸命働かなければなりません。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "promotion",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/prəˈməʊʃn/",
+        "meaning": "An advancement in rank, position, or honor within a company or organization.",
+        "synonyms": ["advancement", "elevation", "upgrade"],
+        "antonyms": ["demotion"],
+        "examples": [
+          {
+            "english": "After two years of hard work, she finally received a promotion to manager.",
+            "translations": {
+              "Mandarin Chinese": "经过两年的努力工作，她终于晋升为经理。",
+              "Hindi": "दो साल की कड़ी मेहनत के बाद, आखिरकार उन्हें प्रबंधक के पद पर पदोन्नति मिली।",
+              "Spanish": "Después de dos años de arduo trabajo, finalmente recibió un ascenso a gerente.",
+              "Standard Arabic": "بعد عامين من العمل الجاد، حصلت أخيراً على ترقية إلى منصب مدير.",
+              "French": "Après deux ans de travail acharné, elle a enfin obtenu une promotion au poste de manager.",
+              "Bengali": "দুই বছর কঠোর পরিশ্রমের পর, তিনি অবশেষে ব্যবস্থাপক পদে পদোন্নতি পেয়েছেন।",
+              "Portuguese": "Após dois anos de trabalho árduo, ela finalmente recebeu uma promoção para gerente.",
+              "Russian": "После двух лет усердной работы она наконец получила повышение до менеджера.",
+              "Urdu": "دو سال کی سخت محنت के बाद، بالآخر انہیں مینیجر کے عہدے پر ترقی مل گئی۔",
+              "Indonesian": "Setelah dua tahun bekerja keras, dia akhirnya menerima promosi menjadi manajer.",
+              "Standard German": "Nach zweieinhalb Jahren harter Arbeit erhielt sie schließlich eine Beförderung zur Managerin.",
+              "Japanese": "2年間の努力の末、彼女はついにマネージャーへの昇進を果たしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "conference",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɒnfərəns/",
+        "meaning": "A formal meeting for discussion, consultation, or exchange of information.",
+        "synonyms": ["meeting", "convention", "seminar"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The annual sales conference will take place in the main hall tomorrow morning.",
+            "translations": {
+              "Mandarin Chinese": "年度销售会议将于明天上午在主大厅举行。",
+              "Hindi": "वार्षिक बिक्री सम्मेलन कल सुबह मुख्य हॉल में आयोजित किया जाएगा।",
+              "Spanish": "La conferencia anual de ventas se llevará a cabo en el salón principal mañana por la mañana.",
+              "Standard Arabic": "سيعقد مؤتمر المبيعات السنوي في القاعة الرئيسية صباح الغد.",
+              "French": "La conférence annuelle sur les ventes aura lieu dans la salle principale demain matin.",
+              "Bengali": "বার্ষিক বিক্রয় সম্মেলনটি আগামীকাল সকালে প্রধান হলে অনুষ্ঠিত হবে।",
+              "Portuguese": "A conferência anual de vendas acontecerá no salão principal amanhã de manhã.",
+              "Russian": "Ежегодная конференция по продажам состоится завтра утром в главном зале.",
+              "Urdu": "سالانہ سیلز کانفرنس کل صبح مین ہال में होगी।",
+              "Indonesian": "Konferensi penjualan tahunan akan berlangsung di aula utama besok pagi.",
+              "Standard German": "Die jährliche Vertriebskonferenz findet morgen früh in der Haupthalle statt.",
+              "Japanese": "年次販売会議は明日午前、メインホールで開催されます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "strategy",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈstrætədʒi/",
+        "meaning": "A careful plan or method for achieving a specific, long-term goal.",
+        "synonyms": ["plan", "policy", "approach"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The team designed a new marketing strategy to attract younger customers.",
+            "translations": {
+              "Mandarin Chinese": "团队设计了一个新的营销策略来吸引年轻客户。",
+              "Hindi": "टीम ने युवा ग्राहकों को आकर्षित करने के लिए एक नई विपणन रणनीति तैयार की।",
+              "Spanish": "El equipo diseñó una nueva estrategia de marketing para atraer a clientes más jóvenes.",
+              "Standard Arabic": "صمم الفريق استراتيجية تسويق جديدة لجذب العملاء الأصغر سناً.",
+              "French": "L'équipe a conçu une nouvelle stratégie marketing pour attirer des clients plus jeunes.",
+              "Bengali": "তরুণ গ্রাহকদের আকর্ষণ করতে দল একটি নতুন বিপণন কৌশল তৈরি করেছে।",
+              "Portuguese": "A equipe projetou uma nova estratégia de marketing para atrair clientes mais jovens.",
+              "Russian": "Команда разработала новую маркетинговую стратегию для привлечения более молодых клиентов.",
+              "Urdu": "ٹام نے نئے صارفین کو راغب کرنے کے لیے مارکیٹنگ کی ایک نئی حکمت عملی تیار کی۔",
+              "Indonesian": "Tim merancang strategi pemasaran baru untuk menarik pelanggan yang lebih muda.",
+              "Standard German": "Das Team hat eine neue Marketingstrategie entwickelt, um jüngere Kunden anzuziehen.",
+              "Japanese": "チームは、より若い顧客を惹きつけるための新しいマーケティング戦略を設計しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "productivity",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌprɒdʌkˈtɪvəti/",
+        "meaning": "The rate at which a person, company, or country does useful work.",
+        "synonyms": ["efficiency", "output", "yield"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Taking regular short breaks can actually increase your productivity at work.",
+            "translations": {
+              "Mandarin Chinese": "定期进行短暂休息实际上可以提高你的工作效率。",
+              "Hindi": "नियमित रूप से छोटे ब्रेक लेने से वास्तव में काम पर आपकी उत्पादकता बढ़ सकती है।",
+              "Spanish": "Tomar breves descansos regulares en realidad puede aumentar tu productividad en el trabajo.",
+              "Standard Arabic": "أخذ فترات راحة قصيرة منتظمة يمكن أن يزيد بالفعل من إنتاجيتك في العمل.",
+              "French": "Prendre de courtes pauses régulières peut en fait augmenter votre productivité au travail.",
+              "Bengali": "নিয়মিত ছোট বিরতি নেওয়া আসলে কর্মক্ষেত্রে আপনার উত্পাদনশীলতা বাড়িয়ে তুলতে পারে।",
+              "Portuguese": "Fazer pequenas pausas regulares pode, na verdade, aumentar sua produtividade no trabalho.",
+              "Russian": "Регулярные короткие перерывы на самом деле могут повысить вашу продуктивность на работе.",
+              "Urdu": "باقاعدگی سے چھوٹے وقفے لینے سے کام پر آپ کی پیداوری میں اضافہ ہو سکتا ہے۔",
+              "Indonesian": "Mengambil istirahat pendek secara teratur sebenarnya dapat meningkatkan produktivitas Anda di tempat kerja.",
+              "Standard German": "Regelmäßige kurze Pausen können Ihre Produktivität am Arbeitsplatz tatsächlich steigern.",
+              "Japanese": "定期的に短い休憩を取ることで、仕事の生産性を実際に高めることができます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "department",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/dɪˈpɑːtmənt/",
+        "meaning": "A distinct part or division of a large organization, company, or shop.",
+        "synonyms": ["division", "section", "branch"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "If you have questions about your pay, please contact the human resources department.",
+            "translations": {
+              "Mandarin Chinese": "如果您对工资有疑问，请联系人力资源部门。",
+              "Hindi": "यदि आपके पास अपने वेतन के बारे में प्रश्न हैं, तो कृपया मानव संसाधन विभाग से संपर्क करें।",
+              "Spanish": "Si tiene preguntas sobre su salario, comuníquese con el departamento de recursos humanos.",
+              "Standard Arabic": "إذا كان لديك أسئلة حول راتبك، يرجى الاتصال بقسم الموارد البشرية.",
+              "French": "Si vous avez des questions sur votre salaire, veuillez contacter le service des ressources humaines.",
+              "Bengali": "আপনার বেতন সম্পর্কে কোনো প্রশ্ন থাকলে, অনুগ্রহ করে মানব সম্পদ বিভাগের সাথে যোগাযোগ করুন।",
+              "Portuguese": "Se você tiver dúvidas sobre seu pagamento, entre em contato com o departamento de recursos humanos.",
+              "Russian": "Если у вас есть вопросы по поводу оплаты труда, пожалуйста, свяжитесь с отделом кадров.",
+              "Urdu": "اگر آپ کو اپنی تنخواہ کے بارے میں سوالات ہیں، تو براہ کرم محکمہ انسانی وسائل سے رابطہ کریں۔",
+              "Indonesian": "Jika Anda memiliki pertanyaan tentang gaji Anda, silakan hubungi departemen sumber daya manusia.",
+              "Standard German": "Wenn Sie Fragen zu Ihrem Gehalt haben, wenden Sie sich bitte an die Personalabteilung.",
+              "Japanese": "給与について質問がある場合は、人事部にお問い合わせください。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "colleague",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkɒliːɡ/",
+        "meaning": "A person with whom one works, especially in a profession or business.",
+        "synonyms": ["coworker", "teammate", "associate"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I am having lunch today with a colleague from the engineering team.",
+            "translations": {
+              "Mandarin Chinese": "我今天正和工程团队的一位同事一起吃午饭。",
+              "Hindi": "मैं आज इंजीनियरिंग टीम के एक सहयोगी के साथ दोपहर का भोजन कर रहा हूँ।",
+              "Spanish": "Hoy voy a almorzar con un compañero de trabajo del equipo de ingeniería.",
+              "Standard Arabic": "أتناول الغداء اليوم مع زميل لي من فريق الهندسة.",
+              "French": "Je déjeune aujourd'hui avec un collègue de l'équipe d'ingénierie.",
+              "Bengali": "আমি আজ ইঞ্জিনিয়ারিং টিমের একজন সহকর্মীর সাথে দুপুরের খাবার খাচ্ছি।",
+              "Portuguese": "Vou almoçar hoje com um colega de trabalho da equipe de engenharia.",
+              "Russian": "Сегодня я обедаю с коллегой из инженерной группы.",
+              "Urdu": "میں آج انجینئرنگ ٹیم کے ایک ساتھی کے ساتھ لنچ کر رہا ہوں۔",
+              "Indonesian": "Saya makan siang hari ini bersama rekan kerja dari tim teknik.",
+              "Standard German": "Ich esse heute mit einem Kollegen aus dem Engineering-Team zu Mittag.",
+              "Japanese": "今日、エンジニアリングチームの同僚と一緒に昼食をとります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "salary",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈsæləri/",
+        "meaning": "A fixed regular payment, typically paid on a monthly basis, made by an employer to an employee.",
+        "synonyms": ["wage", "pay", "income"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The company offers a competitive starting salary and excellent benefits.",
+            "translations": {
+              "Mandarin Chinese": "该公司提供极具竞争力的起薪和优厚的福利。",
+              "Hindi": "कंपनी एक प्रतिस्पर्धी शुरुआती वेतन और उत्कृष्ट लाभ प्रदान करती है।",
+              "Spanish": "La empresa ofrece un salario inicial competitivo y excelentes beneficios.",
+              "Standard Arabic": "تقدم الشركة راتباً ابتدائياً تنافسياً ومزايا ممتازة.",
+              "French": "L'entreprise offre un salaire de départ compétitif et d'excellents avantages.",
+              "Bengali": "প্রতিষ্ঠানটি একটি প্রতিযোগিতামূলক প্রারম্ভিক বেতন এবং চমৎকার সুযোগ-সুবিধা প্রদান করে।",
+              "Portuguese": "A empresa oferece um salário inicial competitivo e excelentes benefícios.",
+              "Russian": "Компания предлагает конкурентоспособную начальную заработную плату и отличные льготы.",
+              "Urdu": "کمपनी एक مسابقتی ابتدائی تنخواہ اور بہترین فوائد پیش کرتی ہے۔",
+              "Indonesian": "Perusahaan menawarkan gaji awal yang kompetitif dan tunjangan yang sangat baik.",
+              "Standard German": "Das Unternehmen bietet ein wettbewerbsfähiges Einstiegsgehalt und hervorragende Zusatzleistungen.",
+              "Japanese": "同社は競争力のある初任給と優れた福利厚生を提供しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "negotiation",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/nɪˌɡəʊʃiˈeɪʃn/",
+        "meaning": "Formal discussion between people who are trying to reach an agreement.",
+        "synonyms": ["bargaining", "discussion", "talks"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "After a long negotiation, the two business owners finally signed the contract.",
+            "translations": {
+              "Mandarin Chinese": "经过长期的谈判，两位企业主终于签署了合同。",
+              "Hindi": "लंबी बातचीत के बाद, दोनों व्यवसाय स्वामियों ने आखिरकार अनुबंध पर हस्ताक्षर किए।",
+              "Spanish": "Después de una larga negociación, los dos dueños de negocios finalmente firmaron el contrato.",
+              "Standard Arabic": "بعد مفاوضات طويلة، وقع صاحبا العمل أخيراً على العقد.",
+              "French": "Après une longue négociation, les deux chefs d'entreprise ont enfin signé le contrat.",
+              "Bengali": "দীর্ঘ আলোচনার পর দুই ব্যবসায়ী শেষ পর্যন্ত চুক্তিতে সই করেন।",
+              "Portuguese": "Após uma longa negociação, os dois proprietários de empresas finalmente assinaram o contrato.",
+              "Russian": "После долгих переговоров два владельца бизнеса наконец подписали контракт.",
+              "Urdu": "طویل مذاکرات کے بعد، دونوں کاروباری مالکان نے بالآخر معاہدے پر دستخط کر دیے۔",
+              "Indonesian": "Setelah negosiasi yang panjang, kedua pemilik bisnis akhirnya menandatangani kontrak.",
+              "Standard German": "Nach langen Verhandlungen haben die beiden Geschäftsinhaber schließlich den Vertrag unterzeichnet.",
+              "Japanese": "長い交渉の末、2人の経営者はついに契約に署名しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "responsibility",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˌspɒnsəˈbɪləti/",
+        "meaning": "A duty or task that you are required or expected to look after or handle.",
+        "synonyms": ["duty", "obligation", "task"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Managing the database infrastructure is my main responsibility at this firm.",
+            "translations": {
+              "Mandarin Chinese": "管理数据库基础设施是我在这家公司的主要职责。",
+              "Hindi": "इस फर्म में डेटाबेस इन्फ्रास्ट्रक्चर का प्रबंधन करना मेरी मुख्य जिम्मेदारी है।",
+              "Spanish": "Administrar la infraestructura de la base de datos es mi principal responsabilidad en esta empresa.",
+              "Standard Arabic": "إدارة البنية التحتية لقاعدة البيانات هي مسؤوليتي الرئيسية في هذه الشركة.",
+              "French": "La gestion de l'infrastructure de la base de données est ma principale responsabilité dans cette entreprise.",
+              "Bengali": "ডাটাবেস অবকাঠামো পরিচালনা করা এই ফার্মে আমার প্রধান দায়িত্ব।",
+              "Portuguese": "Gerenciar a infraestrutura do banco de dados é minha principal responsabilidade nesta empresa.",
+              "Russian": "Управление инфраструктурой базы данных — моя главная обязанность в этой фирме.",
+              "Urdu": "ڈیٹا بیس انفراسٹرکچر کا انتظام کرنا اس फर्म में मेरी बुनियादी जिम्मेदारी है।",
+              "Indonesian": "Mengelola infrastruktur basis data adalah tanggung jawab utama saya di firma ini.",
+              "Standard German": "Die Verwaltung der Datenbankinfrastruktur ist meine Hauptverantwortung in dieser Firma.",
+              "Japanese": "データベースインフラの管理が、この会社での私の主な責任です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "leadership",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈliːdəʃɪp/",
+        "meaning": "The action of leading a group of people or an organization, or the ability to do this.",
+        "synonyms": ["direction", "guidance", "management"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The project succeeded because of his clear direction and strong leadership.",
+            "translations": {
+              "Mandarin Chinese": "该项目的成功是因为他清晰的方向和强有力的领导力。",
+              "Hindi": "परियोजना उनके स्पष्ट दिशा-निर्देश और मजबूत नेतृत्व के कारण सफल रही।",
+              "Spanish": "El proyecto tuvo éxito gracias a su dirección clara y fuerte liderazgo.",
+              "Standard Arabic": "نجح المشروع بسبب توجيهه الواضح وقيادته القوية.",
+              "French": "Le projet a réussi grâce à sa direction claire et à son leadership fort.",
+              "Bengali": "তাঁর স্পষ্ট দিকনির্দেশনা এবং দৃঢ় নেতৃত্বের কারণে প্রকল্পটি সফল হয়েছে।",
+              "Portuguese": "O projeto teve sucesso por causa de sua direção clara e liderança forte.",
+              "Russian": "Проект увенчался успехом благодаря его четкому руководству и сильному лидерству.",
+              "Urdu": "پروجیکٹ ان کی واضح سمت اور مضبوط قیادت کی وجہ से کامیاب ہوا۔",
+              "Indonesian": "Proyek ini berhasil karena arahannya yang jernih dan kepemimpinannya yang kuat.",
+              "Standard German": "Das Projekt war aufgrund seiner klaren Ausrichtung und starken Führung erfolgreich.",
+              "Japanese": "彼の明確な指示と強いリーダーシップのおかげで、プロジェクトは成功しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "remote work",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈməʊt wɜːk/",
+        "meaning": "A working arrangement in which employees do not commute to a central place of work, such as an office.",
+        "synonyms": ["telecommuting", "work from home", "distance work"],
+        "antonyms": ["office-based work"],
+        "examples": [
+          {
+            "english": "Remote work allows developers to build software flexibly from anywhere.",
+            "translations": {
+              "Mandarin Chinese": "远程工作使开发人员能够从任何地方灵活地构建软件。",
+              "Hindi": "रिमोट वर्क डेवलपर्स को कहीं से भी लचीले ढंग से सॉफ्टवेयर बनाने की अनुमति देता है।",
+              "Spanish": "El trabajo remoto permite a los desarrolladores crear software de forma flexible desde cualquier lugar.",
+              "Standard Arabic": "العمل عن بعد يسمح للمطورين ببناء البرمجيات بمرونة من أي مكان.",
+              "French": "Le télétravail permet aux développeurs de créer des logiciels de manière flexible, où qu'ils soient.",
+              "Bengali": "রিমোট ওয়ার্ক ডেভেলপারদের যেকোনো স্থান থেকে নমনীয়ভাবে সফটওয়্যার তৈরি করার অনুমতি দেয়।",
+              "Portuguese": "O trabalho remoto permite que os desenvolvedores criem software de forma flexível de qualquer lugar.",
+              "Russian": "Удаленная работа позволяет разработчикам гибко создавать программное обеспечение из любого места.",
+              "Urdu": "ریموٹ ورک ڈویلپرز کو کسی بھی جگہ سے لچکدار طریقے سے سافٹ ویئر بنانے کی اجازت دیتا ہے۔",
+              "Indonesian": "Kerja jarak jauh memungkinkan pengembang untuk membangun perangkat lunak secara fleksibel dari mana saja.",
+              "Standard German": "Remotearbeit ermöglicht es Entwicklern, Software flexibel von überall aus zu erstellen.",
+              "Japanese": "リモートワークにより、開発者はどこからでも柔軟にソフトウェアを構築できます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "overtime",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈəʊvətaɪm/",
+        "meaning": "Time spent working at a job in addition to one's normal working hours.",
+        "synonyms": ["extra hours", "additional time"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He had to work two hours of overtime to complete the urgent bug fixes.",
+            "translations": {
+              "Mandarin Chinese": "他必须加班两小时才能完成紧急的漏洞修复。",
+              "Hindi": "तत्काल बग फिक्स को पूरा करने के लिए उन्हें दो घंटे अतिरिक्त समय (ओवरटाइम) काम करना पड़ा।",
+              "Spanish": "Tuvo que trabajar dos horas extras para completar las correcciones urgentes de errores.",
+              "Standard Arabic": "اضطر إلى العمل ساعتين إضافيتين لإكمال إصلاحات الأخطاء العاجلة.",
+              "French": "Il a dû faire deux heures supplémentaires pour terminer les corrections de bugs urgentes.",
+              "Bengali": "জরুরি বাগ ফिक्सগুলি সম্পন্ন করার জন্য তাকে দুই ঘন্টা ওভারটাইম কাজ করতে হয়েছিল।",
+              "Portuguese": "Ele teve que trabalhar duas horas extras para concluir as correções urgentes de bugs.",
+              "Russian": "Ему пришлось отработать два часа сверхурочно, чтобы завершить срочное исправление ошибок.",
+              "Urdu": "سخت بگ کی اصلاحات کو پورا کرنے کے لیے اسے دو گھنٹے اوور ٹائم کام کرنا پڑا۔",
+              "Indonesian": "Dia harus bekerja lembur selama dua jam untuk menyelesaikan perbaikan bug yang mendesak.",
+              "Standard German": "Er musste zwei Überstunden machen, um die dringenden Fehlerbehebungen abzuschließen.",
+              "Japanese": "緊急のバグ修正を完了するために、彼は2時間の残業をしなければなりませんでした。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "career path",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/kəˈrɪə pɑːθ/",
+        "meaning": "A planned sequence of jobs or roles that leads to your long-term professional goals.",
+        "synonyms": ["career trajectory", "career ladder", "line of work"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Choosing a clear career path early helps you pick the right projects to work on.",
+            "translations": {
+              "Mandarin Chinese": "尽早选择清晰的职业道路有助于您选择正确的项目进行工作。",
+              "Hindi": "जल्दी ही एक स्पष्ट करियर पथ चुनने से आपको काम करने के लिए सही परियोजनाओं को चुनने में मदद मिलती है।",
+              "Spanish": "Elegir una trayectoria profesional clara desde el principio te ayuda a elegir los proyectos adecuados en los que trabajar.",
+              "Standard Arabic": "يساعدك اختيار مسار وظيفي واضح في وقت مبكر على اختيار المشاريع المناسبة للعمل عليها.",
+              "French": "Choisir un plan de carrière clair tôt vous aide à choisir les bons projets sur lesquels travailler.",
+              "Bengali": "শুরুতেই একটি স্পষ্ট কর্মজীবন পথ বেছে নেওয়া আপনাকে কাজ করার জন্য সঠিক প্রকল্পগুলি নির্বাচন করতে সহায়তা করে।",
+              "Portuguese": "Escolher um plano de carreira claro desde cedo ajuda você a escolher os projetos certos para trabalhar.",
+              "Russian": "Ранний выбор четкого карьерного пути помогает правильно выбирать проекты для работы.",
+              "Urdu": "شروع میں ہی ایک واضح کیریئر کا راستہ منتخب کرنا آپ کو کام کرنے کے لیے صحیح پروجیکટ્સ کا انتخاب کرنے میں مدد کرتا ہے۔",
+              "Indonesian": "Memilih jalur karier yang jelas sejak dini membantu Anda memilih proyek yang tepat untuk dikerjakan.",
+              "Standard German": "Die frühzeitige Wahl eines klaren Karrierewegs hilft Ihnen, die richtigen Projekte auszuwählen.",
+              "Japanese": "派い段階で明確なキャリアパスを選択することは、取り組むべき適切なプロジェクトを選ぶのに役立ちます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "internship",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɪntɜːnʃɪp/",
+        "meaning": "A temporary position, often taken by students, to gain practical work experience in a field.",
+        "synonyms": ["practicum", "training period", "apprenticeship"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The software engineer student secured a summer internship at a local startup.",
+            "translations": {
+              "Mandarin Chinese": "这位软件工程师学生在当地一家初创公司获得了夏季实习机会。",
+              "Hindi": "सॉफ्टवेयर इंजीनियर छात्र ने एक स्थानीय स्टार्टअप में ग्रीष्मकालीन इंटर्नशिप हासिल की।",
+              "Spanish": "El estudiante de ingeniería de software consiguió una pasantía de verano en una startup local.",
+              "Standard Arabic": "حصل طالب هندسة البرمجيات على تدريب صيفي في شركة ناشئة محلية.",
+              "French": "L'étudiant en ingénierie logicielle a décroché un stage d'été dans une startup locale.",
+              "Bengali": "সফটওয়্যার ইঞ্জিনিয়ার ছাত্রটি একটি স্থানীয় স্টার্টআপে গ্রীষ্মকালীন ইন্টার্নশিপ সুরক্ষিত করেছে।",
+              "Portuguese": "O estudante de engenharia de software conseguiu um estágio de verão em uma startup local.",
+              "Russian": "Студент-программист прошел летнюю стажировку в местном стартапе.",
+              "Urdu": "سافٹ ویئر इंजीनियर के छात्र ने एक स्थानीय स्टार्टअप में इंटर्नशिप हासिल की।",
+              "Indonesian": "Mahasiswa teknik perangkat lunak itu mendapatkan magang musim panas di sebuah perusahaan rintisan lokal.",
+              "Standard German": "Der Software-Engineering-Student sicherte sich ein Sommerpraktikum bei einem lokalen Startup.",
+              "Japanese": "そのソフトウェアエンジニアの学生は、地元のスタートアップでの夏季インターンシップを確保しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "qualification",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌkwɒlɪfɪˈkeɪʃn/",
+        "meaning": "An official record or certificate showing that you have finished a course or have the necessary skills.",
+        "synonyms": ["certificate", "credential", "degree"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "A university degree is a common qualification required for corporate job applications.",
+            "translations": {
+              "Mandarin Chinese": "大学学位是企业求职时常见的一项资格要求。",
+              "Hindi": "कॉर्पोरेट नौकरी के आवेदनों के लिए विश्वविद्यालय की डिग्री एक सामान्य योग्यता है।",
+              "Spanish": "Un título universitario es una calificación común requerida para las solicitudes de empleo corporativas.",
+              "Standard Arabic": "الشهادة الجامعية هي مؤهل شائع مطلوب لطلبات التوظيف في الشركات.",
+              "French": "Un diplôme universitaire est une qualification courante requise pour les demandes d'emploi en entreprise.",
+              "Bengali": "কর্পোরেत চাকরির আবেদনের জন্য একটি বিশ্ববিদ্যালয় ডিগ্রি একটি সাধারণ যোগ্যতা।",
+              "Portuguese": "Um diploma universitário é uma qualificação comum exigida para candidaturas a empregos corporativos.",
+              "Russian": "Университетский диплом — это обычная квалификация, необходимая для подачи заявления на работу в компании.",
+              "Urdu": "کارپوریٹ ملازمت کی درخواستوں کے لیے یونیورسٹی کی ڈگری ایک عام اہلیت ہے۔",
+              "Indonesian": "Gelar universitas adalah kualifikasi umum yang diperlukan untuk lamaran pekerjaan perusahaan.",
+              "Standard German": "Ein Universitätsabschluss ist eine übliche Qualifikation, die für Bewerbungen in Unternehmen verlangt wird.",
+              "Japanese": "大学の学位は、企業の求人応募で一般的に求められる資格です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "professional",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "adjective",
+        "pronunciation": "/prəˈfeʃənl/",
+        "meaning": "Relating to or conforming to the high standards or behavior of a profession.",
+        "synonyms": ["expert", "skilled", "businesslike"],
+        "antonyms": ["amateur", "unprofessional"],
+        "examples": [
+          {
+            "english": "It is important to maintain a professional attitude when dealing with angry clients.",
+            "translations": {
+              "Mandarin Chinese": "在与愤怒的客户打交道时，保持专业的态度非常重要。",
+              "Hindi": "क्रोधित ग्राहकों से निपटते समय एक पेशेवर रवैया बनाए रखना महत्वपूर्ण है।",
+              "Spanish": "Es importante mantener una actitud profesional al tratar con clientes enojados.",
+              "Standard Arabic": "من المهم الحفاظ على موقف مهني عند التعامل مع العملاء الغاضبين.",
+              "French": "Il est important de maintenir une attitude professionnelle face à des clients en colère.",
+              "Bengali": "ক্রুদ্ধ গ্রাহকদের সাথে আচরণ করার সময় একটি পেশাদার মনোভাব বজায় रखना গুরুত্বপূর্ণ।",
+              "Portuguese": "É importante manter uma atitude profissional ao lidar com clientes irritados.",
+              "Russian": "Важно сохранять профессиональное отношение при работе с разгневанными клиентами.",
+              "Urdu": "ناراض کلائنٹس سے نمٹتے وقت پیشہ ورانہ رویہ برقرار رکھنا ضروری ہے۔",
+              "Indonesian": "Penting untuk menjaga sikap profesional saat menghadapi klien yang marah.",
+              "Standard German": "Es ist wichtig, im Umgang mit verärgerten Kunden eine professionelle Haltung zu bewahren.",
+              "Japanese": "怒っているクライアントに対応するときは、プロフェッショナルな態度を維持することが重要です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "efficient",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "adjective",
+        "pronunciation": "/ɪˈfɪʃnt/",
+        "meaning": "Achieving maximum productivity with minimum wasted effort or expense.",
+        "synonyms": ["effective", "productive", "streamlined"],
+        "antonyms": ["inefficient", "wasteful"],
+        "examples": [
+          {
+            "english": "Our new system architecture provides a highly efficient way to process data queries.",
+            "translations": {
+              "Mandarin Chinese": "我们新的系统架构提供了一种高效处理数据查询的方法。",
+              "Hindi": "हमारा नया सिस्टम आर्किटेक्चर डेटा प्रश्नों को संसाधित करने का एक अत्यधिक कुशल तरीका प्रदान करता है।",
+              "Spanish": "Nuestra nueva arquitectura de sistema proporciona una forma altamente eficiente de procesar consultas de datos.",
+              "Standard Arabic": "توفر بنية النظام الجديدة لدينا طريقة عالية الكفاءة لمعالجة استعلامات البيانات.",
+              "French": "Notre nouvelle architecture système offre un moyen très efficace de traiter les requêtes de données.",
+              "Bengali": "আমাদের নতুন সিস্টেম আর্কিটেকচার ডেটা কোয়েরি প্রক্রিয়াকরণের একটি অত্যন্ত কার্যকর উপায় সরবরাহ করে।",
+              "Portuguese": "Nossa nova arquitetura de sistema fornece uma maneira altamente eficiente de processar consultas de dados.",
+              "Russian": "Наша новая системная архитектура обеспечивает высокоэффективный способ обработки запросов данных.",
+              "Urdu": "ہمارا نیا سسٹم آرکیٹیکچر ڈیٹا کے سوالات پر کارروائی کرنے کا ایک انتہائی موثر طریقہ فراہم کرتا ہے۔",
+              "Indonesian": "Arsitektur sistem baru kami menyediakan cara yang sangat efisien untuk memproses kueri data.",
+              "Standard German": "Unsere neue Systemarchitektur bietet eine hocheffiziente Möglichkeit zur Verarbeitung von Datenabfragen.",
+              "Japanese": "当社の新しいシステムアーキテクチャは、データクエリを処理するための非常に効率的な方法を提供します。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "schedule",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈʃedjuːl/",
+        "meaning": "A plan that lists events, tasks, or times when things are supposed to happen.",
+        "synonyms": ["timetable", "agenda", "calendar"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "We need to look at the project schedule to see if we are still on track.",
+            "translations": {
+              "Mandarin Chinese": "我们需要查看项目时间表，看看我们是否仍按计划进行。",
+              "Hindi": "हमें यह देखने के लिए परियोजना कार्यक्रम को देखने की आवश्यकता है कि क्या हम अभी भी ट्रैक पर हैं।",
+              "Spanish": "Necesitamos mirar el cronograma del proyecto para ver si todavía estamos en camino.",
+              "Standard Arabic": "نحن بحاجة إلى النظر في جدول المشروع لمعرفة ما إذا كنا لا نزال على المسار الصحيح.",
+              "French": "Nous devons examiner le calendrier du projet pour voir si nous sommes toujours sur la bonne voie.",
+              "Bengali": "আমরা এখনও ট্র্যাকে আছি কিনা তা দেখতে আমাদের প্রকল্পের সময়সূচীটি দেখতে হবে।",
+              "Portuguese": "Precisamos olhar o cronograma do projeto para ver se ainda estamos no caminho certo.",
+              "Russian": "Нам нужно посмотреть график проекта, чтобы понять, укладываемся ли мы в сроки.",
+              "Urdu": "ہمیں یہ دیکھنے کے لیے پروجیکٹ کے شیڈول کو دیکھنے کی ضرورت ہے کہ آیا ہم اب بھی ٹریک پر ہیں۔",
+              "Indonesian": "Kita perlu melihat jadwal proyek untuk melihat apakah kita masih berada di jalur yang benar.",
+              "Standard German": "Wir müssen uns den Projektzeitplan ansehen, um zu sehen, ob wir noch im Zeitplan liegen.",
+              "Japanese": "予定通りに進んでいるか確認するために、プロジェクトのスケジュールを見る必要があります。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "task management",
+        "level": "B1",
+        "category": "Workplace",
+        "part_of_speech": "noun",
+        "pronunciation": "/tɑːsk ˈmænɪdʒmənt/",
+        "meaning": "The process of managing a task through its life cycle, including planning, testing, and tracking progress.",
+        "synonyms": ["workflow coordination", "project tracking"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Using digital applications for task management keeps engineering teams organized.",
+            "translations": {
+              "Mandarin Chinese": "使用数字应用程序进行任务管理可以使工程团队井井有条。",
+              "Hindi": "कार्य प्रबंधन के लिए डिजिटल अनुप्रयोगों का उपयोग करने से इंजीनियरिंग टीमें व्यवस्थित रहती हैं।",
+              "Spanish": "El uso de aplicaciones digitales para la gestión de tareas mantiene organizados a los equipos de ingeniería.",
+              "Standard Arabic": "استخدام التطبيقات الرقمية لإدارة المهام يحافظ على تنظيم الفرق الهندسية.",
+              "French": "L'utilisation d'applications numériques pour la gestion des tâches permet de garder les équipes d'ingénieurs organisées.",
+              "Bengali": "টাস্ক ম্যানেজমেন্টের জন্য ডিজিটাল অ্যাপ্লিকেশন ব্যবহার করা ইঞ্জিনিয়ারিং টিমকে সুসংগঠিত রাখে।",
+              "Portuguese": "O uso de aplicativos digitais para gerenciamento de tarefas mantém as equipes de engenharia organizadas.",
+              "Russian": "Использование цифровых приложений для управления задачами помогает организовывать работу инженерных команд.",
+              "Urdu": "ٹاسک مینجمنٹ کے لیے ڈیجیٹल ایپلی کیشنز کا استعمال انجینئرنگ ٹیموں کو منظم رکھتا ہے۔",
+              "Indonesian": "Menggunakan aplikasi digital untuk manajemen tugas membuat tim teknik tetap teratur.",
+              "Standard German": "Die Verwendung digitaler Anwendungen für das Aufgabenmanagement sorgt für die Organisation von Engineering-Teams.",
+              "Japanese": "タスク管理にデジタルアプリケーションを使用することで、エンジニアリングチームの整理が維持されます。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

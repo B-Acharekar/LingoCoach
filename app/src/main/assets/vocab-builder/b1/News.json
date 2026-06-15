@@ -1,0 +1,589 @@
+{
+  "level": "B1",
+  "approx_words": "500-800",
+  "source": "Oxford 3000 Inspired",
+  "categories": {
+    "News": [
+      {
+        "word": "headline",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈhedlaɪn/",
+        "meaning": "A heading at the top of an article or page in a newspaper or magazine.",
+        "synonyms": ["heading", "title", "caption"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The tech blog's headline announced a major breakthrough in offline AI architecture.",
+            "translations": {
+              "Mandarin Chinese": "这家科技博客的头条新闻宣布了离线人工智能架构的重大突破。",
+              "Hindi": "टेक ब्लॉग की हेडलाइन ने ऑफ़लाइन एआई आर्किटेक्चर में एक बड़ी सफलता की घोषणा की।",
+              "Spanish": "El titular del blog de tecnología anunció un gran avance en la arquitectura de IA sin conexión.",
+              "Standard Arabic": "أعلن عنوان مدونة التكنولوجيا عن طفرة كبيرة في بنية الذكاء الاصطناعي دون اتصال بالإنترنت.",
+              "French": "Le titre du blog technologique a annoncé une avancée majeure dans l'architecture d'IA hors ligne.",
+              "Bengali": "টেক ব্লগের শিরোনামটি অফলাইন এআই আর্কিটেকচারে একটি বড় অগ্রগতির ঘোষণা করেছে।",
+              "Portuguese": "La manchete do blog de tecnologia anunciou um grande avanço na arquitetura de IA offline.",
+              "Russian": "Заголовок технологического блога сообщил о крупном прорыве в архитектуре автономного ИИ.",
+              "Urdu": "ٹیک بلاگ کی سرخی نے آف لائن AI آرکیٹیکچر میں ایک بڑی پیش رفت کا اعلان کیا۔",
+              "Indonesian": "Judul utama blog teknologi tersebut mengumumkan terobosan besar dalam arsitektur AI luring.",
+              "Standard German": "Die Schlagzeile des Tech-Blogs verkündete einen großen Durchbruch in der Offline-KI-Architektur.",
+              "Japanese": "そのテックブログの見出しは、オフラインAIアーキテクチャにおける大きな突破口を発表しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "journalist",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈdʒɜːnəlɪst/",
+        "meaning": "A person who writes for newspapers, magazines, or news websites or prepares news to be broadcast.",
+        "synonyms": ["reporter", "correspondent", "writer"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The journalist interviewed the lead software designer about the application's unique layout rules.",
+            "translations": {
+              "Mandarin Chinese": "该记者就应用程序独特的布局规则采访了首席软件设计师。",
+              "Hindi": "पत्रकार ने एप्लिकेशन के अनूठे लेआउट नियमों के बारे में मुख्य सॉफ़्टवेयर डिज़ाइनर का साक्षात्कार लिया।",
+              "Spanish": "El periodista entrevistó al diseñador principal de software sobre las reglas de diseño únicas de la aplicación.",
+              "Standard Arabic": "أجرى الصحفي مقابلة مع مصمم البرمجيات الرئيسي حول قواعد التخطيط الفريدة للتطبيق.",
+              "French": "Le journaliste a interviewé le concepteur logiciel principal sur les règles de mise en page uniques de l'application.",
+              "Bengali": "সাংবাদিক অ্যাপ্লিকেশনটির অনন্য লেআউট নিয়ম সম্পর্কে প্রধান সফ্টওয়্যার ডিজাইনারের সাক্ষাত্কার নিয়েছেন।",
+              "Portuguese": "O jornalista entrevistou o designer de software principal sobre as regras de layout exclusivas do aplicativo.",
+              "Russian": "Журналист взял интервью у главного разработчика программного обеспечения об уникальных правилах макета приложения.",
+              "Urdu": "صحافی نے ایپلیکیشن کے منفرد لے آؤٹ قوانین کے بارے में چیف سافٹ ویئر ڈیزائنر کا انٹرویو کیا۔",
+              "Indonesian": "Jurnalis tersebut mewawancarai desainer perangkat lunak utama tentang aturan tata letak aplikasi yang unik.",
+              "Standard German": "Der Journalist interviewte den leitenden Software-Designer über die einzigartigen Layout-Regeln der Anwendung.",
+              "Japanese": "そのジャーナリストは、アプリケーションのユニークなレイアウト規則について、リードソフトウェアデザイナーにインタビューしました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "article",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɑːtɪkl/",
+        "meaning": "A piece of writing included with others in a newspaper, magazine, or other publication.",
+        "synonyms": ["report", "feature", "piece"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "I read an interesting technical article explaining how decentralized device frameworks manage mesh networks.",
+            "translations": {
+              "Mandarin Chinese": "我读了一篇有趣的技術文章，解释了去中心化设备框架如何管理网状网络。",
+              "Hindi": "मैंने एक दिलचस्प तकनीकी लेख पढ़ा जिसमें बताया गया था कि विकेंद्रीकृत डिवाइस फ़्रेमवर्क मेश नेटवर्क को कैसे प्रबंधित करते हैं।",
+              "Spanish": "Leí un artículo técnico interesante que explicaba cómo los marcos de dispositivos descentralizados gestionan las redes en malla.",
+              "Standard Arabic": "قرأت مقالاً تقنياً ممتعاً يشرح كيف تدير أطر الأجهزة اللامركزية الشبكات المتداخلة.",
+              "French": "J'ai lu un article technique intéressant expliquant comment les frameworks d'appareils décentralisés gèrent les réseaux maillés.",
+              "Bengali": "আমি একটি আকর্ষণীয় প্রযুক্তিগত নিবন্ধ পড়েছি যা ব্যাখ্যা করে যে কীভাবে বিকেন্দ্রীভূত ডিভাইস ফ্রেমওয়ার্কগুলি মেশ নেটওয়ার্কগুলি পরিচালনা করে।",
+              "Portuguese": "Li um artigo técnico interessante explicando como frameworks de dispositivos descentralizados gerenciam redes em malha.",
+              "Russian": "Я прочитал интересную техническую статью, в которой объяснялось, как децентрализованные структуры устройств управляют ячеистыми сетями.",
+              "Urdu": "میں نے ایک دلچسپ تکنیکی مضمون پڑھا جس میں بتایا گیا تھا کہ ڈی سینٹرلائزڈ ڈیوائس فریم ورکس میش نیٹ ورکس کو کیسے مینیج کرتے ہیں۔",
+              "Indonesian": "Saya membaca artikel teknis yang menarik yang menjelaskan bagaimana kerangka kerja perangkat terdesentralisasi mengelola jaringan mesh.",
+              "Standard German": "Ich habe einen interessanten technischen Artikel gelesen, der erklärt, wie dezentrale Geräte-Frameworks Mesh-Netzwerke verwalten.",
+              "Japanese": "分散型デバイスフレームワークがどのようにメッシュネットワークを管理するかを説明する、興味深い技術記事を読みました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "report",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/rɪˈpɔːt/",
+        "meaning": "An account given of a particular matter, especially in the form of an official document, after thorough investigation or consideration.",
+        "synonyms": ["account", "statement", "record"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The engineering team submitted a detailed report on system architecture rendering performance.",
+            "translations": {
+              "Mandarin Chinese": "工程团队提交了一份关于系统架构渲染性能 transition 的详细报告。",
+              "Hindi": "इंजीनियरिंग टीम ने सिस्टम आर्किटेक्चर रेंडरिंग प्रदर्शन पर एक विस्तृत रिपोर्ट सौंपी।",
+              "Spanish": "El equipo de ingeniería presentó un informe detallado sobre el rendimiento de renderizado de la arquitectura del sistema.",
+              "Standard Arabic": "قدم فريق الهندسة تقريراً مفصلاً عن أداء رندر بنية النظام.",
+              "French": "L'équipe d'ingénierie a soumis un rapport détaillé sobre les performances de rendu de l'architecture du système.",
+              "Bengali": "ইঞ্জিনিয়ারিং টিম সিস্টেম আর্কিটেকচার রেন্ডারিং পারফরম্যান্সের উপর একটি বিশদ প্রতিবেদন জমা দিয়েছে।",
+              " Portuguese": "A equipe de engenharia enviou um relatório detalhado sobre o desempenho de renderização da arquitetura do sistema.",
+              "Russian": "Инженерная группа представила подробный отчет о производительности рендеринга архитектуры системы.",
+              "Urdu": "انجینئرिंग ٹیم نے سسٹم آرکیٹیکچر رینڈرنگ کی کارکردگی پر ایک تفصیلی رپورٹ جمع کرائی।",
+              "Indonesian": "Tim rekayasa menyerahkan laporan terperinci tentang performa rendering arsitektur sistem.",
+              "Standard German": "Das Entwicklungsteam legte einen detaillierten Bericht über die Rendering-Leistung der Systemarchitektur vor.",
+              "Japanese": "エンジニアリングチームは、システムアーキテクチャのレンダリングパフォーマンスに関する詳細なレポートを提出しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "interview",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɪntəvjuː/",
+        "meaning": "A meeting of people face to face, especially for consultation or to gather information for a broadcast or publication.",
+        "synonyms": ["meeting", "discussion", "audience"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "During the live interview, the developer explained how Project Nivesha utilizes historical metrics.",
+            "translations": {
+              "Mandarin Chinese": "在现场采访中，开发人员解释了 Project Nivesha 如何利用历史指标。",
+              "Hindi": "लाइव साक्षात्कार (इंटरव्यू) के दौरान, डेवलपर ने बताया कि प्रोजेक्ट निवेशा ऐतिहासिक मेट्रिक्स का उपयोग कैसे करता है।",
+              "Spanish": "Durante la entrevista en vivo, el desarrollador explicó cómo el Proyecto Nivesha utiliza métricas históricas.",
+              "Standard Arabic": "خلال المقابلة المباشرة، شرح المطور كيف يستخدم مشروع Nivesha المقاييس التاريخية.",
+              "French": "Au cours de l'interview en direct, le développeur a expliqué comment le Projet Nivesha utilise des métriques historiques.",
+              "Bengali": "লাইভ সাক্ষাত্কারের সময়, ডেভেলপার ব্যাখ্যা করেছিলেন যে কীভাবে প্রজেক্ট নিবেশা ঐতিহাসিক মেট্রিক্স ব্যবহার করে।",
+              "Portuguese": "Durante a entrevista ao vivo, o desenvolvedor explicou como o Projeto Nivesha utiliza métricas históricas.",
+              "Russian": "Во время прямого интервью разработчик объяснил, как в проекте «Нивеша» используются исторические показатели.",
+              "Urdu": "لائیو انٹرویو کے دوران، ڈویلپر نے بتایا کہ پروجیکٹ نویشا تاریخی میٹرکس کا استعمال کس طرح کرتا ہے۔",
+              "Indonesian": "Selama wawancara langsung, pengembang menjelaskan bagaimana Proyek Nivesha menggunakan metrik historis.",
+              "Standard German": "Während des Live-Interviews erklärte der Entwickler, wie Projekt Nivesha historische Metriken nutzt.",
+              "Japanese": "ライブインタビューの中で、開発者はプロジェクトNiveshaがどのように履歴メトリクスを利用しているかを説明しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "broadcast",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbrɔːdkɑːst/",
+        "meaning": "A radio or television program or transmission, or the digital distribution of media streams over networks.",
+        "synonyms": ["transmission", "program", "show"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The live broadcast of the racing event experienced minor network rendering latency.",
+            "translations": {
+              "Mandarin Chinese": "赛车事件的现场直播经历了轻微的网络渲染延迟。",
+              "Hindi": "रेसिंग इवेंट के सीधे प्रसारण (लाइव ब्रॉडकास्ट) में मामूली नेटवर्क रेंडरिंग लेटेंसी (देरी) का अनुभव हुआ।",
+              "Spanish": "La transmisión en vivo del evento de carreras experimentó una latencia menor de renderizado de red.",
+              "Standard Arabic": "شهد البث المباشر لحدث السباق تأخراً طفيفاً في رندر الشبكة.",
+              "French": "La diffusion en direct de la course a connu une légère latence de rendu réseau.",
+              "Bengali": "রেসিং ইভেন্টের লাইভ সম্প্রচারে সামান্য নেটওয়ার্ক রেন্ডারিং লেটেন্সি দেখা গেছে।",
+              "Portuguese": "A transmissão ao vivo do evento de corrida teve uma pequena latensi de renderização de rede.",
+              "Russian": "Прямая трансляция гоночного события прошла с небольшой задержкой сетевого рендеринга.",
+              "Urdu": "ریسنگ ایونٹ کے لائیو براڈکاسٹ میں معمولی نیٹ ورک رینڈرنگ لیٹنسی کا سامنا کرنا پڑا۔",
+              "Indonesian": "Siaran langsung acara balapan tersebut mengalami sedikit latensi rendering jaringan.",
+              "Standard German": "Die Live-Übertragung des Rennaufbaus wies geringe Latenzen beim Netzwerk-Rendering auf.",
+              "Japanese": "レースイベントの生放送（ブロードキャスト）では、わずかなネットワークレンダリング遅延が発生しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "event",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪˈvent/",
+        "meaning": "A thing that happens, especially one of importance, or an organized public occasion.",
+        "synonyms": ["occurrence", "happening", "occasion"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Thousands of enthusiasts gathered online to watch the annual tech presentation event.",
+            "translations": {
+              "Mandarin Chinese": "数千名爱好者聚集在网上观看一年一度的技术演讲活动。",
+              "Hindi": "वार्षिक तकनीकी प्रस्तुति कार्यक्रम (टेक प्रेजेंटेशन इवेंट) को देखने के लिए हजारों उत्साही लोग ऑनलाइन एकत्र हुए।",
+              "Spanish": "Miles de entusiastas se reunieron en línea para ver el evento anual de presentación tecnológica.",
+              "Standard Arabic": "تجمع الآلاف من المتحمسين عبر الإنترنت لمشاهدة حدث العرض التكنولوجي السنوي.",
+              "French": "Des milliers de passionnés se sont rassemblés en ligne pour suivre la conférence technologique annuelle.",
+              "Bengali": "বার্ষিক প্রযুক্তি উপস্থাপনা অনুষ্ঠানটি দেখার জন্য হাজার হাজার উত্সাহী অনলাইনে সমবেत হয়েছিলেন।",
+              "Portuguese": "Milhares de entusiastas se reuniram online para assistir ao evento anual de apresentação de tecnologia.",
+              "Russian": "Тысячи энтузиастов собрались онлайн, чтобы посмотреть ежегодную технологическую презентацию.",
+              "Urdu": "سالانہ ٹیک پریزنٹیشن ایونٹ دیکھنے کے لیے ہزاروں شائقین آن لائن جمع ہوئے۔",
+              "Indonesian": "Ribuan antusias berkumpul secara daring untuk menyaksikan acara presentasi teknologi tahunan.",
+              "Standard German": "Tausende Enthusiasten versammelten sich online, um das jährliche Tech-Präsentationsevent zu verfolgen.",
+              "Japanese": "年に一度のテックプレゼンテーションイベントを視聴するために、何千人もの愛好家がオンラインに集まりました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "media",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈmiːdiə/",
+        "meaning": "The main means of mass communication (broadcasting, publishing, and the internet) regarded collectively.",
+        "synonyms": ["press", "communications", "publishing"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Digital media channels quickly distributed updates about the system architecture project.",
+            "translations": {
+              "Mandarin Chinese": "数字媒体渠道迅速发布 taste 系统架构项目的更新。",
+              "Hindi": "डिजिटल मीडिया चैनलों ने सिस्टम आर्किटेक्चर प्रोजेक्ट के बारे में अपडेट तेजी से वितरित किए।",
+              "Spanish": "Los canales de medios digitales distribuyeron rápidamente actualizaciones sobre el proyecto de arquitectura del sistema.",
+              "Standard Arabic": "وزعت قنوات الإعلام الرقمي بسرعة التحديثات حول مشروع بنية النظام.",
+              "French": "Les médias numériques ont rapidement diffusé les mises à jour concernant le projet d'architecture système.",
+              "Bengali": "ডিজিটাল মিডিয়া চ্যানেলগুলি সিস্টেম আর্কিটেকচার প্রকল্প সম্পর্কে আপডেটগুলি দ্রুত বিতরণ করেছে।",
+              "Portuguese": "Os canais de mídia digital distribuíram rapidamente atualizações sobre o projeto de arquitetura do sistema.",
+              "Russian": "Цифровые средства массовой информации быстро распространили обновления о проекте системной архитектуры.",
+              "Urdu": "ڈیجیٹल میڈیا چینلز نے سسٹم آرکیٹیکچر پروجیک트 کے بارے میں اپ ڈیٹس تیزی سے شیئر کیں۔",
+              "Indonesian": "Saluran media digital dengan cepat menyebarkan pembaruan tentang proyek arsitektur sistem.",
+              "Standard German": "Digitale Medienkanäle verbreiteten schnell Aktualisierungen über das Systemarchitekturprojekt.",
+              "Japanese": "デジタルメディアチャネルは、システムアーキテクチャプロジェクトに関するアップデートを迅速に配信しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "politics",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpɒlətɪks/",
+        "meaning": "The activities associated with the governance of a country or other area, especially the debate among parties having power.",
+        "synonyms": ["government", "governance", "statecraft"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The newspaper covers local politics alongside financial market trends.",
+            "translations": {
+              "Mandarin Chinese": "该报纸报道地方政治以及金融市场趋势。",
+              "Hindi": "यह समाचार पत्र वित्तीय बाजार प्रवृत्तियों के साथ-साथ स्थानीय राजनीति को भी कवर करता है।",
+              "Spanish": "El periódico cubre la política de la región junto con las tendencias del mercado financiero.",
+              "Standard Arabic": "تغطي الصحيفة السياسة المحلية إلى جانب اتجاهات السوق المالية.",
+              "French": "Le journal couvre la politique locale ainsi que les tendances du marché financier.",
+              "Bengali": "সংবাদপত্রটি আর্থিক বাজারের প্রবণতার পাশাপাশি স্থানীয় রাজনীতিও কভার করে।",
+              "Portuguese": "O jornal cobre a política local junto com as tendências do mercado financeiro.",
+              "Russian": "Газета освещает местную политику наряду с тенденциями финансовых рынков.",
+              "Urdu": "اخبار مالیاتی مارکیٹ کے رجحانات کے ساتھ ساتھ مقامی سیاست کا احاطะ بھی کرتا ہے۔",
+              "Indonesian": "Surat kabar tersebut meliput politik lokal di samping tren pasar keuangan.",
+              "Standard German": "Die Zeitung berichtet über lokale Politik neben den Finanzmarkttrends.",
+              "Japanese": "その新聞は、金融市場のトレンドと並んで地方政治を報道しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "economy",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ɪˈkɒnəmi/",
+        "meaning": "The wealth and resources of a country or region, especially in terms of the production and consumption of goods and services.",
+        "synonyms": ["wealth", "financial system", "financial state"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Analysts predict that the software sector will play an important role in boosting the national economy.",
+            "translations": {
+              "Mandarin Chinese": "分析师预测，软件行业将在促进国家经济方面发挥重要作用。",
+              "Hindi": "विश्लेषकों का अनुमान है कि सॉफ्टवेयर क्षेत्र राष्ट्रीय अर्थव्यवस्था को बढ़ावा देने में महत्वपूर्ण भूमिका निभाएगा।",
+              "Spanish": "Los analistas predicen que el sector del software jugará un papel importante en el impulso de la economía nacional.",
+              "Standard Arabic": "يتوقع المحللون أن يلعب قطاع البرمجيات دوراً هاماً في تعزيز الاقتصاد الوطني.",
+              "French": "Les analystes prédisent que le secteur du logiciel jouera un rôle important dans la relance de l'économie nationale.",
+              "Bengali": "বিশ্লেষকরা ভবিষ্যদ্বাণী করেছেন যে সফ্টওয়্যার খাত জাতীয় অর্থনীতিকে চাঙ্গা করতে গুরুত্বপূর্ণ ভূমিকা পালন করবে।",
+              "Portuguese": "Os analistas preveem que o setor de software desempenhará um papel importante no impulso da economia nacional.",
+              "Russian": "Аналитики прогнозируют, что сектор программного обеспечения сыграет важную роль в подъеме национальной экономики.",
+              "Urdu": "تجزیہ کاروں کا اندازہ ہے کہ سافٹ ویئر سیکٹر قومی معیشت کو فروغ دینے میں اہم کردار ادا کرے گا۔",
+              "Indonesian": "Para analis memprediksi bahwa sektor perangkat lunak akan memainkan peran penting dalam meningkatkan perekonomian nasional.",
+              "Standard German": "Analysten prognostizieren, dass der Softwaresektor eine wichtige Rolle bei der Ankurbelung der nationalen Wirtschaft spielen wird.",
+              "Japanese": "アナリストは、ソフトウェアセクターが国家経済の活性化において重要な役割を果たすと予測しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "update",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌʌpˈdeɪt/",
+        "meaning": "A report containing the latest information on a situation, or an installation profile containing code modifications.",
+        "synonyms": ["modification", "refresh", "revision"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The latest software update significantly improved application response times.",
+            "translations": {
+              "Mandarin Chinese": "最新的软件更新显著提高了应用程序的响应时间。",
+              "Hindi": "नवीनतम सॉफ़्टवेयर अपडेट ने एप्लिकेशन प्रतिक्रिया समय (रिस्पॉन्स टाइम) में काफी सुधार किया।",
+              "Spanish": "La última actualización de software mejoró significativamente los tiempos de respuesta de la aplicación.",
+              "Standard Arabic": "أدى تحديث البرمجيات الأخير إلى تحسين أوقات استجابة التطبيق بشكل كبير.",
+              "French": "La dernière mise à jour logicielle a considérablement amélioré les temps de réponse de l'application.",
+              "Bengali": "সর্বশেষ সফ্টওয়্যার আপডেটটি অ্যাপ্লিকেশন প্রতিক্রিয়া সময়কে উল্লেখযোগ্যভাবে উন্নত করেছে।",
+              "Portuguese": "A atualização de software mais recente melhorou significativamente os tempos de resposta do aplicativo.",
+              "Russian": "Последнее обновление программного обеспечения значительно улучшило время отклика приложения.",
+              "Urdu": "تازہ ترین سافٹ ویئر اپ ڈیٹ نے ایپلی کیشن رسپانس ٹائم میں نمایاں بہتरी لائی۔",
+              "Indonesian": "Pembaruan perangkat lunak terbaru secara signifikan meningkatkan waktu respons aplikasi.",
+              "Standard German": "Das neueste Software-Update hat die Antwortzeiten der Anwendung erheblich verbessert.",
+              "Japanese": "最新のソフトウェアアップデートにより、アプリケーションのレスポンスタイムが大幅に向上しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "breaking news",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈbreɪkɪŋ njuːz/",
+        "meaning": "Newly received information about an event that is currently occurring or developing.",
+        "synonyms": ["news flash", "latest bulletin"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The channel interrupted the program to share breaking news about a global system framework crash.",
+            "translations": {
+              "Mandarin Chinese": "该频道中断了节目，以分享关于全球系统框架崩溃的突发新闻。",
+              "Hindi": "चैनल ने वैश्विक सिस्टम फ़्रेमवर्क क्रैश के बारे में ब्रेकिंग न्यूज़ साझा करने के लिए कार्यक्रम को बीच में ही रोक दिया।",
+              "Spanish": "El canal interrumpió el programa para compartir noticias de última hora sobre una caída global del marco del sistema.",
+              "Standard Arabic": "قاطعت القناة البرنامج لمشاركة أخبار عاجلة حول تعطل إطار عمل النظام العالمي.",
+              "French": "La chaîne a interrompu son programme para diffuser des informations de dernière minute concernant un plantage mondial de framework système.",
+              "Bengali": "চ্যানেলটি একটি বৈশ্বিক সিস্টেম ফ্রেমওয়ার্ক ক্র্যাশের ব্রেকিং নিউজ শেয়ার করার জন্য অনুষ্ঠানটি ব্যাহত করেছিল।",
+              "Portuguese": "O canal interrompeu o programa para compartilhar notícias de última hora sobre uma falha global no framework do sistema.",
+              "Russian": "Телеканал прервал программу, чтобы сообщить экстренные новости о глобальном сбое системной структуры.",
+              "Urdu": "چینل نے عالمی سسٹم فریم ورک کے کریش ہونے کے بارے میں بریکنگ نیوز شیئر کرنے کے لیے پروگرام روک دیا۔",
+              "Indonesian": "Saluran tersebut menghentikan program untuk membagikan berita terkini tentang kegagalan kerangka kerja sistem global.",
+              "Standard German": "Der Sender unterbrach das Programm, um aktuelle Eilmeldungen über einen weltweiten System-Framework-Absturz zu teilen.",
+              "Japanese": "そのチャンネルは番組を中断し、世界的なシステムフレームワークのクラッシュに関するニュース速報（ブレイキングニュース）を伝えました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "newspaper",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈnjuːzpeɪpə(r)/",
+        "meaning": "A printed publication (usually issued daily or weekly) consisting of folded sheets and containing news, feature articles, and advertisements.",
+        "synonyms": ["paper", "journal", "gazette"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "He reads the morning newspaper to track national economic metrics and technology features.",
+            "translations": {
+              "Mandarin Chinese": "他阅读早报以追踪国家经济指标和技术特征。",
+              "Hindi": "वह राष्ट्रीय आर्थिक मेट्रिक्स और प्रौद्योगिकी विशेषताओं को ट्रैक करने के लिए सुबह का समाचार पत्र पढ़ता है।",
+              "Spanish": "Él lee el periódico matutino para seguir las métricas económicas nacionales y las características tecnológicas.",
+              "Standard Arabic": "يقرأ الصحيفة الصباحية لمتابعة المقاييس الاقتصادية الوطنية والميزات التكنولوجية.",
+              "French": "Il lit le journal du matin pour suivre les indicateurs économiques nationaux et les actualités technologiques.",
+              "Bengali": "তিনি জাতীয় অর্থনৈতিক মেট্রিক্স এবং প্রযুক্তিগত বৈশিষ্ট্যগুলি ট্র্যাক করতে সকালের সংবাদপত্র পড়েন।",
+              "Portuguese": "Ele lê o jornal matinal para acompanhar as métricas econômicas nacionais e os recursos tecnológicos.",
+              "Russian": "Он читает утреннюю газету, чтобы следить за национальными экономическими показателями и технологическими новинками.",
+              "Urdu": "وہ قومی اقتصادی میٹرکس اور ٹیکنالوجی کی خصوصیات کو ٹریک کرنے کے لیے صبح کا اخبار پڑھتا ہے۔",
+              "Indonesian": "Ia membaca surat kabar pagi untuk melacak metrik ekonomi nasional dan fitur teknologi.",
+              "Standard German": "Er liest die Morgenzeitung, um die nationalen Wirtschaftsdaten und Technologieberichte zu verfolgen.",
+              "Japanese": "彼は国家の経済指標やテクノロジーの特集を追跡するために、朝刊（ニュースペーパー）を読んでいます。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "channel",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈtʃænl/",
+        "meaning": "A band of frequencies used in radio and television transmission, or a specific communication stream path.",
+        "synonyms": ["station", "network", "conduit"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The development team created a secure media channel to broadcast project design guidelines.",
+            "translations": {
+              "Mandarin Chinese": "开发团队创建了一个安全的媒体渠道来发布项目设计指南。",
+              "Hindi": "विकास दल (डेवलपमेंट टीम) ने परियोजना डिजाइन दिशानिर्देशों को प्रसारित करने के लिए एक सुरक्षित मीडिया चैनल बनाया।",
+              "Spanish": "El equipo de desarrollo creó un canal de medios seguro para transmitir las pautas de diseño del proyecto.",
+              "Standard Arabic": "أنشأ فريق التطوير قناة إعلامية آمنة لبث إرشادات تصميم المشروع.",
+              "French": "L'équipe de développement a créé un canal média sécurisé pour diffuser les directives de conception du proyecto.",
+              "Bengali": "ডেভেলপমেন্ট টিম প্রকল্পের ডিজাইন নির্দেশিকা সম্প্রচার করার জন্য একটি নিরাপদ মিডিয়া চ্যানেল তৈরি করেছে।",
+              "Portuguese": "A equipe de desenvolvimento criou um canal de mídia seguro para transmitir as diretrizes de design do projeto.",
+              "Russian": "Команда разработчиков создала безопасный медиаканал для трансляции руководств по проектированию проектов.",
+              "Urdu": "ڈویلپمنٹ ٹیم نے پروجیکٹ ڈیزائن کے رہنما خطوط کو نشر کرنے کے لیے ایک محفوظ میڈیا چینل بنایا۔",
+              "Indonesian": "Tim pengembang membuat saluran media yang aman untuk menyiarkan pedoman desain proyek.",
+              "Standard German": "Das Entwicklungsteam hat einen sicheren Medienkanal eingerichtet, um die Richtlinien für das Projektdesign zu übertragen.",
+              "Japanese": "開発チームは、プロジェクトのデザインガイドラインを配信するための安全なメディアチャネルを作成しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "press conference",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈpres kɒnfərəns/",
+        "meaning": "An interview given to journalists by a prominent person in order to make an official statement or answer questions.",
+        "synonyms": ["media briefing", "presser"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The tech firm arranged a press conference to introduce their new decentralized network architecture.",
+            "translations": {
+              "Mandarin Chinese": "这家科技公司安排了一场新闻发布会，介绍他们新的去中心化网络架构。",
+              "Hindi": "टेक फर्म ने अपने नए विकेंद्रीकृत नेटवर्क आर्किटेक्चर को पेश करने के लिए एक प्रेस कॉन्फ्रेंस का आयोजन किया।",
+              "Spanish": "La empresa de tecnología organizó una conferencia de prensa para presentar su nueva arquitectura de red descentralizada.",
+              "Standard Arabic": "رتبت شركة التكنولوجيا مؤتمراً صحفياً لتقديم بنية الشبكة اللامركزية الجديدة الخاصة بها.",
+              "French": "L'entreprise technologique a organisé une conférence de presse pour présenter sa nouvelle architecture réseau décentralisée.",
+              "Bengali": "টেক ফার্মটি তাদের নতুন বিকেন্দ্রীভূত নেটওয়ার্ক আর্কিটেকচার চালু করার জন্য একটি সংবাদ সম্মেলনের আয়োজন করেছিল।",
+              "Portuguese": "A empresa de tecnologia organizou uma coletiva de imprensa para apresentar sua nova arquitetura de rede descentralizada.",
+              "Russian": "Технологическая фирма организовала пресс-конференцию для презентации своей новой децентрализованной сетевой архитектуры.",
+              "Urdu": "ٹیک فرم نے اپنے نئے ڈی سینٹرلائزڈ نیٹ ورک آرکیٹیکچر کو متعارف کرانے کے لیے پریس کانفرنس کا اہتمام کیا۔",
+              "Indonesian": "Perusahaan teknologi tersebut mengadakan konferensi pers untuk memperkenalkan arsitektur jaringan terdesentralisasi mereka yang baru.",
+              "Standard German": "Das Technologieunternehmen veranstaltete eine Pressekonferenz, um seine neue dezentrale Netzwerkarchitektur vorzustellen.",
+              "Japanese": "そのテック企業は、新しい分散型ネットワークアーキテクチャを紹介するために記者会見（プレスカンファレンス）を企画しました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "audience",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈɔːdiəns/",
+        "meaning": "The assembled spectators or listeners at a public event such as a play, film, concert, or meeting, or target software user groups.",
+        "synonyms": ["spectators", "listeners", "viewers"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The application's minimalist paper-like theme was highly praised by the target student audience.",
+            "translations": {
+              "Mandarin Chinese": "该应用程序极简的纸质主题受到了目标学生受众的高度赞赏。",
+              "Hindi": "एप्लिकेशन के न्यूनतम (मिनिमलिस्ट) कागज जैसे थीम को लक्षित छात्र दर्शकों द्वारा अत्यधिक सराहा गया।",
+              "Spanish": "El tema minimalista similar al papel de la aplicación fue muy elogiado por la audiencia de estudiantes objetivo.",
+              "Standard Arabic": "حظيت سمة التطبيق البسيطة الشبيهة بالورق بتقدير كبير من قبل الجمهور المستهدف من الطلاب.",
+              "French": "Le thème minimaliste semblable à du papier de l'application a été vivement salué par le public d'étudiants ciblé.",
+              "Bengali": "অ্যাপ্লিকেশনটির মিনিমালিস্ট কাগজের মতো থিমটি লক্ষ্যযুক্ত ছাত্র শ্রোতাদের দ্বারা অত্যন্ত প্রশংসিত হয়েছিল।",
+              "Portuguese": "O tema minimalista semelhante ao papel do aplicativo foi amplamente elogiado pelo público-alvo de estudantes.",
+              "Russian": "Минималистичная бумажная тема приложения была высоко оценена целевой студенческой аудиторией.",
+              "Urdu": "ایپلی کیشن کی منیمالسٹ کاغذ جیسی تھیم کو ٹارگٹ اسٹوڈنٹ آڈینس کی طرف سے بہت سراہا گیا۔",
+              "Indonesian": "Tema minimalis mirip kertas pada aplikasi ini sangat dipuji oleh audiens siswa yang menjadi sasaran.",
+              "Standard German": "Das minimalistische, papierähnliche Design der Anwendung wurde vom studentischen Zielpublikum sehr gelobt.",
+              "Japanese": "アプリケーションのミニマリストで紙のようなテーマは、ターゲットである学生の視聴者（オーディエンス）から高く評価されました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "information source",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˌɪnfəˈmeɪʃn sɔːs/",
+        "meaning": "A person, document, or platform that provides validated data, records, or facts.",
+        "synonyms": ["reference point", "data source", "authority"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "The software integration utilizes Google Health Connect as its primary information source for local statistics.",
+            "translations": {
+              "Mandarin Chinese": "该软件集成利用 Google Health Connect 作为其本地统计数据的主要信息源。",
+              "Hindi": "सॉफ़्टवेयर एकीकरण स्थानीय आंकड़ों के लिए अपने प्राथमिक सूचना स्रोत के रूप में Google हेल्थ कनेक्ट का उपयोग करता है।",
+              "Spanish": "La integración de software utiliza Google Health Connect como su principal fuente de información para estadísticas locales.",
+              "Standard Arabic": "يتكامل البرنامج مع Google Health Connect كمصدر رئيسي للمعلومات الإحصائية المحلية.",
+              "French": "L'intégration logicielle utilise Google Health Connect comme principale source d'information pour les statistiques locales.",
+              "Bengali": "সফ্টওয়্যার ইন্টিগ্রেশন স্থানীয় পরিসংখ্যানের জন্য প্রাথমিক তথ্য উৎস হিসাবে গুগল হেলথ কানেক্ট ব্যবহার করে।",
+              "Portuguese": "A integração de software utiliza o Google Health Connect como sua principal fonte de informação para estatísticas locais.",
+              "Russian": "Интеграция программного обеспечения использует Google Health Connect в качестве основного источника информации для локальной статистики.",
+              "Urdu": "سافٹ ویئر انٹیگریشن مقامی اعداد و شمار کے لیے گوگل ہیلتھ کنیکٹ کو اپنے بنیادی معلوماتی ماخذ کے طور پر استعمال کرتا ہے۔",
+              "Indonesian": "Integrasi perangkat lunak tersebut menggunakan Google Health Connect sebagai sumber informasi utama untuk statistik lokal.",
+              "Standard German": "Die Softwareintegration nutzt Google Health Connect als primäre Informationsquelle für lokale Statistiken.",
+              "Japanese": "そのソフトウェア統合は、ローカル統計の主要な情報源（インフォメーションソース）としてGoogle Health Connectを利用しています。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "fact",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/fækt/",
+        "meaning": "A thing that is known or proved to be true, or verified objective data points.",
+        "synonyms": ["reality", "certainty", "truth"],
+        "antonyms": ["rumor", "lie", "fiction"],
+        "examples": [
+          {
+            "english": "It is a well-documented fact that server connectivity issues cause performance latency in hybrid systems.",
+            "translations": {
+              "Mandarin Chinese": "这是一个有据可查的事实：服务器连接问题会导致混合系统中的性能延迟。",
+              "Hindi": "यह एक अच्छी तरह से प्रलेखित तथ्य है कि सर्वर कनेक्टिविटी समस्याएं हाइब्रिड सिस्टम में प्रदर्शन विलंबता (लेटेंसी) का कारण बनती हैं।",
+              "Spanish": "Es un hecho bien documentado que los problemas de conectividad del servidor causan latencia de rendimiento en los sistemas híbridos.",
+              "Standard Arabic": "إنها حقيقة موثقة جيداً أن مشكلات الاتصال بالخادم تتسبب في تأخر الأداء في الأنظمة الهجينة.",
+              "French": "Il est de fait bien documenté que les problèmes de connectivité serveur entraînent des latences de performance dans les systèmes hybrides.",
+              "Bengali": "এটি একটি সুপ্রতিষ্ঠিত তথ্য যে সার্ভার সংযোগের সমস্যাগুলি হাইব্রিড সিস্টেমে কার্যক্ষমতার বিলম্ব ঘটায়।",
+              "Portuguese": "É um fato bem documentado que problemas de conectividade do servidor causam latência de desempenho em sistemas híbridos.",
+              "Russian": "Хорошо задокументированный факт заключается в том, что проблемы с подключением к серверу вызывают задержку производительности в гибридных системах.",
+              "Urdu": "یہ ایک دستاویزی حقیقت ہے کہ سرور کنیکٹیویٹی کے مسائل ہائبرڈ سسٹمز میں کارکردگی کی تاخیر کا سبب بنتے ہیں۔",
+              "Indonesian": "Merupakan fakta yang terdokumentasi dengan baik bahwa masalah konektivitas server menyebabkan latensi performa pada sistem hibrida.",
+              "Standard German": "Es ist eine gut dokumentierte Tatsache, dass Probleme mit der Serverkonnektivität zu Leistungslatenzen in Hybridsystemen führen.",
+              "Japanese": "サーバーの接続問題がハイブリッドシステムでパフォーマンス遅延を引き起こすことは、十分に立証された事実（ファクト）です。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "rumor",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈruːmə(r)/",
+        "meaning": "A currently circulating story or report of uncertain or unverified truth.",
+        "synonyms": ["gossip", "hearsay", "speculation"],
+        "antonyms": ["fact", "certainty"],
+        "examples": [
+          {
+            "english": "The rumor about an unannounced mobile operating system build spread quickly across internet channels.",
+            "translations": {
+              "Mandarin Chinese": "关于未宣布的移动操作系统版本的传闻迅速在互联网渠道上传播开来。",
+              "Hindi": "एक अघोषित मोबाइल ऑपरेटिंग सिस्टम बिल्ड के बारे में अफवाह इंटरनेट चैनलों पर तेजी से फैल गई।",
+              "Spanish": "El rumor sobre una compilación no anunciada de un sistema operativo móvil se extendió rápidamente por los canales de internet.",
+              "Standard Arabic": "انتشرت الشائعة حول إصدار غير معلن لنظام تشغيل محمول بسرعة عبر قنوات الإنترنت.",
+              "French": "La rumeur concernant une version non annoncée d'un système d'exploitation mobile s'est propagée rapidement sur les canaux internet.",
+              "Bengali": "একটি অঘোষিত মোবাইল অপারেটিং সিস্টেম বিল্ড সম্পর্কিত গুজবটি ইন্টারনেট চ্যানেলগুলিতে দ্রুত ছড়িয়ে পড়ে।",
+              "Portuguese": "O boato sobre uma versão não anunciada de um sistema operacional móvel se espalhou rapidamente pelos canais da internet.",
+              "Russian": "Слух о неанонсированной сборке мобильной операционной системы быстро распространился по интернет-каналам.",
+              "Urdu": "ایک غیر اعلانیہ موبائل آپریटिंग سسٹم بلڈ کے بارے میں افواہ انٹرنیٹ چینلز پر تیزی سے پھیل گئی۔",
+              "Indonesian": "Rumor tentang build sistem operasi seluler yang belum diumumkan menyebar dengan cepat di saluran internet.",
+              "Standard German": "Das Gerücht über einen unangekündigten Build eines mobilen Betriebssystems verbreitete sich schnell über die Internetkanäle.",
+              "Japanese": "未発表のモバイルオペレーティングシステムビルドに関する噂（ルーマー）は、インターネットチャネルを通じて急速に広まりました。"
+            }
+          }
+        ]
+      },
+      {
+        "word": "coverage",
+        "level": "B1",
+        "category": "News",
+        "part_of_speech": "noun",
+        "pronunciation": "/ˈkʌvərɪdʒ/",
+        "meaning": "The treatment of an issue by the media, or the structural range and reach of a specific system network layout.",
+        "synonyms": ["reporting", "exposure", "span"],
+        "antonyms": [],
+        "examples": [
+          {
+            "english": "Media coverage focused on how autonomous network devices improve structural mesh connections.",
+            "translations": {
+              "Mandarin Chinese": "媒体报道重点关注自主网络设备如何改善结构化网状连接。",
+              "Hindi": "मीडिया कवरेज इस बात पर केंद्रित था कि स्वायत्त नेटवर्क उपकरण संरचनात्मक मेश कनेक्शन को कैसे बेहतर बनाते हैं।",
+              "Spanish": "La cobertura de los medios se centró en cómo los dispositivos de red autónomos mejoran las conexiones de malla estructurales.",
+              "Standard Arabic": "ركزت التغطية الإعلامية على كيفية تحسين أجهزة الشبكة المستقلة لاتصالات الشبكة المتداخلة البنيوية.",
+              "French": "La couverture médiatique s'est concentrée sur la manière dont les appareils réseau autonomes améliorent les connexions maillées structurelles.",
+              "Bengali": "মিডিয়া কভারেজ স্বায়ত্তশাসিত নেটওয়ার্ক ডিভাইসগুলি কীভাবে কাঠামোগত মেশ সংযোগগুলিকে উন্নত করে তার উপর দৃষ্টি নিবদ্ধ করেছিল।",
+              "Portuguese": "A cobertura da mídia focou em como os dispositivos de rede autônomos melhoram as conexões de malha estruturais.",
+              "Russian": "Освещение в прессе было сосредоточено на том, как автономные сетевые устройства улучшают структуру ячеистых соединений.",
+              "Urdu": "میڈیا کوریج نے اس بات پر توجہ مرکوز کی کہ خود مختار نیٹ ورک آلات کس طرح ساختی میش کنکشنز کو بہتر بناتے ہیں۔",
+              "Indonesian": "Liputan media berfokus pada bagaimana perangkat jaringan otonom meningkatkan koneksi mesh struktural.",
+              "Standard German": "Die Medienberichterstattung konzentrierte sich darauf, wie autonome Netzwerkgeräte die strukturellen Mesh-Verbindungen verbessern.",
+              "Japanese": "メディアの報道（カバレッジ）は、自律型ネットワークデバイスがどのように構造的なメッシュ接続を改善するかという点に焦点を当てていました。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
