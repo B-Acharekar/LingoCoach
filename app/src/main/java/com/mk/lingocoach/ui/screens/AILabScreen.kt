@@ -73,40 +73,62 @@ fun AILabScreen(
             modifier = Modifier.fillMaxSize()
         )
         Scaffold(
-            topBar = {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .statusBarsPadding()
-                        .padding(horizontal = 20.dp, vertical = 12.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        "AI Conversation",
-                        color = TextDark,
-                        fontSize = 28.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
-                    IconButton(
-                        onClick = {
-                            when (currentStep) {
-                                AILabStep.HOME -> onNavigateBack()
-                                AILabStep.VOICE_SELECTION -> currentStep = AILabStep.HOME
-                                AILabStep.TONE_SELECTION -> currentStep = AILabStep.VOICE_SELECTION
-                                AILabStep.CHAT -> currentStep = AILabStep.HOME
-                            }
-                        },
+        topBar = {
+                // Only show the chat-style top bar in CHAT step; elsewhere show plain title
+                if (currentStep == AILabStep.CHAT) {
+                    Row(
                         modifier = Modifier
-                            .size(40.dp)
-                            .background(Color.White.copy(alpha = 0.8f), CircleShape)
+                            .fillMaxWidth()
+                            .statusBarsPadding()
+                            .background(Color.White)
+                            .padding(horizontal = 16.dp, vertical = 12.dp),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
-                            tint = TextDark,
-                            modifier = Modifier.size(20.dp)
+                        IconButton(
+                            onClick = { currentStep = AILabStep.HOME },
+                            modifier = Modifier.size(36.dp)
+                        ) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = "Back", tint = TextDark,
+                                modifier = Modifier.size(20.dp))
+                        }
+                        Text(
+                            "LingoCoach AI",
+                            color = TextDark,
+                            fontSize = 17.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            modifier = Modifier.weight(1f),
+                            textAlign = TextAlign.Center
                         )
+                        IconButton(modifier = Modifier.size(36.dp), onClick = {}) {
+                            Icon(Icons.Default.Settings, contentDescription = "Settings",
+                                tint = TextDark, modifier = Modifier.size(20.dp))
+                        }
+                    }
+                } else {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .statusBarsPadding()
+                            .padding(horizontal = 20.dp, vertical = 12.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text("AI Conversation", color = TextDark, fontSize = 28.sp, fontWeight = FontWeight.ExtraBold)
+                        IconButton(
+                            onClick = {
+                                when (currentStep) {
+                                    AILabStep.HOME -> onNavigateBack()
+                                    AILabStep.VOICE_SELECTION -> currentStep = AILabStep.HOME
+                                    AILabStep.TONE_SELECTION -> currentStep = AILabStep.VOICE_SELECTION
+                                    AILabStep.CHAT -> currentStep = AILabStep.HOME
+                                }
+                            },
+                            modifier = Modifier.size(40.dp).background(Color.White.copy(alpha = 0.8f), CircleShape)
+                        ) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back",
+                                tint = TextDark, modifier = Modifier.size(20.dp))
+                        }
                     }
                 }
             },
@@ -423,31 +445,45 @@ fun ChatStep(sessionId: String?, onEndSession: () -> Unit) {
         if (messages.isNotEmpty()) listState.animateScrollToItem(messages.size - 1)
     }
 
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFF7F7FB))
+    ) {
+        // ── Message list ──────────────────────────────────────────────────
         if (messages.isEmpty()) {
             Box(modifier = Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
                 TypewriterText("Start Talking With Your AI Tutor", modifier = Modifier.padding(32.dp))
             }
         } else {
-            LazyColumn(modifier = Modifier.weight(1f).fillMaxWidth().padding(horizontal = 16.dp), state = listState) {
+            LazyColumn(
+                modifier = Modifier.weight(1f).fillMaxWidth(),
+                state = listState,
+                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
+                verticalArrangement = Arrangement.spacedBy(2.dp)
+            ) {
                 itemsIndexed(messages) { _, message ->
                     ChatBubble(message)
                 }
             }
         }
-        
+
         ChatInputArea(
             inputText = inputText,
             onInputChange = { inputText = it },
+            isListening = isListening,
+            isTranscribing = isTranscribing,
             onSend = {
                 if (inputText.isNotBlank() && sessionId != null) {
                     val messageToSend = inputText
-                    messages = messages + ChatMessage(id = System.currentTimeMillis().toString(), role = MessageRole.USER, text = messageToSend)
+                    messages = messages + ChatMessage(
+                        id = System.currentTimeMillis().toString(),
+                        role = MessageRole.USER,
+                        text = messageToSend
+                    )
                     inputText = ""
-                    
                     val typingId = (System.currentTimeMillis() + 1).toString()
                     messages = messages + ChatMessage(id = typingId, role = MessageRole.AI, text = "", isTyping = true)
-                    
                     com.mk.lingocoach.network.AILabApi.submitChat(
                         userId = "test_user_123",
                         sessionId = sessionId,
@@ -457,12 +493,7 @@ fun ChatStep(sessionId: String?, onEndSession: () -> Unit) {
                         messages = messages.filter { it.id != typingId }
                         if (response != null) {
                             val uiMistakes = response.mistakes.map { m ->
-                                Mistake(
-                                    wrong = m.wrong,
-                                    correct = m.correct,
-                                    explanation = m.explanation,
-                                    mistakeType = m.mistake_type
-                                )
+                                Mistake(m.wrong, m.correct, m.explanation, m.mistake_type)
                             }
                             messages = messages + ChatMessage(
                                 id = System.currentTimeMillis().toString(),
@@ -480,10 +511,7 @@ fun ChatStep(sessionId: String?, onEndSession: () -> Unit) {
                     }
                 }
             },
-            isListening = isListening,
             onMicToggle = { isListening = !isListening },
-            isAiSpeaking = isAiSpeaking,
-            isTranscribing = isTranscribing,
             onEndSessionClick = onEndSession
         )
     }
@@ -494,76 +522,106 @@ fun TypewriterText(text: String, modifier: Modifier = Modifier) {
     var displayedText by remember { mutableStateOf("") }
     LaunchedEffect(text) {
         text.forEachIndexed { index, _ ->
-            delay(50)
+            delay(40)
             displayedText = text.substring(0, index + 1)
         }
     }
-    Text(displayedText, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Medium, color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center, modifier = modifier)
+    Text(
+        displayedText,
+        fontSize = 18.sp,
+        fontWeight = FontWeight.Medium,
+        color = TextLight,
+        textAlign = TextAlign.Center,
+        modifier = modifier
+    )
 }
 
 @Composable
 fun ChatBubble(message: ChatMessage) {
     val isUser = message.role == MessageRole.USER
-    val align = if (isUser) Alignment.End else Alignment.Start
 
-    AnimatedVisibility(
-        visible = true,
-        enter = if (isUser) slideInHorizontally(initialOffsetX = { it }) + fadeIn() else expandVertically() + fadeIn()
+    // ── Bubble shape: round all corners, flatten the "tail" corner
+    val bubbleShape = if (isUser)
+        RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp, bottomStart = 20.dp, bottomEnd = 4.dp)
+    else
+        RoundedCornerShape(topStart = 4.dp, topEnd = 20.dp, bottomStart = 20.dp, bottomEnd = 20.dp)
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+        horizontalAlignment = if (isUser) Alignment.End else Alignment.Start
     ) {
-        Column(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp), horizontalAlignment = align) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth(0.85f)
-                    .shadow(4.dp, RoundedCornerShape(24.dp))
-                    .background(
-                        color = if (isUser) CardWhite else BrandPurpleSoft,
-                        shape = RoundedCornerShape(24.dp)
-                    )
-                    .padding(16.dp)
-            ) {
-                if (message.isTyping) {
-                    TypingIndicator()
-                } else {
-                    Text(
-                        message.text,
-                        color = TextDark,
-                        style = MaterialTheme.typography.bodyLarge
-                    )
-                    if (!isUser) {
-                        // AI Controls
-                        Row(modifier = Modifier.align(Alignment.BottomEnd).padding(top = 8.dp)) {
-                            Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Play", tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp).clickable { /* Play TTS */ })
-                        }
-                    }
-                }
+        // ── Main bubble ──────────────────────────────────────────────────
+        Box(
+            modifier = Modifier
+                .widthIn(min = 60.dp, max = 280.dp)
+                .shadow(2.dp, bubbleShape)
+                .background(
+                    if (isUser) BrandPurple else Color.White,
+                    bubbleShape
+                )
+                .padding(horizontal = 16.dp, vertical = 12.dp)
+        ) {
+            if (message.isTyping) {
+                TypingIndicator()
+            } else {
+                Text(
+                    text = message.text,
+                    color = if (isUser) Color.White else TextDark,
+                    fontSize = 15.sp,
+                    lineHeight = 22.sp
+                )
             }
+        }
 
-            // Mistake Section
-            if (isUser && message.mistakes.isNotEmpty()) {
-                message.mistakes.forEach { mistake ->
-                    var expanded by remember { mutableStateOf(false) }
-                    Card(
-                        modifier = Modifier.fillMaxWidth(0.85f).padding(top = 4.dp).clickable { expanded = !expanded },
-                        shape = RoundedCornerShape(16.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color(0xFFFFECEC))
-                    ) {
-                        Column(modifier = Modifier.padding(12.dp)) {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Icon(Icons.Default.Info, contentDescription = null, tint = BrandRed, modifier = Modifier.size(16.dp))
-                                Spacer(modifier = Modifier.width(8.dp))
-                                val typeName = mistake.mistakeType.replaceFirstChar { if (it.isLowerCase()) it.titlecase(java.util.Locale.getDefault()) else it.toString() }
-                                Text(typeName + " Suggestion", color = BrandRed, fontWeight = FontWeight.ExtraBold, fontSize = 12.sp)
-                            }
-                            if (expanded) {
-                                Spacer(modifier = Modifier.height(8.dp))
-                                Text("Wrong: ${mistake.wrong}", color = BrandRed, fontSize = 14.sp)
-                                Text("Correct: ${mistake.correct}", color = BrandGreen, fontSize = 14.sp)
-                                Spacer(modifier = Modifier.height(4.dp))
-                                Text("Explanation: ${mistake.explanation}", color = TextLight, fontSize = 12.sp)
-                            }
+        // ── Mistake correction chips (below user bubble) ─────────────────
+        if (isUser && message.mistakes.isNotEmpty()) {
+            Spacer(Modifier.height(4.dp))
+            message.mistakes.forEach { mistake ->
+                var expanded by remember { mutableStateOf(false) }
+                val isGrammar = mistake.mistakeType.lowercase().contains("grammar")
+                    || mistake.mistakeType.lowercase().contains("correct")
+
+                Column(
+                    modifier = Modifier
+                        .widthIn(max = 280.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(if (isGrammar) Color(0xFFFFECEC) else Color(0xFFE8F5E9))
+                        .clickable { expanded = !expanded }
+                        .padding(horizontal = 12.dp, vertical = 8.dp)
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        if (isGrammar) {
+                            Icon(Icons.Default.Close, contentDescription = null,
+                                tint = BrandRed, modifier = Modifier.size(13.dp))
+                        } else {
+                            Icon(Icons.Default.Check, contentDescription = null,
+                                tint = BrandGreen, modifier = Modifier.size(13.dp))
                         }
+                        Spacer(Modifier.width(5.dp))
+                        val label = if (isGrammar)
+                            "Correction: \"${mistake.correct}\""
+                        else
+                            "Perfect! \"${mistake.correct}\""
+                        Text(
+                            label,
+                            color = if (isGrammar) BrandRed else BrandGreen,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                    if (expanded && mistake.explanation.isNotBlank()) {
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            mistake.explanation,
+                            color = TextMid,
+                            fontSize = 11.sp,
+                            lineHeight = 15.sp
+                        )
                     }
                 }
+                Spacer(Modifier.height(3.dp))
             }
         }
     }
@@ -571,19 +629,41 @@ fun ChatBubble(message: ChatMessage) {
 
 @Composable
 fun TypingIndicator() {
-    Row(horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(8.dp)) {
+    val infiniteTransition = rememberInfiniteTransition(label = "typing")
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(5.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+    ) {
         repeat(3) { index ->
-            val infiniteTransition = rememberInfiniteTransition()
-            val alpha by infiniteTransition.animateFloat(
-                initialValue = 0.3f, targetValue = 1f,
-                animationSpec = infiniteRepeatable(animation = tween(400, delayMillis = index * 200), repeatMode = RepeatMode.Reverse), label = "typing"
+            val offsetY by infiniteTransition.animateFloat(
+                initialValue = 0f, targetValue = -6f,
+                animationSpec = infiniteRepeatable(
+                    animation = tween(300, delayMillis = index * 120, easing = FastOutSlowInEasing),
+                    repeatMode = RepeatMode.Reverse
+                ), label = "dot$index"
             )
-            Box(modifier = Modifier.size(8.dp).padding(horizontal = 2.dp).background(BrandPurple.copy(alpha = alpha), CircleShape))
+            Box(
+                modifier = Modifier
+                    .size(7.dp)
+                    .offset(y = offsetY.dp)
+                    .background(BrandPurple.copy(alpha = 0.7f), CircleShape)
+            )
         }
     }
 }
 
 // ─── Chat Input Area ────────────────────────────────────────────────────────
+// Layout (matching reference image):
+//
+//  ┌─────────────────────────────────────────────┐
+//  │  [mic icon]  Listening...          waveform  │  ← listening card (visible when active)
+//  │  Translate: "..."                            │
+//  └─────────────────────────────────────────────┘
+//  ┌─────────────────────────────────────────────┐
+//  │ [⌨]  Type a response...                     │  ← text input row
+//  └─────────────────────────────────────────────┘
+//   [🎙✕]  [💡]                    [End Session]   ← action row
 @Composable
 fun ChatInputArea(
     inputText: String,
@@ -591,79 +671,184 @@ fun ChatInputArea(
     onSend: () -> Unit,
     isListening: Boolean,
     onMicToggle: () -> Unit,
-    isAiSpeaking: Boolean,
     isTranscribing: Boolean,
     onEndSessionClick: () -> Unit
 ) {
+    val infiniteTransition = rememberInfiniteTransition(label = "wave")
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .background(Color.White)
+            .padding(horizontal = 16.dp, vertical = 10.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        if (isAiSpeaking || isTranscribing || isListening) {
-            val statusText = when {
-                isAiSpeaking -> "🔊 AI is speaking..."
-                isTranscribing -> "📝 Transcribing..."
-                else -> "🎙 Listening..."
-            }
-            Card(shape = RoundedCornerShape(16.dp), colors = CardDefaults.cardColors(containerColor = BrandPurpleSoft), modifier = Modifier.padding(bottom = 8.dp)) {
-                Text(statusText, color = BrandPurple, fontWeight = FontWeight.Bold, modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp))
+        // ── Listening card ────────────────────────────────────────────────
+        if (isListening || isTranscribing) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(Color.White)
+                    .border(1.dp, Color(0xFFEEEEEE), RoundedCornerShape(16.dp))
+                    .padding(horizontal = 16.dp, vertical = 14.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // Mic icon circle
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .background(BrandPurple, CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(Icons.Default.Mic, contentDescription = "Mic",
+                        tint = Color.White, modifier = Modifier.size(22.dp))
+                }
+
+                Spacer(Modifier.width(12.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    // Animated waveform bars
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(3.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(bottom = 4.dp)
+                    ) {
+                        val barHeights = listOf(14f, 22f, 18f, 28f, 16f, 24f, 12f)
+                        barHeights.forEachIndexed { i, base ->
+                            val animH by infiniteTransition.animateFloat(
+                                initialValue = base * 0.5f,
+                                targetValue = base,
+                                animationSpec = infiniteRepeatable(
+                                    tween(250 + i * 60, easing = FastOutSlowInEasing),
+                                    RepeatMode.Reverse
+                                ),
+                                label = "bar$i"
+                            )
+                            Box(
+                                modifier = Modifier
+                                    .width(3.dp)
+                                    .height(animH.dp)
+                                    .clip(RoundedCornerShape(2.dp))
+                                    .background(BrandPurple)
+                            )
+                        }
+                    }
+                    Text(
+                        if (isTranscribing) "Transcribing..." else "Listening...",
+                        color = BrandPurple,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    if (inputText.isNotEmpty()) {
+                        Text(
+                            "Translate: \"$inputText\"",
+                            color = TextLight,
+                            fontSize = 12.sp
+                        )
+                    }
+                }
             }
         }
 
-        Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            // End Session Button Outside Textbox
-            Button(
-                onClick = onEndSessionClick,
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFECEC), contentColor = BrandRed),
-                shape = RoundedCornerShape(20.dp),
-                modifier = Modifier.height(40.dp),
-                contentPadding = PaddingValues(horizontal = 12.dp)
-            ) {
-                Icon(Icons.Default.Stop, contentDescription = "End")
-            }
-            
-            Spacer(modifier = Modifier.width(12.dp))
-
-            // Floating Input Box
-            Row(
-                modifier = Modifier
-                    .weight(1f)
-                    .height(56.dp)
-                    .shadow(16.dp, RoundedCornerShape(32.dp))
-                    .background(CardWhite, RoundedCornerShape(32.dp))
-                    .padding(horizontal = 16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Box(modifier = Modifier.weight(1f)) {
-                    if (inputText.isEmpty()) Text("Type a message...", color = TextLight, style = MaterialTheme.typography.bodyLarge)
-                    BasicTextField(
-                        value = inputText, onValueChange = onInputChange,
-                        textStyle = TextStyle(color = TextDark, fontSize = 16.sp),
-                        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Send),
-                        keyboardActions = KeyboardActions(onSend = { onSend() }),
-                        modifier = Modifier.fillMaxWidth()
-                    )
+        // ── Text input field ──────────────────────────────────────────────
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(14.dp))
+                .background(Color(0xFFF5F5F5))
+                .padding(horizontal = 14.dp, vertical = 13.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(Icons.Default.Keyboard, contentDescription = null,
+                tint = TextLight, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.width(10.dp))
+            Box(modifier = Modifier.weight(1f)) {
+                if (inputText.isEmpty()) {
+                    Text("Type a response...", color = TextLight, fontSize = 15.sp)
                 }
-                
-                // Mic Button Inside Textbox
-                val micColor by animateColorAsState(if (isListening) BrandRed else TextLight, label = "mic_color")
+                BasicTextField(
+                    value = inputText,
+                    onValueChange = onInputChange,
+                    textStyle = TextStyle(color = TextDark, fontSize = 15.sp),
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Send),
+                    keyboardActions = KeyboardActions(onSend = { onSend() }),
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = false,
+                    maxLines = 4
+                )
+            }
+            if (inputText.isNotBlank()) {
+                Spacer(Modifier.width(8.dp))
+                Box(
+                    modifier = Modifier
+                        .size(32.dp)
+                        .background(BrandPurple, CircleShape)
+                        .clickable { onSend() },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(Icons.Default.ArrowUpward, contentDescription = "Send",
+                        tint = Color.White, modifier = Modifier.size(16.dp))
+                }
+            }
+        }
+
+        // ── Action row: mic off · hint · end session ──────────────────────
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Mic toggle
+            val micBg by animateColorAsState(
+                if (isListening) Color(0xFFFFECEC) else Color(0xFFF5F5F5),
+                label = "micBg"
+            )
+            Box(
+                modifier = Modifier
+                    .size(40.dp)
+                    .clip(CircleShape)
+                    .background(micBg)
+                    .clickable { onMicToggle() },
+                contentAlignment = Alignment.Center
+            ) {
                 Icon(
-                    if (isListening) Icons.Default.Stop else Icons.Default.Mic,
-                    contentDescription = "Mic",
-                    tint = micColor,
-                    modifier = Modifier.size(24.dp).clickable { onMicToggle() }
+                    if (isListening) Icons.Default.MicOff else Icons.Default.MicOff,
+                    contentDescription = "Mic toggle",
+                    tint = if (isListening) BrandRed else TextLight,
+                    modifier = Modifier.size(20.dp)
                 )
             }
 
-            Spacer(modifier = Modifier.width(12.dp))
+            Spacer(Modifier.width(10.dp))
 
-            // Send Button Outside Right
+            // Hint / lightbulb
             Box(
-                modifier = Modifier.size(44.dp).background(BrandPurple, CircleShape).clickable { onSend() },
+                modifier = Modifier
+                    .size(40.dp)
+                    .clip(CircleShape)
+                    .background(Color(0xFFF5F5F5)),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(Icons.Default.ArrowUpward, contentDescription = "Send", tint = Color.White)
+                Icon(Icons.Default.Lightbulb, contentDescription = "Hint",
+                    tint = TextLight, modifier = Modifier.size(20.dp))
+            }
+
+            Spacer(Modifier.weight(1f))
+
+            // End Session pill
+            Box(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(Color(0xFFEEEEEE))
+                    .clickable { onEndSessionClick() }
+                    .padding(horizontal = 20.dp, vertical = 10.dp)
+            ) {
+                Text(
+                    "End Session",
+                    color = TextDark,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.SemiBold
+                )
             }
         }
     }
