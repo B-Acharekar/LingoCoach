@@ -630,20 +630,24 @@ fun HomeDynamicLearningPathCard(
                 .padding(20.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Animated circular progress indicator
+            // Animated circular progress indicator (outlined)
             Box(
                 contentAlignment = Alignment.Center,
-                modifier = Modifier.size(100.dp)
+                modifier = Modifier.size(90.dp)
             ) {
-                // Background circle
+                // Background outline circle
                 Canvas(modifier = Modifier.fillMaxSize()) {
+                    val strokeWidth = 8.dp.toPx()
                     drawCircle(
                         color = Color(0xFFF0EEFF),
-                        radius = size.minDimension / 2
+                        radius = size.minDimension / 2,
+                        style = androidx.compose.ui.graphics.drawscope.Stroke(
+                            width = strokeWidth
+                        )
                     )
                 }
                 
-                // Progress arc
+                // Progress arc (on top)
                 Canvas(modifier = Modifier.fillMaxSize()) {
                     val strokeWidth = 8.dp.toPx()
                     drawArc(
@@ -662,7 +666,7 @@ fun HomeDynamicLearningPathCard(
                 Text(
                     "$progressPercent%",
                     color = BrandPurple,
-                    fontSize = 24.sp,
+                    fontSize = 22.sp,
                     fontWeight = FontWeight.ExtraBold
                 )
             }

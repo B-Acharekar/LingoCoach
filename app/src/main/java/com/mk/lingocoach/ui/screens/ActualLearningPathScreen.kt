@@ -113,14 +113,14 @@ fun ActualLearningPathScreen(
             ) {
                 // Back Button
                 IconButton(
-                    onClick = onNavigateBack,
+                    onClick = onNavigateToHome,
                     modifier = Modifier
                         .size(40.dp)
                         .background(Color(0xFFF0EEFF), CircleShape)
                 ) {
                     Icon(
                         Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back",
+                        contentDescription = "Back to Home",
                         tint = BrandPurple,
                         modifier = Modifier.size(20.dp)
                     )
