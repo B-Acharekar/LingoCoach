@@ -352,11 +352,15 @@ object VocabTracker {
     }
 
     // Generate a set of multiple-choice questions for a session
+    // Words with masteryScore >= 80 are excluded — they're already mastered
     fun generateDrillSession(level: String, category: String?, count: Int = 5): List<DrillQuestion> {
         var candidates = allWords.filter { it.level.uppercase() == level.uppercase() }
         if (category != null) {
             candidates = candidates.filter { it.mappedCategory.uppercase() == category.uppercase() }
         }
+        // Exclude mastered words (score >= 80) — user cannot re-learn same word
+        candidates = candidates.filter { (progressMap[it.word]?.masteryScore ?: 0) < 80 }
+
         if (candidates.isEmpty()) return emptyList()
 
         // Prioritize words that are not fully mastered or have been reviewed less
@@ -441,6 +445,55 @@ object VocabTracker {
             File(context.filesDir, MISTAKES_FILE).writeText(gson.toJson(list))
         } catch (e: Exception) {
             Log.e(TAG, "Failed to save local mistakes", e)
+        }
+    }
+
+    // ─── Backend Sync ─────────────────────────────────────────────────────────
+
+    /**
+     * Syncs local vocab progress to the backend (last-write-wins).
+     * 1. POST /api/v1/vocab/sync  — push local changes
+     * 2. GET  /api/v1/vocab/sync  — pull server updates, merge into progressMap
+     * Saves last sync timestamp to SharedPreferences.
+     */
+    suspend fun syncToBackend(userId: String, context: Context) = withContext(Dispatchers.IO) {
+        if (!isLoaded) return@withContext
+
+        val prefs = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
+        val lastSync = prefs.getString("vocab_last_sync", null)
+        val now = java.time.Instant.now().toString()
+
+        // Build changes list from in-memory progressMap
+        val changes = progressMap.values.map { p ->
+            mapOf(
+                "word"          to p.word,
+                "mastery_score" to p.masteryScore,
+                "is_bookmarked" to p.isBookmarked,
+                "last_reviewed" to p.lastReviewed.toString(),
+                "updated_at"    to now
+            )
+        }
+
+        // Push to backend
+        com.mk.lingocoach.network.AssessmentApi.syncVocab(userId, now, changes) { result ->
+            Log.d(TAG, "Vocab sync push: merged=${result?.get("merged_count")}")
+        }
+
+        // Pull server updates
+        com.mk.lingocoach.network.AssessmentApi.getVocabServerUpdates(userId, lastSync) { updates ->
+            if (updates != null) {
+                for (item in updates) {
+                    val word  = item["word"] as? String ?: continue
+                    val score = (item["mastery_score"] as? Double)?.toInt()
+                               ?: (item["mastery_score"] as? Int) ?: continue
+                    val bookmarked = item["is_bookmarked"] as? Boolean ?: false
+                    val existing = progressMap.getOrPut(word) { WordProgress(word = word) }
+                    existing.masteryScore  = score
+                    existing.isBookmarked  = bookmarked
+                }
+                saveProgress(context)
+                prefs.edit().putString("vocab_last_sync", now).apply()
+            }
         }
     }
 }

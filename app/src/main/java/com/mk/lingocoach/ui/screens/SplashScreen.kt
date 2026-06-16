@@ -2,6 +2,7 @@ package com.mk.lingocoach.ui.screens
 
 import android.content.Context
 import android.util.Log
+import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -22,136 +23,127 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import com.lottiefiles.dotlottie.core.compose.ui.DotLottieAnimation
 import com.lottiefiles.dotlottie.core.util.DotLottieSource
+import com.mk.lingocoach.R
 import com.onesignal.OneSignal
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.math.cos
 import kotlin.math.sin
+
+// Brand colors
+private val SplashPurple  = Color(0xFF6A5CFF)
+private val SplashViolet  = Color(0xFFBA7CFF)
+private val SplashAmber   = Color(0xFFFFC83D)
 
 @Composable
 fun SplashScreen(
     onNavigateToWelcome: () -> Unit,
     onNavigateToLanguage: () -> Unit,
     onNavigateToAssessment: () -> Unit,
+    onNavigateToProfileSetup: () -> Unit = onNavigateToAssessment,
     onNavigateToHome: () -> Unit
 ) {
     val context = LocalContext.current
     val sharedPreferences = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
 
+    // Lottie animation plays automatically — no manual scale animation needed
+    val textAlpha  = remember { Animatable(0f) }
+
     LaunchedEffect(Unit) {
-        // 1. Prompt for notifications permission.
+        // Start notification permission request
         try {
-            Log.d("SplashScreen", "Requesting OneSignal notification permissions...")
             OneSignal.Notifications.requestPermission(true)
         } catch (e: Exception) {
-            Log.e("SplashScreen", "Failed to request notification permission: ${e.message}", e)
+            Log.e("SplashScreen", "Notification permission failed: ${e.message}", e)
         }
 
-        // 2. Wait at least 2.5 seconds to display the logo and lottie animation beautifully
-        delay(2500)
+        // Fade in brand text after a short delay while Lottie plays
+        delay(600)
+        textAlpha.animateTo(1f, tween(500))
 
-        // 3. Navigate to appropriate screen based on onboarding & language selection status
-        val isLangSelected = sharedPreferences.getBoolean("lang_selected", false)
+        // Hold then navigate
+        delay(1200)
+
+        val isLangSelected      = sharedPreferences.getBoolean("lang_selected", false)
         val onboardingCompleted = sharedPreferences.getBoolean("onboarding_completed", false)
+        val profileSetupDone    = sharedPreferences.getBoolean("profile_setup_done", false)
         val assessmentCompleted = sharedPreferences.getBoolean("assessment_completed", false)
 
-        if (isLangSelected && onboardingCompleted && assessmentCompleted) {
-            onNavigateToHome()
-        } else if (!isLangSelected) {
-            onNavigateToLanguage()
-        } else if (!onboardingCompleted) {
-            onNavigateToWelcome()
-        } else {
-            onNavigateToAssessment()
+        when {
+            isLangSelected && onboardingCompleted && profileSetupDone && assessmentCompleted ->
+                onNavigateToHome()
+            isLangSelected && onboardingCompleted && profileSetupDone ->
+                onNavigateToAssessment()
+            isLangSelected && onboardingCompleted ->
+                onNavigateToProfileSetup()
+            isLangSelected ->
+                onNavigateToWelcome()
+            else ->
+                onNavigateToLanguage()
         }
     }
 
-    // Animate angle for the continuous gradient flow
-    val infiniteTransition = rememberInfiniteTransition(label = "gradientFlow")
+    // Continuously rotating gradient angle
+    val infiniteTransition = rememberInfiniteTransition(label = "gradFlow")
     val angle by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 360f,
         animationSpec = infiniteRepeatable(
-            animation = tween(10000, easing = LinearEasing),
+            animation = tween(6000, easing = LinearEasing),
             repeatMode = RepeatMode.Restart
         ),
-        label = "angle"
+        label = "gradAngle"
     )
 
-    BoxWithConstraints(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        val width = constraints.maxWidth.toFloat()
-        val height = constraints.maxHeight.toFloat()
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+        val w = constraints.maxWidth.toFloat()
+        val h = constraints.maxHeight.toFloat()
 
-        // Calculate dynamic start/end coordinates based on the rotation angle
-        val angleRad = Math.toRadians(angle.toDouble())
-        val xOffset = cos(angleRad).toFloat()
-        val yOffset = sin(angleRad).toFloat()
+        val rad    = Math.toRadians(angle.toDouble())
+        val cosA   = cos(rad).toFloat()
+        val sinA   = sin(rad).toFloat()
+        val startX = w / 2f + cosA * (w * 0.8f)
+        val startY = h / 2f + sinA * (h * 0.8f)
+        val endX   = w / 2f - cosA * (w * 0.8f)
+        val endY   = h / 2f - sinA * (h * 0.8f)
 
-        val startOffset = Offset(
-            x = (width / 2f) + xOffset * (width / 2f),
-            y = (height / 2f) + yOffset * (height / 2f)
-        )
-        val endOffset = Offset(
-            x = (width / 2f) - xOffset * (width / 2f),
-            y = (height / 2f) - yOffset * (height / 2f)
-        )
-
+        // Pure rotating 3-color gradient — no circles, no blur boxes
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(
                     Brush.linearGradient(
-                        colors = listOf(
-                            Color(0xFF6A5CFF), // primary
-                            Color(0xFF8A7CFF), // secondary
-                            Color(0xFFFFC83D)  // tertiary
+                        colorStops = arrayOf(
+                            0.0f  to SplashPurple,
+                            0.45f to SplashViolet,
+                            1.0f  to SplashAmber
                         ),
-                        start = startOffset,
-                        end = endOffset
+                        start = Offset(startX, startY),
+                        end   = Offset(endX, endY)
                     )
                 )
         ) {
-            // Glowing background circle 1
-            Box(
-                modifier = Modifier
-                    .size(320.dp)
-                    .offset(x = (-80).dp, y = (-100).dp)
-                    .background(Color(0x1A6A5CFF), shape = CircleShape)
-                    .blur(80.dp)
-            )
-
-            // Glowing background circle 2
-            Box(
-                modifier = Modifier
-                    .size(240.dp)
-                    .offset(x = 100.dp, y = 180.dp)
-                    .background(Color(0x15FFC83D), shape = CircleShape)
-                    .blur(60.dp)
-            )
-
-            // Main Content
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
@@ -159,88 +151,78 @@ fun SplashScreen(
                     .fillMaxSize()
                     .padding(24.dp)
             ) {
-                // White rounded box containing the Lottie Animation with premium shadow
-                Box(
-                    modifier = Modifier
-                        .size(130.dp)
-                        .shadow(elevation = 20.dp, shape = RoundedCornerShape(32.dp), clip = false)
-                        .clip(RoundedCornerShape(32.dp))
-                        .background(Color.White)
-                        .padding(16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    DotLottieAnimation(
-                        source = DotLottieSource.Asset("LingoCoach.lottie"),
-                        autoplay = true,
-                        loop = true,
-                        modifier = Modifier.fillMaxSize()
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                // Application Brand Name
-                Text(
-                    text = "LingoCoach",
-                    style = TextStyle(
-                        color = Color.White,
-                        fontSize = 36.sp,
-                        fontWeight = FontWeight.Bold,
-                        letterSpacing = 0.5.sp
-                    )
+                // Lottie animation — LingoCoach.lottie from assets
+                DotLottieAnimation(
+                    source    = DotLottieSource.Asset("LingoCoach.lottie"),
+                    autoplay  = true,
+                    loop      = true,
+                    modifier  = Modifier.size(220.dp)
                 )
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(36.dp))
 
-                // Sub-tagline with side line dividers matching Image 1
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 32.dp)
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .weight(1f)
-                            .height(1.dp)
-                            .background(Color(0x40FFFFFF))
-                    )
-                    Text(
-                        text = "SPEAK WITH CONFIDENCE",
-                        style = TextStyle(
-                            color = Color.White.copy(alpha = 0.9f),
-                            fontSize = 11.sp,
-                            fontWeight = FontWeight.Bold,
-                            letterSpacing = 2.sp
-                        ),
-                        modifier = Modifier.padding(horizontal = 12.dp)
-                    )
-                    Box(
-                        modifier = Modifier
-                            .weight(1f)
-                            .height(1.dp)
-                            .background(Color(0x40FFFFFF))
-                    )
+                // Brand name — fades in after logo
+                Box(modifier = Modifier.graphicsLayer { alpha = textAlpha.value }) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(
+                            text = "LingoCoach",
+                            style = TextStyle(
+                                color = Color.White,
+                                fontSize = 38.sp,
+                                fontWeight = FontWeight.ExtraBold,
+                                letterSpacing = 0.5.sp
+                            )
+                        )
+
+                        Spacer(modifier = Modifier.height(14.dp))
+
+                        // Divider + tagline
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 24.dp)
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height(1.dp)
+                                    .background(Color.White.copy(alpha = 0.35f))
+                            )
+                            Text(
+                                text = "SPEAK WITH CONFIDENCE",
+                                style = TextStyle(
+                                    color = Color.White.copy(alpha = 0.88f),
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    letterSpacing = 2.sp
+                                ),
+                                modifier = Modifier.padding(horizontal = 12.dp)
+                            )
+                            Box(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height(1.dp)
+                                    .background(Color.White.copy(alpha = 0.35f))
+                            )
+                        }
+                    }
                 }
             }
 
-            // Bottom decorative glowing gradient bar
+            // Bottom accent bar — gradient pulse matching the background colors
             Box(
                 modifier = Modifier
-                    .width(140.dp)
+                    .width(100.dp)
                     .height(3.dp)
-                    .clip(RoundedCornerShape(1.5.dp))
+                    .clip(RoundedCornerShape(2.dp))
                     .background(
                         Brush.horizontalGradient(
-                            colors = listOf(
-                                Color(0xFF6A5CFF), // primary
-                                Color(0xFFFFC83D)  // tertiary
-                            )
+                            listOf(SplashPurple, SplashViolet, SplashAmber)
                         )
                     )
                     .align(Alignment.BottomCenter)
-                    .offset(y = (-60).dp)
+                    .offset(y = (-56).dp)
             )
         }
     }

@@ -80,6 +80,10 @@ data class DuelQuestion(
 fun TimelyDuelScreen(onNavigateBack: () -> Unit) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
+    val userId = remember {
+        context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
+            .getString("session_id", "") ?: ""
+    }
 
     var screen by remember { mutableStateOf(DuelScreen.SETUP) }
     var selectedDifficulty by remember { mutableStateOf(DuelDifficulty.INTERMEDIATE) }
@@ -162,7 +166,7 @@ fun TimelyDuelScreen(onNavigateBack: () -> Unit) {
                             wrongCount++
                             xpDelta -= selectedDifficulty.xpLoss
                             score -= selectedDifficulty.xpLoss
-                            // Log to mistake vault
+                            // Log locally
                             VocabTracker.addLocalMistake(
                                 word = word.word,
                                 mistakeType = "TIMELY_DUEL",
@@ -171,6 +175,19 @@ fun TimelyDuelScreen(onNavigateBack: () -> Unit) {
                                 explanation = word.meaning,
                                 context = context
                             )
+                            // Log to backend (fire-and-forget)
+                            if (userId.isNotBlank()) {
+                                scope.launch(kotlinx.coroutines.Dispatchers.IO) {
+                                    com.mk.lingocoach.network.AssessmentApi.logMistake(
+                                        userId          = userId,
+                                        word            = word.word,
+                                        mistakeType     = "TIMELY_DUEL",
+                                        userSentence    = "(missed in timed duel)",
+                                        correctSentence = word.word,
+                                        explanation     = "Meaning: ${word.meaning}"
+                                    )
+                                }
+                            }
                             if (currentIdx + 1 >= questions.size) screen = DuelScreen.RESULT
                             else currentIdx++
                         },
@@ -234,7 +251,7 @@ fun DuelSetupScreen(
 
         Spacer(Modifier.height(28.dp))
 
-        // Hero card with crossed swords
+        // Hero card with crossed swords SVG centered
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -243,16 +260,17 @@ fun DuelSetupScreen(
                 .clip(RoundedCornerShape(28.dp))
                 .background(Brush.linearGradient(listOf(amber, amberDeep)))
         ) {
-            Canvas(Modifier.fillMaxSize()) {
-                val sw = 5f
-                val c = Color(0xFF000000).copy(alpha = 0.12f)
-                val cx = size.width / 2f
-                val cy = size.height / 2f
-                val len = 90f
-                drawLine(c, Offset(cx - len, cy - len), Offset(cx + len, cy + len), sw, StrokeCap.Round)
-                drawLine(c, Offset(cx + len, cy - len), Offset(cx - len, cy + len), sw, StrokeCap.Round)
-                drawLine(c, Offset(cx - 18f, cy - 18f), Offset(cx + 18f, cy + 18f), sw * 2f, StrokeCap.Round)
-            }
+            // Real crossed-swords icon — large, centered, faded dark overlay
+            Icon(
+                painter = painterResource(R.drawable.ic_crossed_swords),
+                contentDescription = null,
+                tint = Color(0xFF3E2000).copy(alpha = 0.14f),
+                modifier = Modifier
+                    .size(140.dp)
+                    .align(Alignment.Center)
+            )
+
+            // Text content on top
             Column(
                 modifier = Modifier.fillMaxSize().padding(24.dp),
                 verticalArrangement = Arrangement.Center,
@@ -291,13 +309,16 @@ fun DuelSetupScreen(
                             .background(if (isSelected) Color.White.copy(0.2f) else Color(0xFFF0EEFF)),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(
-                            when (diff) {
-                                DuelDifficulty.BEGINNER -> "🌱"
-                                DuelDifficulty.INTERMEDIATE -> "⚡"
-                                DuelDifficulty.ADVANCED -> "🔥"
-                                DuelDifficulty.MASTER -> "💀"
-                            }, fontSize = 20.sp
+                        Icon(
+                            imageVector = when (diff) {
+                                DuelDifficulty.BEGINNER     -> Icons.Default.Eco
+                                DuelDifficulty.INTERMEDIATE -> Icons.Default.Bolt
+                                DuelDifficulty.ADVANCED     -> Icons.Default.Whatshot
+                                DuelDifficulty.MASTER       -> Icons.Default.Shield
+                            },
+                            contentDescription = null,
+                            tint = if (isSelected) Color.White else BrandPurple,
+                            modifier = Modifier.size(22.dp)
                         )
                     }
                     Spacer(Modifier.width(14.dp))
@@ -622,7 +643,9 @@ fun DuelGameScreen(
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFEAEA)),
                         shape = RoundedCornerShape(14.dp)
                     ) {
-                        Text("❌ Wrong", color = BrandRed, fontWeight = FontWeight.Bold)
+                        Icon(Icons.Default.Close, contentDescription = null, tint = BrandRed, modifier = Modifier.size(16.dp))
+                        Spacer(Modifier.width(4.dp))
+                        Text("Wrong", color = BrandRed, fontWeight = FontWeight.Bold)
                     }
                     Button(
                         onClick = { submitAnswer(true) },
@@ -631,7 +654,9 @@ fun DuelGameScreen(
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFE8F5E9)),
                         shape = RoundedCornerShape(14.dp)
                     ) {
-                        Text("✅ Got it", color = BrandGreen, fontWeight = FontWeight.Bold)
+                        Icon(Icons.Default.Check, contentDescription = null, tint = BrandGreen, modifier = Modifier.size(16.dp))
+                        Spacer(Modifier.width(4.dp))
+                        Text("Got it", color = BrandGreen, fontWeight = FontWeight.Bold)
                     }
                 }
                 Spacer(Modifier.height(12.dp))
@@ -654,7 +679,12 @@ fun DuelGameScreen(
                     .padding(16.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(if (showResult == true) "✅" else "❌", fontSize = 24.sp)
+                    Icon(
+                        if (showResult == true) Icons.Default.CheckCircle else Icons.Default.Cancel,
+                        contentDescription = null,
+                        tint = if (showResult == true) BrandGreen else BrandRed,
+                        modifier = Modifier.size(26.dp)
+                    )
                     Spacer(Modifier.width(12.dp))
                     Column {
                         Text(
@@ -684,9 +714,29 @@ fun DuelResultScreen(
     onPlayAgain: () -> Unit,
     onHome: () -> Unit
 ) {
-    val total = correctCount + wrongCount
-    val accuracy = if (total > 0) (correctCount * 100 / total) else 0
-    val isPositive = xpDelta >= 0
+    val context     = LocalContext.current
+    val scope       = rememberCoroutineScope()
+    val total       = correctCount + wrongCount
+    val accuracy    = if (total > 0) (correctCount * 100 / total) else 0
+    val isPositive  = xpDelta >= 0
+
+    // Fire XP to backend once on result screen (fire-and-forget)
+    val userId = remember {
+        context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
+            .getString("session_id", "") ?: ""
+    }
+    LaunchedEffect(Unit) {
+        if (userId.isNotBlank() && xpDelta != 0) {
+            scope.launch(kotlinx.coroutines.Dispatchers.IO) {
+                com.mk.lingocoach.network.AssessmentApi.awardXp(
+                    userId   = userId,
+                    xpDelta  = xpDelta,
+                    source   = "timely_duel"
+                )
+                AppCache.invalidateLearningPath()   // streak/XP changed
+            }
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -697,8 +747,13 @@ fun DuelResultScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // Trophy / Skull
-        Text(if (accuracy >= 60) "🏆" else "💀", fontSize = 64.sp, textAlign = TextAlign.Center)
+        // Trophy or practice icon
+        Icon(
+            if (accuracy >= 60) Icons.Default.EmojiEvents else Icons.Default.Replay,
+            contentDescription = null,
+            tint = if (accuracy >= 60) BrandAmber else BrandPurple,
+            modifier = Modifier.size(72.dp)
+        )
         Spacer(Modifier.height(12.dp))
         Text(
             if (accuracy >= 80) "Excellent!" else if (accuracy >= 60) "Good Job!" else "Keep Practicing!",
@@ -731,7 +786,12 @@ fun DuelResultScreen(
                         .padding(14.dp)
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(if (isPositive) "⚡" else "💔", fontSize = 22.sp)
+                        Icon(
+                            if (isPositive) Icons.Default.Bolt else Icons.Default.FavoriteBorder,
+                            contentDescription = null,
+                            tint = if (isPositive) BrandGreen else BrandRed,
+                            modifier = Modifier.size(26.dp)
+                        )
                         Spacer(Modifier.width(10.dp))
                         Column {
                             Text("XP ${if (isPositive) "Gained" else "Lost"}",

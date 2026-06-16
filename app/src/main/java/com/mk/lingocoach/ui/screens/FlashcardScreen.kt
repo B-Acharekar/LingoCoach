@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -75,7 +76,7 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
         } else if (flashcards.isEmpty() || currentIndex >= flashcards.size) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text("🧠", fontSize = 56.sp)
+                    Icon(Icons.Default.Psychology, contentDescription = null, tint = BrandPurple, modifier = androidx.compose.ui.Modifier.size(64.dp))
                     Spacer(modifier = Modifier.height(16.dp))
                     Text("All caught up!", color = TextDark, fontSize = 24.sp, fontWeight = FontWeight.Bold)
                     Text("You've reviewed all your due flashcards.", color = TextMid, fontSize = 14.sp)
@@ -163,9 +164,20 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         // 0 = Blackout, 1 = Hard, 3 = Good, 5 = Perfect
-                        RatingButton("Again\n(0)", BrandRed, Modifier.weight(1f)) { 
+                        RatingButton("Again\n(0)", BrandRed, Modifier.weight(1f)) {
                             submitReview(currentCard.id, 0, scope) {
                                 isRevealed = false; currentIndex++
+                            }
+                            // Log missed flashcard as a mistake to backend (fire-and-forget)
+                            scope.launch(Dispatchers.IO) {
+                                AssessmentApi.logMistake(
+                                    userId          = userId,
+                                    word            = currentCard.front.take(60),
+                                    mistakeType     = "FLASHCARD_RETEST",
+                                    userSentence    = "(flashcard again)",
+                                    correctSentence = currentCard.back.take(120),
+                                    explanation     = "Missed during SRS flashcard review"
+                                )
                             }
                         }
                         RatingButton("Hard\n(2)", BrandAmberDark, Modifier.weight(1f)) { 

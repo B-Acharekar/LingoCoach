@@ -26,6 +26,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -47,14 +48,23 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.AccessTime
+import androidx.compose.material.icons.filled.BarChart
+import androidx.compose.material.icons.filled.CalendarToday
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Lightbulb
+import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.MicOff
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Stars
 import androidx.compose.material.icons.filled.Stop
+import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.filled.WorkspacePremium
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -65,6 +75,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -217,14 +228,19 @@ fun AssessmentScreen(
         onDone(recordedFile)
     }
 
-    // Init session
+    // Init session — pass the display name entered in UserProfileSetupScreen
     LaunchedEffect(Unit) {
-        AssessmentApi.createSession { response ->
+        val userName = sharedPrefs.getString("display_name", "") ?: ""
+        AssessmentApi.createSession(userName) { response ->
             coroutineScope.launch(Dispatchers.Main) {
                 if (response != null) {
                     sessionId = response.session_id
                     currentStep = response.current_step
                     currentQuestion = response.next_question.ifBlank { localQuestions[1] ?: "" }
+                    // If backend echoes name back, ensure it's saved locally
+                    if (response.user_name.isNotBlank()) {
+                        sharedPrefs.edit().putString("display_name", response.user_name).apply()
+                    }
                     isLoading = false
                 } else {
                     errorMessage = "Failed to start session. Check your connection."
@@ -250,7 +266,8 @@ fun AssessmentScreen(
             errorMessage.isNotEmpty() -> ErrorView(message = errorMessage) {
                 errorMessage = ""
                 isLoading = true
-                AssessmentApi.createSession { response ->
+                val userName = sharedPrefs.getString("display_name", "") ?: ""
+                AssessmentApi.createSession(userName) { response ->
                     coroutineScope.launch(Dispatchers.Main) {
                         if (response != null) {
                             sessionId = response.session_id
@@ -271,14 +288,17 @@ fun AssessmentScreen(
                     isGeneratingPath = true
                     val request = LearningPathRequest(
                         session_id = finalResponse!!.session_id,
-                        tier = finalResponse!!.assigned_tier ?: "B2 Upper-Intermediate",
-                        grammar_score = finalResponse!!.grammar_score.toInt(),
+                        user_name  = sharedPrefs.getString("display_name", "") ?: "",
+                        tier       = finalResponse!!.assigned_tier ?: "B2 Upper-Intermediate",
+                        grammar_score    = finalResponse!!.grammar_score.toInt(),
                         vocabulary_score = finalResponse!!.vocabulary_score.toInt(),
-                        coherence_score = finalResponse!!.coherence_score.toInt(),
+                        coherence_score  = finalResponse!!.coherence_score.toInt(),
                         structural_break = finalResponse!!.structural_break,
-                        detected_strength = finalResponse!!.detected_strength ?: "",
-                        detected_weakness = finalResponse!!.detected_weakness ?: "",
-                        recommended_focus = finalResponse!!.recommended_focus ?: ""
+                        detected_strength   = finalResponse!!.detected_strength ?: "",
+                        detected_weakness   = finalResponse!!.detected_weakness ?: "",
+                        recommended_focus   = finalResponse!!.recommended_focus ?: "",
+                        user_goal            = sharedPrefs.getString("user_goal", "general") ?: "general",
+                        user_level_self_reported = sharedPrefs.getString("user_level", "intermediate") ?: "intermediate"
                     )
                     AssessmentApi.getLearningPath(request) { pathResponse ->
                         coroutineScope.launch(Dispatchers.Main) {
@@ -769,204 +789,370 @@ fun AssessmentResultView(
     onBack: () -> Unit
 ) {
     val scrollState = rememberScrollState()
-    val proficiencyScore = remember(response) {
-        val avg = (response.grammar_score + response.vocabulary_score + response.coherence_score) / 3f
-        if (avg <= 0f) 72f else avg
-    }
-    val assignedTier = response.assigned_tier ?: "B2 Upper-Intermediate"
 
-    Column(
-        modifier = Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()
-    ) {
+    // ── Derived scores ──────────────────────────────────────────────────────
+    val grammarScore       = response.grammar_score.coerceAtLeast(1f)
+    val vocabScore         = response.vocabulary_score.coerceAtLeast(1f)
+    val coherenceScore     = response.coherence_score.coerceAtLeast(1f)
+    val fluencyScore       = ((grammarScore + coherenceScore) / 2f).coerceIn(1f, 100f)
+    val pronunciationScore = ((vocabScore + coherenceScore) / 2f).coerceIn(1f, 100f)
+    val proficiencyScore   = ((grammarScore + vocabScore + coherenceScore) / 3f).coerceIn(1f, 100f)
+    val assignedTier       = response.assigned_tier ?: "B2 Upper-Intermediate"
+
+    val (gradeEmoji, gradeTitle, gradeSubtitle) = when {
+        proficiencyScore >= 85 -> Triple("🎉", "Excellent performance!", "You demonstrated strong language skills with great clarity and confidence.")
+        proficiencyScore >= 70 -> Triple("👍", "Good performance!", "You have solid conversational skills with room to refine vocabulary and fluency.")
+        proficiencyScore >= 55 -> Triple("📈", "Keep it up!", "You're building a good foundation. Focus on grammar and coherence to improve.")
+        else                   -> Triple("💪", "Keep practicing!", "Good start! Regular practice will help you improve quickly.")
+    }
+
+    val completedAt = remember {
+        val sdf = java.text.SimpleDateFormat("MMM dd, yyyy  •  hh:mm a", java.util.Locale.getDefault())
+        sdf.format(java.util.Date())
+    }
+
+    // Two lowest dimensions → Areas to Improve
+    val dimensionScores = remember(response) {
+        listOf(
+            Triple("Grammar",       grammarScore,       Color(0xFF4CAF50)),
+            Triple("Vocabulary",    vocabScore,         Color(0xFFFF9800)),
+            Triple("Pronunciation", pronunciationScore, Color(0xFFFF9800)),
+            Triple("Fluency",       fluencyScore,       Color(0xFFFF9800)),
+            Triple("Coherence",     coherenceScore,     Color(0xFF2196F3))
+        ).sortedBy { it.second }.take(2)
+    }
+
+    val improvementTips = mapOf(
+        "Grammar"       to "Practice verb tenses and sentence structure daily.",
+        "Vocabulary"    to "Use a wider range of words in professional and technical contexts.",
+        "Pronunciation" to "Work on clearer word pronunciation and stress patterns.",
+        "Fluency"       to "Speak for 2 minutes non-stop each day to build natural flow.",
+        "Coherence"     to "Use linking words (however, therefore) to connect your ideas."
+    )
+
+    Column(modifier = Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
+
+        // ── Top bar ──────────────────────────────────────────────────────────
         Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp, vertical = 16.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.White)
+                .padding(horizontal = 20.dp, vertical = 14.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
-                modifier = Modifier.size(40.dp).clip(CircleShape)
-                    .background(Color(0x0A000000)).clickable { onBack() },
+                modifier = Modifier.size(38.dp).clip(CircleShape)
+                    .background(Color(0xFFF0EEFF)).clickable { onBack() },
                 contentAlignment = Alignment.Center
             ) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color(0xFF1D1D1F), modifier = Modifier.size(20.dp))
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back",
+                    tint = Color(0xFF6A5CFF), modifier = Modifier.size(20.dp))
             }
-            Text("Speaking Assessment", style = TextStyle(color = Color(0xFF1D1D1F), fontSize = 17.sp, fontWeight = FontWeight.Bold))
+            Text("Assessment Result",
+                style = TextStyle(color = Color(0xFF1D1D1F), fontSize = 17.sp, fontWeight = FontWeight.Bold))
             Box(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(20.dp))
-                    .background(Color(0xFF6A5CFF))
-                    .clickable { onContinue() }
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                modifier = Modifier.size(38.dp).clip(CircleShape).background(Color(0xFFF0EEFF)),
                 contentAlignment = Alignment.Center
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text("Next", color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold)
-                    Spacer(Modifier.width(4.dp))
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                        contentDescription = "Next",
-                        tint = Color.White,
-                        modifier = Modifier.size(14.dp)
-                    )
-                }
+                Icon(Icons.Default.Refresh, null, tint = Color(0xFF6A5CFF), modifier = Modifier.size(18.dp))
             }
         }
 
+        // ── Scrollable body ───────────────────────────────────────────────────
         Column(
-            modifier = Modifier.fillMaxWidth().weight(1f).verticalScroll(scrollState).padding(horizontal = 24.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .verticalScroll(scrollState)
+                .background(Color(0xFFF5F4FF))
+                .padding(horizontal = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Spacer(Modifier.height(16.dp))
-
-            // Score circle (270-degree Arc Sweep Gauge)
-            Box(modifier = Modifier.size(170.dp), contentAlignment = Alignment.Center) {
-                Canvas(modifier = Modifier.fillMaxSize().padding(12.dp)) {
-                    val strokeWidthPx = 10.dp.toPx()
-                    // Draw track arc
-                    drawArc(
-                        color = Color(0xFFE5E5ED),
-                        startAngle = 135f,
-                        sweepAngle = 270f,
-                        useCenter = false,
-                        style = Stroke(width = strokeWidthPx, cap = StrokeCap.Round)
-                    )
-                    // Draw progress arc
-                    drawArc(
-                        color = Color(0xFF6A5CFF),
-                        startAngle = 135f,
-                        sweepAngle = 270f * (proficiencyScore / 100f),
-                        useCenter = false,
-                        style = Stroke(width = strokeWidthPx, cap = StrokeCap.Round)
-                    )
-                }
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier.padding(top = 10.dp)
-                ) {
-                    Text(
-                        text = "${proficiencyScore.toInt()}", 
-                        color = Color(0xFF1D1D1F), 
-                        fontSize = 44.sp, 
-                        fontWeight = FontWeight.ExtraBold,
-                        style = TextStyle(letterSpacing = (-1).sp)
-                    )
-                    Text(
-                        text = "/ 100", 
-                        color = Color(0xFF8E8E93), 
-                        fontSize = 13.sp, 
-                        fontWeight = FontWeight.SemiBold
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = "Proficiency Level", 
-                        color = Color(0xFF6A5CFF), 
-                        fontSize = 10.sp, 
-                        fontWeight = FontWeight.Bold
-                    )
-                }
-            }
-
             Spacer(Modifier.height(20.dp))
-            Box(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(20.dp))
-                    .background(Color(0xFF6A5CFF))
-                    .padding(horizontal = 24.dp, vertical = 8.dp)
+
+            // Score gauge card
+            Card(
+                modifier = Modifier.fillMaxWidth().shadow(6.dp, RoundedCornerShape(24.dp)),
+                shape = RoundedCornerShape(24.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.White)
             ) {
-                Text(
-                    text = assignedTier, 
-                    color = Color.White, 
-                    fontWeight = FontWeight.Bold, 
-                    fontSize = 14.sp
-                )
+                Column(
+                    modifier = Modifier.fillMaxWidth().padding(24.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Box(modifier = Modifier.size(160.dp), contentAlignment = Alignment.Center) {
+                        Canvas(modifier = Modifier.fillMaxSize().padding(10.dp)) {
+                            val sw = 12.dp.toPx()
+                            drawArc(Color(0xFFECEAFF), 135f, 270f, false, style = Stroke(sw, cap = StrokeCap.Round))
+                            drawArc(Color(0xFF6A5CFF), 135f, 270f * (proficiencyScore / 100f), false,
+                                style = Stroke(sw, cap = StrokeCap.Round))
+                        }
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Text("${proficiencyScore.toInt()}", color = Color(0xFF1D1D1F),
+                                fontSize = 48.sp, fontWeight = FontWeight.ExtraBold,
+                                style = TextStyle(letterSpacing = (-2).sp))
+                            Text("/ 100", color = Color(0xFF8E8E93), fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+                        }
+                    }
+                    Spacer(Modifier.height(14.dp))
+                    Box(modifier = Modifier.clip(RoundedCornerShape(20.dp))
+                        .background(Color(0xFF6A5CFF)).padding(horizontal = 20.dp, vertical = 7.dp)) {
+                        Text(assignedTier, color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                    }
+                    Spacer(Modifier.height(10.dp))
+                    Text("$gradeEmoji $gradeTitle", color = Color(0xFF1D1D1F),
+                        fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                    Spacer(Modifier.height(6.dp))
+                    Text(gradeSubtitle, color = Color(0xFF6E6E73), fontSize = 13.sp,
+                        textAlign = TextAlign.Center, lineHeight = 19.sp,
+                        modifier = Modifier.padding(horizontal = 8.dp))
+                    Spacer(Modifier.height(8.dp))
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(Icons.Default.CalendarToday, null, tint = Color(0xFF8E8E93), modifier = Modifier.size(12.dp))
+                        Spacer(Modifier.width(4.dp))
+                        Text("Completed on $completedAt", color = Color(0xFF8E8E93), fontSize = 11.sp)
+                    }
+                }
             }
 
-            Spacer(Modifier.height(12.dp))
-            Text(
-                text = when {
-                    proficiencyScore >= 85 -> "Excellent clarity with a few awkward word choices."
-                    proficiencyScore >= 70 -> "Good conversational flow with moderate vocabulary."
-                    else -> "Basic phrasing. Continuous practice is recommended."
-                },
-                color = Color(0xFF6E6E73), fontSize = 13.sp,
-                textAlign = TextAlign.Center, lineHeight = 18.sp,
-                modifier = Modifier.padding(horizontal = 16.dp)
-            )
+            Spacer(Modifier.height(24.dp))
 
-            Spacer(Modifier.height(28.dp))
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text("Performance Metrics", color = Color(0xFF1D1D1F), fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                // options/info placeholder icon
-                Icon(
-                    imageVector = Icons.Default.Info,
-                    contentDescription = null,
-                    tint = Color(0xFF6A5CFF).copy(alpha = 0.6f),
-                    modifier = Modifier.size(16.dp)
-                )
+            // Strengths row
+            ResultSectionHeader(Icons.Default.Star, Color(0xFFFF9800), "Strengths")
+            Spacer(Modifier.height(12.dp))
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                StrengthScoreCard("Grammar",   grammarScore,   Color(0xFF4CAF50), "G", Modifier.weight(1f))
+                StrengthScoreCard("Coherence", coherenceScore, Color(0xFF2196F3), "C", Modifier.weight(1f))
+                StrengthScoreCard("Fluency",   fluencyScore,   Color(0xFFFF9800), "~", Modifier.weight(1f))
             }
-            Spacer(Modifier.height(16.dp))
 
-            RadarChart(
-                grammar = (response.grammar_score.coerceAtLeast(1f) / 100f),
-                vocabulary = (response.vocabulary_score.coerceAtLeast(1f) / 100f),
-                coherence = (response.coherence_score.coerceAtLeast(1f) / 100f),
-                fluency = ((response.grammar_score + response.coherence_score) / 200f).coerceIn(0.1f, 1f),
-                pronunciation = ((response.vocabulary_score + response.coherence_score) / 200f).coerceIn(0.1f, 1f),
-                modifier = Modifier.fillMaxWidth().shadow(2.dp, RoundedCornerShape(24.dp))
-            )
+            Spacer(Modifier.height(24.dp))
+
+            // Performance Overview — radar + legend
+            ResultSectionHeader(Icons.Default.BarChart, Color(0xFF6A5CFF), "Performance Overview")
+            Spacer(Modifier.height(12.dp))
+            Card(
+                modifier = Modifier.fillMaxWidth().shadow(4.dp, RoundedCornerShape(20.dp)),
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.White)
+            ) {
+                Row(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+                    RadarChart(
+                        grammar      = grammarScore / 100f,
+                        vocabulary   = vocabScore / 100f,
+                        coherence    = coherenceScore / 100f,
+                        fluency      = fluencyScore / 100f,
+                        pronunciation = pronunciationScore / 100f,
+                        modifier     = Modifier.size(150.dp)
+                    )
+                    Spacer(Modifier.width(12.dp))
+                    Column(
+                        modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        RadarLegendRow("Grammar",       grammarScore,       Color(0xFF4CAF50))
+                        RadarLegendRow("Vocabulary",    vocabScore,         Color(0xFFFF9800))
+                        RadarLegendRow("Pronunciation", pronunciationScore, Color(0xFFFF9800))
+                        RadarLegendRow("Fluency",       fluencyScore,       Color(0xFFFF9800))
+                        RadarLegendRow("Coherence",     coherenceScore,     Color(0xFF2196F3))
+                    }
+                }
+            }
+
+            Spacer(Modifier.height(24.dp))
+
+            // Areas to Improve
+            ResultSectionHeader(Icons.AutoMirrored.Filled.TrendingUp, Color(0xFF2196F3), "Areas to Improve")
+            Spacer(Modifier.height(12.dp))
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                dimensionScores.forEach { (name, score, color) ->
+                    ImprovementCard(name, score, color, improvementTips[name] ?: "", Modifier.weight(1f))
+                }
+            }
+
+            Spacer(Modifier.height(24.dp))
+
+            // Recommended Actions
+            ResultSectionHeader(Icons.Default.CheckCircle, Color(0xFF6A5CFF), "Recommended Actions")
+            Spacer(Modifier.height(12.dp))
+            Card(
+                modifier = Modifier.fillMaxWidth().shadow(4.dp, RoundedCornerShape(20.dp)),
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.White)
+            ) {
+                Row(modifier = Modifier.fillMaxWidth().padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier.size(54.dp).clip(RoundedCornerShape(14.dp))
+                            .background(Color(0xFFF0EEFF)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(Icons.Default.WorkspacePremium, null, tint = Color(0xFF6A5CFF), modifier = Modifier.size(28.dp))
+                    }
+                    Spacer(Modifier.width(12.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Box(modifier = Modifier.clip(RoundedCornerShape(8.dp))
+                            .background(Color(0xFFE8F5E9)).padding(horizontal = 8.dp, vertical = 3.dp)) {
+                            Text("Complete", color = Color(0xFF4CAF50), fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                        }
+                        Spacer(Modifier.height(4.dp))
+                        Text(response.recommended_focus ?: "Build vocabulary for your target area",
+                            color = Color(0xFF1D1D1F), fontSize = 13.sp, fontWeight = FontWeight.Bold, lineHeight = 18.sp)
+                        Spacer(Modifier.height(4.dp))
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(Icons.Default.Schedule, null, tint = Color(0xFF8E8E93), modifier = Modifier.size(11.dp))
+                            Spacer(Modifier.width(3.dp))
+                            Text("Estimated Time: 15 min/day", color = Color(0xFF8E8E93), fontSize = 11.sp)
+                        }
+                    }
+                    Spacer(Modifier.width(8.dp))
+                    Button(
+                        onClick = onContinue,
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6A5CFF)),
+                        shape = RoundedCornerShape(10.dp),
+                        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 8.dp)
+                    ) {
+                        Text("Start Now →", color = Color.White, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                    }
+                }
+            }
 
             Spacer(Modifier.height(28.dp))
-            Text("Analysis & Feedback", color = Color(0xFF1D1D1F), fontSize = 16.sp, fontWeight = FontWeight.Bold, modifier = Modifier.fillMaxWidth())
-            Spacer(Modifier.height(16.dp))
 
-            FeedbackCard(
-                title = "Detected Strength",
-                text = response.detected_strength ?: "Strong structural breakdown of complex ideas and consistent grammar.",
-                containerColor = Color(0xFFF0F9F4),
-                iconColor = Color(0xFF34C759),
-                icon = Icons.Default.CheckCircle
-            )
-            Spacer(Modifier.height(12.dp))
-            FeedbackCard(
-                title = "Detected Weakness",
-                text = response.detected_weakness ?: "Repetitive word choice when discussing professional topics.",
-                containerColor = Color(0xFFFFF9F0),
-                iconColor = Color(0xFFFF9500),
-                icon = Icons.Default.Warning
-            )
-            Spacer(Modifier.height(12.dp))
-            FeedbackCard(
-                title = "Recommended Focus",
-                text = response.recommended_focus ?: "Deepen vocabulary usage for business and technical contexts.",
-                containerColor = Color(0xFFF5F3FF),
-                iconColor = Color(0xFF5856D6),
-                icon = Icons.Default.Star
-            )
-
-            Spacer(Modifier.height(28.dp))
+            // Continue to Lessons CTA
             Button(
                 onClick = onContinue,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(54.dp)
-                    .shadow(8.dp, RoundedCornerShape(27.dp), clip = false),
+                modifier = Modifier.fillMaxWidth().height(56.dp)
+                    .shadow(6.dp, RoundedCornerShape(28.dp), clip = false),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6A5CFF)),
-                shape = RoundedCornerShape(27.dp)
+                shape = RoundedCornerShape(28.dp)
             ) {
-                Text(
-                    text = "Continue to Lessons", 
-                    style = TextStyle(
-                        color = Color.White, 
-                        fontSize = 16.sp, 
-                        fontWeight = FontWeight.Bold
-                    )
+                Text("Continue to Lessons",
+                    style = TextStyle(color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold))
+            }
+            Spacer(Modifier.height(32.dp))
+        }
+    }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Result UI helpers
+// ─────────────────────────────────────────────────────────────────────────────
+
+@Composable
+private fun ResultSectionHeader(
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    iconTint: Color,
+    title: String
+) {
+    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Icon(icon, null, tint = iconTint, modifier = Modifier.size(18.dp))
+        Spacer(Modifier.width(8.dp))
+        Text(title, color = Color(0xFF1D1D1F), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+    }
+}
+
+@Composable
+private fun StrengthScoreCard(
+    name: String,
+    score: Float,
+    color: Color,
+    letter: String,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = modifier.shadow(3.dp, RoundedCornerShape(16.dp)),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White)
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Box(
+                modifier = Modifier.size(36.dp).clip(CircleShape)
+                    .background(color.copy(alpha = 0.15f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(letter, color = color, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+            }
+            Spacer(Modifier.height(8.dp))
+            Text(name, color = Color(0xFF1D1D1F), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+            Text("${score.toInt()}/100", color = color, fontSize = 13.sp, fontWeight = FontWeight.ExtraBold)
+            Spacer(Modifier.height(6.dp))
+            Box(
+                modifier = Modifier.fillMaxWidth().height(4.dp)
+                    .clip(RoundedCornerShape(2.dp)).background(color.copy(alpha = 0.15f))
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth(score / 100f).fillMaxHeight()
+                        .clip(RoundedCornerShape(2.dp)).background(color)
                 )
             }
-            Spacer(Modifier.height(24.dp))
+        }
+    }
+}
+
+@Composable
+private fun RadarLegendRow(name: String, score: Float, color: Color) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Box(modifier = Modifier.size(8.dp).clip(CircleShape).background(color))
+            Spacer(Modifier.width(6.dp))
+            Text(name, color = Color(0xFF1D1D1F), fontSize = 11.sp)
+        }
+        Text("${score.toInt()}/100",
+            color = Color(0xFF1D1D1F), fontSize = 11.sp, fontWeight = FontWeight.Bold)
+    }
+}
+
+@Composable
+private fun ImprovementCard(
+    name: String,
+    score: Float,
+    color: Color,
+    tip: String,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = modifier.shadow(3.dp, RoundedCornerShape(16.dp)),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White)
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(
+                    modifier = Modifier.size(32.dp).clip(CircleShape)
+                        .background(color.copy(alpha = 0.15f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = if (name == "Vocabulary" || name == "Grammar")
+                            Icons.AutoMirrored.Filled.MenuBook else Icons.Default.Mic,
+                        contentDescription = null,
+                        tint = color,
+                        modifier = Modifier.size(15.dp)
+                    )
+                }
+                Spacer(Modifier.width(6.dp))
+                Column {
+                    Text(name, color = Color(0xFF1D1D1F), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                    Text("${score.toInt()}/100", color = color,
+                        fontSize = 11.sp, fontWeight = FontWeight.ExtraBold)
+                }
+            }
+            Spacer(Modifier.height(8.dp))
+            Text(tip, color = Color(0xFF6E6E73), fontSize = 11.sp, lineHeight = 15.sp)
+            Spacer(Modifier.height(5.dp))
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(Icons.Default.Lightbulb, null,
+                    tint = Color(0xFFFF9800), modifier = Modifier.size(11.dp))
+                Spacer(Modifier.width(3.dp))
+                Text("Tip: $tip", color = Color(0xFFFF9800), fontSize = 10.sp, lineHeight = 14.sp,
+                    maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+            }
         }
     }
 }

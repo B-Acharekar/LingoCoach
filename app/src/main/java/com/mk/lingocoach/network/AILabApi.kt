@@ -26,7 +26,15 @@ data class AILabSessionStartResponse(
     val status: String,
     val message: String,
     val voice_gender: String,
-    val tone: String
+    val tone: String,
+    val opening_message: String = ""   // AI's first line — display immediately
+)
+
+data class AILabStatusResponse(
+    val sessions_used_today: Int,
+    val sessions_limit: Int,
+    val bonus_sessions: Int,
+    val sessions_remaining: Int
 )
 
 data class AILabMistake(
@@ -189,6 +197,28 @@ object AILabApi {
                         Log.e("AILabApi", "Failed to parse end session response", e)
                         onResult(null)
                     }
+                }
+            }
+        })
+    }
+
+    fun getStatus(userId: String, onResult: (AILabStatusResponse?) -> Unit) {
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/ailab/status?user_id=$userId")
+            .get()
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AILabApi", "Failed to get status", e)
+                onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!it.isSuccessful) { onResult(null); return }
+                    try {
+                        onResult(gson.fromJson(it.body?.string(), AILabStatusResponse::class.java))
+                    } catch (e: Exception) { onResult(null) }
                 }
             }
         })

@@ -19,15 +19,18 @@ enum class Screen {
     Splash,
     LanguageSelection,
     WelcomeAboard,
+    UserProfileSetup,
     Assessment,
-    LearningPath,
+    LearningPathRoadmap,
+    ActualLearningPath,
     Home,
     Lesson,
     VocabBuilder,
     MistakeVault,
     Flashcards,
     TimelyDuel,
-    AILab
+    AILab,
+    Settings
 }
 
 class MainActivity : ComponentActivity() {
@@ -49,6 +52,7 @@ class MainActivity : ComponentActivity() {
                                 onNavigateToWelcome = { currentScreen = Screen.WelcomeAboard },
                                 onNavigateToLanguage = { currentScreen = Screen.LanguageSelection },
                                 onNavigateToAssessment = { currentScreen = Screen.Assessment },
+                                onNavigateToProfileSetup = { currentScreen = Screen.UserProfileSetup },
                                 onNavigateToHome = { currentScreen = Screen.Home }
                             )
                         }
@@ -61,19 +65,39 @@ class MainActivity : ComponentActivity() {
                         Screen.WelcomeAboard -> {
                             WelcomeAboardScreen(
                                 onNavigateToLanguage = { currentScreen = Screen.LanguageSelection },
-                                onNavigateToAssessment = { currentScreen = Screen.Assessment }
+                                onNavigateToAssessment = { currentScreen = Screen.UserProfileSetup }
+                            )
+                        }
+                        Screen.UserProfileSetup -> {
+                            UserProfileSetupScreen(
+                                onNavigateBack = { currentScreen = Screen.WelcomeAboard },
+                                onSetupComplete = { currentScreen = Screen.Assessment }
                             )
                         }
                         Screen.Assessment -> {
                             AssessmentScreen(
-                                onNavigateToLearningPath = { currentScreen = Screen.LearningPath },
+                                onNavigateToLearningPath = { currentScreen = Screen.LearningPathRoadmap },
                                 onNavigateBack = { currentScreen = Screen.WelcomeAboard }
                             )
                         }
-                        Screen.LearningPath -> {
-                            LearningPathScreen(
+                        Screen.LearningPathRoadmap -> {
+                            LearningPathRoadmapScreen(
+                                onNavigateToLearningPath = { currentScreen = Screen.ActualLearningPath },
+                                onNavigateBack = { currentScreen = Screen.Assessment },
+                                onNavigateToSettings = { currentScreen = Screen.Settings }
+                            )
+                        }
+                        Screen.ActualLearningPath -> {
+                            ActualLearningPathScreen(
                                 onNavigateToHome = { currentScreen = Screen.Home },
-                                onNavigateBack = { currentScreen = Screen.Assessment }
+                                onNavigateBack = { currentScreen = Screen.LearningPathRoadmap },
+                                onNavigateToLesson = { sublessonId ->
+                                    currentSublessonId = sublessonId
+                                    currentScreen = Screen.Lesson
+                                },
+                                onNavigateToAILab = { currentScreen = Screen.AILab },
+                                onNavigateToVocab = { currentScreen = Screen.VocabBuilder },
+                                onNavigateToVault = { currentScreen = Screen.MistakeVault }
                             )
                         }
                         Screen.Home -> {
@@ -86,13 +110,14 @@ class MainActivity : ComponentActivity() {
                                 onNavigateToMistakes = { currentScreen = Screen.MistakeVault },
                                 onNavigateToFlashcards = { currentScreen = Screen.Flashcards },
                                 onNavigateToDuel = { currentScreen = Screen.TimelyDuel },
-                                onNavigateToAILab = { currentScreen = Screen.AILab }
+                                onNavigateToAILab = { currentScreen = Screen.AILab },
+                                onNavigateToSettings = { currentScreen = Screen.Settings }
                             )
                         }
                         Screen.Lesson -> {
                             LessonScreen(
                                 sublessonId = currentSublessonId,
-                                onNavigateBack = { currentScreen = Screen.Home }
+                                onNavigateBack = { currentScreen = Screen.ActualLearningPath }
                             )
                         }
                         Screen.VocabBuilder -> {
@@ -102,7 +127,10 @@ class MainActivity : ComponentActivity() {
                         }
                         Screen.MistakeVault -> {
                             MistakeVaultScreen(
-                                onNavigateBack = { currentScreen = Screen.Home }
+                                onNavigateBack    = { currentScreen = Screen.Home },
+                                onNavigateToHome  = { currentScreen = Screen.Home },
+                                onNavigateToVocab = { currentScreen = Screen.VocabBuilder },
+                                onNavigateToAILab = { currentScreen = Screen.AILab }
                             )
                         }
                         Screen.Flashcards -> {
@@ -121,6 +149,12 @@ class MainActivity : ComponentActivity() {
                                 onNavigateToHome = { currentScreen = Screen.Home },
                                 onNavigateToVocab = { currentScreen = Screen.VocabBuilder },
                                 onNavigateToMistakes = { currentScreen = Screen.MistakeVault }
+                            )
+                        }
+                        Screen.Settings -> {
+                            SettingsScreen(
+                                onNavigateBack = { currentScreen = Screen.Home },
+                                onLogout = { currentScreen = Screen.Splash }
                             )
                         }
                     }

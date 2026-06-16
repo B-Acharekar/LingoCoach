@@ -189,7 +189,7 @@ fun LessonScreen(
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
                                 Row(verticalAlignment = Alignment.CenterVertically) {
-                                    Text("📖", fontSize = 14.sp)
+                                    Icon(Icons.Default.MenuBook, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(16.dp))
                                     Spacer(Modifier.width(8.dp))
                                     Text(
                                         text = "Lesson Parts: Part ${sub.order} - ${sub.title}",
@@ -244,6 +244,7 @@ fun LessonScreen(
                                 if (idx != -1 && idx < currentSublessonsList.size - 1) {
                                     activeSublessonId = currentSublessonsList[idx + 1].id
                                 } else {
+                                    AppCache.invalidateLearningPath()
                                     showCompletion = true
                                 }
                             }
@@ -262,6 +263,7 @@ fun LessonScreen(
                                     if (idx != -1 && idx < currentSublessonsList.size - 1) {
                                         activeSublessonId = currentSublessonsList[idx + 1].id
                                     } else {
+                                        AppCache.invalidateLearningPath()
                                         showCompletion = true
                                     }
                                 }
@@ -410,7 +412,7 @@ fun LsContentPhase(sublesson: SublessonDetail, onStartExercises: () -> Unit) {
                 Text(
                     if (sublesson.exercises.isNotEmpty())
                         "Start Exercises  (${sublesson.exercises.size})"
-                    else "Mark Complete ✓",
+                    else "Mark Complete",
                     color = Color.White,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.ExtraBold
@@ -434,11 +436,11 @@ fun LsContentPhase(sublesson: SublessonDetail, onStartExercises: () -> Unit) {
 // ─── Content Block Card ───────────────────────────────────────────────────────
 @Composable
 fun LsContentBlockCard(block: ContentBlock) {
-    val (emoji, accent, label, cardBg) = when (block.type) {
-        "explanation" -> Quadruple("💡", BrandPurple, "EXPLANATION", Color(0xFFF5F3FF))
-        "example"     -> Quadruple("📝", BrandAmber,  "EXAMPLE",     Color(0xFFFFFBF0))
-        "tip"         -> Quadruple("✨", BrandGreen,   "TIP",         Color(0xFFF0FBF4))
-        else          -> Quadruple("📌", BrandPurpleLight, block.type.uppercase(), Color(0xFFF8F8FF))
+    val (icon, accent, label, cardBg) = when (block.type) {
+        "explanation" -> Quadruple(Icons.Default.Lightbulb,        BrandPurple,      "EXPLANATION", Color(0xFFF5F3FF))
+        "example"     -> Quadruple(Icons.Default.Edit,             BrandAmber,       "EXAMPLE",     Color(0xFFFFFBF0))
+        "tip"         -> Quadruple(Icons.Default.TipsAndUpdates,   BrandGreen,       "TIP",         Color(0xFFF0FBF4))
+        else          -> Quadruple(Icons.Default.PushPin,          BrandPurpleLight, block.type.uppercase(), Color(0xFFF8F8FF))
     }
 
     Box(
@@ -452,7 +454,7 @@ fun LsContentBlockCard(block: ContentBlock) {
     ) {
         Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(emoji, fontSize = 16.sp)
+                Icon(icon, contentDescription = null, tint = accent, modifier = Modifier.size(18.dp))
                 Spacer(Modifier.width(8.dp))
                 Box(
                     modifier = Modifier
@@ -822,7 +824,7 @@ fun LsFeedbackBanner(isCorrect: Boolean, feedback: String) {
             Spacer(Modifier.width(12.dp))
             Column {
                 Text(
-                    if (isCorrect) "Correct! 🎉" else "Not quite… 💡",
+                    if (isCorrect) "Correct!" else "Not quite...",
                     color = border,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.ExtraBold
@@ -854,7 +856,7 @@ fun LsErrorView(onBack: () -> Unit, onRetry: () -> Unit) {
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("😕", fontSize = 48.sp)
+            Icon(Icons.Default.SentimentDissatisfied, contentDescription = null, tint = TextMid, modifier = Modifier.size(56.dp))
             Spacer(Modifier.height(16.dp))
             Text(
                 "Couldn't load this lesson. Check your connection.",
@@ -914,7 +916,7 @@ fun LsCompletionView(
                     ),
                 contentAlignment = Alignment.Center
             ) {
-                Text("🏆", fontSize = (58 * pulse).sp)
+                Icon(Icons.Default.EmojiEvents, contentDescription = null, tint = BrandAmber, modifier = Modifier.size((58 * pulse).dp))
             }
 
             Spacer(Modifier.height(28.dp))

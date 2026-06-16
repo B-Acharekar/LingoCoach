@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.LingoCoach" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.LingoCoach" parent="android:Theme.Material.NoActionBar">
+        <!-- Match the app's background color so the window is dark before Compose renders -->
+        <item name="android:windowBackground">#07051A</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:statusBarColor">#07051A</item>
+        <item name="android:navigationBarColor">#07051A</item>
+    </style>
+
 </resources>

@@ -2,15 +2,18 @@ package com.mk.lingocoach.ui.screens
 
 import android.content.Context
 import android.widget.Toast
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Canvas
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,17 +21,14 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -36,288 +36,235 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.google.gson.Gson
 import com.mk.lingocoach.R
-import com.mk.lingocoach.network.LearningPathResponse
-import com.mk.lingocoach.network.Module
+import com.mk.lingocoach.network.AssessmentApi
+import com.mk.lingocoach.network.CurrentLearningPathResponse
+import com.mk.lingocoach.network.CurrentModule
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @Composable
 fun LearningPathScreen(
     onNavigateToHome: () -> Unit,
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    onNavigateToLesson: (sublessonId: String) -> Unit = {}
 ) {
-    val context = LocalContext.current
+    val context     = LocalContext.current
+    val scope       = rememberCoroutineScope()
     val sharedPrefs = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
-    val gson = remember { Gson() }
-
-    // Retrieve LearningPathResponse from SharedPreferences
-    val learningPath = remember {
-        val json = sharedPrefs.getString("learning_path_json", null)
-        if (json != null) {
-            try {
-                gson.fromJson(json, LearningPathResponse::class.java)
-            } catch (e: Exception) {
-                null
-            }
-        } else {
-            null
-        }
-    }
-
-    var expandedModuleIndex by remember { mutableStateOf<Int?>(1) } // Default expand Level 2 (index 1)
-    var selectedCoach by remember { mutableStateOf(sharedPrefs.getString("selected_coach", "Amélie") ?: "Amélie") }
-
     val scrollState = rememberScrollState()
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                Brush.verticalGradient(
-                    colors = listOf(
-                        Color(0xFFF4F3FF),
-                        Color(0xFFEBEBFF),
-                        Color(0xFFFFF9EB)
-                    )
-                )
-            )
-            .statusBarsPadding()
-            .navigationBarsPadding()
-    ) {
+    val userId = remember {
+        sharedPrefs.getString("session_id", null) ?: ""
+    }
+
+    var learningPath by remember {
+        mutableStateOf<CurrentLearningPathResponse?>(AppCache.learningPath)
+    }
+    var isLoading by remember { mutableStateOf(learningPath == null) }
+    var selectedCoach by remember {
+        mutableStateOf(sharedPrefs.getString("selected_coach", "Amélie") ?: "Amélie")
+    }
+
+    // Load from cache then refresh if stale
+    LaunchedEffect(userId) {
+        AppCache.loadFromDisk(context)
+        val cached = AppCache.learningPath
+        if (cached != null) { learningPath = cached; isLoading = false }
+        if (AppCache.isLearningPathStale() && userId.isNotBlank()) {
+            scope.launch(Dispatchers.IO) {
+                AssessmentApi.getCurrentLearningPath(userId) { path ->
+                    if (path != null) {
+                        AppCache.learningPath   = path
+                        AppCache.learningPathAt = System.currentTimeMillis()
+                        AppCache.saveToDisk(context)
+                        scope.launch(Dispatchers.Main) { learningPath = path; isLoading = false }
+                    } else {
+                        scope.launch(Dispatchers.Main) { isLoading = false }
+                    }
+                }
+            }
+        } else { isLoading = false }
+    }
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        Image(
+            painter      = painterResource(R.drawable.background),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier     = Modifier.fillMaxSize()
+        )
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .statusBarsPadding()
+                .navigationBarsPadding()
         ) {
-            // 1. Header Bar
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 20.dp, vertical = 12.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                IconButton(
-                    onClick = onNavigateBack,
-                    modifier = Modifier
-                        .size(36.dp)
-                        .background(Color.White.copy(alpha = 0.6f), CircleShape)
-                ) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back",
-                        tint = Color(0xFF6A5CFF)
-                    )
-                }
-
-                Text(
-                    text = "Learning Path",
-                    style = TextStyle(
-                        color = Color(0xFF1D1D1F),
-                        fontSize = 17.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                )
-
-                IconButton(
-                    onClick = { /* Menu option placeholder */ },
-                    modifier = Modifier
-                        .size(36.dp)
-                        .background(Color.White.copy(alpha = 0.6f), CircleShape)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.MoreVert,
-                        contentDescription = "Options",
-                        tint = Color(0xFF6E6E73)
-                    )
-                }
-            }
-
-            // 2. Scrollable Body
+            // ── Scrollable body (no top bar) ──────────────────────────────────
             Column(
                 modifier = Modifier
                     .weight(1f)
                     .verticalScroll(scrollState)
-                    .padding(horizontal = 24.dp)
+                    .padding(horizontal = 16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(20.dp))
 
-                // Journey Subtitle
+                // ── Page Title ────────────────────────────────────────────────
                 Text(
-                    text = "YOUR JOURNEY",
-                    color = Color(0xFF6A5CFF),
-                    fontSize = 11.sp,
-                    fontWeight = FontWeight.ExtraBold,
-                    textAlign = TextAlign.Center,
-                    style = TextStyle(letterSpacing = 1.sp),
-                    modifier = Modifier.fillMaxWidth()
+                    "Learning Path",
+                    style = TextStyle(
+                        color = TextDark,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.ExtraBold
+                    )
                 )
+
                 Spacer(Modifier.height(4.dp))
+
+                // ── Subtitle ──────────────────────────────────────────────────
                 Text(
-                    text = "Personalized route to fluency",
-                    color = Color(0xFF1D1D1F),
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth()
+                    "Your Journey",
+                    style = TextStyle(
+                        color = BrandPurple,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
                 )
 
-                Spacer(Modifier.height(32.dp))
+                Text(
+                    "Personalized route to fluency",
+                    style = TextStyle(
+                        color = TextLight,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Normal
+                    )
+                )
 
-                // 3. Timeline Layout
-                val modules = learningPath?.modules ?: emptyList()
-                if (modules.isNotEmpty()) {
-                    Box(modifier = Modifier.fillMaxWidth()) {
-                        // Vertical Connecting line
-                        Canvas(modifier = Modifier.matchParentSize()) {
-                            drawLine(
-                                color = Color(0xFFD2D2D7),
-                                start = Offset(size.width / 2f, 0f),
-                                end = Offset(size.width / 2f, size.height),
-                                strokeWidth = 2.dp.toPx()
-                            )
-                        }
+                Spacer(Modifier.height(20.dp))
 
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 12.dp),
-                            verticalArrangement = Arrangement.spacedBy(24.dp)
-                        ) {
-                            modules.forEachIndexed { index, module ->
-                                ModuleCard(
-                                    module = module,
-                                    isEven = index % 2 == 0,
-                                    expanded = expandedModuleIndex == index,
-                                    onModuleClicked = {
-                                        expandedModuleIndex = if (expandedModuleIndex == index) null else index
-                                    }
-                                )
-                            }
+                if (isLoading) {
+                    // Loading state
+                    Box(
+                        modifier = Modifier.fillMaxWidth().padding(40.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator(
+                            color = BrandPurple,
+                            modifier = Modifier.size(40.dp),
+                            strokeWidth = 3.dp
+                        )
+                    }
+                } else if (learningPath == null) {
+                    // Empty state
+                    Box(
+                        modifier = Modifier.fillMaxWidth().padding(40.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Icon(Icons.Default.Map, null, tint = BrandPurple,
+                                modifier = Modifier.size(48.dp))
+                            Spacer(Modifier.height(12.dp))
+                            Text("Complete the assessment to unlock your path",
+                                color = TextMid, fontSize = 14.sp, fontWeight = FontWeight.Medium)
                         }
                     }
                 } else {
-                    // Fallback in case of empty API response
-                    Text(
-                        text = "No learning path found. Please complete the assessment first.",
-                        color = Color(0xFF6E6E73),
-                        fontSize = 14.sp,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 40.dp)
+                    val modules = learningPath?.modules ?: emptyList()
+
+                    // Header stats row
+                    val totalLessons = modules.sumOf { it.lessons.size }
+                    val doneLessons  = modules.sumOf { m ->
+                        m.lessons.count { it.status == "completed" }
+                    }
+                    LpStatsRow(
+                        tier = learningPath?.tier ?: "—",
+                        xp   = learningPath?.xp ?: 0,
+                        streak = learningPath?.streak ?: 0,
+                        lessonsTotal = totalLessons,
+                        lessonsDone  = doneLessons
                     )
+
+                    // Module cards
+                    modules.forEach { module ->
+                        LpModuleCard(
+                            module = module,
+                            onSublessonTap = { subId -> onNavigateToLesson(subId) }
+                        )
+                    }
                 }
 
-                Spacer(Modifier.height(36.dp))
+                Spacer(Modifier.height(20.dp))
 
-                // 4. Coach Selection Header
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = "Coach Voice",
-                        color = Color(0xFF1D1D1F),
-                        fontSize = 17.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Box(
-                        modifier = Modifier
-                            .background(Color(0xFFFFF2D4), RoundedCornerShape(10.dp))
-                            .padding(horizontal = 8.dp, vertical = 4.dp)
+                // ── Action Buttons at the end ─────────────────────────────────
+                if (learningPath != null) {
+                    // Determine the first lesson/sublesson
+                    val firstModule = learningPath?.modules?.firstOrNull()
+                    val firstLesson = firstModule?.lessons?.firstOrNull()
+                    val firstSub = firstLesson?.sublessons?.firstOrNull()
+
+                    // Start Your Journey Button
+                    Button(
+                        onClick = {
+                            if (firstSub != null) {
+                                onNavigateToLesson(firstSub.id)
+                            } else {
+                                Toast.makeText(context, "No lessons available yet", Toast.LENGTH_SHORT).show()
+                            }
+                        },
+                        modifier = Modifier.fillMaxWidth().height(56.dp),
+                        shape    = RoundedCornerShape(28.dp),
+                        colors   = ButtonDefaults.buttonColors(containerColor = BrandPurple),
+                        elevation = ButtonDefaults.buttonElevation(8.dp)
                     ) {
                         Text(
-                            text = "Native TTS Engine",
-                            color = Color(0xFFFB8C00),
-                            fontSize = 10.sp,
-                            fontWeight = FontWeight.Bold
+                            "Start Your Journey",
+                            style = TextStyle(
+                                color = Color.White,
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowForward,
+                            contentDescription = null,
+                            tint = Color.White,
+                            modifier = Modifier.size(20.dp)
                         )
                     }
-                }
 
-                Spacer(Modifier.height(16.dp))
+                    Spacer(Modifier.height(12.dp))
 
-                // 5. Coach list (Amélie & Noah)
-                LazyRow(
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    item {
-                        CoachCard(
-                            name = "Amélie",
-                            description = "Warm & Encouraging",
-                            avatarResId = R.drawable.amelie_avatar,
-                            isSelected = selectedCoach == "Amélie",
-                            onClick = {
-                                selectedCoach = "Amélie"
-                                sharedPrefs.edit().putString("selected_coach", "Amélie").apply()
-                            },
-                            onPreviewClick = {
-                                Toast.makeText(context, "Bonjour! I am Amélie, your LingoCoach. ☕", Toast.LENGTH_SHORT).show()
-                            }
-                        )
-                    }
-                    item {
-                        CoachCard(
-                            name = "Noah",
-                            description = "Professional & Clear",
-                            avatarResId = R.drawable.noah_avatar,
-                            isSelected = selectedCoach == "Noah",
-                            onClick = {
-                                selectedCoach = "Noah"
-                                sharedPrefs.edit().putString("selected_coach", "Noah").apply()
-                            },
-                            onPreviewClick = {
-                                Toast.makeText(context, "Hello! I am Noah, let's practice together. 💼", Toast.LENGTH_SHORT).show()
-                            }
-                        )
-                    }
-                }
-
-                Spacer(Modifier.height(40.dp))
-
-                // 6. Bottom CTA Button
-                Button(
-                    onClick = onNavigateToHome,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(56.dp)
-                        .shadow(8.dp, RoundedCornerShape(28.dp), clip = false),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
-                    contentPadding = PaddingValues(0.dp),
-                    shape = RoundedCornerShape(28.dp)
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(
-                                Brush.horizontalGradient(
-                                    colors = listOf(Color(0xFF6A5CFF), Color(0xFF8A79FF))
-                                )
-                            ),
-                        contentAlignment = Alignment.Center
+                    // Go to Home Button
+                    OutlinedButton(
+                        onClick = onNavigateToHome,
+                        modifier = Modifier.fillMaxWidth().height(56.dp),
+                        shape    = RoundedCornerShape(28.dp),
+                        colors   = ButtonDefaults.outlinedButtonColors(
+                            contentColor = BrandPurple
+                        ),
+                        border = androidx.compose.foundation.BorderStroke(2.dp, BrandPurple)
                     ) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(
-                                text = "Start Next Lesson",
-                                style = TextStyle(
-                                    color = Color.White,
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Bold
-                                )
+                        Icon(
+                            Icons.Default.Home,
+                            contentDescription = null,
+                            tint = BrandPurple,
+                            modifier = Modifier.size(20.dp)
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Text(
+                            "Go to Home",
+                            style = TextStyle(
+                                color = BrandPurple,
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold
                             )
-                            Spacer(Modifier.width(8.dp))
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                                contentDescription = "Start",
-                                tint = Color.White,
-                                modifier = Modifier.size(18.dp)
-                            )
-                        }
+                        )
                     }
                 }
 
@@ -327,149 +274,173 @@ fun LearningPathScreen(
     }
 }
 
+// ─── Stats row ────────────────────────────────────────────────────────────────
 @Composable
-fun ModuleCard(
-    module: Module,
-    isEven: Boolean,
-    expanded: Boolean,
-    onModuleClicked: () -> Unit
+private fun LpStatsRow(
+    tier: String, xp: Int, streak: Int,
+    lessonsTotal: Int, lessonsDone: Int
 ) {
-    val isCurrent = module.status == "current"
-    val isLocked = module.status == "locked"
-    val isCompleted = module.status == "completed" || module.level == "Level 1"
-
-    val cardBg = if (isLocked) Color.White.copy(alpha = 0.5f) else Color.White
-    val borderStroke = if (isCurrent) {
-        BorderStroke(2.dp, Brush.horizontalGradient(listOf(Color(0xFF6A5CFF), Color(0xFF8A79FF))))
-    } else if (isCompleted) {
-        BorderStroke(1.dp, Color(0xFF34C759).copy(alpha = 0.3f))
-    } else if (isLocked) {
-        BorderStroke(1.dp, Color(0xFFE5E5EA).copy(alpha = 0.5f))
-    } else {
-        BorderStroke(1.dp, Color(0xFFE5E5EA))
-    }
-
-    val shadowElevation = when {
-        isCurrent -> 8.dp
-        isLocked -> 0.dp
-        else -> 3.dp
-    }
-
-    Box(
-        modifier = Modifier.fillMaxWidth()
+    val progress = if (lessonsTotal > 0) lessonsDone / lessonsTotal.toFloat() else 0f
+    Card(
+        modifier = Modifier.fillMaxWidth().shadow(4.dp, RoundedCornerShape(20.dp)),
+        shape    = RoundedCornerShape(20.dp),
+        colors   = CardDefaults.cardColors(containerColor = CardWhite)
     ) {
-        Card(
-            modifier = Modifier
-                .width(230.dp)
-                .align(if (isEven) Alignment.CenterStart else Alignment.CenterEnd)
-                .shadow(shadowElevation, RoundedCornerShape(20.dp))
-                .clickable { onModuleClicked() },
-            shape = RoundedCornerShape(20.dp),
-            colors = CardDefaults.cardColors(containerColor = cardBg),
-            border = borderStroke
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .animateContentSize()
-                    .padding(14.dp)
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Start
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(36.dp)
-                            .clip(CircleShape)
-                            .background(
-                                when {
-                                    isCurrent -> Color(0xFF6A5CFF).copy(alpha = 0.1f)
-                                    isCompleted -> Color(0xFF34C759).copy(alpha = 0.1f)
-                                    else -> Color(0x0A000000)
-                                }
-                            ),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        when {
-                            isCompleted -> Icon(
-                                imageVector = Icons.Default.Check,
-                                contentDescription = "Completed",
-                                tint = Color(0xFF34C759),
-                                modifier = Modifier.size(18.dp)
-                            )
-                            isCurrent -> Text("☕", fontSize = 16.sp)
-                            else -> Icon(
-                                imageVector = Icons.Default.Lock,
-                                contentDescription = "Locked",
-                                tint = Color(0xFF8E8E93),
-                                modifier = Modifier.size(14.dp)
-                            )
-                        }
-                    }
-
-                    Spacer(Modifier.width(10.dp))
-
-                    Column {
-                        Text(
-                            text = if (isCurrent) "CURRENT" else module.level.uppercase(),
-                            color = if (isCurrent) Color(0xFF6A5CFF) else Color(0xFF8E8E93),
-                            fontSize = 10.sp,
-                            fontWeight = FontWeight.ExtraBold,
-                            style = TextStyle(letterSpacing = 0.5.sp)
-                        )
-                        Spacer(Modifier.height(1.dp))
-                        Text(
-                            text = module.title,
-                            color = if (isLocked) Color(0xFF8E8E93) else Color(0xFF1D1D1F),
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.Bold
-                        )
+                // Tier
+                Column {
+                    Text("LEVEL", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Text(tier, color = BrandPurple, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
+                }
+                // XP
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("XP", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Text("$xp", color = TextDark, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
+                }
+                // Streak
+                Column(horizontalAlignment = Alignment.End) {
+                    Text("STREAK", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(Icons.Default.Whatshot, null, tint = BrandAmberDark,
+                            modifier = Modifier.size(14.dp))
+                        Spacer(Modifier.width(2.dp))
+                        Text("$streak days", color = BrandAmberDark,
+                            fontSize = 13.sp, fontWeight = FontWeight.ExtraBold)
                     }
                 }
+            }
+            Spacer(Modifier.height(12.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text("$lessonsDone / $lessonsTotal lessons", color = TextMid, fontSize = 12.sp)
+                Text("${(progress * 100).toInt()}%", color = BrandPurple,
+                    fontSize = 12.sp, fontWeight = FontWeight.Bold)
+            }
+            Spacer(Modifier.height(6.dp))
+            LinearProgressIndicator(
+                progress = { progress },
+                modifier = Modifier.fillMaxWidth().height(6.dp)
+                    .clip(RoundedCornerShape(3.dp)),
+                color      = BrandPurple,
+                trackColor = BrandPurpleSoft
+            )
+        }
+    }
+}
 
-                if (expanded && module.sub_learning_path.isNotEmpty()) {
-                    Spacer(Modifier.height(12.dp))
-                    HorizontalDivider(color = Color(0xFFE5E5EA), thickness = 0.5.dp)
-                    Spacer(Modifier.height(8.dp))
+// ─── Module card ──────────────────────────────────────────────────────────────
+@Composable
+private fun LpModuleCard(
+    module: CurrentModule,
+    onSublessonTap: (String) -> Unit
+) {
+    var expanded by remember { mutableStateOf(module.status == "current") }
+    val isCurrent   = module.status == "current"
+    val isCompleted = module.status == "completed"
+    val isLocked    = module.status == "locked"
 
-                    module.sub_learning_path.forEach { lesson ->
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 4.dp),
-                            verticalAlignment = Alignment.Top
-                        ) {
+    val borderColor = when {
+        isCurrent   -> BrandPurple
+        isCompleted -> BrandGreen
+        else        -> Color(0xFFE0DFFA)
+    }
+
+    Card(
+        modifier = Modifier.fillMaxWidth()
+            .shadow(if (isCurrent) 6.dp else 2.dp, RoundedCornerShape(20.dp))
+            .border(1.5.dp, borderColor, RoundedCornerShape(20.dp))
+            .animateContentSize(tween(200))
+            .clickable { if (!isLocked) expanded = !expanded },
+        shape  = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isLocked) CardWhite.copy(alpha = 0.6f) else CardWhite
+        )
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            // Module header row
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // Status icon
+                Box(
+                    modifier = Modifier.size(38.dp).clip(CircleShape)
+                        .background(when {
+                            isCompleted -> BrandGreen.copy(0.12f)
+                            isCurrent   -> BrandPurple.copy(0.12f)
+                            else        -> Color(0xFFF0F0F0)
+                        }),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = when {
+                            isCompleted -> Icons.Default.CheckCircle
+                            isCurrent   -> Icons.Default.PlayArrow
+                            else        -> Icons.Default.Lock
+                        },
+                        contentDescription = null,
+                        tint = when {
+                            isCompleted -> BrandGreen
+                            isCurrent   -> BrandPurple
+                            else        -> TextLight
+                        },
+                        modifier = Modifier.size(20.dp)
+                    )
+                }
+                Spacer(Modifier.width(12.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(module.level.uppercase(), color = TextLight,
+                            fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                        if (isCurrent) {
+                            Spacer(Modifier.width(6.dp))
                             Box(
                                 modifier = Modifier
-                                    .padding(top = 4.dp)
-                                    .size(6.dp)
-                                    .clip(CircleShape)
-                                    .background(
-                                        when (lesson.status) {
-                                            "completed" -> Color(0xFF34C759)
-                                            "current" -> Color(0xFF6A5CFF)
-                                            else -> Color(0xFFD2D2D7)
-                                        }
-                                    )
-                            )
-                            Spacer(Modifier.width(8.dp))
-                            Column {
-                                Text(
-                                    text = lesson.title,
-                                    color = if (lesson.status == "locked") Color(0xFF8E8E93) else Color(0xFF1D1D1F),
-                                    fontSize = 12.sp,
-                                    fontWeight = FontWeight.Bold
-                                )
-                                Spacer(Modifier.height(2.dp))
-                                Text(
-                                    text = lesson.description,
-                                    color = Color(0xFF8E8E93),
-                                    fontSize = 11.sp,
-                                    lineHeight = 14.sp
-                                )
+                                    .background(BrandPurple, RoundedCornerShape(6.dp))
+                                    .padding(horizontal = 6.dp, vertical = 2.dp)
+                            ) {
+                                Text("CURRENT", color = Color.White,
+                                    fontSize = 8.sp, fontWeight = FontWeight.ExtraBold)
                             }
                         }
+                    }
+                    Text(module.title, color = if (isLocked) TextLight else TextDark,
+                        fontSize = 15.sp, fontWeight = FontWeight.ExtraBold,
+                        maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    Text(module.description, color = TextLight, fontSize = 11.sp,
+                        maxLines = 1, overflow = TextOverflow.Ellipsis)
+                }
+                Icon(
+                    imageVector = if (expanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                    contentDescription = null, tint = TextLight, modifier = Modifier.size(20.dp)
+                )
+            }
+
+            // Expanded: lesson list
+            AnimatedVisibility(
+                visible = expanded && !isLocked,
+                enter   = expandVertically(tween(200)),
+                exit    = shrinkVertically(tween(200))
+            ) {
+                Column(modifier = Modifier.padding(top = 12.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    HorizontalDivider(color = Color(0xFFEEEEEE))
+                    Spacer(Modifier.height(4.dp))
+                    module.lessons.forEach { lesson ->
+                        LpLessonRow(
+                            title       = lesson.title,
+                            description = lesson.description,
+                            status      = lesson.status,
+                            order       = lesson.order,
+                            sublessons  = lesson.sublessons,
+                            onTap       = { subId -> onSublessonTap(subId) }
+                        )
                     }
                 }
             }
@@ -477,82 +448,120 @@ fun ModuleCard(
     }
 }
 
+// ─── Lesson row inside module ─────────────────────────────────────────────────
 @Composable
-fun CoachCard(
-    name: String,
-    description: String,
-    avatarResId: Int,
-    isSelected: Boolean,
-    onClick: () -> Unit,
-    onPreviewClick: () -> Unit
+private fun LpLessonRow(
+    title: String, description: String, status: String,
+    order: Int,
+    sublessons: List<com.mk.lingocoach.network.CurrentSublesson>,
+    onTap: (String) -> Unit
+) {
+    val isCurrent   = status == "current"
+    val isCompleted = status == "completed"
+    val isLocked    = status == "locked"
+
+    val activeSub = sublessons.firstOrNull { it.status == "current" }
+        ?: sublessons.firstOrNull()
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(12.dp))
+            .background(
+                if (isCurrent) BrandPurpleSoft else Color.Transparent
+            )
+            .clickable(enabled = !isLocked) {
+                activeSub?.let { onTap(it.id) }
+            }
+            .padding(horizontal = 10.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        // Number / status circle
+        Box(
+            modifier = Modifier.size(28.dp).clip(CircleShape)
+                .background(when {
+                    isCompleted -> BrandGreen
+                    isCurrent   -> BrandPurple
+                    else        -> Color(0xFFEEEEEE)
+                }),
+            contentAlignment = Alignment.Center
+        ) {
+            if (isCompleted) {
+                Icon(Icons.Default.Check, null, tint = Color.White,
+                    modifier = Modifier.size(14.dp))
+            } else if (isLocked) {
+                Icon(Icons.Default.Lock, null, tint = TextLight,
+                    modifier = Modifier.size(12.dp))
+            } else {
+                Text("$order", color = Color.White,
+                    fontSize = 11.sp, fontWeight = FontWeight.ExtraBold)
+            }
+        }
+        Spacer(Modifier.width(10.dp))
+        Column(modifier = Modifier.weight(1f)) {
+            Text(title,
+                color = if (isLocked) TextLight else TextDark,
+                fontSize = 13.sp, fontWeight = FontWeight.SemiBold,
+                maxLines = 1, overflow = TextOverflow.Ellipsis)
+            if (description.isNotBlank()) {
+                Text(description, color = TextLight, fontSize = 11.sp,
+                    maxLines = 1, overflow = TextOverflow.Ellipsis)
+            }
+        }
+        if (isCurrent) {
+            Box(
+                modifier = Modifier.size(30.dp).clip(CircleShape).background(BrandPurple),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(Icons.AutoMirrored.Filled.ArrowForward, null,
+                    tint = Color.White, modifier = Modifier.size(15.dp))
+            }
+        }
+    }
+}
+
+// ─── Coach card ───────────────────────────────────────────────────────────────
+@Composable
+private fun LpCoachCard(
+    name: String, description: String, avatarRes: Int,
+    isSelected: Boolean, onSelect: () -> Unit, onPreview: () -> Unit
 ) {
     Card(
-        modifier = Modifier
-            .width(180.dp)
-            .clickable { onClick() },
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        border = BorderStroke(
-            width = if (isSelected) 2.dp else 1.dp,
-            color = if (isSelected) Color(0xFF6A5CFF) else Color(0xFFE5E5EA)
+        modifier = Modifier.width(170.dp).clickable { onSelect() },
+        shape  = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        border = androidx.compose.foundation.BorderStroke(
+            width = if (isSelected) 2.dp else 0.5.dp,
+            color = if (isSelected) BrandPurple else Color(0xFFEEEEEE)
         )
     ) {
-        Column(
-            modifier = Modifier.padding(12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Image(
-                    painter = painterResource(avatarResId),
+        Column(modifier = Modifier.padding(12.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                androidx.compose.foundation.Image(
+                    painter = painterResource(avatarRes),
                     contentDescription = name,
-                    modifier = Modifier
-                        .size(44.dp)
-                        .clip(CircleShape),
+                    modifier = Modifier.size(40.dp).clip(CircleShape),
                     contentScale = ContentScale.Crop
                 )
-                Spacer(Modifier.width(10.dp))
+                Spacer(Modifier.width(8.dp))
                 Column {
-                    Text(
-                        text = name,
-                        color = Color(0xFF1D1D1F),
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Text(
-                        text = description,
-                        color = Color(0xFF8E8E93),
-                        fontSize = 11.sp
-                    )
+                    Text(name, color = TextDark, fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                    Text(description, color = TextLight, fontSize = 10.sp)
                 }
             }
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(10.dp))
             Button(
-                onClick = onPreviewClick,
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF2F2F7)),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(36.dp),
-                shape = RoundedCornerShape(18.dp),
+                onClick = onPreview,
+                modifier = Modifier.fillMaxWidth().height(34.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = BrandPurpleSoft),
+                shape  = RoundedCornerShape(17.dp),
                 contentPadding = PaddingValues(0.dp)
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.VolumeUp,
-                        contentDescription = "Preview",
-                        tint = Color(0xFF6A5CFF),
-                        modifier = Modifier.size(16.dp)
-                    )
-                    Spacer(Modifier.width(6.dp))
-                    Text(
-                        text = "Preview",
-                        color = Color(0xFF6A5CFF),
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
+                Icon(Icons.AutoMirrored.Filled.VolumeUp, null,
+                    tint = BrandPurple, modifier = Modifier.size(14.dp))
+                Spacer(Modifier.width(4.dp))
+                Text("Preview", color = BrandPurple,
+                    fontSize = 11.sp, fontWeight = FontWeight.Bold)
             }
         }
     }

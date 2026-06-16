@@ -53,6 +53,15 @@ enum class VocabViewState {
     DrillFeedback
 }
 
+// ─── Sort Order for All Words Browser ────────────────────────────────────────
+enum class VocabSortOrder(val label: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
+    ALPHA_ASC("A → Z", Icons.Default.SortByAlpha),
+    ALPHA_DESC("Z → A", Icons.Default.Sort),
+    MOST_USED("Most Used", Icons.Default.TrendingUp),
+    MASTERED("Mastered First", Icons.Default.Star),
+    LEARNING("Learning First", Icons.Default.AutoStories)
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
@@ -61,10 +70,21 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
 
     // ── Vocab Load State ──────────────────────────────────────────────────────
     var isTrackerLoaded by remember { mutableStateOf(VocabTracker.isLoaded) }
+    val userId = remember {
+        context.getSharedPreferences("LingoCoachPrefs", android.content.Context.MODE_PRIVATE)
+            .getString("session_id", "") ?: ""
+    }
+
     LaunchedEffect(Unit) {
         if (!VocabTracker.isLoaded) {
             VocabTracker.init(context)
             isTrackerLoaded = true
+        }
+        // Sync vocab progress to backend in background
+        if (userId.isNotBlank()) {
+            scope.launch(kotlinx.coroutines.Dispatchers.IO) {
+                VocabTracker.syncToBackend(userId, context)
+            }
         }
     }
 
@@ -241,7 +261,6 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                                     isAnswered = true
                                     VocabTracker.updateWordMastery(question.word.word, isCorrect, context)
                                     if (!isCorrect) {
-                                        // Log to local mistake vault
                                         val chosen = question.options.getOrNull(selectedOptionIdx!!) ?: ""
                                         VocabTracker.addLocalMistake(
                                             word = question.word.word,
@@ -251,6 +270,19 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                                             explanation = "Meaning: ${question.word.meaning}",
                                             context = context
                                         )
+                                        // Also log to backend (fire-and-forget)
+                                        if (userId.isNotBlank()) {
+                                            scope.launch(kotlinx.coroutines.Dispatchers.IO) {
+                                                com.mk.lingocoach.network.AssessmentApi.logMistake(
+                                                    userId          = userId,
+                                                    word            = question.word.word,
+                                                    mistakeType     = "VOCAB_DRILL",
+                                                    userSentence    = chosen,
+                                                    correctSentence = question.word.word,
+                                                    explanation     = "Meaning: ${question.word.meaning}"
+                                                )
+                                            }
+                                        }
                                     }
                                     currentViewState = VocabViewState.DrillFeedback
                                 }
@@ -267,6 +299,19 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                                     explanation = "Meaning: ${question.word.meaning}",
                                     context = context
                                 )
+                                // Also log to backend (fire-and-forget)
+                                if (userId.isNotBlank()) {
+                                    scope.launch(kotlinx.coroutines.Dispatchers.IO) {
+                                        com.mk.lingocoach.network.AssessmentApi.logMistake(
+                                            userId          = userId,
+                                            word            = question.word.word,
+                                            mistakeType     = "VOCAB_DRILL",
+                                            userSentence    = "(skipped)",
+                                            correctSentence = question.word.word,
+                                            explanation     = "Meaning: ${question.word.meaning}"
+                                        )
+                                    }
+                                }
                                 currentViewState = VocabViewState.DrillFeedback
                             },
                             tts = tts
@@ -627,7 +672,12 @@ fun ColumnScope.DashboardView(
                                             .background(Color.White.copy(alpha = 0.2f), RoundedCornerShape(10.dp)),
                                         contentAlignment = Alignment.Center
                                     ) {
-                                        Icon(Icons.Default.Book, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
+                                        Icon(
+                                            getCategoryIcon(featuredCat.name),
+                                            contentDescription = null,
+                                            tint = Color.White,
+                                            modifier = Modifier.size(18.dp)
+                                        )
                                     }
                                     
                                     // Stars
@@ -716,18 +766,13 @@ fun ColumnScope.DashboardView(
                         Box(
                             modifier = Modifier
                                 .size(40.dp)
-                                .background(BrandPurpleSoft, RoundedCornerShape(12.dp)),
+                                .background(getCategoryIconBackground(cat.name), RoundedCornerShape(12.dp)),
                             contentAlignment = Alignment.Center
                         ) {
                             Icon(
-                                imageVector = when {
-                                    cat.name.contains("Emotion") -> Icons.Default.SentimentSatisfiedAlt
-                                    cat.name.contains("Business") -> Icons.Default.TrendingUp
-                                    cat.name.contains("Descriptive") -> Icons.Default.Book
-                                    else -> Icons.Default.Book
-                                },
+                                imageVector = getCategoryIcon(cat.name),
                                 contentDescription = null,
-                                tint = BrandPurple,
+                                tint = getCategoryIconTint(cat.name),
                                 modifier = Modifier.size(20.dp)
                             )
                         }
@@ -988,7 +1033,9 @@ fun ColumnScope.ContextualDrillView(
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
-                Text(text = "✓ Confirm", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                Icon(Icons.Default.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
+                Spacer(Modifier.width(6.dp))
+                Text(text = "Confirm", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 14.sp)
             }
         }
     }
@@ -1284,11 +1331,13 @@ fun ColumnScope.DrillFeedbackView(
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Text(
-                        text = "Continue to next word ➔",
+                        text = "Continue to next word",
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 14.sp
                     )
+                    Spacer(Modifier.width(6.dp))
+                    Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
                 }
             }
         }
@@ -1307,10 +1356,20 @@ fun ColumnScope.AllWordsBrowserView(
 ) {
     val context = LocalContext.current
     var bookmarksVersion by remember { mutableStateOf(0) }
-    val words = remember(activeLevel, searchQuery, bookmarksVersion) { 
-        VocabTracker.searchWords(searchQuery, activeLevel) 
+    var sortOrder by remember { mutableStateOf(VocabSortOrder.ALPHA_ASC) }
+    var showSortMenu by remember { mutableStateOf(false) }
+
+    val words = remember(activeLevel, searchQuery, bookmarksVersion, sortOrder) {
+        val base = VocabTracker.searchWords(searchQuery, activeLevel)
+        when (sortOrder) {
+            VocabSortOrder.ALPHA_ASC  -> base.sortedBy { it.word.lowercase() }
+            VocabSortOrder.ALPHA_DESC -> base.sortedByDescending { it.word.lowercase() }
+            VocabSortOrder.MOST_USED  -> base.sortedByDescending { VocabTracker.getMasteryScore(it.word) }
+            VocabSortOrder.MASTERED   -> base.sortedByDescending { VocabTracker.getMasteryScore(it.word) >= 80 }
+            VocabSortOrder.LEARNING   -> base.sortedBy { VocabTracker.getMasteryScore(it.word) }
+        }
     }
-    
+
     // TTS voice support inside words list
     var tts by remember { mutableStateOf<TextToSpeech?>(null) }
     DisposableEffect(context) {
@@ -1328,7 +1387,7 @@ fun ColumnScope.AllWordsBrowserView(
             .weight(1f)
             .fillMaxWidth()
             .padding(horizontal = 20.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         // Header row
         Row(
@@ -1369,6 +1428,74 @@ fun ColumnScope.AllWordsBrowserView(
             singleLine = true
         )
 
+        // ── Filter / Sort Bar ─────────────────────────────────────────────────
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                Icons.Default.FilterList,
+                contentDescription = "Filter",
+                tint = TextLight,
+                modifier = Modifier.size(16.dp)
+            )
+            Text(
+                "Sort by:",
+                color = TextLight,
+                fontSize = 11.sp,
+                fontWeight = FontWeight.Bold
+            )
+            // Scrollable chips row
+            androidx.compose.foundation.lazy.LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                modifier = Modifier.weight(1f)
+            ) {
+                items(VocabSortOrder.values().size) { idx ->
+                    val order = VocabSortOrder.values()[idx]
+                    val isActive = sortOrder == order
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(20.dp))
+                            .background(if (isActive) BrandPurple else Color.White.copy(alpha = 0.85f))
+                            .border(
+                                0.5.dp,
+                                if (isActive) BrandPurple else Color(0xFFDDDAFF),
+                                RoundedCornerShape(20.dp)
+                            )
+                            .clickable { sortOrder = order }
+                            .padding(horizontal = 10.dp, vertical = 6.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Icon(
+                                order.icon,
+                                contentDescription = null,
+                                tint = if (isActive) Color.White else BrandPurple,
+                                modifier = Modifier.size(12.dp)
+                            )
+                            Text(
+                                text = order.label,
+                                color = if (isActive) Color.White else TextMid,
+                                fontSize = 11.sp,
+                                fontWeight = if (isActive) FontWeight.ExtraBold else FontWeight.Medium
+                            )
+                        }
+                    }
+                }
+            }
+        }
+
+        // Words count label
+        Text(
+            text = "${words.size} words",
+            color = TextLight,
+            fontSize = 11.sp,
+            fontWeight = FontWeight.Medium
+        )
+
         if (words.isEmpty()) {
             Box(modifier = Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Text(text = "No words found matching \"$searchQuery\"", color = TextMid, fontSize = 14.sp)
@@ -1382,7 +1509,7 @@ fun ColumnScope.AllWordsBrowserView(
                     var expanded by remember { mutableStateOf(false) }
                     val isStarred = VocabTracker.isBookmarked(w.word)
                     val score = VocabTracker.getMasteryScore(w.word)
-                    
+
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -1400,19 +1527,22 @@ fun ColumnScope.AllWordsBrowserView(
                                 Box(
                                     modifier = Modifier
                                         .size(36.dp)
-                                        .background(BrandPurpleSoft, RoundedCornerShape(10.dp)),
+                                        .background(
+                                            getCategoryIconBackground(w.mappedCategory),
+                                            RoundedCornerShape(10.dp)
+                                        ),
                                     contentAlignment = Alignment.Center
                                 ) {
                                     Icon(
-                                        imageVector = Icons.Default.Book,
+                                        imageVector = getCategoryIcon(w.mappedCategory),
                                         contentDescription = null,
-                                        tint = BrandPurple,
+                                        tint = getCategoryIconTint(w.mappedCategory),
                                         modifier = Modifier.size(16.dp)
                                     )
                                 }
-                                
+
                                 Spacer(modifier = Modifier.width(12.dp))
-                                
+
                                 Column(modifier = Modifier.weight(1f)) {
                                     Text(
                                         text = w.word,
@@ -1437,17 +1567,28 @@ fun ColumnScope.AllWordsBrowserView(
                                         )
                                         .padding(horizontal = 8.dp, vertical = 4.dp)
                                 ) {
-                                    Text(
-                                        text = if (score >= 80) "MASTERED" else "LEARNING",
-                                        color = if (score >= 80) BrandGreen else BrandAmberDark,
-                                        fontSize = 9.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(3.dp)
+                                    ) {
+                                        Icon(
+                                            if (score >= 80) Icons.Default.CheckCircle else Icons.Default.RadioButtonUnchecked,
+                                            contentDescription = null,
+                                            tint = if (score >= 80) BrandGreen else BrandAmberDark,
+                                            modifier = Modifier.size(10.dp)
+                                        )
+                                        Text(
+                                            text = if (score >= 80) "MASTERED" else "LEARNING",
+                                            color = if (score >= 80) BrandGreen else BrandAmberDark,
+                                            fontSize = 9.sp,
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    }
                                 }
 
                                 Spacer(modifier = Modifier.width(8.dp))
 
-                                // Bookmark Toggle Star
+                                // Bookmark Toggle
                                 IconButton(
                                     onClick = {
                                         VocabTracker.toggleBookmark(w.word, context)
@@ -1456,9 +1597,9 @@ fun ColumnScope.AllWordsBrowserView(
                                     modifier = Modifier.size(36.dp)
                                 ) {
                                     Icon(
-                                        imageVector = if (isStarred) Icons.Default.Star else Icons.Default.StarBorder,
-                                        contentDescription = "Star",
-                                        tint = if (isStarred) Color(0xFFFFD54F) else TextLight
+                                        imageVector = if (isStarred) Icons.Default.Bookmark else Icons.Default.BookmarkBorder,
+                                        contentDescription = "Bookmark",
+                                        tint = if (isStarred) BrandPurple else TextLight
                                     )
                                 }
                             }
@@ -1480,7 +1621,7 @@ fun ColumnScope.AllWordsBrowserView(
                                     Text("Example", color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
                                     val ex = w.examples.first()
                                     Text("\"${ex.english}\"", color = TextDark, fontSize = 13.sp, fontStyle = FontStyle.Italic)
-                                    
+
                                     val translation = ex.translations.values.firstOrNull()
                                     if (translation != null) {
                                         Spacer(modifier = Modifier.height(2.dp))
@@ -1499,7 +1640,81 @@ fun ColumnScope.AllWordsBrowserView(
                         }
                     }
                 }
+                item { Spacer(modifier = Modifier.height(16.dp)) }
             }
         }
     }
+}
+
+// ─── Category Icon Helpers ─────────────────────────────────────────────────────
+
+fun getCategoryIcon(category: String): ImageVector {
+    val c = category.lowercase()
+    return when {
+        c.contains("animal")                             -> Icons.Default.Pets
+        c.contains("emotion") || c.contains("feeling")  -> Icons.Default.Mood
+        c.contains("food") || c.contains("cook") || c.contains("drink") -> Icons.Default.Restaurant
+        c.contains("health") || c.contains("body")      -> Icons.Default.FavoriteBorder
+        c.contains("travel") || c.contains("transport") -> Icons.Default.Flight
+        c.contains("business") || c.contains("work") || c.contains("job") -> Icons.Default.Work
+        c.contains("nature") || c.contains("environ")   -> Icons.Default.Park
+        c.contains("tech") || c.contains("internet")    -> Icons.Default.Laptop
+        c.contains("school") || c.contains("education") || c.contains("academic") -> Icons.Default.School
+        c.contains("sport") || c.contains("activ")      -> Icons.Default.SportsSoccer
+        c.contains("family") || c.contains("relation")  -> Icons.Default.People
+        c.contains("home") || c.contains("house")       -> Icons.Default.Home
+        c.contains("cloth") || c.contains("fashion")    -> Icons.Default.Checkroom
+        c.contains("color") || c.contains("shape")      -> Icons.Default.Palette
+        c.contains("number") || c.contains("time")      -> Icons.Default.Schedule
+        c.contains("weather")                            -> Icons.Default.WbCloudy
+        c.contains("place") || c.contains("city")       -> Icons.Default.LocationOn
+        c.contains("greeting") || c.contains("personal") -> Icons.Default.EmojiPeople
+        c.contains("music") || c.contains("movie") || c.contains("media") -> Icons.Default.MusicNote
+        c.contains("finance") || c.contains("econom") || c.contains("money") -> Icons.Default.AccountBalance
+        c.contains("social") || c.contains("communic")  -> Icons.Default.Forum
+        c.contains("politic") || c.contains("news")     -> Icons.Default.Newspaper
+        c.contains("psychol")                            -> Icons.Default.Psychology
+        c.contains("debate") || c.contains("opinion")   -> Icons.Default.RecordVoiceOver
+        c.contains("grammar") || c.contains("connect")  -> Icons.Default.Spellcheck
+        c.contains("idiom") || c.contains("phrasal")    -> Icons.Default.FormatQuote
+        c.contains("product")                            -> Icons.Default.CheckCircle
+        c.contains("culture")                            -> Icons.Default.Language
+        c.contains("shopping")                           -> Icons.Default.ShoppingBag
+        c.contains("daily") || c.contains("activit")    -> Icons.Default.CalendarToday
+        c.contains("goal")                               -> Icons.Default.Flag
+        c.contains("vocab") || c.contains("word")       -> Icons.Default.MenuBook
+        else                                             -> Icons.Default.MenuBook
+    }
+}
+
+fun getCategoryIconTint(category: String): androidx.compose.ui.graphics.Color {
+    val c = category.lowercase()
+    return when {
+        c.contains("animal")                             -> Color(0xFF4CAF50)
+        c.contains("emotion") || c.contains("feeling")  -> Color(0xFFE91E63)
+        c.contains("food") || c.contains("cook") || c.contains("drink") -> Color(0xFFFF5722)
+        c.contains("health") || c.contains("body")      -> Color(0xFFF44336)
+        c.contains("travel") || c.contains("transport") -> Color(0xFF2196F3)
+        c.contains("business") || c.contains("work") || c.contains("job") -> Color(0xFF607D8B)
+        c.contains("nature") || c.contains("environ")   -> Color(0xFF4CAF50)
+        c.contains("tech") || c.contains("internet")    -> Color(0xFF3F51B5)
+        c.contains("school") || c.contains("education") || c.contains("academic") -> Color(0xFF9C27B0)
+        c.contains("sport") || c.contains("activ")      -> Color(0xFF00BCD4)
+        c.contains("family") || c.contains("relation")  -> Color(0xFFFF9800)
+        c.contains("home") || c.contains("house")       -> Color(0xFF795548)
+        c.contains("cloth") || c.contains("fashion")    -> Color(0xFFE91E63)
+        c.contains("color") || c.contains("shape")      -> Color(0xFF9C27B0)
+        c.contains("number") || c.contains("time")      -> Color(0xFF607D8B)
+        c.contains("weather")                            -> Color(0xFF03A9F4)
+        c.contains("place") || c.contains("city")       -> Color(0xFFFF5722)
+        c.contains("finance") || c.contains("econom") || c.contains("money") -> Color(0xFF4CAF50)
+        c.contains("politic") || c.contains("news")     -> Color(0xFF607D8B)
+        c.contains("psychol")                            -> Color(0xFF9C27B0)
+        c.contains("music") || c.contains("movie") || c.contains("media") -> Color(0xFFE91E63)
+        else                                             -> BrandPurple
+    }
+}
+
+fun getCategoryIconBackground(category: String): androidx.compose.ui.graphics.Color {
+    return getCategoryIconTint(category).copy(alpha = 0.12f)
 }

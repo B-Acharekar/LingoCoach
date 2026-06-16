@@ -65,7 +65,8 @@ fun HomeScreen(
     onNavigateToMistakes: () -> Unit = {},
     onNavigateToFlashcards: () -> Unit = {},
     onNavigateToDuel: () -> Unit = {},
-    onNavigateToAILab: () -> Unit = {}
+    onNavigateToAILab: () -> Unit = {},
+    onNavigateToSettings: () -> Unit = {}
 ) {
     val context       = LocalContext.current
     val scope         = rememberCoroutineScope()
@@ -75,6 +76,7 @@ fun HomeScreen(
     var selectedTab   by remember { mutableStateOf(0) }
     var learningPath  by remember { mutableStateOf<CurrentLearningPathResponse?>(null) }
     var mistakes      by remember { mutableStateOf<List<Mistake>>(emptyList()) }
+    var weeklyStats   by remember { mutableStateOf<List<com.mk.lingocoach.network.DailyStats>>(emptyList()) }
     var isLoading     by remember { mutableStateOf(true) }
     var isVocabLoaded by remember { mutableStateOf(VocabTracker.isLoaded) }
 
@@ -83,20 +85,65 @@ fun HomeScreen(
     }
 
     LaunchedEffect(userId) {
+        // ── Vocab init (background, no spinner) ──────────────────────────────
         scope.launch(Dispatchers.IO) {
             if (!VocabTracker.isLoaded) {
                 VocabTracker.init(context)
-                scope.launch(Dispatchers.Main) {
-                    isVocabLoaded = true
+                scope.launch(Dispatchers.Main) { isVocabLoaded = true }
+            }
+        }
+
+        // ── Learning path: show from cache instantly, refresh if stale ────────
+        scope.launch(Dispatchers.Main) {
+            AppCache.loadFromDisk(context)
+            val cached = AppCache.learningPath
+            if (cached != null) {
+                learningPath = cached
+                isLoading = false          // no spinner — show stale data
+            }
+        }
+
+        scope.launch(Dispatchers.IO) {
+            if (AppCache.isLearningPathStale()) {
+                AssessmentApi.getCurrentLearningPath(userId) { path ->
+                    if (path != null) {
+                        AppCache.learningPath  = path
+                        AppCache.learningPathAt = System.currentTimeMillis()
+                        scope.launch(Dispatchers.Main) {
+                            AppCache.saveToDisk(context)
+                            learningPath = path
+                            isLoading = false
+                        }
+                    } else {
+                        scope.launch(Dispatchers.Main) { isLoading = false }
+                    }
                 }
             }
         }
+
+        // ── Mistakes: cache-aware fetch ───────────────────────────────────────
         scope.launch(Dispatchers.IO) {
-            AssessmentApi.getCurrentLearningPath(userId) { path ->
-                scope.launch(Dispatchers.Main) { learningPath = path; isLoading = false }
+            val cachedMistakes = AppCache.mistakes
+            if (cachedMistakes != null) {
+                scope.launch(Dispatchers.Main) { mistakes = cachedMistakes }
             }
-            AssessmentApi.getMistakes(userId) { m ->
-                scope.launch(Dispatchers.Main) { mistakes = m ?: emptyList() }
+            if (AppCache.isMistakesStale()) {
+                AssessmentApi.getMistakes(userId) { m ->
+                    if (m != null) {
+                        AppCache.mistakes  = m
+                        AppCache.mistakesAt = System.currentTimeMillis()
+                    }
+                    scope.launch(Dispatchers.Main) { mistakes = m ?: emptyList() }
+                }
+            }
+        }
+
+        // ── Weekly analytics (hourly refresh) ────────────────────────────────
+        scope.launch(Dispatchers.IO) {
+            AssessmentApi.getWeeklyAnalytics(userId) { stats ->
+                if (stats != null) {
+                    scope.launch(Dispatchers.Main) { weeklyStats = stats }
+                }
             }
         }
     }
@@ -141,8 +188,15 @@ fun HomeScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column {
+                        val displayName = sharedPrefs.getString("display_name", "there") ?: "there"
+                        val greetingHour = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
+                        val greeting = when {
+                            greetingHour < 12 -> "Good morning"
+                            greetingHour < 17 -> "Good afternoon"
+                            else              -> "Good evening"
+                        }
                         Text(
-                            "Good morning, Alex",
+                            "$greeting, $displayName",
                             color = TextMid,
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Medium
@@ -168,7 +222,12 @@ fun HomeScreen(
                                 .padding(horizontal = 12.dp, vertical = 6.dp)
                         ) {
                             Row(verticalAlignment = Alignment.CenterVertically) {
-                                Text("🔥", fontSize = 12.sp)
+                                Icon(
+                                    Icons.Default.Whatshot,
+                                    contentDescription = null,
+                                    tint = BrandAmberDark,
+                                    modifier = Modifier.size(14.dp)
+                                )
                                 Spacer(Modifier.width(4.dp))
                                 Text(
                                     "$streak",
@@ -180,7 +239,7 @@ fun HomeScreen(
                         }
                         // Settings Button
                         IconButton(
-                            onClick = { },
+                            onClick = { onNavigateToSettings() },
                             modifier = Modifier
                                 .size(40.dp)
                                 .background(Color.White.copy(alpha = 0.8f), CircleShape)
@@ -267,14 +326,8 @@ fun HomeScreen(
                         modifier = Modifier.weight(1f),
                         onClick = onNavigateToDuel
                     )
-                    HomeFeatureCard(
+                    AILabCard(
                         modifier = Modifier.weight(1f),
-                        icon = Icons.Default.GraphicEq,
-                        title = "AI Lab",
-                        subtitle = "PRONUNCIATION",
-                        backgroundColor = BrandPurple,
-                        textColor = Color.White,
-                        iconColor = Color.White,
                         onClick = onNavigateToAILab
                     )
                 }
@@ -306,7 +359,7 @@ fun HomeScreen(
                     )
                 }
 
-                HomeSpeakingStats()
+                HomeSpeakingStats(weeklyStats = weeklyStats)
 
                 Spacer(Modifier.height(16.dp))
             }
@@ -559,7 +612,12 @@ fun HomeNoModuleCard() {
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("🗺️", fontSize = 28.sp)
+            Icon(
+                Icons.Default.Map,
+                contentDescription = null,
+                tint = BrandPurple,
+                modifier = Modifier.size(32.dp)
+            )
             Spacer(Modifier.height(6.dp))
             Text(
                 "Complete the assessment to start your path!",
@@ -629,9 +687,9 @@ fun HomeFeatureCard(
 // ─── Timely Duel Card Component ───────────────────────────────────────────────
 @Composable
 fun TimelyDuelCard(modifier: Modifier = Modifier, onClick: () -> Unit) {
-    val amberGold  = Color(0xFFFFCA28)
-    val amberDeep  = Color(0xFFFF8F00)
-    val darkBrown  = Color(0xFF3E2000)
+    val amberGold = Color(0xFFFFCA28)
+    val amberDeep = Color(0xFFFF8F00)
+    val darkBrown = Color(0xFF3E2000)
 
     Box(
         modifier = modifier
@@ -641,37 +699,23 @@ fun TimelyDuelCard(modifier: Modifier = Modifier, onClick: () -> Unit) {
             .background(Brush.linearGradient(listOf(amberGold, amberDeep)))
             .clickable { onClick() }
     ) {
-        // Crossed-swords Canvas decoration (top-right background)
-        Canvas(modifier = Modifier.fillMaxSize()) {
-            val sw = 4f
-            val alpha = 0.18f
-            val cx = size.width - 40f
-            val cy = 40f
-            val len = 70f
-            val swordColor = androidx.compose.ui.graphics.Color(0xFF000000.toInt()).copy(alpha = alpha)
-            // Sword 1: top-left to bottom-right
-            drawLine(swordColor, start = androidx.compose.ui.geometry.Offset(cx - len * 0.6f, cy - len * 0.6f),
-                end = androidx.compose.ui.geometry.Offset(cx + len * 0.4f, cy + len * 0.4f), strokeWidth = sw,
-                cap = androidx.compose.ui.graphics.StrokeCap.Round)
-            // Sword 2: top-right to bottom-left
-            drawLine(swordColor, start = androidx.compose.ui.geometry.Offset(cx + len * 0.4f, cy - len * 0.6f),
-                end = androidx.compose.ui.geometry.Offset(cx - len * 0.6f, cy + len * 0.4f), strokeWidth = sw,
-                cap = androidx.compose.ui.graphics.StrokeCap.Round)
-            // Hilt cross for sword 1
-            val midX1 = (cx - len * 0.6f + cx + len * 0.4f) / 2f
-            val midY1 = (cy - len * 0.6f + cy + len * 0.4f) / 2f
-            drawLine(swordColor, start = androidx.compose.ui.geometry.Offset(midX1 - 14f, midY1 - 14f),
-                end = androidx.compose.ui.geometry.Offset(midX1 + 14f, midY1 + 14f), strokeWidth = sw * 1.5f,
-                cap = androidx.compose.ui.graphics.StrokeCap.Round)
-        }
+        // Crossed-swords icon — top-right, partially cropped out, faded grayish
+        Icon(
+            painter = painterResource(R.drawable.ic_crossed_swords),
+            contentDescription = null,
+            tint = Color(0xFF5A4000).copy(alpha = 0.18f),
+            modifier = Modifier
+                .size(100.dp)
+                .align(Alignment.TopEnd)
+                .offset(x = 24.dp, y = (-16).dp)  // crop it out partially
+        )
 
-        // Card content
+        // Card content sits on top
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            // Icon: stacked sword + clock
             Box(
                 modifier = Modifier
                     .size(36.dp)
@@ -679,14 +723,79 @@ fun TimelyDuelCard(modifier: Modifier = Modifier, onClick: () -> Unit) {
                     .background(Color.White.copy(alpha = 0.25f)),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(Icons.Default.Timer, contentDescription = null,
-                    tint = darkBrown, modifier = Modifier.size(20.dp))
+                Icon(
+                    Icons.Default.Timer,
+                    contentDescription = null,
+                    tint = darkBrown,
+                    modifier = Modifier.size(20.dp)
+                )
             }
             Spacer(Modifier.weight(1f))
             Text("Timely Duel", color = darkBrown, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(2.dp))
-            Text("BATTLE AGAINST TIME", color = darkBrown.copy(alpha = 0.65f),
-                fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 0.3.sp)
+            Text(
+                "BATTLE AGAINST TIME",
+                color = darkBrown.copy(alpha = 0.65f),
+                fontSize = 9.sp,
+                fontWeight = FontWeight.Bold,
+                letterSpacing = 0.3.sp
+            )
+        }
+    }
+}
+
+// ─── AI Lab Card Component ────────────────────────────────────────────────────
+@Composable
+fun AILabCard(modifier: Modifier = Modifier, onClick: () -> Unit) {
+    Box(
+        modifier = modifier
+            .height(130.dp)
+            .shadow(6.dp, RoundedCornerShape(24.dp))
+            .clip(RoundedCornerShape(24.dp))
+            .background(BrandPurple)
+            .clickable { onClick() }
+    ) {
+        // WaveForm icon — top-right, partially cropped out, faded grayish white
+        Icon(
+            painter = painterResource(R.drawable.ic_waveform),
+            contentDescription = null,
+            tint = Color.White.copy(alpha = 0.15f),
+            modifier = Modifier
+                .size(90.dp)
+                .align(Alignment.TopEnd)
+                .offset(x = 20.dp, y = (-10).dp)
+        )
+
+        // Card content
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(36.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(Color.White.copy(alpha = 0.20f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    Icons.Default.GraphicEq,
+                    contentDescription = null,
+                    tint = Color.White,
+                    modifier = Modifier.size(20.dp)
+                )
+            }
+            Spacer(Modifier.weight(1f))
+            Text("AI Lab", color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
+            Spacer(Modifier.height(2.dp))
+            Text(
+                "PRONUNCIATION",
+                color = Color.White.copy(alpha = 0.70f),
+                fontSize = 9.sp,
+                fontWeight = FontWeight.Bold,
+                letterSpacing = 0.3.sp
+            )
         }
     }
 }
@@ -829,9 +938,28 @@ fun HomeMistakeVaultCard(mistakes: List<Mistake>, onClick: () -> Unit = {}) {
 
 // ─── Activity / Speaking Stats Chart Card Component ──────────────────────────
 @Composable
-fun HomeSpeakingStats() {
+fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = emptyList()) {
     val days = listOf("M", "T", "W", "T", "F", "S", "S")
-    val heights = listOf(0.30f, 0.50f, 0.20f, 0.65f, 1.0f, 0.40f, 0.15f)
+
+    // Normalise XP into bar heights (0.05 min so bars are always visible)
+    val heights = if (weeklyStats.size == 7) {
+        val maxXp = weeklyStats.maxOf { it.xp_earned }.coerceAtLeast(1)
+        weeklyStats.map { (it.xp_earned.toFloat() / maxXp).coerceIn(0.05f, 1f) }
+    } else {
+        listOf(0.30f, 0.50f, 0.20f, 0.65f, 1.0f, 0.40f, 0.15f)
+    }
+
+    // Today's real stats (last item)
+    val todayStats   = weeklyStats.lastOrNull()
+    val mistakesFixed = todayStats?.mistakes_logged ?: 42
+    val lessonsDone  = weeklyStats.sumOf { it.lessons_completed }.takeIf { it > 0 } ?: 12
+
+    // Weekly XP delta vs previous week (simplified: today vs yesterday)
+    val todayXp    = weeklyStats.lastOrNull()?.xp_earned ?: 0
+    val yesterdayXp = weeklyStats.getOrNull(weeklyStats.size - 2)?.xp_earned ?: 0
+    val xpDiff     = todayXp - yesterdayXp
+    val trendText  = if (xpDiff >= 0) "+${xpDiff} XP" else "${xpDiff} XP"
+    val trendColor = if (xpDiff >= 0) BrandGreen else BrandRed
 
     Card(
         modifier = Modifier
@@ -849,28 +977,29 @@ fun HomeSpeakingStats() {
             ) {
                 Column {
                     Text("Weekly Overview", color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                    Text("Your speaking performance", color = TextLight, fontSize = 11.sp)
+                    Text("Your XP activity this week", color = TextLight, fontSize = 11.sp)
                 }
                 Box(
                     modifier = Modifier
-                        .background(Color(0xFFE8F5E9), RoundedCornerShape(8.dp))
+                        .background(
+                            if (xpDiff >= 0) Color(0xFFE8F5E9) else Color(0xFFFFEBEE),
+                            RoundedCornerShape(8.dp)
+                        )
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.Default.TrendingUp, contentDescription = null, tint = BrandGreen, modifier = Modifier.size(12.dp))
+                        Icon(Icons.Default.TrendingUp, null, tint = trendColor, modifier = Modifier.size(12.dp))
                         Spacer(Modifier.width(2.dp))
-                        Text("+12%", color = BrandGreen, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                        Text(trendText, color = trendColor, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     }
                 }
             }
 
             Spacer(Modifier.height(24.dp))
 
-            // Bar chart
+            // Bar chart — today is the last bar (index 6)
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(80.dp),
+                modifier = Modifier.fillMaxWidth().height(80.dp),
                 verticalAlignment = Alignment.Bottom,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -884,48 +1013,42 @@ fun HomeSpeakingStats() {
                                 .width(22.dp)
                                 .height((60 * heights[idx]).dp)
                                 .clip(RoundedCornerShape(topStart = 4.dp, topEnd = 4.dp))
-                                .background(
-                                    if (idx == 4) BrandPurple else Color(0xFFDDDAFF)
-                                )
+                                .background(if (idx == 6) BrandPurple else Color(0xFFDDDAFF))
                         )
                         Spacer(Modifier.height(6.dp))
-                        Text(
-                            day,
-                            color = if (idx == 4) BrandPurple else TextLight,
-                            fontSize = 9.sp,
-                            fontWeight = FontWeight.Bold
-                        )
+                        Text(day,
+                            color = if (idx == 6) BrandPurple else TextLight,
+                            fontSize = 9.sp, fontWeight = FontWeight.Bold)
                     }
                 }
             }
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(Modifier.height(20.dp))
             HorizontalDivider(color = Color(0x0D000000))
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(Modifier.height(16.dp))
 
-            // Stats row
+            // Stats row — real data
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("MISTAKES CORRECTED", color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
+                    Text("MISTAKES LOGGED", color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text("42", color = TextDark, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
+                        Text("$mistakesFixed", color = TextDark, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
                         Spacer(Modifier.width(6.dp))
-                        Text("+5", color = BrandGreen, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                        Text("today", color = BrandGreen, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                     }
                 }
-                
                 Column(modifier = Modifier.weight(1f)) {
                     Text("LESSONS DONE", color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text("12", color = TextDark, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
+                        Text("$lessonsDone", color = TextDark, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
                         Spacer(Modifier.width(6.dp))
-                        Text("Avg. pace", color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                        Text("this week", color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     }
                 }
             }

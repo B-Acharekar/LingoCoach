@@ -16,7 +16,8 @@ import java.util.concurrent.TimeUnit
 data class SessionResponse(
     val session_id: String,
     val current_step: Int,
-    val next_question: String
+    val next_question: String,
+    val user_name: String = ""   // echoed back from backend
 )
 
 data class AssessmentResponse(
@@ -148,10 +149,11 @@ object AssessmentApi {
 
     private val gson = Gson()
 
-    fun createSession(onResult: (SessionResponse?) -> Unit) {
+    fun createSession(userName: String = "", onResult: (SessionResponse?) -> Unit) {
+        val body = gson.toJson(mapOf("user_name" to userName))
         val request = Request.Builder()
             .url("$BASE_URL/api/v1/sessions")
-            .post("{}".toRequestBody(JSON_MEDIA_TYPE))
+            .post(body.toRequestBody(JSON_MEDIA_TYPE))
             .build()
 
         client.newCall(request).enqueue(object : okhttp3.Callback {
@@ -438,9 +440,176 @@ object AssessmentApi {
                 Log.e("AssessmentApi", "Failed to review flashcard", e); onResult(false)
             }
             override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use { onResult(response.isSuccessful) }
+            }
+        })
+    }
+
+    // ── Vocab sync ────────────────────────────────────────────────────────────
+
+    fun syncVocab(
+        userId: String,
+        clientTime: String,
+        changes: List<Map<String, Any>>,
+        onResult: (Map<String, Any>?) -> Unit
+    ) {
+        val body = gson.toJson(mapOf("client_time" to clientTime, "changes" to changes))
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/vocab/sync?user_id=$userId")
+            .post(body.toRequestBody(JSON_MEDIA_TYPE))
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Vocab sync push failed", e); onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
                 response.use {
-                    onResult(response.isSuccessful)
+                    if (!it.isSuccessful) { onResult(null); return }
+                    try {
+                        val type = object : com.google.gson.reflect.TypeToken<Map<String, Any>>() {}.type
+                        onResult(gson.fromJson(it.body?.string(), type))
+                    } catch (e: Exception) { onResult(null) }
                 }
+            }
+        })
+    }
+
+    fun getVocabServerUpdates(
+        userId: String,
+        lastSyncTime: String?,
+        onResult: (List<Map<String, Any>>?) -> Unit
+    ) {
+        val url = if (lastSyncTime != null)
+            "$BASE_URL/api/v1/vocab/sync?user_id=$userId&last_sync_time=$lastSyncTime"
+        else
+            "$BASE_URL/api/v1/vocab/sync?user_id=$userId"
+        val request = Request.Builder().url(url).get()
+            .header("accept", "application/json").build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Vocab sync pull failed", e); onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!it.isSuccessful) { onResult(null); return }
+                    try {
+                        val raw  = gson.fromJson(it.body?.string(),
+                            object : com.google.gson.reflect.TypeToken<Map<String, Any>>() {}.type
+                        ) as? Map<*, *>
+                        @Suppress("UNCHECKED_CAST")
+                        onResult(raw?.get("updates") as? List<Map<String, Any>>)
+                    } catch (e: Exception) { onResult(null) }
+                }
+            }
+        })
+    }
+
+    fun getWeeklyAnalytics(userId: String, onResult: (List<DailyStats>?) -> Unit) {
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/analytics/weekly?user_id=$userId")
+            .get()
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to get weekly analytics", e); onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!it.isSuccessful) { onResult(null); return }
+                    try {
+                        val type = object : com.google.gson.reflect.TypeToken<List<DailyStats>>() {}.type
+                        onResult(gson.fromJson(it.body?.string(), type))
+                    } catch (e: Exception) { onResult(null) }
+                }
+            }
+        })
+    }
+
+    // ── XP award ──────────────────────────────────────────────────────────────
+
+    fun awardXp(
+        userId: String,
+        xpDelta: Int,
+        source: String,
+        onResult: ((Boolean) -> Unit)? = null
+    ) {
+        val body = gson.toJson(mapOf(
+            "user_id"   to userId,
+            "xp_delta"  to xpDelta,
+            "source"    to source
+        ))
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/progress/xp")
+            .post(body.toRequestBody(JSON_MEDIA_TYPE))
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to award XP", e); onResult?.invoke(false)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use { onResult?.invoke(it.isSuccessful) }
+            }
+        })
+    }
+
+    // ── Settings profile patch ────────────────────────────────────────────────
+
+    fun patchUserProfile(
+        userId: String,
+        fields: Map<String, Any?>,
+        onResult: ((Boolean) -> Unit)? = null
+    ) {
+        val nonNull = fields.filterValues { it != null }
+        if (nonNull.isEmpty()) { onResult?.invoke(true); return }
+        val body = gson.toJson(nonNull)
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/progress/users/$userId")
+            .patch(body.toRequestBody(JSON_MEDIA_TYPE))
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Profile patch failed", e); onResult?.invoke(false)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use { onResult?.invoke(it.isSuccessful) }
+            }
+        })
+    }
+
+    // ── Direct mistake log ────────────────────────────────────────────────────
+
+    fun logMistake(
+        userId: String,
+        word: String,
+        mistakeType: String,
+        userSentence: String,
+        correctSentence: String,
+        explanation: String,
+        onResult: ((Boolean) -> Unit)? = null
+    ) {
+        val body = gson.toJson(mapOf(
+            "user_id"          to userId,
+            "word"             to word,
+            "mistake_type"     to mistakeType,
+            "user_sentence"    to userSentence,
+            "correct_sentence" to correctSentence,
+            "explanation"      to explanation
+        ))
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/mistakes")
+            .post(body.toRequestBody(JSON_MEDIA_TYPE))
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to log mistake", e); onResult?.invoke(false)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use { onResult?.invoke(it.isSuccessful) }
             }
         })
     }
@@ -506,6 +675,7 @@ data class LearningPathResponse(
 
 data class LearningPathRequest(
     val session_id: String,
+    val user_name: String = "",
     val tier: String,
     val grammar_score: Int,
     val vocabulary_score: Int,
@@ -513,5 +683,24 @@ data class LearningPathRequest(
     val structural_break: Boolean,
     val detected_strength: String,
     val detected_weakness: String,
-    val recommended_focus: String
+    val recommended_focus: String,
+    val user_goal: String = "general",
+    val user_level_self_reported: String = "intermediate"
+)
+
+data class DailyStats(
+    val user_id: String = "",
+    val date: String = "",
+    val lessons_completed: Int = 0,
+    val exercises_attempted: Int = 0,
+    val exercises_correct: Int = 0,
+    val mistakes_logged: Int = 0,
+    val vocab_drills_done: Int = 0,
+    val vocab_words_mastered: Int = 0,
+    val ai_lab_sessions: Int = 0,
+    val ai_lab_minutes: Int = 0,
+    val duel_sessions: Int = 0,
+    val duel_correct: Int = 0,
+    val xp_earned: Int = 0,
+    val streak_day: Int = 0
 )
