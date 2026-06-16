@@ -394,10 +394,10 @@ fun HomeDailyStatsCard(tier: String, streak: Int, weeklyStats: List<com.mk.lingo
     val pronunciationProgress = 0.90f // From AI Lab sessions when implemented
     val fluencyProgress = (weeklyStats.sumOf { it.ai_lab_minutes }.coerceIn(0, 60) / 60f).coerceIn(0.05f, 1f)
     
-    // Calculate accuracy
+    // Calculate accuracy - show 0 if no data
     val accuracy = if (totalExercises > 0) {
         ((correctExercises * 100) / totalExercises).coerceIn(0, 100)
-    } else 85
+    } else 0
 
     Card(
         modifier = Modifier
@@ -1084,8 +1084,8 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
 
     // Today's real stats (last item)
     val todayStats   = weeklyStats.lastOrNull()
-    val mistakesFixed = todayStats?.mistakes_logged ?: 42
-    val lessonsDone  = weeklyStats.sumOf { it.lessons_completed }.takeIf { it > 0 } ?: 12
+    val mistakesFixed = todayStats?.mistakes_logged ?: 0
+    val lessonsDone  = weeklyStats.sumOf { it.lessons_completed }
 
     // Weekly XP delta vs previous week (simplified: today vs yesterday)
     val todayXp    = weeklyStats.lastOrNull()?.xp_earned ?: 0
