@@ -265,7 +265,7 @@ fun HomeScreen(
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(Modifier.height(10.dp))
-                    HomeDailyStatsCard(tier = tier, streak = streak)
+                    HomeDailyStatsCard(tier = tier, streak = streak, weeklyStats = weeklyStats)
                 }
 
                 // ── Learning Path header ─────────────────────────────────────
@@ -380,9 +380,24 @@ fun HomeScreen(
 
 // ─── Daily Stats Card Component ──────────────────────────────────────────────
 @Composable
-fun HomeDailyStatsCard(tier: String, streak: Int) {
+fun HomeDailyStatsCard(tier: String, streak: Int, weeklyStats: List<com.mk.lingocoach.network.DailyStats> = emptyList()) {
     val isVocabLoaded = VocabTracker.isLoaded
     val vocabProgress = if (isVocabLoaded) VocabTracker.getOverallProgressPercent() / 100f else 0.45f
+    
+    // Calculate dynamic progress from weekly stats
+    val totalLessons = weeklyStats.sumOf { it.lessons_completed }
+    val totalExercises = weeklyStats.sumOf { it.exercises_attempted }
+    val correctExercises = weeklyStats.sumOf { it.exercises_correct }
+    
+    val lessonsProgress = (totalLessons.coerceIn(0, 10) / 10f).coerceIn(0.05f, 1f)
+    val grammarProgress = if (totalExercises > 0) (correctExercises.toFloat() / totalExercises).coerceIn(0.05f, 1f) else 0.75f
+    val pronunciationProgress = 0.90f // From AI Lab sessions when implemented
+    val fluencyProgress = (weeklyStats.sumOf { it.ai_lab_minutes }.coerceIn(0, 60) / 60f).coerceIn(0.05f, 1f)
+    
+    // Calculate accuracy
+    val accuracy = if (totalExercises > 0) {
+        ((correctExercises * 100) / totalExercises).coerceIn(0, 100)
+    } else 85
 
     Card(
         modifier = Modifier
@@ -392,24 +407,24 @@ fun HomeDailyStatsCard(tier: String, streak: Int) {
         shape = RoundedCornerShape(24.dp)
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
-            // Capsules Row
+            // Capsules Row - now dynamic
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                CapsuleProgressIndicator("LESSONS", 0.65f)
-                CapsuleProgressIndicator("GRAMMAR", 0.85f)
+                CapsuleProgressIndicator("LESSONS", lessonsProgress)
+                CapsuleProgressIndicator("GRAMMAR", grammarProgress)
                 CapsuleProgressIndicator("VOCAB", vocabProgress)
-                CapsuleProgressIndicator("PRONUNC.", 0.90f)
-                CapsuleProgressIndicator("FLUENCY", 0.50f)
+                CapsuleProgressIndicator("PRONUNC.", pronunciationProgress)
+                CapsuleProgressIndicator("FLUENCY", fluencyProgress)
             }
 
             Spacer(modifier = Modifier.height(20.dp))
             HorizontalDivider(color = Color(0x0D000000))
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Bottom stats row
+            // Bottom stats row - now dynamic
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -428,14 +443,14 @@ fun HomeDailyStatsCard(tier: String, streak: Int) {
                 // Vertical divider
                 Box(modifier = Modifier.width(0.5.dp).height(24.dp).background(Color(0x1A000000)))
 
-                // Accuracy
+                // Accuracy - now calculated from stats
                 Column(
                     modifier = Modifier.weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text("Accuracy", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
-                    Text("85%", color = TextDark, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
+                    Text("$accuracy%", color = TextDark, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                 }
 
                 // Vertical divider
