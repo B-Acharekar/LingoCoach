@@ -68,7 +68,8 @@ fun HomeScreen(
     onNavigateToAILab: () -> Unit = {},
     onNavigateToSettings: () -> Unit = {},
     onNavigateToRoadmap: () -> Unit = {},
-    onNavigateToActualLearningPath: () -> Unit = {}
+    onNavigateToActualLearningPath: () -> Unit = {},
+    onNavigateToProgress: () -> Unit = {}
 ) {
     val context       = LocalContext.current
     val scope         = rememberCoroutineScope()
@@ -265,7 +266,12 @@ fun HomeScreen(
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(Modifier.height(10.dp))
-                    HomeDailyStatsCard(tier = tier, streak = streak, weeklyStats = weeklyStats)
+                    HomeDailyStatsCard(
+                        tier = tier, 
+                        streak = streak, 
+                        weeklyStats = weeklyStats,
+                        onClick = onNavigateToProgress
+                    )
                 }
 
                 // ── Learning Path header ─────────────────────────────────────
@@ -380,7 +386,12 @@ fun HomeScreen(
 
 // ─── Daily Stats Card Component ──────────────────────────────────────────────
 @Composable
-fun HomeDailyStatsCard(tier: String, streak: Int, weeklyStats: List<com.mk.lingocoach.network.DailyStats> = emptyList()) {
+fun HomeDailyStatsCard(
+    tier: String, 
+    streak: Int, 
+    weeklyStats: List<com.mk.lingocoach.network.DailyStats> = emptyList(),
+    onClick: () -> Unit = {}
+) {
     val isVocabLoaded = VocabTracker.isLoaded
     val vocabProgress = if (isVocabLoaded) VocabTracker.getOverallProgressPercent() / 100f else 0.45f
     
@@ -402,6 +413,7 @@ fun HomeDailyStatsCard(tier: String, streak: Int, weeklyStats: List<com.mk.lingo
     Card(
         modifier = Modifier
             .fillMaxWidth()
+            .clickable { onClick() }
             .shadow(elevation = 6.dp, shape = RoundedCornerShape(24.dp), clip = true),
         colors = CardDefaults.cardColors(containerColor = CardWhite),
         shape = RoundedCornerShape(24.dp)

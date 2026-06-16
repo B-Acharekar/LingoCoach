@@ -61,7 +61,12 @@ import java.io.IOException
 
 // ─── Models ──────────────────────────────────────────────────────────────────
 enum class MessageRole { AI, USER }
-data class Mistake(val wrong: String, val correct: String, val explanation: String, val mistakeType: String)
+data class Mistake(
+    val wrong: String = "",
+    val correct: String = "",
+    val explanation: String = "",
+    val mistakeType: String = ""
+)
 data class ChatMessage(val id: String, val role: MessageRole, val text: String, val isTyping: Boolean = false, val mistakes: List<Mistake> = emptyList())
 enum class AILabStep { HOME, VOICE_SELECTION, TONE_SELECTION, CHAT }
 
@@ -604,7 +609,12 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
             isTranscribing = false
             if (response != null) {
                 val uiMistakes = response.mistakes.map { m ->
-                    Mistake(m.wrong, m.correct, m.explanation, m.mistake_type)
+                    Mistake(
+                        wrong = m.wrong ?: "",
+                        correct = m.correct ?: "",
+                        explanation = m.explanation ?: "",
+                        mistakeType = m.mistake_type ?: ""
+                    )
                 }
                 messages = messages + ChatMessage(
                     id       = System.currentTimeMillis().toString(),
@@ -683,7 +693,14 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
                                 id       = System.currentTimeMillis().toString(),
                                 role     = MessageRole.AI,
                                 text     = response.ai_response,
-                                mistakes = response.mistakes.map { m -> Mistake(m.wrong, m.correct, m.explanation, m.mistake_type) }
+                                mistakes = response.mistakes.map { m -> 
+                                    Mistake(
+                                        wrong = m.wrong ?: "",
+                                        correct = m.correct ?: "",
+                                        explanation = m.explanation ?: "",
+                                        mistakeType = m.mistake_type ?: ""
+                                    )
+                                }
                             )
                         } else {
                             ChatMessage(System.currentTimeMillis().toString(), MessageRole.AI, "Sorry, I'm having trouble connecting right now.")

@@ -69,4 +69,7 @@ dependencies {
     // OkHttp & Gson
     implementation(libs.okhttp)
     implementation(libs.gson)
+
+    // WorkManager for scheduled notifications
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
 }

@@ -1,4 +1,4 @@
-package com.mk.lingocoach
+then package com.mk.lingocoach
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.mk.lingocoach.ui.screens.*
 import com.mk.lingocoach.ui.theme.LingoCoachTheme
+import com.mk.lingocoach.notifications.NotificationScheduler
+import com.onesignal.OneSignal
 
 enum class Screen {
     Splash,
@@ -36,6 +38,13 @@ enum class Screen {
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Initialize OneSignal
+        OneSignal.initWithContext(this, "46957d03-f3f9-435c-b76c-e5cd0b8089b5")
+        
+        // Schedule daily reminder notifications at 10am and 7pm
+        NotificationScheduler.scheduleDailyReminders(this)
+        
         enableEdgeToEdge()
         setContent {
             LingoCoachTheme(dynamicColor = false) {
@@ -113,7 +122,8 @@ class MainActivity : ComponentActivity() {
                                 onNavigateToAILab = { currentScreen = Screen.AILab },
                                 onNavigateToSettings = { currentScreen = Screen.Settings },
                                 onNavigateToRoadmap = { currentScreen = Screen.LearningPathRoadmap },
-                                onNavigateToActualLearningPath = { currentScreen = Screen.ActualLearningPath }
+                                onNavigateToActualLearningPath = { currentScreen = Screen.ActualLearningPath },
+                                onNavigateToProgress = { /* TODO: Add Progress screen to enum */ }
                             )
                         }
                         Screen.Lesson -> {

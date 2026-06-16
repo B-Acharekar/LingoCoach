@@ -854,9 +854,18 @@ private fun RetestFlashcard(
 
             Spacer(Modifier.height(20.dp))
 
-            // Play audio button
+            // Play audio button with TTS
+            val context = LocalContext.current
             OutlinedButton(
-                onClick  = { /* TTS playback hook */ },
+                onClick  = {
+                    // Use Android Text-to-Speech
+                    val tts = android.speech.tts.TextToSpeech(context) { status ->
+                        if (status == android.speech.tts.TextToSpeech.SUCCESS) {
+                            it.language = java.util.Locale.US
+                            it.speak(mistake.word, android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, null)
+                        }
+                    }
+                },
                 modifier = Modifier.fillMaxWidth(),
                 shape    = RoundedCornerShape(14.dp),
                 colors   = ButtonDefaults.outlinedButtonColors(contentColor = VaultTextDark),
@@ -864,7 +873,7 @@ private fun RetestFlashcard(
             ) {
                 Icon(Icons.Default.PlayCircle, contentDescription = null, tint = VaultPurple, modifier = Modifier.size(22.dp))
                 Spacer(Modifier.width(8.dp))
-                Text("Play Native Audio", fontWeight = FontWeight.Medium, fontSize = 14.sp)
+                Text("Hear Pronunciation", fontWeight = FontWeight.Medium, fontSize = 14.sp)
             }
 
             Spacer(Modifier.height(16.dp))

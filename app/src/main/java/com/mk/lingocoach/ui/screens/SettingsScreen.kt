@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.mk.lingocoach.R
+import com.mk.lingocoach.notifications.NotificationScheduler
 
 // ─── Settings Design Tokens ───────────────────────────────────────────────────
 private val SettingsBg        = Color(0xFFF5F4FF)
@@ -293,25 +294,12 @@ fun SettingsScreen(
                             label = "Daily Reminder Push",
                             icon = null,
                             checked = dailyReminder,
-                            onCheckedChange = { dailyReminder = it; saveBoolAndSync("daily_reminder", it) }
-                        )
-                        HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
-                        // AI Tutor Voice Profile
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable { showVoiceDialog = true }
-                                .padding(horizontal = 16.dp, vertical = 14.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            Column(modifier = Modifier.weight(1f)) {
-                                Text("AI Tutor Voice Profile", color = SettingsTextDark, fontSize = 15.sp, fontWeight = FontWeight.Medium)
-                                Spacer(Modifier.height(2.dp))
-                                Text(voiceProfile, color = SettingsPurple, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+                            onCheckedChange = { 
+                                dailyReminder = it
+                                saveBoolAndSync("daily_reminder", it)
+                                NotificationScheduler.scheduleDailyReminders(context)
                             }
-                            Icon(Icons.Default.Tune, contentDescription = null, tint = SettingsTextLight, modifier = Modifier.size(20.dp))
-                        }
+                        )
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
                         // Offline Vocab Cache toggle
                         SettingsToggleRow(
@@ -339,38 +327,39 @@ fun SettingsScreen(
                         }
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
                         SettingsLinkRow(
-                            label = "Data Export",
+                            label = "Data Export (CSV)",
                             icon = Icons.Default.Download
                         ) {
-                            // Export user data as JSON from SharedPreferences
-                            val data = buildString {
-                                append("LingoCoach Data Export\n")
-                                append("Display Name: $displayName\n")
-                                append("Email: $email\n")
-                                append("Target Fluency: $targetFluency\n")
-                                append("Native Language: $nativeLang\n")
-                                append("Voice Profile: $voiceProfile\n")
+                            // Export user data as CSV
+                            val csvData = buildString {
+                                append("Field,Value\n")
+                                append("Display Name,$displayName\n")
+                                append("Email,$email\n")
+                                append("Target Fluency,$targetFluency\n")
+                                append("Native Language,$nativeLang\n")
+                                append("Daily Reminder,$dailyReminder\n")
+                                append("Offline Cache,$offlineCache\n")
                             }
                             val intent = Intent(Intent.ACTION_SEND).apply {
-                                type = "text/plain"
-                                putExtra(Intent.EXTRA_TEXT, data)
+                                type = "text/csv"
+                                putExtra(Intent.EXTRA_TEXT, csvData)
                                 putExtra(Intent.EXTRA_SUBJECT, "LingoCoach Data Export")
                             }
-                            context.startActivity(Intent.createChooser(intent, "Export Data"))
+                            context.startActivity(Intent.createChooser(intent, "Export Data as CSV"))
                         }
                     }
                 }
 
                 Spacer(Modifier.height(24.dp))
 
-                // ── Log Out button ────────────────────────────────────────────
+                // ── Delete Data & Account button ─────────────────────────────
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
                         .shadow(4.dp, RoundedCornerShape(16.dp))
                         .clip(RoundedCornerShape(16.dp))
-                        .background(Color.White)
-                        .clickable { showLogoutDialog = true }
+                        .background(Color(0xFFFFEBEE))
+                        .clickable { showDeleteDialog = true }
                         .padding(vertical = 16.dp),
                     contentAlignment = Alignment.Center
                 ) {
@@ -379,35 +368,20 @@ fun SettingsScreen(
                         horizontalArrangement = Arrangement.Center
                     ) {
                         Icon(
-                            Icons.AutoMirrored.Filled.ExitToApp,
+                            Icons.Default.DeleteForever,
                             contentDescription = null,
-                            tint = SettingsTextDark,
+                            tint = SettingsRed,
                             modifier = Modifier.size(20.dp)
                         )
                         Spacer(Modifier.width(8.dp))
                         Text(
-                            "Log Out of Account",
-                            color = SettingsTextDark,
+                            "Delete All Data & Account",
+                            color = SettingsRed,
                             fontSize = 15.sp,
                             fontWeight = FontWeight.SemiBold
                         )
                     }
                 }
-
-                Spacer(Modifier.height(12.dp))
-
-                // ── Delete Account ────────────────────────────────────────────
-                Text(
-                    "Permanently Delete Account",
-                    color = SettingsRed,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { showDeleteDialog = true }
-                        .padding(vertical = 8.dp)
-                )
 
                 Spacer(Modifier.height(32.dp))
             }
