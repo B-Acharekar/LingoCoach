@@ -26,7 +26,8 @@ enum class Screen {
     VocabBuilder,
     MistakeVault,
     Flashcards,
-    TimelyDuel
+    TimelyDuel,
+    AILab
 }
 
 class MainActivity : ComponentActivity() {
@@ -84,7 +85,8 @@ class MainActivity : ComponentActivity() {
                                 onNavigateToVocab = { currentScreen = Screen.VocabBuilder },
                                 onNavigateToMistakes = { currentScreen = Screen.MistakeVault },
                                 onNavigateToFlashcards = { currentScreen = Screen.Flashcards },
-                                onNavigateToDuel = { currentScreen = Screen.TimelyDuel }
+                                onNavigateToDuel = { currentScreen = Screen.TimelyDuel },
+                                onNavigateToAILab = { currentScreen = Screen.AILab }
                             )
                         }
                         Screen.Lesson -> {
@@ -111,6 +113,14 @@ class MainActivity : ComponentActivity() {
                         Screen.TimelyDuel -> {
                             TimelyDuelScreen(
                                 onNavigateBack = { currentScreen = Screen.Home }
+                            )
+                        }
+                        Screen.AILab -> {
+                            AILabScreen(
+                                onNavigateBack = { currentScreen = Screen.Home },
+                                onNavigateToHome = { currentScreen = Screen.Home },
+                                onNavigateToVocab = { currentScreen = Screen.VocabBuilder },
+                                onNavigateToMistakes = { currentScreen = Screen.MistakeVault }
                             )
                         }
                     }

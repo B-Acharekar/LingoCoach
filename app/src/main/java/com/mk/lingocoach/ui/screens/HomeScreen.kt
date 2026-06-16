@@ -64,7 +64,8 @@ fun HomeScreen(
     onNavigateToVocab: () -> Unit = {},
     onNavigateToMistakes: () -> Unit = {},
     onNavigateToFlashcards: () -> Unit = {},
-    onNavigateToDuel: () -> Unit = {}
+    onNavigateToDuel: () -> Unit = {},
+    onNavigateToAILab: () -> Unit = {}
 ) {
     val context       = LocalContext.current
     val scope         = rememberCoroutineScope()
@@ -274,7 +275,7 @@ fun HomeScreen(
                         backgroundColor = BrandPurple,
                         textColor = Color.White,
                         iconColor = Color.White,
-                        onClick = { }
+                        onClick = onNavigateToAILab
                     )
                 }
 
@@ -316,6 +317,7 @@ fun HomeScreen(
                 onTabSelected = { 
                     selectedTab = it
                     when (it) {
+                        1 -> onNavigateToAILab()
                         2 -> onNavigateToVocab()
                         3 -> onNavigateToMistakes()
                     }
