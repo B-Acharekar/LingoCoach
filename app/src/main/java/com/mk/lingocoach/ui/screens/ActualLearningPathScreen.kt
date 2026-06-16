@@ -111,19 +111,18 @@ fun ActualLearningPathScreen(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                // Logo/Icon
-                Box(
+                // Back Button
+                IconButton(
+                    onClick = onNavigateBack,
                     modifier = Modifier
                         .size(40.dp)
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(BrandPurple),
-                    contentAlignment = Alignment.Center
+                        .background(Color(0xFFF0EEFF), CircleShape)
                 ) {
                     Icon(
-                        Icons.Default.School,
-                        contentDescription = "LingoCoach",
-                        tint = Color.White,
-                        modifier = Modifier.size(24.dp)
+                        Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Back",
+                        tint = BrandPurple,
+                        modifier = Modifier.size(20.dp)
                     )
                 }
 
@@ -136,19 +135,18 @@ fun ActualLearningPathScreen(
                     )
                 )
 
-                // Profile Icon
-                Box(
+                // Settings Icon
+                IconButton(
+                    onClick = { /* Navigate to settings - will be wired up */ },
                     modifier = Modifier
                         .size(40.dp)
-                        .clip(CircleShape)
-                        .background(Color(0xFFF0EEFF)),
-                    contentAlignment = Alignment.Center
+                        .background(Color(0xFFF0EEFF), CircleShape)
                 ) {
                     Icon(
-                        Icons.Default.Person,
-                        contentDescription = "Profile",
+                        Icons.Default.Settings,
+                        contentDescription = "Settings",
                         tint = BrandPurple,
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(20.dp)
                     )
                 }
             }
