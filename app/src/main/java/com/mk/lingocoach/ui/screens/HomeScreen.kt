@@ -66,7 +66,9 @@ fun HomeScreen(
     onNavigateToFlashcards: () -> Unit = {},
     onNavigateToDuel: () -> Unit = {},
     onNavigateToAILab: () -> Unit = {},
-    onNavigateToSettings: () -> Unit = {}
+    onNavigateToSettings: () -> Unit = {},
+    onNavigateToRoadmap: () -> Unit = {},
+    onNavigateToActualLearningPath: () -> Unit = {}
 ) {
     val context       = LocalContext.current
     val scope         = rememberCoroutineScope()
@@ -283,7 +285,7 @@ fun HomeScreen(
                         color = BrandPurple,
                         fontSize = 13.sp,
                         fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.clickable { }
+                        modifier = Modifier.clickable { onNavigateToRoadmap() }
                     )
                 }
 
@@ -305,13 +307,9 @@ fun HomeScreen(
                         )
                     }
                 } else if (activeModule != null) {
-                    HomeCurrentModuleCard(
-                        module         = activeModule,
-                        activeSublesson = activeSublesson,
-                        onContinue     = {
-                            val id = activeSublesson?.id ?: ""
-                            if (id.isNotBlank()) onNavigateToLesson(id)
-                        }
+                    HomeDynamicLearningPathCard(
+                        module = activeModule,
+                        onClick = { onNavigateToActualLearningPath() }
                     )
                 } else {
                     HomeNoModuleCard()
@@ -596,6 +594,122 @@ fun HomeCurrentModuleCard(
                     modifier = Modifier.size(18.dp)
                 )
             }
+        }
+    }
+}
+
+// ─── Dynamic Learning Path Card with Progress Circle ─────────────────────────
+@Composable
+fun HomeDynamicLearningPathCard(
+    module: CurrentModule,
+    onClick: () -> Unit
+) {
+    val totalLessons = module.lessons.size
+    val completedLessons = module.lessons.count { it.status == "completed" }
+    val progress = if (totalLessons > 0) completedLessons.toFloat() / totalLessons else 0f
+    val progressPercent = (progress * 100).toInt()
+    
+    val animatedProgress by animateFloatAsState(
+        targetValue = progress,
+        animationSpec = tween(durationMillis = 1000),
+        label = "progress"
+    )
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(140.dp)
+            .clickable { onClick() }
+            .shadow(6.dp, RoundedCornerShape(24.dp), clip = true),
+        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        shape = RoundedCornerShape(24.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(20.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Animated circular progress indicator
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier.size(100.dp)
+            ) {
+                // Background circle
+                Canvas(modifier = Modifier.fillMaxSize()) {
+                    drawCircle(
+                        color = Color(0xFFF0EEFF),
+                        radius = size.minDimension / 2
+                    )
+                }
+                
+                // Progress arc
+                Canvas(modifier = Modifier.fillMaxSize()) {
+                    val strokeWidth = 8.dp.toPx()
+                    drawArc(
+                        color = BrandPurple,
+                        startAngle = -90f,
+                        sweepAngle = 360f * animatedProgress,
+                        useCenter = false,
+                        style = androidx.compose.ui.graphics.drawscope.Stroke(
+                            width = strokeWidth,
+                            cap = StrokeCap.Round
+                        )
+                    )
+                }
+                
+                // Percentage text in center
+                Text(
+                    "$progressPercent%",
+                    color = BrandPurple,
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.ExtraBold
+                )
+            }
+
+            Spacer(Modifier.width(20.dp))
+
+            // Module info
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    module.level.uppercase(),
+                    color = BrandPurple,
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    letterSpacing = 0.5.sp
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    module.title,
+                    color = TextDark,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    "${module.lessons.size} Lessons",
+                    color = TextLight,
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Medium
+                )
+                Spacer(Modifier.height(6.dp))
+                Text(
+                    "${completedLessons}/${totalLessons} Completed",
+                    color = BrandGreen,
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+
+            // Arrow icon
+            Icon(
+                Icons.AutoMirrored.Filled.ArrowForward,
+                contentDescription = null,
+                tint = BrandPurple,
+                modifier = Modifier.size(24.dp)
+            )
         }
     }
 }

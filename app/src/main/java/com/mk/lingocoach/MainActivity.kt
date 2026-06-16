@@ -111,7 +111,9 @@ class MainActivity : ComponentActivity() {
                                 onNavigateToFlashcards = { currentScreen = Screen.Flashcards },
                                 onNavigateToDuel = { currentScreen = Screen.TimelyDuel },
                                 onNavigateToAILab = { currentScreen = Screen.AILab },
-                                onNavigateToSettings = { currentScreen = Screen.Settings }
+                                onNavigateToSettings = { currentScreen = Screen.Settings },
+                                onNavigateToRoadmap = { currentScreen = Screen.LearningPathRoadmap },
+                                onNavigateToActualLearningPath = { currentScreen = Screen.ActualLearningPath }
                             )
                         }
                         Screen.Lesson -> {
