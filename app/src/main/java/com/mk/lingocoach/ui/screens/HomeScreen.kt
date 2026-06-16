@@ -1292,7 +1292,7 @@ fun SectionHeader(title: String) {
 }
 
 @Composable
-fun ProgressStatRow(label: String, percentage: String, dotColor: Color) {
+private fun ProgressStatRow(label: String, percentage: String, dotColor: Color) {
     Row(
         modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp),
         verticalAlignment = Alignment.CenterVertically,

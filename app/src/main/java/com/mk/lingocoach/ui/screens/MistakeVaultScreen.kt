@@ -859,10 +859,11 @@ private fun RetestFlashcard(
             OutlinedButton(
                 onClick  = {
                     // Use Android Text-to-Speech
-                    val tts = android.speech.tts.TextToSpeech(context) { status ->
+                    var ttsEngine: android.speech.tts.TextToSpeech? = null
+                    ttsEngine = android.speech.tts.TextToSpeech(context) { status ->
                         if (status == android.speech.tts.TextToSpeech.SUCCESS) {
-                            tts.language = java.util.Locale.US
-                            tts.speak(mistake.word, android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, null)
+                            ttsEngine?.language = java.util.Locale.US
+                            ttsEngine?.speak(mistake.word, android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, null)
                         }
                     }
                 },
