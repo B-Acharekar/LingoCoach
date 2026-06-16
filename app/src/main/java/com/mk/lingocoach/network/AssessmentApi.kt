@@ -135,6 +135,39 @@ data class Mistake(
     val last_reviewed: String?
 )
 
+data class MistakeCreateRequest(
+    val user_id: String,
+    val word: String,
+    val mistake_type: String,
+    val user_sentence: String,
+    val correct_sentence: String,
+    val explanation: String
+)
+
+data class VocabSyncItem(
+    val word: String,
+    val mastery_score: Int,
+    val is_bookmarked: Boolean,
+    val last_reviewed: String,
+    val updated_at: String
+)
+
+data class VocabSyncRequest(
+    val client_time: String,
+    val changes: List<VocabSyncItem>
+)
+
+data class VocabSyncResponse(
+    val status: String,
+    val merged_count: Int,
+    val conflicts_resolved: Int
+)
+
+data class VocabSyncGetResponse(
+    val server_time: String,
+    val updates: List<VocabSyncItem>
+)
+
 // ─────────────────────────────────────────────────────────────────────────────
 object AssessmentApi {
     private const val BASE_URL = "https://lingoai-backend-zej0.onrender.com"
@@ -440,6 +473,69 @@ object AssessmentApi {
             override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
                 response.use {
                     onResult(response.isSuccessful)
+                }
+            }
+        })
+    }
+
+    fun logManualMistake(request: MistakeCreateRequest, onResult: (Boolean) -> Unit) {
+        val json = gson.toJson(request)
+        val httpRequest = Request.Builder()
+            .url("$BASE_URL/api/v1/mistakes")
+            .post(json.toRequestBody(JSON_MEDIA_TYPE))
+            .header("accept", "application/json")
+            .build()
+        client.newCall(httpRequest).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to log mistake", e)
+                onResult(false)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use { onResult(response.isSuccessful) }
+            }
+        })
+    }
+
+    fun syncVocabProgress(userId: String, requestBody: VocabSyncRequest, onResult: (Boolean) -> Unit) {
+        val json = gson.toJson(requestBody)
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/vocab/sync?user_id=$userId")
+            .post(json.toRequestBody(JSON_MEDIA_TYPE))
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to sync vocab", e)
+                onResult(false)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use { onResult(response.isSuccessful) }
+            }
+        })
+    }
+
+    fun getVocabSync(userId: String, lastSyncTime: String?, onResult: (VocabSyncGetResponse?) -> Unit) {
+        val url = if (lastSyncTime != null) {
+            "$BASE_URL/api/v1/vocab/sync?user_id=$userId&last_sync_time=$lastSyncTime"
+        } else {
+            "$BASE_URL/api/v1/vocab/sync?user_id=$userId"
+        }
+        val request = Request.Builder()
+            .url(url)
+            .get()
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to get vocab sync", e)
+                onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) { onResult(null); return }
+                    val body = response.body?.string()
+                    try { onResult(gson.fromJson(body, VocabSyncGetResponse::class.java)) }
+                    catch (e: Exception) { onResult(null) }
                 }
             }
         })

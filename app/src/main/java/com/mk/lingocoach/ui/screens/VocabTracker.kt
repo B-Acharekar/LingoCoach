@@ -33,7 +33,8 @@ data class WordProgress(
     val word: String,
     var masteryScore: Int = 0, // 0 to 100
     var isBookmarked: Boolean = false,
-    var lastReviewed: Long = 0L
+    var lastReviewed: Long = 0L,
+    var updatedAt: String? = null
 )
 
 data class CategoryStat(
@@ -347,6 +348,7 @@ object VocabTracker {
             prog.masteryScore = (currentScore - 10).coerceAtLeast(0)
         }
         prog.lastReviewed = System.currentTimeMillis()
+        prog.updatedAt = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", java.util.Locale.US).apply { timeZone = java.util.TimeZone.getTimeZone("UTC") }.format(java.util.Date())
         saveProgress(context)
         return prog.masteryScore
     }
@@ -402,7 +404,7 @@ object VocabTracker {
 
     // ─── Local Mistake Vault Integration ─────────────────────────────────────
 
-    fun addLocalMistake(word: String, mistakeType: String, userAnswer: String, correctAnswer: String, explanation: String, context: Context) {
+    fun addLocalMistake(word: String, mistakeType: String, userAnswer: String, correctAnswer: String, explanation: String, context: Context, userId: String = "default_user") {
         val existing = loadLocalMistakes(context).toMutableList()
         val idx = existing.indexOfFirst { it.word.lowercase() == word.lowercase() && it.mistakeType == mistakeType }
         if (idx >= 0) {
@@ -420,6 +422,21 @@ object VocabTracker {
             )
         }
         saveLocalMistakes(existing, context)
+
+        // Log to backend
+        kotlinx.coroutines.GlobalScope.launch(Dispatchers.IO) {
+            val req = com.mk.lingocoach.network.MistakeCreateRequest(
+                user_id = userId,
+                word = word,
+                mistake_type = mistakeType,
+                user_sentence = userAnswer,
+                correct_sentence = correctAnswer,
+                explanation = explanation
+            )
+            com.mk.lingocoach.network.AssessmentApi.logManualMistake(req) { success ->
+                Log.d(TAG, "Logged mistake to backend: $success")
+            }
+        }
     }
 
     fun getLocalMistakes(context: Context): List<LocalMistakeEntry> = loadLocalMistakes(context)
@@ -441,6 +458,52 @@ object VocabTracker {
             File(context.filesDir, MISTAKES_FILE).writeText(gson.toJson(list))
         } catch (e: Exception) {
             Log.e(TAG, "Failed to save local mistakes", e)
+        }
+    }
+
+    // Sync with backend
+    suspend fun syncWithBackend(userId: String, context: Context) = withContext(Dispatchers.IO) {
+        val lastSyncTime = null 
+        
+        // 1. Fetch from server
+        com.mk.lingocoach.network.AssessmentApi.getVocabSync(userId, lastSyncTime) { response ->
+            if (response != null) {
+                var modified = false
+                response.updates.forEach { serverItem ->
+                    val local = progressMap[serverItem.word]
+                    if (local == null || serverItem.updated_at > (local.updatedAt ?: "")) {
+                        progressMap[serverItem.word] = WordProgress(
+                            word = serverItem.word,
+                            masteryScore = serverItem.mastery_score,
+                            isBookmarked = serverItem.is_bookmarked,
+                            lastReviewed = 0L,
+                            updatedAt = serverItem.updated_at
+                        )
+                        modified = true
+                    }
+                }
+                if (modified) saveProgress(context)
+            }
+        }
+
+        // 2. Push to server
+        val changes = progressMap.values.map { 
+            com.mk.lingocoach.network.VocabSyncItem(
+                word = it.word,
+                mastery_score = it.masteryScore,
+                is_bookmarked = it.isBookmarked,
+                last_reviewed = "",
+                updated_at = it.updatedAt ?: java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", java.util.Locale.US).apply { timeZone = java.util.TimeZone.getTimeZone("UTC") }.format(java.util.Date())
+            )
+        }
+        val request = com.mk.lingocoach.network.VocabSyncRequest(
+            client_time = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", java.util.Locale.US).apply { timeZone = java.util.TimeZone.getTimeZone("UTC") }.format(java.util.Date()),
+            changes = changes
+        )
+        com.mk.lingocoach.network.AssessmentApi.syncVocabProgress(userId, request) { success ->
+            if (success) {
+                Log.d(TAG, "Vocab sync successful")
+            }
         }
     }
 }
