@@ -861,8 +861,8 @@ private fun RetestFlashcard(
                     // Use Android Text-to-Speech
                     val tts = android.speech.tts.TextToSpeech(context) { status ->
                         if (status == android.speech.tts.TextToSpeech.SUCCESS) {
-                            it.language = java.util.Locale.US
-                            it.speak(mistake.word, android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, null)
+                            tts.language = java.util.Locale.US
+                            tts.speak(mistake.word, android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, null)
                         }
                     }
                 },

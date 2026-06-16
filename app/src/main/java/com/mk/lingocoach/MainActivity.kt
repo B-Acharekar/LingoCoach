@@ -1,4 +1,4 @@
-then package com.mk.lingocoach
+package com.mk.lingocoach
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

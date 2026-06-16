@@ -1,4 +1,4 @@
-one package com.mk.lingocoach.notifications
+package com.mk.lingocoach.notifications
 
 import android.content.Context
 import androidx.work.*
