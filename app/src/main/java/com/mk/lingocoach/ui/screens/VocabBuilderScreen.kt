@@ -294,10 +294,10 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                             onContinue = {
                                 if (isCorrectFeedback) {
                                     // Correct: remove from queue permanently
-                                    drillQueue.removeFirst()
+                                    drillQueue.removeAt(0)
                                 } else {
                                     // Wrong: move to end of queue for retry
-                                    val failed = drillQueue.removeFirst()
+                                    val failed = drillQueue.removeAt(0)
                                     drillQueue.add(failed)
                                 }
                                 currentQuestionIdx++
@@ -1249,6 +1249,8 @@ fun ColumnScope.DrillFeedbackView(
                                 }
                             },
                             colors = OutlinedTextFieldDefaults.colors(
+                                focusedTextColor = Color(0xFF0D0D0D),
+                                unfocusedTextColor = Color(0xFF0D0D0D),
                                 focusedBorderColor = if (showReinforcementFeedback) (if (isReinforcementCorrect) BrandGreen else BrandRed) else BrandPurple,
                                 unfocusedBorderColor = if (showReinforcementFeedback) (if (isReinforcementCorrect) BrandGreen else BrandRed) else CardBorderColor
                             )
