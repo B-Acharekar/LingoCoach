@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">LingoCoach</string>
+    
+    <!-- Language Selection Screen -->
+    <string name="choose_language">언어 선택</string>
+    <string name="select_preferred_language">선호하는 언어를 선택하세요</string>
+    <string name="search_languages">언어 검색...</string>
+    <string name="no_languages_found">\"%1$s\"에 대한 언어를 찾을 수 없습니다</string>
+    
+    <!-- Common Actions -->
+    <string name="done">완료</string>
+    <string name="back">뒤로</string>
+    <string name="next">다음</string>
+    <string name="skip">건너뛰기</string>
+    <string name="continue_text">계속하기</string>
+    <string name="submit">제출</string>
+    <string name="cancel">취소</string>
+    <string name="save">저장</string>
+    <string name="delete">삭제</string>
+    <string name="edit">편집</string>
+    <string name="ok">확인</string>
+    <string name="yes">예</string>
+    <string name="no">아니요</string>
+    <string name="retry">재시도</string>
+    <string name="close">닫기</string>
+    
+    <!-- Navigation -->
+    <string name="home">홈</string>
+    <string name="settings">설정</string>
+    <string name="profile">프로필</string>
+    <string name="progress">학습 현황</string>
+    <string name="lessons">레슨</string>
+    <string name="practice">연습</string>
+    
+    <!-- Common Labels -->
+    <string name="welcome">환영합니다</string>
+    <string name="logout">로그아웃</string>
+    <string name="login">로그인</string>
+    <string name="sign_up">회원가입</string>
+    <string name="email">이메일</string>
+    <string name="password">비밀번호</string>
+    <string name="username">사용자 이름</string>
+    <string name="name">이름</string>
+    <string name="loading">로딩 중...</string>
+    <string name="error">오류</string>
+    <string name="success">성공</string>
+    <string name="warning">경고</string>
+    <string name="info">정보</string>
+    
+    <!-- Home Screen -->
+    <string name="daily_streak">연속 달성</string>
+    <string name="days">일</string>
+    <string name="current_lesson">현재 레슨</string>
+    <string name="continue_learning">학습 이어가기</string>
+    <string name="start_lesson">레슨 시작</string>
+    <string name="your_progress">내 진도</string>
+    <string name="today_goal">오늘의 목표</string>
+    <string name="weekly_stats">주간 통계</string>
+    <string name="total_time">총 학습 시간</string>
+    <string name="accuracy">정확도</string>
+    <string name="completed">완료됨</string>
+    <string name="in_progress">진행 중</string>
+    
+    <!-- Learning Path -->
+    <string name="learning_path">학습 로드맵</string>
+    <string name="modules">모듈</string>
+    <string name="lessons_completed">완료된 레슨</string>
+    <string name="next_lesson">다음 레슨</string>
+    <string name="locked">잠김</string>
+    <string name="unlocked">잠금 해제됨</string>
+    <string name="start">시작</string>
+    <string name="resume">재개</string>
+    
+    <!-- Vocabulary -->
+    <string name="vocabulary">어휘</string>
+    <string name="vocab_builder">단어장 빌더</string>
+    <string name="new_words">새로운 단어</string>
+    <string name="review">복습</string>
+    <string name="mastered">마스터함</string>
+    <string name="learning">학습 중</string>
+    <string name="add_word">단어 추가</string>
+    <string name="word">단어</string>
+    <string name="translation">번역</string>
+    <string name="example">예문</string>
+    <string name="pronunciation">발음</string>
+    
+    <!-- Mistakes / Vault -->
+    <string name="mistake_vault">오답 노트</string>
+    <string name="mistakes">틀린 문제</string>
+    <string name="review_mistakes">틀린 문제 복습</string>
+    <string name="common_mistakes">자주 틀리는 문제</string>
+    <string name="fix_mistakes">틀린 문제 교정</string>
+    <string name="no_mistakes">아직 틀린 문제가 없습니다!</string>
+    <string name="keep_practicing">계속 연습해 보세요</string>
+    
+    <!-- Flashcards -->
+    <string name="flashcards">플래시 카드</string>
+    <string name="flip_card">카드 뒤집기</string>
+    <string name="next_card">다음 카드</string>
+    <string name="previous_card">이전 카드</string>
+    <string name="cards_remaining">남은 카드</string>
+    
+    <!-- Duel / Challenge -->
+    <string name="timely_duel">타임 어택 듀얼</string>
+    <string name="challenge">챌린지</string>
+    <string name="versus">VS</string>
+    <string name="score">점수</string>
+    <string name="time_remaining">남은 시간</string>
+    <string name="round">라운드</string>
+    <string name="you_won">승리했습니다!</string>
+    <string name="you_lost">패배했습니다</string>
+    <string name="draw">무승부</string>
+    
+    <!-- AI Lab -->
+    <string name="ai_lab">AI 랩</string>
+    <string name="practice_with_ai">AI와 연습하기</string>
+    <string name="conversation">회화</string>
+    <string name="grammar_check">문법 검사</string>
+    <string name="pronunciation_practice">발음 연습</string>
+    <string name="ask_ai">AI에게 질문하기</string>
+    <string name="ai_tutor">AI 튜터</string>
+    
+    <!-- Assessment -->
+    <string name="assessment">레벨 테스트</string>
+    <string name="take_assessment">테스트 받기</string>
+    <string name="skill_level">실력 수준</string>
+    <string name="beginner">초급</string>
+    <string name="intermediate">중급</string>
+    <string name="advanced">고급</string>
+    <string name="skill_native">원어민 수준</string>
+    
+    <!-- Settings -->
+    <string name="app_settings">앱 설정</string>
+    <string name="language_settings">언어 설정</string>
+    <string name="app_language">앱 표시 언어</string>
+    <string name="learning_language">학습 중인 언어</string>
+    <string name="notifications">알림</string>
+    <string name="sound">소리</string>
+    <string name="vibration">진동</string>
+    <string name="dark_mode">다크 모드</string>
+    <string name="account">계정</string>
+    <string name="privacy">개인정보 보호</string>
+    <string name="about">앱 정보</string>
+    <string name="help">도움말</string>
+    <string name="feedback">피드백</string>
+    <string name="rate_app">앱 평가하기</string>
+    <string name="share_app">앱 공유하기</string>
+    <string name="version">버전</string>
+    
+    <!-- Notifications -->
+    <string name="daily_reminder">일일 리마인더</string>
+    <string name="practice_reminder">연습 리마인더</string>
+    <string name="streak_reminder">연속 달성 알림</string>
+    <string name="achievement_unlocked">도전 과제 달성!</string>
+    
+    <!-- Stats & Progress -->
+    <string name="statistics">통계</string>
+    <string name="analytics">분석</string>
+    <string name="daily_goal">일일 목표</string>
+    <string name="weekly_goal">주간 목표</string>
+    <string name="monthly_goal">월간 목표</string>
+    <string name="total_lessons">총 레슨 수</string>
+    <string name="study_time">학습 시간</string>
+    <string name="words_learned">학습한 단어 수</string>
+    <string name="exercises_completed">완료한 연습 문제</string>
+    <string name="current_streak">현재 연속 달성</string>
+    <string name="longest_streak">최장 연속 달성</string>
+    <string name="achievements">달성한 도전 과제</string>
+    
+    <!-- Lessons -->
+    <string name="lesson">레슨</string>
+    <string name="lesson_complete">레슨 완료!</string>
+    <string name="lesson_progress">레슨 진행률</string>
+    <string name="exercise">연습 문제</string>
+    <string name="quiz">퀴즈</string>
+    <string name="test">테스트</string>
+    <string name="reading">읽기</string>
+    <string name="writing">쓰기</string>
+    <string name="listening">듣기</string>
+    <string name="speaking">말하기</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_aboard">환영합니다!</string>
+    <string name="get_started">시작하기</string>
+    <string name="select_learning_language">학습할 언어 선택</string>
+    <string name="why_learning">언어를 배우는 목적이 무엇인가요?</string>
+    <string name="study_goal">학습 목표</string>
+    <string name="minutes_per_day">분 / 일</string>
+    <string name="set_daily_goal">일일 목표 설정</string>
+    <string name="profile_setup">프로필 설정</string>
+    <string name="complete_profile">프로필 완성하기</string>
+    
+    <!-- Goals -->
+    <string name="goal_casual">가볍게 - 하루 5분</string>
+    <string name="goal_regular">보통 - 하루 10분</string>
+    <string name="goal_serious">진지하게 - 하루 15분</string>
+    <string name="goal_intense">열정적으로 - 하루 20분</string>
+    
+    <!-- Motivation -->
+    <string name="travel">여행</string>
+    <string name="work">비즈니스 / 업무</string>
+    <string name="school">학교 / 학업</string>
+    <string name="culture">문화 / 취미</string>
+    <string name="family">가족 / 친구</string>
+    <string name="brain_training">두뇌 훈련</string>
+    <string name="other">기타</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">네트워크 오류가 발생했습니다. 연결을 확인해 주세요.</string>
+    <string name="error_loading">데이터를 불러오는 중 오류가 발생했습니다</string>
+    <string name="error_unknown">알 수 없는 오류가 발생했습니다</string>
+    <string name="error_server">서버 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.</string>
+    <string name="error_invalid_input">잘못된 입력입니다</string>
+    <string name="error_required_field">필수 입력 항목입니다</string>
+    
+    <!-- Success Messages -->
+    <string name="success_saved">성공적으로 저장되었습니다!</string>
+    <string name="success_completed">성공적으로 완료되었습니다!</string>
+    <string name="success_updated">성공적으로 업데이트되었습니다!</string>
+    
+    <!-- Empty States -->
+    <string name="no_data">표시할 데이터가 없습니다</string>
+    <string name="no_lessons">이용 가능한 레슨이 없습니다</string>
+    <string name="no_vocabulary">아직 추가된 단어가 없습니다</string>
+    <string name="no_progress">아직 학습 기록이 없습니다</string>
+    <string name="start_learning_now">지금 바로 학습을 시작해 보세요!</string>
+    
+    <!-- Time -->
+    <string name="today">오늘</string>
+    <string name="yesterday">어제</string>
+    <string name="this_week">이번 주</string>
+    <string name="this_month">이번 달</string>
+    <string name="minutes">분</string>
+    <string name="hours">시간</string>
+    <string name="seconds">초</string>
+    
+    <!-- Language Names (for reference) -->
+    <string name="lang_system">시스템 기본값</string>
+    <string name="lang_english">영어</string>
+    <string name="lang_hindi">힌디어</string>
+    <string name="lang_spanish">스페인어</string>
+    <string name="lang_french">프랑스어</string>
+    <string name="lang_german">독일어</string>
+    <string name="lang_italian">이탈리아어</string>
+    <string name="lang_portuguese">포르투갈어</string>
+    <string name="lang_russian">러시아어</string>
+    <string name="lang_japanese">일본어</string>
+    <string name="lang_korean">한국어</string>
+    <string name="lang_chinese">중국어(만다린)</string>
+    <string name="lang_arabic">아랍어</string>
+    <string name="lang_turkish">터키어</string>
+    <string name="lang_vietnamese">베트남어</string>
+</resources>

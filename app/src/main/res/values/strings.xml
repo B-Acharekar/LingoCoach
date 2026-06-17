@@ -1,3 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App Name -->
     <string name="app_name">LingoCoach</string>
+    
+    <!-- Language Selection Screen -->
+    <string name="choose_language">Choose Language</string>
+    <string name="select_preferred_language">Select your preferred language</string>
+    <string name="search_languages">Search languages...</string>
+    <string name="no_languages_found">No languages found for \"%1$s\"</string>
+    
+    <!-- Common Actions -->
+    <string name="done">Done</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="continue_text">Continue</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="retry">Retry</string>
+    <string name="close">Close</string>
+    
+    <!-- Navigation -->
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="profile">Profile</string>
+    <string name="progress">Progress</string>
+    <string name="lessons">Lessons</string>
+    <string name="practice">Practice</string>
+    
+    <!-- Common Labels -->
+    <string name="welcome">Welcome</string>
+    <string name="logout">Logout</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="name">Name</string>
+    <string name="loading">Loading...</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="warning">Warning</string>
+    <string name="info">Info</string>
+    
+    <!-- Home Screen -->
+    <string name="daily_streak">Daily Streak</string>
+    <string name="days">days</string>
+    <string name="current_lesson">Current Lesson</string>
+    <string name="continue_learning">Continue Learning</string>
+    <string name="start_lesson">Start Lesson</string>
+    <string name="your_progress">Your Progress</string>
+    <string name="today_goal">Today\'s Goal</string>
+    <string name="weekly_stats">Weekly Stats</string>
+    <string name="total_time">Total Time</string>
+    <string name="accuracy">Accuracy</string>
+    <string name="completed">Completed</string>
+    <string name="in_progress">In Progress</string>
+    
+    <!-- Learning Path -->
+    <string name="learning_path">Learning Path</string>
+    <string name="modules">Modules</string>
+    <string name="lessons_completed">Lessons Completed</string>
+    <string name="next_lesson">Next Lesson</string>
+    <string name="locked">Locked</string>
+    <string name="unlocked">Unlocked</string>
+    <string name="start">Start</string>
+    <string name="resume">Resume</string>
+    
+    <!-- Vocabulary -->
+    <string name="vocabulary">Vocabulary</string>
+    <string name="vocab_builder">Vocab Builder</string>
+    <string name="new_words">New Words</string>
+    <string name="review">Review</string>
+    <string name="mastered">Mastered</string>
+    <string name="learning">Learning</string>
+    <string name="add_word">Add Word</string>
+    <string name="word">Word</string>
+    <string name="translation">Translation</string>
+    <string name="example">Example</string>
+    <string name="pronunciation">Pronunciation</string>
+    
+    <!-- Mistakes / Vault -->
+    <string name="mistake_vault">Mistake Vault</string>
+    <string name="mistakes">Mistakes</string>
+    <string name="review_mistakes">Review Mistakes</string>
+    <string name="common_mistakes">Common Mistakes</string>
+    <string name="fix_mistakes">Fix Mistakes</string>
+    <string name="no_mistakes">No mistakes yet!</string>
+    <string name="keep_practicing">Keep practicing</string>
+    
+    <!-- Flashcards -->
+    <string name="flashcards">Flashcards</string>
+    <string name="flip_card">Flip Card</string>
+    <string name="next_card">Next Card</string>
+    <string name="previous_card">Previous Card</string>
+    <string name="cards_remaining">Cards Remaining</string>
+    
+    <!-- Duel / Challenge -->
+    <string name="timely_duel">Timely Duel</string>
+    <string name="challenge">Challenge</string>
+    <string name="versus">VS</string>
+    <string name="score">Score</string>
+    <string name="time_remaining">Time Remaining</string>
+    <string name="round">Round</string>
+    <string name="you_won">You Won!</string>
+    <string name="you_lost">You Lost</string>
+    <string name="draw">Draw</string>
+    
+    <!-- AI Lab -->
+    <string name="ai_lab">AI Lab</string>
+    <string name="practice_with_ai">Practice with AI</string>
+    <string name="conversation">Conversation</string>
+    <string name="grammar_check">Grammar Check</string>
+    <string name="pronunciation_practice">Pronunciation Practice</string>
+    <string name="ask_ai">Ask AI</string>
+    <string name="ai_tutor">AI Tutor</string>
+    
+    <!-- Assessment -->
+    <string name="assessment">Assessment</string>
+    <string name="take_assessment">Take Assessment</string>
+    <string name="skill_level">Skill Level</string>
+    <string name="beginner">Beginner</string>
+    <string name="intermediate">Intermediate</string>
+    <string name="advanced">Advanced</string>
+    <string name="skill_native">Native</string>
+    
+    <!-- Settings -->
+    <string name="app_settings">App Settings</string>
+    <string name="language_settings">Language Settings</string>
+    <string name="app_language">App Language</string>
+    <string name="learning_language">Learning Language</string>
+    <string name="notifications">Notifications</string>
+    <string name="sound">Sound</string>
+    <string name="vibration">Vibration</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="account">Account</string>
+    <string name="privacy">Privacy</string>
+    <string name="about">About</string>
+    <string name="help">Help</string>
+    <string name="feedback">Feedback</string>
+    <string name="rate_app">Rate App</string>
+    <string name="share_app">Share App</string>
+    <string name="version">Version</string>
+    
+    <!-- Notifications -->
+    <string name="daily_reminder">Daily Reminder</string>
+    <string name="practice_reminder">Practice Reminder</string>
+    <string name="streak_reminder">Streak Reminder</string>
+    <string name="achievement_unlocked">Achievement Unlocked!</string>
+    
+    <!-- Stats & Progress -->
+    <string name="statistics">Statistics</string>
+    <string name="analytics">Analytics</string>
+    <string name="daily_goal">Daily Goal</string>
+    <string name="weekly_goal">Weekly Goal</string>
+    <string name="monthly_goal">Monthly Goal</string>
+    <string name="total_lessons">Total Lessons</string>
+    <string name="study_time">Study Time</string>
+    <string name="words_learned">Words Learned</string>
+    <string name="exercises_completed">Exercises Completed</string>
+    <string name="current_streak">Current Streak</string>
+    <string name="longest_streak">Longest Streak</string>
+    <string name="achievements">Achievements</string>
+    
+    <!-- Lessons -->
+    <string name="lesson">Lesson</string>
+    <string name="lesson_complete">Lesson Complete!</string>
+    <string name="lesson_progress">Lesson Progress</string>
+    <string name="exercise">Exercise</string>
+    <string name="quiz">Quiz</string>
+    <string name="test">Test</string>
+    <string name="reading">Reading</string>
+    <string name="writing">Writing</string>
+    <string name="listening">Listening</string>
+    <string name="speaking">Speaking</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_aboard">Welcome Aboard!</string>
+    <string name="get_started">Get Started</string>
+    <string name="select_learning_language">Select your learning language</string>
+    <string name="why_learning">Why are you learning?</string>
+    <string name="study_goal">Study Goal</string>
+    <string name="minutes_per_day">minutes per day</string>
+    <string name="set_daily_goal">Set Daily Goal</string>
+    <string name="profile_setup">Profile Setup</string>
+    <string name="complete_profile">Complete Your Profile</string>
+    
+    <!-- Goals -->
+    <string name="goal_casual">Casual - 5 min/day</string>
+    <string name="goal_regular">Regular - 10 min/day</string>
+    <string name="goal_serious">Serious - 15 min/day</string>
+    <string name="goal_intense">Intense - 20 min/day</string>
+    
+    <!-- Motivation -->
+    <string name="travel">Travel</string>
+    <string name="work">Work</string>
+    <string name="school">School</string>
+    <string name="culture">Culture</string>
+    <string name="family">Family</string>
+    <string name="brain_training">Brain Training</string>
+    <string name="other">Other</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">Network error. Please check your connection.</string>
+    <string name="error_loading">Error loading data</string>
+    <string name="error_unknown">An unknown error occurred</string>
+    <string name="error_server">Server error. Please try again later.</string>
+    <string name="error_invalid_input">Invalid input</string>
+    <string name="error_required_field">This field is required</string>
+    
+    <!-- Success Messages -->
+    <string name="success_saved">Saved successfully!</string>
+    <string name="success_completed">Completed successfully!</string>
+    <string name="success_updated">Updated successfully!</string>
+    
+    <!-- Empty States -->
+    <string name="no_data">No data available</string>
+    <string name="no_lessons">No lessons available</string>
+    <string name="no_vocabulary">No vocabulary yet</string>
+    <string name="no_progress">No progress yet</string>
+    <string name="start_learning_now">Start learning now!</string>
+    
+    <!-- Time -->
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="this_week">This Week</string>
+    <string name="this_month">This Month</string>
+    <string name="minutes">minutes</string>
+    <string name="hours">hours</string>
+    <string name="seconds">seconds</string>
+    
+    <!-- Language Names (for reference) -->
+    <string name="lang_system">System Default</string>
+    <string name="lang_english">English</string>
+    <string name="lang_hindi">Hindi</string>
+    <string name="lang_spanish">Spanish</string>
+    <string name="lang_french">French</string>
+    <string name="lang_german">German</string>
+    <string name="lang_italian">Italian</string>
+    <string name="lang_portuguese">Portuguese</string>
+    <string name="lang_russian">Russian</string>
+    <string name="lang_japanese">Japanese</string>
+    <string name="lang_korean">Korean</string>
+    <string name="lang_chinese">Mandarin Chinese</string>
+    <string name="lang_arabic">Arabic</string>
+    <string name="lang_turkish">Turkish</string>
+    <string name="lang_vietnamese">Vietnamese</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.mk.lingocoach.ui.screens
 
-import android.content.Context
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -36,10 +35,8 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -53,53 +50,33 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mk.lingocoach.R
+import com.mk.lingocoach.viewmodel.LanguageViewModel
 
+/**
+ * Language Selection Screen with full ViewModel integration
+ * Uses AppCompatDelegate for locale management and DataStore for persistence
+ * 
+ * @param onNavigateToWelcome Callback to navigate to welcome screen after selection
+ * @param onNavigateBack Callback to navigate back to previous screen
+ */
 @Composable
 fun LanguageSelectionScreen(
     onNavigateToWelcome: () -> Unit,
     onNavigateBack: () -> Unit
 ) {
     val context = LocalContext.current
-    val sharedPreferences = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
-
-    // Load previously selected language or default to "system"
-    var selectedLanguageCode by remember { 
-        mutableStateOf(sharedPreferences.getString("selected_lang", "system") ?: "system") 
-    }
     
-    var searchQuery by remember { mutableStateOf("") }
+    // Initialize ViewModel with factory
+    val viewModel: LanguageViewModel = viewModel(
+        factory = LanguageViewModel.Factory(context)
+    )
 
-    val languages = remember {
-        listOf(
-            LanguageItem("system", "System Default", "Default Settings", "🌐"),
-            LanguageItem("en", "English", "English", "🇺🇸"),
-            LanguageItem("hi", "Hindi", "हिन्दी", "🇮🇳"),
-            LanguageItem("es", "Spanish", "Español", "🇪🇸"),
-            LanguageItem("fr", "French", "Français", "🇫🇷"),
-            LanguageItem("de", "German", "Deutsch", "🇩🇪"),
-            LanguageItem("it", "Italian", "Italiano", "🇮🇹"),
-            LanguageItem("pt", "Portuguese", "Português", "🇵🇹"),
-            LanguageItem("ru", "Russian", "Русский", "🇷🇺"),
-            LanguageItem("ja", "Japanese", "日本語", "🇯🇵"),
-            LanguageItem("ko", "Korean", "한국어", "🇰🇷"),
-            LanguageItem("zh", "Mandarin Chinese", "简体中文", "🇨🇳"),
-            LanguageItem("ar", "Arabic", "العربية", "🇸🇦"),
-            LanguageItem("tr", "Turkish", "Türkçe", "🇹🇷"),
-            LanguageItem("vi", "Vietnamese", "Tiếng Việt", "🇻🇳")
-        )
-    }
-
-    val filteredLanguages = remember(searchQuery) {
-        if (searchQuery.isBlank()) {
-            languages
-        } else {
-            languages.filter {
-                it.name.contains(searchQuery, ignoreCase = true) ||
-                it.nativeName.contains(searchQuery, ignoreCase = true)
-            }
-        }
-    }
+    // Collect state from ViewModel
+    val selectedLanguage by viewModel.selectedLanguage.collectAsState()
+    val searchQuery by viewModel.searchQuery.collectAsState()
+    val filteredLanguages by viewModel.filteredLanguages.collectAsState()
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -152,10 +129,7 @@ fun LanguageSelectionScreen(
                 // Done Button in capsule style (navigates to welcome onboarding)
                 Button(
                     onClick = {
-                        sharedPreferences.edit()
-                            .putString("selected_lang", selectedLanguageCode)
-                            .putBoolean("lang_selected", true)
-                            .apply()
+                        // Language is already persisted via ViewModel
                         onNavigateToWelcome()
                     },
                     colors = ButtonDefaults.buttonColors(
@@ -199,7 +173,7 @@ fun LanguageSelectionScreen(
             // 3. Search Bar
             OutlinedTextField(
                 value = searchQuery,
-                onValueChange = { searchQuery = it },
+                onValueChange = { viewModel.updateSearchQuery(it) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp),
@@ -255,12 +229,14 @@ fun LanguageSelectionScreen(
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     items(filteredLanguages) { language ->
-                        val isSelected = language.code == selectedLanguageCode
+                        val isSelected = language.code == selectedLanguage
 
                         Card(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable { selectedLanguageCode = language.code }
+                                .clickable { 
+                                    viewModel.selectLanguage(language.code)
+                                }
                                 .shadow(
                                     elevation = if (isSelected) 12.dp else 4.dp,
                                     shape = RoundedCornerShape(20.dp),
@@ -340,13 +316,6 @@ fun LanguageSelectionScreen(
         }
     }
 }
-
-data class LanguageItem(
-    val code: String,
-    val name: String,
-    val nativeName: String,
-    val flagEmoji: String
-)
 
 @Composable
 fun CustomRadioButton(

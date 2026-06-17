@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">LingoCoach</string>
+    
+    <!-- Language Selection Screen -->
+    <string name="choose_language">选择语言</string>
+    <string name="select_preferred_language">选择您喜欢的语言</string>
+    <string name="search_languages">搜索语言...</string>
+    <string name="no_languages_found">未找到 \"%1$s\" 的语言</string>
+    
+    <!-- Common Actions -->
+    <string name="done">完成</string>
+    <string name="back">返回</string>
+    <string name="next">下一步</string>
+    <string name="skip">跳过</string>
+    <string name="continue_text">继续</string>
+    <string name="submit">提交</string>
+    <string name="cancel">取消</string>
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+    <string name="edit">编辑</string>
+    <string name="ok">确定</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="retry">重试</string>
+    <string name="close">关闭</string>
+    
+    <!-- Navigation -->
+    <string name="home">主页</string>
+    <string name="settings">设置</string>
+    <string name="profile">个人资料</string>
+    <string name="progress">进度</string>
+    <string name="lessons">课程</string>
+    <string name="practice">练习</string>
+    
+    <!-- Common Labels -->
+    <string name="welcome">欢迎</string>
+    <string name="logout">退出登录</string>
+    <string name="login">登录</string>
+    <string name="sign_up">注册</string>
+    <string name="email">电子邮件</string>
+    <string name="password">密码</string>
+    <string name="username">用户名</string>
+    <string name="name">姓名</string>
+    <string name="loading">正在加载...</string>
+    <string name="error">错误</string>
+    <string name="success">成功</string>
+    <string name="warning">警告</string>
+    <string name="info">信息</string>
+    
+    <!-- Home Screen -->
+    <string name="daily_streak">连续签到</string>
+    <string name="days">天</string>
+    <string name="current_lesson">当前课程</string>
+    <string name="continue_learning">继续学习</string>
+    <string name="start_lesson">开始课程</string>
+    <string name="your_progress">您的进度</string>
+    <string name="today_goal">今日目标</string>
+    <string name="weekly_stats">每周统计</string>
+    <string name="total_time">总时长</string>
+    <string name="accuracy">正确率</string>
+    <string name="completed">已完成</string>
+    <string name="in_progress">进行中</string>
+    
+    <!-- Learning Path -->
+    <string name="learning_path">学习路径</string>
+    <string name="modules">模块</string>
+    <string name="lessons_completed">已完成课程</string>
+    <string name="next_lesson">下一课</string>
+    <string name="locked">已锁定</string>
+    <string name="unlocked">已解锁</string>
+    <string name="start">开始</string>
+    <string name="resume">恢复</string>
+    
+    <!-- Vocabulary -->
+    <string name="vocabulary">词汇量</string>
+    <string name="vocab_builder">词汇强化</string>
+    <string name="new_words">新单词</string>
+    <string name="review">复习</string>
+    <string name="mastered">已掌握</string>
+    <string name="learning">学习中</string>
+    <string name="add_word">添加单词</string>
+    <string name="word">单词</string>
+    <string name="translation">翻译</string>
+    <string name="example">例句</string>
+    <string name="pronunciation">发音</string>
+    
+    <!-- Mistakes / Vault -->
+    <string name="mistake_vault">错题本</string>
+    <string name="mistakes">错误</string>
+    <string name="review_mistakes">复习错题</string>
+    <string name="common_mistakes">常见错误</string>
+    <string name="fix_mistakes">纠正错误</string>
+    <string name="no_mistakes">目前没有错误！</string>
+    <string name="keep_practicing">继续保持练习</string>
+    
+    <!-- Flashcards -->
+    <string name="flashcards">闪卡</string>
+    <string name="flip_card">翻转卡片</string>
+    <string name="next_card">下一张</string>
+    <string name="previous_card">上一张</string>
+    <string name="cards_remaining">剩余卡片</string>
+    
+    <!-- Duel / Challenge -->
+    <string name="timely_duel">限时对决</string>
+    <string name="challenge">挑战</string>
+    <string name="versus">对战</string>
+    <string name="score">得分</string>
+    <string name="time_remaining">剩余时间</string>
+    <string name="round">回合</string>
+    <string name="you_won">你赢了！</string>
+    <string name="you_lost">你输了</string>
+    <string name="draw">平局</string>
+    
+    <!-- AI Lab -->
+    <string name="ai_lab">AI 实验室</string>
+    <string name="practice_with_ai">与 AI 练习</string>
+    <string name="conversation">对话</string>
+    <string name="grammar_check">语法检查</string>
+    <string name="pronunciation_practice">发音练习</string>
+    <string name="ask_ai">询问 AI</string>
+    <string name="ai_tutor">AI 导师</string>
+    
+    <!-- Assessment -->
+    <string name="assessment">评估</string>
+    <string name="take_assessment">进行评估</string>
+    <string name="skill_level">技能水平</string>
+    <string name="beginner">初学者</string>
+    <string name="intermediate">中级</string>
+    <string name="advanced">高级</string>
+    <string name="skill_native">母语</string>
+    
+    <!-- Settings -->
+    <string name="app_settings">应用设置</string>
+    <string name="language_settings">语言设置</string>
+    <string name="app_language">应用语言</string>
+    <string name="learning_language">正在学习的语言</string>
+    <string name="notifications">通知</string>
+    <string name="sound">声音</string>
+    <string name="vibration">振动</string>
+    <string name="dark_mode">深色模式</string>
+    <string name="account">账户</string>
+    <string name="privacy">隐私</string>
+    <string name="about">关于应用</string>
+    <string name="help">帮助</string>
+    <string name="feedback">反馈</string>
+    <string name="rate_app">评价应用</string>
+    <string name="share_app">分享应用</string>
+    <string name="version">版本</string>
+    
+    <!-- Notifications -->
+    <string name="daily_reminder">每日提醒</string>
+    <string name="practice_reminder">练习提醒</string>
+    <string name="streak_reminder">连胜/打卡提醒</string>
+    <string name="achievement_unlocked">解锁成就！</string>
+    
+    <!-- Stats & Progress -->
+    <string name="statistics">统计数据</string>
+    <string name="analytics">分析</string>
+    <string name="daily_goal">每日目标</string>
+    <string name="weekly_goal">每周目标</string>
+    <string name="monthly_goal">每月目标</string>
+    <string name="total_lessons">总课程数</string>
+    <string name="study_time">学习时长</string>
+    <string name="words_learned">已学单词数</string>
+    <string name="exercises_completed">已完成练习数</string>
+    <string name="current_streak">当前连续天数</string>
+    <string name="longest_streak">历史最长连续天数</string>
+    <string name="achievements">成就</string>
+    
+    <!-- Lessons -->
+    <string name="lesson">课程</string>
+    <string name="lesson_complete">课程完成！</string>
+    <string name="lesson_progress">课程进度</string>
+    <string name="exercise">练习</string>
+    <string name="quiz">测验</string>
+    <string name="test">测试</string>
+    <string name="reading">阅读</string>
+    <string name="writing">写作</string>
+    <string name="listening">听力</string>
+    <string name="speaking">口语</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_aboard">欢迎加入！</string>
+    <string name="get_started">开始体验</string>
+    <string name="select_learning_language">选择您想学习的语言</string>
+    <string name="why_learning">您为什么要学习语言？</string>
+    <string name="study_goal">学习目标</string>
+    <string name="minutes_per_day">分钟 / 天</string>
+    <string name="set_daily_goal">设置每日目标</string>
+    <string name="profile_setup">个人资料设置</string>
+    <string name="complete_profile">完善您的个人资料</string>
+    
+    <!-- Goals -->
+    <string name="goal_casual">轻松 - 5分钟/天</string>
+    <string name="goal_regular">常规 - 10分钟/天</string>
+    <string name="goal_serious">认真 - 15分钟/天</string>
+    <string name="goal_intense">魔鬼 - 20分钟/天</string>
+    
+    <!-- Motivation -->
+    <string name="travel">旅游度假</string>
+    <string name="work">工作 / 职业生涯</string>
+    <string name="school">学校 / 学业</string>
+    <string name="culture">文化 / 兴趣</string>
+    <string name="family">家庭 / 朋友</string>
+    <string name="brain_training">大脑锻炼</string>
+    <string name="other">其他</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">网络错误，请检查您的连接。</string>
+    <string name="error_loading">加载数据错误</string>
+    <string name="error_unknown">发生未知错误</string>
+    <string name="error_server">服务器错误，请稍后再试。</string>
+    <string name="error_invalid_input">输入无效</string>
+    <string name="error_required_field">此项为必填项</string>
+    
+    <!-- Success Messages -->
+    <string name="success_saved">保存成功！</string>
+    <string name="success_completed">成功完成！</string>
+    <string name="success_updated">更新成功！</string>
+    
+    <!-- Empty States -->
+    <string name="no_data">暂无可用数据</string>
+    <string name="no_lessons">暂无可用课程</string>
+    <string name="no_vocabulary">暂无词汇</string>
+    <string name="no_progress">暂无进度</string>
+    <string name="start_learning_now">现在开始学习吧！</string>
+    
+    <!-- Time -->
+    <string name="today">今天</string>
+    <string name="yesterday">昨天</string>
+    <string name="this_week">本周</string>
+    <string name="this_month">本月</string>
+    <string name="minutes">分钟</string>
+    <string name="hours">小时</string>
+    <string name="seconds">秒</string>
+    
+    <!-- Language Names (for reference) -->
+    <string name="lang_system">系统默认</string>
+    <string name="lang_english">英语</string>
+    <string name="lang_hindi">印地语</string>
+    <string name="lang_spanish">西班牙语</string>
+    <string name="lang_french">法语</string>
+    <string name="lang_german">德语</string>
+    <string name="lang_italian">意大利语</string>
+    <string name="lang_portuguese">葡萄牙语</string>
+    <string name="lang_russian">俄语</string>
+    <string name="lang_japanese">日语</string>
+    <string name="lang_korean">韩语</string>
+    <string name="lang_chinese">中文（普通话）</string>
+    <string name="lang_arabic">阿拉伯语</string>
+    <string name="lang_turkish">土耳其语</string>
+    <string name="lang_vietnamese">越南语</string>
+</resources>

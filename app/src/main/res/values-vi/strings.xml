@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">LingoCoach</string>
+    
+    <!-- Language Selection Screen -->
+    <string name="choose_language">Chọn ngôn ngữ</string>
+    <string name="select_preferred_language">Chọn ngôn ngữ ưa thích của bạn</string>
+    <string name="search_languages">Tìm kiếm ngôn ngữ...</string>
+    <string name="no_languages_found">Không tìm thấy ngôn ngữ cho \"%1$s\"</string>
+    
+    <!-- Common Actions -->
+    <string name="done">Xong</string>
+    <string name="back">Quay lại</string>
+    <string name="next">Tiếp tục</string>
+    <string name="skip">Bỏ qua</string>
+    <string name="continue_text">Tiếp tục</string>
+    <string name="submit">Gửi</string>
+    <string name="cancel">Hủy</string>
+    <string name="save">Lưu</string>
+    <string name="delete">Xóa</string>
+    <string name="edit">Chỉnh sửa</string>
+    <string name="ok">OK</string>
+    <string name="yes">Có</string>
+    <string name="no">Không</string>
+    <string name="retry">Thử lại</string>
+    <string name="close">Đóng</string>
+    
+    <!-- Navigation -->
+    <string name="home">Trang chủ</string>
+    <string name="settings">Cài đặt</string>
+    <string name="profile">Hồ sơ</string>
+    <string name="progress">Tiến độ</string>
+    <string name="lessons">Bài học</string>
+    <string name="practice">Luyện tập</string>
+    
+    <!-- Common Labels -->
+    <string name="welcome">Chào mừng</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="login">Đăng nhập</string>
+    <string name="sign_up">Đăng ký</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="username">Tên người dùng</string>
+    <string name="name">Tên</string>
+    <string name="loading">Đang tải...</string>
+    <string name="error">Lỗi</string>
+    <string name="success">Thành công</string>
+    <string name="warning">Cảnh báo</string>
+    <string name="info">Thông tin</string>
+    
+    <!-- Home Screen -->
+    <string name="daily_streak">Chuỗi ngày</string>
+    <string name="days">ngày</string>
+    <string name="current_lesson">Bài học hiện tại</string>
+    <string name="continue_learning">Tiếp tục học</string>
+    <string name="start_lesson">Bắt đầu bài học</string>
+    <string name="your_progress">Tiến độ của bạn</string>
+    <string name="today_goal">Mục tiêu hôm nay</string>
+    <string name="weekly_stats">Thống kê tuần</string>
+    <string name="total_time">Tổng thời gian</string>
+    <string name="accuracy">Độ chính xác</string>
+    <string name="completed">Đã hoàn thành</string>
+    <string name="in_progress">Đang tiến hành</string>
+    
+    <!-- Learning Path -->
+    <string name="learning_path">Lộ trình học tập</string>
+    <string name="modules">Học phần</string>
+    <string name="lessons_completed">Bài học đã hoàn thành</string>
+    <string name="next_lesson">Bài học tiếp theo</string>
+    <string name="locked">Đã khóa</string>
+    <string name="unlocked">Đã mở khóa</string>
+    <string name="start">Bắt đầu</string>
+    <string name="resume">Học tiếp</string>
+    
+    <!-- Vocabulary -->
+    <string name="vocabulary">Từ vựng</string>
+    <string name="vocab_builder">Xây dựng từ vựng</string>
+    <string name="new_words">Từ mới</string>
+    <string name="review">Ôn tập</string>
+    <string name="mastered">Thành thạo</string>
+    <string name="learning">Đang học</string>
+    <string name="add_word">Thêm từ</string>
+    <string name="word">Từ</string>
+    <string name="translation">Dịch nghĩa</string>
+    <string name="example">Ví dụ</string>
+    <string name="pronunciation">Phát âm</string>
+    
+    <!-- Mistakes / Vault -->
+    <string name="mistake_vault">Kho lưu lỗi sai</string>
+    <string name="mistakes">Lỗi sai</string>
+    <string name="review_mistakes">Xem lại lỗi sai</string>
+    <string name="common_mistakes">Lỗi phổ biến</string>
+    <string name="fix_mistakes">Sửa lỗi sai</string>
+    <string name="no_mistakes">Chưa có lỗi sai nào!</string>
+    <string name="keep_practicing">Hãy tiếp tục luyện tập</string>
+    
+    <!-- Flashcards -->
+    <string name="flashcards">Thẻ ghi nhớ</string>
+    <string name="flip_card">Lật thẻ</string>
+    <string name="next_card">Thẻ tiếp theo</string>
+    <string name="previous_card">Thẻ trước đó</string>
+    <string name="cards_remaining">Số thẻ còn lại</string>
+    
+    <!-- Duel / Challenge -->
+    <string name="timely_duel">Đấu trí tính giờ</string>
+    <string name="challenge">Thách thức</string>
+    <string name="versus">Đấu với</string>
+    <string name="score">Điểm số</string>
+    <string name="time_remaining">Thời gian còn lại</string>
+    <string name="round">Vòng</string>
+    <string name="you_won">Bạn đã thắng!</string>
+    <string name="you_lost">Bạn đã thua</string>
+    <string name="draw">Hòa</string>
+    
+    <!-- AI Lab -->
+    <string name="ai_lab">Phòng thí nghiệm AI</string>
+    <string name="practice_with_ai">Luyện tập với AI</string>
+    <string name="conversation">Hội thoại</string>
+    <string name="grammar_check">Kiểm tra ngữ pháp</string>
+    <string name="pronunciation_practice">Luyện phát âm</string>
+    <string name="ask_ai">Hỏi AI</string>
+    <string name="ai_tutor">Gia sư AI</string>
+    
+    <!-- Assessment -->
+    <string name="assessment">Đánh giá năng lực</string>
+    <string name="take_assessment">Làm bài đánh giá</string>
+    <string name="skill_level">Trình độ kỹ năng</string>
+    <string name="beginner">Sơ cấp</string>
+    <string name="intermediate">Trung cấp</string>
+    <string name="advanced">Cao cấp</string>
+    <string name="skill_native">Bản xứ</string>
+    
+    <!-- Settings -->
+    <string name="app_settings">Cài đặt ứng dụng</string>
+    <string name="language_settings">Cài đặt ngôn ngữ</string>
+    <string name="app_language">Ngôn ngữ ứng dụng</string>
+    <string name="learning_language">Ngôn ngữ đang học</string>
+    <string name="notifications">Thông báo</string>
+    <string name="sound">Âm thanh</string>
+    <string name="vibration">Rung</string>
+    <string name="dark_mode">Chế độ tối</string>
+    <string name="account">Tài khoản</string>
+    <string name="privacy">Quyền riêng tư</string>
+    <string name="about">Về ứng dụng</string>
+    <string name="help">Trợ giúp</string>
+    <string name="feedback">Phản hồi</string>
+    <string name="rate_app">Đánh giá ứng dụng</string>
+    <string name="share_app">Chia sẻ ứng dụng</string>
+    <string name="version">Phiên bản</string>
+    
+    <!-- Notifications -->
+    <string name="daily_reminder">Nhắc nhở hàng ngày</string>
+    <string name="practice_reminder">Nhắc nhở luyện tập</string>
+    <string name="streak_reminder">Nhắc nhở chuỗi ngày</string>
+    <string name="achievement_unlocked">Đã mở khóa thành tích!</string>
+    
+    <!-- Stats & Progress -->
+    <string name="statistics">Thống kê</string>
+    <string name="analytics">Phân tích</string>
+    <string name="daily_goal">Mục tiêu ngày</string>
+    <string name="weekly_goal">Mục tiêu tuần</string>
+    <string name="monthly_goal">Mục tiêu tháng</string>
+    <string name="total_lessons">Tổng số bài học</string>
+    <string name="study_time">Thời gian học</string>
+    <string name="words_learned">Số từ đã học</string>
+    <string name="exercises_completed">Bài tập đã hoàn thành</string>
+    <string name="current_streak">Chuỗi ngày hiện tại</string>
+    <string name="longest_streak">Chuỗi ngày dài nhất</string>
+    <string name="achievements">Thành tích</string>
+    
+    <!-- Lessons -->
+    <string name="lesson">Bài học</string>
+    <string name="lesson_complete">Bài học hoàn thành!</string>
+    <string name="lesson_progress">Tiến độ bài học</string>
+    <string name="exercise">Bài tập</string>
+    <string name="quiz">Trắc nghiệm</string>
+    <string name="test">Bài kiểm tra</string>
+    <string name="reading">Đọc</string>
+    <string name="writing">Viết</string>
+    <string name="listening">Nghe</string>
+    <string name="speaking">Nói</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_aboard">Chào mừng bạn gia nhập!</string>
+    <string name="get_started">Bắt đầu</string>
+    <string name="select_learning_language">Chọn ngôn ngữ bạn muốn học</string>
+    <string name="why_learning">Tại sao bạn lại học ngôn ngữ?</string>
+    <string name="study_goal">Mục tiêu học tập</string>
+    <string name="minutes_per_day">phút / ngày</string>
+    <string name="set_daily_goal">Đặt mục tiêu hàng ngày</string>
+    <string name="profile_setup">Thiết lập hồ sơ</string>
+    <string name="complete_profile">Hoàn thiện hồ sơ của bạn</string>
+    
+    <!-- Goals -->
+    <string name="goal_casual">Thư thái - 5 phút/ngày</string>
+    <string name="goal_regular">Đều đặn - 10 phút/ngày</string>
+    <string name="goal_serious">Nghiêm túc - 15 phút/ngày</string>
+    <string name="goal_intense">Siêu tốc - 20 phút/ngày</string>
+    
+    <!-- Motivation -->
+    <string name="travel">Du lịch</string>
+    <string name="work">Công việc / Sự nghiệp</string>
+    <string name="school">Trường học / Học tập</string>
+    <string name="culture">Văn hóa / Giải trí</string>
+    <string name="family">Gia đình / Bạn bè</string>
+    <string name="brain_training">Rèn luyện trí não</string>
+    <string name="other">Khác</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">Lỗi mạng. Vui lòng kiểm tra lại kết nối.</string>
+    <string name="error_loading">Lỗi khi tải dữ liệu</string>
+    <string name="error_unknown">Đã xảy ra lỗi không xác định</string>
+    <string name="error_server">Lỗi máy chủ. Vui lòng thử lại sau.</string>
+    <string name="error_invalid_input">Dữ liệu nhập không hợp lệ</string>
+    <string name="error_required_field">Trường này là bắt buộc</string>
+    
+    <!-- Success Messages -->
+    <string name="success_saved">Đã lưu thành công!</string>
+    <string name="success_completed">Đã hoàn thành thành công!</string>
+    <string name="success_updated">Đã cập nhật thành công!</string>
+    
+    <!-- Empty States -->
+    <string name="no_data">Không có dữ liệu khả dụng</string>
+    <string name="no_lessons">Không có bài học nào khả dụng</string>
+    <string name="no_vocabulary">Chưa có từ vựng nào</string>
+    <string name="no_progress">Chưa có tiến độ học tập</string>
+    <string name="start_learning_now">Bắt đầu học ngay bây giờ!</string>
+    
+    <!-- Time -->
+    <string name="today">Hôm nay</string>
+    <string name="yesterday">Hôm qua</string>
+    <string name="this_week">Tuần này</string>
+    <string name="this_month">Tháng này</string>
+    <string name="minutes">phút</string>
+    <string name="hours">giờ</string>
+    <string name="seconds">giây</string>
+    
+    <!-- Language Names (for reference) -->
+    <string name="lang_system">Mặc định hệ thống</string>
+    <string name="lang_english">Tiếng Anh</string>
+    <string name="lang_hindi">Tiếng Hindi</string>
+    <string name="lang_spanish">Tiếng Tây Ban Nha</string>
+    <string name="lang_french">Tiếng Pháp</string>
+    <string name="lang_german">Tiếng Đức</string>
+    <string name="lang_italian">Tiếng Ý</string>
+    <string name="lang_portuguese">Tiếng Bồ Đào Nha</string>
+    <string name="lang_russian">Tiếng Nga</string>
+    <string name="lang_japanese">Tiếng Nhật</string>
+    <string name="lang_korean">Tiếng Hàn</string>
+    <string name="lang_chinese">Tiếng Trung Quan Thoại</string>
+    <string name="lang_arabic">Tiếng Ả Rập</string>
+    <string name="lang_turkish">Tiếng Thổ Nhĩ Kỳ</string>
+    <string name="lang_vietnamese">Tiếng Việt</string>
+</resources>

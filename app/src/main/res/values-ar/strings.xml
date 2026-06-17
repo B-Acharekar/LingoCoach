@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">LingoCoach</string>
+    
+    <!-- Language Selection Screen -->
+    <string name="choose_language">اختر اللغة</string>
+    <string name="select_preferred_language">اختر لغتك المفضلة</string>
+    <string name="search_languages">البحث عن اللغات...</string>
+    <string name="no_languages_found">لم يتم العثور على لغات لـ \"%1$s\"</string>
+    
+    <!-- Common Actions -->
+    <string name="done">تم</string>
+    <string name="back">رجوع</string>
+    <string name="next">التالي</string>
+    <string name="skip">تخطي</string>
+    <string name="continue_text">متابعة</string>
+    <string name="submit">إرسال</string>
+    <string name="cancel">إلغاء</string>
+    <string name="save">حفظ</string>
+    <string name="delete">حذف</string>
+    <string name="edit">تعديل</string>
+    <string name="ok">موافق</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="close">إغلاق</string>
+    
+    <!-- Navigation -->
+    <string name="home">الرئيسية</string>
+    <string name="settings">الإعدادات</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="progress">التقدم</string>
+    <string name="lessons">الدروس</string>
+    <string name="practice">الممارسة</string>
+    
+    <!-- Common Labels -->
+    <string name="welcome">مرحباً</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="sign_up">إنشاء حساب</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="name">الاسم</string>
+    <string name="loading">جاري التحميل...</string>
+    <string name="error">خطأ</string>
+    <string name="success">نجاح</string>
+    <string name="warning">تحذير</string>
+    <string name="info">معلومات</string>
+    
+    <!-- Home Screen -->
+    <string name="daily_streak">الحماس اليومي</string>
+    <string name="days">أيام</string>
+    <string name="current_lesson">الدرس الحالي</string>
+    <string name="continue_learning">متابعة التعلم</string>
+    <string name="start_lesson">بدء الدرس</string>
+    <string name="your_progress">تقدمك</string>
+    <string name="today_goal">هدف اليوم</string>
+    <string name="weekly_stats">الإحصائيات الأسبوعية</string>
+    <string name="total_time">الوقت الإجمالي</string>
+    <string name="accuracy">الدقة</string>
+    <string name="completed">مكتمل</string>
+    <string name="in_progress">قيد التقدم</string>
+    
+    <!-- Learning Path -->
+    <string name="learning_path">مسار التعلم</string>
+    <string name="modules">الوحدات</string>
+    <string name="lessons_completed">الدروس المكتملة</string>
+    <string name="next_lesson">الدرس التالي</string>
+    <string name="locked">مغلق</string>
+    <string name="unlocked">مفتوح</string>
+    <string name="start">ابدأ</string>
+    <string name="resume">استئناف</string>
+    
+    <!-- Vocabulary -->
+    <string name="vocabulary">المفردات</string>
+    <string name="vocab_builder">بناء المفردات</string>
+    <string name="new_words">كلمات جديدة</string>
+    <string name="review">مراجعة</string>
+    <string name="mastered">متقن</string>
+    <string name="learning">جاري تعلمها</string>
+    <string name="add_word">إضافة كلمة</string>
+    <string name="word">كلمة</string>
+    <string name="translation">الترجمة</string>
+    <string name="example">مثال</string>
+    <string name="pronunciation">النطق</string>
+    
+    <!-- Mistakes / Vault -->
+    <string name="mistake_vault">خزنة الأخطاء</string>
+    <string name="mistakes">الأخطاء</string>
+    <string name="review_mistakes">مراجعة الأخطاء</string>
+    <string name="common_mistakes">الأخطاء الشائعة</string>
+    <string name="fix_mistakes">تصحيح الأخطاء</string>
+    <string name="no_mistakes">لا توجد أخطاء بعد!</string>
+    <string name="keep_practicing">استمر في الممارسة</string>
+    
+    <!-- Flashcards -->
+    <string name="flashcards">البطاقات التعليمية</string>
+    <string name="flip_card">اقلب البطاقة</string>
+    <string name="next_card">البطاقة التالية</string>
+    <string name="previous_card">البطاقة السابقة</string>
+    <string name="cards_remaining">البطاقات المتبقية</string>
+    
+    <!-- Duel / Challenge -->
+    <string name="timely_duel">تحدي الوقت</string>
+    <string name="challenge">تحدي</string>
+    <string name="versus">ضد</string>
+    <string name="score">النتيجة</string>
+    <string name="time_remaining">الوقت المتبقي</string>
+    <string name="round">الجولة</string>
+    <string name="you_won">لقد فزت!</string>
+    <string name="you_lost">لقد خسرت</string>
+    <string name="draw">تعادل</string>
+    
+    <!-- AI Lab -->
+    <string name="ai_lab">مختبر الذكاء الاصطناعي</string>
+    <string name="practice_with_ai">الممارسة مع الذكاء الاصطناعي</string>
+    <string name="conversation">المحادثة</string>
+    <string name="grammar_check">تدقيق القواعد</string>
+    <string name="pronunciation_practice">تدريب النطق</string>
+    <string name="ask_ai">اسأل الذكاء الاصطناعي</string>
+    <string name="ai_tutor">معلم الذكاء الاصطناعي</string>
+    
+    <!-- Assessment -->
+    <string name="assessment">التقييم</string>
+    <string name="take_assessment">إجراء التقييم</string>
+    <string name="skill_level">مستوى المهارة</string>
+    <string name="beginner">مبتدئ</string>
+    <string name="intermediate">متوسط</string>
+    <string name="advanced">متقدم</string>
+    <string name="skill_native">متحدث أصلي</string>
+    
+    <!-- Settings -->
+    <string name="app_settings">إعدادات التطبيق</string>
+    <string name="language_settings">إعدادات اللغة</string>
+    <string name="app_language">لغة التطبيق</string>
+    <string name="learning_language">اللغة المراد تعلمها</string>
+    <string name="notifications">الإشعارات</string>
+    <string name="sound">الصوت</string>
+    <string name="vibration">الاهتزاز</string>
+    <string name="dark_mode">الوضع الداكن</string>
+    <string name="account">الحساب</string>
+    <string name="privacy">الخصوصية</string>
+    <string name="about">حول التطبيق</string>
+    <string name="help">المساعدة</string>
+    <string name="feedback">الآراء والتعليقات</string>
+    <string name="rate_app">تقييم التطبيق</string>
+    <string name="share_app">مشاركة التطبيق</string>
+    <string name="version">الإصدار</string>
+    
+    <!-- Notifications -->
+    <string name="daily_reminder">التذكير اليومي</string>
+    <string name="practice_reminder">تذكير بالممارسة</string>
+    <string name="streak_reminder">تذكير بالحماس اليومي</string>
+    <string name="achievement_unlocked">تم فتح إنجاز جديد!</string>
+    
+    <!-- Stats & Progress -->
+    <string name="statistics">الإحصائيات</string>
+    <string name="analytics">التحليلات</string>
+    <string name="daily_goal">الهدف اليومي</string>
+    <string name="weekly_goal">الهدف الأسبوعي</string>
+    <string name="monthly_goal">الهدف الشهري</string>
+    <string name="total_lessons">إجمالي الدروس</string>
+    <string name="study_time">وقت الدراسة</string>
+    <string name="words_learned">الكلمات التي تعلمتها</string>
+    <string name="exercises_completed">التمارين المكتملة</string>
+    <string name="current_streak">الحماس الحالي</string>
+    <string name="longest_streak">أطول حماس يومي</string>
+    <string name="achievements">الإنجازات</string>
+    
+    <!-- Lessons -->
+    <string name="lesson">الدرس</string>
+    <string name="lesson_complete">اكتمل الدرس!</string>
+    <string name="lesson_progress">تقدم الدرس</string>
+    <string name="exercise">تمرين</string>
+    <string name="quiz">اختبار قصير</string>
+    <string name="test">اختبار</string>
+    <string name="reading">القراءة</string>
+    <string name="writing">الكتابة</string>
+    <string name="listening">الاستماع</string>
+    <string name="speaking">المحادثة</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_aboard">مرحباً بك معنا!</string>
+    <string name="get_started">ابدأ الآن</string>
+    <string name="select_learning_language">اختر اللغة التي تريد تعلمها</string>
+    <string name="why_learning">لماذا تتعلم هذه اللغة؟</string>
+    <string name="study_goal">هدف الدراسة</string>
+    <string name="minutes_per_day">دقائق في اليوم</string>
+    <string name="set_daily_goal">تحديد الهدف اليومي</string>
+    <string name="profile_setup">إعداد الملف الشخصي</string>
+    <string name="complete_profile">أكمل ملفك الشخصي</string>
+    
+    <!-- Goals -->
+    <string name="goal_casual">عادي - ٥ دقائق/يوم</string>
+    <string name="goal_regular">منتظم - ١٠ دقائق/يوم</string>
+    <string name="goal_serious">جادي - ١٥ دقيقة/يوم</string>
+    <string name="goal_intense">مكثف - ٢٠ دقيقة/يوم</string>
+    
+    <!-- Motivation -->
+    <string name="travel">السفر</string>
+    <string name="work">العمل</string>
+    <string name="school">الدراسة</string>
+    <string name="culture">الثقافة</string>
+    <string name="family">العائلة</string>
+    <string name="brain_training">تدريب العقل</string>
+    <string name="other">أخرى</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">خطأ في الشبكة. يرجى التحقق من الاتصال.</string>
+    <string name="error_loading">خطأ في تحميل البيانات</string>
+    <string name="error_unknown">حدث خطأ غير معروف</string>
+    <string name="error_server">خطأ في الخادم. يرجى المحاولة لاحقاً.</string>
+    <string name="error_invalid_input">إدخال غير صحيح</string>
+    <string name="error_required_field">هذا الحقل مطلوب</string>
+    
+    <!-- Success Messages -->
+    <string name="success_saved">تم الحفظ بنجاح!</string>
+    <string name="success_completed">اكتمل بنجاح!</string>
+    <string name="success_updated">تم التحديث بنجاح!</string>
+    
+    <!-- Empty States -->
+    <string name="no_data">لا توجد بيانات متاحة</string>
+    <string name="no_lessons">لا توجد دروس متاحة</string>
+    <string name="no_vocabulary">لا توجد مفردات بعد</string>
+    <string name="no_progress">لا يوجد تقدم بعد</string>
+    <string name="start_learning_now">ابدأ التعلم الآن!</string>
+    
+    <!-- Time -->
+    <string name="today">اليوم</string>
+    <string name="yesterday">أمس</string>
+    <string name="this_week">هذا الأسبوع</string>
+    <string name="this_month">هذا الشهر</string>
+    <string name="minutes">دقائق</string>
+    <string name="hours">ساعات</string>
+    <string name="seconds">ثواني</string>
+    
+    <!-- Language Names (for reference) -->
+    <string name="lang_system">افتراضي النظام</string>
+    <string name="lang_english">الإنجليزية</string>
+    <string name="lang_hindi">الهندية</string>
+    <string name="lang_spanish">الإسبانية</string>
+    <string name="lang_french">الفرنسية</string>
+    <string name="lang_german">الألمانية</string>
+    <string name="lang_italian">الإيطالية</string>
+    <string name="lang_portuguese">البرتغالية</string>
+    <string name="lang_russian">الروسية</string>
+    <string name="lang_japanese">اليابانية</string>
+    <string name="lang_korean">الكورية</string>
+    <string name="lang_chinese">الصينية المندرينية</string>
+    <string name="lang_arabic">العربية</string>
+    <string name="lang_turkish">التركية</string>
+    <string name="lang_vietnamese">الفيتنامية</string>
+</resources>

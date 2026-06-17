@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">LingoCoach</string>
+    
+    <!-- Language Selection Screen -->
+    <string name="choose_language">Выберите язык</string>
+    <string name="select_preferred_language">Выберите предпочитаемый язык</string>
+    <string name="search_languages">Поиск языков...</string>
+    <string name="no_languages_found">Языки не найдены для \"%1$s\"</string>
+    
+    <!-- Common Actions -->
+    <string name="done">Готово</string>
+    <string name="back">Назад</string>
+    <string name="next">Далее</string>
+    <string name="skip">Пропустить</string>
+    <string name="continue_text">Продолжить</string>
+    <string name="submit">Отправить</string>
+    <string name="cancel">Отмена</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="edit">Редактировать</string>
+    <string name="ok">OK</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="retry">Повторить</string>
+    <string name="close">Закрыть</string>
+    
+    <!-- Navigation -->
+    <string name="home">Главная</string>
+    <string name="settings">Настройки</string>
+    <string name="profile">Профиль</string>
+    <string name="progress">Прогресс</string>
+    <string name="lessons">Уроки</string>
+    <string name="practice">Практика</string>
+    
+    <!-- Common Labels -->
+    <string name="welcome">Добро пожаловать</string>
+    <string name="logout">Выйти</string>
+    <string name="login">Войти</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="email">Эл. почта</string>
+    <string name="password">Пароль</string>
+    <string name="username">Имя пользователя</string>
+    <string name="name">Имя</string>
+    <string name="loading">Загрузка...</string>
+    <string name="error">Ошибка</string>
+    <string name="success">Успешно</string>
+    <string name="warning">Предупреждение</string>
+    <string name="info">Информация</string>
+    
+    <!-- Home Screen -->
+    <string name="daily_streak">Ударный режим</string>
+    <string name="days">дн.</string>
+    <string name="current_lesson">Текущий урок</string>
+    <string name="continue_learning">Продолжить обучение</string>
+    <string name="start_lesson">Начать урок</string>
+    <string name="your_progress">Ваш прогресс</string>
+    <string name="today_goal">Цель на сегодня</string>
+    <string name="weekly_stats">Статистика за неделю</string>
+    <string name="total_time">Общее время</string>
+    <string name="accuracy">Точность</string>
+    <string name="completed">Завершено</string>
+    <string name="in_progress">В процессе</string>
+    
+    <!-- Learning Path -->
+    <string name="learning_path">План обучения</string>
+    <string name="modules">Модули</string>
+    <string name="lessons_completed">Пройдено уроков</string>
+    <string name="next_lesson">Следующий урок</string>
+    <string name="locked">Заблокировано</string>
+    <string name="unlocked">Разблокировано</string>
+    <string name="start">Начать</string>
+    <string name="resume">Продолжить</string>
+    
+    <!-- Vocabulary -->
+    <string name="vocabulary">Словарный запас</string>
+    <string name="vocab_builder">Изучение слов</string>
+    <string name="new_words">Новые слова</string>
+    <string name="review">Повторение</string>
+    <string name="mastered">Изучено</string>
+    <string name="learning">В процессе изучения</string>
+    <string name="add_word">Добавить слово</string>
+    <string name="word">Слово</string>
+    <string name="translation">Перевод</string>
+    <string name="example">Пример</string>
+    <string name="pronunciation">Произношение</string>
+    
+    <!-- Mistakes / Vault -->
+    <string name="mistake_vault">Копилка ошибок</string>
+    <string name="mistakes">Ошибки</string>
+    <string name="review_mistakes">Работа над ошибками</string>
+    <string name="common_mistakes">Частые ошибки</string>
+    <string name="fix_mistakes">Исправить ошибки</string>
+    <string name="no_mistakes">Пока нет ошибок!</string>
+    <string name="keep_practicing">Продолжайте тренироваться</string>
+    
+    <!-- Flashcards -->
+    <string name="flashcards">Карточки</string>
+    <string name="flip_card">Перевернуть карточку</string>
+    <string name="next_card">Следующая карточка</string>
+    <string name="previous_card">Предыдущая карточка</string>
+    <string name="cards_remaining">Осталось карточек</string>
+    
+    <!-- Duel / Challenge -->
+    <string name="timely_duel">Дуэль на время</string>
+    <string name="challenge">Вызов</string>
+    <string name="versus">Против</string>
+    <string name="score">Счет</string>
+    <string name="time_remaining">Осталось времени</string>
+    <string name="round">Раунд</string>
+    <string name="you_won">Вы победили!</string>
+    <string name="you_lost">Вы проиграли</string>
+    <string name="draw">Ничья</string>
+    
+    <!-- AI Lab -->
+    <string name="ai_lab">AI Лаборатория</string>
+    <string name="practice_with_ai">Практика с AI</string>
+    <string name="conversation">Разговор</string>
+    <string name="grammar_check">Проверка грамматики</string>
+    <string name="pronunciation_practice">Практика произношения</string>
+    <string name="ask_ai">Спросить AI</string>
+    <string name="ai_tutor">AI Репетитор</string>
+    
+    <!-- Assessment -->
+    <string name="assessment">Оценка уровня</string>
+    <string name="take_assessment">Пройти тест</string>
+    <string name="skill_level">Уровень навыков</string>
+    <string name="beginner">Начальный</string>
+    <string name="intermediate">Средний</string>
+    <string name="advanced">Продвинутый</string>
+    <string name="skill_native">Носитель языка</string>
+    
+    <!-- Settings -->
+    <string name="app_settings">Настройки приложения</string>
+    <string name="language_settings">Настройки языка</string>
+    <string name="app_language">Язык приложения</string>
+    <string name="learning_language">Изучаемый язык</string>
+    <string name="notifications">Уведомления</string>
+    <string name="sound">Звук</string>
+    <string name="vibration">Вибрация</string>
+    <string name="dark_mode">Темная тема</string>
+    <string name="account">Аккаунт</string>
+    <string name="privacy">Конфиденциальность</string>
+    <string name="about">О приложении</string>
+    <string name="help">Помощь</string>
+    <string name="feedback">Обратная связь</string>
+    <string name="rate_app">Оценить приложение</string>
+    <string name="share_app">Поделиться приложением</string>
+    <string name="version">Версия</string>
+    
+    <!-- Notifications -->
+    <string name="daily_reminder">Ежедневное напоминание</string>
+    <string name="practice_reminder">Напоминание о практике</string>
+    <string name="streak_reminder">Напоминание об ударном режиме</string>
+    <string name="achievement_unlocked">Достижение разблокировано!</string>
+    
+    <!-- Stats & Progress -->
+    <string name="statistics">Статистика</string>
+    <string name="analytics">Аналитика</string>
+    <string name="daily_goal">Цель на день</string>
+    <string name="weekly_goal">Цель на неделю</string>
+    <string name="monthly_goal">Цель на месяц</string>
+    <string name="total_lessons">Всего уроков</string>
+    <string name="study_time">Время обучения</string>
+    <string name="words_learned">Изучено слов</string>
+    <string name="exercises_completed">Выполнено упражнений</string>
+    <string name="current_streak">Текущая серия</string>
+    <string name="longest_streak">Лучшая серия</string>
+    <string name="achievements">Достижения</string>
+    
+    <!-- Lessons -->
+    <string name="lesson">Урок</string>
+    <string name="lesson_complete">Урок завершен!</string>
+    <string name="lesson_progress">Прогресс урока</string>
+    <string name="exercise">Упражнение</string>
+    <string name="quiz">Квиз</string>
+    <string name="test">Тест</string>
+    <string name="reading">Чтение</string>
+    <string name="writing">Письмо</string>
+    <string name="listening">Аудирование</string>
+    <string name="speaking">Говорение</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_aboard">Добро пожаловать на борт!</string>
+    <string name="get_started">Начать</string>
+    <string name="select_learning_language">Выберите язык, который хотите учить</string>
+    <string name="why_learning">Почему вы учите язык?</string>
+    <string name="study_goal">Цель обучения</string>
+    <string name="minutes_per_day">мин / день</string>
+    <string name="set_daily_goal">Установить цель на день</string>
+    <string name="profile_setup">Настройка профиля</string>
+    <string name="complete_profile">Заполните свой профиль</string>
+    
+    <!-- Goals -->
+    <string name="goal_casual">Легкий — 5 мин/день</string>
+    <string name="goal_regular">Обычный — 10 min/день</string>
+    <string name="goal_serious">Серьезный — 15 мин/день</string>
+    <string name="goal_intense">Интенсивный — 20 мин/день</string>
+    
+    <!-- Motivation -->
+    <string name="travel">Путешествия</string>
+    <string name="work">Работа / Карьера</string>
+    <string name="school">Школа / Учеба</string>
+    <string name="culture">Культура / Хобби</string>
+    <string name="family">Семья / Друзья</string>
+    <string name="brain_training">Тренировка мозга</string>
+    <string name="other">Другое</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">Ошибка сети. Пожалуйста, проверьте подключение.</string>
+    <string name="error_loading">Ошибка загрузки данных</string>
+    <string name="error_unknown">Произошла неизвестная ошибка</string>
+    <string name="error_server">Ошибка сервера. Пожалуйста, попробуйте позже.</string>
+    <string name="error_invalid_input">Некорректный ввод</string>
+    <string name="error_required_field">Это поле обязательно для заполнения</string>
+    
+    <!-- Success Messages -->
+    <string name="success_saved">Успешно сохранено!</string>
+    <string name="success_completed">Успешно завершено!</string>
+    <string name="success_updated">Успешно обновлено!</string>
+    
+    <!-- Empty States -->
+    <string name="no_data">Нет доступных данных</string>
+    <string name="no_lessons">Нет доступных уроков</string>
+    <string name="no_vocabulary">Словарь пока пуст</string>
+    <string name="no_progress">Прогресс пока отсутствует</string>
+    <string name="start_learning_now">Начните учиться прямо сейчас!</string>
+    
+    <!-- Time -->
+    <string name="today">Сегодня</string>
+    <string name="yesterday">Вчера</string>
+    <string name="this_week">На этой неделе</string>
+    <string name="this_month">В этом месяце</string>
+    <string name="minutes">минут</string>
+    <string name="hours">часов</string>
+    <string name="seconds">секунд</string>
+    
+    <!-- Language Names (for reference) -->
+    <string name="lang_system">Системный по умолчанию</string>
+    <string name="lang_english">Английский</string>
+    <string name="lang_hindi">Хинди</string>
+    <string name="lang_spanish">Испанский</string>
+    <string name="lang_french">Французский</string>
+    <string name="lang_german">Немецкий</string>
+    <string name="lang_italian">Итальянский</string>
+    <string name="lang_portuguese">Португальский</string>
+    <string name="lang_russian">Русский</string>
+    <string name="lang_japanese">Японский</string>
+    <string name="lang_korean">Корейский</string>
+    <string name="lang_chinese">Китайский (Мандарин)</string>
+    <string name="lang_arabic">Арабский</string>
+    <string name="lang_turkish">Турецкий</string>
+    <string name="lang_vietnamese">Вьетнамский</string>
+</resources>

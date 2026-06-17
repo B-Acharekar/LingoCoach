@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">LingoCoach</string>
+    
+    <!-- Language Selection Screen -->
+    <string name="choose_language">भाषा चुनें</string>
+    <string name="select_preferred_language">अपनी पसंदीदा भाषा चुनें</string>
+    <string name="search_languages">भाषाएं खोजें...</string>
+    <string name="no_languages_found">\"%1$s\" के लिए कोई भाषा नहीं मिली</string>
+    
+    <!-- Common Actions -->
+    <string name="done">पूर्ण</string>
+    <string name="back">वापस</string>
+    <string name="next">आगे</string>
+    <string name="skip">छोड़ें</string>
+    <string name="continue_text">जारी रखें</string>
+    <string name="submit">जमा करें</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="save">सहेजें</string>
+    <string name="delete">हटाएं</string>
+    <string name="edit">संपादित करें</string>
+    <string name="ok">ठीक है</string>
+    <string name="yes">हाँ</string>
+    <string name="no">नहीं</string>
+    <string name="retry">पुनः प्रयास करें</string>
+    <string name="close">बंद करें</string>
+    
+    <!-- Navigation -->
+    <string name="home">होम</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="profile">प्रोफ़ाइल</string>
+    <string name="progress">प्रगति</string>
+    <string name="lessons">पाठ</string>
+    <string name="practice">अभ्यास</string>
+    
+    <!-- Common Labels -->
+    <string name="welcome">स्वागत है</string>
+    <string name="logout">लॉगआउट</string>
+    <string name="login">लॉगिन</string>
+    <string name="sign_up">साइन अप करें</string>
+    <string name="email">ईमेल</string>
+    <string name="password">पासवर्ड</string>
+    <string name="username">यूज़रनेम</string>
+    <string name="name">नाम</string>
+    <string name="loading">लोड हो रहा है...</string>
+    <string name="error">त्रुटि</string>
+    <string name="success">सफलता</string>
+    <string name="warning">चेतावनी</string>
+    <string name="info">जानकारी</string>
+    
+    <!-- Home Screen -->
+    <string name="daily_streak">दैनिक स्ट्रीक</string>
+    <string name="days">दिन</string>
+    <string name="current_lesson">वर्तमान पाठ</string>
+    <string name="continue_learning">सीखना जारी रखें</string>
+    <string name="start_lesson">पाठ शुरू करें</string>
+    <string name="your_progress">आपकी प्रगति</string>
+    <string name="today_goal">आज का लक्ष्य</string>
+    <string name="weekly_stats">साप्ताहिक आँकड़े</string>
+    <string name="total_time">कुल समय</string>
+    <string name="accuracy">सटीकता</string>
+    <string name="completed">पूरा हुआ</string>
+    <string name="in_progress">प्रगति पर है</string>
+    
+    <!-- Learning Path -->
+    <string name="learning_path">सीखने का मार्ग</string>
+    <string name="modules">मॉड्यूल</string>
+    <string name="lessons_completed">पूरे किए गए पाठ</string>
+    <string name="next_lesson">अगला पाठ</string>
+    <string name="locked">लॉक है</string>
+    <string name="unlocked">अनलॉक है</string>
+    <string name="start">शुरू करें</string>
+    <string name="resume">पुनः शुरू करें</string>
+    
+    <!-- Vocabulary -->
+    <string name="vocabulary">शब्दावली</string>
+    <string name="vocab_builder">शब्दावली निर्माता</string>
+    <string name="new_words">नए शब्द</string>
+    <string name="review">समीक्षा</string>
+    <string name="mastered">महारत हासिल की</string>
+    <string name="learning">सीख रहे हैं</string>
+    <string name="add_word">शब्द जोड़ें</string>
+    <string name="word">शब्द</string>
+    <string name="translation">अनुवाद</string>
+    <string name="example">उदाहरण</string>
+    <string name="pronunciation">उच्चारण</string>
+    
+    <!-- Mistakes / Vault -->
+    <string name="mistake_vault">गलती तिजोरी</string>
+    <string name="mistakes">गलतियाँ</string>
+    <string name="review_mistakes">गलतियों की समीक्षा करें</string>
+    <string name="common_mistakes">आम गलतियाँ</string>
+    <string name="fix_mistakes">गलतियाँ सुधारें</string>
+    <string name="no_mistakes">अभी तक कोई गलती नहीं!</string>
+    <string name="keep_practicing">अभ्यास जारी रखें</string>
+    
+    <!-- Flashcards -->
+    <string name="flashcards">फ्लैशकार्ड</string>
+    <string name="flip_card">कार्ड पलटें</string>
+    <string name="next_card">अगला कार्ड</string>
+    <string name="previous_card">पिछला कार्ड</string>
+    <string name="cards_remaining">शेष कार्ड</string>
+    
+    <!-- Duel / Challenge -->
+    <string name="timely_duel">समयबद्ध द्वंद्व</string>
+    <string name="challenge">चुनौती</string>
+    <string name="versus">बनाम</string>
+    <string name="score">स्कोर</string>
+    <string name="time_remaining">शेष समय</string>
+    <string name="round">राउंड</string>
+    <string name="you_won">आप जीत गए!</string>
+    <string name="you_lost">आप हार गए</string>
+    <string name="draw">बराबरी</string>
+    
+    <!-- AI Lab -->
+    <string name="ai_lab">एआई लैब</string>
+    <string name="practice_with_ai">एआई के साथ अभ्यास करें</string>
+    <string name="conversation">बातचीत</string>
+    <string name="grammar_check">व्याकरण जांच</string>
+    <string name="pronunciation_practice">उच्चारण अभ्यास</string>
+    <string name="ask_ai">एआई से पूछें</string>
+    <string name="ai_tutor">एआई ट्यूटर</string>
+    
+    <!-- Assessment -->
+    <string name="assessment">मूल्यांकन</string>
+    <string name="take_assessment">मूल्यांकन दें</string>
+    <string name="skill_level">कौशल स्तर</string>
+    <string name="beginner">शुरुआती</string>
+    <string name="intermediate">मध्यम</string>
+    <string name="advanced">उन्नत</string>
+    <string name="skill_native">मूल निवासी</string>
+    
+    <!-- Settings -->
+    <string name="app_settings">ऐप सेटिंग्स</string>
+    <string name="language_settings">भाषा सेटिंग्स</string>
+    <string name="app_language">ऐप की भाषा</string>
+    <string name="learning_language">सीखने की भाषा</string>
+    <string name="notifications">अधिसूचनाएं</string>
+    <string name="sound">ध्वनि</string>
+    <string name="vibration">कंपन</string>
+    <string name="dark_mode">डार्क मोड</string>
+    <string name="account">खाता</string>
+    <string name="privacy">गोपनीयता</string>
+    <string name="about">ऐप के बारे में</string>
+    <string name="help">सहायता</string>
+    <string name="feedback">प्रतिक्रिया</string>
+    <string name="rate_app">ऐप को रेट करें</string>
+    <string name="share_app">ऐप साझा करें</string>
+    <string name="version">वर्शन</string>
+    
+    <!-- Notifications -->
+    <string name="daily_reminder">दैनिक अनुस्मारक</string>
+    <string name="practice_reminder">अभ्यास अनुस्मारक</string>
+    <string name="streak_reminder">स्ट्रीक अनुस्मारक</string>
+    <string name="achievement_unlocked">उपलब्धि अनलॉक हुई!</string>
+    
+    <!-- Stats & Progress -->
+    <string name="statistics">आँकड़े</string>
+    <string name="analytics">विश्लेषण</string>
+    <string name="daily_goal">दैनिक लक्ष्य</string>
+    <string name="weekly_goal">साप्ताहिक लक्ष्य</string>
+    <string name="monthly_goal">मासिक लक्ष्य</string>
+    <string name="total_lessons">कुल पाठ</string>
+    <string name="study_time">अध्ययन का समय</string>
+    <string name="words_learned">सीखे गए शब्द</string>
+    <string name="exercises_completed">पूरे किए गए व्यायाम</string>
+    <string name="current_streak">वर्तमान स्ट्रीक</string>
+    <string name="longest_streak">सबसे लंबी स्ट्रीक</string>
+    <string name="achievements">उपलब्धियां</string>
+    
+    <!-- Lessons -->
+    <string name="lesson">पाठ</string>
+    <string name="lesson_complete">पाठ पूरा हुआ!</string>
+    <string name="lesson_progress">पाठ की प्रगति</string>
+    <string name="exercise">व्यायाम</string>
+    <string name="quiz">क्विज़</string>
+    <string name="test">टेस्ट</string>
+    <string name="reading">पढ़ना</string>
+    <string name="writing">लिखना</string>
+    <string name="listening">सुनना</string>
+    <string name="speaking">बोलना</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_aboard">आपका स्वागत है!</string>
+    <string name="get_started">शुरू करें</string>
+    <string name="select_learning_language">अपनी सीखने की भाषा चुनें</string>
+    <string name="why_learning">आप क्यों सीख रहे हैं?</string>
+    <string name="study_goal">अध्ययन का लक्ष्य</string>
+    <string name="minutes_per_day">मिनट प्रति दिन</string>
+    <string name="set_daily_goal">दैनिक लक्ष्य निर्धारित करें</string>
+    <string name="profile_setup">प्रोफ़ाइल सेटअप</string>
+    <string name="complete_profile">अपनी प्रोफ़ाइल पूरी करें</string>
+    
+    <!-- Goals -->
+    <string name="goal_casual">सामान्य - 5 मिनट/दिन</string>
+    <string name="goal_regular">नियमित - 10 मिनट/दिन</string>
+    <string name="goal_serious">गंभीर - 15 मिनट/दिन</string>
+    <string name="goal_intense">गहन - 20 मिनट/दिन</string>
+    
+    <!-- Motivation -->
+    <string name="travel">यात्रा</string>
+    <string name="work">काम</string>
+    <string name="school">स्कूल / पढ़ाई</string>
+    <string name="culture">संस्कृति</string>
+    <string name="family">परिवार</string>
+    <string name="brain_training">मस्तिष्क प्रशिक्षण</string>
+    <string name="other">अन्य</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">नेटवर्क त्रुटि। कृपया अपना कनेक्शन जांचें।</string>
+    <string name="error_loading">डेटा लोड करने में त्रुटि</string>
+    <string name="error_unknown">एक अज्ञात त्रुटि उत्पन्न हुई</string>
+    <string name="error_server">सर्वर त्रुटि। कृपया बाद में पुनः प्रयास करें।</string>
+    <string name="error_invalid_input">अमान्य इनपुट</string>
+    <string name="error_required_field">यह फ़ील्ड अनिवार्य है</string>
+    
+    <!-- Success Messages -->
+    <string name="success_saved">सफलतापूर्वक सहेजा गया!</string>
+    <string name="success_completed">सफलतापूर्वक पूरा हुआ!</string>
+    <string name="success_updated">सफलतापूर्वक अपडेट किया गया!</string>
+    
+    <!-- Empty States -->
+    <string name="no_data">कोई डेटा उपलब्ध नहीं है</string>
+    <string name="no_lessons">कोई पाठ उपलब्ध नहीं है</string>
+    <string name="no_vocabulary">अभी तक कोई शब्दावली नहीं है</string>
+    <string name="no_progress">अभी तक कोई प्रगति नहीं हुई है</string>
+    <string name="start_learning_now">अभी सीखना शुरू करें!</string>
+    
+    <!-- Time -->
+    <string name="today">आज</string>
+    <string name="yesterday">कल</string>
+    <string name="this_week">इस सप्ताह</string>
+    <string name="this_month">इस महीने</string>
+    <string name="minutes">मिनट</string>
+    <string name="hours">घंटे</string>
+    <string name="seconds">सेकंड</string>
+    
+    <!-- Language Names (for reference) -->
+    <string name="lang_system">सिस्टम डिफ़ॉल्ट</string>
+    <string name="lang_english">अंग्रेज़ी</string>
+    <string name="lang_hindi">हिंदी</string>
+    <string name="lang_spanish">स्पैनिश</string>
+    <string name="lang_french">फ़्रेंच</string>
+    <string name="lang_german">जर्मन</string>
+    <string name="lang_italian">इतालवी</string>
+    <string name="lang_portuguese">पुर्तगाली</string>
+    <string name="lang_russian">रूसी</string>
+    <string name="lang_japanese">जापानी</string>
+    <string name="lang_korean">कोरियाई</string>
+    <string name="lang_chinese">मंदारिन चीनी</string>
+    <string name="lang_arabic">अरबी</string>
+    <string name="lang_turkish">तुर्की</string>
+    <string name="lang_vietnamese">वियतनामी</string>
+</resources>

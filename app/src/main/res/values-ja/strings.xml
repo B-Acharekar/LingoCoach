@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">LingoCoach</string>
+    
+    <!-- Language Selection Screen -->
+    <string name="choose_language">言語を選択</string>
+    <string name="select_preferred_language">希望の言語を選択してください</string>
+    <string name="search_languages">言語を検索...</string>
+    <string name="no_languages_found">\"%1$s\" の言語が見つかりませんでした</string>
+    
+    <!-- Common Actions -->
+    <string name="done">完了</string>
+    <string name="back">戻る</string>
+    <string name="next">次へ</string>
+    <string name="skip">スキップ</string>
+    <string name="continue_text">続行</string>
+    <string name="submit">送信</string>
+    <string name="cancel">キャンセル</string>
+    <string name="save">保存</string>
+    <string name="delete">削除</string>
+    <string name="edit">編集</string>
+    <string name="ok">OK</string>
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+    <string name="retry">再試行</string>
+    <string name="close">閉じる</string>
+    
+    <!-- Navigation -->
+    <string name="home">ホーム</string>
+    <string name="settings">設定</string>
+    <string name="profile">プロフィール</string>
+    <string name="progress">進捗</string>
+    <string name="lessons">レッスン</string>
+    <string name="practice">練習</string>
+    
+    <!-- Common Labels -->
+    <string name="welcome">ようこそ</string>
+    <string name="logout">ログアウト</string>
+    <string name="login">ログイン</string>
+    <string name="sign_up">新規登録</string>
+    <string name="email">メールアドレス</string>
+    <string name="password">パスワード</string>
+    <string name="username">ユーザー名</string>
+    <string name="name">氏名</string>
+    <string name="loading">読み込み中...</string>
+    <string name="error">エラー</string>
+    <string name="success">成功</string>
+    <string name="warning">警告</string>
+    <string name="info">情報</string>
+    
+    <!-- Home Screen -->
+    <string name="daily_streak">連続達成日数</string>
+    <string name="days">日</string>
+    <string name="current_lesson">現在のレッスン</string>
+    <string name="continue_learning">学習を続ける</string>
+    <string name="start_lesson">レッスンを開始</string>
+    <string name="your_progress">あなたの進捗</string>
+    <string name="today_goal">今日の目標</string>
+    <string name="weekly_stats">今週の統計</string>
+    <string name="total_time">合計時間</string>
+    <string name="accuracy">正解率</string>
+    <string name="completed">完了</string>
+    <string name="in_progress">進行中</string>
+    
+    <!-- Learning Path -->
+    <string name="learning_path">学習ロードマップ</string>
+    <string name="modules">モジュール</string>
+    <string name="lessons_completed">完了したレッスン</string>
+    <string name="next_lesson">次のレッスン</string>
+    <string name="locked">ロック中</string>
+    <string name="unlocked">ロック解除</string>
+    <string name="start">スタート</string>
+    <string name="resume">再開</string>
+    
+    <!-- Vocabulary -->
+    <string name="vocabulary">単語</string>
+    <string name="vocab_builder">ボキャブラリー作成</string>
+    <string name="new_words">新しい単語</string>
+    <string name="review">復習</string>
+    <string name="mastered">習得済み</string>
+    <string name="learning">学習中</string>
+    <string name="add_word">単語を追加</string>
+    <string name="word">単語</string>
+    <string name="translation">翻訳</string>
+    <string name="example">例文</string>
+    <string name="pronunciation">発音</string>
+    
+    <!-- Mistakes / Vault -->
+    <string name="mistake_vault">苦手フォルダ</string>
+    <string name="mistakes">間違い</string>
+    <string name="review_mistakes">間違いを復習</string>
+    <string name="common_mistakes">よくある間違い</string>
+    <string name="fix_mistakes">間違いを修正</string>
+    <string name="no_mistakes">まだ間違いはありません！</string>
+    <string name="keep_practicing">この調子で練習を続けましょう</string>
+    
+    <!-- Flashcards -->
+    <string name="flashcards">フラッシュカード</string>
+    <string name="flip_card">カードをめくる</string>
+    <string name="next_card">次のカード</string>
+    <string name="previous_card">前のカード</string>
+    <string name="cards_remaining">残りのカード</string>
+    
+    <!-- Duel / Challenge -->
+    <string name="timely_duel">タイムアタック</string>
+    <string name="challenge">チャレンジ</string>
+    <string name="versus">VS</string>
+    <string name="score">スコア</string>
+    <string name="time_remaining">残り時間</string>
+    <string name="round">ラウンド</string>
+    <string name="you_won">あなたの勝ち！</string>
+    <string name="you_lost">あなたの負け</string>
+    <string name="draw">引き分け</string>
+    
+    <!-- AI Lab -->
+    <string name="ai_lab">AIラボ</string>
+    <string name="practice_with_ai">AIと練習する</string>
+    <string name="conversation">フリートーク</string>
+    <string name="grammar_check">文法チェック</string>
+    <string name="pronunciation_practice">発音の練習</string>
+    <string name="ask_ai">AIに質問する</string>
+    <string name="ai_tutor">AIチューター</string>
+    
+    <!-- Assessment -->
+    <string name="assessment">レベル診断</string>
+    <string name="take_assessment">テストを受ける</string>
+    <string name="skill_level">スキルレベル</string>
+    <string name="beginner">初級</string>
+    <string name="intermediate">中級</string>
+    <string name="advanced">上級</string>
+    <string name="skill_native">ネイティブ</string>
+    
+    <!-- Settings -->
+    <string name="app_settings">アプリ設定</string>
+    <string name="language_settings">言語設定</string>
+    <string name="app_language">表示言語</string>
+    <string name="learning_language">学習中の言語</string>
+    <string name="notifications">通知</string>
+    <string name="sound">音声</string>
+    <string name="vibration">バイブレーション</string>
+    <string name="dark_mode">ダークモード</string>
+    <string name="account">アカウント</string>
+    <string name="privacy">プライバシー</string>
+    <string name="about">このアプリについて</string>
+    <string name="help">ヘルプ</string>
+    <string name="feedback">フィードバック</string>
+    <string name="rate_app">アプリを評価</string>
+    <string name="share_app">アプリを共有</string>
+    <string name="version">バージョン</string>
+    
+    <!-- Notifications -->
+    <string name="daily_reminder">毎日のリマインダー</string>
+    <string name="practice_reminder">練習リマインダー</string>
+    <string name="streak_reminder">連続日数の通知</string>
+    <string name="achievement_unlocked">実績を解除しました！</string>
+    
+    <!-- Stats & Progress -->
+    <string name="statistics">統計</string>
+    <string name="analytics">分析</string>
+    <string name="daily_goal">一日の目標</string>
+    <string name="weekly_goal">一週間の目標</string>
+    <string name="monthly_goal">一ヶ月の目標</string>
+    <string name="total_lessons">通算レッスン数</string>
+    <string name="study_time">学習時間</string>
+    <string name="words_learned">学習した単語数</string>
+    <string name="exercises_completed">クリアした問題数</string>
+    <string name="current_streak">現在の連続日数</string>
+    <string name="longest_streak">最長連続日数</string>
+    <string name="achievements">獲得した実績</string>
+    
+    <!-- Lessons -->
+    <string name="lesson">レッスン</string>
+    <string name="lesson_complete">レッスン完了！</string>
+    <string name="lesson_progress">レッスン進捗</string>
+    <string name="exercise">演習</string>
+    <string name="quiz">クイズ</string>
+    <string name="test">テスト</string>
+    <string name="reading">リーディング</string>
+    <string name="writing">ライティング</string>
+    <string name="listening">リスニング</string>
+    <string name="speaking">スピーキング</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_aboard">ようこそ！</string>
+    <string name="get_started">始める</string>
+    <string name="select_learning_language">学びたい言語を選択</string>
+    <string name="why_learning">主な学習目的は何ですか？</string>
+    <string name="study_goal">学習目標</string>
+    <string name="minutes_per_day">分 / 日</string>
+    <string name="set_daily_goal">一日の目標を設定</string>
+    <string name="profile_setup">プロフィールの設定</string>
+    <string name="complete_profile">プロフィールを完成させる</string>
+    
+    <!-- Goals -->
+    <string name="goal_casual">お手軽 - 5分/日</string>
+    <string name="goal_regular">普通 - 10分/日</string>
+    <string name="goal_serious">真剣 - 15分/日</string>
+    <string name="goal_intense">ガチ - 20分/日</string>
+    
+    <!-- Motivation -->
+    <string name="travel">旅行</string>
+    <string name="work">仕事・ビジネス</string>
+    <string name="school">学校・留学</string>
+    <string name="culture">文化・趣味</string>
+    <string name="family">家族・友人</string>
+    <string name="brain_training">脳トレ</string>
+    <string name="other">その他</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">ネットワークエラー。接続を確認してください。</string>
+    <string name="error_loading">データの読み込みエラー</string>
+    <string name="error_unknown">不明なエラーが発生しました</string>
+    <string name="error_server">サーバーエラー。後ほどもう一度お試しください。</string>
+    <string name="error_invalid_input">入力内容が正しくありません</string>
+    <string name="error_required_field">この項目は必須です</string>
+    
+    <!-- Success Messages -->
+    <string name="success_saved">保存しました！</string>
+    <string name="success_completed">正常に完了しました！</string>
+    <string name="success_updated">更新しました！</string>
+    
+    <!-- Empty States -->
+    <string name="no_data">データがありません</string>
+    <string name="no_lessons">利用可能なレッスンがありません</string>
+    <string name="no_vocabulary">まだ単語が登録されていません</string>
+    <string name="no_progress">まだデータがありません</string>
+    <string name="start_learning_now">今すぐ学習を始めましょう！</string>
+    
+    <!-- Time -->
+    <string name="today">今日</string>
+    <string name="yesterday">昨日</string>
+    <string name="this_week">今週</string>
+    <string name="this_month">今月</string>
+    <string name="minutes">分</string>
+    <string name="hours">時間</string>
+    <string name="seconds">秒</string>
+    
+    <!-- Language Names (for reference) -->
+    <string name="lang_system">システムデフォルト</string>
+    <string name="lang_english">英語</string>
+    <string name="lang_hindi">ヒンディー語</string>
+    <string name="lang_spanish">スペイン語</string>
+    <string name="lang_french">フランス語</string>
+    <string name="lang_german">ドイツ語</string>
+    <string name="lang_italian">イタリア語</string>
+    <string name="lang_portuguese">ポルトガル語</string>
+    <string name="lang_russian">ロシア語</string>
+    <string name="lang_japanese">日本語</string>
+    <string name="lang_korean">韓国語</string>
+    <string name="lang_chinese">中国語（マンダリン）</string>
+    <string name="lang_arabic">アラビア語</string>
+    <string name="lang_turkish">トルコ語</string>
+    <string name="lang_vietnamese">ベトナム語</string>
+</resources>

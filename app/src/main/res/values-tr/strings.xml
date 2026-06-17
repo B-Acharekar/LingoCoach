@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">LingoCoach</string>
+    
+    <!-- Language Selection Screen -->
+    <string name="choose_language">Dil Seçin</string>
+    <string name="select_preferred_language">Tercih ettiğiniz dili seçin</string>
+    <string name="search_languages">Dil ara...</string>
+    <string name="no_languages_found">\"%1$s\" için dil bulunamadı</string>
+    
+    <!-- Common Actions -->
+    <string name="done">Tamam</string>
+    <string name="back">Geri</string>
+    <string name="next">İleri</string>
+    <string name="skip">Atla</string>
+    <string name="continue_text">Devam Et</string>
+    <string name="submit">Gönder</string>
+    <string name="cancel">İptal</string>
+    <string name="save">Kaydet</string>
+    <string name="delete">Sil</string>
+    <string name="edit">Düzenle</string>
+    <string name="ok">Tamam</string>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
+    <string name="retry">Yeniden Dene</string>
+    <string name="close">Kapat</string>
+    
+    <!-- Navigation -->
+    <string name="home">Ana Sayfa</string>
+    <string name="settings">Ayarlar</string>
+    <string name="profile">Profil</string>
+    <string name="progress">İlerleme</string>
+    <string name="lessons">Dersler</string>
+    <string name="practice">Pratik</string>
+    
+    <!-- Common Labels -->
+    <string name="welcome">Hoş geldiniz</string>
+    <string name="logout">Çıkış Yap</string>
+    <string name="login">Giriş Yap</string>
+    <string name="sign_up">Kaydol</string>
+    <string name="email">E-posta</string>
+    <string name="password">Şifre</string>
+    <string name="username">Kullanıcı Adı</string>
+    <string name="name">Ad</string>
+    <string name="loading">Yükleniyor...</string>
+    <string name="error">Hata</string>
+    <string name="success">Başarılı</string>
+    <string name="warning">Uyarı</string>
+    <string name="info">Bilgi</string>
+    
+    <!-- Home Screen -->
+    <string name="daily_streak">Günlük Seri</string>
+    <string name="days">gün</string>
+    <string name="current_lesson">Mevcut Ders</string>
+    <string name="continue_learning">Öğrenmeye Devam Et</string>
+    <string name="start_lesson">Derse Başla</string>
+    <string name="your_progress">İlerlemeniz</string>
+    <string name="today_goal">Bugünün Hedefi</string>
+    <string name="weekly_stats">Haftalık İstatistikler</string>
+    <string name="total_time">Toplam Süre</string>
+    <string name="accuracy">Doğruluk</string>
+    <string name="completed">Tamamlandı</string>
+    <string name="in_progress">Devam Ediyor</string>
+    
+    <!-- Learning Path -->
+    <string name="learning_path">Öğrenme Yolu</string>
+    <string name="modules">Modüller</string>
+    <string name="lessons_completed">Tamamlanan Dersler</string>
+    <string name="next_lesson">Sonraki Ders</string>
+    <string name="locked">Kilitli</string>
+    <string name="unlocked">Kilit Açık</string>
+    <string name="start">Başla</string>
+    <string name="resume">Devam Et</string>
+    
+    <!-- Vocabulary -->
+    <string name="vocabulary">Kelime Bilgisi</string>
+    <string name="vocab_builder">Kelime Haznesi Geliştirici</string>
+    <string name="new_words">Yeni Kelimeler</string>
+    <string name="review">Gözden Geçir</string>
+    <string name="mastered">Öğrenildi</string>
+    <string name="learning">Öğreniliyor</string>
+    <string name="add_word">Kelime Ekle</string>
+    <string name="word">Kelime</string>
+    <string name="translation">Çeviri</string>
+    <string name="example">Örnek</string>
+    <string name="pronunciation">Telaffuz</string>
+    
+    <!-- Mistakes / Vault -->
+    <string name="mistake_vault">Hata Deposu</string>
+    <string name="mistakes">Hatalar</string>
+    <string name="review_mistakes">Hataları Gözden Geçir</string>
+    <string name="common_mistakes">Sık Yapılan Hatalar</string>
+    <string name="fix_mistakes">Hataları Düzelt</string>
+    <string name="no_mistakes">Henüz hiç hata yok!</string>
+    <string name="keep_practicing">Pratik yapmaya devam edin</string>
+    
+    <!-- Flashcards -->
+    <string name="flashcards">Flaş Kartlar</string>
+    <string name="flip_card">Kartı Çevir</string>
+    <string name="next_card">Sonraki Kart</string>
+    <string name="previous_card">Önceki Kart</string>
+    <string name="cards_remaining">Kalan Kartlar</string>
+    
+    <!-- Duel / Challenge -->
+    <string name="timely_duel">Zamana Karşı Düello</string>
+    <string name="challenge">Meydan Okuma</string>
+    <string name="versus">VS</string>
+    <string name="score">Skor</string>
+    <string name="time_remaining">Kalan Süre</string>
+    <string name="round">Raund</string>
+    <string name="you_won">Kazandınız!</string>
+    <string name="you_lost">Kaybettiniz</string>
+    <string name="draw">Berabere</string>
+    
+    <!-- AI Lab -->
+    <string name="ai_lab">Yapay Zeka Laboratuvarı</string>
+    <string name="practice_with_ai">Yapay Zeka ile Pratik Yap</string>
+    <string name="conversation">Sohbet</string>
+    <string name="grammar_check">Dil Bilgisi Kontrolü</string>
+    <string name="pronunciation_practice">Telaffuz Pratiği</string>
+    <string name="ask_ai">Yapay Zekaya Sor</string>
+    <string name="ai_tutor">Yapay Zeka Eğitmeni</string>
+    
+    <!-- Assessment -->
+    <string name="assessment">Değerlendirme</string>
+    <string name="take_assessment">Değerlendirmeye Katıl</string>
+    <string name="skill_level">Beceri Seviyesi</string>
+    <string name="beginner">Başlangıç</string>
+    <string name="intermediate">Orta</string>
+    <string name="advanced">İleri</string>
+    <string name="skill_native">Anadil</string>
+    
+    <!-- Settings -->
+    <string name="app_settings">Uygulama Ayarları</string>
+    <string name="language_settings">Dil Ayarları</string>
+    <string name="app_language">Uygulama Dili</string>
+    <string name="learning_language">Öğrenilen Dil</string>
+    <string name="notifications">Bildirimler</string>
+    <string name="sound">Ses</string>
+    <string name="vibration">Titreşim</string>
+    <string name="dark_mode">Karanlık Mod</string>
+    <string name="account">Hesap</string>
+    <string name="privacy">Gizlilik</string>
+    <string name="about">Hakkında</string>
+    <string name="help">Yardım</string>
+    <string name="feedback">Geri Bildirim</string>
+    <string name="rate_app">Uygulamayı Puanla</string>
+    <string name="share_app">Uygulamayı Paylaş</string>
+    <string name="version">Versiyon</string>
+    
+    <!-- Notifications -->
+    <string name="daily_reminder">Günlük Hatırlatıcı</string>
+    <string name="practice_reminder">Pratik Hatırlatıcı</string>
+    <string name="streak_reminder">Seri Hatırlatıcı</string>
+    <string name="achievement_unlocked">Başarı Kilidi Açıldı!</string>
+    
+    <!-- Stats & Progress -->
+    <string name="statistics">İstatistikler</string>
+    <string name="analytics">Analizler</string>
+    <string name="daily_goal">Günlük Hedef</string>
+    <string name="weekly_goal">Haftalık Hedef</string>
+    <string name="monthly_goal">Aylık Hedef</string>
+    <string name="total_lessons">Toplam Ders</string>
+    <string name="study_time">Çalışma Süresi</string>
+    <string name="words_learned">Öğrenilen Kelimeler</string>
+    <string name="exercises_completed">Tamamlanan Alıştırmalar</string>
+    <string name="current_streak">Mevcut Seri</string>
+    <string name="longest_streak">En Uzun Seri</string>
+    <string name="achievements">Başarılar</string>
+    
+    <!-- Lessons -->
+    <string name="lesson">Ders</string>
+    <string name="lesson_complete">Ders Tamamlandı!</string>
+    <string name="lesson_progress">Ders İlerlemesi</string>
+    <string name="exercise">Alıştırma</string>
+    <string name="quiz">Quiz</string>
+    <string name="test">Test</string>
+    <string name="reading">Okuma</string>
+    <string name="writing">Yazma</string>
+    <string name="listening">Dinleme</string>
+    <string name="speaking">Konuşma</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_aboard">Aramıza Hoş Geldiniz!</string>
+    <string name="get_started">Başla</string>
+    <string name="select_learning_language">Öğrenmek istediğiniz dili seçin</string>
+    <string name="why_learning">Neden dil öğreniyorsunuz?</string>
+    <string name="study_goal">Çalışma Hedefi</string>
+    <string name="minutes_per_day">dakika / gün</string>
+    <string name="set_daily_goal">Günlük Hedef Belirle</string>
+    <string name="profile_setup">Profil Kurulumu</string>
+    <string name="complete_profile">Profilinizi Tamamlayın</string>
+    
+    <!-- Goals -->
+    <string name="goal_casual">Rahat - 5 dk/gün</string>
+    <string name="goal_regular">Düzenli - 10 dk/gün</string>
+    <string name="goal_serious">Ciddi - 15 dk/gün</string>
+    <string name="goal_intense">Yoğun - 20 dk/gün</string>
+    
+    <!-- Motivation -->
+    <string name="travel">Seyahat</string>
+    <string name="work">İş / Kariyer</string>
+    <string name="school">Okul / Eğitim</string>
+    <string name="culture">Kültür / Eğlence</string>
+    <string name="family">Aile / Arkadaşlar</string>
+    <string name="brain_training">Beyin Egzersizi</string>
+    <string name="other">Diğer</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">Ağ hatası. Lütfen bağlantınızı kontrol edin.</string>
+    <string name="error_loading">Veri yükleme hatası</string>
+    <string name="error_unknown">Bilinmeyen bir hata oluştu</string>
+    <string name="error_server">Sunucu hatası. Lütfen daha sonra tekrar deneyin.</string>
+    <string name="error_invalid_input">Geçersiz giriş</string>
+    <string name="error_required_field">Bu alan zorunludur</string>
+    
+    <!-- Success Messages -->
+    <string name="success_saved">Başarıyla kaydedildi!</string>
+    <string name="success_completed">Başarıyla tamamlandı!</string>
+    <string name="success_updated">Başarıyla güncellendi!</string>
+    
+    <!-- Empty States -->
+    <string name="no_data">Kullanılabilir veri yok</string>
+    <string name="no_lessons">Mevcut ders yok</string>
+    <string name="no_vocabulary">Henüz kelime yok</string>
+    <string name="no_progress">Henüz ilerleme yok</string>
+    <string name="start_learning_now">Şimdi öğrenmeye başlayın!</string>
+    
+    <!-- Time -->
+    <string name="today">Bugün</string>
+    <string name="yesterday">Dün</string>
+    <string name="this_week">Bu Hafta</string>
+    <string name="this_month">Bu Ay</string>
+    <string name="minutes">dakika</string>
+    <string name="hours">saat</string>
+    <string name="seconds">saniye</string>
+    
+    <!-- Language Names (for reference) -->
+    <string name="lang_system">Sistem Varsayılanı</string>
+    <string name="lang_english">İngilizce</string>
+    <string name="lang_hindi">Hintçe</string>
+    <string name="lang_spanish">İspanyolca</string>
+    <string name="lang_french">Fransızca</string>
+    <string name="lang_german">Almanca</string>
+    <string name="lang_italian">İtalyanca</string>
+    <string name="lang_portuguese">Portekizce</string>
+    <string name="lang_russian">Rusça</string>
+    <string name="lang_japanese">Japonca</string>
+    <string name="lang_korean">Korece</string>
+    <string name="lang_chinese">Mandarin Çincesi</string>
+    <string name="lang_arabic">Arapça</string>
+    <string name="lang_turkish">Türkçe</string>
+    <string name="lang_vietnamese">Vietnamca</string>
+</resources>

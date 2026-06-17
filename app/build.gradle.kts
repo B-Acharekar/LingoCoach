@@ -74,4 +74,10 @@ dependencies {
 
     // WorkManager for scheduled notifications
     implementation("androidx.work:work-runtime-ktx:2.9.0")
+
+    // DataStore for preferences
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+
+    // AppCompat for locale management
+    implementation("androidx.appcompat:appcompat:1.7.0")
 }
