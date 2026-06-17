@@ -51,15 +51,19 @@ class MainActivity : ComponentActivity() {
 
         // Initialize OneSignal
         OneSignal.initWithContext(this, "46957d03-f3f9-435c-b76c-e5cd0b8089b5")
-        
+
         // Schedule daily reminder notifications at 10am and 7pm
         NotificationScheduler.scheduleDailyReminders(this)
-        
+
         enableEdgeToEdge()
         setContent {
             LingoCoachTheme(dynamicColor = false) {
                 var currentScreen by remember { mutableStateOf(Screen.Splash) }
                 var currentSublessonId by remember { mutableStateOf("") }
+
+                // Tracks where the user came from before opening the Roadmap,
+                // so the back arrow can return to the correct screen.
+                var roadmapLaunchedFromAssessment by remember { mutableStateOf(false) }
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -95,15 +99,24 @@ class MainActivity : ComponentActivity() {
                         }
                         Screen.Assessment -> {
                             AssessmentScreen(
-                                onNavigateToLearningPath = { currentScreen = Screen.LearningPathRoadmap },
+                                onNavigateToLearningPath = {
+                                    roadmapLaunchedFromAssessment = true
+                                    currentScreen = Screen.LearningPathRoadmap
+                                },
                                 onNavigateBack = { currentScreen = Screen.WelcomeAboard }
                             )
                         }
                         Screen.LearningPathRoadmap -> {
                             LearningPathRoadmapScreen(
-                                onNavigateToLearningPath = { currentScreen = Screen.ActualLearningPath },
-                                onNavigateBack = { currentScreen = Screen.Assessment },
-                                onNavigateToSettings = { currentScreen = Screen.Settings }
+                                launchedFromAssessment = roadmapLaunchedFromAssessment,
+                                // Back: go to Assessment if we came from there, otherwise Home
+                                onNavigateHome = { currentScreen = Screen.Home },
+                                onNavigateToLesson = { sublessonId ->
+                                    currentSublessonId = sublessonId
+                                    currentScreen = Screen.Lesson
+                                },
+                                onNavigateToSettings = { currentScreen = Screen.Settings },
+                                onNavigateBackToAssessment = { currentScreen = Screen.Assessment }
                             )
                         }
                         Screen.ActualLearningPath -> {
@@ -131,7 +144,10 @@ class MainActivity : ComponentActivity() {
                                 onNavigateToDuel = { currentScreen = Screen.TimelyDuel },
                                 onNavigateToAILab = { currentScreen = Screen.AILab },
                                 onNavigateToSettings = { currentScreen = Screen.Settings },
-                                onNavigateToRoadmap = { currentScreen = Screen.LearningPathRoadmap },
+                                onNavigateToRoadmap = {
+                                    roadmapLaunchedFromAssessment = false
+                                    currentScreen = Screen.LearningPathRoadmap
+                                },
                                 onNavigateToActualLearningPath = { currentScreen = Screen.ActualLearningPath },
                                 onNavigateToProgress = { currentScreen = Screen.Analytics }
                             )

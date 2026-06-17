@@ -1,6 +1,8 @@
 package com.mk.lingocoach.ui.screens
 
-import android.content.Context
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -20,7 +22,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -29,15 +30,33 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mk.lingocoach.R
 
+// Only declare tokens that don't already exist in your theme.
+// BrandPurple, BrandPurpleLight, TextDark, TextLight, CardWhite come from your
+// existing theme file — they are NOT redeclared here to avoid "Conflicting
+// declarations" errors. Only SuccessGreen is new and local to this screen.
+private val SuccessGreen = Color(0xFF22C55E)
+
+// ── Entry point ───────────────────────────────────────────────────────────────
+
+/**
+ * @param launchedFromAssessment  true  → back goes to Assessment, show "Start Learning" CTA
+ *                                false → back goes to Home / Lesson (wherever the caller came from)
+ */
 @Composable
 fun LearningPathRoadmapScreen(
-    onNavigateToLearningPath: () -> Unit,
-    onNavigateBack: () -> Unit,
-    onNavigateToSettings: () -> Unit
+    launchedFromAssessment: Boolean = false,
+    onNavigateHome: () -> Unit,
+    onNavigateToLesson: (String) -> Unit,
+    onNavigateToSettings: () -> Unit,
+    onNavigateBackToAssessment: () -> Unit = {},   // used when launchedFromAssessment == true
 ) {
     val scrollState = rememberScrollState()
 
+    // Back destination depends on how we arrived here
+    val onBack: () -> Unit = if (launchedFromAssessment) onNavigateBackToAssessment else onNavigateHome
+
     Box(modifier = Modifier.fillMaxSize()) {
+
         Image(
             painter = painterResource(R.drawable.background),
             contentDescription = null,
@@ -51,52 +70,12 @@ fun LearningPathRoadmapScreen(
                 .statusBarsPadding()
                 .navigationBarsPadding()
         ) {
+
             // ── Top Bar ───────────────────────────────────────────────────
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.White.copy(alpha = 0.95f))
-                    .padding(horizontal = 16.dp, vertical = 12.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                IconButton(
-                    onClick = onNavigateBack,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .background(Color(0xFFF0EEFF), CircleShape)
-                ) {
-                    Icon(
-                        Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back",
-                        tint = BrandPurple,
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
-
-                Text(
-                    "Learning Path",
-                    style = TextStyle(
-                        color = TextDark,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
-                )
-
-                IconButton(
-                    onClick = onNavigateToSettings,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .background(Color(0xFFF0EEFF), CircleShape)
-                ) {
-                    Icon(
-                        Icons.Default.Settings,
-                        contentDescription = "Settings",
-                        tint = BrandPurple,
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
-            }
+            TopBar(
+                onBack = onBack,
+                onSettings = onNavigateToSettings
+            )
 
             // ── Scrollable Content ────────────────────────────────────────
             Column(
@@ -106,15 +85,15 @@ fun LearningPathRoadmapScreen(
                     .padding(horizontal = 20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(Modifier.height(24.dp))
+                Spacer(Modifier.height(28.dp))
 
-                // ── Title ─────────────────────────────────────────────────
+                // Hero label
                 Text(
                     "Your Journey",
                     style = TextStyle(
                         color = BrandPurple,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.SemiBold
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.ExtraBold
                     ),
                     textAlign = TextAlign.Center
                 )
@@ -125,8 +104,7 @@ fun LearningPathRoadmapScreen(
                     "Personalized route to fluency",
                     style = TextStyle(
                         color = TextLight,
-                        fontSize = 13.sp,
-                        fontWeight = FontWeight.Normal
+                        fontSize = 13.sp
                     ),
                     textAlign = TextAlign.Center
                 )
@@ -134,78 +112,272 @@ fun LearningPathRoadmapScreen(
                 Spacer(Modifier.height(32.dp))
 
                 // ── Roadmap Modules ───────────────────────────────────────
-                RoadmapModule(
+                ExpandableModule(
                     level = "LEVEL 1",
                     title = "Foundations",
-                    description = "Master the essentials",
-                    icon = Icons.Default.Circle,
-                    status = "current"
+                    lessons = listOf("Greetings", "Introductions", "Numbers", "Practice Quiz"),
+                    current = true,
+                    locked = false,
+                    onLessonClick = onNavigateToLesson
                 )
 
-                RoadmapConnector()
+                RoadmapConnector(unlocked = true)
 
-                RoadmapModule(
+                ExpandableModule(
                     level = "LEVEL 2",
                     title = "Daily Coffee Chat",
-                    description = "Everyday expressions",
-                    icon = Icons.Default.Circle,
-                    status = "locked"
+                    lessons = listOf("Ordering Coffee", "Small Talk", "Directions"),
+                    current = false,
+                    locked = true,
+                    onLessonClick = onNavigateToLesson
                 )
 
-                RoadmapConnector()
+                RoadmapConnector(unlocked = false)
 
-                RoadmapModule(
+                ExpandableModule(
                     level = "LEVEL 3",
                     title = "Professional Pitch",
-                    description = "Business communication",
-                    icon = Icons.Default.Circle,
-                    status = "locked"
-                )
-
-                RoadmapConnector()
-
-                RoadmapModule(
-                    level = "MASTER",
-                    title = "Cultural Mastery",
-                    description = "Advanced fluency",
-                    icon = Icons.Default.Circle,
-                    status = "locked"
+                    lessons = listOf("Meetings", "Presentations", "Negotiation"),
+                    current = false,
+                    locked = true,
+                    onLessonClick = onNavigateToLesson
                 )
 
                 Spacer(Modifier.height(80.dp))
             }
 
-            // ── Bottom Button ─────────────────────────────────────────────
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.White.copy(alpha = 0.95f))
-                    .padding(horizontal = 20.dp, vertical = 16.dp)
-            ) {
-                Button(
-                    onClick = onNavigateToLearningPath,
+            // ── Bottom CTA — only shown when arriving from Assessment ─────
+            if (launchedFromAssessment) {
+                BottomStartLearningBar(onClick = onNavigateHome)
+            }
+        }
+    }
+}
+
+// ── Sub-composables ───────────────────────────────────────────────────────────
+
+@Composable
+private fun TopBar(
+    onBack: () -> Unit,
+    onSettings: () -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.White.copy(alpha = 0.97f))
+            .padding(horizontal = 16.dp, vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        IconButton(
+            onClick = onBack,
+            modifier = Modifier
+                .size(40.dp)
+                .background(BrandPurpleLight, CircleShape)
+        ) {
+            Icon(
+                Icons.AutoMirrored.Filled.ArrowBack,
+                contentDescription = "Back",
+                tint = BrandPurple,
+                modifier = Modifier.size(20.dp)
+            )
+        }
+
+        Text(
+            "Learning Path",
+            style = TextStyle(
+                color = TextDark,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.ExtraBold
+            )
+        )
+
+        IconButton(
+            onClick = onSettings,
+            modifier = Modifier
+                .size(40.dp)
+                .background(BrandPurpleLight, CircleShape)
+        ) {
+            Icon(
+                Icons.Default.Settings,
+                contentDescription = "Settings",
+                tint = BrandPurple,
+                modifier = Modifier.size(20.dp)
+            )
+        }
+    }
+}
+
+@Composable
+private fun BottomStartLearningBar(onClick: () -> Unit) {
+    Surface(
+        modifier = Modifier.fillMaxWidth(),
+        color = Color.White.copy(alpha = 0.97f),
+        shadowElevation = 12.dp
+    ) {
+        Button(
+            onClick = onClick,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 20.dp, vertical = 16.dp)
+                .height(56.dp),
+            shape = RoundedCornerShape(28.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = BrandPurple)
+        ) {
+            Text("Start Learning", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+            Spacer(Modifier.width(8.dp))
+            Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, tint = Color.White)
+        }
+    }
+}
+
+/** Vertical line connecting two modules. Tinted purple when the path is open. */
+@Composable
+private fun RoadmapConnector(unlocked: Boolean) {
+    Box(
+        modifier = Modifier
+            .width(3.dp)
+            .height(36.dp)
+            .background(
+                if (unlocked) BrandPurple.copy(alpha = 0.35f) else Color(0xFFE0E0E0),
+                RoundedCornerShape(2.dp)
+            )
+    )
+}
+
+/**
+ * A card that expands to reveal lesson rows when tapped (only if not locked).
+ */
+@Composable
+private fun ExpandableModule(
+    level: String,
+    title: String,
+    lessons: List<String>,
+    current: Boolean,
+    locked: Boolean,
+    onLessonClick: (String) -> Unit
+) {
+    var expanded by remember { mutableStateOf(current && !locked) }
+
+    val cardBorder = if (current && !locked)
+        androidx.compose.foundation.BorderStroke(2.dp, BrandPurple)
+    else
+        null
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(
+                elevation = if (current) 8.dp else 2.dp,
+                shape = RoundedCornerShape(24.dp),
+                ambientColor = if (current) BrandPurple.copy(0.18f) else Color.Black.copy(0.05f),
+                spotColor = if (current) BrandPurple.copy(0.18f) else Color.Black.copy(0.05f)
+            ),
+        shape = RoundedCornerShape(24.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = if (locked) Color(0xFFF8F8FC) else CardWhite
+        ),
+        border = cardBorder,
+        onClick = { if (!locked) expanded = !expanded }
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 18.dp)) {
+
+            // ── Header row ────────────────────────────────────────────────
+            Row(verticalAlignment = Alignment.CenterVertically) {
+
+                // Status icon bubble
+                Box(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .height(56.dp),
-                    shape = RoundedCornerShape(28.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = BrandPurple),
-                    elevation = ButtonDefaults.buttonElevation(8.dp)
+                        .size(44.dp)
+                        .clip(CircleShape)
+                        .background(
+                            when {
+                                locked  -> Color(0xFFF0F0F4)
+                                current -> BrandPurple.copy(alpha = 0.12f)
+                                else    -> SuccessGreen.copy(alpha = 0.12f)
+                            }
+                        ),
+                    contentAlignment = Alignment.Center
                 ) {
-                    Text(
-                        "Start Learning",
-                        style = TextStyle(
-                            color = Color.White,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                    )
-                    Spacer(Modifier.width(8.dp))
                     Icon(
-                        Icons.AutoMirrored.Filled.ArrowForward,
+                        imageVector = when {
+                            locked  -> Icons.Default.Lock
+                            current -> Icons.Default.PlayArrow
+                            else    -> Icons.Default.Check
+                        },
                         contentDescription = null,
-                        tint = Color.White,
-                        modifier = Modifier.size(20.dp)
+                        tint = when {
+                            locked  -> TextLight
+                            current -> BrandPurple
+                            else    -> SuccessGreen
+                        },
+                        modifier = Modifier.size(22.dp)
                     )
+                }
+
+                Spacer(Modifier.width(14.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        level,
+                        color = if (locked) TextLight else BrandPurple,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 1.sp
+                    )
+                    Spacer(Modifier.height(2.dp))
+                    Text(
+                        title,
+                        color = if (locked) TextLight else TextDark,
+                        fontSize = 17.sp,
+                        fontWeight = FontWeight.ExtraBold
+                    )
+                    if (current && !locked) {
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            "In progress · ${lessons.size} lessons",
+                            color = BrandPurple,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    } else if (locked) {
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            "Complete previous level to unlock",
+                            color = TextLight,
+                            fontSize = 11.sp
+                        )
+                    }
+                }
+
+                // Chevron — only when tappable
+                if (!locked) {
+                    Icon(
+                        imageVector = if (expanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
+                        contentDescription = if (expanded) "Collapse" else "Expand",
+                        tint = BrandPurple
+                    )
+                }
+            }
+
+            // ── Lesson list (animated) ────────────────────────────────────
+            AnimatedVisibility(
+                visible = expanded,
+                enter = expandVertically(),
+                exit = shrinkVertically()
+            ) {
+                Column {
+                    Spacer(Modifier.height(16.dp))
+                    HorizontalDivider(color = Color(0xFFF0EEFF), thickness = 1.dp)
+                    Spacer(Modifier.height(8.dp))
+
+                    lessons.forEachIndexed { index, lesson ->
+                        LessonRow(
+                            index = index + 1,
+                            label = lesson,
+                            onClick = { onLessonClick("${title}_${index + 1}") }
+                        )
+                    }
                 }
             }
         }
@@ -213,83 +385,49 @@ fun LearningPathRoadmapScreen(
 }
 
 @Composable
-private fun RoadmapModule(
-    level: String,
-    title: String,
-    description: String,
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
-    status: String
-) {
-    val isCurrent = status == "current"
-    val isLocked = status == "locked"
-
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .shadow(if (isCurrent) 6.dp else 3.dp, RoundedCornerShape(24.dp)),
-        shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isLocked) CardWhite.copy(alpha = 0.6f) else CardWhite
-        )
+private fun LessonRow(index: Int, label: String, onClick: () -> Unit) {
+    Surface(
+        onClick = onClick,
+        color = Color.Transparent,
+        shape = RoundedCornerShape(12.dp)
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp),
+                .padding(horizontal = 4.dp, vertical = 10.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
+            // Lesson number badge
             Box(
                 modifier = Modifier
-                    .size(56.dp)
-                    .clip(CircleShape)
-                    .background(
-                        if (isCurrent) BrandPurple.copy(0.15f)
-                        else Color(0xFFF0F0F0)
-                    ),
+                    .size(28.dp)
+                    .background(BrandPurpleLight, CircleShape),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    imageVector = if (isLocked) Icons.Default.Lock else Icons.Default.PlayArrow,
-                    contentDescription = null,
-                    tint = if (isCurrent) BrandPurple else TextLight,
-                    modifier = Modifier.size(24.dp)
-                )
-            }
-
-            Spacer(Modifier.width(16.dp))
-
-            Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    level.uppercase(),
-                    color = if (isLocked) TextLight else BrandPurple,
-                    fontSize = 10.sp,
+                    "$index",
+                    color = BrandPurple,
+                    fontSize = 11.sp,
                     fontWeight = FontWeight.Bold
                 )
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    title,
-                    color = if (isLocked) TextLight else TextDark,
-                    fontSize = 17.sp,
-                    fontWeight = FontWeight.ExtraBold
-                )
-                Spacer(Modifier.height(2.dp))
-                Text(
-                    description,
-                    color = TextLight,
-                    fontSize = 12.sp
-                )
             }
+
+            Spacer(Modifier.width(12.dp))
+
+            Text(
+                label,
+                color = TextDark,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.weight(1f)
+            )
+
+            Icon(
+                Icons.AutoMirrored.Filled.ArrowForward,
+                contentDescription = null,
+                tint = BrandPurple,
+                modifier = Modifier.size(16.dp)
+            )
         }
     }
 }
-
-@Composable
-private fun RoadmapConnector() {
-    Box(
-        modifier = Modifier
-            .width(2.dp)
-            .height(40.dp)
-            .background(Color(0xFFE0E0E0))
-    )
-}
-
