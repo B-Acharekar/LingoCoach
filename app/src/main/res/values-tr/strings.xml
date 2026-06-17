@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach</string>
@@ -252,4 +252,61 @@
     <string name="lang_arabic">Arapça</string>
     <string name="lang_turkish">Türkçe</string>
     <string name="lang_vietnamese">Vietnamca</string>
+    <!-- Added UI localization keys -->
+    <string name="choose_personality">Kişilik seç</string>
+    <string name="your_journey">Yolculuğun</string>
+    <string name="vocabulary_learned">Öğrenilen kelimeler: %1$s</string>
+    <string name="text_to_speech_on">Metinden sese açık</string>
+    <string name="no_learning_path_found">Henüz öğrenme yolu bulunamadı.</string>
+    <string name="start_conversation">Sohbeti başlat</string>
+    <string name="tone_professional_desc">Yapılandırılmış, kesin, işe hazır</string>
+    <string name="text_to_speech">Metinden sese</string>
+    <string name="stop_recording">Kaydı durdur</string>
+    <string name="weaknesses_label">Zayıf yönler: %1$s</string>
+    <string name="tone_warm">Sıcak</string>
+    <string name="microphone">Mikrofon</string>
+    <string name="male_voice_desc">Dengeli, net, düşük ton</string>
+    <string name="earn_bonus_session">Ücretsiz bonus oturum açmak için bugün 100 XP kazan</string>
+    <string name="strengths_label">Güçlü yönler: %1$s</string>
+    <string name="start_session">Oturumu başlat</string>
+    <string name="ai_conversation">Yapay zeka sohbeti</string>
+    <string name="now">ŞİMDİ</string>
+    <string name="tone_casual">Gündelik</string>
+    <string name="tone_selection_hint">Bu sohbet için kişiliği seç.</string>
+    <string name="start_talking_ai_tutor">Yapay zeka öğretmeninle konuşmaya başla</string>
+    <string name="tone_nerdy">Analitik</string>
+    <string name="ai_lab_intro">İstediğin herhangi bir konuda konuş.\nYapay zeka öğretmeninle doğal şekilde pratik yap.</string>
+    <string name="could_not_start_recording">Kayıt başlatılamadı</string>
+    <string name="listening_tap_mic_to_stop">Dinleniyor... durdurmak için mikrofona dokun</string>
+    <string name="locked_for_today">Bugün için kilitli</string>
+    <string name="lingo_ai_conv_start">Lingo AI sohbeti başladı</string>
+    <string name="expand">Genişlet</string>
+    <string name="send">Gönder</string>
+    <string name="daily_limit_reached">Günlük limite ulaşıldı (%1$d/%2$d)</string>
+    <string name="start_recording">Kaydı başlat</string>
+    <string name="sessions_today">Bugünkü oturumlar: %1$d/%2$d</string>
+    <string name="grammar_mistakes_count">Dil bilgisi hataları: %1$s</string>
+    <string name="personalized_route_to_fluency">Akıcılığa giden kişisel rota</string>
+    <string name="tone_nerdy_desc">Analitik, ayrıntılı, öğrenme odaklı</string>
+    <string name="tone_casual_desc">Samimi, rahat, günlük sohbet</string>
+    <string name="female_voice">Kadın sesi</string>
+    <string name="ai_voice_process_failed">Üzgünüm, sesli mesajını işleyemedim.</string>
+    <string name="end_session_confirm">Sohbetin özetlenecek ve kaydedilecek. Bitirmek istediğine emin misin?</string>
+    <string name="choose_voice">Ses seç</string>
+    <string name="voice_selection_hint">Yapay zeka yanıtlarını sesli okuyacak sesi seç.</string>
+    <string name="collapse">Daralt</string>
+    <string name="session_summary">Oturum özeti</string>
+    <string name="ai_connection_failed">Üzgünüm, şu anda bağlantı sorunu yaşıyorum.</string>
+    <string name="female_voice_desc">Parlak, sıcak, doğal ton</string>
+    <string name="processing">İşleniyor...</string>
+    <string name="start_learning">Öğrenmeye başla</string>
+    <string name="tone_warm_desc">Teşvik edici, sabırlı ve destekleyici</string>
+    <string name="tone_professional">Profesyonel</string>
+    <string name="text_to_speech_off">Metinden sese kapalı</string>
+    <string name="end_session_question">Oturumu bitir?</string>
+    <string name="microphone_permission_required">Mikrofon izni gerekli</string>
+    <string name="complete_previous_level_to_unlock">Kilidi açmak için önceki seviyeyi tamamla</string>
+    <string name="end_session">Oturumu bitir</string>
+    <string name="male_voice">Erkek sesi</string>
+    <string name="type_response_hint">Yanıt yaz...</string>
 </resources>

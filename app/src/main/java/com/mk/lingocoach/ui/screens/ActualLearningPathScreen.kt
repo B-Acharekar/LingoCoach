@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -99,7 +100,7 @@ fun ActualLearningPathScreen(
                 .navigationBarsPadding()
         ) {
             CommonTopBar(
-                title = "Learning Path",
+                title = stringResource(R.string.learning_path),
                 onBack = onNavigateToHome
             )
             // ── Scrollable Content ────────────────────────────────────────
@@ -174,7 +175,7 @@ fun ActualLearningPathScreen(
                             elevation = ButtonDefaults.buttonElevation(8.dp)
                         ) {
                             Text(
-                                "Continue Learning",
+                                stringResource(R.string.continue_learning),
                                 style = TextStyle(
                                     color = Color.White,
                                     fontSize = 16.sp,
@@ -323,7 +324,7 @@ private fun LessonCard(
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Text(
-                        "NOW",
+                        stringResource(R.string.now),
                         color = Color.White,
                         fontSize = 9.sp,
                         fontWeight = FontWeight.ExtraBold

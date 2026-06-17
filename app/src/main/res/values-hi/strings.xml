@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach</string>
@@ -252,4 +252,61 @@
     <string name="lang_arabic">अरबी</string>
     <string name="lang_turkish">तुर्की</string>
     <string name="lang_vietnamese">वियतनामी</string>
+    <!-- Added UI localization keys -->
+    <string name="choose_personality">व्यक्तित्व चुनें</string>
+    <string name="your_journey">आपकी यात्रा</string>
+    <string name="vocabulary_learned">सीखे गए शब्द: %1$s</string>
+    <string name="text_to_speech_on">टेक्स्ट टू स्पीच चालू</string>
+    <string name="no_learning_path_found">अभी कोई लर्निंग पाथ नहीं मिला।</string>
+    <string name="start_conversation">बातचीत शुरू करें</string>
+    <string name="tone_professional_desc">संरचित, सटीक, काम के लिए तैयार</string>
+    <string name="text_to_speech">टेक्स्ट टू स्पीच</string>
+    <string name="stop_recording">रिकॉर्डिंग रोकें</string>
+    <string name="weaknesses_label">कमजोरियां: %1$s</string>
+    <string name="tone_warm">सहायक</string>
+    <string name="microphone">माइक्रोफोन</string>
+    <string name="male_voice_desc">स्थिर, साफ, गहरी आवाज</string>
+    <string name="earn_bonus_session">आज 100 XP कमाकर एक मुफ्त बोनस सेशन अनलॉक करें</string>
+    <string name="strengths_label">मजबूतियां: %1$s</string>
+    <string name="start_session">सेशन शुरू करें</string>
+    <string name="ai_conversation">AI बातचीत</string>
+    <string name="now">अभी</string>
+    <string name="tone_casual">कैजुअल</string>
+    <string name="tone_selection_hint">इस बातचीत के लिए व्यक्तित्व चुनें।</string>
+    <string name="start_talking_ai_tutor">अपने AI ट्यूटर से बात शुरू करें</string>
+    <string name="tone_nerdy">गंभीर</string>
+    <string name="ai_lab_intro">आप जो चाहें उस पर बात करें।\nअपने AI ट्यूटर के साथ स्वाभाविक अभ्यास करें।</string>
+    <string name="could_not_start_recording">रिकॉर्डिंग शुरू नहीं हो सकी</string>
+    <string name="listening_tap_mic_to_stop">सुन रहा है... रोकने के लिए माइक टैप करें</string>
+    <string name="locked_for_today">आज के लिए लॉक</string>
+    <string name="lingo_ai_conv_start">Lingo AI बातचीत शुरू</string>
+    <string name="expand">फैलाएं</string>
+    <string name="send">भेजें</string>
+    <string name="daily_limit_reached">दैनिक सीमा पूरी (%1$d/%2$d)</string>
+    <string name="start_recording">रिकॉर्डिंग शुरू करें</string>
+    <string name="sessions_today">आज के सेशन: %1$d/%2$d</string>
+    <string name="grammar_mistakes_count">व्याकरण गलतियां: %1$s</string>
+    <string name="personalized_route_to_fluency">फ्लुएंसी तक आपकी निजी राह</string>
+    <string name="tone_nerdy_desc">विश्लेषणात्मक, विस्तृत, सीखने पर केंद्रित</string>
+    <string name="tone_casual_desc">दोस्ताना, आरामदायक, रोजमर्रा की बातचीत</string>
+    <string name="female_voice">महिला आवाज</string>
+    <string name="ai_voice_process_failed">माफ करें, मैं आपका वॉइस मैसेज प्रोसेस नहीं कर सका।</string>
+    <string name="end_session_confirm">आपकी बातचीत का सारांश बनाकर सेव किया जाएगा। क्या आप वाकई खत्म करना चाहते हैं?</string>
+    <string name="choose_voice">आवाज चुनें</string>
+    <string name="voice_selection_hint">AI जवाबों को जोर से पढ़ने वाली आवाज चुनें।</string>
+    <string name="collapse">समेटें</string>
+    <string name="session_summary">सेशन सारांश</string>
+    <string name="ai_connection_failed">माफ करें, अभी कनेक्ट करने में दिक्कत हो रही है।</string>
+    <string name="female_voice_desc">उज्ज्वल, गर्म, प्राकृतिक आवाज</string>
+    <string name="processing">प्रोसेस हो रहा है...</string>
+    <string name="start_learning">सीखना शुरू करें</string>
+    <string name="tone_warm_desc">प्रोत्साहित करने वाला, धैर्यवान, सहायक</string>
+    <string name="tone_professional">प्रोफेशनल</string>
+    <string name="text_to_speech_off">टेक्स्ट टू स्पीच बंद</string>
+    <string name="end_session_question">सेशन खत्म करें?</string>
+    <string name="microphone_permission_required">माइक्रोफोन अनुमति जरूरी है</string>
+    <string name="complete_previous_level_to_unlock">अनलॉक करने के लिए पिछला स्तर पूरा करें</string>
+    <string name="end_session">सेशन खत्म करें</string>
+    <string name="male_voice">पुरुष आवाज</string>
+    <string name="type_response_hint">जवाब टाइप करें...</string>
 </resources>

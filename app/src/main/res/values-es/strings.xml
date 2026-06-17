@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach</string>
@@ -65,6 +65,14 @@
     
     <!-- Learning Path -->
     <string name="learning_path">Ruta de aprendizaje</string>
+    <string name="your_journey">Tu camino</string>
+    <string name="personalized_route_to_fluency">Ruta personalizada hacia la fluidez</string>
+    <string name="no_learning_path_found">Aún no se encontró una ruta de aprendizaje.</string>
+    <string name="start_learning">Empezar a aprender</string>
+    <string name="complete_previous_level_to_unlock">Completa el nivel anterior para desbloquear</string>
+    <string name="collapse">Contraer</string>
+    <string name="expand">Expandir</string>
+    <string name="now">AHORA</string>
     <string name="modules">Módulos</string>
     <string name="lessons_completed">Lecciones completadas</string>
     <string name="next_lesson">Siguiente lección</string>
@@ -121,6 +129,54 @@
     <string name="pronunciation_practice">Práctica de pronunciación</string>
     <string name="ask_ai">Preguntar a la IA</string>
     <string name="ai_tutor">Tutor de IA</string>
+    <string name="ai_conversation">Conversación con IA</string>
+    <string name="choose_voice">Elige una voz</string>
+    <string name="choose_personality">Elige una personalidad</string>
+    <string name="lingo_ai_conv_start">Inicio de conversación con Lingo AI</string>
+    <string name="session_summary">Resumen de la sesión</string>
+    <string name="end_session_question">¿Finalizar sesión?</string>
+    <string name="vocabulary_learned">Vocabulario aprendido: %1$s</string>
+    <string name="grammar_mistakes_count">Errores gramaticales: %1$s</string>
+    <string name="strengths_label">Fortalezas: %1$s</string>
+    <string name="weaknesses_label">Debilidades: %1$s</string>
+    <string name="end_session_confirm">Tu conversación se resumirá y se guardará. ¿Seguro que quieres terminar?</string>
+    <string name="end_session">Finalizar sesión</string>
+    <string name="ai_lab_intro">Habla de lo que quieras.\nPractica de forma natural con tu tutor de IA.</string>
+    <string name="daily_limit_reached">Límite diario alcanzado (%1$d/%2$d)</string>
+    <string name="sessions_today">Sesiones hoy: %1$d/%2$d</string>
+    <string name="earn_bonus_session">Gana 100 XP hoy para desbloquear una sesión extra gratis</string>
+    <string name="start_session">Iniciar sesión</string>
+    <string name="locked_for_today">Bloqueado por hoy</string>
+    <string name="voice_selection_hint">Elige la voz que leerá en voz alta las respuestas de la IA.</string>
+    <string name="male_voice">Voz masculina</string>
+    <string name="female_voice">Voz femenina</string>
+    <string name="male_voice_desc">Tono bajo, claro y estable</string>
+    <string name="female_voice_desc">Tono brillante, cálido y natural</string>
+    <string name="tone_selection_hint">Elige la personalidad para esta conversación.</string>
+    <string name="tone_casual">Casual</string>
+    <string name="tone_professional">Profesional</string>
+    <string name="tone_nerdy">Técnica</string>
+    <string name="tone_warm">Cálida</string>
+    <string name="tone_casual_desc">Amigable, relajada, conversación del día a día</string>
+    <string name="tone_professional_desc">Estructurada, precisa, lista para el trabajo</string>
+    <string name="tone_nerdy_desc">Analítica, detallada, enfocada en aprender</string>
+    <string name="tone_warm_desc">Motivadora, paciente y comprensiva</string>
+    <string name="start_conversation">Iniciar conversación</string>
+    <string name="microphone_permission_required">Se requiere permiso de micrófono</string>
+    <string name="could_not_start_recording">No se pudo iniciar la grabación</string>
+    <string name="type_response_hint">Escribe una respuesta...</string>
+    <string name="text_to_speech">Texto a voz</string>
+    <string name="start_talking_ai_tutor">Empieza a hablar con tu tutor de IA</string>
+    <string name="send">Enviar</string>
+    <string name="microphone">Micrófono</string>
+    <string name="start_recording">Iniciar grabación</string>
+    <string name="stop_recording">Detener grabación</string>
+    <string name="processing">Procesando...</string>
+    <string name="listening_tap_mic_to_stop">Escuchando... toca el micrófono para detener</string>
+    <string name="text_to_speech_on">Texto a voz activado</string>
+    <string name="text_to_speech_off">Texto a voz desactivado</string>
+    <string name="ai_voice_process_failed">Lo siento, no pude procesar tu mensaje de voz.</string>
+    <string name="ai_connection_failed">Lo siento, tengo problemas para conectarme ahora.</string>
     
     <!-- Assessment -->
     <string name="assessment">Evaluación</string>

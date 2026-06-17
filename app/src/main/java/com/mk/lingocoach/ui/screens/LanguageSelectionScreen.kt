@@ -35,8 +35,12 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -45,6 +49,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -77,6 +82,11 @@ fun LanguageSelectionScreen(
     val selectedLanguage by viewModel.selectedLanguage.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
     val filteredLanguages by viewModel.filteredLanguages.collectAsState()
+    var draftLanguage by remember { mutableStateOf(selectedLanguage) }
+
+    LaunchedEffect(selectedLanguage) {
+        draftLanguage = selectedLanguage
+    }
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -111,7 +121,7 @@ fun LanguageSelectionScreen(
                 ) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back",
+                        contentDescription = stringResource(R.string.back),
                         tint = Color(0xFF6A5CFF),
                         modifier = Modifier.size(20.dp)
                     )
@@ -129,6 +139,7 @@ fun LanguageSelectionScreen(
                 // Done Button in capsule style (navigates to welcome onboarding)
                 Button(
                     onClick = {
+                        viewModel.selectLanguage(draftLanguage)
                         // Mark language selection as done
                         context.getSharedPreferences("LingoCoachPrefs", android.content.Context.MODE_PRIVATE)
                             .edit()
@@ -145,7 +156,7 @@ fun LanguageSelectionScreen(
                     modifier = Modifier.height(36.dp)
                 ) {
                     Text(
-                        text = "Done",
+                        text = stringResource(R.string.done),
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 13.sp
@@ -157,7 +168,7 @@ fun LanguageSelectionScreen(
 
             // 2. Title and Description
             Text(
-                text = "Choose Language",
+                text = stringResource(R.string.choose_language),
                 style = TextStyle(
                     color = Color(0xFF1D1D1F),
                     fontSize = 28.sp,
@@ -166,7 +177,7 @@ fun LanguageSelectionScreen(
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = "Select your preferred language",
+                text = stringResource(R.string.select_preferred_language),
                 style = TextStyle(
                     color = Color(0xFF6E6E73),
                     fontSize = 14.sp
@@ -184,7 +195,7 @@ fun LanguageSelectionScreen(
                     .height(56.dp),
                 placeholder = {
                     Text(
-                        text = "Search languages...",
+                        text = stringResource(R.string.search_languages),
                         color = Color(0xFF8E8D9F),
                         fontSize = 15.sp
                     )
@@ -192,7 +203,7 @@ fun LanguageSelectionScreen(
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Search,
-                        contentDescription = "Search",
+                        contentDescription = stringResource(R.string.search_languages),
                         tint = Color(0xFF8E8D9F),
                         modifier = Modifier.size(22.dp)
                     )
@@ -220,7 +231,7 @@ fun LanguageSelectionScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "No languages found for \"$searchQuery\"",
+                        text = stringResource(R.string.no_languages_found, searchQuery),
                         color = Color(0xFF8E8D9F),
                         fontSize = 15.sp,
                         textAlign = TextAlign.Center
@@ -234,13 +245,13 @@ fun LanguageSelectionScreen(
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     items(filteredLanguages) { language ->
-                        val isSelected = language.code == selectedLanguage
+                        val isSelected = language.code == draftLanguage
 
                         Card(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable { 
-                                    viewModel.selectLanguage(language.code)
+                                    draftLanguage = language.code
                                 }
                                 .shadow(
                                     elevation = if (isSelected) 12.dp else 4.dp,

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach</string>
@@ -252,4 +252,61 @@
     <string name="lang_arabic">阿拉伯语</string>
     <string name="lang_turkish">土耳其语</string>
     <string name="lang_vietnamese">越南语</string>
+    <!-- Added UI localization keys -->
+    <string name="choose_personality">选择个性</string>
+    <string name="your_journey">你的旅程</string>
+    <string name="vocabulary_learned">已学词汇：%1$s</string>
+    <string name="text_to_speech_on">文字转语音已开启</string>
+    <string name="no_learning_path_found">尚未找到学习路径。</string>
+    <string name="start_conversation">开始对话</string>
+    <string name="tone_professional_desc">结构清晰、准确、适合工作</string>
+    <string name="text_to_speech">文字转语音</string>
+    <string name="stop_recording">停止录音</string>
+    <string name="weaknesses_label">不足：%1$s</string>
+    <string name="tone_warm">温暖</string>
+    <string name="microphone">麦克风</string>
+    <string name="male_voice_desc">稳定、清晰、低沉的语调</string>
+    <string name="earn_bonus_session">今天获得 100 XP 可解锁一次免费奖励会话</string>
+    <string name="strengths_label">优势：%1$s</string>
+    <string name="start_session">开始会话</string>
+    <string name="ai_conversation">AI 对话</string>
+    <string name="now">现在</string>
+    <string name="tone_casual">轻松</string>
+    <string name="tone_selection_hint">选择本次对话的个性。</string>
+    <string name="start_talking_ai_tutor">开始和你的 AI 导师对话</string>
+    <string name="tone_nerdy">学术</string>
+    <string name="ai_lab_intro">想聊什么都可以。\n和你的 AI 导师自然练习。</string>
+    <string name="could_not_start_recording">无法开始录音</string>
+    <string name="listening_tap_mic_to_stop">正在聆听...点击麦克风停止</string>
+    <string name="locked_for_today">今日已锁定</string>
+    <string name="lingo_ai_conv_start">Lingo AI 对话开始</string>
+    <string name="expand">展开</string>
+    <string name="send">发送</string>
+    <string name="daily_limit_reached">已达到每日限制（%1$d/%2$d）</string>
+    <string name="start_recording">开始录音</string>
+    <string name="sessions_today">今日会话：%1$d/%2$d</string>
+    <string name="grammar_mistakes_count">语法错误：%1$s</string>
+    <string name="personalized_route_to_fluency">通往流利表达的个性化路线</string>
+    <string name="tone_nerdy_desc">分析性强、细致、注重学习</string>
+    <string name="tone_casual_desc">友好、放松、日常对话</string>
+    <string name="female_voice">女声</string>
+    <string name="ai_voice_process_failed">抱歉，我无法处理你的语音消息。</string>
+    <string name="end_session_confirm">你的对话将被总结并保存。确定要结束吗？</string>
+    <string name="choose_voice">选择声音</string>
+    <string name="voice_selection_hint">选择朗读 AI 回复的声音。</string>
+    <string name="collapse">收起</string>
+    <string name="session_summary">会话总结</string>
+    <string name="ai_connection_failed">抱歉，我现在连接有问题。</string>
+    <string name="female_voice_desc">明亮、温暖、自然的语调</string>
+    <string name="processing">处理中...</string>
+    <string name="start_learning">开始学习</string>
+    <string name="tone_warm_desc">鼓励、耐心、支持性的语气</string>
+    <string name="tone_professional">专业</string>
+    <string name="text_to_speech_off">文字转语音已关闭</string>
+    <string name="end_session_question">结束会话？</string>
+    <string name="microphone_permission_required">需要麦克风权限</string>
+    <string name="complete_previous_level_to_unlock">完成上一级以解锁</string>
+    <string name="end_session">结束会话</string>
+    <string name="male_voice">男声</string>
+    <string name="type_response_hint">输入回复...</string>
 </resources>

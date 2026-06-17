@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.mk.lingocoach.data.model.LanguageItem
+import com.mk.lingocoach.data.model.appLanguages
 import com.mk.lingocoach.data.repository.LanguagePreferencesRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -112,31 +113,15 @@ class LanguageViewModel(
             // Set specific language
             LocaleListCompat.forLanguageTags(languageCode)
         }
+        val currentLocales = AppCompatDelegate.getApplicationLocales()
+        if (currentLocales.toLanguageTags() == localeList.toLanguageTags()) return
         AppCompatDelegate.setApplicationLocales(localeList)
     }
 
     /**
      * Get the complete list of supported languages
      */
-    private fun getLanguageList(): List<LanguageItem> {
-        return listOf(
-            LanguageItem("system", "System Default", "Default Settings", "🌐"),
-            LanguageItem("en", "English", "English", "🇺🇸"),
-            LanguageItem("hi", "Hindi", "हिन्दी", "🇮🇳"),
-            LanguageItem("es", "Spanish", "Español", "🇪🇸"),
-            LanguageItem("fr", "French", "Français", "🇫🇷"),
-            LanguageItem("de", "German", "Deutsch", "🇩🇪"),
-            LanguageItem("it", "Italian", "Italiano", "🇮🇹"),
-            LanguageItem("pt", "Portuguese", "Português", "🇵🇹"),
-            LanguageItem("ru", "Russian", "Русский", "🇷🇺"),
-            LanguageItem("ja", "Japanese", "日本語", "🇯🇵"),
-            LanguageItem("ko", "Korean", "한국어", "🇰🇷"),
-            LanguageItem("zh", "Mandarin Chinese", "简体中文", "🇨🇳"),
-            LanguageItem("ar", "Arabic", "العربية", "🇸🇦"),
-            LanguageItem("tr", "Turkish", "Türkçe", "🇹🇷"),
-            LanguageItem("vi", "Vietnamese", "Tiếng Việt", "🇻🇳")
-        )
-    }
+    private fun getLanguageList(): List<LanguageItem> = appLanguages
 
     /**
      * Factory for creating LanguageViewModel instances

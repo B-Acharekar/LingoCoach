@@ -26,12 +26,14 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mk.lingocoach.R
 import com.mk.lingocoach.network.AssessmentApi
 import com.mk.lingocoach.network.DailyStats
+import com.mk.lingocoach.network.ProgressMetrics
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -47,6 +49,7 @@ fun ProgressScreen(
     val scroll  = rememberScrollState()
 
     var weeklyStats by remember { mutableStateOf<List<DailyStats>>(emptyList()) }
+    var progressMetrics by remember { mutableStateOf<ProgressMetrics?>(null) }
     var isLoading   by remember { mutableStateOf(true) }
     var isVocabLoaded by remember { mutableStateOf(VocabTracker.isLoaded) }
 
@@ -71,6 +74,13 @@ fun ProgressScreen(
                 }
             }
         }
+        scope.launch(Dispatchers.IO) {
+            AssessmentApi.getProgressMetrics(userId) { metrics ->
+                scope.launch(Dispatchers.Main) {
+                    progressMetrics = metrics
+                }
+            }
+        }
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -85,7 +95,7 @@ fun ProgressScreen(
                 TopAppBar(
                     title = {
                         Text(
-                            "Analytics",
+                            stringResource(R.string.analytics),
                             fontWeight = FontWeight.Bold,
                             fontSize = 20.sp,
                             color = TextDark
@@ -120,6 +130,7 @@ fun ProgressScreen(
             } else {
                 AnalyticsContent(
                     weeklyStats = weeklyStats,
+                    progressMetrics = progressMetrics,
                     isVocabLoaded = isVocabLoaded,
                     modifier = Modifier.padding(padding)
                 )
@@ -131,6 +142,7 @@ fun ProgressScreen(
 @Composable
 private fun AnalyticsContent(
     weeklyStats: List<DailyStats>,
+    progressMetrics: ProgressMetrics?,
     isVocabLoaded: Boolean,
     modifier: Modifier = Modifier
 ) {
@@ -148,7 +160,7 @@ private fun AnalyticsContent(
     val duelSessions    = weeklyStats.sumOf { it.duel_sessions }
     val duelCorrect     = weeklyStats.sumOf { it.duel_correct }
     val vocabMastered   = weeklyStats.sumOf { it.vocab_words_mastered }
-    val streak          = weeklyStats.lastOrNull()?.streak_day ?: 0
+    val streak          = progressMetrics?.streak ?: (weeklyStats.lastOrNull()?.streak_day ?: 0)
 
     // Weekly XP trend vs first-half avg
     val prevHalfXp = weeklyStats.take(3).sumOf { it.xp_earned }
@@ -168,17 +180,21 @@ private fun AnalyticsContent(
     else 0
 
     // Skills derived from real data
-    val grammarScore    = if (totalExercises > 0)
+    val fallbackGrammarScore = if (totalExercises > 0)
         (correctExercises * 100 / totalExercises).coerceIn(0, 100) else 0
-    val vocabScore      = if (isVocabLoaded)
+    val fallbackVocabScore = if (isVocabLoaded)
         VocabTracker.getOverallProgressPercent().coerceIn(0, 100) else 0
     val fluencyScore    = (aiLabMinutes.coerceIn(0, 60) * 100 / 60).coerceIn(0, 100)
-    val pronunciationScore = if (aiLabSessions > 0)
+    val fallbackPronunciationScore = if (aiLabSessions > 0)
         ((aiLabMinutes.coerceAtLeast(aiLabSessions) * 100) / 30).coerceIn(0, 100)
     else 0
-    val listeningScore  = if (totalExercises > 0)
+    val fallbackListeningScore  = if (totalExercises > 0)
         ((correctExercises * 65) / totalExercises.coerceAtLeast(1)).coerceIn(0, 100)
     else 0
+    val grammarScore = progressMetrics?.grammar_score ?: fallbackGrammarScore
+    val vocabScore = progressMetrics?.vocabulary_score ?: fallbackVocabScore
+    val listeningScore = progressMetrics?.listening_score ?: fallbackListeningScore
+    val pronunciationScore = progressMetrics?.pronunciation_score ?: fallbackPronunciationScore
 
     // Grammar trend vs prev half
     val prevGrammarCorrect  = weeklyStats.take(3).sumOf { it.exercises_correct }
@@ -283,8 +299,8 @@ private fun AnalyticsContent(
         ) {
             StatCard(
                 modifier = Modifier.weight(1f),
-                label = "DAILY STREAK",
-                value = "${streak} Days",
+                label = stringResource(R.string.daily_streak).uppercase(),
+                value = "$streak ${stringResource(R.string.days)}",
                 sub = "Personal Best",
                 subColor = BrandPurple,
                 icon = Icons.Default.Whatshot,
@@ -292,7 +308,7 @@ private fun AnalyticsContent(
             )
             StatCard(
                 modifier = Modifier.weight(1f),
-                label = "LESSONS",
+                label = stringResource(R.string.lessons).uppercase(),
                 value = "$totalLessons",
                 sub = "This Week",
                 subColor = TextLight,
@@ -315,7 +331,7 @@ private fun AnalyticsContent(
             )
             StatCard(
                 modifier = Modifier.weight(1f),
-                label = "MISTAKES",
+                label = stringResource(R.string.mistakes).uppercase(),
                 value = "$totalMistakes",
                 sub = if (mistakeTrendPct <= 0) "${mistakeTrendPct}% vs last week"
                       else "+${mistakeTrendPct}% vs last week",
@@ -344,13 +360,13 @@ private fun AnalyticsContent(
             ) {
                 SkillBar(
                     modifier = Modifier.weight(1f),
-                    label = "GRAMMAR",
+                    label = stringResource(R.string.grammar_check).uppercase(),
                     score = grammarScore,
                     trendPct = grammarTrendPct
                 )
                 SkillBar(
                     modifier = Modifier.weight(1f),
-                    label = "LISTENING",
+                    label = stringResource(R.string.listening).uppercase(),
                     score = listeningScore,
                     trendPct = null,
                     trendLabel = "Stable"
@@ -363,13 +379,13 @@ private fun AnalyticsContent(
             ) {
                 SkillBar(
                     modifier = Modifier.weight(1f),
-                    label = "VOCABULARY",
+                    label = stringResource(R.string.vocabulary).uppercase(),
                     score = vocabScore,
                     trendPct = vocabTrendPct
                 )
                 SkillBar(
                     modifier = Modifier.weight(1f),
-                    label = "PRONUNCIATION",
+                    label = stringResource(R.string.pronunciation).uppercase(),
                     score = pronunciationScore,
                     trendPct = pronounceTrendPct
                 )

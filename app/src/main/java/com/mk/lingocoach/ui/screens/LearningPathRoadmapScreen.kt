@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -127,7 +128,7 @@ fun LearningPathRoadmapScreen(
 
                 // Hero label
                 Text(
-                    "Your Journey",
+                    stringResource(R.string.your_journey),
                     style = TextStyle(
                         color = BrandPurple,
                         fontSize = 22.sp,
@@ -139,7 +140,7 @@ fun LearningPathRoadmapScreen(
                 Spacer(Modifier.height(4.dp))
 
                 Text(
-                    "Personalized route to fluency",
+                    stringResource(R.string.personalized_route_to_fluency),
                     style = TextStyle(
                         color = TextLight,
                         fontSize = 13.sp
@@ -156,7 +157,7 @@ fun LearningPathRoadmapScreen(
                     }
                     modules.isEmpty() -> {
                         Text(
-                            "No learning path found yet.",
+                            stringResource(R.string.no_learning_path_found),
                             color = TextLight,
                             fontSize = 14.sp,
                             textAlign = TextAlign.Center
@@ -208,14 +209,14 @@ private fun TopBar(
         ) {
             Icon(
                 Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = "Back",
+                contentDescription = stringResource(R.string.back),
                 tint = BrandPurple,
                 modifier = Modifier.size(20.dp)
             )
         }
 
         Text(
-            "Learning Path",
+            stringResource(R.string.learning_path),
             style = TextStyle(
                 color = TextDark,
                 fontSize = 18.sp,
@@ -232,6 +233,7 @@ private fun TopBar(
             Icon(
                 Icons.Default.Settings,
                 contentDescription = "Settings",
+                
                 tint = BrandPurple,
                 modifier = Modifier.size(20.dp)
             )
@@ -255,7 +257,7 @@ private fun BottomStartLearningBar(onClick: () -> Unit) {
             shape = RoundedCornerShape(28.dp),
             colors = ButtonDefaults.buttonColors(containerColor = BrandPurple)
         ) {
-            Text("Start Learning", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+            Text(stringResource(R.string.start_learning), color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp)
             Spacer(Modifier.width(8.dp))
             Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, tint = Color.White)
         }
@@ -376,7 +378,7 @@ private fun ExpandableModule(
                     } else if (completed) {
                         Spacer(Modifier.height(4.dp))
                         Text(
-                            "Completed",
+                            stringResource(R.string.completed),
                             color = SuccessGreen,
                             fontSize = 11.sp,
                             fontWeight = FontWeight.SemiBold
@@ -384,7 +386,7 @@ private fun ExpandableModule(
                     } else if (locked) {
                         Spacer(Modifier.height(4.dp))
                         Text(
-                            "Complete previous level to unlock",
+                            stringResource(R.string.complete_previous_level_to_unlock),
                             color = TextLight,
                             fontSize = 11.sp
                         )
@@ -395,7 +397,7 @@ private fun ExpandableModule(
                 if (!locked) {
                     Icon(
                         imageVector = if (expanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
-                        contentDescription = if (expanded) "Collapse" else "Expand",
+                        contentDescription = if (expanded) stringResource(R.string.collapse) else stringResource(R.string.expand),
                         tint = BrandPurple
                     )
                 }

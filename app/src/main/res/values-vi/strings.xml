@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach</string>
@@ -252,4 +252,61 @@
     <string name="lang_arabic">Tiếng Ả Rập</string>
     <string name="lang_turkish">Tiếng Thổ Nhĩ Kỳ</string>
     <string name="lang_vietnamese">Tiếng Việt</string>
+    <!-- Added UI localization keys -->
+    <string name="choose_personality">Chọn tính cách</string>
+    <string name="your_journey">Hành trình của bạn</string>
+    <string name="vocabulary_learned">Từ vựng đã học: %1$s</string>
+    <string name="text_to_speech_on">Đọc văn bản đang bật</string>
+    <string name="no_learning_path_found">Chưa tìm thấy lộ trình học.</string>
+    <string name="start_conversation">Bắt đầu trò chuyện</string>
+    <string name="tone_professional_desc">Có cấu trúc, chính xác, phù hợp công việc</string>
+    <string name="text_to_speech">Chuyển văn bản thành giọng nói</string>
+    <string name="stop_recording">Dừng ghi âm</string>
+    <string name="weaknesses_label">Điểm yếu: %1$s</string>
+    <string name="tone_warm">Ấm áp</string>
+    <string name="microphone">Micro</string>
+    <string name="male_voice_desc">Giọng trầm, rõ, ổn định</string>
+    <string name="earn_bonus_session">Kiếm 100 XP hôm nay để mở khóa một phiên thưởng miễn phí</string>
+    <string name="strengths_label">Điểm mạnh: %1$s</string>
+    <string name="start_session">Bắt đầu phiên</string>
+    <string name="ai_conversation">Trò chuyện AI</string>
+    <string name="now">BÂY GIỜ</string>
+    <string name="tone_casual">Thân mật</string>
+    <string name="tone_selection_hint">Chọn tính cách cho cuộc trò chuyện này.</string>
+    <string name="start_talking_ai_tutor">Bắt đầu nói với gia sư AI của bạn</string>
+    <string name="tone_nerdy">Phân tích</string>
+    <string name="ai_lab_intro">Nói về bất cứ điều gì bạn muốn.\nLuyện tập tự nhiên với gia sư AI của bạn.</string>
+    <string name="could_not_start_recording">Không thể bắt đầu ghi âm</string>
+    <string name="listening_tap_mic_to_stop">Đang nghe... chạm micro để dừng</string>
+    <string name="locked_for_today">Đã khóa hôm nay</string>
+    <string name="lingo_ai_conv_start">Bắt đầu trò chuyện Lingo AI</string>
+    <string name="expand">Mở rộng</string>
+    <string name="send">Gửi</string>
+    <string name="daily_limit_reached">Đã đạt giới hạn hằng ngày (%1$d/%2$d)</string>
+    <string name="start_recording">Bắt đầu ghi âm</string>
+    <string name="sessions_today">Phiên hôm nay: %1$d/%2$d</string>
+    <string name="grammar_mistakes_count">Lỗi ngữ pháp: %1$s</string>
+    <string name="personalized_route_to_fluency">Lộ trình cá nhân để nói lưu loát</string>
+    <string name="tone_nerdy_desc">Phân tích, chi tiết, tập trung học tập</string>
+    <string name="tone_casual_desc">Thân thiện, thoải mái, trò chuyện hằng ngày</string>
+    <string name="female_voice">Giọng nữ</string>
+    <string name="ai_voice_process_failed">Xin lỗi, tôi không thể xử lý tin nhắn thoại của bạn.</string>
+    <string name="end_session_confirm">Cuộc trò chuyện sẽ được tóm tắt và lưu lại. Bạn chắc chắn muốn kết thúc?</string>
+    <string name="choose_voice">Chọn giọng nói</string>
+    <string name="voice_selection_hint">Chọn giọng đọc to câu trả lời của AI.</string>
+    <string name="collapse">Thu gọn</string>
+    <string name="session_summary">Tóm tắt phiên</string>
+    <string name="ai_connection_failed">Xin lỗi, hiện tôi đang gặp sự cố kết nối.</string>
+    <string name="female_voice_desc">Giọng sáng, ấm, tự nhiên</string>
+    <string name="processing">Đang xử lý...</string>
+    <string name="start_learning">Bắt đầu học</string>
+    <string name="tone_warm_desc">Khích lệ, kiên nhẫn và hỗ trợ</string>
+    <string name="tone_professional">Chuyên nghiệp</string>
+    <string name="text_to_speech_off">Đọc văn bản đang tắt</string>
+    <string name="end_session_question">Kết thúc phiên?</string>
+    <string name="microphone_permission_required">Cần quyền truy cập micro</string>
+    <string name="complete_previous_level_to_unlock">Hoàn thành cấp trước để mở khóa</string>
+    <string name="end_session">Kết thúc phiên</string>
+    <string name="male_voice">Giọng nam</string>
+    <string name="type_response_hint">Nhập phản hồi...</string>
 </resources>

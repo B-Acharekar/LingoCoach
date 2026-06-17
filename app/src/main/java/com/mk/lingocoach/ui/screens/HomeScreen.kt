@@ -29,6 +29,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -244,7 +245,7 @@ fun HomeScreen(
                             fontWeight = FontWeight.Medium
                         )
                         Text(
-                            "Home",
+                            stringResource(R.string.home),
                             style = TextStyle(
                                 color = TextDark,
                                 fontSize = 28.sp,
@@ -468,11 +469,11 @@ fun HomeDailyStatsCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                CapsuleProgressIndicator("LESSONS", lessonsProgress)
-                CapsuleProgressIndicator("GRAMMAR", grammarProgress)
-                CapsuleProgressIndicator("VOCAB", vocabProgress)
-                CapsuleProgressIndicator("PRONUNC.", pronunciationProgress)
-                CapsuleProgressIndicator("FLUENCY", fluencyProgress)
+                CapsuleProgressIndicator(stringResource(R.string.lessons).uppercase(), lessonsProgress)
+                CapsuleProgressIndicator(stringResource(R.string.grammar_check).uppercase(), grammarProgress)
+                CapsuleProgressIndicator(stringResource(R.string.vocabulary).uppercase(), vocabProgress)
+                CapsuleProgressIndicator(stringResource(R.string.pronunciation).uppercase(), pronunciationProgress)
+                CapsuleProgressIndicator(stringResource(R.string.speaking).uppercase(), fluencyProgress)
             }
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -503,7 +504,7 @@ fun HomeDailyStatsCard(
                     modifier = Modifier.weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Accuracy", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.accuracy), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
                     Text("$accuracy%", color = TextDark, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                 }
@@ -516,9 +517,9 @@ fun HomeDailyStatsCard(
                     modifier = Modifier.weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Streak", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.daily_streak), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
-                    Text("$streak Days", color = Color(0xFFFFB300), fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
+                    Text("$streak ${stringResource(R.string.days)}", color = Color(0xFFFFB300), fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                 }
             }
         }
@@ -915,7 +916,7 @@ fun TimelyDuelCard(modifier: Modifier = Modifier, onClick: () -> Unit) {
                 )
             }
             Spacer(Modifier.weight(1f))
-            Text("Timely Duel", color = darkBrown, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
+            Text(stringResource(R.string.timely_duel), color = darkBrown, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(2.dp))
             Text(
                 "BATTLE AGAINST TIME",
@@ -971,10 +972,10 @@ fun AILabCard(modifier: Modifier = Modifier, onClick: () -> Unit) {
                 )
             }
             Spacer(Modifier.weight(1f))
-            Text("AI Lab", color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
+            Text(stringResource(R.string.ai_lab), color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(2.dp))
             Text(
-                "PRONUNCIATION",
+                stringResource(R.string.pronunciation).uppercase(),
                 color = Color.White.copy(alpha = 0.70f),
                 fontSize = 8.sp,
                 fontWeight = FontWeight.Bold,
@@ -1021,7 +1022,7 @@ fun HomeVocabBuilderCard(
                     Spacer(Modifier.width(12.dp))
                     Column {
                         Text(
-                            "Vocab Builder",
+                            stringResource(R.string.vocab_builder),
                             color = TextDark,
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Bold
@@ -1101,13 +1102,13 @@ fun HomeMistakeVaultCard(mistakes: List<Mistake>, onClick: () -> Unit = {}) {
                 Spacer(Modifier.width(12.dp))
                 Column {
                     Text(
-                        "Mistake Vault",
+                        stringResource(R.string.mistake_vault),
                         color = TextDark,
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        "Review recent pronunciation slips",
+                        stringResource(R.string.review_mistakes),
                         color = TextLight,
                         fontSize = 11.sp
                     )

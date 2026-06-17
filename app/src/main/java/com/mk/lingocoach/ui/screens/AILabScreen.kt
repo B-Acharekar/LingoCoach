@@ -1,4 +1,4 @@
-package com.mk.lingocoach.ui.screens
+﻿package com.mk.lingocoach.ui.screens
 
 import android.Manifest
 import android.content.Context
@@ -46,6 +46,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -62,7 +63,7 @@ import java.io.File
 import java.io.IOException
 import java.util.Locale
 
-// ─── Models ──────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Models â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 enum class MessageRole { AI, USER }
 data class Mistake(
     val wrong: String = "",
@@ -73,7 +74,7 @@ data class Mistake(
 data class ChatMessage(val id: String, val role: MessageRole, val text: String, val isTyping: Boolean = false, val mistakes: List<Mistake> = emptyList())
 enum class AILabStep { HOME, VOICE_SELECTION, TONE_SELECTION, CHAT }
 
-// ─── AILabScreen ─────────────────────────────────────────────────────────────
+// â”€â”€â”€ AILabScreen â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AILabScreen(
@@ -91,7 +92,7 @@ fun AILabScreen(
     var endSessionSummary    by remember { mutableStateOf<com.mk.lingocoach.network.AILabEndSessionResponse?>(null) }
     var aiLabStatus          by remember { mutableStateOf<com.mk.lingocoach.network.AILabStatusResponse?>(null) }
 
-    // Real user ID — the session UUID assigned during assessment
+    // Real user ID â€” the session UUID assigned during assessment
     val context  = LocalContext.current
     val userId   = remember {
         context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
@@ -120,10 +121,10 @@ fun AILabScreen(
             topBar = {
                 CommonTopBar(
                     title = when (currentStep) {
-                        AILabStep.HOME            -> "AI Conversation"
-                        AILabStep.VOICE_SELECTION -> "Choose a Voice"
-                        AILabStep.TONE_SELECTION  -> "Choose Personality"
-                        AILabStep.CHAT            -> "Lingo AI Conv Start"
+                        AILabStep.HOME            -> context.getString(R.string.ai_conversation)
+                        AILabStep.VOICE_SELECTION -> context.getString(R.string.choose_voice)
+                        AILabStep.TONE_SELECTION  -> context.getString(R.string.choose_personality)
+                        AILabStep.CHAT            -> context.getString(R.string.lingo_ai_conv_start)
                     },
                     onBack = {
                         when (currentStep) {
@@ -207,22 +208,22 @@ fun AILabScreen(
                         onDismissRequest = { showEndDialog = false },
                         title = {
                             Text(
-                                if (endSessionSummary != null) "Session Summary" else "End Session?",
+                                if (endSessionSummary != null) stringResource(R.string.session_summary) else stringResource(R.string.end_session_question),
                                 color = Color.Black
                             )
                         },
                         text = {
                             if (endSessionSummary != null) {
                                 Column {
-                                    Text("Vocabulary Learned: ${endSessionSummary!!.vocabulary_learned}", color = Color.Black)
-                                    Text("Grammar Mistakes: ${endSessionSummary!!.grammar_mistakes}", color = Color.Black)
+                                    Text(stringResource(R.string.vocabulary_learned, endSessionSummary!!.vocabulary_learned), color = Color.Black)
+                                    Text(stringResource(R.string.grammar_mistakes_count, endSessionSummary!!.grammar_mistakes), color = Color.Black)
                                     Spacer(Modifier.height(8.dp))
-                                    Text("Strengths: ${endSessionSummary!!.strengths}", color = Color.Black, fontWeight = FontWeight.Bold)
-                                    Text("Weaknesses: ${endSessionSummary!!.weaknesses}", color = Color.Black, fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.strengths_label, endSessionSummary!!.strengths), color = Color.Black, fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.weaknesses_label, endSessionSummary!!.weaknesses), color = Color.Black, fontWeight = FontWeight.Bold)
                                 }
                             } else {
                                 Text(
-                                    "Your conversation will be summarized and saved. Are you sure you want to end?",
+                                    stringResource(R.string.end_session_confirm),
                                     color = Color.Black
                                 )
                             }
@@ -241,18 +242,18 @@ fun AILabScreen(
                                         } else { showEndDialog = false; onNavigateBack() }
                                     },
                                     colors = ButtonDefaults.buttonColors(containerColor = BrandRed)
-                                ) { Text("End Session", color = Color.White) }
+                                ) { Text(stringResource(R.string.end_session), color = Color.White) }
                             } else {
                                 Button(
                                     onClick = { showEndDialog = false; onNavigateBack() },
                                     colors  = ButtonDefaults.buttonColors(containerColor = BrandPurple)
-                                ) { Text("Close", color = Color.White) }
+                                ) { Text(stringResource(R.string.close), color = Color.White) }
                             }
                         },
                         dismissButton = {
                             if (endSessionSummary == null) {
                                 TextButton(onClick = { showEndDialog = false }) {
-                                    Text("Cancel", color = BrandPurple)
+                                    Text(stringResource(R.string.cancel), color = BrandPurple)
                                 }
                             }
                         }
@@ -263,7 +264,7 @@ fun AILabScreen(
     }
 }
 
-// ─── Home Step ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Home Step â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 fun HomeStep(
     aiLabStatus: com.mk.lingocoach.network.AILabStatusResponse? = null,
@@ -285,7 +286,7 @@ fun HomeStep(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text("Talk about anything you want.\nPractice naturally with your AI tutor.",
+        Text(stringResource(R.string.ai_lab_intro),
             color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
 
         // Daily usage counter
@@ -301,9 +302,9 @@ fun HomeStep(
             ) {
                 Text(
                     text = if (isLimited)
-                        "Daily limit reached (${aiLabStatus.sessions_used_today}/${aiLabStatus.sessions_limit})"
+                        stringResource(R.string.daily_limit_reached, aiLabStatus.sessions_used_today, aiLabStatus.sessions_limit)
                     else
-                        "Sessions today: ${aiLabStatus.sessions_used_today}/${aiLabStatus.sessions_limit}",
+                        stringResource(R.string.sessions_today, aiLabStatus.sessions_used_today, aiLabStatus.sessions_limit),
                     color = if (isLimited) BrandRed else BrandPurple,
                     fontSize = 13.sp,
                     fontWeight = FontWeight.SemiBold
@@ -312,7 +313,7 @@ fun HomeStep(
             if (isLimited && aiLabStatus.bonus_sessions == 0) {
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    "Earn 100 XP today to unlock a free bonus session",
+                    stringResource(R.string.earn_bonus_session),
                     color = TextLight, fontSize = 12.sp, textAlign = TextAlign.Center
                 )
             }
@@ -338,7 +339,7 @@ fun HomeStep(
                     }
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text("Start Session", fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.start_session), fontWeight = FontWeight.Bold)
                     Spacer(Modifier.width(8.dp))
                     Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null)
                 }
@@ -354,14 +355,14 @@ fun HomeStep(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(Icons.Default.Lock, null, tint = TextLight, modifier = Modifier.size(18.dp))
                     Spacer(Modifier.width(8.dp))
-                    Text("Locked for today", color = TextLight, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.locked_for_today), color = TextLight, fontWeight = FontWeight.Bold)
                 }
             }
         }
     }
 }
 
-// ─── Voice Selection Step ─────────────────────────────────────────────────────
+// â”€â”€â”€ Voice Selection Step â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 fun VoiceSelectionStep(selectedVoice: String, onVoiceSelected: (String) -> Unit, onNext: () -> Unit) {
     Box(modifier = Modifier.fillMaxSize()) {
@@ -369,16 +370,16 @@ fun VoiceSelectionStep(selectedVoice: String, onVoiceSelected: (String) -> Unit,
             modifier            = Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 18.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Choose the voice that should read AI replies aloud.",
+            Text(stringResource(R.string.voice_selection_hint),
                 color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
             Spacer(Modifier.height(22.dp))
 
             listOf(
-                Triple("Male", "Steady, clear, lower tone", Icons.Default.RecordVoiceOver),
-                Triple("Female", "Bright, warm, natural tone", Icons.Default.SupportAgent)
+                Triple("Male", stringResource(R.string.male_voice_desc), Icons.Default.RecordVoiceOver),
+                Triple("Female", stringResource(R.string.female_voice_desc), Icons.Default.SupportAgent)
             ).forEach { (value, desc, icon) ->
                 AILabChoiceCard(
-                    title = "$value Voice",
+                    title = if (value == "Male") stringResource(R.string.male_voice) else stringResource(R.string.female_voice),
                     description = desc,
                     icon = icon,
                     selected = selectedVoice == value,
@@ -395,11 +396,11 @@ fun VoiceSelectionStep(selectedVoice: String, onVoiceSelected: (String) -> Unit,
             modifier = Modifier
                 .align(Alignment.BottomCenter).padding(24.dp)
                 .fillMaxWidth().height(56.dp).shadow(6.dp, RoundedCornerShape(32.dp))
-        ) { Text("Continue", fontWeight = FontWeight.Bold) }
+        ) { Text(stringResource(R.string.continue_text), fontWeight = FontWeight.Bold) }
     }
 }
 
-// ─── Tone Selection Step ──────────────────────────────────────────────────────
+// â”€â”€â”€ Tone Selection Step â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, onStartSession: () -> Unit) {
     var isLoading by remember { mutableStateOf(false) }
@@ -408,13 +409,13 @@ fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, on
             modifier            = Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 18.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Pick the personality for this conversation.", color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
+            Text(stringResource(R.string.tone_selection_hint), color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
             Spacer(Modifier.height(18.dp))
             listOf(
-                Triple("Casual", "Friendly, relaxed, everyday conversation", Icons.Default.ChatBubble),
-                Triple("Professional", "Structured, precise, work-ready replies", Icons.Default.BusinessCenter),
-                Triple("Nerdy", "Analytical, detailed, learning-focused", Icons.Default.Psychology),
-                Triple("Warm", "Encouraging, patient, supportive tone", Icons.Default.Favorite)
+                Triple("Casual", stringResource(R.string.tone_casual_desc), Icons.Default.ChatBubble),
+                Triple("Professional", stringResource(R.string.tone_professional_desc), Icons.Default.BusinessCenter),
+                Triple("Nerdy", stringResource(R.string.tone_nerdy_desc), Icons.Default.Psychology),
+                Triple("Warm", stringResource(R.string.tone_warm_desc), Icons.Default.Favorite)
             ).forEachIndexed { index, (title, desc, icon) ->
                 var visible by remember { mutableStateOf(false) }
                 LaunchedEffect(Unit) { delay(index * 100L); visible = true }
@@ -423,7 +424,12 @@ fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, on
                     enter   = fadeIn(tween(300)) + slideInVertically(tween(300)) { 50 }
                 ) {
                     AILabChoiceCard(
-                        title = title,
+                        title = when (title) {
+                            "Casual" -> stringResource(R.string.tone_casual)
+                            "Professional" -> stringResource(R.string.tone_professional)
+                            "Nerdy" -> stringResource(R.string.tone_nerdy)
+                            else -> stringResource(R.string.tone_warm)
+                        },
                         description = desc,
                         icon = icon,
                         selected = selectedTone == title,
@@ -444,7 +450,7 @@ fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, on
             enabled  = !isLoading
         ) {
             if (isLoading) CircularProgressIndicator(color = Color.White, modifier = Modifier.size(24.dp))
-            else Text("Start Conversation", fontWeight = FontWeight.Bold)
+            else Text(stringResource(R.string.start_conversation), fontWeight = FontWeight.Bold)
         }
     }
 }
@@ -501,7 +507,7 @@ private fun AILabChoiceCard(
     }
 }
 
-// ─── Chat Step ────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Chat Step â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", onEndSession: () -> Unit) {
     val context        = LocalContext.current
@@ -559,7 +565,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
     val permLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { granted ->
-        if (!granted) Toast.makeText(context, "Microphone permission required", Toast.LENGTH_SHORT).show()
+        if (!granted) Toast.makeText(context, context.getString(R.string.microphone_permission_required), Toast.LENGTH_SHORT).show()
     }
 
     fun hasAudioPermission() =
@@ -585,7 +591,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
             isListening = true
         } catch (e: Exception) {
             Log.e("AILab", "Recording failed", e)
-            Toast.makeText(context, "Could not start recording", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.could_not_start_recording), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -637,7 +643,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
                 messages = messages + ChatMessage(
                     id   = System.currentTimeMillis().toString(),
                     role = MessageRole.AI,
-                    text = "Sorry, I couldn't process your voice message."
+                    text = context.getString(R.string.ai_voice_process_failed)
                 )
             }
             scope.launch { file.delete() }
@@ -667,7 +673,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
                 modifier        = Modifier.weight(1f).fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
-                TypewriterText("Start Talking With Your AI Tutor", modifier = Modifier.padding(32.dp))
+                TypewriterText(stringResource(R.string.start_talking_ai_tutor), modifier = Modifier.padding(32.dp))
             }
         } else {
             LazyColumn(
@@ -721,7 +727,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
                                 }
                             ).also { speakAi(response.ai_response) }
                         } else {
-                            ChatMessage(System.currentTimeMillis().toString(), MessageRole.AI, "Sorry, I'm having trouble connecting right now.")
+                            ChatMessage(System.currentTimeMillis().toString(), MessageRole.AI, context.getString(R.string.ai_connection_failed))
                         }
                     }
                 }
@@ -734,7 +740,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
     }
 }
 
-// ─── Typewriter text ─────────────────────────────────────────────────────────
+// â”€â”€â”€ Typewriter text â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 fun TypewriterText(text: String, modifier: Modifier = Modifier) {
     var displayedText by remember { mutableStateOf("") }
@@ -745,7 +751,7 @@ fun TypewriterText(text: String, modifier: Modifier = Modifier) {
         color = TextLight, textAlign = TextAlign.Center, modifier = modifier)
 }
 
-// ─── Chat Bubble ──────────────────────────────────────────────────────────────
+// â”€â”€â”€ Chat Bubble â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 fun ChatBubble(message: ChatMessage) {
     val isUser = message.role == MessageRole.USER
@@ -808,7 +814,7 @@ fun ChatBubble(message: ChatMessage) {
     }
 }
 
-// ─── Typing Indicator ─────────────────────────────────────────────────────────
+// â”€â”€â”€ Typing Indicator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 fun TypingIndicator() {
     val infiniteTransition = rememberInfiniteTransition(label = "typing")
@@ -830,7 +836,7 @@ fun TypingIndicator() {
     }
 }
 
-// ─── Chat Input Area ──────────────────────────────────────────────────────────
+// â”€â”€â”€ Chat Input Area â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 fun ChatInputArea(
     inputText: String,
@@ -856,7 +862,7 @@ fun ChatInputArea(
             .padding(horizontal = 16.dp, vertical = 10.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        // ── Listening / transcribing card ────────────────────────────────
+        // â”€â”€ Listening / transcribing card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         if (isListening || isTranscribing) {
             Row(
                 modifier = Modifier
@@ -893,14 +899,14 @@ fun ChatInputArea(
                         }
                     }
                     Text(
-                        if (isTranscribing) "Processing..." else "Listening… tap mic to stop",
+                        if (isTranscribing) stringResource(R.string.processing) else stringResource(R.string.listening_tap_mic_to_stop),
                         color = BrandPurple, fontSize = 13.sp, fontWeight = FontWeight.SemiBold
                     )
                 }
             }
         }
 
-        // ── Text input ────────────────────────────────────────────────────
+        // â”€â”€ Text input â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -912,7 +918,7 @@ fun ChatInputArea(
             Icon(Icons.Default.Keyboard, contentDescription = null, tint = TextLight, modifier = Modifier.size(18.dp))
             Spacer(Modifier.width(10.dp))
             Box(modifier = Modifier.weight(1f)) {
-                if (inputText.isEmpty()) Text("Type a response...", color = TextLight, fontSize = 15.sp)
+                if (inputText.isEmpty()) Text(stringResource(R.string.type_response_hint), color = TextLight, fontSize = 15.sp)
                 BasicTextField(
                     value          = inputText,
                     onValueChange  = onInputChange,
@@ -930,13 +936,13 @@ fun ChatInputArea(
                     modifier         = Modifier.size(32.dp).background(BrandPurple, CircleShape).clickable { onSend() },
                     contentAlignment = Alignment.Center
                 ) {
-                    Icon(Icons.Default.ArrowUpward, contentDescription = "Send",
+                    Icon(Icons.Default.ArrowUpward, contentDescription = stringResource(R.string.send),
                         tint = Color.White, modifier = Modifier.size(16.dp))
                 }
             }
         }
 
-        // ── Action row ────────────────────────────────────────────────────
+        // â”€â”€ Action row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             val micBg by animateColorAsState(
                 if (isListening) Color(0xFFFFECEC) else Color(0xFFF5F5F5), label = "micBg"
@@ -947,7 +953,7 @@ fun ChatInputArea(
             ) {
                 Icon(
                     if (isListening) Icons.Default.MicOff else Icons.Default.Mic,
-                    contentDescription = if (isListening) "Stop recording" else "Start recording",
+                    contentDescription = if (isListening) stringResource(R.string.stop_recording) else stringResource(R.string.start_recording),
                     tint     = if (isListening) BrandRed else TextLight,
                     modifier = Modifier.size(20.dp)
                 )
@@ -971,7 +977,7 @@ fun ChatInputArea(
                 ) {
                     Icon(
                         if (ttsEnabled) Icons.AutoMirrored.Filled.VolumeUp else Icons.Default.VolumeOff,
-                        contentDescription = "Text to speech",
+                        contentDescription = stringResource(R.string.text_to_speech),
                         tint = if (ttsEnabled) Color.White else TextLight,
                         modifier = Modifier.size(18.dp)
                     )
@@ -979,7 +985,7 @@ fun ChatInputArea(
                 Spacer(Modifier.width(8.dp))
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        if (ttsEnabled) "Text to speech on" else "Text to speech off",
+                        if (ttsEnabled) stringResource(R.string.text_to_speech_on) else stringResource(R.string.text_to_speech_off),
                         color = if (ttsEnabled) BrandPurple else TextLight,
                         fontSize = 11.sp,
                         fontWeight = FontWeight.Bold,
@@ -1010,8 +1016,9 @@ fun ChatInputArea(
                     .clickable { onEndSessionClick() }
                     .padding(horizontal = 20.dp, vertical = 10.dp)
             ) {
-                Text("End Session", color = Color.Black, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+                Text(stringResource(R.string.end_session), color = Color.Black, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
             }
         }
     }
 }
+

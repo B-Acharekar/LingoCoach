@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach</string>
@@ -252,4 +252,61 @@
     <string name="lang_arabic">Arabo</string>
     <string name="lang_turkish">Turco</string>
     <string name="lang_vietnamese">Vietnamita</string>
+    <!-- Added UI localization keys -->
+    <string name="choose_personality">Scegli personalità</string>
+    <string name="your_journey">Il tuo percorso</string>
+    <string name="vocabulary_learned">Vocabolario appreso: %1$s</string>
+    <string name="text_to_speech_on">Sintesi vocale attiva</string>
+    <string name="no_learning_path_found">Nessun percorso di apprendimento trovato.</string>
+    <string name="start_conversation">Avvia conversazione</string>
+    <string name="tone_professional_desc">Strutturata, precisa, pronta per il lavoro</string>
+    <string name="text_to_speech">Sintesi vocale</string>
+    <string name="stop_recording">Interrompi registrazione</string>
+    <string name="weaknesses_label">Debolezze: %1$s</string>
+    <string name="tone_warm">Calda</string>
+    <string name="microphone">Microfono</string>
+    <string name="male_voice_desc">Tono stabile, chiaro e basso</string>
+    <string name="earn_bonus_session">Guadagna 100 XP oggi per sbloccare una sessione bonus gratuita</string>
+    <string name="strengths_label">Punti di forza: %1$s</string>
+    <string name="start_session">Avvia sessione</string>
+    <string name="ai_conversation">Conversazione IA</string>
+    <string name="now">ORA</string>
+    <string name="tone_casual">Informale</string>
+    <string name="tone_selection_hint">Scegli la personalità per questa conversazione.</string>
+    <string name="start_talking_ai_tutor">Inizia a parlare con il tuo tutor IA</string>
+    <string name="tone_nerdy">Analitica</string>
+    <string name="ai_lab_intro">Parla di quello che vuoi.\nEsercitati naturalmente con il tuo tutor IA.</string>
+    <string name="could_not_start_recording">Impossibile avviare la registrazione</string>
+    <string name="listening_tap_mic_to_stop">Ascolto... tocca il microfono per fermare</string>
+    <string name="locked_for_today">Bloccato per oggi</string>
+    <string name="lingo_ai_conv_start">Avvio conversazione Lingo AI</string>
+    <string name="expand">Espandi</string>
+    <string name="send">Invia</string>
+    <string name="daily_limit_reached">Limite giornaliero raggiunto (%1$d/%2$d)</string>
+    <string name="start_recording">Avvia registrazione</string>
+    <string name="sessions_today">Sessioni oggi: %1$d/%2$d</string>
+    <string name="grammar_mistakes_count">Errori grammaticali: %1$s</string>
+    <string name="personalized_route_to_fluency">Percorso personalizzato verso la fluidità</string>
+    <string name="tone_nerdy_desc">Analitica, dettagliata, orientata allo studio</string>
+    <string name="tone_casual_desc">Amichevole, rilassata, conversazione quotidiana</string>
+    <string name="female_voice">Voce femminile</string>
+    <string name="ai_voice_process_failed">Mi dispiace, non ho potuto elaborare il tuo messaggio vocale.</string>
+    <string name="end_session_confirm">La conversazione sarà riassunta e salvata. Vuoi davvero terminare?</string>
+    <string name="choose_voice">Scegli una voce</string>
+    <string name="voice_selection_hint">Scegli la voce che leggerà ad alta voce le risposte IA.</string>
+    <string name="collapse">Comprimi</string>
+    <string name="session_summary">Riepilogo sessione</string>
+    <string name="ai_connection_failed">Mi dispiace, ho problemi di connessione adesso.</string>
+    <string name="female_voice_desc">Tono brillante, caldo e naturale</string>
+    <string name="processing">Elaborazione...</string>
+    <string name="start_learning">Inizia a imparare</string>
+    <string name="tone_warm_desc">Incoraggiante, paziente e di supporto</string>
+    <string name="tone_professional">Professionale</string>
+    <string name="text_to_speech_off">Sintesi vocale disattivata</string>
+    <string name="end_session_question">Terminare la sessione?</string>
+    <string name="microphone_permission_required">Permesso microfono richiesto</string>
+    <string name="complete_previous_level_to_unlock">Completa il livello precedente per sbloccare</string>
+    <string name="end_session">Termina sessione</string>
+    <string name="male_voice">Voce maschile</string>
+    <string name="type_response_hint">Scrivi una risposta...</string>
 </resources>

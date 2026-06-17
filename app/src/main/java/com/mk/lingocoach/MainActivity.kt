@@ -1,9 +1,9 @@
-package com.mk.lingocoach
+﻿package com.mk.lingocoach
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +11,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -38,7 +39,7 @@ enum class Screen {
     Analytics
 }
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -58,12 +59,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LingoCoachTheme(dynamicColor = false) {
-                var currentScreen by remember { mutableStateOf(Screen.Splash) }
-                var currentSublessonId by remember { mutableStateOf("") }
+                var currentScreenName by rememberSaveable { mutableStateOf(Screen.Splash.name) }
+                var currentSublessonId by rememberSaveable { mutableStateOf("") }
+                val currentScreen = runCatching { Screen.valueOf(currentScreenName) }.getOrDefault(Screen.Splash)
 
                 // Tracks where the user came from before opening the Roadmap,
                 // so the back arrow can return to the correct screen.
-                var roadmapLaunchedFromAssessment by remember { mutableStateOf(false) }
+                var roadmapLaunchedFromAssessment by rememberSaveable { mutableStateOf(false) }
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -72,133 +74,133 @@ class MainActivity : ComponentActivity() {
                     when (currentScreen) {
                         Screen.Splash -> {
                             SplashScreen(
-                                onNavigateToWelcome = { currentScreen = Screen.WelcomeAboard },
-                                onNavigateToLanguage = { currentScreen = Screen.LanguageSelection },
-                                onNavigateToAssessment = { currentScreen = Screen.Assessment },
-                                onNavigateToProfileSetup = { currentScreen = Screen.UserProfileSetup },
-                                onNavigateToHome = { currentScreen = Screen.Home }
+                                onNavigateToWelcome = { currentScreenName = Screen.WelcomeAboard.name },
+                                onNavigateToLanguage = { currentScreenName = Screen.LanguageSelection.name },
+                                onNavigateToAssessment = { currentScreenName = Screen.Assessment.name },
+                                onNavigateToProfileSetup = { currentScreenName = Screen.UserProfileSetup.name },
+                                onNavigateToHome = { currentScreenName = Screen.Home.name }
                             )
                         }
                         Screen.LanguageSelection -> {
                             LanguageSelectionScreen(
-                                onNavigateToWelcome = { currentScreen = Screen.WelcomeAboard },
-                                onNavigateBack = { currentScreen = Screen.Splash }
+                                onNavigateToWelcome = { currentScreenName = Screen.WelcomeAboard.name },
+                                onNavigateBack = { currentScreenName = Screen.Splash.name }
                             )
                         }
                         Screen.WelcomeAboard -> {
                             WelcomeAboardScreen(
-                                onNavigateToLanguage = { currentScreen = Screen.LanguageSelection },
-                                onNavigateToAssessment = { currentScreen = Screen.UserProfileSetup },
-                                onNavigateToProfileSetup = { currentScreen = Screen.UserProfileSetup }
+                                onNavigateToLanguage = { currentScreenName = Screen.LanguageSelection.name },
+                                onNavigateToAssessment = { currentScreenName = Screen.UserProfileSetup.name },
+                                onNavigateToProfileSetup = { currentScreenName = Screen.UserProfileSetup.name }
                             )
                         }
                         Screen.UserProfileSetup -> {
                             UserProfileSetupScreen(
-                                onNavigateBack = { currentScreen = Screen.WelcomeAboard },
-                                onSetupComplete = { currentScreen = Screen.Assessment }
+                                onNavigateBack = { currentScreenName = Screen.WelcomeAboard.name },
+                                onSetupComplete = { currentScreenName = Screen.Assessment.name }
                             )
                         }
                         Screen.Assessment -> {
                             AssessmentScreen(
                                 onNavigateToLearningPath = {
                                     roadmapLaunchedFromAssessment = true
-                                    currentScreen = Screen.LearningPathRoadmap
+                                    currentScreenName = Screen.LearningPathRoadmap.name
                                 },
-                                onNavigateBack = { currentScreen = Screen.WelcomeAboard }
+                                onNavigateBack = { currentScreenName = Screen.WelcomeAboard.name }
                             )
                         }
                         Screen.LearningPathRoadmap -> {
                             LearningPathRoadmapScreen(
                                 launchedFromAssessment = roadmapLaunchedFromAssessment,
                                 // Back: go to Assessment if we came from there, otherwise Home
-                                onNavigateHome = { currentScreen = Screen.Home },
+                                onNavigateHome = { currentScreenName = Screen.Home.name },
                                 onNavigateToLesson = { sublessonId ->
                                     currentSublessonId = sublessonId
-                                    currentScreen = Screen.Lesson
+                                    currentScreenName = Screen.Lesson.name
                                 },
-                                onNavigateToSettings = { currentScreen = Screen.Settings },
-                                onNavigateBackToAssessment = { currentScreen = Screen.Assessment }
+                                onNavigateToSettings = { currentScreenName = Screen.Settings.name },
+                                onNavigateBackToAssessment = { currentScreenName = Screen.Assessment.name }
                             )
                         }
                         Screen.ActualLearningPath -> {
                             ActualLearningPathScreen(
-                                onNavigateToHome = { currentScreen = Screen.Home },
-                                onNavigateBack = { currentScreen = Screen.LearningPathRoadmap },
+                                onNavigateToHome = { currentScreenName = Screen.Home.name },
+                                onNavigateBack = { currentScreenName = Screen.LearningPathRoadmap.name },
                                 onNavigateToLesson = { sublessonId ->
                                     currentSublessonId = sublessonId
-                                    currentScreen = Screen.Lesson
+                                    currentScreenName = Screen.Lesson.name
                                 },
-                                onNavigateToAILab = { currentScreen = Screen.AILab },
-                                onNavigateToVocab = { currentScreen = Screen.VocabBuilder },
-                                onNavigateToVault = { currentScreen = Screen.MistakeVault }
+                                onNavigateToAILab = { currentScreenName = Screen.AILab.name },
+                                onNavigateToVocab = { currentScreenName = Screen.VocabBuilder.name },
+                                onNavigateToVault = { currentScreenName = Screen.MistakeVault.name }
                             )
                         }
                         Screen.Home -> {
                             HomeScreen(
                                 onNavigateToLesson = { sublessonId ->
                                     currentSublessonId = sublessonId
-                                    currentScreen = Screen.Lesson
+                                    currentScreenName = Screen.Lesson.name
                                 },
-                                onNavigateToVocab = { currentScreen = Screen.VocabBuilder },
-                                onNavigateToMistakes = { currentScreen = Screen.MistakeVault },
-                                onNavigateToFlashcards = { currentScreen = Screen.Flashcards },
-                                onNavigateToDuel = { currentScreen = Screen.TimelyDuel },
-                                onNavigateToAILab = { currentScreen = Screen.AILab },
-                                onNavigateToSettings = { currentScreen = Screen.Settings },
+                                onNavigateToVocab = { currentScreenName = Screen.VocabBuilder.name },
+                                onNavigateToMistakes = { currentScreenName = Screen.MistakeVault.name },
+                                onNavigateToFlashcards = { currentScreenName = Screen.Flashcards.name },
+                                onNavigateToDuel = { currentScreenName = Screen.TimelyDuel.name },
+                                onNavigateToAILab = { currentScreenName = Screen.AILab.name },
+                                onNavigateToSettings = { currentScreenName = Screen.Settings.name },
                                 onNavigateToRoadmap = {
                                     roadmapLaunchedFromAssessment = false
-                                    currentScreen = Screen.LearningPathRoadmap
+                                    currentScreenName = Screen.LearningPathRoadmap.name
                                 },
-                                onNavigateToActualLearningPath = { currentScreen = Screen.ActualLearningPath },
-                                onNavigateToProgress = { currentScreen = Screen.Analytics }
+                                onNavigateToActualLearningPath = { currentScreenName = Screen.ActualLearningPath.name },
+                                onNavigateToProgress = { currentScreenName = Screen.Analytics.name }
                             )
                         }
                         Screen.Lesson -> {
                             LessonScreen(
                                 sublessonId = currentSublessonId,
-                                onNavigateBack = { currentScreen = Screen.ActualLearningPath }
+                                onNavigateBack = { currentScreenName = Screen.ActualLearningPath.name }
                             )
                         }
                         Screen.VocabBuilder -> {
                             VocabBuilderScreen(
-                                onNavigateBack = { currentScreen = Screen.Home }
+                                onNavigateBack = { currentScreenName = Screen.Home.name }
                             )
                         }
                         Screen.MistakeVault -> {
                             MistakeVaultScreen(
-                                onNavigateBack    = { currentScreen = Screen.Home },
-                                onNavigateToHome  = { currentScreen = Screen.Home },
-                                onNavigateToVocab = { currentScreen = Screen.VocabBuilder },
-                                onNavigateToAILab = { currentScreen = Screen.AILab }
+                                onNavigateBack    = { currentScreenName = Screen.Home.name },
+                                onNavigateToHome  = { currentScreenName = Screen.Home.name },
+                                onNavigateToVocab = { currentScreenName = Screen.VocabBuilder.name },
+                                onNavigateToAILab = { currentScreenName = Screen.AILab.name }
                             )
                         }
                         Screen.Flashcards -> {
                             FlashcardScreen(
-                                onNavigateBack = { currentScreen = Screen.Home }
+                                onNavigateBack = { currentScreenName = Screen.Home.name }
                             )
                         }
                         Screen.TimelyDuel -> {
                             TimelyDuelScreen(
-                                onNavigateBack = { currentScreen = Screen.Home }
+                                onNavigateBack = { currentScreenName = Screen.Home.name }
                             )
                         }
                         Screen.AILab -> {
                             AILabScreen(
-                                onNavigateBack = { currentScreen = Screen.Home },
-                                onNavigateToHome = { currentScreen = Screen.Home },
-                                onNavigateToVocab = { currentScreen = Screen.VocabBuilder },
-                                onNavigateToMistakes = { currentScreen = Screen.MistakeVault }
+                                onNavigateBack = { currentScreenName = Screen.Home.name },
+                                onNavigateToHome = { currentScreenName = Screen.Home.name },
+                                onNavigateToVocab = { currentScreenName = Screen.VocabBuilder.name },
+                                onNavigateToMistakes = { currentScreenName = Screen.MistakeVault.name }
                             )
                         }
                         Screen.Settings -> {
                             SettingsScreen(
-                                onNavigateBack = { currentScreen = Screen.Home },
-                                onLogout = { currentScreen = Screen.Splash }
+                                onNavigateBack = { currentScreenName = Screen.Home.name },
+                                onLogout = { currentScreenName = Screen.Splash.name }
                             )
                         }
                         Screen.Analytics -> {
                             ProgressScreen(
-                                onNavigateBack = { currentScreen = Screen.Home }
+                                onNavigateBack = { currentScreenName = Screen.Home.name }
                             )
                         }
                     }
@@ -207,3 +209,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+

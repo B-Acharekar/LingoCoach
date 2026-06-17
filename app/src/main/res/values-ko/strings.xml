@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach</string>
@@ -252,4 +252,61 @@
     <string name="lang_arabic">아랍어</string>
     <string name="lang_turkish">터키어</string>
     <string name="lang_vietnamese">베트남어</string>
+    <!-- Added UI localization keys -->
+    <string name="choose_personality">성격 선택</string>
+    <string name="your_journey">나의 학습 여정</string>
+    <string name="vocabulary_learned">학습한 어휘: %1$s</string>
+    <string name="text_to_speech_on">텍스트 음성 변환 켜짐</string>
+    <string name="no_learning_path_found">아직 학습 경로를 찾지 못했습니다.</string>
+    <string name="start_conversation">대화 시작</string>
+    <string name="tone_professional_desc">구조적이고 정확하며 업무에 적합</string>
+    <string name="text_to_speech">텍스트 음성 변환</string>
+    <string name="stop_recording">녹음 중지</string>
+    <string name="weaknesses_label">약점: %1$s</string>
+    <string name="tone_warm">따뜻함</string>
+    <string name="microphone">마이크</string>
+    <string name="male_voice_desc">안정적이고 선명한 낮은 톤</string>
+    <string name="earn_bonus_session">오늘 100 XP를 얻어 무료 보너스 세션을 잠금 해제하세요</string>
+    <string name="strengths_label">강점: %1$s</string>
+    <string name="start_session">세션 시작</string>
+    <string name="ai_conversation">AI 대화</string>
+    <string name="now">지금</string>
+    <string name="tone_casual">캐주얼</string>
+    <string name="tone_selection_hint">이번 대화의 성격을 선택하세요.</string>
+    <string name="start_talking_ai_tutor">AI 튜터와 대화 시작</string>
+    <string name="tone_nerdy">분석적</string>
+    <string name="ai_lab_intro">원하는 주제로 무엇이든 말해 보세요.\nAI 튜터와 자연스럽게 연습하세요.</string>
+    <string name="could_not_start_recording">녹음을 시작할 수 없습니다</string>
+    <string name="listening_tap_mic_to_stop">듣는 중... 중지하려면 마이크를 누르세요</string>
+    <string name="locked_for_today">오늘은 잠김</string>
+    <string name="lingo_ai_conv_start">Lingo AI 대화 시작</string>
+    <string name="expand">펼치기</string>
+    <string name="send">보내기</string>
+    <string name="daily_limit_reached">일일 한도 도달(%1$d/%2$d)</string>
+    <string name="start_recording">녹음 시작</string>
+    <string name="sessions_today">오늘 세션: %1$d/%2$d</string>
+    <string name="grammar_mistakes_count">문법 실수: %1$s</string>
+    <string name="personalized_route_to_fluency">유창함으로 가는 맞춤 경로</string>
+    <string name="tone_nerdy_desc">분석적이고 자세하며 학습 중심</string>
+    <string name="tone_casual_desc">친근하고 편안한 일상 대화</string>
+    <string name="female_voice">여성 음성</string>
+    <string name="ai_voice_process_failed">죄송합니다. 음성 메시지를 처리할 수 없습니다.</string>
+    <string name="end_session_confirm">대화가 요약되어 저장됩니다. 정말 종료할까요?</string>
+    <string name="choose_voice">음성 선택</string>
+    <string name="voice_selection_hint">AI 답변을 소리 내어 읽을 음성을 선택하세요.</string>
+    <string name="collapse">접기</string>
+    <string name="session_summary">세션 요약</string>
+    <string name="ai_connection_failed">죄송합니다. 지금 연결에 문제가 있습니다.</string>
+    <string name="female_voice_desc">밝고 따뜻한 자연스러운 톤</string>
+    <string name="processing">처리 중...</string>
+    <string name="start_learning">학습 시작</string>
+    <string name="tone_warm_desc">격려하고 인내심 있으며 지지적</string>
+    <string name="tone_professional">전문적</string>
+    <string name="text_to_speech_off">텍스트 음성 변환 꺼짐</string>
+    <string name="end_session_question">세션을 종료할까요?</string>
+    <string name="microphone_permission_required">마이크 권한이 필요합니다</string>
+    <string name="complete_previous_level_to_unlock">잠금을 해제하려면 이전 레벨을 완료하세요</string>
+    <string name="end_session">세션 종료</string>
+    <string name="male_voice">남성 음성</string>
+    <string name="type_response_hint">응답 입력...</string>
 </resources>

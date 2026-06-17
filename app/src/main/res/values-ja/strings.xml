@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach</string>
@@ -252,4 +252,61 @@
     <string name="lang_arabic">アラビア語</string>
     <string name="lang_turkish">トルコ語</string>
     <string name="lang_vietnamese">ベトナム語</string>
+    <!-- Added UI localization keys -->
+    <string name="choose_personality">性格を選択</string>
+    <string name="your_journey">あなたの学習の旅</string>
+    <string name="vocabulary_learned">学習した語彙：%1$s</string>
+    <string name="text_to_speech_on">テキスト読み上げオン</string>
+    <string name="no_learning_path_found">学習パスはまだ見つかりません。</string>
+    <string name="start_conversation">会話を開始</string>
+    <string name="tone_professional_desc">構成的で正確、仕事向け</string>
+    <string name="text_to_speech">テキスト読み上げ</string>
+    <string name="stop_recording">録音停止</string>
+    <string name="weaknesses_label">弱点：%1$s</string>
+    <string name="tone_warm">温かい</string>
+    <string name="microphone">マイク</string>
+    <string name="male_voice_desc">落ち着いた、明瞭で低めの声</string>
+    <string name="earn_bonus_session">今日100 XPを獲得して無料ボーナスセッションを解除</string>
+    <string name="strengths_label">強み：%1$s</string>
+    <string name="start_session">セッション開始</string>
+    <string name="ai_conversation">AI会話</string>
+    <string name="now">今</string>
+    <string name="tone_casual">カジュアル</string>
+    <string name="tone_selection_hint">この会話の性格を選んでください。</string>
+    <string name="start_talking_ai_tutor">AIチューターと話し始める</string>
+    <string name="tone_nerdy">分析的</string>
+    <string name="ai_lab_intro">好きなことについて話しましょう。\nAIチューターと自然に練習できます。</string>
+    <string name="could_not_start_recording">録音を開始できませんでした</string>
+    <string name="listening_tap_mic_to_stop">聞き取り中...停止するにはマイクをタップ</string>
+    <string name="locked_for_today">今日はロックされています</string>
+    <string name="lingo_ai_conv_start">Lingo AI会話開始</string>
+    <string name="expand">展開</string>
+    <string name="send">送信</string>
+    <string name="daily_limit_reached">1日の上限に達しました（%1$d/%2$d）</string>
+    <string name="start_recording">録音開始</string>
+    <string name="sessions_today">今日のセッション：%1$d/%2$d</string>
+    <string name="grammar_mistakes_count">文法ミス：%1$s</string>
+    <string name="personalized_route_to_fluency">流暢さへ向かうパーソナルルート</string>
+    <string name="tone_nerdy_desc">分析的で詳しく、学習重視</string>
+    <string name="tone_casual_desc">親しみやすく、リラックスした日常会話</string>
+    <string name="female_voice">女性音声</string>
+    <string name="ai_voice_process_failed">申し訳ありません。音声メッセージを処理できませんでした。</string>
+    <string name="end_session_confirm">会話は要約され保存されます。本当に終了しますか？</string>
+    <string name="choose_voice">音声を選択</string>
+    <string name="voice_selection_hint">AIの返信を読み上げる音声を選んでください。</string>
+    <string name="collapse">折りたたむ</string>
+    <string name="session_summary">セッション概要</string>
+    <string name="ai_connection_failed">申し訳ありません。現在接続に問題があります。</string>
+    <string name="female_voice_desc">明るく温かい自然な声</string>
+    <string name="processing">処理中...</string>
+    <string name="start_learning">学習を開始</string>
+    <string name="tone_warm_desc">励まし、忍耐強く、支援的</string>
+    <string name="tone_professional">プロフェッショナル</string>
+    <string name="text_to_speech_off">テキスト読み上げオフ</string>
+    <string name="end_session_question">セッションを終了しますか？</string>
+    <string name="microphone_permission_required">マイクの許可が必要です</string>
+    <string name="complete_previous_level_to_unlock">前のレベルを完了してロックを解除</string>
+    <string name="end_session">セッション終了</string>
+    <string name="male_voice">男性音声</string>
+    <string name="type_response_hint">返信を入力...</string>
 </resources>

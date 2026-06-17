@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach</string>
@@ -252,4 +252,61 @@
     <string name="lang_arabic">Арабский</string>
     <string name="lang_turkish">Турецкий</string>
     <string name="lang_vietnamese">Вьетнамский</string>
+    <!-- Added UI localization keys -->
+    <string name="choose_personality">Выберите характер</string>
+    <string name="your_journey">Ваш путь</string>
+    <string name="vocabulary_learned">Изученная лексика: %1$s</string>
+    <string name="text_to_speech_on">Озвучивание текста включено</string>
+    <string name="no_learning_path_found">Учебный путь пока не найден.</string>
+    <string name="start_conversation">Начать разговор</string>
+    <string name="tone_professional_desc">Структурированный, точный, для работы</string>
+    <string name="text_to_speech">Озвучивание текста</string>
+    <string name="stop_recording">Остановить запись</string>
+    <string name="weaknesses_label">Слабые стороны: %1$s</string>
+    <string name="tone_warm">Теплый</string>
+    <string name="microphone">Микрофон</string>
+    <string name="male_voice_desc">Спокойный, четкий, низкий тон</string>
+    <string name="earn_bonus_session">Наберите сегодня 100 XP, чтобы открыть бесплатную бонусную сессию</string>
+    <string name="strengths_label">Сильные стороны: %1$s</string>
+    <string name="start_session">Начать сессию</string>
+    <string name="ai_conversation">Разговор с ИИ</string>
+    <string name="now">СЕЙЧАС</string>
+    <string name="tone_casual">Неформальный</string>
+    <string name="tone_selection_hint">Выберите характер этой беседы.</string>
+    <string name="start_talking_ai_tutor">Начните говорить с ИИ-репетитором</string>
+    <string name="tone_nerdy">Аналитичный</string>
+    <string name="ai_lab_intro">Говорите на любую тему.\nПрактикуйтесь естественно с вашим ИИ-репетитором.</string>
+    <string name="could_not_start_recording">Не удалось начать запись</string>
+    <string name="listening_tap_mic_to_stop">Слушаю... нажмите микрофон, чтобы остановить</string>
+    <string name="locked_for_today">Закрыто на сегодня</string>
+    <string name="lingo_ai_conv_start">Начало разговора Lingo AI</string>
+    <string name="expand">Развернуть</string>
+    <string name="send">Отправить</string>
+    <string name="daily_limit_reached">Дневной лимит достигнут (%1$d/%2$d)</string>
+    <string name="start_recording">Начать запись</string>
+    <string name="sessions_today">Сессии сегодня: %1$d/%2$d</string>
+    <string name="grammar_mistakes_count">Грамматические ошибки: %1$s</string>
+    <string name="personalized_route_to_fluency">Персональный путь к свободной речи</string>
+    <string name="tone_nerdy_desc">Аналитичный, подробный, учебный</string>
+    <string name="tone_casual_desc">Дружелюбный, расслабленный, повседневный разговор</string>
+    <string name="female_voice">Женский голос</string>
+    <string name="ai_voice_process_failed">Извините, я не смог обработать голосовое сообщение.</string>
+    <string name="end_session_confirm">Ваш разговор будет сохранен и кратко описан. Завершить сессию?</string>
+    <string name="choose_voice">Выберите голос</string>
+    <string name="voice_selection_hint">Выберите голос для озвучивания ответов ИИ.</string>
+    <string name="collapse">Свернуть</string>
+    <string name="session_summary">Итоги сессии</string>
+    <string name="ai_connection_failed">Извините, сейчас возникла проблема с подключением.</string>
+    <string name="female_voice_desc">Яркий, теплый, естественный тон</string>
+    <string name="processing">Обработка...</string>
+    <string name="start_learning">Начать обучение</string>
+    <string name="tone_warm_desc">Поддерживающий, терпеливый и доброжелательный</string>
+    <string name="tone_professional">Профессиональный</string>
+    <string name="text_to_speech_off">Озвучивание текста выключено</string>
+    <string name="end_session_question">Завершить сессию?</string>
+    <string name="microphone_permission_required">Требуется разрешение на микрофон</string>
+    <string name="complete_previous_level_to_unlock">Завершите предыдущий уровень, чтобы открыть</string>
+    <string name="end_session">Завершить сессию</string>
+    <string name="male_voice">Мужской голос</string>
+    <string name="type_response_hint">Введите ответ...</string>
 </resources>

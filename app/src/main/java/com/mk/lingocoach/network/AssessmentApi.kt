@@ -550,6 +550,27 @@ object AssessmentApi {
 
     // ── XP award ──────────────────────────────────────────────────────────────
 
+    fun getProgressMetrics(userId: String, onResult: (ProgressMetrics?) -> Unit) {
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/progress/metrics?user_id=$userId")
+            .get()
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to get progress metrics", e); onResult(null)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!it.isSuccessful) { onResult(null); return }
+                    try {
+                        onResult(gson.fromJson(it.body?.string(), ProgressMetrics::class.java))
+                    } catch (e: Exception) { onResult(null) }
+                }
+            }
+        })
+    }
+
     fun awardXp(
         userId: String,
         xpDelta: Int,
@@ -724,4 +745,25 @@ data class DailyStats(
     val duel_correct: Int = 0,
     val xp_earned: Int = 0,
     val streak_day: Int = 0
+)
+
+data class ProgressActivity(
+    val exercise_attempts: Int = 0,
+    val exercise_correct: Int = 0,
+    val vocab_words_mastered: Int = 0,
+    val ai_lab_sessions: Int = 0,
+    val ai_lab_minutes: Int = 0
+)
+
+data class ProgressMetrics(
+    val user_id: String = "",
+    val grammar_score: Int = 0,
+    val vocabulary_score: Int = 0,
+    val listening_score: Int = 0,
+    val pronunciation_score: Int = 0,
+    val coherence_score: Int = 0,
+    val streak: Int = 0,
+    val last_active_date: String? = null,
+    val xp: Int = 0,
+    val activity: ProgressActivity = ProgressActivity()
 )

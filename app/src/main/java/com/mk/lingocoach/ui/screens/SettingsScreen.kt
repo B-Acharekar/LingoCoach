@@ -1,4 +1,4 @@
-package com.mk.lingocoach.ui.screens
+﻿package com.mk.lingocoach.ui.screens
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -29,6 +31,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -40,6 +43,10 @@ import com.mk.lingocoach.R
 import com.mk.lingocoach.notifications.NotificationScheduler
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
+import com.mk.lingocoach.data.model.appLanguageLabel
+import com.mk.lingocoach.data.model.appLanguages
+import com.mk.lingocoach.data.repository.LanguagePreferencesRepository
+import kotlinx.coroutines.launch
 
 // ─── Settings Design Tokens ───────────────────────────────────────────────────
 private val SettingsBg        = Color(0xFFF5F4FF)
@@ -61,31 +68,6 @@ private val fluencyLevels = listOf(
 )
 
 // ─── Native language list ─────────────────────────────────────────────────────
-private val nativeLanguages = listOf(
-    "English – US", "English – UK", "Spanish", "French", "German",
-    "Portuguese", "Hindi", "Arabic", "Mandarin", "Japanese", "Korean",
-    "Italian", "Russian", "Turkish", "Vietnamese"
-)
-
-// ─── Language code map for locale switching ───────────────────────────────────
-private val nativeLanguageCodeMap = mapOf(
-    "English – US"  to "en",
-    "English – UK"  to "en-GB",
-    "Spanish"       to "es",
-    "French"        to "fr",
-    "German"        to "de",
-    "Portuguese"    to "pt",
-    "Hindi"         to "hi",
-    "Arabic"        to "ar",
-    "Mandarin"      to "zh",
-    "Japanese"      to "ja",
-    "Korean"        to "ko",
-    "Italian"       to "it",
-    "Russian"       to "ru",
-    "Turkish"       to "tr",
-    "Vietnamese"    to "vi"
-)
-
 // ─── AI tutor voice profiles ──────────────────────────────────────────────────
 private val voiceProfiles = listOf(
     "Male – British Accent", "Male – American Accent",
@@ -101,12 +83,17 @@ fun SettingsScreen(
 ) {
     val context = LocalContext.current
     val prefs   = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
+    val scope = rememberCoroutineScope()
+    val languageRepository = remember(context) { LanguagePreferencesRepository(context) }
     val scroll  = rememberScrollState()
+    val mirroredLanguageCode = context
+        .getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
+        .getString("selected_language", "system") ?: "system"
 
     // ── Persisted state ──────────────────────────────────────────────────────
     var displayName    by remember { mutableStateOf(prefs.getString("display_name", "Alex Mercer") ?: "Alex Mercer") }
     var targetFluency  by remember { mutableStateOf(prefs.getString("target_fluency", "Professional / Business") ?: "Professional / Business") }
-    var nativeLang     by remember { mutableStateOf(prefs.getString("native_language", "English – US") ?: "English – US") }
+    var appLanguageCode by remember { mutableStateOf(mirroredLanguageCode) }
     var voiceProfile   by remember { mutableStateOf(prefs.getString("voice_profile", "Male – British Accent") ?: "Male – British Accent") }
     var dailyReminder  by remember { mutableStateOf(prefs.getBoolean("daily_reminder", true)) }
     var offlineCache   by remember { mutableStateOf(prefs.getBoolean("offline_cache", false)) }
@@ -170,14 +157,14 @@ fun SettingsScreen(
                 IconButton(onClick = onNavigateBack, modifier = Modifier.size(36.dp)) {
                     Icon(
                         Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back",
+                        contentDescription = stringResource(R.string.back),
                         tint = SettingsPurple,
                         modifier = Modifier.size(22.dp)
                     )
                 }
                 Spacer(Modifier.width(8.dp))
                 Text(
-                    "Settings",
+                    stringResource(R.string.settings),
                     style = TextStyle(color = SettingsTextDark, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
                 )
             }
@@ -243,29 +230,28 @@ fun SettingsScreen(
 
                         // Display Name row
                         SettingsInfoRow(
-                            label = "Display Name",
+                            label = stringResource(R.string.name),
                             value = displayName,
                             onClick = { showNameDialog = true }
                         )
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(vertical = 8.dp))
                         // Target Fluency row
                         SettingsInfoRow(
-                            label = "Target Fluency",
+                            label = stringResource(R.string.skill_level),
                             value = targetFluency,
                             onClick = { showFluencyDialog = true }
                         )
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(vertical = 8.dp))
-                        // Native Language row
                         SettingsInfoRow(
-                            label = "Native Language",
-                            value = nativeLang,
+                            label = stringResource(R.string.app_language),
+                            value = appLanguageLabel(appLanguageCode),
                             onClick = { showLangDialog = true }
                         )
                     }
                 }
 
                 Spacer(Modifier.height(24.dp))
-                SettingsSectionHeader("APP & LEARNING PREFERENCES")
+                SettingsSectionHeader(stringResource(R.string.app_settings).uppercase())
                 Spacer(Modifier.height(8.dp))
 
                 // ── App & Learning Preferences card ──────────────────────────
@@ -273,7 +259,7 @@ fun SettingsScreen(
                     Column(modifier = Modifier.fillMaxWidth()) {
                         // Daily Reminder toggle
                         SettingsToggleRow(
-                            label = "Daily Reminder Push",
+                            label = stringResource(R.string.daily_reminder),
                             icon = null,
                             checked = dailyReminder,
                             onCheckedChange = { 
@@ -285,7 +271,7 @@ fun SettingsScreen(
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
                         // Offline Vocab Cache toggle
                         SettingsToggleRow(
-                            label = "Offline Vocab Cache",
+                            label = stringResource(R.string.vocab_builder),
                             icon = null,
                             checked = offlineCache,
                             onCheckedChange = { offlineCache = it; saveBool("offline_cache", it) }
@@ -294,13 +280,13 @@ fun SettingsScreen(
                 }
 
                 Spacer(Modifier.height(24.dp))
-                SettingsSectionHeader("LEGAL")
+                SettingsSectionHeader(stringResource(R.string.privacy).uppercase())
                 Spacer(Modifier.height(8.dp))
 
                 // ── Legal card ────────────────────────────────────────────────
                 SettingsCard {
                     Column(modifier = Modifier.fillMaxWidth()) {
-                        SettingsLinkRow(label = "Privacy Policy") {
+                        SettingsLinkRow(label = stringResource(R.string.privacy)) {
                             context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://lingocoach.app/privacy")))
                         }
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
@@ -317,7 +303,7 @@ fun SettingsScreen(
                                 append("Field,Value\n")
                                 append("Display Name,$displayName\n")
                                 append("Target Fluency,$targetFluency\n")
-                                append("Native Language,$nativeLang\n")
+                                append("App Language,${appLanguageLabel(appLanguageCode)}\n")
                                 append("Daily Reminder,$dailyReminder\n")
                                 append("Offline Cache,$offlineCache\n")
                             }
@@ -356,7 +342,7 @@ fun SettingsScreen(
                         )
                         Spacer(Modifier.width(8.dp))
                         Text(
-                            "Delete All Data & Account",
+                            stringResource(R.string.delete),
                             color = SettingsRed,
                             fontSize = 15.sp,
                             fontWeight = FontWeight.SemiBold
@@ -375,7 +361,7 @@ fun SettingsScreen(
     if (showNameDialog) {
         var draft by remember { mutableStateOf(displayName) }
         SettingsEditDialog(
-            title   = "Display Name",
+            title   = stringResource(R.string.name),
             value   = draft,
             onChange = { draft = it },
             onDismiss = { showNameDialog = false },
@@ -390,7 +376,7 @@ fun SettingsScreen(
     // Target Fluency picker
     if (showFluencyDialog) {
         SettingsPickerDialog(
-            title   = "Target Fluency",
+            title   = stringResource(R.string.skill_level),
             options = fluencyLevels,
             selected = targetFluency,
             onDismiss = { showFluencyDialog = false },
@@ -400,28 +386,28 @@ fun SettingsScreen(
 
     // Native Language picker
     if (showLangDialog) {
-        SettingsPickerDialog(
-            title   = "Native Language",
-            options = nativeLanguages,
-            selected = nativeLang,
+        AppLanguagePickerDialog(
+            selectedCode = appLanguageCode,
             onDismiss = { showLangDialog = false },
-            onSelect  = { selection ->
-                nativeLang = selection
-                saveAndSync("native_language", selection)
-                // Apply locale change immediately
-                val code = nativeLanguageCodeMap[selection]
-                if (!code.isNullOrEmpty()) {
-                    AppCompatDelegate.setApplicationLocales(
-                        LocaleListCompat.forLanguageTags(code)
-                    )
-                    // Mirror for cold-start restore
-                    context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
-                        .edit().putString("selected_language", code).apply()
-                } else {
-                    // "system" / English – restore default
-                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
-                    context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
-                        .edit().putString("selected_language", "system").apply()
+            onConfirm = { code ->
+                val previousCode = appLanguageCode
+                appLanguageCode = code
+                saveAndSync("native_language", code)
+                context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
+                    .edit()
+                    .putString("selected_language", code)
+                    .apply()
+                scope.launch {
+                    languageRepository.saveSelectedLanguage(code)
+                }
+                if (code != previousCode) {
+                    if (code != "system") {
+                        AppCompatDelegate.setApplicationLocales(
+                            LocaleListCompat.forLanguageTags(code)
+                        )
+                    } else {
+                        AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
+                    }
                 }
                 showLangDialog = false
             }
@@ -474,6 +460,157 @@ fun SettingsScreen(
                 onLogout()
             }
         )
+    }
+}
+
+@Composable
+private fun AppLanguagePickerDialog(
+    selectedCode: String,
+    onDismiss: () -> Unit,
+    onConfirm: (String) -> Unit
+) {
+    var query by remember { mutableStateOf("") }
+    var draftCode by remember(selectedCode) { mutableStateOf(selectedCode) }
+    val filteredLanguages = remember(query) {
+        val term = query.trim()
+        if (term.isBlank()) {
+            appLanguages
+        } else {
+            appLanguages.filter { language ->
+                language.name.contains(term, ignoreCase = true) ||
+                    language.nativeName.contains(term, ignoreCase = true) ||
+                    language.code.contains(term, ignoreCase = true)
+            }
+        }
+    }
+
+    Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth(0.92f)
+                .fillMaxHeight(0.82f)
+                .shadow(16.dp, RoundedCornerShape(24.dp))
+                .clip(RoundedCornerShape(24.dp))
+                .background(Color.White)
+        ) {
+            Column(modifier = Modifier.fillMaxSize()) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 24.dp, end = 12.dp, top = 18.dp, bottom = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        stringResource(R.string.app_language),
+                        color = SettingsTextDark,
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.weight(1f)
+                    )
+                    TextButton(onClick = { onConfirm(draftCode) }) {
+                        Text(
+                            stringResource(R.string.done),
+                            color = SettingsPurple,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                    }
+                }
+
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = { query = it },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 20.dp),
+                    singleLine = true,
+                    placeholder = { Text(stringResource(R.string.search_languages), color = SettingsTextLight) },
+                    leadingIcon = { Icon(Icons.Default.Search, contentDescription = null, tint = SettingsTextLight) },
+                    trailingIcon = {
+                        if (query.isNotBlank()) {
+                            IconButton(onClick = { query = "" }) {
+                                Icon(
+                                    Icons.Default.Close,
+                                    contentDescription = stringResource(R.string.close),
+                                    tint = SettingsTextLight
+                                )
+                            }
+                        }
+                    },
+                    shape = RoundedCornerShape(14.dp),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = SettingsPurple,
+                        unfocusedBorderColor = SettingsDivider,
+                        focusedTextColor = SettingsTextDark,
+                        unfocusedTextColor = SettingsTextDark,
+                        cursorColor = SettingsPurple
+                    )
+                )
+
+                Spacer(Modifier.height(10.dp))
+
+                if (filteredLanguages.isEmpty()) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            stringResource(R.string.no_languages_found, query),
+                            color = SettingsTextLight,
+                            fontSize = 14.sp,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(horizontal = 24.dp)
+                        )
+                    }
+                } else {
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f),
+                        contentPadding = PaddingValues(bottom = 12.dp)
+                    ) {
+                        items(filteredLanguages, key = { it.code }) { language ->
+                            val selected = language.code == draftCode
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable { draftCode = language.code }
+                                    .background(if (selected) SettingsPurpleSoft else Color.Transparent)
+                                    .padding(horizontal = 24.dp, vertical = 13.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(language.flagEmoji, fontSize = 22.sp)
+                                Spacer(Modifier.width(12.dp))
+                                Column(modifier = Modifier.weight(1f)) {
+                                    Text(
+                                        language.name,
+                                        color = if (selected) SettingsPurple else SettingsTextDark,
+                                        fontSize = 15.sp,
+                                        fontWeight = if (selected) FontWeight.ExtraBold else FontWeight.SemiBold
+                                    )
+                                    Text(
+                                        language.nativeName,
+                                        color = SettingsTextLight,
+                                        fontSize = 12.sp
+                                    )
+                                }
+                                if (selected) {
+                                    Icon(
+                                        Icons.Default.Check,
+                                        contentDescription = null,
+                                        tint = SettingsPurple,
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -733,3 +870,4 @@ private fun SettingsConfirmDialog(
         }
     }
 }
+

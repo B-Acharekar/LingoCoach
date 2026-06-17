@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach</string>
@@ -65,6 +65,14 @@
     
     <!-- Learning Path -->
     <string name="learning_path">مسار التعلم</string>
+    <string name="your_journey">رحلتك</string>
+    <string name="personalized_route_to_fluency">مسارك الشخصي نحو الإتقان</string>
+    <string name="no_learning_path_found">لم يتم العثور على مسار تعلم بعد.</string>
+    <string name="start_learning">ابدأ التعلم</string>
+    <string name="complete_previous_level_to_unlock">أكمل المستوى السابق للفتح</string>
+    <string name="collapse">طي</string>
+    <string name="expand">توسيع</string>
+    <string name="now">الآن</string>
     <string name="modules">الوحدات</string>
     <string name="lessons_completed">الدروس المكتملة</string>
     <string name="next_lesson">الدرس التالي</string>
@@ -121,6 +129,54 @@
     <string name="pronunciation_practice">تدريب النطق</string>
     <string name="ask_ai">اسأل الذكاء الاصطناعي</string>
     <string name="ai_tutor">معلم الذكاء الاصطناعي</string>
+    <string name="ai_conversation">محادثة الذكاء الاصطناعي</string>
+    <string name="choose_voice">اختر الصوت</string>
+    <string name="choose_personality">اختر الشخصية</string>
+    <string name="lingo_ai_conv_start">بدء محادثة لينغو AI</string>
+    <string name="session_summary">ملخص الجلسة</string>
+    <string name="end_session_question">إنهاء الجلسة؟</string>
+    <string name="vocabulary_learned">المفردات المتعلمة: %1$s</string>
+    <string name="grammar_mistakes_count">الأخطاء النحوية: %1$s</string>
+    <string name="strengths_label">نقاط القوة: %1$s</string>
+    <string name="weaknesses_label">نقاط الضعف: %1$s</string>
+    <string name="end_session_confirm">سيتم تلخيص محادثتك وحفظها. هل أنت متأكد من رغبتك في الإنهاء؟</string>
+    <string name="end_session">إنهاء الجلسة</string>
+    <string name="ai_lab_intro">تحدث عن أي شيء تريده.\nتدرب بشكل طبيعي مع معلمك بالذكاء الاصطناعي.</string>
+    <string name="daily_limit_reached">تم الوصول إلى الحد اليومي (%1$d/%2$d)</string>
+    <string name="sessions_today">جلسات اليوم: %1$d/%2$d</string>
+    <string name="earn_bonus_session">اكسب ١٠٠ نقطة XP اليوم لفتح جلسة مكافأة مجانية</string>
+    <string name="start_session">بدء الجلسة</string>
+    <string name="locked_for_today">مغلق لهذا اليوم</string>
+    <string name="voice_selection_hint">اختر الصوت الذي سيقرأ ردود الذكاء الاصطناعي بصوت عالٍ.</string>
+    <string name="male_voice">صوت ذكوري</string>
+    <string name="female_voice">صوت أنثوي</string>
+    <string name="male_voice_desc">نبرة ثابتة وواضحة ومنخفضة</string>
+    <string name="female_voice_desc">نبرة مشرقة ودافئة وطبيعية</string>
+    <string name="tone_selection_hint">اختر شخصية هذه المحادثة.</string>
+    <string name="tone_casual">عادي</string>
+    <string name="tone_professional">احترافي</string>
+    <string name="tone_nerdy">أكاديمي</string>
+    <string name="tone_warm">دافئ</string>
+    <string name="tone_casual_desc">محادثة ودية ومريحة ويومية</string>
+    <string name="tone_professional_desc">ردود منظمة ودقيقة وجاهزة للعمل</string>
+    <string name="tone_nerdy_desc">تحليلي ومفصل ومركز على التعلم</string>
+    <string name="tone_warm_desc">نبرة تشجيعية وصبورة وداعمة</string>
+    <string name="start_conversation">بدء المحادثة</string>
+    <string name="microphone_permission_required">إذن الميكروفون مطلوب</string>
+    <string name="could_not_start_recording">تعذر بدء التسجيل</string>
+    <string name="type_response_hint">اكتب رداً...</string>
+    <string name="text_to_speech">تحويل النص إلى كلام</string>
+    <string name="start_talking_ai_tutor">ابدأ التحدث مع معلمك بالذكاء الاصطناعي</string>
+    <string name="send">إرسال</string>
+    <string name="microphone">الميكروفون</string>
+    <string name="start_recording">بدء التسجيل</string>
+    <string name="stop_recording">إيقاف التسجيل</string>
+    <string name="processing">جاري المعالجة...</string>
+    <string name="listening_tap_mic_to_stop">جاري الاستماع... اضغط على الميكروفون للإيقاف</string>
+    <string name="text_to_speech_on">تحويل النص إلى كلام: مفعّل</string>
+    <string name="text_to_speech_off">تحويل النص إلى كلام: معطّل</string>
+    <string name="ai_voice_process_failed">عذراً، تعذرت معالجة رسالتك الصوتية.</string>
+    <string name="ai_connection_failed">عذراً، أواجه مشكلة في الاتصال الآن.</string>
     
     <!-- Assessment -->
     <string name="assessment">التقييم</string>
