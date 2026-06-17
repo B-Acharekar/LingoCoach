@@ -101,8 +101,9 @@ fun SplashScreen(
         val assessmentCompleted = sharedPreferences.getBoolean("assessment_completed", false)
 
         // Navigation state machine logic: Splash -> Language -> Onboarding -> Personalization -> Assessment -> Home
+        // assessment_completed is the terminal flag — if it's set, the user has finished everything
         when {
-            isLangSelected && onboardingCompleted && personalizationDone && assessmentCompleted ->
+            assessmentCompleted ->
                 onNavigateToHome()
             isLangSelected && onboardingCompleted && personalizationDone ->
                 onNavigateToAssessment()
