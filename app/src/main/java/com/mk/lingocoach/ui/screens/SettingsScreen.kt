@@ -316,7 +316,6 @@ fun SettingsScreen(
                             val csvData = buildString {
                                 append("Field,Value\n")
                                 append("Display Name,$displayName\n")
-                                append("Email,$email\n")
                                 append("Target Fluency,$targetFluency\n")
                                 append("Native Language,$nativeLang\n")
                                 append("Daily Reminder,$dailyReminder\n")
