@@ -41,10 +41,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
 import com.lottiefiles.dotlottie.core.compose.ui.DotLottieAnimation
 import com.lottiefiles.dotlottie.core.util.DotLottieSource
-import com.mk.lingocoach.R
 import com.onesignal.OneSignal
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -52,9 +50,9 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 // Brand colors
-private val SplashPurple  = Color(0xFF6A5CFF)
-private val SplashViolet  = Color(0xFFBA7CFF)
-private val SplashAmber   = Color(0xFFFFC83D)
+private val SplashPurple = Color(0xFF6A5CFF)
+private val SplashViolet = Color(0xFFBA7CFF)
+private val SplashAmber  = Color(0xFFFFC83D)
 
 @Composable
 fun SplashScreen(
@@ -67,44 +65,57 @@ fun SplashScreen(
     val context = LocalContext.current
     val sharedPreferences = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
 
-    // Lottie animation plays automatically — no manual scale animation needed
-    val textAlpha  = remember { Animatable(0f) }
+    // Entry animation states for the central content layout
+    val contentAlpha = remember { Animatable(0f) }
+    val contentScale = remember { Animatable(0.85f) }
+    val contentOffsetY = remember { Animatable(40f) }
 
     LaunchedEffect(Unit) {
-        // Start notification permission request
+        // Handle notification registration safely
         try {
             OneSignal.Notifications.requestPermission(true)
         } catch (e: Exception) {
             Log.e("SplashScreen", "Notification permission failed: ${e.message}", e)
         }
 
-        // Fade in brand text after a short delay while Lottie plays
-        delay(600)
-        textAlpha.animateTo(1f, tween(500))
+        // Run entry animations smoothly in parallel
+        launch {
+            delay(200)
+            contentAlpha.animateTo(1f, tween(600))
+        }
+        launch {
+            delay(200)
+            contentScale.animateTo(1f, tween(600))
+        }
+        launch {
+            delay(200)
+            contentOffsetY.animateTo(0f, tween(600))
+        }
 
-        // Hold then navigate
-        delay(1200)
+        // Total viewport screen hold duration
+        delay(2200)
 
         val isLangSelected      = sharedPreferences.getBoolean("lang_selected", false)
         val onboardingCompleted = sharedPreferences.getBoolean("onboarding_completed", false)
-        val profileSetupDone    = sharedPreferences.getBoolean("profile_setup_done", false)
+        val personalizationDone = sharedPreferences.getBoolean("personalization_done", false)
         val assessmentCompleted = sharedPreferences.getBoolean("assessment_completed", false)
 
+        // Navigation state machine logic: Splash -> Language -> Onboarding -> Personalization -> Assessment -> Home
         when {
-            isLangSelected && onboardingCompleted && profileSetupDone && assessmentCompleted ->
+            isLangSelected && onboardingCompleted && personalizationDone && assessmentCompleted ->
                 onNavigateToHome()
-            isLangSelected && onboardingCompleted && profileSetupDone ->
+            isLangSelected && onboardingCompleted && personalizationDone ->
                 onNavigateToAssessment()
             isLangSelected && onboardingCompleted ->
-                onNavigateToProfileSetup()
+                onNavigateToProfileSetup()  // This is Personalization screen
             isLangSelected ->
-                onNavigateToWelcome()
+                onNavigateToWelcome()       // Go to onboarding
             else ->
-                onNavigateToLanguage()
+                onNavigateToLanguage()      // Go to language selection
         }
     }
 
-    // Continuously rotating gradient angle
+    // Background linear gradient rotation pipeline
     val infiniteTransition = rememberInfiniteTransition(label = "gradFlow")
     val angle by infiniteTransition.animateFloat(
         initialValue = 0f,
@@ -114,6 +125,17 @@ fun SplashScreen(
             repeatMode = RepeatMode.Restart
         ),
         label = "gradAngle"
+    )
+
+    // Dynamic alpha pulsing loop for the lower visual bar accent
+    val pulseAlpha by infiniteTransition.animateFloat(
+        initialValue = 0.35f,
+        targetValue = 1.0f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(1500, easing = LinearEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "barPulse"
     )
 
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
@@ -128,7 +150,7 @@ fun SplashScreen(
         val endX   = w / 2f - cosA * (w * 0.8f)
         val endY   = h / 2f - sinA * (h * 0.8f)
 
-        // Pure rotating 3-color gradient — no circles, no blur boxes
+        // Ambient background color canvas
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -144,78 +166,85 @@ fun SplashScreen(
                     )
                 )
         ) {
+            // Animated UI Container Block (Logo + Typography Elements)
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(24.dp)
+                    .graphicsLayer {
+                        alpha = contentAlpha.value
+                        scaleX = contentScale.value
+                        scaleY = contentScale.value
+                        translationY = contentOffsetY.value
+                    }
             ) {
-                // Lottie animation — LingoCoach.lottie from assets
+                // Lottie view parsing e.json from main project assets directory folder
                 DotLottieAnimation(
-                    source    = DotLottieSource.Asset("LingoCoach.lottie"),
+                    source    = DotLottieSource.Asset("e.json"),
                     autoplay  = true,
                     loop      = true,
-                    modifier  = Modifier.size(220.dp)
+                    modifier  = Modifier
+                        .size(200.dp)
+                        .clip(RoundedCornerShape(20.dp))
+                        .background(Color.Transparent)
                 )
 
                 Spacer(modifier = Modifier.height(36.dp))
 
-                // Brand name — fades in after logo
-                Box(modifier = Modifier.graphicsLayer { alpha = textAlpha.value }) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(
-                            text = "LingoCoach",
-                            style = TextStyle(
-                                color = Color.White,
-                                fontSize = 38.sp,
-                                fontWeight = FontWeight.ExtraBold,
-                                letterSpacing = 0.5.sp
-                            )
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = "LingoCoach",
+                        style = TextStyle(
+                            color = Color.White,
+                            fontSize = 38.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            letterSpacing = 0.5.sp
                         )
+                    )
 
-                        Spacer(modifier = Modifier.height(14.dp))
+                    Spacer(modifier = Modifier.height(14.dp))
 
-                        // Divider + tagline
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 24.dp)
+                    ) {
+                        Box(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 24.dp)
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .height(1.dp)
-                                    .background(Color.White.copy(alpha = 0.35f))
-                            )
-                            Text(
-                                text = "SPEAK WITH CONFIDENCE",
-                                style = TextStyle(
-                                    color = Color.White.copy(alpha = 0.88f),
-                                    fontSize = 11.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    letterSpacing = 2.sp
-                                ),
-                                modifier = Modifier.padding(horizontal = 12.dp)
-                            )
-                            Box(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .height(1.dp)
-                                    .background(Color.White.copy(alpha = 0.35f))
-                            )
-                        }
+                                .weight(1f)
+                                .height(1.dp)
+                                .background(Color.White.copy(alpha = 0.35f))
+                        )
+                        Text(
+                            text = "SPEAK WITH CONFIDENCE",
+                            style = TextStyle(
+                                color = Color.White.copy(alpha = 0.88f),
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                letterSpacing = 2.sp
+                            ),
+                            modifier = Modifier.padding(horizontal = 12.dp)
+                        )
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .height(1.dp)
+                                .background(Color.White.copy(alpha = 0.35f))
+                        )
                     }
                 }
             }
 
-            // Bottom accent bar — gradient pulse matching the background colors
+            // Bottom accent indicator bar with dynamic pulse behavior applied
             Box(
                 modifier = Modifier
                     .width(100.dp)
                     .height(3.dp)
                     .clip(RoundedCornerShape(2.dp))
+                    .graphicsLayer { alpha = pulseAlpha }
                     .background(
                         Brush.horizontalGradient(
                             listOf(SplashPurple, SplashViolet, SplashAmber)

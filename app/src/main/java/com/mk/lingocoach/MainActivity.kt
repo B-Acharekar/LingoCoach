@@ -88,7 +88,8 @@ class MainActivity : ComponentActivity() {
                         Screen.WelcomeAboard -> {
                             WelcomeAboardScreen(
                                 onNavigateToLanguage = { currentScreen = Screen.LanguageSelection },
-                                onNavigateToAssessment = { currentScreen = Screen.UserProfileSetup }
+                                onNavigateToAssessment = { currentScreen = Screen.UserProfileSetup },
+                                onNavigateToProfileSetup = { currentScreen = Screen.UserProfileSetup }
                             )
                         }
                         Screen.UserProfileSetup -> {

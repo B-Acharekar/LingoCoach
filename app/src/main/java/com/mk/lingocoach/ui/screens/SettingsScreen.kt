@@ -500,7 +500,7 @@ fun SettingsScreen(
                     .putBoolean("onboarding_completed", false)
                     .putBoolean("assessment_completed", false)
                     .putBoolean("lang_selected", false)
-                    .putBoolean("profile_setup_done", false)
+                    .putBoolean("personalization_done", false)
                     .apply()
                 showLogoutDialog = false
                 onLogout()

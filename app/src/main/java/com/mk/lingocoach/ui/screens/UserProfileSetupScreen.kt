@@ -93,7 +93,7 @@ fun UserProfileSetupScreen(
             .putString("display_name", displayName.trim())
             .putString("user_goal",    selectedGoal)
             .putString("user_level",   selectedLevel)
-            .putBoolean("profile_setup_done", true)
+            .putBoolean("personalization_done", true)
             .apply()
         onSetupComplete()
     }
