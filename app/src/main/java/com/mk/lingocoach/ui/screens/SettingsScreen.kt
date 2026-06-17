@@ -107,10 +107,8 @@ fun SettingsScreen(
     var displayName    by remember { mutableStateOf(prefs.getString("display_name", "Alex Mercer") ?: "Alex Mercer") }
     var targetFluency  by remember { mutableStateOf(prefs.getString("target_fluency", "Professional / Business") ?: "Professional / Business") }
     var nativeLang     by remember { mutableStateOf(prefs.getString("native_language", "English – US") ?: "English – US") }
-    var email          by remember { mutableStateOf(prefs.getString("user_email", "alex.mercer@email.com") ?: "alex.mercer@email.com") }
     var voiceProfile   by remember { mutableStateOf(prefs.getString("voice_profile", "Male – British Accent") ?: "Male – British Accent") }
     var dailyReminder  by remember { mutableStateOf(prefs.getBoolean("daily_reminder", true)) }
-    var linkedAccounts by remember { mutableStateOf(prefs.getBoolean("linked_accounts", true)) }
     var offlineCache   by remember { mutableStateOf(prefs.getBoolean("offline_cache", false)) }
 
     // ── Dialog state ─────────────────────────────────────────────────────────
@@ -118,7 +116,6 @@ fun SettingsScreen(
     var showFluencyDialog  by remember { mutableStateOf(false) }
     var showLangDialog     by remember { mutableStateOf(false) }
     var showVoiceDialog    by remember { mutableStateOf(false) }
-    var showPasswordDialog by remember { mutableStateOf(false) }
     var showDeleteDialog   by remember { mutableStateOf(false) }
     var showLogoutDialog   by remember { mutableStateOf(false) }
 
@@ -263,42 +260,6 @@ fun SettingsScreen(
                             label = "Native Language",
                             value = nativeLang,
                             onClick = { showLangDialog = true }
-                        )
-                    }
-                }
-
-                Spacer(Modifier.height(24.dp))
-                SettingsSectionHeader("ACCOUNT & SECURITY")
-                Spacer(Modifier.height(8.dp))
-
-                // ── Account & Security card ───────────────────────────────────
-                SettingsCard {
-                    Column(modifier = Modifier.fillMaxWidth()) {
-                        // Email row
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 16.dp, vertical = 14.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            Column(modifier = Modifier.weight(1f)) {
-                                Text("Email", color = SettingsTextDark, fontSize = 15.sp, fontWeight = FontWeight.Medium)
-                                Spacer(Modifier.height(2.dp))
-                                Text(email, color = SettingsTextLight, fontSize = 12.sp)
-                            }
-                            Icon(Icons.Default.CheckCircle, contentDescription = null, tint = SettingsGreen, modifier = Modifier.size(22.dp))
-                        }
-                        HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
-                        // Change Password
-                        SettingsArrowRow(label = "Change Password", onClick = { showPasswordDialog = true })
-                        HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
-                        // Linked Accounts toggle
-                        SettingsToggleRow(
-                            label = "Linked Accounts",
-                            icon = Icons.Default.Link,
-                            checked = linkedAccounts,
-                            onCheckedChange = { linkedAccounts = it; saveBool("linked_accounts", it) }
                         )
                     }
                 }
@@ -476,14 +437,6 @@ fun SettingsScreen(
             selected = voiceProfile,
             onDismiss = { showVoiceDialog = false },
             onSelect  = { voiceProfile = it; saveAndSync("voice_profile", it); showVoiceDialog = false }
-        )
-    }
-
-    // Change Password dialog
-    if (showPasswordDialog) {
-        SettingsChangePasswordDialog(
-            onDismiss = { showPasswordDialog = false },
-            onConfirm = { showPasswordDialog = false }
         )
     }
 
@@ -740,80 +693,6 @@ private fun SettingsPickerDialog(
                         .align(Alignment.End)
                         .padding(end = 16.dp)
                 ) { Text("Cancel", color = SettingsTextLight) }
-            }
-        }
-    }
-}
-
-@Composable
-private fun SettingsChangePasswordDialog(
-    onDismiss: () -> Unit,
-    onConfirm: () -> Unit
-) {
-    var current  by remember { mutableStateOf("") }
-    var newPass  by remember { mutableStateOf("") }
-    var confirm  by remember { mutableStateOf("") }
-    var errorMsg by remember { mutableStateOf<String?>(null) }
-
-    Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth(0.88f)
-                .shadow(16.dp, RoundedCornerShape(24.dp))
-                .clip(RoundedCornerShape(24.dp))
-                .background(Color.White)
-                .padding(24.dp)
-        ) {
-            Column {
-                Text("Change Password", color = SettingsTextDark, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                Spacer(Modifier.height(16.dp))
-                val fieldColors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor   = SettingsPurple,
-                    unfocusedBorderColor = SettingsDivider,
-                    focusedTextColor     = SettingsTextDark,
-                    unfocusedTextColor   = SettingsTextDark
-                )
-                OutlinedTextField(
-                    value = current, onValueChange = { current = it },
-                    label = { Text("Current Password") }, singleLine = true,
-                    modifier = Modifier.fillMaxWidth(), shape = RoundedCornerShape(12.dp),
-                    colors = fieldColors, visualTransformation = androidx.compose.ui.text.input.PasswordVisualTransformation()
-                )
-                Spacer(Modifier.height(10.dp))
-                OutlinedTextField(
-                    value = newPass, onValueChange = { newPass = it },
-                    label = { Text("New Password") }, singleLine = true,
-                    modifier = Modifier.fillMaxWidth(), shape = RoundedCornerShape(12.dp),
-                    colors = fieldColors, visualTransformation = androidx.compose.ui.text.input.PasswordVisualTransformation()
-                )
-                Spacer(Modifier.height(10.dp))
-                OutlinedTextField(
-                    value = confirm, onValueChange = { confirm = it },
-                    label = { Text("Confirm New Password") }, singleLine = true,
-                    modifier = Modifier.fillMaxWidth(), shape = RoundedCornerShape(12.dp),
-                    colors = fieldColors, visualTransformation = androidx.compose.ui.text.input.PasswordVisualTransformation()
-                )
-                if (errorMsg != null) {
-                    Spacer(Modifier.height(8.dp))
-                    Text(errorMsg!!, color = SettingsRed, fontSize = 12.sp)
-                }
-                Spacer(Modifier.height(20.dp))
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                    TextButton(onClick = onDismiss) { Text("Cancel", color = SettingsTextLight) }
-                    Spacer(Modifier.width(8.dp))
-                    Button(
-                        onClick = {
-                            when {
-                                current.isBlank() -> errorMsg = "Enter your current password"
-                                newPass.length < 6 -> errorMsg = "New password must be at least 6 characters"
-                                newPass != confirm -> errorMsg = "Passwords do not match"
-                                else -> { errorMsg = null; onConfirm() }
-                            }
-                        },
-                        colors = ButtonDefaults.buttonColors(containerColor = SettingsPurple),
-                        shape = RoundedCornerShape(12.dp)
-                    ) { Text("Update", color = Color.White, fontWeight = FontWeight.Bold) }
-                }
             }
         }
     }
