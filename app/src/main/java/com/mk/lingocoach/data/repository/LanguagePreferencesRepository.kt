@@ -33,13 +33,19 @@ class LanguagePreferencesRepository(private val context: Context) {
         }
 
     /**
-     * Save the selected language code to DataStore
+     * Save the selected language code to DataStore and mirror to SharedPreferences
+     * for synchronous cold-start locale restoration in MainActivity.
      * @param languageCode The ISO 639-1 language code or "system"
      */
     suspend fun saveSelectedLanguage(languageCode: String) {
         context.dataStore.edit { preferences ->
             preferences[SELECTED_LANGUAGE_KEY] = languageCode
         }
+        // Mirror to SharedPreferences for synchronous cold-start restore
+        context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
+            .edit()
+            .putString("selected_language", languageCode)
+            .apply()
     }
 
     /**

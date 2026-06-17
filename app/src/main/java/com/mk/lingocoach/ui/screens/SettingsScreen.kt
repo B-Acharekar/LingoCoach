@@ -38,6 +38,8 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.mk.lingocoach.R
 import com.mk.lingocoach.notifications.NotificationScheduler
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 
 // ─── Settings Design Tokens ───────────────────────────────────────────────────
 private val SettingsBg        = Color(0xFFF5F4FF)
@@ -63,6 +65,25 @@ private val nativeLanguages = listOf(
     "English – US", "English – UK", "Spanish", "French", "German",
     "Portuguese", "Hindi", "Arabic", "Mandarin", "Japanese", "Korean",
     "Italian", "Russian", "Turkish", "Vietnamese"
+)
+
+// ─── Language code map for locale switching ───────────────────────────────────
+private val nativeLanguageCodeMap = mapOf(
+    "English – US"  to "en",
+    "English – UK"  to "en-GB",
+    "Spanish"       to "es",
+    "French"        to "fr",
+    "German"        to "de",
+    "Portuguese"    to "pt",
+    "Hindi"         to "hi",
+    "Arabic"        to "ar",
+    "Mandarin"      to "zh",
+    "Japanese"      to "ja",
+    "Korean"        to "ko",
+    "Italian"       to "it",
+    "Russian"       to "ru",
+    "Turkish"       to "tr",
+    "Vietnamese"    to "vi"
 )
 
 // ─── AI tutor voice profiles ──────────────────────────────────────────────────
@@ -424,7 +445,26 @@ fun SettingsScreen(
             options = nativeLanguages,
             selected = nativeLang,
             onDismiss = { showLangDialog = false },
-            onSelect  = { nativeLang = it; saveAndSync("native_language", it); showLangDialog = false }
+            onSelect  = { selection ->
+                nativeLang = selection
+                saveAndSync("native_language", selection)
+                // Apply locale change immediately
+                val code = nativeLanguageCodeMap[selection]
+                if (!code.isNullOrEmpty()) {
+                    AppCompatDelegate.setApplicationLocales(
+                        LocaleListCompat.forLanguageTags(code)
+                    )
+                    // Mirror for cold-start restore
+                    context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
+                        .edit().putString("selected_language", code).apply()
+                } else {
+                    // "system" / English – restore default
+                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
+                    context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
+                        .edit().putString("selected_language", "system").apply()
+                }
+                showLangDialog = false
+            }
         )
     }
 

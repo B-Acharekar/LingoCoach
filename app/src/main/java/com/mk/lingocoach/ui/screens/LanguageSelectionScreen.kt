@@ -129,6 +129,11 @@ fun LanguageSelectionScreen(
                 // Done Button in capsule style (navigates to welcome onboarding)
                 Button(
                     onClick = {
+                        // Mark language selection as done
+                        context.getSharedPreferences("LingoCoachPrefs", android.content.Context.MODE_PRIVATE)
+                            .edit()
+                            .putBoolean("lang_selected", true)
+                            .apply()
                         // Language is already persisted via ViewModel
                         onNavigateToWelcome()
                     },

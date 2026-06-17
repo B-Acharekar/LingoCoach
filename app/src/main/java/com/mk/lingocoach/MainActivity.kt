@@ -1,7 +1,9 @@
 package com.mk.lingocoach
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
@@ -36,10 +38,17 @@ enum class Screen {
     Analytics
 }
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
+        // Restore locale on cold start
+        val savedLang = getSharedPreferences("language_preferences_mirror", MODE_PRIVATE)
+            .getString("selected_language", null)
+        if (!savedLang.isNullOrEmpty() && savedLang != "system") {
+            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(savedLang))
+        }
+
         // Initialize OneSignal
         OneSignal.initWithContext(this, "46957d03-f3f9-435c-b76c-e5cd0b8089b5")
         
