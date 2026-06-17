@@ -106,7 +106,8 @@ data class CompleteExerciseRequest(
     val sublesson_id: String,
     val exercise_id: String,
     val user_answer: String,
-    val audio_transcription: String = ""
+    val audio_transcription: String = "",
+    val sublesson_complete: Boolean = false
 )
 
 data class CompleteExerciseResponse(
