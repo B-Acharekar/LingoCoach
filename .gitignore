@@ -56,7 +56,9 @@ Thumbs.db
 # Dependency lock files (optional — remove if you want to track them)
 # gradle.lockfile
 
-F:\LingoCoach\LingoAI_backend\
 .agents
 app/google-services.json
 app/firebase-service-account.json
+
+# Backend server
+LingoAI_backend/
