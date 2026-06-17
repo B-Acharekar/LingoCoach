@@ -13,6 +13,7 @@ import com.mk.lingocoach.network.Mistake
 object AppCache {
 
     private val gson = Gson()
+    private val completedSublessonIds = linkedSetOf<String>()
 
     // ── Learning path (5-min TTL) ─────────────────────────────────────────────
     var learningPath: CurrentLearningPathResponse? = null
@@ -37,6 +38,18 @@ object AppCache {
         learningPathAt = 0L
     }
 
+    fun rememberCompletedSublesson(sublessonId: String) {
+        if (sublessonId.isBlank()) return
+        completedSublessonIds.add(sublessonId)
+        learningPath = learningPath?.withCompletedSublesson(sublessonId)
+        learningPathAt = System.currentTimeMillis()
+    }
+
+    fun applyLocalLearningPathProgress(path: CurrentLearningPathResponse): CurrentLearningPathResponse =
+        completedSublessonIds.fold(path.normalizedLearningPath()) { updatedPath, sublessonId ->
+            updatedPath.withCompletedSublesson(sublessonId)
+        }
+
     fun invalidateMistakes() {
         mistakes = null
         mistakesAt = 0L
@@ -60,6 +73,7 @@ object AppCache {
         val ts    = prefs.getLong(KEY_PATH_AT, 0L)
         try {
             learningPath  = gson.fromJson(json, CurrentLearningPathResponse::class.java)
+                ?.let { applyLocalLearningPathProgress(it) }
             learningPathAt = ts
         } catch (_: Exception) { /* corrupt cache — ignore */ }
     }

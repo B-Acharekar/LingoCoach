@@ -1,4 +1,4 @@
-package com.mk.lingocoach.ui.viewmodel
+package com.mk.lingocoach.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -8,6 +8,9 @@ import com.mk.lingocoach.network.CompleteExerciseRequest
 import com.mk.lingocoach.network.CurrentLearningPathResponse
 import com.mk.lingocoach.network.Exercise
 import com.mk.lingocoach.network.SublessonDetail
+import com.mk.lingocoach.ui.screens.AppCache
+import com.mk.lingocoach.ui.screens.normalizedLearningPath
+import com.mk.lingocoach.ui.screens.withCompletedSublesson
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,24 +19,20 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.suspendCoroutine
 import kotlin.coroutines.resume
 
-// ─── Phase ───────────────────────────────────────────────────────────────────
-
+// ─── Phase ────────────────────────────────────────────────────────────────────
 enum class Phase { LOADING, CONTENT, EXERCISE, COMPLETE, ERROR }
 
-// ─── ExerciseSource ──────────────────────────────────────────────────────────
-
+// ─── ExerciseSource ───────────────────────────────────────────────────────────
 enum class ExerciseSource { ORIGINAL, RETRY }
 
-// ─── AnswerState ─────────────────────────────────────────────────────────────
-
+// ─── AnswerState ──────────────────────────────────────────────────────────────
 sealed class AnswerState {
     object Unanswered : AnswerState()
     data class Correct(val answer: String) : AnswerState()
     data class Incorrect(val answer: String) : AnswerState()
 }
 
-// ─── LessonUiState ───────────────────────────────────────────────────────────
-
+// ─── LessonUiState ────────────────────────────────────────────────────────────
 data class LessonUiState(
     val phase: Phase = Phase.LOADING,
     val sublesson: SublessonDetail? = null,
@@ -41,25 +40,28 @@ data class LessonUiState(
     val originalExercises: List<Exercise> = emptyList(),
     val retryQueue: ArrayDeque<Exercise> = ArrayDeque(),
     val currentExerciseSource: ExerciseSource = ExerciseSource.ORIGINAL,
-    val currentOriginalIndex: Int = 0,
-    val correctOriginalCount: Int = 0,
+    val currentOriginalIndex: Int = 0,      // pointer into originalExercises
+    val correctOriginalCount: Int = 0,      // how many originals answered correctly (for progress bar)
+    val answeredCount: Int = 0,             // total questions shown so far (original + retry) – for top-bar display
     val answerState: AnswerState = AnswerState.Unanswered,
     val feedback: String = "",
     val isSubmitting: Boolean = false,
     val completionSent: Boolean = false,
     val totalXpEarned: Int = 0,
-    val error: String? = null
+    val error: String? = null,
+    // ── NEW: the exercise that is currently on-screen ──────────────────────────
+    // We fix it here so the UI never reads a stale/transitioning value.
+    val activeExercise: Exercise? = null,
+    val showCompleteButton: Boolean = false
 )
 
-// ─── LessonViewModel ─────────────────────────────────────────────────────────
-
+// ─── LessonViewModel ──────────────────────────────────────────────────────────
 class LessonViewModel : ViewModel() {
 
     private val _uiState = MutableStateFlow(LessonUiState())
     val uiState: StateFlow<LessonUiState> = _uiState.asStateFlow()
 
-    // ─── Load sublesson + learning path concurrently ──────────────────────────
-
+    // ── Load sublesson + learning path ────────────────────────────────────────
     fun loadSublesson(sublessonId: String, userId: String) {
         _uiState.update { LessonUiState(phase = Phase.LOADING) }
         viewModelScope.launch {
@@ -69,27 +71,17 @@ class LessonViewModel : ViewModel() {
                 }
                 val learningPath = suspendCoroutine<CurrentLearningPathResponse?> { cont ->
                     AssessmentApi.getCurrentLearningPath(userId) { cont.resume(it) }
-                }
+                }?.let { AppCache.applyLocalLearningPathProgress(it) }
                 if (sublesson == null) {
                     _uiState.update { it.copy(phase = Phase.ERROR, error = "Failed to load sublesson.") }
                     return@launch
                 }
-                _uiState.update { current ->
-                    current.copy(
-                        phase = Phase.CONTENT,
-                        sublesson = sublesson,
-                        learningPath = learningPath,
-                        originalExercises = sublesson.exercises,
-                        retryQueue = ArrayDeque(),
-                        currentExerciseSource = ExerciseSource.ORIGINAL,
-                        currentOriginalIndex = 0,
-                        correctOriginalCount = 0,
-                        answerState = AnswerState.Unanswered,
-                        feedback = "",
-                        isSubmitting = false,
-                        completionSent = false,
-                        totalXpEarned = 0,
-                        error = null
+                _uiState.update {
+                    LessonUiState(
+                        phase             = Phase.CONTENT,
+                        sublesson         = sublesson,
+                        learningPath      = learningPath,
+                        originalExercises = sublesson.exercises
                     )
                 }
             } catch (e: Exception) {
@@ -99,245 +91,252 @@ class LessonViewModel : ViewModel() {
         }
     }
 
-    // ─── Transition from content phase to exercise phase ─────────────────────
-
+    // ── Transition from content → exercise phase ──────────────────────────────
     fun startExercises() {
         _uiState.update { current ->
+            val first = current.originalExercises.firstOrNull()
             current.copy(
-                phase = Phase.EXERCISE,
-                currentOriginalIndex = 0,
-                retryQueue = ArrayDeque(),
-                correctOriginalCount = 0,
+                phase                 = Phase.EXERCISE,
+                currentOriginalIndex  = 0,
+                retryQueue            = ArrayDeque(),
+                correctOriginalCount  = 0,
+                answeredCount         = 0,
                 currentExerciseSource = ExerciseSource.ORIGINAL,
-                answerState = AnswerState.Unanswered,
-                feedback = ""
+                answerState           = AnswerState.Unanswered,
+                feedback              = "",
+                activeExercise        = first,    // ← set immediately, no flash
+                showCompleteButton    = false
             )
         }
     }
 
-    // ─── Submit an answer for the active exercise ─────────────────────────────
-
+    // ── Submit answer ─────────────────────────────────────────────────────────
     fun submitAnswer(answer: String, userId: String) {
-        val state = _uiState.value
+        val state    = _uiState.value
         val sublesson = state.sublesson ?: return
-        val exercise = activeExercise(state) ?: return
+        val exercise  = state.activeExercise ?: return
 
         _uiState.update { it.copy(isSubmitting = true) }
 
         viewModelScope.launch {
             try {
                 val request = CompleteExerciseRequest(
-                    user_id = userId,
-                    sublesson_id = sublesson.id,
-                    exercise_id = exercise.id,
-                    user_answer = answer,
-                    audio_transcription = ""
+                    user_id              = userId,
+                    sublesson_id         = sublesson.id,
+                    exercise_id          = exercise.id,
+                    user_answer          = answer,
+                    audio_transcription  = ""
                 )
                 val response = suspendCoroutine<com.mk.lingocoach.network.CompleteExerciseResponse?> { cont ->
                     AssessmentApi.completeExercise(request) { cont.resume(it) }
                 }
-                if (response != null) {
-                    val newAnswerState = if (response.is_correct) {
-                        AnswerState.Correct(answer)
-                    } else {
-                        AnswerState.Incorrect(answer)
-                    }
-                    _uiState.update { it.copy(
-                        isSubmitting = false,
-                        answerState = newAnswerState,
-                        feedback = response.feedback
-                    ) }
-                } else {
-                    // Fallback: local evaluation using correct_answer
-                    val isCorrect = exercise.correct_answer
-                        ?.let { it.trim().equals(answer.trim(), ignoreCase = true) }
-                        ?: false
-                    val newAnswerState = if (isCorrect) {
-                        AnswerState.Correct(answer)
-                    } else {
-                        AnswerState.Incorrect(answer)
-                    }
-                    _uiState.update { it.copy(
-                        isSubmitting = false,
-                        answerState = newAnswerState,
-                        feedback = if (isCorrect) "Correct!" else "Incorrect. The correct answer is: ${exercise.correct_answer}"
-                    ) }
-                }
-            } catch (e: Exception) {
-                Log.e("LessonViewModel", "submitAnswer error", e)
-                // Fallback on exception
-                val exercise2 = activeExercise(_uiState.value) ?: return@launch
-                val isCorrect = exercise2.correct_answer
-                    ?.let { it.trim().equals(answer.trim(), ignoreCase = true) }
-                    ?: false
-                val newAnswerState = if (isCorrect) {
-                    AnswerState.Correct(answer)
-                } else {
-                    AnswerState.Incorrect(answer)
-                }
+                val isCorrect = response?.is_correct
+                    ?: exercise.correct_answer?.trim().equals(answer.trim(), ignoreCase = true)
+
+                val feedback = response?.feedback
+                    ?: if (isCorrect) "Correct!" else "Incorrect. The correct answer is: ${exercise.correct_answer}"
+
                 _uiState.update { it.copy(
                     isSubmitting = false,
-                    answerState = newAnswerState,
-                    feedback = if (isCorrect) "Correct!" else "Incorrect. The correct answer is: ${exercise2.correct_answer}"
+                    answerState  = if (isCorrect) AnswerState.Correct(answer) else AnswerState.Incorrect(answer),
+                    feedback     = feedback
+                ) }
+            } catch (e: Exception) {
+                Log.e("LessonViewModel", "submitAnswer error", e)
+                val isCorrect = state.activeExercise?.correct_answer
+                    ?.trim().equals(answer.trim(), ignoreCase = true) == true
+                _uiState.update { it.copy(
+                    isSubmitting = false,
+                    answerState  = if (isCorrect) AnswerState.Correct(answer) else AnswerState.Incorrect(answer),
+                    feedback     = if (isCorrect) "Correct!" else "Incorrect. The correct answer is: ${state.activeExercise?.correct_answer}"
                 ) }
             }
         }
     }
 
-    // ─── Advance the session state machine ───────────────────────────────────
-
+    // ── Advance state machine ─────────────────────────────────────────────────
+    // Key contract: when we move to the next question we atomically set
+    // activeExercise = <next>, answerState = Unanswered, feedback = "".
+    // The UI reads activeExercise — never derives it itself — so there is
+    // zero window where the wrong state is shown.
     fun advance() {
         val state = _uiState.value
-        val answerState = state.answerState
-        if (answerState is AnswerState.Unanswered) return
+        if (state.answerState is AnswerState.Unanswered) return
+        val exercise = state.activeExercise ?: return
+        val isCorrect = state.answerState is AnswerState.Correct
 
-        val exercise = activeExercise(state) ?: return
+        _uiState.update { current ->
+            when {
+                // ── Original list, correct ────────────────────────────────
+                current.currentExerciseSource == ExerciseSource.ORIGINAL && isCorrect -> {
+                    val newCorrect = current.correctOriginalCount + 1
+                    val newIndex   = current.currentOriginalIndex + 1
+                    val origDone   = newIndex >= current.originalExercises.size
+                    val retryLeft  = current.retryQueue.isNotEmpty()
 
-        when {
-            // ── Correct answer from ORIGINAL list ──────────────────────────
-            answerState is AnswerState.Correct && state.currentExerciseSource == ExerciseSource.ORIGINAL -> {
-                val newCorrectCount = state.correctOriginalCount + 1
-                val newIndex = state.currentOriginalIndex + 1
-                val exhaustedOriginal = newIndex >= state.originalExercises.size
+                    val nextSource  = if (origDone && retryLeft) ExerciseSource.RETRY else ExerciseSource.ORIGINAL
+                    val nextExercise = nextExercise(current.originalExercises, current.retryQueue, nextSource, newIndex)
+                    val allDone     = origDone && !retryLeft
 
-                _uiState.update { current ->
-                    val newSource = if (exhaustedOriginal && current.retryQueue.isNotEmpty()) {
-                        ExerciseSource.RETRY
-                    } else {
-                        ExerciseSource.ORIGINAL
-                    }
                     current.copy(
-                        correctOriginalCount = newCorrectCount,
-                        currentOriginalIndex = newIndex,
-                        currentExerciseSource = newSource,
-                        answerState = AnswerState.Unanswered,
-                        feedback = ""
+                        correctOriginalCount  = newCorrect,
+                        currentOriginalIndex  = newIndex,
+                        answeredCount         = current.answeredCount + 1,
+                        currentExerciseSource = nextSource,
+                        answerState           = AnswerState.Unanswered,
+                        feedback              = "",
+                        activeExercise        = nextExercise,
+                        showCompleteButton    = allDone
                     )
                 }
-            }
 
-            // ── Incorrect answer from ORIGINAL list ────────────────────────
-            answerState is AnswerState.Incorrect && state.currentExerciseSource == ExerciseSource.ORIGINAL -> {
-                val newRetryQueue = ArrayDeque(state.retryQueue).also { it.addLast(exercise) }
-                val newIndex = state.currentOriginalIndex + 1
-                val exhaustedOriginal = newIndex >= state.originalExercises.size
+                // ── Original list, wrong → push to retry queue ────────────
+                current.currentExerciseSource == ExerciseSource.ORIGINAL && !isCorrect -> {
+                    val newRetry   = ArrayDeque(current.retryQueue).also { it.addLast(exercise) }
+                    val newIndex   = current.currentOriginalIndex + 1
+                    val origDone   = newIndex >= current.originalExercises.size
 
-                _uiState.update { current ->
-                    val newSource = if (exhaustedOriginal) {
-                        ExerciseSource.RETRY
-                    } else {
-                        ExerciseSource.ORIGINAL
-                    }
+                    val nextSource  = if (origDone) ExerciseSource.RETRY else ExerciseSource.ORIGINAL
+                    val nextExercise = nextExercise(current.originalExercises, newRetry, nextSource, newIndex)
+                    // If we just exhausted originals and the retry queue was empty before
+                    // (this wrong answer is the only one), allDone is still false — retry handles it.
+                    val allDone = false
+
                     current.copy(
-                        retryQueue = newRetryQueue,
-                        currentOriginalIndex = newIndex,
-                        currentExerciseSource = newSource,
-                        answerState = AnswerState.Unanswered,
-                        feedback = ""
+                        retryQueue            = newRetry,
+                        currentOriginalIndex  = newIndex,
+                        answeredCount         = current.answeredCount + 1,
+                        currentExerciseSource = nextSource,
+                        answerState           = AnswerState.Unanswered,
+                        feedback              = "",
+                        activeExercise        = nextExercise,
+                        showCompleteButton    = allDone
                     )
                 }
-            }
 
-            // ── Correct answer from RETRY queue ────────────────────────────
-            answerState is AnswerState.Correct && state.currentExerciseSource == ExerciseSource.RETRY -> {
-                val newRetryQueue = ArrayDeque(state.retryQueue).also {
-                    if (it.isNotEmpty()) it.removeFirst()
-                }
-                _uiState.update { current ->
+                // ── Retry queue, correct → remove from queue ──────────────
+                current.currentExerciseSource == ExerciseSource.RETRY && isCorrect -> {
+                    val newRetry = ArrayDeque(current.retryQueue).also { if (it.isNotEmpty()) it.removeFirst() }
+                    val origDone = current.currentOriginalIndex >= current.originalExercises.size
+                    val allDone  = origDone && newRetry.isEmpty()
+
+                    val nextSource   = if (!origDone) ExerciseSource.ORIGINAL else ExerciseSource.RETRY
+                    val nextExercise = if (allDone) null
+                                       else nextExercise(current.originalExercises, newRetry, nextSource, current.currentOriginalIndex)
+
                     current.copy(
-                        retryQueue = newRetryQueue,
-                        answerState = AnswerState.Unanswered,
-                        feedback = ""
+                        retryQueue            = newRetry,
+                        answeredCount         = current.answeredCount + 1,
+                        currentExerciseSource = nextSource,
+                        answerState           = AnswerState.Unanswered,
+                        feedback              = "",
+                        activeExercise        = nextExercise,
+                        showCompleteButton    = allDone
                     )
                 }
-            }
 
-            // ── Incorrect answer from RETRY queue ──────────────────────────
-            answerState is AnswerState.Incorrect && state.currentExerciseSource == ExerciseSource.RETRY -> {
-                val newRetryQueue = ArrayDeque(state.retryQueue)
-                if (newRetryQueue.isNotEmpty()) {
-                    val head = newRetryQueue.removeFirst()
-                    newRetryQueue.addLast(head)
-                }
-                _uiState.update { current ->
+                // ── Retry queue, wrong → rotate to back of queue ──────────
+                current.currentExerciseSource == ExerciseSource.RETRY && !isCorrect -> {
+                    val newRetry = ArrayDeque(current.retryQueue)
+                    if (newRetry.isNotEmpty()) { val h = newRetry.removeFirst(); newRetry.addLast(h) }
+
                     current.copy(
-                        retryQueue = newRetryQueue,
-                        answerState = AnswerState.Unanswered,
-                        feedback = ""
+                        retryQueue         = newRetry,
+                        answeredCount      = current.answeredCount + 1,
+                        answerState        = AnswerState.Unanswered,
+                        feedback           = "",
+                        activeExercise     = newRetry.firstOrNull(),
+                        showCompleteButton = false
                     )
                 }
+
+                else -> current
             }
         }
     }
 
-    // ─── Complete the sublesson (tap Complete Button) ─────────────────────────
-
+    // ── Complete the sublesson ────────────────────────────────────────────────
     fun completeSublesson(userId: String, sublessonId: String) {
-        val state = _uiState.value
-        if (state.completionSent) return
-
+        if (_uiState.value.completionSent) return
         _uiState.update { it.copy(completionSent = true) }
 
         viewModelScope.launch {
             try {
-                val exercises = state.originalExercises
-                // Use last exercise id, or first if list is short, or empty string if none
-                val exerciseId = when {
-                    exercises.isNotEmpty() -> exercises.last().id
-                    else -> ""
-                }
+                val exercises  = _uiState.value.originalExercises
+                val exerciseId = exercises.lastOrNull()?.id ?: ""
                 val request = CompleteExerciseRequest(
-                    user_id = userId,
-                    sublesson_id = sublessonId,
-                    exercise_id = exerciseId,
-                    user_answer = "",
-                    audio_transcription = "",
-                    sublesson_complete = true
+                    user_id              = userId,
+                    sublesson_id         = sublessonId,
+                    exercise_id          = exerciseId,
+                    user_answer          = "",
+                    audio_transcription  = "",
+                    sublesson_complete   = true
                 )
                 val response = suspendCoroutine<com.mk.lingocoach.network.CompleteExerciseResponse?> { cont ->
                     AssessmentApi.completeExercise(request) { cont.resume(it) }
                 }
                 if (response != null) {
-                    _uiState.update { it.copy(
-                        totalXpEarned = response.xp_earned,
-                        phase = Phase.COMPLETE
-                    ) }
+                    AppCache.rememberCompletedSublesson(sublessonId)
+                    // ── FIX: invalidate the cached learning path ────────────────
+                    // AppCache.learningPath is what HomeScreen and
+                    // ActualLearningPathScreen read to render lesson statuses and
+                    // the progress percentage. It was never being touched here,
+                    // so after completing a lesson those screens kept showing the
+                    // pre-completion snapshot (every lesson still "current"/
+                    // "locked", hence 0%). Clearing it forces the next screen
+                    // that reads AppCache to hit the network and get the fresh
+                    // "completed" statuses instead of a stale cached copy.
+                    val optimisticPath = (_uiState.value.learningPath ?: AppCache.learningPath)
+                        ?.withCompletedSublesson(sublessonId)
+                    if (optimisticPath != null) {
+                        AppCache.learningPath = optimisticPath
+                        AppCache.learningPathAt = System.currentTimeMillis()
+                    } else {
+                        AppCache.invalidateLearningPath()
+                    }
+
+                    // Also refresh our own local copy so the "next lesson" lookup
+                    // in LessonScreen (which reads uiState.learningPath) reflects
+                    // the just-completed lesson too, not just AppCache consumers.
+                    val freshPath = suspendCoroutine<CurrentLearningPathResponse?> { cont ->
+                        AssessmentApi.getCurrentLearningPath(userId) { cont.resume(it) }
+                    }?.let { AppCache.applyLocalLearningPathProgress(it) }
+                    if (freshPath != null) {
+                        AppCache.learningPath = freshPath
+                        AppCache.learningPathAt = System.currentTimeMillis()
+                    }
+
+                    _uiState.update {
+                        it.copy(
+                            totalXpEarned = response.xp_earned,
+                            phase = Phase.COMPLETE,
+                            learningPath = freshPath ?: optimisticPath ?: it.learningPath
+                        )
+                    }
                 } else {
-                    // Network failure — allow retry
-                    _uiState.update { it.copy(
-                        completionSent = false,
-                        error = "Failed to record completion. Please try again."
-                    ) }
+                    _uiState.update { it.copy(completionSent = false, error = "Failed to record completion. Please try again.") }
                 }
             } catch (e: Exception) {
                 Log.e("LessonViewModel", "completeSublesson error", e)
-                _uiState.update { it.copy(
-                    completionSent = false,
-                    error = e.message ?: "Failed to record completion."
-                ) }
+                _uiState.update { it.copy(completionSent = false, error = e.message ?: "Failed to record completion.") }
             }
         }
     }
 
-    // ─── Reset all session state ──────────────────────────────────────────────
+    // ── Reset ─────────────────────────────────────────────────────────────────
+    fun reset() { _uiState.update { LessonUiState() } }
 
-    fun reset() {
-        _uiState.update { LessonUiState() }
-    }
+    // ── Helper kept for LessonScreen compatibility (reads state.activeExercise) ─
+    fun activeExercise(state: LessonUiState): Exercise? = state.activeExercise
 
-    // ─── Helper: derive the currently active exercise ─────────────────────────
-
-    fun activeExercise(state: LessonUiState = _uiState.value): Exercise? {
-        return when {
-            state.currentExerciseSource == ExerciseSource.ORIGINAL &&
-                    state.currentOriginalIndex < state.originalExercises.size ->
-                state.originalExercises[state.currentOriginalIndex]
-
-            state.currentExerciseSource == ExerciseSource.RETRY &&
-                    state.retryQueue.isNotEmpty() ->
-                state.retryQueue.first()
-
-            else -> null
-        }
+    // ── Private: pick next exercise given current pointers ────────────────────
+    private fun nextExercise(
+        originals  : List<Exercise>,
+        retryQueue : ArrayDeque<Exercise>,
+        source     : ExerciseSource,
+        origIndex  : Int
+    ): Exercise? = when (source) {
+        ExerciseSource.ORIGINAL -> originals.getOrNull(origIndex)
+        ExerciseSource.RETRY    -> retryQueue.firstOrNull()
     }
 }

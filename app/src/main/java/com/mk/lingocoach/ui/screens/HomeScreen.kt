@@ -35,6 +35,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.mk.lingocoach.R
 import com.mk.lingocoach.network.AssessmentApi
 import com.mk.lingocoach.network.CurrentLearningPathResponse
@@ -72,6 +75,7 @@ fun HomeScreen(
     onNavigateToProgress: () -> Unit = {}
 ) {
     val context       = LocalContext.current
+    val lifecycleOwner = LocalLifecycleOwner.current
     val scope         = rememberCoroutineScope()
     val sharedPrefs   = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
     val scrollState   = rememberScrollState()
@@ -85,6 +89,41 @@ fun HomeScreen(
 
     val userId = remember {
         sharedPrefs.getString("session_id", null) ?: "df31075e-bc40-459f-bbfb-e10c2d3ea34e"
+    }
+
+    DisposableEffect(lifecycleOwner, userId) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                val cached = AppCache.learningPath
+                if (cached != null) {
+                    learningPath = cached
+                    isLoading = false
+                }
+
+                if (AppCache.isLearningPathStale()) {
+                    scope.launch(Dispatchers.IO) {
+                        AssessmentApi.getCurrentLearningPath(userId) { path ->
+                            scope.launch(Dispatchers.Main) {
+                                if (path != null) {
+                                    AppCache.learningPath = AppCache.applyLocalLearningPathProgress(path)
+                                    AppCache.learningPathAt = System.currentTimeMillis()
+                                    AppCache.saveToDisk(context)
+
+                                    learningPath = AppCache.learningPath
+                                }
+                                isLoading = false
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        lifecycleOwner.lifecycle.addObserver(observer)
+
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
     }
 
     LaunchedEffect(userId) {
@@ -110,11 +149,11 @@ fun HomeScreen(
             if (AppCache.isLearningPathStale()) {
                 AssessmentApi.getCurrentLearningPath(userId) { path ->
                     if (path != null) {
-                        AppCache.learningPath  = path
+                        AppCache.learningPath  = AppCache.applyLocalLearningPathProgress(path)
                         AppCache.learningPathAt = System.currentTimeMillis()
                         scope.launch(Dispatchers.Main) {
                             AppCache.saveToDisk(context)
-                            learningPath = path
+                            learningPath = AppCache.learningPath
                             isLoading = false
                         }
                     } else {
@@ -151,9 +190,9 @@ fun HomeScreen(
         }
     }
 
-    val activeModule    = learningPath?.modules?.firstOrNull { it.status == "current" }
+    val activeModule    = learningPath?.normalizedLearningPath()?.modules?.firstOrNull { it.status == "current" }
     val activeLesson    = activeModule?.lessons?.firstOrNull { it.status == "current" }
-    val activeSublesson = activeLesson?.sublessons?.firstOrNull { it.status == "current" }
+    val activeSublesson = activeModule?.currentSublesson()
     val streak = learningPath?.streak ?: 7
     val tier   = learningPath?.tier ?: "B2 Level"
 
@@ -632,10 +671,10 @@ fun HomeDynamicLearningPathCard(
     onClick: () -> Unit
 ) {
     val totalLessons = module.lessons.size
-    val completedLessons = module.lessons.count { it.status == "completed" }
+    val completedLessons = module.completedLessonCount()
     val progress = if (totalLessons > 0) completedLessons.toFloat() / totalLessons else 0f
     val progressPercent = (progress * 100).toInt()
-    
+
     val animatedProgress by animateFloatAsState(
         targetValue = progress,
         animationSpec = tween(durationMillis = 1000),
@@ -645,7 +684,7 @@ fun HomeDynamicLearningPathCard(
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(140.dp)
+            .height(140.dp)                          // ← unchanged
             .clickable { onClick() }
             .shadow(6.dp, RoundedCornerShape(24.dp), clip = true),
         colors = CardDefaults.cardColors(containerColor = CardWhite),
@@ -654,29 +693,24 @@ fun HomeDynamicLearningPathCard(
         Row(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp),
+                .padding(horizontal = 16.dp, vertical = 14.dp), // tighter than 20.dp
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Animated circular progress indicator (outlined)
+            // ── Animated circular progress indicator ──────────────────────
             Box(
                 contentAlignment = Alignment.Center,
-                modifier = Modifier.size(90.dp)
+                modifier = Modifier.size(80.dp)      // 90 → 80 frees vertical room
             ) {
-                // Background outline circle
                 Canvas(modifier = Modifier.fillMaxSize()) {
-                    val strokeWidth = 8.dp.toPx()
+                    val strokeWidth = 7.dp.toPx()
                     drawCircle(
                         color = Color(0xFFF0EEFF),
                         radius = size.minDimension / 2,
-                        style = androidx.compose.ui.graphics.drawscope.Stroke(
-                            width = strokeWidth
-                        )
+                        style = androidx.compose.ui.graphics.drawscope.Stroke(width = strokeWidth)
                     )
                 }
-                
-                // Progress arc (on top)
                 Canvas(modifier = Modifier.fillMaxSize()) {
-                    val strokeWidth = 8.dp.toPx()
+                    val strokeWidth = 7.dp.toPx()
                     drawArc(
                         color = BrandPurple,
                         startAngle = -90f,
@@ -688,20 +722,21 @@ fun HomeDynamicLearningPathCard(
                         )
                     )
                 }
-                
-                // Percentage text in center
                 Text(
                     "$progressPercent%",
                     color = BrandPurple,
-                    fontSize = 22.sp,
+                    fontSize = 18.sp,                // 22 → 18, keeps it readable
                     fontWeight = FontWeight.ExtraBold
                 )
             }
 
-            Spacer(Modifier.width(20.dp))
+            Spacer(Modifier.width(16.dp))            // 20 → 16
 
-            // Module info
-            Column(modifier = Modifier.weight(1f)) {
+            // ── Module info ───────────────────────────────────────────────
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.Center
+            ) {
                 Text(
                     module.level.uppercase(),
                     color = BrandPurple,
@@ -709,23 +744,23 @@ fun HomeDynamicLearningPathCard(
                     fontWeight = FontWeight.ExtraBold,
                     letterSpacing = 0.5.sp
                 )
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(2.dp))        // 4 → 2
                 Text(
                     module.title,
                     color = TextDark,
-                    fontSize = 18.sp,
+                    fontSize = 16.sp,                // 18 → 16 prevents 2-line wrap on short cards
                     fontWeight = FontWeight.ExtraBold,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(2.dp))        // 4 → 2
                 Text(
                     "${module.lessons.size} Lessons",
                     color = TextLight,
-                    fontSize = 13.sp,
+                    fontSize = 12.sp,
                     fontWeight = FontWeight.Medium
                 )
-                Spacer(Modifier.height(6.dp))
+                Spacer(Modifier.height(3.dp))        // 6 → 3
                 Text(
                     "${completedLessons}/${totalLessons} Completed",
                     color = BrandGreen,
@@ -734,12 +769,12 @@ fun HomeDynamicLearningPathCard(
                 )
             }
 
-            // Arrow icon
+            // ── Arrow icon ────────────────────────────────────────────────
             Icon(
                 Icons.AutoMirrored.Filled.ArrowForward,
                 contentDescription = null,
                 tint = BrandPurple,
-                modifier = Modifier.size(24.dp)
+                modifier = Modifier.size(20.dp)      // 24 → 20
             )
         }
     }

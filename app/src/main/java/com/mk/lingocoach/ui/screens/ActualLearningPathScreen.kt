@@ -3,7 +3,6 @@ package com.mk.lingocoach.ui.screens
 import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -49,17 +48,15 @@ fun ActualLearningPathScreen(
     val sharedPrefs = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
     val scrollState = rememberScrollState()
 
-    val userId = remember {
-        sharedPrefs.getString("session_id", null) ?: ""
-    }
+    val userId = remember { sharedPrefs.getString("session_id", null) ?: "" }
 
-    var learningPath by remember {
-        mutableStateOf<CurrentLearningPathResponse?>(AppCache.learningPath)
-    }
+    var learningPath by remember { mutableStateOf<CurrentLearningPathResponse?>(AppCache.learningPath) }
     var isLoading by remember { mutableStateOf(learningPath == null) }
     var selectedTab by remember { mutableStateOf(0) }
 
-    // Load learning path
+    // Always fetch a fresh copy when this screen is entered/returned to, so that
+    // lessons you just completed (e.g. coming back from LessonScreen) show up
+    // immediately instead of relying on a possibly-stale cached snapshot.
     LaunchedEffect(userId) {
         AppCache.loadFromDisk(context)
         val cached = AppCache.learningPath
@@ -67,15 +64,15 @@ fun ActualLearningPathScreen(
             learningPath = cached
             isLoading = false
         }
-        if (AppCache.isLearningPathStale() && userId.isNotBlank()) {
+        if (userId.isNotBlank()) {
             scope.launch(Dispatchers.IO) {
                 AssessmentApi.getCurrentLearningPath(userId) { path ->
                     if (path != null) {
-                        AppCache.learningPath = path
+                        AppCache.learningPath = AppCache.applyLocalLearningPathProgress(path)
                         AppCache.learningPathAt = System.currentTimeMillis()
                         AppCache.saveToDisk(context)
                         scope.launch(Dispatchers.Main) {
-                            learningPath = path
+                            learningPath = AppCache.learningPath
                             isLoading = false
                         }
                     } else {
@@ -102,7 +99,7 @@ fun ActualLearningPathScreen(
                 .statusBarsPadding()
                 .navigationBarsPadding()
         ) {
-            // ── Top Bar with Logo ─────────────────────────────────────────
+            // ── Top Bar — white, same as main background ──────────────────
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -111,17 +108,16 @@ fun ActualLearningPathScreen(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                // Back Button
                 IconButton(
                     onClick = onNavigateToHome,
                     modifier = Modifier
                         .size(40.dp)
-                        .background(Color(0xFFF0EEFF), CircleShape)
+                        .background(Color.Black.copy(alpha = 0.06f), CircleShape)
                 ) {
                     Icon(
                         Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = "Back to Home",
-                        tint = BrandPurple,
+                        tint = Color.Black,
                         modifier = Modifier.size(20.dp)
                     )
                 }
@@ -129,23 +125,22 @@ fun ActualLearningPathScreen(
                 Text(
                     "LingoCoach",
                     style = TextStyle(
-                        color = BrandPurple,
+                        color = Color.Black,
                         fontSize = 18.sp,
                         fontWeight = FontWeight.ExtraBold
                     )
                 )
 
-                // Settings Icon
                 IconButton(
-                    onClick = { /* Navigate to settings - will be wired up */ },
+                    onClick = { },
                     modifier = Modifier
                         .size(40.dp)
-                        .background(Color(0xFFF0EEFF), CircleShape)
+                        .background(Color.Black.copy(alpha = 0.06f), CircleShape)
                 ) {
                     Icon(
                         Icons.Default.Settings,
                         contentDescription = "Settings",
-                        tint = BrandPurple,
+                        tint = Color.Black,
                         modifier = Modifier.size(20.dp)
                     )
                 }
@@ -160,10 +155,9 @@ fun ActualLearningPathScreen(
             ) {
                 Spacer(Modifier.height(16.dp))
 
-                // ── Module Header ─────────────────────────────────────────
                 if (learningPath != null) {
-                    val currentModule = learningPath!!.modules.firstOrNull { it.status == "current" }
-                    
+                    val currentModule = learningPath!!.normalizedLearningPath().modules.firstOrNull { it.status == "current" }
+
                     if (currentModule != null) {
                         Text(
                             currentModule.level.uppercase(),
@@ -172,7 +166,7 @@ fun ActualLearningPathScreen(
                             fontWeight = FontWeight.Bold
                         )
                         Spacer(Modifier.height(8.dp))
-                        
+
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween,
@@ -185,12 +179,9 @@ fun ActualLearningPathScreen(
                                 fontWeight = FontWeight.ExtraBold,
                                 modifier = Modifier.weight(1f)
                             )
-                            
-                            // Progress percentage
                             val totalLessons = currentModule.lessons.size
-                            val completedLessons = currentModule.lessons.count { it.status == "completed" }
-                            val progress = if (totalLessons > 0) (completedLessons * 100 / totalLessons) else 0
-                            
+                            val completedLessons = currentModule.completedLessonCount()
+                            val progress = currentModule.progressPercent()
                             Text(
                                 "$progress%",
                                 color = BrandPurple,
@@ -201,8 +192,7 @@ fun ActualLearningPathScreen(
 
                         Spacer(Modifier.height(20.dp))
 
-                        // ── Lessons List ──────────────────────────────────────
-                        currentModule.lessons.forEachIndexed { index, lesson ->
+                        currentModule.lessons.forEachIndexed { _, lesson ->
                             LessonCard(
                                 order = lesson.order,
                                 title = lesson.title,
@@ -214,16 +204,11 @@ fun ActualLearningPathScreen(
                             Spacer(Modifier.height(12.dp))
                         }
 
-                        // ── Continue Learning Button ──────────────────────────
                         Spacer(Modifier.height(8.dp))
                         Button(
                             onClick = {
-                                val activeSub = currentModule.lessons
-                                    .firstOrNull { it.status == "current" }
-                                    ?.sublessons?.firstOrNull { it.status == "current" }
-                                if (activeSub != null) {
-                                    onNavigateToLesson(activeSub.id)
-                                }
+                                val activeSub = currentModule.currentSublesson()
+                                if (activeSub != null) onNavigateToLesson(activeSub.id)
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -280,69 +265,84 @@ private fun LessonCard(
     sublessons: List<com.mk.lingocoach.network.CurrentSublesson>,
     onTap: (String) -> Unit
 ) {
-    val isCurrent = status == "current"
+    val isCurrent   = status == "current"
     val isCompleted = status == "completed"
-    val isLocked = status == "locked"
+    val isLocked    = status == "locked"
 
     val activeSub = sublessons.firstOrNull { it.status == "current" }
         ?: sublessons.firstOrNull()
 
+    // Unified card bg — locked is only slightly dimmed, no border difference
+    val cardBg = when {
+        isCurrent   -> Color(0xFFF5F3FF)
+        isCompleted -> CardWhite
+        else        -> CardWhite  // locked — same white, just icon communicates state
+    }
+
+    // Icon bubble colours
+    val bubbleBg = when {
+        isCompleted -> BrandGreen
+        isCurrent   -> BrandPurple
+        else        -> Color(0xFFEEEEEE)   // locked — soft neutral, no harsh grey
+    }
+    val iconTint = when {
+        isLocked -> Color(0xFFBBBBBB)      // muted icon, not white-on-grey clash
+        else     -> Color.White
+    }
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .shadow(4.dp, RoundedCornerShape(20.dp))
-            .clickable(enabled = !isLocked) {
-                activeSub?.let { onTap(it.id) }
-            },
+            // Fixed min-height so locked and unlocked cards are always the same size
+            .defaultMinSize(minHeight = 80.dp)
+            .shadow(
+                elevation = if (isLocked) 1.dp else 4.dp,
+                shape = RoundedCornerShape(20.dp),
+                ambientColor = if (isCurrent) BrandPurple.copy(0.12f) else Color.Black.copy(0.04f),
+                spotColor   = if (isCurrent) BrandPurple.copy(0.12f) else Color.Black.copy(0.04f)
+            )
+            .clickable(enabled = !isLocked) { activeSub?.let { onTap(it.id) } },
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = when {
-                isLocked -> CardWhite.copy(alpha = 0.6f)
-                isCurrent -> Color(0xFFF5F3FF)
-                else -> CardWhite
-            }
-        )
+        colors = CardDefaults.cardColors(containerColor = cardBg),
+        // No border — removed entirely
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
+            // Enforce a minimum row height so both card types match
+            horizontalArrangement = Arrangement.Start
         ) {
-            // Status Icon
+            // ── Status bubble ─────────────────────────────────────────────
             Box(
                 modifier = Modifier
                     .size(48.dp)
                     .clip(CircleShape)
-                    .background(
-                        when {
-                            isCompleted -> BrandGreen
-                            isCurrent -> BrandPurple
-                            isLocked -> Color(0xFFE0E0E0)
-                            else -> BrandPurple.copy(0.3f)
-                        }
-                    ),
+                    .background(bubbleBg),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = when {
                         isCompleted -> Icons.Default.Check
-                        isLocked -> Icons.Default.Lock
-                        isCurrent -> Icons.Default.PlayArrow
-                        else -> Icons.Default.Circle
+                        isLocked    -> Icons.Default.Lock
+                        isCurrent   -> Icons.Default.PlayArrow
+                        else        -> Icons.Default.Circle
                     },
                     contentDescription = null,
-                    tint = if (isLocked) TextLight else Color.White,
-                    modifier = Modifier.size(24.dp)
+                    tint = iconTint,
+                    modifier = Modifier.size(22.dp)
                 )
             }
 
             Spacer(Modifier.width(16.dp))
 
+            // ── Text block ────────────────────────────────────────────────
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     "$order. $title",
-                    color = if (isLocked) TextLight else TextDark,
+                    // Locked text is muted but same size — keeps layout identical
+                    color = if (isLocked) Color(0xFFAAAAAA) else TextDark,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold,
                     maxLines = 2,
@@ -351,27 +351,36 @@ private fun LessonCard(
                 Spacer(Modifier.height(4.dp))
                 Text(
                     description,
-                    color = TextLight,
+                    color = if (isLocked) Color(0xFFCCCCCC) else TextLight,
                     fontSize = 12.sp,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
             }
 
-            if (isCurrent) {
-                Spacer(Modifier.width(8.dp))
-                Box(
+            // ── Right-side badge / icon ───────────────────────────────────
+            Spacer(Modifier.width(8.dp))
+            when {
+                isCurrent -> Box(
                     modifier = Modifier
                         .background(BrandPurple, RoundedCornerShape(8.dp))
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Text(
-                        "CURRENT",
+                        "NOW",
                         color = Color.White,
                         fontSize = 9.sp,
                         fontWeight = FontWeight.ExtraBold
                     )
                 }
+                isCompleted -> Icon(
+                    Icons.AutoMirrored.Filled.ArrowForward,
+                    contentDescription = null,
+                    tint = BrandGreen,
+                    modifier = Modifier.size(18.dp)
+                )
+                // Locked — intentionally empty, no extra element needed
+                else -> Spacer(Modifier.size(18.dp))
             }
         }
     }
