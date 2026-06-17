@@ -38,10 +38,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mk.lingocoach.R
 import com.mk.lingocoach.network.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.mk.lingocoach.ui.viewmodel.*
 
 // ─── Uses the same design tokens as HomeScreen ───────────────────────────────
 // BrandPurple, BrandPurpleLight, BrandPurpleSoft, BrandAmber, BrandRed,
@@ -54,63 +54,31 @@ fun LessonScreen(
     onNavigateBack: () -> Unit
 ) {
     val context     = LocalContext.current
-    val scope       = rememberCoroutineScope()
     val sharedPrefs = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
     val userId      = remember {
         sharedPrefs.getString("session_id", null) ?: "df31075e-bc40-459f-bbfb-e10c2d3ea34e"
     }
 
-    var activeSublessonId by remember { mutableStateOf(sublessonId) }
-    var sublesson       by remember { mutableStateOf<SublessonDetail?>(null) }
-    var learningPath    by remember { mutableStateOf<CurrentLearningPathResponse?>(null) }
-    var isLoading       by remember { mutableStateOf(true) }
-    var isError         by remember { mutableStateOf(false) }
-    var isContentPhase  by remember { mutableStateOf(true) }
-    var exerciseIndex   by remember { mutableStateOf(0) }
-    var showCompletion  by remember { mutableStateOf(false) }
-    var totalXpEarned   by remember { mutableStateOf(0) }
+    val lessonViewModel: LessonViewModel = viewModel()
+    val uiState by lessonViewModel.uiState.collectAsState()
 
-    fun loadSublesson(targetId: String) {
-        isLoading = true; isError = false
-        AssessmentApi.getSublesson(targetId) { detail ->
-            scope.launch(Dispatchers.Main) {
-                sublesson = detail
-                if (detail != null) {
-                    AssessmentApi.getCurrentLearningPath(userId) { path ->
-                        scope.launch(Dispatchers.Main) {
-                            learningPath = path
-                            isLoading = false
-                        }
-                    }
-                } else {
-                    isLoading = false
-                    isError = true
-                }
-            }
-        }
-    }
+    var activeSublessonId by remember { mutableStateOf(sublessonId) }
+    var dropdownExpanded  by remember { mutableStateOf(false) }
 
     LaunchedEffect(activeSublessonId) {
-        isContentPhase = true
-        exerciseIndex = 0
-        showCompletion = false
-        loadSublesson(activeSublessonId)
+        lessonViewModel.reset()
+        lessonViewModel.loadSublesson(activeSublessonId, userId)
     }
 
-    val nextSublessonId = remember(learningPath, activeSublessonId) {
-        val path = learningPath ?: return@remember null
+    val nextSublessonId = remember(uiState.learningPath, activeSublessonId) {
+        val path = uiState.learningPath ?: return@remember null
         var foundCurrent = false
         var nextId: String? = null
         for (module in path.modules) {
             for (lesson in module.lessons) {
                 for (sub in lesson.sublessons) {
-                    if (foundCurrent) {
-                        nextId = sub.id
-                        break
-                    }
-                    if (sub.id == activeSublessonId) {
-                        foundCurrent = true
-                    }
+                    if (foundCurrent) { nextId = sub.id; break }
+                    if (sub.id == activeSublessonId) foundCurrent = true
                 }
                 if (nextId != null) break
             }
@@ -120,29 +88,32 @@ fun LessonScreen(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-
-        // ── Same background as HomeScreen ────────────────────────────────────
         Image(
-            painter      = painterResource(R.drawable.background),
+            painter = painterResource(R.drawable.background),
             contentDescription = null,
-            modifier     = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
 
         when {
-            isLoading -> LsLoadingView()
-            isError   -> LsErrorView(onBack = onNavigateBack, onRetry = { loadSublesson(activeSublessonId) })
-            showCompletion -> LsCompletionView(
-                totalXp = totalXpEarned,
-                nextSublessonId = nextSublessonId,
-                onContinueNext = { nextId ->
-                    activeSublessonId = nextId
-                },
-                onBack  = onNavigateBack
+            uiState.phase == Phase.LOADING -> LsLoadingView()
+
+            uiState.phase == Phase.ERROR -> LsErrorView(
+                onBack  = onNavigateBack,
+                onRetry = { lessonViewModel.loadSublesson(activeSublessonId, userId) }
             )
+
+            uiState.phase == Phase.COMPLETE -> LsCompletionView(
+                totalXp         = uiState.totalXpEarned,
+                nextSublessonId = nextSublessonId,
+                onContinueNext  = { nextId -> activeSublessonId = nextId },
+                onBack          = onNavigateBack
+            )
+
             else -> {
-                val sub = sublesson!!
-                val currentModule = learningPath?.modules?.firstOrNull { module ->
+                val sub = uiState.sublesson ?: return@Box
+
+                val currentModule = uiState.learningPath?.modules?.firstOrNull { module ->
                     module.lessons.any { lesson ->
                         lesson.sublessons.any { s -> s.id == activeSublessonId }
                     }
@@ -152,20 +123,18 @@ fun LessonScreen(
                 }
                 val currentSublessonsList = currentLesson?.sublessons ?: emptyList()
 
-                var dropdownExpanded by remember { mutableStateOf(false) }
-
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .statusBarsPadding()
                         .navigationBarsPadding()
                 ) {
-                    // Top bar
                     LsTopBar(
                         title          = sub.title,
-                        exerciseCount  = sub.exercises.size,
-                        currentIndex   = if (isContentPhase) 0 else exerciseIndex + 1,
-                        isContentPhase = isContentPhase,
+                        exerciseCount  = uiState.originalExercises.size,
+                        currentIndex   = if (uiState.phase == Phase.CONTENT) 0 else uiState.correctOriginalCount,
+                        isContentPhase = uiState.phase == Phase.CONTENT,
+                        retryCount     = uiState.retryQueue.size,
                         onBack         = onNavigateBack
                     )
 
@@ -235,40 +204,30 @@ fun LessonScreen(
                         }
                     }
 
-                    if (isContentPhase) {
-                        LsContentPhase(sublesson = sub, onStartExercises = {
-                            if (sub.exercises.isNotEmpty()) {
-                                isContentPhase = false
-                            } else {
-                                val idx = currentSublessonsList.indexOfFirst { it.id == activeSublessonId }
-                                if (idx != -1 && idx < currentSublessonsList.size - 1) {
-                                    activeSublessonId = currentSublessonsList[idx + 1].id
-                                } else {
-                                    AppCache.invalidateLearningPath()
-                                    showCompletion = true
-                                }
-                            }
-                        })
-                    } else {
-                        LsExercisePhase(
-                            sublesson   = sub,
-                            index       = exerciseIndex,
-                            userId      = userId,
-                            onCompleted = { xp ->
-                                totalXpEarned += xp
-                                if (exerciseIndex < sub.exercises.size - 1) {
-                                    exerciseIndex++
-                                } else {
-                                    val idx = currentSublessonsList.indexOfFirst { it.id == activeSublessonId }
-                                    if (idx != -1 && idx < currentSublessonsList.size - 1) {
-                                        activeSublessonId = currentSublessonsList[idx + 1].id
-                                    } else {
-                                        AppCache.invalidateLearningPath()
-                                        showCompletion = true
-                                    }
-                                }
-                            }
+                    if (uiState.phase == Phase.CONTENT) {
+                        LsContentPhase(
+                            sublesson          = sub,
+                            showCompleteButton = uiState.originalExercises.isEmpty(),
+                            completionSent     = uiState.completionSent,
+                            onStartExercises   = { lessonViewModel.startExercises() },
+                            onComplete         = { lessonViewModel.completeSublesson(userId, activeSublessonId) }
                         )
+                    } else {
+                        val activeExercise = lessonViewModel.activeExercise(uiState)
+                        if (activeExercise != null) {
+                            LsExercisePhase(
+                                exercise           = activeExercise,
+                                exerciseNumber     = uiState.currentOriginalIndex + 1,
+                                answerState        = uiState.answerState,
+                                feedback           = uiState.feedback,
+                                isSubmitting       = uiState.isSubmitting,
+                                showCompleteButton = uiState.retryQueue.isEmpty() && uiState.correctOriginalCount == uiState.originalExercises.size && uiState.originalExercises.isNotEmpty(),
+                                completionSent     = uiState.completionSent,
+                                onSubmit           = { answer -> lessonViewModel.submitAnswer(answer, userId) },
+                                onAdvance          = { lessonViewModel.advance() },
+                                onComplete         = { lessonViewModel.completeSublesson(userId, activeSublessonId) }
+                            )
+                        }
                     }
                 }
             }
@@ -283,6 +242,7 @@ fun LsTopBar(
     exerciseCount: Int,
     currentIndex: Int,
     isContentPhase: Boolean,
+    retryCount: Int = 0,
     onBack: () -> Unit
 ) {
     val totalSteps = exerciseCount + 1
@@ -300,7 +260,6 @@ fun LsTopBar(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Back
             Box(
                 modifier = Modifier
                     .size(38.dp)
@@ -317,15 +276,10 @@ fun LsTopBar(
                 )
             }
 
-            // Title + subtitle
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
                     title,
-                    style = TextStyle(
-                        color = TextDark,
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.Bold
-                    ),
+                    style = TextStyle(color = TextDark, fontSize = 15.sp, fontWeight = FontWeight.Bold),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -336,26 +290,15 @@ fun LsTopBar(
                 )
             }
 
-            // XP chip
             Box(
                 modifier = Modifier
                     .background(BrandPurpleSoft, RoundedCornerShape(12.dp))
                     .padding(horizontal = 10.dp, vertical = 5.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        Icons.Default.Star,
-                        contentDescription = null,
-                        tint = BrandPurple,
-                        modifier = Modifier.size(12.dp)
-                    )
+                    Icon(Icons.Default.Star, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(12.dp))
                     Spacer(Modifier.width(3.dp))
-                    Text(
-                        "+20 XP",
-                        color = BrandPurple,
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
+                    Text("+20 XP", color = BrandPurple, fontSize = 11.sp, fontWeight = FontWeight.ExtraBold)
                 }
             }
         }
@@ -372,12 +315,32 @@ fun LsTopBar(
             trackColor = BrandPurpleSoft,
             strokeCap = StrokeCap.Round
         )
+
+        AnimatedVisibility(visible = retryCount > 0) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 6.dp),
+                horizontalArrangement = Arrangement.End,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(Icons.Default.Replay, contentDescription = null, tint = BrandAmber, modifier = Modifier.size(12.dp))
+                Spacer(Modifier.width(4.dp))
+                Text("Retrying $retryCount", color = BrandAmber, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+            }
+        }
     }
 }
 
 // ─── Content Phase ────────────────────────────────────────────────────────────
 @Composable
-fun LsContentPhase(sublesson: SublessonDetail, onStartExercises: () -> Unit) {
+fun LsContentPhase(
+    sublesson: SublessonDetail,
+    showCompleteButton: Boolean,
+    completionSent: Boolean,
+    onStartExercises: () -> Unit,
+    onComplete: () -> Unit
+) {
     val scroll = rememberScrollState()
 
     Column(
@@ -395,38 +358,34 @@ fun LsContentPhase(sublesson: SublessonDetail, onStartExercises: () -> Unit) {
 
         Spacer(Modifier.height(8.dp))
 
-        // CTA
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .shadow(6.dp, RoundedCornerShape(18.dp))
-                .clip(RoundedCornerShape(18.dp))
-                .background(
-                    Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight))
-                )
-                .clickable { onStartExercises() }
-                .padding(18.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    if (sublesson.exercises.isNotEmpty())
-                        "Start Exercises  (${sublesson.exercises.size})"
-                    else "Mark Complete",
-                    color = Color.White,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.ExtraBold
-                )
-                if (sublesson.exercises.isNotEmpty()) {
-                    Spacer(Modifier.width(8.dp))
-                    Icon(
-                        Icons.AutoMirrored.Filled.ArrowForward,
-                        contentDescription = null,
-                        tint = Color.White,
-                        modifier = Modifier.size(18.dp)
+        if (sublesson.exercises.isNotEmpty()) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .shadow(6.dp, RoundedCornerShape(18.dp))
+                    .clip(RoundedCornerShape(18.dp))
+                    .background(Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight)))
+                    .clickable { onStartExercises() }
+                    .padding(18.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        "Start Exercises  (${sublesson.exercises.size})",
+                        color = Color.White,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.ExtraBold
                     )
+                    Spacer(Modifier.width(8.dp))
+                    Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
                 }
             }
+        } else {
+            LsCompleteButton(
+                isVisible = showCompleteButton,
+                isEnabled = !completionSent,
+                onClick   = onComplete
+            )
         }
 
         Spacer(Modifier.height(28.dp))
@@ -461,24 +420,11 @@ fun LsContentBlockCard(block: ContentBlock) {
                         .background(accent.copy(alpha = 0.12f), RoundedCornerShape(6.dp))
                         .padding(horizontal = 7.dp, vertical = 2.dp)
                 ) {
-                    Text(
-                        label,
-                        color = accent,
-                        fontSize = 9.sp,
-                        fontWeight = FontWeight.ExtraBold,
-                        letterSpacing = 0.5.sp
-                    )
+                    Text(label, color = accent, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.5.sp)
                 }
             }
             Spacer(Modifier.height(10.dp))
-            Text(
-                block.text,
-                style = TextStyle(
-                    color = TextDark,
-                    fontSize = 14.sp,
-                    lineHeight = 21.sp
-                )
-            )
+            Text(block.text, style = TextStyle(color = TextDark, fontSize = 14.sp, lineHeight = 21.sp))
         }
     }
 }
@@ -488,43 +434,17 @@ data class Quadruple<A, B, C, D>(val first: A, val second: B, val third: C, val 
 // ─── Exercise Phase ───────────────────────────────────────────────────────────
 @Composable
 fun LsExercisePhase(
-    sublesson: SublessonDetail,
-    index: Int,
-    userId: String,
-    onCompleted: (xpEarned: Int) -> Unit
+    exercise: Exercise,
+    exerciseNumber: Int,
+    answerState: AnswerState,
+    feedback: String,
+    isSubmitting: Boolean,
+    showCompleteButton: Boolean,
+    completionSent: Boolean,
+    onSubmit: (String) -> Unit,
+    onAdvance: () -> Unit,
+    onComplete: () -> Unit
 ) {
-    val scope    = rememberCoroutineScope()
-    val exercise = sublesson.exercises[index]
-
-    var answerState  by remember(index) { mutableStateOf<LsAnswerState>(LsAnswerState.Unanswered) }
-    var feedback     by remember(index) { mutableStateOf("") }
-    var isSubmitting by remember(index) { mutableStateOf(false) }
-
-    fun submit(answer: String) {
-        if (answerState != LsAnswerState.Unanswered) return
-        isSubmitting = true
-        val req = CompleteExerciseRequest(
-            user_id      = userId,
-            sublesson_id = sublesson.id,
-            exercise_id  = exercise.id,
-            user_answer  = answer
-        )
-        AssessmentApi.completeExercise(req) { response ->
-            scope.launch(Dispatchers.Main) {
-                isSubmitting = false
-                if (response != null) {
-                    answerState = if (response.is_correct) LsAnswerState.Correct(answer) else LsAnswerState.Incorrect(answer)
-                    feedback    = response.feedback
-                } else {
-                    val correct = exercise.correct_answer?.trim()?.lowercase()
-                    val ok = correct != null && answer.trim().lowercase() == correct
-                    answerState = if (ok) LsAnswerState.Correct(answer) else LsAnswerState.Incorrect(answer)
-                    feedback    = if (ok) "Correct! Great job." else "Incorrect. Correct answer: ${exercise.correct_answer}"
-                }
-            }
-        }
-    }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -549,7 +469,7 @@ fun LsExercisePhase(
                             .padding(horizontal = 8.dp, vertical = 3.dp)
                     ) {
                         Text(
-                            "EXERCISE ${index + 1}",
+                            "EXERCISE $exerciseNumber",
                             color = BrandAmberDark,
                             fontSize = 9.sp,
                             fontWeight = FontWeight.ExtraBold,
@@ -573,22 +493,12 @@ fun LsExercisePhase(
                 Spacer(Modifier.height(14.dp))
                 Text(
                     exercise.instruction,
-                    style = TextStyle(
-                        color = TextDark,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold,
-                        lineHeight = 22.sp
-                    )
+                    style = TextStyle(color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold, lineHeight = 22.sp)
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
                     "\"${exercise.stimulus}\"",
-                    style = TextStyle(
-                        color = BrandPurple,
-                        fontSize = 14.sp,
-                        lineHeight = 20.sp,
-                        fontWeight = FontWeight.Medium
-                    )
+                    style = TextStyle(color = BrandPurple, fontSize = 14.sp, lineHeight = 20.sp, fontWeight = FontWeight.Medium)
                 )
             }
         }
@@ -601,12 +511,12 @@ fun LsExercisePhase(
                 options       = exercise.options ?: emptyList(),
                 correctAnswer = exercise.correct_answer ?: "",
                 answerState   = answerState,
-                onSelected    = { submit(it) }
+                onSelected    = { onSubmit(it) }
             )
             else -> LsFillBlank(
                 answerState  = answerState,
                 isSubmitting = isSubmitting,
-                onSubmit     = { submit(it) }
+                onSubmit     = { onSubmit(it) }
             )
         }
 
@@ -614,12 +524,12 @@ fun LsExercisePhase(
 
         // ── Feedback banner ────────────────────────────────────────────────
         AnimatedVisibility(
-            visible = answerState != LsAnswerState.Unanswered,
+            visible = answerState !is AnswerState.Unanswered,
             enter   = slideInVertically { it / 2 } + fadeIn(),
             exit    = fadeOut()
         ) {
             LsFeedbackBanner(
-                isCorrect = answerState is LsAnswerState.Correct,
+                isCorrect = answerState is AnswerState.Correct,
                 feedback  = feedback
             )
         }
@@ -628,12 +538,12 @@ fun LsExercisePhase(
 
         // ── Continue button ────────────────────────────────────────────────
         AnimatedVisibility(
-            visible = answerState != LsAnswerState.Unanswered,
+            visible = answerState !is AnswerState.Unanswered,
             enter   = fadeIn(tween(300)),
             exit    = fadeOut()
         ) {
-            val xp = if (answerState is LsAnswerState.Correct) 10 else 0
-            val btnGradient = if (answerState is LsAnswerState.Correct)
+            val isCorrect = answerState is AnswerState.Correct
+            val btnGradient = if (isCorrect)
                 Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight))
             else
                 Brush.horizontalGradient(listOf(Color(0xFFE53935), Color(0xFFEF5350)))
@@ -645,25 +555,26 @@ fun LsExercisePhase(
                     .shadow(6.dp, RoundedCornerShape(18.dp))
                     .clip(RoundedCornerShape(18.dp))
                     .background(btnGradient)
-                    .clickable { onCompleted(xp) }
+                    .clickable { onAdvance() }
                     .padding(18.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    if (answerState is LsAnswerState.Correct) "Continue  →" else "Try Next  →",
+                    if (isCorrect) "Continue  →" else "Try Next  →",
                     color = Color.White,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.ExtraBold
                 )
             }
         }
-    }
-}
 
-sealed class LsAnswerState {
-    object Unanswered : LsAnswerState()
-    data class Correct(val answer: String) : LsAnswerState()
-    data class Incorrect(val answer: String) : LsAnswerState()
+        // ── Complete button ────────────────────────────────────────────────
+        LsCompleteButton(
+            isVisible = showCompleteButton,
+            isEnabled = !completionSent,
+            onClick   = onComplete
+        )
+    }
 }
 
 // ─── Multiple Choice ──────────────────────────────────────────────────────────
@@ -671,18 +582,19 @@ sealed class LsAnswerState {
 fun LsMultipleChoice(
     options: List<String>,
     correctAnswer: String,
-    answerState: LsAnswerState,
+    answerState: AnswerState,
     onSelected: (String) -> Unit
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         options.forEach { option ->
-            val selected   = when (answerState) {
-                is LsAnswerState.Correct   -> answerState.answer == option
-                is LsAnswerState.Incorrect -> answerState.answer == option
-                else -> false
+            val selectedAnswer = when (answerState) {
+                is AnswerState.Correct   -> answerState.answer
+                is AnswerState.Incorrect -> answerState.answer
+                else -> null
             }
+            val selected = selectedAnswer == option
             val isCorrectOpt = option.trim().lowercase() == correctAnswer.trim().lowercase()
-            val revealed = answerState != LsAnswerState.Unanswered
+            val revealed = answerState !is AnswerState.Unanswered
 
             val cardBg = when {
                 revealed && isCorrectOpt              -> Color(0xFFEAFBF0)
@@ -709,8 +621,8 @@ fun LsMultipleChoice(
                     .clip(RoundedCornerShape(14.dp))
                     .background(cardBg)
                     .border(1.5.dp, borderColor, RoundedCornerShape(14.dp))
-                    .clickable(enabled = answerState == LsAnswerState.Unanswered) { onSelected(option) }
-                    .padding(16.dp),
+                    .clickable(enabled = answerState is AnswerState.Unanswered) { onSelected(option) }
+                    .padding(horizontal = 16.dp, vertical = 14.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -731,20 +643,20 @@ fun LsMultipleChoice(
 // ─── Fill in the Blank ────────────────────────────────────────────────────────
 @Composable
 fun LsFillBlank(
-    answerState: LsAnswerState,
+    answerState: AnswerState,
     isSubmitting: Boolean,
     onSubmit: (String) -> Unit,
     placeholder: String = "Type your answer…"
 ) {
     var text by remember { mutableStateOf("") }
-    val keyboard  = LocalSoftwareKeyboardController.current
-    val answered  = answerState != LsAnswerState.Unanswered
+    val keyboard = LocalSoftwareKeyboardController.current
+    val answered = answerState !is AnswerState.Unanswered
 
     val borderColor = when {
-        answerState is LsAnswerState.Correct   -> BrandGreen
-        answerState is LsAnswerState.Incorrect -> BrandRed
-        text.isNotBlank()                      -> BrandPurple
-        else                                   -> Color(0x1A000000)
+        answerState is AnswerState.Correct   -> BrandGreen
+        answerState is AnswerState.Incorrect -> BrandRed
+        text.isNotBlank()                    -> BrandPurple
+        else                                 -> Color(0x1A000000)
     }
 
     Box(
@@ -823,12 +735,7 @@ fun LsFeedbackBanner(isCorrect: Boolean, feedback: String) {
             Icon(icon, contentDescription = null, tint = border, modifier = Modifier.size(22.dp))
             Spacer(Modifier.width(12.dp))
             Column {
-                Text(
-                    if (isCorrect) "Correct!" else "Not quite...",
-                    color = border,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.ExtraBold
-                )
+                Text(if (isCorrect) "Correct!" else "Not quite...", color = border, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                 Spacer(Modifier.height(4.dp))
                 Text(feedback, color = TextDark, fontSize = 13.sp, lineHeight = 18.sp)
             }
@@ -851,10 +758,7 @@ fun LsLoadingView() {
 // ─── Error ────────────────────────────────────────────────────────────────────
 @Composable
 fun LsErrorView(onBack: () -> Unit, onRetry: () -> Unit) {
-    Box(
-        modifier = Modifier.fillMaxSize().padding(28.dp),
-        contentAlignment = Alignment.Center
-    ) {
+    Box(modifier = Modifier.fillMaxSize().padding(28.dp), contentAlignment = Alignment.Center) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Icon(Icons.Default.SentimentDissatisfied, contentDescription = null, tint = TextMid, modifier = Modifier.size(56.dp))
             Spacer(Modifier.height(16.dp))
@@ -881,6 +785,44 @@ fun LsErrorView(onBack: () -> Unit, onRetry: () -> Unit) {
     }
 }
 
+// ─── Complete Button ──────────────────────────────────────────────────────────
+@Composable
+fun LsCompleteButton(isVisible: Boolean, isEnabled: Boolean, onClick: () -> Unit) {
+    AnimatedVisibility(
+        visible = isVisible,
+        enter   = fadeIn(tween(400)) + expandVertically(),
+        exit    = fadeOut() + shrinkVertically()
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 20.dp)
+                .shadow(6.dp, RoundedCornerShape(18.dp))
+                .clip(RoundedCornerShape(18.dp))
+                .background(
+                    if (isEnabled)
+                        Brush.horizontalGradient(listOf(Color(0xFF2E7D32), Color(0xFF43A047)))
+                    else
+                        Brush.horizontalGradient(listOf(Color(0xFFB0BEC5), Color(0xFFCFD8DC)))
+                )
+                .clickable(enabled = isEnabled) { onClick() }
+                .padding(18.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(Icons.Default.CheckCircle, contentDescription = null, tint = Color.White, modifier = Modifier.size(20.dp))
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    "Complete Lesson ✓",
+                    color = Color.White,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.ExtraBold
+                )
+            }
+        }
+    }
+}
+
 // ─── Completion Screen ────────────────────────────────────────────────────────
 @Composable
 fun LsCompletionView(
@@ -896,24 +838,16 @@ fun LsCompletionView(
         label = "scale"
     )
 
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(32.dp)
         ) {
-            // Pulsing trophy
             Box(
                 modifier = Modifier
                     .size((110 * pulse).dp)
                     .clip(CircleShape)
-                    .background(
-                        Brush.radialGradient(
-                            listOf(BrandPurpleSoft, Color(0x00FFFFFF))
-                        )
-                    ),
+                    .background(Brush.radialGradient(listOf(BrandPurpleSoft, Color(0x00FFFFFF)))),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(Icons.Default.EmojiEvents, contentDescription = null, tint = BrandAmber, modifier = Modifier.size((58 * pulse).dp))
@@ -923,41 +857,24 @@ fun LsCompletionView(
 
             Text(
                 "Lesson Complete!",
-                style = TextStyle(
-                    color = TextDark,
-                    fontSize = 28.sp,
-                    fontWeight = FontWeight.ExtraBold
-                )
+                style = TextStyle(color = TextDark, fontSize = 28.sp, fontWeight = FontWeight.ExtraBold)
             )
             Spacer(Modifier.height(8.dp))
-            Text(
-                "Great work! You're making real progress.",
-                color = TextMid,
-                fontSize = 14.sp,
-                textAlign = TextAlign.Center
-            )
+            Text("Great work! You're making real progress.", color = TextMid, fontSize = 14.sp, textAlign = TextAlign.Center)
 
             Spacer(Modifier.height(28.dp))
 
-            // XP chip
             Box(
                 modifier = Modifier
                     .shadow(6.dp, RoundedCornerShape(20.dp))
                     .clip(RoundedCornerShape(20.dp))
-                    .background(
-                        Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight))
-                    )
+                    .background(Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight)))
                     .padding(horizontal = 28.dp, vertical = 14.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(Icons.Default.Star, null, tint = Color.White, modifier = Modifier.size(20.dp))
                     Spacer(Modifier.width(8.dp))
-                    Text(
-                        "+$totalXp XP Earned",
-                        color = Color.White,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
+                    Text("+$totalXp XP Earned", color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
                 }
             }
 
@@ -969,21 +886,13 @@ fun LsCompletionView(
                         .fillMaxWidth()
                         .shadow(6.dp, RoundedCornerShape(18.dp))
                         .clip(RoundedCornerShape(18.dp))
-                        .background(
-                            Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight))
-                        )
+                        .background(Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight)))
                         .clickable { onContinueNext(nextSublessonId) }
                         .padding(18.dp),
                     contentAlignment = Alignment.Center
                 ) {
-                    Text(
-                        "Next Lesson  →",
-                        color = Color.White,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
+                    Text("Next Lesson  →", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
                 }
-
                 Spacer(Modifier.height(12.dp))
             }
 
@@ -998,12 +907,7 @@ fun LsCompletionView(
                     .padding(18.dp),
                 contentAlignment = Alignment.Center
             ) {
-                Text(
-                    "Back to Home",
-                    color = TextDark,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                Text("Back to Home", color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
             }
         }
     }

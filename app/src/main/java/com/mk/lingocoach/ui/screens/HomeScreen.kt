@@ -359,7 +359,7 @@ fun HomeScreen(
                         color = BrandPurple,
                         fontSize = 13.sp,
                         fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.clickable { }
+                        modifier = Modifier.clickable { onNavigateToProgress() }
                     )
                 }
 

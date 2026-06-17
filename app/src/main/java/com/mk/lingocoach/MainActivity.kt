@@ -32,7 +32,8 @@ enum class Screen {
     Flashcards,
     TimelyDuel,
     AILab,
-    Settings
+    Settings,
+    Analytics
 }
 
 class MainActivity : ComponentActivity() {
@@ -123,7 +124,7 @@ class MainActivity : ComponentActivity() {
                                 onNavigateToSettings = { currentScreen = Screen.Settings },
                                 onNavigateToRoadmap = { currentScreen = Screen.LearningPathRoadmap },
                                 onNavigateToActualLearningPath = { currentScreen = Screen.ActualLearningPath },
-                                onNavigateToProgress = { /* TODO: Add Progress screen to enum */ }
+                                onNavigateToProgress = { currentScreen = Screen.Analytics }
                             )
                         }
                         Screen.Lesson -> {
@@ -167,6 +168,11 @@ class MainActivity : ComponentActivity() {
                             SettingsScreen(
                                 onNavigateBack = { currentScreen = Screen.Home },
                                 onLogout = { currentScreen = Screen.Splash }
+                            )
+                        }
+                        Screen.Analytics -> {
+                            ProgressScreen(
+                                onNavigateBack = { currentScreen = Screen.Home }
                             )
                         }
                     }
