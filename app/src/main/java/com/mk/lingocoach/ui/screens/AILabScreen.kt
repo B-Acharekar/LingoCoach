@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
 import android.os.Build
+import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -58,6 +60,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.IOException
+import java.util.Locale
 
 // ─── Models ──────────────────────────────────────────────────────────────────
 enum class MessageRole { AI, USER }
@@ -115,86 +118,22 @@ fun AILabScreen(
         )
         Scaffold(
             topBar = {
-                when (currentStep) {
-                    AILabStep.CHAT -> {
-                        // Chat screen top bar — back on LEFT
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .statusBarsPadding()
-                                .background(Color.White)
-                                .padding(horizontal = 16.dp, vertical = 12.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            IconButton(
-                                onClick  = { currentStep = AILabStep.HOME },
-                                modifier = Modifier.size(36.dp)
-                            ) {
-                                Icon(
-                                    Icons.AutoMirrored.Filled.ArrowBack,
-                                    contentDescription = "Back",
-                                    tint     = TextDark,
-                                    modifier = Modifier.size(20.dp)
-                                )
-                            }
-                            Text(
-                                "LingoCoach AI",
-                                color      = TextDark,
-                                fontSize   = 17.sp,
-                                fontWeight = FontWeight.ExtraBold,
-                                modifier   = Modifier.weight(1f),
-                                textAlign  = TextAlign.Center
-                            )
-                            IconButton(modifier = Modifier.size(36.dp), onClick = {}) {
-                                Icon(Icons.Default.Settings, contentDescription = "Settings",
-                                    tint = TextDark, modifier = Modifier.size(20.dp))
-                            }
+                CommonTopBar(
+                    title = when (currentStep) {
+                        AILabStep.HOME            -> "AI Conversation"
+                        AILabStep.VOICE_SELECTION -> "Choose a Voice"
+                        AILabStep.TONE_SELECTION  -> "Choose Personality"
+                        AILabStep.CHAT            -> "Lingo AI Conv Start"
+                    },
+                    onBack = {
+                        when (currentStep) {
+                            AILabStep.HOME             -> onNavigateBack()
+                            AILabStep.VOICE_SELECTION  -> currentStep = AILabStep.HOME
+                            AILabStep.TONE_SELECTION   -> currentStep = AILabStep.VOICE_SELECTION
+                            AILabStep.CHAT             -> currentStep = AILabStep.HOME
                         }
                     }
-                    else -> {
-                        // HOME / VOICE_SELECTION / TONE_SELECTION — back on LEFT, title centred
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .statusBarsPadding()
-                                .padding(horizontal = 8.dp, vertical = 4.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            IconButton(
-                                onClick = {
-                                    when (currentStep) {
-                                        AILabStep.HOME             -> onNavigateBack()
-                                        AILabStep.VOICE_SELECTION  -> currentStep = AILabStep.HOME
-                                        AILabStep.TONE_SELECTION   -> currentStep = AILabStep.VOICE_SELECTION
-                                        else                       -> {}
-                                    }
-                                },
-                                modifier = Modifier
-                                    .size(40.dp)
-                                    .background(Color.White.copy(alpha = 0.8f), CircleShape)
-                            ) {
-                                Icon(
-                                    Icons.AutoMirrored.Filled.ArrowBack,
-                                    contentDescription = "Back",
-                                    tint     = TextDark,
-                                    modifier = Modifier.size(20.dp)
-                                )
-                            }
-                            Text(
-                                text = when (currentStep) {
-                                    AILabStep.HOME            -> "AI Conversation"
-                                    AILabStep.VOICE_SELECTION -> "Choose a Voice"
-                                    AILabStep.TONE_SELECTION  -> "Choose Personality"
-                                    else                      -> ""
-                                },
-                                color      = TextDark,
-                                fontSize   = 20.sp,
-                                fontWeight = FontWeight.ExtraBold,
-                                modifier   = Modifier.weight(1f).padding(start = 4.dp)
-                            )
-                        }
-                    }
-                }
+                )
             },
             bottomBar = {
                 HomeBottomNav(
@@ -267,19 +206,25 @@ fun AILabScreen(
                     AlertDialog(
                         onDismissRequest = { showEndDialog = false },
                         title = {
-                            Text(if (endSessionSummary != null) "Session Summary" else "End Session?")
+                            Text(
+                                if (endSessionSummary != null) "Session Summary" else "End Session?",
+                                color = Color.Black
+                            )
                         },
                         text = {
                             if (endSessionSummary != null) {
                                 Column {
-                                    Text("Vocabulary Learned: ${endSessionSummary!!.vocabulary_learned}")
-                                    Text("Grammar Mistakes: ${endSessionSummary!!.grammar_mistakes}")
+                                    Text("Vocabulary Learned: ${endSessionSummary!!.vocabulary_learned}", color = Color.Black)
+                                    Text("Grammar Mistakes: ${endSessionSummary!!.grammar_mistakes}", color = Color.Black)
                                     Spacer(Modifier.height(8.dp))
-                                    Text("Strengths: ${endSessionSummary!!.strengths}", fontWeight = FontWeight.Bold)
-                                    Text("Weaknesses: ${endSessionSummary!!.weaknesses}", fontWeight = FontWeight.Bold)
+                                    Text("Strengths: ${endSessionSummary!!.strengths}", color = Color.Black, fontWeight = FontWeight.Bold)
+                                    Text("Weaknesses: ${endSessionSummary!!.weaknesses}", color = Color.Black, fontWeight = FontWeight.Bold)
                                 }
                             } else {
-                                Text("Your conversation will be summarized and saved. Are you sure you want to end?")
+                                Text(
+                                    "Your conversation will be summarized and saved. Are you sure you want to end?",
+                                    color = Color.Black
+                                )
                             }
                         },
                         shape            = RoundedCornerShape(28.dp),
@@ -421,34 +366,25 @@ fun HomeStep(
 fun VoiceSelectionStep(selectedVoice: String, onVoiceSelected: (String) -> Unit, onNext: () -> Unit) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier            = Modifier.fillMaxSize().padding(24.dp),
+            modifier            = Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 18.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Select the voice your AI tutor will speak with.",
+            Text("Choose the voice that should read AI replies aloud.",
                 color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
-            Spacer(Modifier.height(32.dp))
+            Spacer(Modifier.height(22.dp))
 
-            listOf("Male Voice" to "Natural masculine voice.", "Female Voice" to "Natural feminine voice.").forEach { (title, desc) ->
-                val isSelected    = selectedVoice.contains(title.split(" ")[0])
-                val scale by animateFloatAsState(if (isSelected) 1.03f else 1f, label = "scale")
-                Card(
-                    modifier = Modifier.fillMaxWidth().height(130.dp).padding(vertical = 8.dp)
-                        .scale(scale).shadow(6.dp, RoundedCornerShape(24.dp))
-                        .clickable { onVoiceSelected(title.split(" ")[0]) },
-                    shape  = RoundedCornerShape(24.dp),
-                    colors = CardDefaults.cardColors(containerColor = if (isSelected) BrandPurpleSoft else CardWhite)
-                ) {
-                    Column(modifier = Modifier.padding(20.dp).fillMaxSize()) {
-                        Box(modifier = Modifier.size(36.dp).clip(RoundedCornerShape(10.dp))
-                            .background(if (isSelected) Color.White else BrandPurpleSoft),
-                            contentAlignment = Alignment.Center) {
-                            Icon(Icons.Default.Person, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(20.dp))
-                        }
-                        Spacer(Modifier.weight(1f))
-                        Text(title, color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                        Text(desc.uppercase(), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
-                    }
-                }
+            listOf(
+                Triple("Male", "Steady, clear, lower tone", Icons.Default.RecordVoiceOver),
+                Triple("Female", "Bright, warm, natural tone", Icons.Default.SupportAgent)
+            ).forEach { (value, desc, icon) ->
+                AILabChoiceCard(
+                    title = "$value Voice",
+                    description = desc,
+                    icon = icon,
+                    selected = selectedVoice == value,
+                    onClick = { onVoiceSelected(value) }
+                )
+                Spacer(Modifier.height(12.dp))
             }
         }
         Button(
@@ -469,44 +405,32 @@ fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, on
     var isLoading by remember { mutableStateOf(false) }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier            = Modifier.fillMaxSize().padding(24.dp),
+            modifier            = Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 18.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("How should your AI tutor talk?", color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
-            Spacer(Modifier.height(32.dp))
+            Text("Pick the personality for this conversation.", color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
+            Spacer(Modifier.height(18.dp))
             listOf(
-                "Casual"       to "Friendly and relaxed conversation style.",
-                "Professional" to "Formal and structured responses.",
-                "Nerdy"        to "Analytical and educational style.",
-                "Warm"         to "Encouraging and supportive style."
-            ).forEachIndexed { index, (title, desc) ->
+                Triple("Casual", "Friendly, relaxed, everyday conversation", Icons.Default.ChatBubble),
+                Triple("Professional", "Structured, precise, work-ready replies", Icons.Default.BusinessCenter),
+                Triple("Nerdy", "Analytical, detailed, learning-focused", Icons.Default.Psychology),
+                Triple("Warm", "Encouraging, patient, supportive tone", Icons.Default.Favorite)
+            ).forEachIndexed { index, (title, desc, icon) ->
                 var visible by remember { mutableStateOf(false) }
                 LaunchedEffect(Unit) { delay(index * 100L); visible = true }
                 AnimatedVisibility(
                     visible = visible,
                     enter   = fadeIn(tween(300)) + slideInVertically(tween(300)) { 50 }
                 ) {
-                    val isSelected = selectedTone == title
-                    val scale by animateFloatAsState(if (isSelected) 1.03f else 1f, label = "scale")
-                    Card(
-                        modifier = Modifier.fillMaxWidth().height(130.dp).padding(vertical = 8.dp)
-                            .scale(scale).shadow(6.dp, RoundedCornerShape(24.dp))
-                            .clickable { onToneSelected(title) },
-                        shape  = RoundedCornerShape(24.dp),
-                        colors = CardDefaults.cardColors(containerColor = if (isSelected) BrandPurpleSoft else CardWhite)
-                    ) {
-                        Column(modifier = Modifier.padding(20.dp).fillMaxSize()) {
-                            Box(modifier = Modifier.size(36.dp).clip(RoundedCornerShape(10.dp))
-                                .background(if (isSelected) Color.White else BrandPurpleSoft),
-                                contentAlignment = Alignment.Center) {
-                                Icon(Icons.Default.Face, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(20.dp))
-                            }
-                            Spacer(Modifier.weight(1f))
-                            Text(title, color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                            Text(desc.uppercase(), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
-                        }
-                    }
+                    AILabChoiceCard(
+                        title = title,
+                        description = desc,
+                        icon = icon,
+                        selected = selectedTone == title,
+                        onClick = { onToneSelected(title) }
+                    )
                 }
+                Spacer(Modifier.height(10.dp))
             }
         }
         Button(
@@ -525,6 +449,58 @@ fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, on
     }
 }
 
+@Composable
+private fun AILabChoiceCard(
+    title: String,
+    description: String,
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    selected: Boolean,
+    onClick: () -> Unit
+) {
+    val scale by animateFloatAsState(if (selected) 1.02f else 1f, label = "choiceScale")
+    val bg = if (selected) BrandPurpleSoft else CardWhite
+    val border = if (selected) BrandPurple.copy(alpha = 0.35f) else Color(0x11000000)
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(92.dp)
+            .scale(scale)
+            .shadow(if (selected) 7.dp else 3.dp, RoundedCornerShape(22.dp))
+            .clip(RoundedCornerShape(22.dp))
+            .background(bg)
+            .border(1.dp, border, RoundedCornerShape(22.dp))
+            .clickable { onClick() }
+            .padding(horizontal = 16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Box(
+            modifier = Modifier
+                .size(48.dp)
+                .clip(RoundedCornerShape(15.dp))
+                .background(if (selected) BrandPurple else BrandPurpleSoft),
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(icon, contentDescription = null, tint = if (selected) Color.White else BrandPurple, modifier = Modifier.size(24.dp))
+        }
+        Spacer(Modifier.width(14.dp))
+        Column(modifier = Modifier.weight(1f)) {
+            Text(title, color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+            Spacer(Modifier.height(4.dp))
+            Text(description, color = TextLight, fontSize = 12.sp, lineHeight = 16.sp)
+        }
+        Box(
+            modifier = Modifier
+                .size(24.dp)
+                .clip(CircleShape)
+                .background(if (selected) BrandPurple else Color(0xFFEDEDF4)),
+            contentAlignment = Alignment.Center
+        ) {
+            if (selected) Icon(Icons.Default.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(15.dp))
+        }
+    }
+}
+
 // ─── Chat Step ────────────────────────────────────────────────────────────────
 @Composable
 fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", onEndSession: () -> Unit) {
@@ -534,7 +510,33 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
     var inputText      by remember { mutableStateOf("") }
     var isListening    by remember { mutableStateOf(false) }
     var isTranscribing by remember { mutableStateOf(false) }
+    var ttsEnabled     by remember { mutableStateOf(false) }
+    var speechRate     by remember { mutableStateOf(1.0f) }
+    var textToSpeech   by remember { mutableStateOf<TextToSpeech?>(null) }
     val listState      = rememberLazyListState()
+
+    DisposableEffect(Unit) {
+        val engine = TextToSpeech(context) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                textToSpeech?.language = Locale.ENGLISH
+            }
+        }
+        textToSpeech = engine
+        onDispose {
+            engine.stop()
+            engine.shutdown()
+        }
+    }
+
+    fun speakAi(text: String) {
+        if (!ttsEnabled || text.isBlank()) return
+        textToSpeech?.setLanguage(Locale.ENGLISH)
+        textToSpeech?.setSpeechRate(speechRate.coerceIn(0.65f, 1.45f))
+        val params = Bundle().apply {
+            putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, 1.0f)
+        }
+        textToSpeech?.speak(text, TextToSpeech.QUEUE_FLUSH, params, "ailab_${System.currentTimeMillis()}")
+    }
 
     // Show opening message as first bubble immediately
     LaunchedEffect(sessionId) {
@@ -616,12 +618,21 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
                         mistakeType = m.mistake_type ?: ""
                     )
                 }
+                val transcribedText = response.transcribed_text?.trim().orEmpty()
+                if (transcribedText.isNotBlank()) {
+                    messages = messages + ChatMessage(
+                        id       = System.currentTimeMillis().toString(),
+                        role     = MessageRole.USER,
+                        text     = transcribedText,
+                        mistakes = uiMistakes
+                    )
+                }
                 messages = messages + ChatMessage(
-                    id       = System.currentTimeMillis().toString(),
-                    role     = MessageRole.AI,
-                    text     = response.ai_response,
-                    mistakes = uiMistakes
+                    id   = (System.currentTimeMillis() + 1).toString(),
+                    role = MessageRole.AI,
+                    text = response.ai_response
                 )
+                speakAi(response.ai_response)
             } else {
                 messages = messages + ChatMessage(
                     id   = System.currentTimeMillis().toString(),
@@ -674,6 +685,13 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
             onInputChange  = { inputText = it },
             isListening    = isListening,
             isTranscribing = isTranscribing,
+            ttsEnabled     = ttsEnabled,
+            speechRate     = speechRate,
+            onTtsToggle    = {
+                ttsEnabled = !ttsEnabled
+                if (ttsEnabled) textToSpeech?.stop()
+            },
+            onSpeechRateChange = { speechRate = it },
             onSend         = {
                 if (inputText.isNotBlank() && sessionId != null) {
                     val msg = inputText
@@ -701,7 +719,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
                                         mistakeType = m.mistake_type ?: ""
                                     )
                                 }
-                            )
+                            ).also { speakAi(response.ai_response) }
                         } else {
                             ChatMessage(System.currentTimeMillis().toString(), MessageRole.AI, "Sorry, I'm having trouble connecting right now.")
                         }
@@ -821,6 +839,10 @@ fun ChatInputArea(
     isListening: Boolean,
     onMicToggle: () -> Unit,
     isTranscribing: Boolean,
+    ttsEnabled: Boolean,
+    speechRate: Float,
+    onTtsToggle: () -> Unit,
+    onSpeechRateChange: (Float) -> Unit,
     onEndSessionClick: () -> Unit
 ) {
     val infiniteTransition = rememberInfiniteTransition(label = "wave")
@@ -931,14 +953,56 @@ fun ChatInputArea(
                 )
             }
             Spacer(Modifier.width(10.dp))
-            Box(
-                modifier         = Modifier.size(40.dp).clip(CircleShape).background(Color(0xFFF5F5F5)),
-                contentAlignment = Alignment.Center
+            Row(
+                modifier = Modifier
+                    .weight(1f)
+                    .clip(RoundedCornerShape(18.dp))
+                    .background(Color(0xFFF5F5F5))
+                    .padding(horizontal = 10.dp, vertical = 8.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Icon(Icons.Default.Lightbulb, contentDescription = "Hint",
-                    tint = TextLight, modifier = Modifier.size(20.dp))
+                Box(
+                    modifier = Modifier
+                        .size(34.dp)
+                        .clip(CircleShape)
+                        .background(if (ttsEnabled) BrandPurple else Color.White)
+                        .clickable { onTtsToggle() },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        if (ttsEnabled) Icons.AutoMirrored.Filled.VolumeUp else Icons.Default.VolumeOff,
+                        contentDescription = "Text to speech",
+                        tint = if (ttsEnabled) Color.White else TextLight,
+                        modifier = Modifier.size(18.dp)
+                    )
+                }
+                Spacer(Modifier.width(8.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        if (ttsEnabled) "Text to speech on" else "Text to speech off",
+                        color = if (ttsEnabled) BrandPurple else TextLight,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1
+                    )
+                    Slider(
+                        value = speechRate,
+                        onValueChange = onSpeechRateChange,
+                        valueRange = 0.65f..1.45f,
+                        enabled = ttsEnabled,
+                        modifier = Modifier.height(24.dp),
+                        colors = SliderDefaults.colors(
+                            thumbColor = BrandPurple,
+                            activeTrackColor = BrandPurple,
+                            inactiveTrackColor = Color(0xFFE1DFFF),
+                            disabledThumbColor = TextLight,
+                            disabledActiveTrackColor = Color(0xFFE0E0E0),
+                            disabledInactiveTrackColor = Color(0xFFEAEAEA)
+                        )
+                    )
+                }
             }
-            Spacer(Modifier.weight(1f))
+            Spacer(Modifier.width(10.dp))
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(20.dp))
@@ -946,7 +1010,7 @@ fun ChatInputArea(
                     .clickable { onEndSessionClick() }
                     .padding(horizontal = 20.dp, vertical = 10.dp)
             ) {
-                Text("End Session", color = TextDark, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+                Text("End Session", color = Color.Black, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
             }
         }
     }

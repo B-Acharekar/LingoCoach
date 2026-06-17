@@ -166,6 +166,16 @@ fun MistakeVaultScreen(
     if (showRetest) {
         RetestModeOverlay(
             mistakes = retestList,
+            userId = userId,
+            onMistakeResolved = { resolvedId ->
+                allMistakes = allMistakes.map { mistake ->
+                    if (mistake.id == resolvedId) {
+                        mistake.copy(mastered = true, masteryScore = 100)
+                    } else {
+                        mistake
+                    }
+                }
+            },
             onDismiss = { showRetest = false }
         )
         return
@@ -600,6 +610,8 @@ private fun VaultAnswerRow(isCorrect: Boolean, label: String, text: String) {
 @Composable
 fun RetestModeOverlay(
     mistakes: List<DisplayMistake>,
+    userId: String,
+    onMistakeResolved: (String) -> Unit,
     onDismiss: () -> Unit
 ) {
     var currentIndex    by remember { mutableStateOf(0) }
@@ -608,6 +620,8 @@ fun RetestModeOverlay(
     var masteredIndices by remember { mutableStateOf(setOf<Int>()) }
     var reviewIndices   by remember { mutableStateOf(setOf<Int>()) }
     var sessionDone     by remember { mutableStateOf(false) }
+    var typedAnswer     by remember { mutableStateOf("") }
+    var feedbackText    by remember { mutableStateOf("") }
     val scope           = rememberCoroutineScope()
 
     val total    = mistakes.size
@@ -700,12 +714,39 @@ fun RetestModeOverlay(
                             }
                         },
                         onMarkCorrect = {
-                            masteredIndices = masteredIndices + currentIndex
-                            cardState = RetestCardState.MARKED_CORRECT
-                            scope.launch {
-                                delay(600)
-                                advanceCard(currentIndex, total, { currentIndex = it }, { sessionDone = true })
-                                cardState = RetestCardState.IDLE
+                            val expected = mistake.correctAnswer.ifBlank { mistake.word }
+                            val isCorrect = normalizeRetestAnswer(typedAnswer) == normalizeRetestAnswer(expected)
+                            if (isCorrect) {
+                                masteredIndices = masteredIndices + currentIndex
+                                feedbackText = "Correct. This slip is mastered."
+                                cardState = RetestCardState.MARKED_CORRECT
+                                if (mistake.source == "server" && mistake.id.isNotBlank()) {
+                                    AssessmentApi.markMistakeResolved(userId, mistake.id) { ok ->
+                                        if (ok) {
+                                            scope.launch(Dispatchers.Main) {
+                                                onMistakeResolved(mistake.id)
+                                            }
+                                        }
+                                    }
+                                }
+                                scope.launch {
+                                    delay(750)
+                                    typedAnswer = ""
+                                    feedbackText = ""
+                                    advanceCard(currentIndex, total, { currentIndex = it }, { sessionDone = true })
+                                    cardState = RetestCardState.IDLE
+                                }
+                            } else {
+                                reviewIndices = reviewIndices + currentIndex
+                                feedbackText = "Not quite. Check the correction and try this one again."
+                                cardState = RetestCardState.MARKED_WRONG
+                                scope.launch {
+                                    delay(900)
+                                    typedAnswer = ""
+                                    feedbackText = ""
+                                    advanceCard(currentIndex, total, { currentIndex = it }, { sessionDone = true })
+                                    cardState = RetestCardState.IDLE
+                                }
                             }
                         },
                         onMarkWrong = {
@@ -713,6 +754,8 @@ fun RetestModeOverlay(
                             cardState = RetestCardState.MARKED_WRONG
                             scope.launch {
                                 delay(600)
+                                typedAnswer = ""
+                                feedbackText = ""
                                 advanceCard(currentIndex, total, { currentIndex = it }, { sessionDone = true })
                                 cardState = RetestCardState.IDLE
                             }
@@ -720,8 +763,16 @@ fun RetestModeOverlay(
                         onNeedsReview = {
                             reviewIndices = reviewIndices + currentIndex
                             cardState = RetestCardState.IDLE
+                            typedAnswer = ""
+                            feedbackText = ""
                             advanceCard(currentIndex, total, { currentIndex = it }, { sessionDone = true })
-                        }
+                        },
+                        typedAnswer = typedAnswer,
+                        onTypedAnswerChange = {
+                            typedAnswer = it
+                            feedbackText = ""
+                        },
+                        feedbackText = feedbackText
                     )
 
                     Spacer(Modifier.height(32.dp))
@@ -733,6 +784,14 @@ fun RetestModeOverlay(
 
 private fun advanceCard(current: Int, total: Int, setIndex: (Int) -> Unit, setDone: () -> Unit) {
     if (current + 1 >= total) setDone() else setIndex(current + 1)
+}
+
+private fun normalizeRetestAnswer(value: String): String {
+    return value
+        .lowercase()
+        .replace(Regex("[^a-z0-9']+"), " ")
+        .trim()
+        .replace(Regex("\\s+"), " ")
 }
 
 // ─── Retest: Top Bar ──────────────────────────────────────────────────────────
@@ -908,7 +967,10 @@ private fun RetestActionZone(
     onMicTap: () -> Unit,
     onMarkCorrect: () -> Unit,
     onMarkWrong: () -> Unit,
-    onNeedsReview: () -> Unit
+    onNeedsReview: () -> Unit,
+    typedAnswer: String,
+    onTypedAnswerChange: (String) -> Unit,
+    feedbackText: String
 ) {
     Column(
         modifier            = Modifier.fillMaxWidth(),
@@ -924,18 +986,12 @@ private fun RetestActionZone(
             when (state) {
                 RetestCardState.IDLE, RetestCardState.NEEDS_REVIEW -> {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        MicButton(scale = 1f, isActive = false, onClick = onMicTap)
-                        Spacer(Modifier.height(12.dp))
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(Icons.Default.Mic, contentDescription = null, tint = VaultPurple, modifier = Modifier.size(18.dp))
-                            Spacer(Modifier.width(6.dp))
-                            Text(
-                                "Tap to Record",
-                                color      = VaultPurple,
-                                fontWeight = FontWeight.Bold,
-                                fontSize   = 15.sp
-                            )
-                        }
+                        RetestTypedAnswerBox(
+                            typedAnswer = typedAnswer,
+                            onTypedAnswerChange = onTypedAnswerChange,
+                            feedbackText = feedbackText,
+                            onVerify = onMarkCorrect
+                        )
                         Spacer(Modifier.height(8.dp))
                         TextButton(onClick = onNeedsReview) {
                             Text("I need to review this rule again", color = VaultTextLight, fontSize = 12.sp)
@@ -960,23 +1016,22 @@ private fun RetestActionZone(
                 }
                 RetestCardState.RECORDED -> {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(
-                            "How did that feel?",
-                            color      = VaultTextDark,
-                            fontWeight = FontWeight.Bold,
-                            fontSize   = 16.sp
+                        RetestTypedAnswerBox(
+                            typedAnswer = typedAnswer,
+                            onTypedAnswerChange = onTypedAnswerChange,
+                            feedbackText = feedbackText,
+                            onVerify = onMarkCorrect
                         )
-                        Spacer(Modifier.height(16.dp))
+                        Spacer(Modifier.height(12.dp))
                         Row(
                             modifier            = Modifier
                                 .fillMaxWidth()
                                 .padding(horizontal = 32.dp),
-                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                            horizontalArrangement = Arrangement.Center
                         ) {
-                            // Needs more practice
                             OutlinedButton(
                                 onClick  = onMarkWrong,
-                                modifier = Modifier.weight(1f).height(50.dp),
+                                modifier = Modifier.fillMaxWidth().height(46.dp),
                                 shape    = RoundedCornerShape(14.dp),
                                 colors   = ButtonDefaults.outlinedButtonColors(contentColor = VaultRed),
                                 border   = androidx.compose.foundation.BorderStroke(1.5.dp, VaultRed.copy(alpha = 0.4f))
@@ -984,17 +1039,6 @@ private fun RetestActionZone(
                                 Icon(Icons.Default.Close, contentDescription = null, modifier = Modifier.size(16.dp))
                                 Spacer(Modifier.width(4.dp))
                                 Text("Again", fontSize = 13.sp, fontWeight = FontWeight.Bold)
-                            }
-                            // Got it
-                            Button(
-                                onClick  = onMarkCorrect,
-                                modifier = Modifier.weight(1f).height(50.dp),
-                                shape    = RoundedCornerShape(14.dp),
-                                colors   = ButtonDefaults.buttonColors(containerColor = VaultGreen)
-                            ) {
-                                Icon(Icons.Default.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
-                                Spacer(Modifier.width(4.dp))
-                                Text("Got It!", color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold)
                             }
                         }
                         Spacer(Modifier.height(10.dp))
@@ -1023,6 +1067,67 @@ private fun RetestActionZone(
 }
 
 // ─── Mic Button ───────────────────────────────────────────────────────────────
+@Composable
+private fun RetestTypedAnswerBox(
+    typedAnswer: String,
+    onTypedAnswerChange: (String) -> Unit,
+    feedbackText: String,
+    onVerify: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 28.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            "Type the corrected answer",
+            color = VaultTextDark,
+            fontWeight = FontWeight.Bold,
+            fontSize = 15.sp
+        )
+        Spacer(Modifier.height(10.dp))
+        OutlinedTextField(
+            value = typedAnswer,
+            onValueChange = onTypedAnswerChange,
+            modifier = Modifier.fillMaxWidth(),
+            placeholder = { Text("Write the correction here", color = VaultTextLight) },
+            minLines = 1,
+            maxLines = 3,
+            shape = RoundedCornerShape(14.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedTextColor = VaultTextDark,
+                unfocusedTextColor = VaultTextDark,
+                cursorColor = VaultPurple,
+                focusedBorderColor = VaultPurple,
+                unfocusedBorderColor = Color(0xFFE0DFFA)
+            )
+        )
+        if (feedbackText.isNotBlank()) {
+            Spacer(Modifier.height(8.dp))
+            Text(
+                feedbackText,
+                color = if (feedbackText.startsWith("Correct")) VaultGreen else VaultRed,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center
+            )
+        }
+        Spacer(Modifier.height(12.dp))
+        Button(
+            onClick = onVerify,
+            enabled = typedAnswer.isNotBlank(),
+            modifier = Modifier.fillMaxWidth().height(48.dp),
+            shape = RoundedCornerShape(14.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = VaultPurple)
+        ) {
+            Icon(Icons.Default.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.width(6.dp))
+            Text("Verify Answer", color = Color.White, fontWeight = FontWeight.Bold)
+        }
+    }
+}
+
 @Composable
 private fun MicButton(scale: Float, isActive: Boolean, onClick: () -> Unit) {
     Box(

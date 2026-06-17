@@ -383,6 +383,26 @@ object AssessmentApi {
         })
     }
 
+    fun markMistakeResolved(
+        userId: String,
+        mistakeId: String,
+        onResult: ((Boolean) -> Unit)? = null
+    ) {
+        val request = Request.Builder()
+            .url("$BASE_URL/api/v1/mistakes/mark-resolved/$mistakeId?user_id=$userId")
+            .post(ByteArray(0).toRequestBody(null))
+            .header("accept", "application/json")
+            .build()
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to mark mistake resolved", e); onResult?.invoke(false)
+            }
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use { onResult?.invoke(it.isSuccessful) }
+            }
+        })
+    }
+
     fun getVocabBookmarks(userId: String, onResult: (List<VocabBookmark>?) -> Unit) {
         val request = Request.Builder()
             .url("$BASE_URL/api/v1/vocab/bookmarks?user_id=$userId")

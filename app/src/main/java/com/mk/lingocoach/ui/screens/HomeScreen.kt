@@ -376,7 +376,7 @@ fun HomeScreen(
                 }
 
                 // ── Vocab Builder Card ───────────────────────────────────────
-                HomeVocabBuilderCard(onClick = onNavigateToVocab)
+                HomeVocabBuilderCard(isLoaded = isVocabLoaded, onClick = onNavigateToVocab)
 
                 // ── Mistake Vault Card ───────────────────────────────────────
                 HomeMistakeVaultCard(mistakes = mistakes, onClick = onNavigateToMistakes)
@@ -432,7 +432,7 @@ fun HomeDailyStatsCard(
     onClick: () -> Unit = {}
 ) {
     val isVocabLoaded = VocabTracker.isLoaded
-    val vocabProgress = if (isVocabLoaded) VocabTracker.getOverallProgressPercent() / 100f else 0.45f
+    val vocabProgress = if (isVocabLoaded) VocabTracker.getOverallProgressPercent() / 100f else 0f
     
     // Calculate dynamic progress from weekly stats
     val totalLessons = weeklyStats.sumOf { it.lessons_completed }
@@ -440,9 +440,13 @@ fun HomeDailyStatsCard(
     val correctExercises = weeklyStats.sumOf { it.exercises_correct }
     
     val lessonsProgress = (totalLessons.coerceIn(0, 10) / 10f).coerceIn(0.05f, 1f)
-    val grammarProgress = if (totalExercises > 0) (correctExercises.toFloat() / totalExercises).coerceIn(0.05f, 1f) else 0.75f
-    val pronunciationProgress = 0.90f // From AI Lab sessions when implemented
-    val fluencyProgress = (weeklyStats.sumOf { it.ai_lab_minutes }.coerceIn(0, 60) / 60f).coerceIn(0.05f, 1f)
+    val grammarProgress = if (totalExercises > 0) (correctExercises.toFloat() / totalExercises).coerceIn(0.05f, 1f) else 0f
+    val speakingMinutes = weeklyStats.sumOf { it.ai_lab_minutes }
+    val aiLabSessions = weeklyStats.sumOf { it.ai_lab_sessions }
+    val pronunciationProgress = if (aiLabSessions > 0) {
+        (speakingMinutes.coerceAtLeast(aiLabSessions).coerceIn(0, 30) / 30f).coerceIn(0.05f, 1f)
+    } else 0f
+    val fluencyProgress = if (speakingMinutes > 0) (speakingMinutes.coerceIn(0, 60) / 60f).coerceIn(0.05f, 1f) else 0f
     
     // Calculate accuracy - show 0 if no data
     val accuracy = if (totalExercises > 0) {
@@ -823,7 +827,7 @@ fun HomeFeatureCard(
 ) {
     Box(
         modifier = modifier
-            .height(130.dp)
+            .height(144.dp)
             .shadow(6.dp, RoundedCornerShape(24.dp))
             .clip(RoundedCornerShape(24.dp))
             .background(backgroundColor)
@@ -972,9 +976,10 @@ fun AILabCard(modifier: Modifier = Modifier, onClick: () -> Unit) {
             Text(
                 "PRONUNCIATION",
                 color = Color.White.copy(alpha = 0.70f),
-                fontSize = 9.sp,
+                fontSize = 8.sp,
                 fontWeight = FontWeight.Bold,
-                letterSpacing = 0.3.sp
+                letterSpacing = 0.sp,
+                maxLines = 1
             )
         }
     }
@@ -982,10 +987,12 @@ fun AILabCard(modifier: Modifier = Modifier, onClick: () -> Unit) {
 
 // ─── Vocab Builder Card Component ────────────────────────────────────────────
 @Composable
-fun HomeVocabBuilderCard(onClick: () -> Unit = {}) {
-    val isLoaded = VocabTracker.isLoaded
-    val progressPercent = if (isLoaded) VocabTracker.getOverallProgressPercent() else 45
-    val wordsCountText = if (isLoaded) VocabTracker.getOverallWordsCountText() else "225 / 500 words"
+fun HomeVocabBuilderCard(
+    isLoaded: Boolean = VocabTracker.isLoaded,
+    onClick: () -> Unit = {}
+) {
+    val progressPercent = if (isLoaded) VocabTracker.getLevelProgress("A1") else 0
+    val wordsCountText = if (isLoaded) VocabTracker.getLevelWordsCountText("A1") else "Loading A1 words"
 
     Card(
         modifier = Modifier
@@ -1034,7 +1041,7 @@ fun HomeVocabBuilderCard(onClick: () -> Unit = {}) {
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Text(
-                        "${progressPercent}% MASTERED",
+                        "${progressPercent}% A1",
                         color = BrandPurple,
                         fontSize = 9.sp,
                         fontWeight = FontWeight.ExtraBold,

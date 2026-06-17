@@ -1,5 +1,6 @@
 package com.mk.lingocoach.ui.screens
 
+import android.content.Context
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
@@ -22,6 +23,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -29,6 +31,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mk.lingocoach.R
+import com.mk.lingocoach.network.AssessmentApi
+import com.mk.lingocoach.network.CurrentLesson
+import com.mk.lingocoach.network.CurrentModule
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 // Only declare tokens that don't already exist in your theme.
 // BrandPurple, BrandPurpleLight, TextDark, TextLight, CardWhite come from your
@@ -50,10 +57,41 @@ fun LearningPathRoadmapScreen(
     onNavigateToSettings: () -> Unit,
     onNavigateBackToAssessment: () -> Unit = {},   // used when launchedFromAssessment == true
 ) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
+    val sharedPrefs = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
+    val userId = remember { sharedPrefs.getString("session_id", null) ?: "" }
+    var learningPath by remember { mutableStateOf(AppCache.learningPath) }
+    var isLoading by remember { mutableStateOf(learningPath == null) }
 
     // Back destination depends on how we arrived here
     val onBack: () -> Unit = if (launchedFromAssessment) onNavigateBackToAssessment else onNavigateHome
+
+    LaunchedEffect(userId) {
+        AppCache.loadFromDisk(context)
+        AppCache.learningPath?.let {
+            learningPath = it
+            isLoading = false
+        }
+        if (userId.isNotBlank()) {
+            scope.launch(Dispatchers.IO) {
+                AssessmentApi.getCurrentLearningPath(userId) { path ->
+                    scope.launch(Dispatchers.Main) {
+                        if (path != null) {
+                            AppCache.learningPath = AppCache.applyLocalLearningPathProgress(path)
+                            AppCache.learningPathAt = System.currentTimeMillis()
+                            AppCache.saveToDisk(context)
+                            learningPath = AppCache.learningPath
+                        }
+                        isLoading = false
+                    }
+                }
+            }
+        } else {
+            isLoading = false
+        }
+    }
 
     Box(modifier = Modifier.fillMaxSize()) {
 
@@ -111,38 +149,31 @@ fun LearningPathRoadmapScreen(
 
                 Spacer(Modifier.height(32.dp))
 
-                // ── Roadmap Modules ───────────────────────────────────────
-                ExpandableModule(
-                    level = "LEVEL 1",
-                    title = "Foundations",
-                    lessons = listOf("Greetings", "Introductions", "Numbers", "Practice Quiz"),
-                    current = true,
-                    locked = false,
-                    onLessonClick = onNavigateToLesson
-                )
-
-                RoadmapConnector(unlocked = true)
-
-                ExpandableModule(
-                    level = "LEVEL 2",
-                    title = "Daily Coffee Chat",
-                    lessons = listOf("Ordering Coffee", "Small Talk", "Directions"),
-                    current = false,
-                    locked = true,
-                    onLessonClick = onNavigateToLesson
-                )
-
-                RoadmapConnector(unlocked = false)
-
-                ExpandableModule(
-                    level = "LEVEL 3",
-                    title = "Professional Pitch",
-                    lessons = listOf("Meetings", "Presentations", "Negotiation"),
-                    current = false,
-                    locked = true,
-                    onLessonClick = onNavigateToLesson
-                )
-
+                val modules = learningPath?.normalizedLearningPath()?.modules.orEmpty()
+                when {
+                    isLoading -> {
+                        CircularProgressIndicator(color = BrandPurple, modifier = Modifier.size(32.dp))
+                    }
+                    modules.isEmpty() -> {
+                        Text(
+                            "No learning path found yet.",
+                            color = TextLight,
+                            fontSize = 14.sp,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                    else -> {
+                        modules.forEachIndexed { index, module ->
+                            ExpandableModule(
+                                module = module,
+                                onLessonClick = onNavigateToLesson
+                            )
+                            if (index < modules.lastIndex) {
+                                RoadmapConnector(unlocked = module.status != "locked")
+                            }
+                        }
+                    }
+                }
                 Spacer(Modifier.height(80.dp))
             }
 
@@ -250,13 +281,15 @@ private fun RoadmapConnector(unlocked: Boolean) {
  */
 @Composable
 private fun ExpandableModule(
-    level: String,
-    title: String,
-    lessons: List<String>,
-    current: Boolean,
-    locked: Boolean,
+    module: CurrentModule,
     onLessonClick: (String) -> Unit
 ) {
+    val level = module.level.uppercase()
+    val title = module.title
+    val lessons = module.lessons
+    val current = module.status == "current"
+    val locked = module.status == "locked"
+    val completed = module.status == "completed"
     var expanded by remember { mutableStateOf(current && !locked) }
 
     val cardBorder = if (current && !locked)
@@ -292,24 +325,24 @@ private fun ExpandableModule(
                         .clip(CircleShape)
                         .background(
                             when {
-                                locked  -> Color(0xFFF0F0F4)
-                                current -> BrandPurple.copy(alpha = 0.12f)
-                                else    -> SuccessGreen.copy(alpha = 0.12f)
+                                locked    -> Color(0xFFF0F0F4)
+                                completed -> SuccessGreen.copy(alpha = 0.12f)
+                                else      -> BrandPurple.copy(alpha = 0.12f)
                             }
                         ),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
                         imageVector = when {
-                            locked  -> Icons.Default.Lock
-                            current -> Icons.Default.PlayArrow
-                            else    -> Icons.Default.Check
+                            locked    -> Icons.Default.Lock
+                            completed -> Icons.Default.Check
+                            else      -> Icons.Default.PlayArrow
                         },
                         contentDescription = null,
                         tint = when {
-                            locked  -> TextLight
-                            current -> BrandPurple
-                            else    -> SuccessGreen
+                            locked    -> TextLight
+                            completed -> SuccessGreen
+                            else      -> BrandPurple
                         },
                         modifier = Modifier.size(22.dp)
                     )
@@ -337,6 +370,14 @@ private fun ExpandableModule(
                         Text(
                             "In progress · ${lessons.size} lessons",
                             color = BrandPurple,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    } else if (completed) {
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            "Completed",
+                            color = SuccessGreen,
                             fontSize = 11.sp,
                             fontWeight = FontWeight.SemiBold
                         )
@@ -374,8 +415,12 @@ private fun ExpandableModule(
                     lessons.forEachIndexed { index, lesson ->
                         LessonRow(
                             index = index + 1,
-                            label = lesson,
-                            onClick = { onLessonClick("${title}_${index + 1}") }
+                            lesson = lesson,
+                            onClick = {
+                                val targetSublesson = lesson.sublessons.firstOrNull { it.status == "current" }
+                                    ?: lesson.sublessons.firstOrNull()
+                                targetSublesson?.let { onLessonClick(it.id) }
+                            }
                         )
                     }
                 }
@@ -385,11 +430,14 @@ private fun ExpandableModule(
 }
 
 @Composable
-private fun LessonRow(index: Int, label: String, onClick: () -> Unit) {
+private fun LessonRow(index: Int, lesson: CurrentLesson, onClick: () -> Unit) {
+    val locked = lesson.status == "locked"
+    val completed = lesson.status == "completed"
     Surface(
         onClick = onClick,
         color = Color.Transparent,
-        shape = RoundedCornerShape(12.dp)
+        shape = RoundedCornerShape(12.dp),
+        enabled = !locked
     ) {
         Row(
             modifier = Modifier
@@ -406,7 +454,7 @@ private fun LessonRow(index: Int, label: String, onClick: () -> Unit) {
             ) {
                 Text(
                     "$index",
-                    color = BrandPurple,
+                    color = if (completed) SuccessGreen else BrandPurple,
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Bold
                 )
@@ -415,8 +463,8 @@ private fun LessonRow(index: Int, label: String, onClick: () -> Unit) {
             Spacer(Modifier.width(12.dp))
 
             Text(
-                label,
-                color = TextDark,
+                lesson.title,
+                color = if (locked) TextLight else TextDark,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.weight(1f)
@@ -425,7 +473,11 @@ private fun LessonRow(index: Int, label: String, onClick: () -> Unit) {
             Icon(
                 Icons.AutoMirrored.Filled.ArrowForward,
                 contentDescription = null,
-                tint = BrandPurple,
+                tint = when {
+                    locked -> TextLight
+                    completed -> SuccessGreen
+                    else -> BrandPurple
+                },
                 modifier = Modifier.size(16.dp)
             )
         }

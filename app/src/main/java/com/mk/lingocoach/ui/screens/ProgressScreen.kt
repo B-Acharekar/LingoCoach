@@ -48,12 +48,21 @@ fun ProgressScreen(
 
     var weeklyStats by remember { mutableStateOf<List<DailyStats>>(emptyList()) }
     var isLoading   by remember { mutableStateOf(true) }
+    var isVocabLoaded by remember { mutableStateOf(VocabTracker.isLoaded) }
 
     val userId = remember {
         prefs.getString("session_id", null) ?: "df31075e-bc40-459f-bbfb-e10c2d3ea34e"
     }
 
     LaunchedEffect(userId) {
+        scope.launch(Dispatchers.IO) {
+            if (!VocabTracker.isLoaded) {
+                VocabTracker.init(context)
+            }
+            scope.launch(Dispatchers.Main) {
+                isVocabLoaded = VocabTracker.isLoaded
+            }
+        }
         scope.launch(Dispatchers.IO) {
             AssessmentApi.getWeeklyAnalytics(userId) { stats ->
                 scope.launch(Dispatchers.Main) {
@@ -111,6 +120,7 @@ fun ProgressScreen(
             } else {
                 AnalyticsContent(
                     weeklyStats = weeklyStats,
+                    isVocabLoaded = isVocabLoaded,
                     modifier = Modifier.padding(padding)
                 )
             }
@@ -121,6 +131,7 @@ fun ProgressScreen(
 @Composable
 private fun AnalyticsContent(
     weeklyStats: List<DailyStats>,
+    isVocabLoaded: Boolean,
     modifier: Modifier = Modifier
 ) {
 
@@ -159,11 +170,11 @@ private fun AnalyticsContent(
     // Skills derived from real data
     val grammarScore    = if (totalExercises > 0)
         (correctExercises * 100 / totalExercises).coerceIn(0, 100) else 0
-    val vocabScore      = if (VocabTracker.isLoaded)
+    val vocabScore      = if (isVocabLoaded)
         VocabTracker.getOverallProgressPercent().coerceIn(0, 100) else 0
     val fluencyScore    = (aiLabMinutes.coerceIn(0, 60) * 100 / 60).coerceIn(0, 100)
     val pronunciationScore = if (aiLabSessions > 0)
-        ((duelCorrect * 100) / (duelSessions * 8).coerceAtLeast(1)).coerceIn(0, 100)
+        ((aiLabMinutes.coerceAtLeast(aiLabSessions) * 100) / 30).coerceIn(0, 100)
     else 0
     val listeningScore  = if (totalExercises > 0)
         ((correctExercises * 65) / totalExercises.coerceAtLeast(1)).coerceIn(0, 100)
@@ -180,8 +191,12 @@ private fun AnalyticsContent(
         curr - prev
     } else 0
 
-    val vocabTrendPct = 2   // vocab grows slowly, show small positive
-    val pronounceTrendPct = if (aiLabSessions > 0) -4 else 0  // as in the design
+    val prevVocab = weeklyStats.take(3).sumOf { it.vocab_words_mastered }
+    val currVocab = weeklyStats.takeLast(3).sumOf { it.vocab_words_mastered }
+    val vocabTrendPct = currVocab - prevVocab
+    val prevAiMinutes = weeklyStats.take(3).sumOf { it.ai_lab_minutes }
+    val currAiMinutes = weeklyStats.takeLast(3).sumOf { it.ai_lab_minutes }
+    val pronounceTrendPct = currAiMinutes - prevAiMinutes
 
     // AI Insight text
     val insightText = buildInsightText(

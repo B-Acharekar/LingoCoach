@@ -46,7 +46,8 @@ data class AILabMistake(
 
 data class AILabChatResponse(
     val ai_response: String,
-    val mistakes: List<AILabMistake> = emptyList()
+    val mistakes: List<AILabMistake> = emptyList(),
+    val transcribed_text: String? = null
 )
 
 data class AILabEndSessionRequest(

@@ -34,7 +34,8 @@ data class WordProgress(
     val word: String,
     var masteryScore: Int = 0, // 0 to 100
     var isBookmarked: Boolean = false,
-    var lastReviewed: Long = 0L
+    var lastReviewed: Long = 0L,
+    var drillAttempts: Int = 0
 )
 
 data class CategoryStat(
@@ -258,18 +259,18 @@ object VocabTracker {
 
     // Get overall progress percent (0 to 100)
     fun getOverallProgressPercent(): Int {
-        if (allWords.isEmpty()) return 0
-        var totalMastery = 0
-        for (w in allWords) {
-            totalMastery += progressMap[w.word]?.masteryScore ?: 0
-        }
-        return totalMastery / allWords.size
+        return getLevelProgress("A1")
     }
 
     // Get overall words mastered vs total words count text (e.g. "12 / 1230 words")
     fun getOverallWordsCountText(): String {
-        val masteredCount = allWords.count { (progressMap[it.word]?.masteryScore ?: 0) >= 80 }
-        return "$masteredCount / ${allWords.size} words"
+        return getLevelWordsCountText("A1")
+    }
+
+    fun getLevelWordsCountText(level: String): String {
+        val wordsInLevel = allWords.filter { it.level.uppercase() == level.uppercase() }
+        val masteredCount = wordsInLevel.count { (progressMap[it.word]?.masteryScore ?: 0) >= 80 }
+        return "$masteredCount / ${wordsInLevel.size} words"
     }
 
     // Get total words count in a level
@@ -342,8 +343,9 @@ object VocabTracker {
     fun updateWordMastery(word: String, isCorrect: Boolean, context: Context): Int {
         val prog = progressMap.getOrPut(word) { WordProgress(word = word) }
         val currentScore = prog.masteryScore
+        prog.drillAttempts += 1
         if (isCorrect) {
-            prog.masteryScore = (currentScore + 20).coerceAtMost(100)
+            prog.masteryScore = 100
         } else {
             prog.masteryScore = (currentScore - 10).coerceAtLeast(0)
         }
@@ -471,6 +473,9 @@ object VocabTracker {
                 "mastery_score" to p.masteryScore,
                 "is_bookmarked" to p.isBookmarked,
                 "last_reviewed" to p.lastReviewed.toString(),
+                "last_attempt" to p.lastReviewed.toString(),
+                "is_correct" to (p.masteryScore >= 80),
+                "drill_attempts" to p.drillAttempts,
                 "updated_at"    to now
             )
         }

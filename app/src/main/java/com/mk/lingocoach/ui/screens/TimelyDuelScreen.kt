@@ -609,6 +609,9 @@ fun DuelGameScreen(
                         }
                     }),
                     colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = Color.Black,
+                        unfocusedTextColor = Color.Black,
+                        disabledTextColor = Color.Black,
                         focusedBorderColor = BrandPurple,
                         unfocusedBorderColor = CardBorderColor
                     ),

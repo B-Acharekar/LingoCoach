@@ -106,10 +106,11 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
 
     // ── View States ───────────────────────────────────────────────────────────
     var currentViewState by remember { mutableStateOf(VocabViewState.Dashboard) }
-    var activeLevel by remember { mutableStateOf("C1") }
+    var activeLevel by remember { mutableStateOf("A1") }
     var searchQuery by remember { mutableStateOf("") }
     var selectedCategory by remember { mutableStateOf<String?>(null) }
     var showAllWords by remember { mutableStateOf(false) }
+    var progressVersion by remember { mutableIntStateOf(0) }
 
     // ── Drill Session State ───────────────────────────────────────────────
     var drillQuestions by remember { mutableStateOf<List<DrillQuestion>>(emptyList()) }
@@ -239,7 +240,8 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                             onCategorySelected = { selectedCategory = it },
                             onContinueSession = { startDrillSession(selectedCategory) },
                             onStartDrillForCategory = { startDrillSession(it) },
-                            onNavigateHome = onNavigateBack
+                            onNavigateHome = onNavigateBack,
+                            progressVersion = progressVersion
                         )
                     }
                 }
@@ -260,6 +262,7 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                                     isCorrectFeedback = isCorrect
                                     isAnswered = true
                                     VocabTracker.updateWordMastery(question.word.word, isCorrect, context)
+                                    progressVersion++
                                     if (!isCorrect) {
                                         val chosen = question.options.getOrNull(selectedOptionIdx!!) ?: ""
                                         VocabTracker.addLocalMistake(
@@ -291,6 +294,7 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                                 isCorrectFeedback = false
                                 isAnswered = true
                                 VocabTracker.updateWordMastery(question.word.word, false, context)
+                                progressVersion++
                                 VocabTracker.addLocalMistake(
                                     word = question.word.word,
                                     mistakeType = "VOCAB_DRILL",
@@ -351,6 +355,12 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                                 reinforcementText = ""
                                 showReinforcementFeedback = false
                                 if (drillQueue.isEmpty()) {
+                                    if (userId.isNotBlank()) {
+                                        scope.launch(kotlinx.coroutines.Dispatchers.IO) {
+                                            com.mk.lingocoach.network.AssessmentApi.awardXp(userId, 10, "vocab")
+                                            VocabTracker.syncToBackend(userId, context)
+                                        }
+                                    }
                                     currentViewState = VocabViewState.Dashboard
                                 } else {
                                     currentViewState = VocabViewState.ContextualDrill
@@ -379,11 +389,12 @@ fun ColumnScope.DashboardView(
     onCategorySelected: (String?) -> Unit,
     onContinueSession: () -> Unit,
     onStartDrillForCategory: (String) -> Unit,
-    onNavigateHome: () -> Unit
+    onNavigateHome: () -> Unit,
+    progressVersion: Int
 ) {
     val context = LocalContext.current
-    val categoriesStats = remember(activeLevel) { VocabTracker.getCategoryStats(activeLevel) }
-    val levelProgress = remember(activeLevel) { VocabTracker.getLevelProgress(activeLevel) }
+    val categoriesStats = remember(activeLevel, progressVersion) { VocabTracker.getCategoryStats(activeLevel) }
+    val levelProgress = remember(activeLevel, progressVersion) { VocabTracker.getLevelProgress(activeLevel) }
     
     // Auto-select first category if none is selected, to match mockup design layout
     LaunchedEffect(activeLevel) {
@@ -465,7 +476,7 @@ fun ColumnScope.DashboardView(
                             val levels = listOf("A1", "A2", "B1", "B2", "C1", "C2")
                             
                             levels.forEachIndexed { index, lvl ->
-                                val progress = VocabTracker.getLevelProgress(lvl)
+                                val progress = remember(lvl, progressVersion) { VocabTracker.getLevelProgress(lvl) }
                                 val resolvedHeight = 0.05f + (progress / 100f) * 0.95f
                                 
                                 Column(

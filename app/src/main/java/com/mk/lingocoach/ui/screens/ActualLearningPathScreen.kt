@@ -96,56 +96,12 @@ fun ActualLearningPathScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .statusBarsPadding()
                 .navigationBarsPadding()
         ) {
-            // ── Top Bar — white, same as main background ──────────────────
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.White)
-                    .padding(horizontal = 16.dp, vertical = 12.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                IconButton(
-                    onClick = onNavigateToHome,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .background(Color.Black.copy(alpha = 0.06f), CircleShape)
-                ) {
-                    Icon(
-                        Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back to Home",
-                        tint = Color.Black,
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
-
-                Text(
-                    "LingoCoach",
-                    style = TextStyle(
-                        color = Color.Black,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
-                )
-
-                IconButton(
-                    onClick = { },
-                    modifier = Modifier
-                        .size(40.dp)
-                        .background(Color.Black.copy(alpha = 0.06f), CircleShape)
-                ) {
-                    Icon(
-                        Icons.Default.Settings,
-                        contentDescription = "Settings",
-                        tint = Color.Black,
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
-            }
-
+            CommonTopBar(
+                title = "Learning Path",
+                onBack = onNavigateToHome
+            )
             // ── Scrollable Content ────────────────────────────────────────
             Column(
                 modifier = Modifier
