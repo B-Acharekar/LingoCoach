@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -654,7 +655,7 @@ fun HomeCurrentModuleCard(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    Icons.Default.ArrowForward,
+                    Icons.AutoMirrored.Filled.ArrowForward,
                     contentDescription = null,
                     tint = Color.White,
                     modifier = Modifier.size(18.dp)
@@ -1171,7 +1172,7 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.Default.TrendingUp, null, tint = trendColor, modifier = Modifier.size(12.dp))
+                        Icon(Icons.AutoMirrored.Filled.TrendingUp, null, tint = trendColor, modifier = Modifier.size(12.dp))
                         Spacer(Modifier.width(2.dp))
                         Text(trendText, color = trendColor, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     }

@@ -825,7 +825,7 @@ fun DuelResultScreen(
             onClick = onHome,
             modifier = Modifier.fillMaxWidth().height(50.dp),
             shape = RoundedCornerShape(16.dp),
-            border = ButtonDefaults.outlinedButtonBorder
+            border = ButtonDefaults.outlinedButtonBorder(enabled = true)
         ) {
             Icon(Icons.Default.Home, null, tint = BrandPurple, modifier = Modifier.size(18.dp))
             Spacer(Modifier.width(8.dp))

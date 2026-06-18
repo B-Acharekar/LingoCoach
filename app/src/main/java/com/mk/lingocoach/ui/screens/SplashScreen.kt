@@ -1,7 +1,10 @@
 package com.mk.lingocoach.ui.screens
 
 import android.content.Context
+import android.media.MediaPlayer
 import android.util.Log
+import android.view.Surface
+import android.view.TextureView
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
@@ -25,6 +28,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -40,9 +44,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.material3.Text
-import com.lottiefiles.dotlottie.core.compose.ui.DotLottieAnimation
-import com.lottiefiles.dotlottie.core.util.DotLottieSource
 import com.onesignal.OneSignal
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -53,6 +56,82 @@ import kotlin.math.sin
 private val SplashPurple = Color(0xFF6A5CFF)
 private val SplashViolet = Color(0xFFBA7CFF)
 private val SplashAmber  = Color(0xFFFFC83D)
+
+@Composable
+private fun SplashLogoVideo(modifier: Modifier = Modifier) {
+    val context = LocalContext.current
+    val mediaPlayer = remember(context) {
+        MediaPlayer().apply {
+            isLooping = true
+            setVolume(0f, 0f)
+        }
+    }
+
+    DisposableEffect(mediaPlayer) {
+        onDispose {
+            mediaPlayer.setOnPreparedListener(null)
+            mediaPlayer.release()
+        }
+    }
+
+    AndroidView(
+        modifier = modifier,
+        factory = { viewContext ->
+            TextureView(viewContext).apply {
+                surfaceTextureListener = object : TextureView.SurfaceTextureListener {
+                    private var dataSourceSet = false
+                    private var prepared = false
+
+                    override fun onSurfaceTextureAvailable(
+                        surfaceTexture: android.graphics.SurfaceTexture,
+                        width: Int,
+                        height: Int
+                    ) {
+                        val surface = Surface(surfaceTexture)
+                        mediaPlayer.setSurface(surface)
+                        surface.release()
+
+                        if (!dataSourceSet) {
+                            viewContext.assets.openFd("icon.mp4").use { asset ->
+                                mediaPlayer.setDataSource(
+                                    asset.fileDescriptor,
+                                    asset.startOffset,
+                                    asset.length
+                                )
+                            }
+                            dataSourceSet = true
+                            mediaPlayer.setOnPreparedListener { player ->
+                                prepared = true
+                                player.start()
+                            }
+                            mediaPlayer.prepareAsync()
+                        } else if (prepared) {
+                            mediaPlayer.start()
+                        }
+                    }
+
+                    override fun onSurfaceTextureSizeChanged(
+                        surfaceTexture: android.graphics.SurfaceTexture,
+                        width: Int,
+                        height: Int
+                    ) = Unit
+
+                    override fun onSurfaceTextureDestroyed(
+                        surfaceTexture: android.graphics.SurfaceTexture
+                    ): Boolean {
+                        if (prepared && mediaPlayer.isPlaying) mediaPlayer.pause()
+                        mediaPlayer.setSurface(null)
+                        return true
+                    }
+
+                    override fun onSurfaceTextureUpdated(
+                        surfaceTexture: android.graphics.SurfaceTexture
+                    ) = Unit
+                }
+            }
+        }
+    )
+}
 
 @Composable
 fun SplashScreen(
@@ -181,15 +260,10 @@ fun SplashScreen(
                         translationY = contentOffsetY.value
                     }
             ) {
-                // Lottie view parsing e.json from main project assets directory folder
-                DotLottieAnimation(
-                    source    = DotLottieSource.Asset("e.json"),
-                    autoplay  = true,
-                    loop      = true,
-                    modifier  = Modifier
+                SplashLogoVideo(
+                    modifier = Modifier
                         .size(200.dp)
-                        .clip(RoundedCornerShape(20.dp))
-                        .background(Color.Transparent)
+                        .clip(RoundedCornerShape(30.dp))
                 )
 
                 Spacer(modifier = Modifier.height(36.dp))

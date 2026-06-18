@@ -20,6 +20,10 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.KeyboardReturn
+import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.Sort
+import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -56,8 +60,8 @@ enum class VocabViewState {
 // ─── Sort Order for All Words Browser ────────────────────────────────────────
 enum class VocabSortOrder(val label: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
     ALPHA_ASC("A → Z", Icons.Default.SortByAlpha),
-    ALPHA_DESC("Z → A", Icons.Default.Sort),
-    MOST_USED("Most Used", Icons.Default.TrendingUp),
+    ALPHA_DESC("Z → A", Icons.AutoMirrored.Filled.Sort),
+    MOST_USED("Most Used", Icons.AutoMirrored.Filled.TrendingUp),
     MASTERED("Mastered First", Icons.Default.Star),
     LEARNING("Learning First", Icons.Default.AutoStories)
 }
@@ -1260,7 +1264,7 @@ fun ColumnScope.DrillFeedbackView(
                                     fontSize = 13.sp,
                                     fontWeight = FontWeight.Bold
                                 )
-                                Icon(Icons.Default.ArrowForward, contentDescription = null, tint = TextLight, modifier = Modifier.size(16.dp))
+                                Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, tint = TextLight, modifier = Modifier.size(16.dp))
                             }
                         }
 
@@ -1296,7 +1300,7 @@ fun ColumnScope.DrillFeedbackView(
                                         keyboardController?.hide()
                                         onCheckReinforcement()
                                     }) {
-                                        Icon(Icons.Default.KeyboardReturn, contentDescription = "Verify", tint = BrandPurple)
+                                        Icon(Icons.AutoMirrored.Filled.KeyboardReturn, contentDescription = "Verify", tint = BrandPurple)
                                     }
                                 }
                             },
@@ -1687,8 +1691,8 @@ fun getCategoryIcon(category: String): ImageVector {
         c.contains("shopping")                           -> Icons.Default.ShoppingBag
         c.contains("daily") || c.contains("activit")    -> Icons.Default.CalendarToday
         c.contains("goal")                               -> Icons.Default.Flag
-        c.contains("vocab") || c.contains("word")       -> Icons.Default.MenuBook
-        else                                             -> Icons.Default.MenuBook
+        c.contains("vocab") || c.contains("word")       -> Icons.AutoMirrored.Filled.MenuBook
+        else                                             -> Icons.AutoMirrored.Filled.MenuBook
     }
 }
 

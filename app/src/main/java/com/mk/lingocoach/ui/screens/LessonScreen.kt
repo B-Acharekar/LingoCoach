@@ -18,6 +18,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -142,34 +143,31 @@ fun LessonScreen(
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 20.dp, vertical = 8.dp)
+                                .padding(horizontal = 20.dp, vertical = 12.dp)
                         ) {
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .shadow(2.dp, RoundedCornerShape(12.dp))
-                                    .clip(RoundedCornerShape(12.dp))
-                                    .background(CardWhite)
-                                    .border(1.dp, Color(0x1A000000), RoundedCornerShape(12.dp))
+                                    .clip(RoundedCornerShape(18.dp))
+                                    .background(Color(0xFFF1EFFF))
+                                    .border(1.dp, BrandPurple.copy(alpha = 0.12f), RoundedCornerShape(18.dp))
                                     .clickable { dropdownExpanded = true }
-                                    .padding(horizontal = 14.dp, vertical = 10.dp),
+                                    .padding(horizontal = 12.dp, vertical = 11.dp),
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
-                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                    Icon(Icons.Default.MenuBook, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(16.dp))
-                                    Spacer(Modifier.width(8.dp))
-                                    Text(
-                                        text = "Lesson Parts: Part ${sub.order} - ${sub.title}",
-                                        color = TextDark,
-                                        fontSize = 13.sp,
-                                        fontWeight = FontWeight.SemiBold,
-                                        maxLines = 1,
-                                        overflow = TextOverflow.Ellipsis
-                                    )
+                                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.weight(1f)) {
+                                    Box(Modifier.size(36.dp).background(BrandPurple, RoundedCornerShape(12.dp)), contentAlignment = Alignment.Center) {
+                                        Icon(Icons.AutoMirrored.Filled.MenuBook, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
+                                    }
+                                    Spacer(Modifier.width(10.dp))
+                                    Column(Modifier.weight(1f)) {
+                                        Text("LESSON PART ${sub.order} OF ${currentSublessonsList.size}", color = BrandPurple, fontSize = 8.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.7.sp)
+                                        Text(sub.title, color = Color(0xFF17133B), fontSize = 13.sp, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                    }
                                 }
                                 Icon(
-                                    imageVector = Icons.Default.ArrowDropDown,
+                                    imageVector = Icons.Default.ExpandMore,
                                     contentDescription = null,
                                     tint = BrandPurple,
                                     modifier = Modifier.size(20.dp)
@@ -268,8 +266,8 @@ fun LsTopBar(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color(0xFFFAFAFF))
-            .padding(horizontal = 20.dp, vertical = 14.dp)
+            .background(Brush.linearGradient(listOf(Color(0xFF17133B), BrandPurple)))
+            .padding(horizontal = 18.dp, vertical = 16.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -280,41 +278,41 @@ fun LsTopBar(
                 modifier = Modifier
                     .size(38.dp)
                     .clip(CircleShape)
-                    .background(BrandPurpleSoft)
+                    .background(Color.White.copy(alpha = 0.14f))
                     .clickable { onBack() },
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "Back",
-                    tint = BrandPurple,
+                    tint = Color.White,
                     modifier = Modifier.size(18.dp)
                 )
             }
 
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f).padding(horizontal = 12.dp)) {
                 Text(
                     title,
-                    style = TextStyle(color = TextDark, fontSize = 15.sp, fontWeight = FontWeight.Bold),
+                    style = TextStyle(color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
                 Text(
                     if (isContentPhase) "Learn" else "Exercise $currentIndex of $exerciseCount",
-                    color = TextLight,
+                    color = Color.White.copy(alpha = 0.65f),
                     fontSize = 11.sp
                 )
             }
 
             Box(
                 modifier = Modifier
-                    .background(BrandPurpleSoft, RoundedCornerShape(12.dp))
+                    .background(Color(0xFFFFD166).copy(alpha = 0.18f), RoundedCornerShape(12.dp))
                     .padding(horizontal = 10.dp, vertical = 5.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(Icons.Default.Star, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(12.dp))
+                    Icon(Icons.Default.Star, contentDescription = null, tint = Color(0xFFFFD166), modifier = Modifier.size(12.dp))
                     Spacer(Modifier.width(3.dp))
-                    Text("+20 XP", color = BrandPurple, fontSize = 11.sp, fontWeight = FontWeight.ExtraBold)
+                    Text("20 XP", color = Color.White, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold)
                 }
             }
         }
@@ -327,8 +325,8 @@ fun LsTopBar(
                 .fillMaxWidth()
                 .height(5.dp)
                 .clip(RoundedCornerShape(3.dp)),
-            color = BrandPurple,
-            trackColor = BrandPurpleSoft,
+            color = Color.White,
+            trackColor = Color.White.copy(alpha = 0.18f),
             strokeCap = StrokeCap.Round
         )
 
@@ -340,9 +338,9 @@ fun LsTopBar(
                 horizontalArrangement = Arrangement.End,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Icon(Icons.Default.Replay, contentDescription = null, tint = BrandAmber, modifier = Modifier.size(12.dp))
+                Icon(Icons.Default.Replay, contentDescription = null, tint = Color(0xFFFFD166), modifier = Modifier.size(12.dp))
                 Spacer(Modifier.width(4.dp))
-                Text("Retrying $retryCount", color = BrandAmber, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                Text("Retry round | $retryCount left", color = Color(0xFFFFD166), fontSize = 10.sp, fontWeight = FontWeight.Bold)
             }
         }
     }
@@ -367,6 +365,35 @@ fun LsContentPhase(
     ) {
         Spacer(Modifier.height(12.dp))
 
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(24.dp))
+                .background(Brush.linearGradient(listOf(Color(0xFF17133B), BrandPurple)))
+                .padding(20.dp)
+        ) {
+            Column {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(Modifier.size(38.dp).background(Color.White.copy(0.14f), RoundedCornerShape(12.dp)), contentAlignment = Alignment.Center) {
+                        Icon(Icons.Default.AutoStories, null, tint = Color.White, modifier = Modifier.size(20.dp))
+                    }
+                    Spacer(Modifier.width(10.dp))
+                    Text("LEARN", color = Color.White.copy(0.7f), fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
+                }
+                Spacer(Modifier.height(15.dp))
+                Text(sublesson.title, color = Color.White, fontSize = 23.sp, fontWeight = FontWeight.ExtraBold, lineHeight = 28.sp)
+                Spacer(Modifier.height(7.dp))
+                Text(
+                    "Read the key ideas, study the examples, then put them into practice.",
+                    color = Color.White.copy(0.72f),
+                    fontSize = 13.sp,
+                    lineHeight = 19.sp
+                )
+            }
+        }
+
+        Spacer(Modifier.height(18.dp))
+
         sublesson.content_blocks.forEach { block ->
             LsContentBlockCard(block = block)
             Spacer(Modifier.height(12.dp))
@@ -378,16 +405,16 @@ fun LsContentPhase(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .shadow(6.dp, RoundedCornerShape(18.dp))
-                    .clip(RoundedCornerShape(18.dp))
+                    .shadow(8.dp, RoundedCornerShape(20.dp), spotColor = BrandPurple.copy(alpha = 0.20f))
+                    .clip(RoundedCornerShape(20.dp))
                     .background(Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight)))
                     .clickable { onStartExercises() }
-                    .padding(18.dp),
+                    .padding(19.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        "Start Exercises  (${sublesson.exercises.size})",
+                        "Start practice  |  ${sublesson.exercises.size} questions",
                         color = Color.White,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.ExtraBold
@@ -414,36 +441,32 @@ fun LsContentPhase(
 // ─── Content Block Card ───────────────────────────────────────────────────────
 @Composable
 fun LsContentBlockCard(block: ContentBlock) {
-    val (icon, accent, label, cardBg) = when (block.type) {
-        "explanation" -> Quadruple(Icons.Default.Lightbulb,        BrandPurple,      "EXPLANATION", Color(0xFFF5F3FF))
-        "example"     -> Quadruple(Icons.Default.Edit,             BrandAmber,       "EXAMPLE",     Color(0xFFFFFBF0))
-        "tip"         -> Quadruple(Icons.Default.TipsAndUpdates,   BrandGreen,       "TIP",         Color(0xFFF0FBF4))
-        else          -> Quadruple(Icons.Default.PushPin,          BrandPurpleLight, block.type.uppercase(), Color(0xFFF8F8FF))
+    val (icon, accent, label, _) = when (block.type) {
+        "explanation" -> Quadruple(Icons.Default.Lightbulb, BrandPurple, "KEY IDEA", Color.White)
+        "example" -> Quadruple(Icons.Default.FormatQuote, BrandAmberDark, "IN CONTEXT", Color.White)
+        "tip" -> Quadruple(Icons.Default.Bolt, BrandGreen, "COACH TIP", Color.White)
+        else -> Quadruple(Icons.Default.PushPin, BrandPurpleLight, block.type.uppercase(), Color.White)
     }
 
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .shadow(3.dp, RoundedCornerShape(18.dp))
-            .clip(RoundedCornerShape(18.dp))
-            .background(cardBg)
-            .border(1.dp, accent.copy(alpha = 0.18f), RoundedCornerShape(18.dp))
-            .padding(16.dp)
+            .shadow(3.dp, RoundedCornerShape(22.dp), ambientColor = Color.Black.copy(0.05f), spotColor = Color.Black.copy(0.05f))
+            .clip(RoundedCornerShape(22.dp))
+            .background(CardWhite)
+            .border(1.dp, accent.copy(alpha = 0.13f), RoundedCornerShape(22.dp))
+            .padding(18.dp)
     ) {
         Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(icon, contentDescription = null, tint = accent, modifier = Modifier.size(18.dp))
-                Spacer(Modifier.width(8.dp))
-                Box(
-                    modifier = Modifier
-                        .background(accent.copy(alpha = 0.12f), RoundedCornerShape(6.dp))
-                        .padding(horizontal = 7.dp, vertical = 2.dp)
-                ) {
-                    Text(label, color = accent, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.5.sp)
+                Box(Modifier.size(38.dp).background(accent.copy(alpha = 0.11f), RoundedCornerShape(12.dp)), contentAlignment = Alignment.Center) {
+                    Icon(icon, contentDescription = null, tint = accent, modifier = Modifier.size(19.dp))
                 }
+                Spacer(Modifier.width(10.dp))
+                Text(label, color = accent, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
             }
-            Spacer(Modifier.height(10.dp))
-            Text(block.text, style = TextStyle(color = TextDark, fontSize = 14.sp, lineHeight = 21.sp))
+            Spacer(Modifier.height(14.dp))
+            Text(block.text, style = TextStyle(color = Color(0xFF2B2742), fontSize = 15.sp, lineHeight = 23.sp))
         }
     }
 }
@@ -477,21 +500,21 @@ fun LsExercisePhase(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .shadow(5.dp, RoundedCornerShape(22.dp))
-                .clip(RoundedCornerShape(22.dp))
-                .background(CardWhite)
+                .shadow(10.dp, RoundedCornerShape(26.dp), spotColor = BrandPurple.copy(alpha = 0.18f))
+                .clip(RoundedCornerShape(26.dp))
+                .background(Brush.linearGradient(listOf(Color(0xFF17133B), BrandPurple)))
                 .padding(20.dp)
         ) {
             Column {
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     Box(
                         modifier = Modifier
-                            .background(Color(0xFFFFF3E0), RoundedCornerShape(7.dp))
+                            .background(Color(0xFFFFD166).copy(alpha = 0.18f), RoundedCornerShape(8.dp))
                             .padding(horizontal = 8.dp, vertical = 3.dp)
                     ) {
                         Text(
                             "EXERCISE $exerciseNumber",
-                            color = BrandAmberDark,
+                            color = Color(0xFFFFD166),
                             fontSize = 9.sp,
                             fontWeight = FontWeight.ExtraBold,
                             letterSpacing = 0.5.sp
@@ -499,12 +522,12 @@ fun LsExercisePhase(
                     }
                     Box(
                         modifier = Modifier
-                            .background(BrandPurpleSoft, RoundedCornerShape(7.dp))
+                            .background(Color.White.copy(alpha = 0.13f), RoundedCornerShape(8.dp))
                             .padding(horizontal = 8.dp, vertical = 3.dp)
                     ) {
                         Text(
                             exercise.type.replace("_", " ").uppercase(),
-                            color = BrandPurple,
+                            color = Color.White.copy(alpha = 0.82f),
                             fontSize = 9.sp,
                             fontWeight = FontWeight.ExtraBold,
                             letterSpacing = 0.3.sp
@@ -514,12 +537,13 @@ fun LsExercisePhase(
                 Spacer(Modifier.height(14.dp))
                 Text(
                     exercise.instruction,
-                    style = TextStyle(color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold, lineHeight = 22.sp)
+                    style = TextStyle(color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold, lineHeight = 25.sp)
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    "\"${exercise.stimulus}\"",
-                    style = TextStyle(color = BrandPurple, fontSize = 14.sp, lineHeight = 20.sp, fontWeight = FontWeight.Medium)
+                    exercise.stimulus,
+                    modifier = Modifier.fillMaxWidth().background(Color.White.copy(alpha = 0.11f), RoundedCornerShape(14.dp)).padding(13.dp),
+                    style = TextStyle(color = Color.White.copy(alpha = 0.85f), fontSize = 14.sp, lineHeight = 21.sp, fontWeight = FontWeight.Medium)
                 )
             }
         }
@@ -610,8 +634,8 @@ fun LsMultipleChoice(
     answerState: AnswerState,
     onSelected: (String) -> Unit
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        options.forEach { option ->
+    Column(verticalArrangement = Arrangement.spacedBy(11.dp)) {
+        options.forEachIndexed { index, option ->
             val selectedAnswer = when (answerState) {
                 is AnswerState.Correct   -> answerState.answer
                 is AnswerState.Incorrect -> answerState.answer
@@ -625,7 +649,7 @@ fun LsMultipleChoice(
                 revealed && isCorrectOpt              -> Color(0xFFEAFBF0)
                 revealed && selected && !isCorrectOpt -> Color(0xFFFFECEC)
                 selected                              -> BrandPurpleSoft
-                else                                  -> CardWhite
+                else                                  -> Color(0xFFF8F7FF)
             }
             val borderColor = when {
                 revealed && isCorrectOpt              -> BrandGreen
@@ -642,16 +666,25 @@ fun LsMultipleChoice(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .shadow(2.dp, RoundedCornerShape(14.dp))
-                    .clip(RoundedCornerShape(14.dp))
+                    .clip(RoundedCornerShape(18.dp))
                     .background(cardBg)
-                    .border(1.5.dp, borderColor, RoundedCornerShape(14.dp))
+                    .border(1.5.dp, borderColor, RoundedCornerShape(18.dp))
                     .clickable(enabled = answerState is AnswerState.Unanswered) { onSelected(option) }
-                    .padding(horizontal = 16.dp, vertical = 14.dp),
+                    .padding(horizontal = 14.dp, vertical = 13.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(option, color = textColor, fontSize = 15.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
+                Box(
+                    Modifier.size(32.dp).background(
+                        if (selected) borderColor.copy(alpha = 0.15f) else Color.White,
+                        RoundedCornerShape(10.dp)
+                    ),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(('A'.code + index).toChar().toString(), color = if (selected) borderColor else TextLight, fontSize = 12.sp, fontWeight = FontWeight.ExtraBold)
+                }
+                Spacer(Modifier.width(12.dp))
+                Text(option, color = textColor, fontSize = 15.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f), lineHeight = 20.sp)
                 if (revealed) {
                     Icon(
                         imageVector = if (isCorrectOpt) Icons.Default.CheckCircle else if (selected) Icons.Default.Cancel else Icons.Default.RadioButtonUnchecked,
@@ -696,10 +729,10 @@ fun LsFillBlank(
         modifier = Modifier
             .fillMaxWidth()
             .defaultMinSize(minHeight = 64.dp)
-            .shadow(3.dp, RoundedCornerShape(16.dp))
-            .clip(RoundedCornerShape(16.dp))
+            .shadow(3.dp, RoundedCornerShape(20.dp))
+            .clip(RoundedCornerShape(20.dp))
             .background(CardWhite)
-            .border(1.5.dp, borderColor, RoundedCornerShape(16.dp))
+            .border(1.5.dp, borderColor, RoundedCornerShape(20.dp))
     ) {
         OutlinedTextField(
             value = text,
@@ -761,14 +794,15 @@ fun LsFeedbackBanner(isCorrect: Boolean, feedback: String) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .shadow(2.dp, RoundedCornerShape(16.dp))
-            .clip(RoundedCornerShape(16.dp))
+            .clip(RoundedCornerShape(20.dp))
             .background(bg)
-            .border(1.dp, border.copy(alpha = 0.40f), RoundedCornerShape(16.dp))
-            .padding(16.dp)
+            .border(1.dp, border.copy(alpha = 0.30f), RoundedCornerShape(20.dp))
+            .padding(17.dp)
     ) {
         Row(verticalAlignment = Alignment.Top) {
-            Icon(icon, contentDescription = null, tint = border, modifier = Modifier.size(22.dp))
+            Box(Modifier.size(36.dp).background(border.copy(alpha = 0.12f), CircleShape), contentAlignment = Alignment.Center) {
+                Icon(icon, contentDescription = null, tint = border, modifier = Modifier.size(20.dp))
+            }
             Spacer(Modifier.width(12.dp))
             Column {
                 Text(if (isCorrect) "Correct!" else "Not quite...", color = border, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
@@ -840,11 +874,11 @@ fun LsCompleteButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 20.dp)
-                .shadow(5.dp, RoundedCornerShape(22.dp))
-                .clip(RoundedCornerShape(22.dp))
+                .shadow(7.dp, RoundedCornerShape(24.dp), spotColor = BrandPurple.copy(alpha = 0.14f))
+                .clip(RoundedCornerShape(24.dp))
                 .background(CardWhite)
-                .border(1.dp, CardBorderColor, RoundedCornerShape(22.dp))
-                .padding(18.dp)
+                .border(1.dp, BrandPurple.copy(alpha = 0.12f), RoundedCornerShape(24.dp))
+                .padding(20.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Box(
@@ -854,7 +888,7 @@ fun LsCompleteButton(
                         .background(BrandPurpleSoft),
                     contentAlignment = Alignment.Center
                 ) {
-                    Icon(Icons.Default.MenuBook, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(21.dp))
+                    Icon(Icons.AutoMirrored.Filled.MenuBook, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(21.dp))
                 }
                 Spacer(Modifier.width(12.dp))
                 Column(modifier = Modifier.weight(1f)) {

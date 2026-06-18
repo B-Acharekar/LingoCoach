@@ -2,11 +2,11 @@
 <resources>
 
     <style name="Theme.LingoCoach" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Match the app's background color so the window is dark before Compose renders -->
-        <item name="android:windowBackground">#07051A</item>
+        <!-- Branded window shown immediately while Compose is starting. -->
+        <item name="android:windowBackground">@drawable/splash_window_background</item>
         <item name="android:windowIsTranslucent">false</item>
-        <item name="android:statusBarColor">#07051A</item>
-        <item name="android:navigationBarColor">#07051A</item>
+        <item name="android:statusBarColor">#6A5CFF</item>
+        <item name="android:navigationBarColor">#6A5CFF</item>
     </style>
 
 </resources>

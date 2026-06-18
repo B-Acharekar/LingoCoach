@@ -30,6 +30,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.VolumeOff
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -1213,7 +1214,7 @@ fun ChatInputArea(
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
-                        if (ttsEnabled) Icons.AutoMirrored.Filled.VolumeUp else Icons.Default.VolumeOff,
+                        if (ttsEnabled) Icons.AutoMirrored.Filled.VolumeUp else Icons.AutoMirrored.Filled.VolumeOff,
                         contentDescription = stringResource(R.string.text_to_speech),
                         tint = if (ttsEnabled) Color.White else TextLight,
                         modifier = Modifier.size(18.dp)

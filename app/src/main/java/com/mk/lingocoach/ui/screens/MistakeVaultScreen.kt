@@ -15,6 +15,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -558,7 +560,7 @@ private fun VaultSlipCard(
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(Modifier.width(4.dp))
-                Icon(Icons.Default.ArrowForward, contentDescription = null, tint = VaultPurple, modifier = Modifier.size(16.dp))
+                Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, tint = VaultPurple, modifier = Modifier.size(16.dp))
             }
         }
     }
@@ -1211,7 +1213,7 @@ private fun RetestSessionSummary(
         ) {
             SummaryStatBox(icon = Icons.Default.CheckCircle, label = "Mastered", value = masteredCount, color = VaultGreen)
             SummaryStatBox(icon = Icons.Default.Refresh,      label = "Review",   value = reviewCount,   color = VaultAmber)
-            SummaryStatBox(icon = Icons.Default.MenuBook,     label = "Total",    value = total,          color = VaultPurple)
+            SummaryStatBox(icon = Icons.AutoMirrored.Filled.MenuBook, label = "Total", value = total, color = VaultPurple)
         }
 
         Spacer(Modifier.height(40.dp))

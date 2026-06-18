@@ -21,7 +21,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -119,33 +121,24 @@ fun LearningPathRoadmapScreen(
                     .padding(horizontal = 20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(Modifier.height(28.dp))
-
-                // Hero label
-                Text(
-                    stringResource(R.string.your_journey),
-                    style = TextStyle(
-                        color = BrandPurple,
-                        fontSize = 22.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    ),
-                    textAlign = TextAlign.Center
-                )
-
-                Spacer(Modifier.height(4.dp))
-
-                Text(
-                    stringResource(R.string.personalized_route_to_fluency),
-                    style = TextStyle(
-                        color = TextLight,
-                        fontSize = 13.sp
-                    ),
-                    textAlign = TextAlign.Center
-                )
-
-                Spacer(Modifier.height(32.dp))
-
                 val modules = learningPath?.normalizedLearningPath()?.modules.orEmpty()
+                Spacer(Modifier.height(18.dp))
+                RoadmapHero(modules)
+                Spacer(Modifier.height(26.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.Bottom
+                ) {
+                    Column {
+                        Text("PERSONALIZED ROUTE", color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.1.sp)
+                        Spacer(Modifier.height(4.dp))
+                        Text("Your milestones", color = Color(0xFF17133B), fontSize = 21.sp, fontWeight = FontWeight.ExtraBold)
+                    }
+                    Text("${modules.size} levels", color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+                }
+                Spacer(Modifier.height(16.dp))
+
                 when {
                     isLoading -> {
                         CircularProgressIndicator(color = BrandPurple, modifier = Modifier.size(32.dp))
@@ -161,6 +154,7 @@ fun LearningPathRoadmapScreen(
                     else -> {
                         modules.forEachIndexed { index, module ->
                             ExpandableModule(
+                                stageNumber = index + 1,
                                 module = module,
                                 onLessonClick = onNavigateToLesson
                             )
@@ -178,6 +172,61 @@ fun LearningPathRoadmapScreen(
                 BottomStartLearningBar(onClick = onNavigateHome)
             }
         }
+    }
+}
+
+@Composable
+private fun RoadmapHero(modules: List<CurrentModule>) {
+    val completed = modules.count { it.status == "completed" }
+    val currentIndex = modules.indexOfFirst { it.status == "current" }.let { if (it < 0) completed else it }
+    val overallProgress = if (modules.isEmpty()) 0f else completed.toFloat() / modules.size
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(14.dp, RoundedCornerShape(28.dp), ambientColor = BrandPurple.copy(0.18f), spotColor = BrandPurple.copy(0.18f))
+            .clip(RoundedCornerShape(28.dp))
+            .background(Brush.linearGradient(listOf(Color(0xFF17133B), BrandPurple, Color(0xFF9B8CFF))))
+            .padding(22.dp)
+    ) {
+        Box(Modifier.size(150.dp).offset(x = 210.dp, y = (-80).dp).background(Color.White.copy(0.07f), CircleShape))
+        Column {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(Modifier.size(44.dp).background(Color.White.copy(0.14f), RoundedCornerShape(14.dp)), contentAlignment = Alignment.Center) {
+                    Icon(Icons.Default.Route, null, tint = Color.White, modifier = Modifier.size(23.dp))
+                }
+                Spacer(Modifier.width(12.dp))
+                Column {
+                    Text("YOUR FLUENCY ROADMAP", color = Color.White.copy(0.68f), fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
+                    Text("A clear route forward", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
+                }
+            }
+            Spacer(Modifier.height(22.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
+                RoadmapStat("LEVEL", if (modules.isEmpty()) "--" else "${currentIndex + 1}/${modules.size}", Modifier.weight(1f))
+                RoadmapStat("COMPLETED", "$completed", Modifier.weight(1f))
+                RoadmapStat("REMAINING", "${(modules.size - completed).coerceAtLeast(0)}", Modifier.weight(1f))
+            }
+            Spacer(Modifier.height(16.dp))
+            LinearProgressIndicator(
+                progress = { overallProgress },
+                modifier = Modifier.fillMaxWidth().height(6.dp).clip(CircleShape),
+                color = Color.White,
+                trackColor = Color.White.copy(0.18f),
+                strokeCap = StrokeCap.Round
+            )
+        }
+    }
+}
+
+@Composable
+private fun RoadmapStat(label: String, value: String, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier.background(Color.White.copy(0.11f), RoundedCornerShape(14.dp)).padding(vertical = 10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(value, color = Color.White, fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
+        Text(label, color = Color.White.copy(0.62f), fontSize = 8.sp, fontWeight = FontWeight.Bold, letterSpacing = 0.6.sp)
     }
 }
 
@@ -264,8 +313,8 @@ private fun BottomStartLearningBar(onClick: () -> Unit) {
 private fun RoadmapConnector(unlocked: Boolean) {
     Box(
         modifier = Modifier
-            .width(3.dp)
-            .height(36.dp)
+            .width(2.dp)
+            .height(28.dp)
             .background(
                 if (unlocked) BrandPurple.copy(alpha = 0.35f) else Color(0xFFE0E0E0),
                 RoundedCornerShape(2.dp)
@@ -278,6 +327,7 @@ private fun RoadmapConnector(unlocked: Boolean) {
  */
 @Composable
 private fun ExpandableModule(
+    stageNumber: Int,
     module: CurrentModule,
     onLessonClick: (String) -> Unit
 ) {
@@ -290,7 +340,7 @@ private fun ExpandableModule(
     var expanded by remember { mutableStateOf(current && !locked) }
 
     val cardBorder = if (current && !locked)
-        androidx.compose.foundation.BorderStroke(2.dp, BrandPurple)
+        androidx.compose.foundation.BorderStroke(1.5.dp, BrandPurple.copy(alpha = 0.45f))
     else
         null
 
@@ -315,34 +365,25 @@ private fun ExpandableModule(
             // ── Header row ────────────────────────────────────────────────
             Row(verticalAlignment = Alignment.CenterVertically) {
 
-                // Status icon bubble
+                // Numbered milestone marker
                 Box(
                     modifier = Modifier
-                        .size(44.dp)
-                        .clip(CircleShape)
+                        .size(48.dp)
+                        .clip(RoundedCornerShape(15.dp))
                         .background(
                             when {
-                                locked    -> Color(0xFFF0F0F4)
-                                completed -> SuccessGreen.copy(alpha = 0.12f)
-                                else      -> BrandPurple.copy(alpha = 0.12f)
+                                locked    -> Brush.linearGradient(listOf(Color(0xFFF0F0F4), Color(0xFFF0F0F4)))
+                                completed -> Brush.linearGradient(listOf(SuccessGreen, SuccessGreen))
+                                else      -> Brush.linearGradient(listOf(BrandPurple, BrandPurpleLight))
                             }
                         ),
                     contentAlignment = Alignment.Center
                 ) {
-                    Icon(
-                        imageVector = when {
-                            locked    -> Icons.Default.Lock
-                            completed -> Icons.Default.Check
-                            else      -> Icons.Default.PlayArrow
-                        },
-                        contentDescription = null,
-                        tint = when {
-                            locked    -> TextLight
-                            completed -> SuccessGreen
-                            else      -> BrandPurple
-                        },
-                        modifier = Modifier.size(22.dp)
-                    )
+                    when {
+                        locked -> Icon(Icons.Default.Lock, null, tint = TextLight, modifier = Modifier.size(19.dp))
+                        completed -> Icon(Icons.Default.Check, null, tint = Color.White, modifier = Modifier.size(22.dp))
+                        else -> Text(stageNumber.toString().padStart(2, '0'), color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
+                    }
                 }
 
                 Spacer(Modifier.width(14.dp))
@@ -398,6 +439,22 @@ private fun ExpandableModule(
                 }
             }
 
+            if (!locked && lessons.isNotEmpty()) {
+                val progress = module.progressPercent() / 100f
+                Spacer(Modifier.height(14.dp))
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    LinearProgressIndicator(
+                        progress = { progress },
+                        modifier = Modifier.weight(1f).height(5.dp).clip(CircleShape),
+                        color = if (completed) SuccessGreen else BrandPurple,
+                        trackColor = Color(0xFFEDEAF8),
+                        strokeCap = StrokeCap.Round
+                    )
+                    Spacer(Modifier.width(10.dp))
+                    Text("${module.progressPercent()}%", color = if (completed) SuccessGreen else BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold)
+                }
+            }
+
             // ── Lesson list (animated) ────────────────────────────────────
             AnimatedVisibility(
                 visible = expanded,
@@ -405,7 +462,7 @@ private fun ExpandableModule(
                 exit = shrinkVertically()
             ) {
                 Column {
-                    Spacer(Modifier.height(16.dp))
+                    Spacer(Modifier.height(14.dp))
                     HorizontalDivider(color = Color(0xFFF0EEFF), thickness = 1.dp)
                     Spacer(Modifier.height(8.dp))
 
@@ -442,14 +499,14 @@ private fun LessonRow(index: Int, lesson: CurrentLesson, onClick: () -> Unit) {
     val completed = lesson.status == "completed"
     Surface(
         onClick = onClick,
-        color = Color.Transparent,
-        shape = RoundedCornerShape(12.dp),
+        color = if (locked) Color.Transparent else Color(0xFFF8F7FF),
+        shape = RoundedCornerShape(14.dp),
         enabled = !locked
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 4.dp, vertical = 10.dp),
+                .padding(horizontal = 10.dp, vertical = 11.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             // Lesson number badge
