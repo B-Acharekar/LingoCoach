@@ -48,7 +48,8 @@ fun ActualLearningPathScreen(
     onNavigateToLesson: (sublessonId: String) -> Unit,
     onNavigateToAILab: () -> Unit,
     onNavigateToVocab: () -> Unit,
-    onNavigateToVault: () -> Unit
+    onNavigateToVault: () -> Unit,
+    onNavigateToSettings: () -> Unit
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -86,7 +87,11 @@ fun ActualLearningPathScreen(
     Box(Modifier.fillMaxSize()) {
         AppBackgroundTexture()
         Column(Modifier.fillMaxSize().navigationBarsPadding()) {
-            CommonTopBar(title = stringResource(R.string.learning_path), onBack = onNavigateToHome)
+            CommonTopBar(
+                title = stringResource(R.string.learning_path),
+                onBack = onNavigateToHome,
+                onSettings = onNavigateToSettings
+            )
 
             val currentModule = learningPath
                 ?.normalizedLearningPath()

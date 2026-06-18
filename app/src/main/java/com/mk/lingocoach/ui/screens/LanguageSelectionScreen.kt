@@ -191,7 +191,8 @@ fun LanguageSelectionScreen(
                 onValueChange = { viewModel.updateSearchQuery(it) },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp),
+                    .height(56.dp)
+                    .bringIntoViewOnFocus(),
                 placeholder = {
                     Text(
                         text = stringResource(R.string.search_languages),

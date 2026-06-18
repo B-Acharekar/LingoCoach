@@ -77,7 +77,7 @@ data class DuelQuestion(
 // ─── Main Timely Duel Screen ─────────────────────────────────────────────────
 
 @Composable
-fun TimelyDuelScreen(onNavigateBack: () -> Unit) {
+fun TimelyDuelScreen(onNavigateBack: () -> Unit, onNavigateToSettings: () -> Unit) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val userId = remember {
@@ -114,7 +114,13 @@ fun TimelyDuelScreen(onNavigateBack: () -> Unit) {
 
     Box(modifier = Modifier.fillMaxSize()) {
         AppBackgroundTexture()
-
+        Column(Modifier.fillMaxSize()) {
+            CommonTopBar(
+                title = "Timely Duel",
+                onBack = onNavigateBack,
+                onSettings = onNavigateToSettings
+            )
+            Box(Modifier.weight(1f)) {
         when (screen) {
             DuelScreen.SETUP -> DuelSetupScreen(
                 selectedDifficulty = selectedDifficulty,
@@ -204,6 +210,8 @@ fun TimelyDuelScreen(onNavigateBack: () -> Unit) {
                 onHome = onNavigateBack
             )
         }
+            }
+        }
     }
 }
 
@@ -223,28 +231,11 @@ fun DuelSetupScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .statusBarsPadding()
             .navigationBarsPadding()
             .padding(horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(Modifier.height(12.dp))
-
-        // Top bar
-        Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            IconButton(
-                onClick = onBack,
-                modifier = Modifier.size(40.dp).background(Color.White.copy(0.8f), CircleShape)
-            ) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = dark)
-            }
-            Spacer(Modifier.weight(1f))
-            Text("Timely Duel", color = dark, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
-            Spacer(Modifier.weight(1f))
-            Spacer(Modifier.size(40.dp))
-        }
-
-        Spacer(Modifier.height(28.dp))
+        Spacer(Modifier.height(22.dp))
 
         // Hero card with crossed swords SVG centered
         Box(
@@ -426,7 +417,6 @@ fun DuelGameScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .statusBarsPadding()
             .navigationBarsPadding()
             .imePadding()
             .padding(horizontal = 20.dp),
@@ -436,14 +426,6 @@ fun DuelGameScreen(
 
         // Header
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            IconButton(
-                onClick = onBack,
-                modifier = Modifier.size(36.dp).background(Color.White.copy(0.8f), CircleShape)
-            ) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back",
-                    tint = TextDark, modifier = Modifier.size(18.dp))
-            }
-            Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
                 Text("Question $questionNum / $totalQuestions", color = TextLight, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                 LinearProgressIndicator(
@@ -587,7 +569,7 @@ fun DuelGameScreen(
                 OutlinedTextField(
                     value = userInput,
                     onValueChange = { if (!answered) userInput = it },
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
                     placeholder = { Text(placeholder, color = TextLight, fontSize = 13.sp) },
                     singleLine = question.type == DuelQuestionType.SPELLING,
                     maxLines = if (question.type == DuelQuestionType.SENTENCE) 4 else 1,
@@ -739,7 +721,6 @@ fun DuelResultScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .statusBarsPadding()
             .navigationBarsPadding()
             .padding(horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,

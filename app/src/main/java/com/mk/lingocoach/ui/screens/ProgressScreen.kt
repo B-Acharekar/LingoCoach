@@ -42,7 +42,8 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProgressScreen(
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    onNavigateToSettings: () -> Unit
 ) {
     val context = LocalContext.current
     val scope   = rememberCoroutineScope()
@@ -88,32 +89,11 @@ fun ProgressScreen(
         AppBackgroundTexture()
         Scaffold(
             topBar = {
-                TopAppBar(
-                    title = {
-                        Text(
-                            stringResource(R.string.analytics),
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 20.sp,
-                            color = TextDark
-                        )
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = onNavigateBack) {
-                            Icon(
-                                Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "Back",
-                                tint = TextDark
-                            )
-                        }
-                    },
-                    actions = {
-                        IconButton(onClick = {}) {
-                            Icon(Icons.Default.Settings, contentDescription = null, tint = TextDark)
-                        }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = Color.White.copy(alpha = 0.93f)
-                    )
+                CommonTopBar(
+                    title = stringResource(R.string.analytics),
+                    onBack = onNavigateBack,
+                    onSettings = onNavigateToSettings,
+                    backgroundColor = Color.White.copy(alpha = 0.93f)
                 )
             },
             containerColor = Color.Transparent

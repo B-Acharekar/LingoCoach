@@ -497,53 +497,84 @@ private fun ExpandableModule(
 private fun LessonRow(index: Int, lesson: CurrentLesson, onClick: () -> Unit) {
     val locked = lesson.status == "locked"
     val completed = lesson.status == "completed"
+    val current = lesson.status == "current"
+    val accent = when {
+        completed -> SuccessGreen
+        current -> BrandPurple
+        else -> Color(0xFFAAA6B8)
+    }
+    val container = when {
+        completed -> Color(0xFFF1FBF4)
+        current -> Color(0xFFF3F1FF)
+        else -> Color(0xFFF7F6FA)
+    }
+
     Surface(
         onClick = onClick,
-        color = if (locked) Color.Transparent else Color(0xFFF8F7FF),
-        shape = RoundedCornerShape(14.dp),
-        enabled = !locked
+        modifier = Modifier.fillMaxWidth().padding(vertical = 5.dp),
+        color = container,
+        shape = RoundedCornerShape(17.dp),
+        enabled = !locked,
+        border = androidx.compose.foundation.BorderStroke(1.dp, accent.copy(alpha = if (current) 0.25f else 0.12f))
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 10.dp, vertical = 11.dp),
+                .padding(horizontal = 12.dp, vertical = 12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Lesson number badge
             Box(
                 modifier = Modifier
-                    .size(28.dp)
-                    .background(BrandPurpleLight, CircleShape),
+                    .size(40.dp)
+                    .background(
+                        when {
+                            completed -> SuccessGreen
+                            current -> BrandPurple
+                            else -> Color(0xFFE8E6ED)
+                        },
+                        RoundedCornerShape(13.dp)
+                    ),
                 contentAlignment = Alignment.Center
             ) {
-                Text(
-                    "$index",
-                    color = if (completed) SuccessGreen else BrandPurple,
-                    fontSize = 11.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                when {
+                    completed -> Icon(Icons.Default.Check, null, tint = Color.White, modifier = Modifier.size(20.dp))
+                    locked -> Icon(Icons.Default.Lock, null, tint = Color(0xFF8F8B9B), modifier = Modifier.size(17.dp))
+                    else -> Text(index.toString().padStart(2, '0'), color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.ExtraBold)
+                }
             }
 
             Spacer(Modifier.width(12.dp))
 
-            Text(
-                lesson.title,
-                color = if (locked) TextLight else TextDark,
-                fontSize = 14.sp,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.weight(1f)
-            )
+            Column(Modifier.weight(1f)) {
+                Text(
+                    lesson.title,
+                    color = if (locked) Color(0xFF8F8B9B) else Color(0xFF17133B),
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    maxLines = 2
+                )
+                Spacer(Modifier.height(3.dp))
+                Text(
+                    when {
+                        completed -> "Completed | ${lesson.sublessons.size} parts"
+                        current -> "Ready to learn | ${lesson.sublessons.size} parts"
+                        else -> "Complete the previous lesson"
+                    },
+                    color = accent,
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
 
-            Icon(
-                Icons.AutoMirrored.Filled.ArrowForward,
-                contentDescription = null,
-                tint = when {
-                    locked -> TextLight
-                    completed -> SuccessGreen
-                    else -> BrandPurple
-                },
-                modifier = Modifier.size(16.dp)
-            )
+            Spacer(Modifier.width(8.dp))
+            Box(
+                Modifier.size(30.dp).background(if (locked) Color.Transparent else accent.copy(alpha = 0.12f), CircleShape),
+                contentAlignment = Alignment.Center
+            ) {
+                if (!locked) {
+                    Icon(Icons.AutoMirrored.Filled.ArrowForward, null, tint = accent, modifier = Modifier.size(15.dp))
+                }
+            }
         }
     }
 }

@@ -31,6 +31,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -103,8 +104,10 @@ fun LessonScreen(
                 onRetry = { lessonViewModel.loadSublesson(activeSublessonId, userId) }
             )
 
-            uiState.phase == Phase.COMPLETE -> LsCompletionView(
+            uiState.phase == Phase.COMPLETE -> LsProfessionalCompletionView(
                 totalXp         = uiState.totalXpEarned,
+                totalExercises  = uiState.originalExercises.size,
+                correctCount    = uiState.correctOriginalCount,
                 nextSublessonId = nextSublessonId,
                 onContinueNext  = { nextId -> activeSublessonId = nextId },
                 onBack          = onNavigateBack
@@ -218,6 +221,7 @@ fun LessonScreen(
                                 // Show "Exercise N of M" where N = answered so far + 1
                                 exerciseNumber     = uiState.answeredCount + 1,
                                 totalExercises     = uiState.originalExercises.size + uiState.retryQueue.size,
+                                correctCount       = uiState.correctOriginalCount,
                                 answerState        = uiState.answerState,
                                 feedback           = uiState.feedback,
                                 isSubmitting       = uiState.isSubmitting,
@@ -356,6 +360,12 @@ fun LsContentPhase(
     onComplete: () -> Unit
 ) {
     val scroll = rememberScrollState()
+    val explanations = remember(sublesson.content_blocks) { sublesson.content_blocks.filter { it.type == "explanation" } }
+    val examples = remember(sublesson.content_blocks) { sublesson.content_blocks.filter { it.type == "example" } }
+    val tips = remember(sublesson.content_blocks) { sublesson.content_blocks.filter { it.type == "tip" } }
+    val supportingBlocks = remember(sublesson.content_blocks) {
+        sublesson.content_blocks.filter { it.type !in setOf("explanation", "example", "tip") }
+    }
 
     Column(
         modifier = Modifier
@@ -384,45 +394,60 @@ fun LsContentPhase(
                 Text(sublesson.title, color = Color.White, fontSize = 23.sp, fontWeight = FontWeight.ExtraBold, lineHeight = 28.sp)
                 Spacer(Modifier.height(7.dp))
                 Text(
-                    "Read the key ideas, study the examples, then put them into practice.",
+                    "Build the idea step by step, see it in context, then prove you can use it.",
                     color = Color.White.copy(0.72f),
                     fontSize = 13.sp,
                     lineHeight = 19.sp
                 )
+                Spacer(Modifier.height(17.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    LsLessonMetric(Icons.Default.Schedule, "3-5 min", Modifier.weight(1f))
+                    LsLessonMetric(Icons.Default.Lightbulb, "${explanations.size.coerceAtLeast(1)} ideas", Modifier.weight(1f))
+                    LsLessonMetric(Icons.Default.EditNote, "${sublesson.exercises.size} checks", Modifier.weight(1f))
+                }
             }
         }
 
         Spacer(Modifier.height(18.dp))
 
-        sublesson.content_blocks.forEach { block ->
-            LsContentBlockCard(block = block)
+        LsLearningOutcomes(sublesson.title, examples.isNotEmpty(), tips.isNotEmpty())
+        Spacer(Modifier.height(24.dp))
+
+        LsLearningStepHeader(1, "Understand the concept", "Focus on the rule and why it works.")
+        Spacer(Modifier.height(12.dp))
+        (explanations + supportingBlocks).forEach { block ->
+            LsContentBlockCard(block)
+            Spacer(Modifier.height(12.dp))
+        }
+        if (explanations.isEmpty() && supportingBlocks.isEmpty()) {
+            LsContentBlockCard(ContentBlock("explanation", "Read the examples carefully and notice the pattern they share."))
             Spacer(Modifier.height(12.dp))
         }
 
-        Spacer(Modifier.height(8.dp))
+        if (examples.isNotEmpty()) {
+            Spacer(Modifier.height(10.dp))
+            LsLearningStepHeader(2, "See it in context", "Notice how the concept changes real communication.")
+            Spacer(Modifier.height(12.dp))
+            examples.forEach { block ->
+                LsContentBlockCard(block)
+                Spacer(Modifier.height(12.dp))
+            }
+        }
+
+        if (tips.isNotEmpty()) {
+            Spacer(Modifier.height(10.dp))
+            LsLearningStepHeader(3, "Make it stick", "Use this shortcut to remember the idea.")
+            Spacer(Modifier.height(12.dp))
+            tips.forEach { block ->
+                LsContentBlockCard(block)
+                Spacer(Modifier.height(12.dp))
+            }
+        }
+
+        Spacer(Modifier.height(10.dp))
 
         if (sublesson.exercises.isNotEmpty()) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .shadow(8.dp, RoundedCornerShape(20.dp), spotColor = BrandPurple.copy(alpha = 0.20f))
-                    .clip(RoundedCornerShape(20.dp))
-                    .background(Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight)))
-                    .clickable { onStartExercises() }
-                    .padding(19.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        "Start practice  |  ${sublesson.exercises.size} questions",
-                        color = Color.White,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
-                }
-            }
+            LsReadyForPracticeCard(sublesson.exercises.size, onStartExercises)
         } else {
             LsCompleteButton(
                 isVisible = showCompleteButton,
@@ -435,6 +460,103 @@ fun LsContentPhase(
         }
 
         Spacer(Modifier.height(28.dp))
+    }
+}
+
+@Composable
+private fun LsLessonMetric(icon: ImageVector, value: String, modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier.background(Color.White.copy(alpha = 0.11f), RoundedCornerShape(11.dp)).padding(horizontal = 8.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center
+    ) {
+        Icon(icon, null, tint = Color.White.copy(alpha = 0.72f), modifier = Modifier.size(13.dp))
+        Spacer(Modifier.width(5.dp))
+        Text(value, color = Color.White, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+    }
+}
+
+@Composable
+private fun LsLearningOutcomes(title: String, hasExamples: Boolean, hasTips: Boolean) {
+    Column(
+        modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(22.dp)).background(Color(0xFFF1EFFF))
+            .border(1.dp, BrandPurple.copy(alpha = 0.12f), RoundedCornerShape(22.dp)).padding(18.dp)
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Box(Modifier.size(36.dp).background(BrandPurple, RoundedCornerShape(11.dp)), contentAlignment = Alignment.Center) {
+                Icon(Icons.Default.Flag, null, tint = Color.White, modifier = Modifier.size(18.dp))
+            }
+            Spacer(Modifier.width(11.dp))
+            Column {
+                Text("YOUR GOAL", color = BrandPurple, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
+                Text("By the end, you can...", color = Color(0xFF17133B), fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+            }
+        }
+        Spacer(Modifier.height(15.dp))
+        LsOutcomeRow("Explain ${title.lowercase()} in your own words")
+        if (hasExamples) LsOutcomeRow("Recognize the concept in a real sentence")
+        if (hasTips) LsOutcomeRow("Use the concept without the common mistake")
+        LsOutcomeRow("Apply it independently in practice")
+    }
+}
+
+@Composable
+private fun LsOutcomeRow(text: String) {
+    Row(Modifier.padding(vertical = 5.dp), verticalAlignment = Alignment.Top) {
+        Box(Modifier.padding(top = 1.dp).size(20.dp).background(BrandGreen.copy(alpha = 0.13f), CircleShape), contentAlignment = Alignment.Center) {
+            Icon(Icons.Default.Check, null, tint = BrandGreen, modifier = Modifier.size(12.dp))
+        }
+        Spacer(Modifier.width(10.dp))
+        Text(text, color = Color(0xFF3F3A59), fontSize = 13.sp, lineHeight = 18.sp, modifier = Modifier.weight(1f))
+    }
+}
+
+@Composable
+private fun LsLearningStepHeader(number: Int, title: String, subtitle: String) {
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Box(Modifier.size(40.dp).background(BrandPurple, RoundedCornerShape(13.dp)), contentAlignment = Alignment.Center) {
+            Text(number.toString(), color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
+        }
+        Spacer(Modifier.width(12.dp))
+        Column(Modifier.weight(1f)) {
+            Text(title, color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
+            Text(subtitle, color = TextLight, fontSize = 11.sp, lineHeight = 15.sp)
+        }
+    }
+}
+
+@Composable
+private fun LsReadyForPracticeCard(questionCount: Int, onStartExercises: () -> Unit) {
+    Column(
+        modifier = Modifier.fillMaxWidth().shadow(8.dp, RoundedCornerShape(24.dp), spotColor = BrandPurple.copy(alpha = 0.18f))
+            .clip(RoundedCornerShape(24.dp)).background(CardWhite)
+            .border(1.dp, BrandPurple.copy(alpha = 0.14f), RoundedCornerShape(24.dp)).padding(20.dp)
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Box(Modifier.size(44.dp).background(Color(0xFFFFF4D6), RoundedCornerShape(14.dp)), contentAlignment = Alignment.Center) {
+                Icon(Icons.Default.Psychology, null, tint = BrandAmberDark, modifier = Modifier.size(24.dp))
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Text("PAUSE AND RECALL", color = BrandAmberDark, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.7.sp)
+                Text("Can you explain the idea?", color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
+            }
+        }
+        Spacer(Modifier.height(13.dp))
+        Text("Take a moment to say the rule in your own words. If you can, you are ready to use it.", color = TextLight, fontSize = 13.sp, lineHeight = 19.sp)
+        Spacer(Modifier.height(17.dp))
+        Box(
+            modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(17.dp))
+                .background(Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight)))
+                .clickable { onStartExercises() }.padding(17.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("I'm ready | $questionCount questions", color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
+                Spacer(Modifier.width(8.dp))
+                Icon(Icons.AutoMirrored.Filled.ArrowForward, null, tint = Color.White, modifier = Modifier.size(18.dp))
+            }
+        }
     }
 }
 
@@ -480,6 +602,7 @@ fun LsExercisePhase(
     sublesson: SublessonDetail,
     exerciseNumber: Int,
     totalExercises: Int,
+    correctCount: Int,
     answerState: AnswerState,
     feedback: String,
     isSubmitting: Boolean,
@@ -492,6 +615,7 @@ fun LsExercisePhase(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .imePadding()
             .padding(horizontal = 20.dp)
     ) {
         Spacer(Modifier.height(14.dp))
@@ -620,7 +744,7 @@ fun LsExercisePhase(
             isEnabled = !completionSent,
             sublesson = sublesson,
             totalExercises = totalExercises,
-            correctCount = totalExercises,
+            correctCount = correctCount,
             onClick   = onComplete
         )
     }
@@ -739,7 +863,8 @@ fun LsFillBlank(
             onValueChange = { if (!answered) text = it },
             modifier = Modifier
                 .fillMaxWidth()
-                .defaultMinSize(minHeight = 64.dp),
+                .defaultMinSize(minHeight = 64.dp)
+                .bringIntoViewOnFocus(),
             placeholder = { Text(placeholder, color = TextLight, fontSize = 14.sp) },
             minLines = 2,
             maxLines = 4,
@@ -865,83 +990,53 @@ fun LsCompleteButton(
     correctCount: Int,
     onClick: () -> Unit
 ) {
-    AnimatedVisibility(
-        visible = isVisible,
-        enter   = fadeIn(tween(400)) + expandVertically(),
-        exit    = fadeOut() + shrinkVertically()
+    if (!isVisible) return
+
+    val accuracy = if (totalExercises == 0) 100 else (correctCount * 100 / totalExercises).coerceIn(0, 100)
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 20.dp)
+            .clip(RoundedCornerShape(22.dp))
+            .background(CardWhite)
+            .border(1.dp, Color(0xFFE4E1EF), RoundedCornerShape(22.dp))
+            .padding(20.dp)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 20.dp)
-                .shadow(7.dp, RoundedCornerShape(24.dp), spotColor = BrandPurple.copy(alpha = 0.14f))
-                .clip(RoundedCornerShape(24.dp))
-                .background(CardWhite)
-                .border(1.dp, BrandPurple.copy(alpha = 0.12f), RoundedCornerShape(24.dp))
-                .padding(20.dp)
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Box(Modifier.size(44.dp).background(BrandGreen.copy(alpha = 0.12f), RoundedCornerShape(14.dp)), contentAlignment = Alignment.Center) {
+                Icon(Icons.Default.TaskAlt, null, tint = BrandGreen, modifier = Modifier.size(23.dp))
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Text("READY TO COMPLETE", color = BrandGreen, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
+                Text(sublesson.title, color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold, maxLines = 2, overflow = TextOverflow.Ellipsis)
+            }
+        }
+
+        Spacer(Modifier.height(18.dp))
+        HorizontalDivider(color = Color(0xFFECE9F3))
+        Spacer(Modifier.height(16.dp))
+        Text("Performance summary", color = Color(0xFF17133B), fontSize = 14.sp, fontWeight = FontWeight.Bold)
+        Spacer(Modifier.height(11.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
+            LsSummaryPill("ACCURACY", "$accuracy%", BrandPurple, Modifier.weight(1f))
+            LsSummaryPill("CORRECT", "$correctCount/$totalExercises", BrandGreen, Modifier.weight(1f))
+            LsSummaryPill("REWARD", "+20 XP", BrandAmberDark, Modifier.weight(1f))
+        }
+
+        Spacer(Modifier.height(18.dp))
+        Button(
+            onClick = onClick,
+            enabled = isEnabled,
+            modifier = Modifier.fillMaxWidth().height(54.dp),
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = BrandPurple, disabledContainerColor = Color(0xFFB8B3C9))
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Box(
-                    modifier = Modifier
-                        .size(42.dp)
-                        .clip(RoundedCornerShape(13.dp))
-                        .background(BrandPurpleSoft),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(Icons.AutoMirrored.Filled.MenuBook, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(21.dp))
-                }
-                Spacer(Modifier.width(12.dp))
-                Column(modifier = Modifier.weight(1f)) {
-                    Text("Lesson summary", color = BrandPurple, fontSize = 11.sp, fontWeight = FontWeight.ExtraBold)
-                    Text(sublesson.title, color = TextDark, fontSize = 17.sp, fontWeight = FontWeight.ExtraBold, maxLines = 2, overflow = TextOverflow.Ellipsis)
-                }
+            if (!isEnabled) {
+                CircularProgressIndicator(color = Color.White, modifier = Modifier.size(18.dp), strokeWidth = 2.dp)
+                Spacer(Modifier.width(9.dp))
             }
-
-            Spacer(Modifier.height(14.dp))
-            Text(
-                sublesson.content_blocks.firstOrNull()?.text ?: "You reviewed the key ideas and finished the practice for this lesson.",
-                color = TextMid,
-                fontSize = 13.sp,
-                lineHeight = 19.sp,
-                maxLines = 4,
-                overflow = TextOverflow.Ellipsis
-            )
-
-            Spacer(Modifier.height(14.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
-                LsSummaryPill("PART", "${sublesson.order}", BrandPurple, Modifier.weight(1f))
-                LsSummaryPill("PRACTICE", "$correctCount/$totalExercises", BrandGreen, Modifier.weight(1f))
-                LsSummaryPill("XP", "+20", BrandAmberDark, Modifier.weight(1f))
-            }
-
-            Spacer(Modifier.height(16.dp))
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(
-                        if (isEnabled) Brush.horizontalGradient(listOf(BrandPurple, BrandPurpleLight))
-                        else Brush.horizontalGradient(listOf(Color(0xFFB0BEC5), Color(0xFFCFD8DC)))
-                    )
-                    .clickable(enabled = isEnabled) { onClick() }
-                    .padding(16.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    if (!isEnabled) {
-                        CircularProgressIndicator(color = Color.White, modifier = Modifier.size(18.dp), strokeWidth = 2.dp)
-                    } else {
-                        Icon(Icons.Default.CheckCircle, contentDescription = null, tint = Color.White, modifier = Modifier.size(19.dp))
-                    }
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        if (isEnabled) "Submit Lesson" else "Submitting...",
-                        color = Color.White,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
-                }
-            }
+            Text(if (isEnabled) "Complete lesson" else "Saving result...", color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.Bold)
         }
     }
 }
@@ -1123,6 +1218,93 @@ fun LsCompletionView(
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun LsProfessionalCompletionView(
+    totalXp: Int,
+    totalExercises: Int,
+    correctCount: Int,
+    nextSublessonId: String?,
+    onContinueNext: (String) -> Unit,
+    onBack: () -> Unit
+) {
+    val accuracy = if (totalExercises == 0) 100 else (correctCount * 100 / totalExercises).coerceIn(0, 100)
+    val resultLabel = when {
+        accuracy >= 90 -> "Excellent understanding"
+        accuracy >= 70 -> "Good understanding"
+        else -> "Lesson completed"
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding()
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 24.dp, vertical = 28.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Box(Modifier.size(68.dp).background(BrandGreen.copy(alpha = 0.12f), RoundedCornerShape(22.dp)), contentAlignment = Alignment.Center) {
+            Icon(Icons.Default.CheckCircle, "Lesson completed", tint = BrandGreen, modifier = Modifier.size(36.dp))
+        }
+        Spacer(Modifier.height(18.dp))
+        Text("Lesson completed", color = Color(0xFF17133B), fontSize = 26.sp, fontWeight = FontWeight.ExtraBold)
+        Spacer(Modifier.height(6.dp))
+        Text(resultLabel, color = TextLight, fontSize = 14.sp, textAlign = TextAlign.Center)
+
+        Spacer(Modifier.height(26.dp))
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(22.dp))
+                .background(CardWhite)
+                .border(1.dp, Color(0xFFE4E1EF), RoundedCornerShape(22.dp))
+                .padding(20.dp)
+        ) {
+            Text("Result", color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
+            Spacer(Modifier.height(4.dp))
+            Text("Your performance for this lesson", color = TextLight, fontSize = 12.sp)
+            Spacer(Modifier.height(18.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
+                LsSummaryPill("ACCURACY", "$accuracy%", BrandPurple, Modifier.weight(1f))
+                LsSummaryPill("CORRECT", "$correctCount/$totalExercises", BrandGreen, Modifier.weight(1f))
+                LsSummaryPill("EARNED", "+$totalXp XP", BrandAmberDark, Modifier.weight(1f))
+            }
+            Spacer(Modifier.height(18.dp))
+            LinearProgressIndicator(
+                progress = { accuracy / 100f },
+                modifier = Modifier.fillMaxWidth().height(7.dp).clip(CircleShape),
+                color = if (accuracy >= 70) BrandGreen else BrandAmber,
+                trackColor = Color(0xFFECE9F3),
+                strokeCap = StrokeCap.Round
+            )
+        }
+
+        Spacer(Modifier.height(24.dp))
+        if (nextSublessonId != null) {
+            Button(
+                onClick = { onContinueNext(nextSublessonId) },
+                modifier = Modifier.fillMaxWidth().height(54.dp),
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = BrandPurple)
+            ) {
+                Text("Continue to next lesson", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                Spacer(Modifier.width(8.dp))
+                Icon(Icons.AutoMirrored.Filled.ArrowForward, null, modifier = Modifier.size(18.dp))
+            }
+            Spacer(Modifier.height(12.dp))
+        }
+        OutlinedButton(
+            onClick = onBack,
+            modifier = Modifier.fillMaxWidth().height(54.dp),
+            shape = RoundedCornerShape(16.dp),
+            border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFDCD8E8)),
+            colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFF3F3A59))
+        ) {
+            Text("Back to learning path", fontSize = 15.sp, fontWeight = FontWeight.Bold)
         }
     }
 }

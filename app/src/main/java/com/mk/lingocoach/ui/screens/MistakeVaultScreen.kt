@@ -93,7 +93,8 @@ fun MistakeVaultScreen(
     onNavigateBack: () -> Unit,
     onNavigateToHome: () -> Unit = onNavigateBack,
     onNavigateToVocab: () -> Unit = {},
-    onNavigateToAILab: () -> Unit = {}
+    onNavigateToAILab: () -> Unit = {},
+    onNavigateToSettings: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val scope   = rememberCoroutineScope()
@@ -185,26 +186,11 @@ fun MistakeVaultScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        "Mistake Vault",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 18.sp,
-                        color = VaultTextDark
-                    )
-                },
-                navigationIcon = {
-                    IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = VaultTextDark)
-                    }
-                },
-                actions = {
-                    IconButton(onClick = { /* settings */ }) {
-                        Icon(Icons.Default.Settings, contentDescription = "Settings", tint = VaultTextLight)
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = VaultBg)
+            CommonTopBar(
+                title = "Mistake Vault",
+                onBack = onNavigateBack,
+                onSettings = onNavigateToSettings,
+                backgroundColor = VaultBg
             )
         },
         bottomBar = {
@@ -674,7 +660,7 @@ fun RetestModeOverlay(
                 )
             } else {
                 val mistake = mistakes[currentIndex]
-                Column(modifier = Modifier.fillMaxSize()) {
+                Column(modifier = Modifier.fillMaxSize().imePadding()) {
 
                     // Top bar
                     RetestTopBar(
@@ -801,7 +787,7 @@ private fun normalizeRetestAnswer(value: String): String {
 private fun RetestTopBar(current: Int, total: Int, progress: Float, onClose: () -> Unit) {
     Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 16.dp)) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {

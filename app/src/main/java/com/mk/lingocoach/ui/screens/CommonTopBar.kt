@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -30,6 +31,7 @@ import com.mk.lingocoach.R
 fun CommonTopBar(
     title: String,
     onBack: () -> Unit,
+    onSettings: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
     backgroundColor: Color = Color.White
 ) {
@@ -65,6 +67,21 @@ fun CommonTopBar(
             textAlign = TextAlign.Center,
             modifier = Modifier.weight(1f).padding(horizontal = 12.dp)
         )
-        Spacer(Modifier.size(40.dp))
+        IconButton(
+            onClick = { onSettings?.invoke() },
+            enabled = onSettings != null,
+            modifier = Modifier
+                .size(40.dp)
+                .background(Color.Black.copy(alpha = if (onSettings != null) 0.06f else 0f), CircleShape)
+        ) {
+            if (onSettings != null) {
+                Icon(
+                    Icons.Default.Settings,
+                    contentDescription = "Settings",
+                    tint = TextDark,
+                    modifier = Modifier.size(20.dp)
+                )
+            }
+        }
     }
 }

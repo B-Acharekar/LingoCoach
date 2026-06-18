@@ -210,6 +210,7 @@ private fun StepName(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .imePadding()
             .padding(horizontal = 24.dp),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
@@ -231,7 +232,7 @@ private fun StepName(
                 onValueChange  = onNameChange,
                 placeholder    = { Text("e.g. Alex Mercer", color = SetupTextLight, fontSize = 16.sp) },
                 singleLine     = true,
-                modifier       = Modifier.fillMaxWidth(),
+                modifier       = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
                 shape          = RoundedCornerShape(16.dp),
                 textStyle      = TextStyle(fontSize = 17.sp, color = SetupTextDark, fontWeight = FontWeight.Medium),
                 keyboardOptions = KeyboardOptions(

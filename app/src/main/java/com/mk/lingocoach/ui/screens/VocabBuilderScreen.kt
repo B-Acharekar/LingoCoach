@@ -579,7 +579,8 @@ fun ColumnScope.DashboardView(
                 onValueChange = onSearchQueryChanged,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp)),
+                    .background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp))
+                    .bringIntoViewOnFocus(),
                 placeholder = { Text("Search vocabulary topics...", color = TextLight, fontSize = 14.sp) },
                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search", tint = TextLight) },
                 shape = RoundedCornerShape(16.dp),
@@ -1275,7 +1276,7 @@ fun ColumnScope.DrillFeedbackView(
                         OutlinedTextField(
                             value = reinforcementText,
                             onValueChange = onReinforcementChanged,
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
                             placeholder = { Text("Type the match...", color = TextLight, fontSize = 12.sp) },
                             singleLine = true,
                             keyboardOptions = KeyboardOptions(
@@ -1425,7 +1426,8 @@ fun ColumnScope.AllWordsBrowserView(
             onValueChange = onSearchQueryChanged,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp)),
+                .background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp))
+                .bringIntoViewOnFocus(),
             placeholder = { Text("Search words, meanings...", color = TextLight, fontSize = 14.sp) },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search", tint = TextLight) },
             shape = RoundedCornerShape(16.dp),

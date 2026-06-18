@@ -529,7 +529,8 @@ private fun AppLanguagePickerDialog(
                     onValueChange = { query = it },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 20.dp),
+                        .padding(horizontal = 20.dp)
+                        .bringIntoViewOnFocus(),
                     singleLine = true,
                     placeholder = { Text(stringResource(R.string.search_languages), color = SettingsTextLight) },
                     leadingIcon = { Icon(Icons.Default.Search, contentDescription = null, tint = SettingsTextLight) },
@@ -750,6 +751,7 @@ private fun SettingsEditDialog(
         Box(
             modifier = Modifier
                 .fillMaxWidth(0.88f)
+                .imePadding()
                 .shadow(16.dp, RoundedCornerShape(24.dp))
                 .clip(RoundedCornerShape(24.dp))
                 .background(Color.White)
@@ -762,7 +764,7 @@ private fun SettingsEditDialog(
                     value = value,
                     onValueChange = onChange,
                     singleLine = true,
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
                     shape = RoundedCornerShape(12.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor   = SettingsPurple,

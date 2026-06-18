@@ -132,7 +132,8 @@ class MainActivity : AppCompatActivity() {
                                 },
                                 onNavigateToAILab = { currentScreenName = Screen.AILab.name },
                                 onNavigateToVocab = { currentScreenName = Screen.VocabBuilder.name },
-                                onNavigateToVault = { currentScreenName = Screen.MistakeVault.name }
+                                onNavigateToVault = { currentScreenName = Screen.MistakeVault.name },
+                                onNavigateToSettings = { currentScreenName = Screen.Settings.name }
                             )
                         }
                         Screen.Home -> {
@@ -174,7 +175,8 @@ class MainActivity : AppCompatActivity() {
                                 onNavigateBack    = { currentScreenName = Screen.Home.name },
                                 onNavigateToHome  = { currentScreenName = Screen.Home.name },
                                 onNavigateToVocab = { currentScreenName = Screen.VocabBuilder.name },
-                                onNavigateToAILab = { currentScreenName = Screen.AILab.name }
+                                onNavigateToAILab = { currentScreenName = Screen.AILab.name },
+                                onNavigateToSettings = { currentScreenName = Screen.Settings.name }
                             )
                         }
                         Screen.Flashcards -> {
@@ -184,7 +186,8 @@ class MainActivity : AppCompatActivity() {
                         }
                         Screen.TimelyDuel -> {
                             TimelyDuelScreen(
-                                onNavigateBack = { currentScreenName = Screen.Home.name }
+                                onNavigateBack = { currentScreenName = Screen.Home.name },
+                                onNavigateToSettings = { currentScreenName = Screen.Settings.name }
                             )
                         }
                         Screen.AILab -> {
@@ -192,7 +195,8 @@ class MainActivity : AppCompatActivity() {
                                 onNavigateBack = { currentScreenName = Screen.Home.name },
                                 onNavigateToHome = { currentScreenName = Screen.Home.name },
                                 onNavigateToVocab = { currentScreenName = Screen.VocabBuilder.name },
-                                onNavigateToMistakes = { currentScreenName = Screen.MistakeVault.name }
+                                onNavigateToMistakes = { currentScreenName = Screen.MistakeVault.name },
+                                onNavigateToSettings = { currentScreenName = Screen.Settings.name }
                             )
                         }
                         Screen.Settings -> {
@@ -203,7 +207,8 @@ class MainActivity : AppCompatActivity() {
                         }
                         Screen.Analytics -> {
                             ProgressScreen(
-                                onNavigateBack = { currentScreenName = Screen.Home.name }
+                                onNavigateBack = { currentScreenName = Screen.Home.name },
+                                onNavigateToSettings = { currentScreenName = Screen.Settings.name }
                             )
                         }
                     }

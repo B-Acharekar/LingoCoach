@@ -30,6 +30,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.automirrored.filled.VolumeOff
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.*
@@ -82,7 +83,8 @@ fun AILabScreen(
     onNavigateBack: () -> Unit,
     onNavigateToHome: () -> Unit,
     onNavigateToVocab: () -> Unit,
-    onNavigateToMistakes: () -> Unit
+    onNavigateToMistakes: () -> Unit,
+    onNavigateToSettings: () -> Unit
 ) {
     var currentStep          by remember { mutableStateOf(AILabStep.HOME) }
     var selectedVoice        by remember { mutableStateOf("Female") }
@@ -129,7 +131,8 @@ fun AILabScreen(
                             AILabStep.TONE_SELECTION   -> currentStep = AILabStep.VOICE_SELECTION
                             AILabStep.CHAT             -> currentStep = AILabStep.HOME
                         }
-                    }
+                    },
+                    onSettings = onNavigateToSettings
                 )
             },
             bottomBar = {
@@ -351,7 +354,7 @@ fun HomeStep(
                 description = "Get real-time feedback on grammar and pronunciation"
             )
             FeatureItem(
-                icon = Icons.Default.TrendingUp,
+                icon = Icons.AutoMirrored.Filled.TrendingUp,
                 title = "Track Progress",
                 description = "See your improvements over time with detailed insights"
             )
@@ -1163,7 +1166,10 @@ fun ChatInputArea(
                     textStyle      = TextStyle(color = TextDark, fontSize = 15.sp),
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Send),
                     keyboardActions = KeyboardActions(onSend = { onSend() }),
-                    modifier       = Modifier.fillMaxWidth(),
+                    modifier       = Modifier
+                        .fillMaxWidth()
+                        .defaultMinSize(minHeight = 44.dp)
+                        .bringIntoViewOnFocus(),
                     singleLine     = false,
                     maxLines       = 4
                 )

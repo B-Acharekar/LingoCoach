@@ -621,7 +621,8 @@ fun AssessmentQuestionView(
                             onValueChange = onTextChange,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(bottom = 36.dp),
+                                .padding(bottom = 36.dp)
+                                .bringIntoViewOnFocus(),
                             placeholder = { Text("Type your response here...", color = Color(0xFF8E8D9F), fontSize = 15.sp) },
                             minLines = 4,
                             maxLines = 6,
