@@ -2,6 +2,11 @@ package com.mk.lingocoach.ui.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -19,6 +24,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -45,6 +51,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -58,6 +65,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mk.lingocoach.R
 import com.mk.lingocoach.viewmodel.LanguageViewModel
+import kotlinx.coroutines.delay
 
 /**
  * Language Selection Screen with full ViewModel integration
@@ -83,6 +91,8 @@ fun LanguageSelectionScreen(
     val searchQuery by viewModel.searchQuery.collectAsState()
     val filteredLanguages by viewModel.filteredLanguages.collectAsState()
     var draftLanguage by remember { mutableStateOf(selectedLanguage) }
+    var showLanguageChanging by remember { mutableStateOf(false) }
+    var pendingLanguage by remember { mutableStateOf<String?>(null) }
 
     LaunchedEffect(selectedLanguage) {
         draftLanguage = selectedLanguage
@@ -92,12 +102,7 @@ fun LanguageSelectionScreen(
         modifier = Modifier.fillMaxSize()
     ) {
         // Background Image
-        Image(
-            painter = painterResource(id = R.drawable.background),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
+        AppBackgroundTexture()
 
         Column(
             modifier = Modifier
@@ -139,14 +144,8 @@ fun LanguageSelectionScreen(
                 // Done Button in capsule style (navigates to welcome onboarding)
                 Button(
                     onClick = {
-                        viewModel.selectLanguage(draftLanguage)
-                        // Mark language selection as done
-                        context.getSharedPreferences("LingoCoachPrefs", android.content.Context.MODE_PRIVATE)
-                            .edit()
-                            .putBoolean("lang_selected", true)
-                            .apply()
-                        // Language is already persisted via ViewModel
-                        onNavigateToWelcome()
+                        showLanguageChanging = true
+                        pendingLanguage = draftLanguage
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFF6A5CFF)
@@ -295,7 +294,7 @@ fun LanguageSelectionScreen(
                                     // Names
                                     Column {
                                         Text(
-                                            text = language.name,
+                                            text = localizedAppLanguageName(language.code),
                                             style = TextStyle(
                                                 color = if (isSelected) Color.White else Color(0xFF1D1D1F),
                                                 fontSize = 16.sp,
@@ -330,6 +329,112 @@ fun LanguageSelectionScreen(
                 }
             }
         }
+
+        if (showLanguageChanging) {
+            LaunchedEffect(pendingLanguage) {
+                val languageToApply = pendingLanguage ?: return@LaunchedEffect
+                delay(6000)
+                viewModel.selectLanguage(languageToApply)
+                context.getSharedPreferences("LingoCoachPrefs", android.content.Context.MODE_PRIVATE)
+                    .edit()
+                    .putBoolean("lang_selected", true)
+                    .apply()
+                onNavigateToWelcome()
+            }
+            LanguageChangeOverlay()
+        }
+    }
+}
+
+@Composable
+fun LanguageChangeOverlay() {
+    val transition = rememberInfiniteTransition(label = "language_change")
+    val fillProgress by transition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 1200),
+            repeatMode = RepeatMode.Restart
+        ),
+        label = "pixel_fill"
+    )
+    val pulse by transition.animateFloat(
+        initialValue = 0.45f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 650),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "pulse"
+    )
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xCC07051A)),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+                .padding(horizontal = 32.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            PixelFillIndicator(progress = fillProgress, pulse = pulse)
+            Spacer(Modifier.height(22.dp))
+            Text(
+                text = stringResource(R.string.language_changing_title),
+                color = Color.White,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.ExtraBold,
+                textAlign = TextAlign.Center
+            )
+            Spacer(Modifier.height(8.dp))
+            Text(
+                text = stringResource(R.string.language_changing_message),
+                color = Color.White.copy(alpha = 0.78f),
+                fontSize = 13.sp,
+                textAlign = TextAlign.Center,
+                lineHeight = 18.sp
+            )
+        }
+    }
+}
+
+@Composable
+private fun PixelFillIndicator(progress: Float, pulse: Float) {
+    val activeColor = Color(0xFF7C6CFF)
+    val pixels = 36
+
+    Column(
+        verticalArrangement = Arrangement.spacedBy(5.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        repeat(6) { row ->
+            Row(horizontalArrangement = Arrangement.spacedBy(5.dp)) {
+                repeat(6) { column ->
+                    val index = row * 6 + column
+                    val active = index < (progress * pixels).toInt()
+                    Box(
+                        modifier = Modifier
+                            .size(11.dp)
+                            .clip(RoundedCornerShape(3.dp))
+                            .background(
+                                if (active) {
+                                    Brush.linearGradient(
+                                        listOf(activeColor.copy(alpha = pulse), Color(0xFF58D7FF))
+                                    )
+                                } else {
+                                    Brush.linearGradient(
+                                        listOf(Color.White.copy(alpha = 0.14f), Color.White.copy(alpha = 0.08f))
+                                    )
+                                }
+                            )
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -357,5 +462,27 @@ fun CustomRadioButton(
                     .background(selectedColor, CircleShape)
             )
         }
+    }
+}
+
+@Composable
+fun localizedAppLanguageName(code: String): String {
+    return when (code) {
+        "system" -> stringResource(R.string.lang_system)
+        "en" -> stringResource(R.string.lang_english)
+        "hi" -> stringResource(R.string.lang_hindi)
+        "es" -> stringResource(R.string.lang_spanish)
+        "fr" -> stringResource(R.string.lang_french)
+        "de" -> stringResource(R.string.lang_german)
+        "it" -> stringResource(R.string.lang_italian)
+        "pt" -> stringResource(R.string.lang_portuguese)
+        "ru" -> stringResource(R.string.lang_russian)
+        "ja" -> stringResource(R.string.lang_japanese)
+        "ko" -> stringResource(R.string.lang_korean)
+        "zh" -> stringResource(R.string.lang_chinese)
+        "ar" -> stringResource(R.string.lang_arabic)
+        "tr" -> stringResource(R.string.lang_turkish)
+        "vi" -> stringResource(R.string.lang_vietnamese)
+        else -> code
     }
 }

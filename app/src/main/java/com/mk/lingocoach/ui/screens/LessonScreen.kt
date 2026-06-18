@@ -92,12 +92,7 @@ fun LessonScreen(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        Image(
-            painter = painterResource(R.drawable.background),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
+        AppBackgroundTexture()
 
         when {
             uiState.phase == Phase.LOADING -> LsLoadingView()

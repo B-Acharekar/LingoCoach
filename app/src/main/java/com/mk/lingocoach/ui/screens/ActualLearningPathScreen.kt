@@ -87,12 +87,7 @@ fun ActualLearningPathScreen(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        Image(
-            painter = painterResource(R.drawable.background),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize()
-        )
+        AppBackgroundTexture()
 
         Column(
             modifier = Modifier

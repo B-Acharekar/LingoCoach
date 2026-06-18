@@ -96,12 +96,7 @@ fun LearningPathRoadmapScreen(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        Image(
-            painter = painterResource(R.drawable.background),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize()
-        )
+        AppBackgroundTexture()
 
         Column(
             modifier = Modifier
@@ -414,16 +409,26 @@ private fun ExpandableModule(
                     HorizontalDivider(color = Color(0xFFF0EEFF), thickness = 1.dp)
                     Spacer(Modifier.height(8.dp))
 
-                    lessons.forEachIndexed { index, lesson ->
-                        LessonRow(
-                            index = index + 1,
-                            lesson = lesson,
-                            onClick = {
-                                val targetSublesson = lesson.sublessons.firstOrNull { it.status == "current" }
-                                    ?: lesson.sublessons.firstOrNull()
-                                targetSublesson?.let { onLessonClick(it.id) }
-                            }
+                    if (lessons.isEmpty()) {
+                        Text(
+                            "This level is part of your path. Lessons will appear here after the curriculum syncs.",
+                            color = TextLight,
+                            fontSize = 12.sp,
+                            lineHeight = 17.sp,
+                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 10.dp)
                         )
+                    } else {
+                        lessons.forEachIndexed { index, lesson ->
+                            LessonRow(
+                                index = index + 1,
+                                lesson = lesson,
+                                onClick = {
+                                    val targetSublesson = lesson.sublessons.firstOrNull { it.status == "current" }
+                                        ?: lesson.sublessons.firstOrNull()
+                                    targetSublesson?.let { onLessonClick(it.id) }
+                                }
+                            )
+                        }
                     }
                 }
             }

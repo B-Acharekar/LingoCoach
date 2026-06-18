@@ -200,12 +200,7 @@ fun HomeScreen(
     Box(modifier = Modifier.fillMaxSize()) {
 
         // ── Background ──────────────────────────────────────────────────────
-        Image(
-            painter      = painterResource(R.drawable.background),
-            contentDescription = null,
-            modifier     = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
+        AppBackgroundTexture()
 
         // ── Content ─────────────────────────────────────────────────────────
         Column(

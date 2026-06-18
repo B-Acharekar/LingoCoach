@@ -251,12 +251,7 @@ fun AssessmentScreen(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        Image(
-            painter = painterResource(R.drawable.background),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
+        AppBackgroundTexture()
 
         when {
             isLoading -> LoadingView()

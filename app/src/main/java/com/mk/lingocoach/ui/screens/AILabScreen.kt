@@ -111,12 +111,7 @@ fun AILabScreen(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        Image(
-            painter      = painterResource(id = R.drawable.background),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier     = Modifier.fillMaxSize()
-        )
+        AppBackgroundTexture()
         Scaffold(
             topBar = {
                 CommonTopBar(

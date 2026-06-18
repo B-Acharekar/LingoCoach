@@ -99,13 +99,7 @@ fun UserProfileSetupScreen(
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        // ── Same background.png used across the whole app ─────────────────
-        Image(
-            painter      = painterResource(R.drawable.background),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier     = Modifier.fillMaxSize()
-        )
+        AppBackgroundTexture()
 
         // ── Content ───────────────────────────────────────────────────────
         Column(

@@ -163,7 +163,10 @@ class MainActivity : AppCompatActivity() {
                         }
                         Screen.VocabBuilder -> {
                             VocabBuilderScreen(
-                                onNavigateBack = { currentScreenName = Screen.Home.name }
+                                onNavigateBack = { currentScreenName = Screen.Home.name },
+                                onNavigateToHome = { currentScreenName = Screen.Home.name },
+                                onNavigateToAILab = { currentScreenName = Screen.AILab.name },
+                                onNavigateToMistakes = { currentScreenName = Screen.MistakeVault.name }
                             )
                         }
                         Screen.MistakeVault -> {

@@ -29,15 +29,17 @@ internal fun CurrentLearningPathResponse.withCompletedSublesson(completedSubless
             }
             lesson.copy(status = updatedSublessons.deriveLessonStatus())
         }
-        module.copy(status = updatedLessons.deriveModuleStatus(), lessons = updatedLessons)
+        val moduleStatus = if (updatedLessons.isEmpty()) module.status.lowercase() else updatedLessons.deriveModuleStatus()
+        module.copy(status = moduleStatus, lessons = updatedLessons)
     }
 
-    return copy(modules = updatedModules)
+    return copy(modules = updatedModules).normalizedLearningPath()
 }
 
 internal fun CurrentLearningPathResponse.normalizedLearningPath(): CurrentLearningPathResponse {
     var hasCurrent = false
-    val updatedModules = modules.map { module ->
+    val sourceModules = modules.ensureCourseLadderModules()
+    val updatedModules = sourceModules.map { module ->
         val updatedLessons = module.lessons.map { lesson ->
             val normalizedSublessons = lesson.sublessons.map { sublesson ->
                 val status = sublesson.status.lowercase()
@@ -49,7 +51,7 @@ internal fun CurrentLearningPathResponse.normalizedLearningPath(): CurrentLearni
         module.copy(status = updatedLessons.deriveModuleStatus(), lessons = updatedLessons)
     }
 
-    val normalized = copy(modules = updatedModules)
+    val normalized = copy(modules = updatedModules.recomputeMissingModuleStatuses())
     return if (hasCurrent || normalized.modules.isEmpty()) normalized else normalized.unlockFirstIncomplete()
 }
 
@@ -102,4 +104,98 @@ private fun CurrentLearningPathResponse.unlockFirstIncomplete(): CurrentLearning
         module.copy(status = updatedLessons.deriveModuleStatus(), lessons = updatedLessons)
     }
     return copy(modules = updatedModules)
+}
+
+private data class CourseModuleTemplate(
+    val level: String,
+    val title: String,
+    val description: String,
+    val aliases: List<String>
+)
+
+private val courseModuleTemplates = listOf(
+    CourseModuleTemplate(
+        level = "Level 1",
+        title = "Foundations",
+        description = "Core grammar, sentence structure, and essential vocabulary.",
+        aliases = listOf("foundation", "foundations", "level 1", "a1", "a2")
+    ),
+    CourseModuleTemplate(
+        level = "Level 2",
+        title = "Daily Life Conversation",
+        description = "B1-B2 conversations for everyday situations, opinions, and smoother flow.",
+        aliases = listOf("daily life", "conversation", "coffee chat", "level 2", "b1", "b2")
+    ),
+    CourseModuleTemplate(
+        level = "Level 3",
+        title = "Professional and Formal",
+        description = "C1 workplace, formal, persuasive, and structured communication.",
+        aliases = listOf("professional", "formal", "pitch", "level 3", "c1")
+    ),
+    CourseModuleTemplate(
+        level = "Level 4",
+        title = "Master",
+        description = "C2-level mastery, nuance, idioms, cultural fluency, and advanced expression.",
+        aliases = listOf("master", "mastery", "cultural", "level 4", "c2")
+    )
+)
+
+private fun List<CurrentModule>.ensureCourseLadderModules(): List<CurrentModule> {
+    if (isEmpty()) return this
+
+    val claimed = mutableSetOf<Int>()
+    val arranged = mutableListOf<CurrentModule>()
+
+    courseModuleTemplates.forEachIndexed { templateIndex, template ->
+        val match = this
+            .filterIndexed { index, _ -> index !in claimed }
+            .firstOrNull { module -> module.matchesTemplate(template) }
+
+        if (match != null) {
+            claimed += this.indexOf(match)
+            arranged += match.copy(
+                level = template.level,
+                title = template.title,
+                description = match.description.ifBlank { template.description },
+                order = templateIndex + 1
+            )
+        } else {
+            arranged += placeholderModule(template, templateIndex + 1)
+        }
+    }
+
+    return arranged.recomputeMissingModuleStatuses()
+}
+
+private fun CurrentModule.matchesTemplate(template: CourseModuleTemplate): Boolean {
+    val haystack = listOf(level, title, description).joinToString(" ").lowercase()
+    return template.aliases.any { alias -> haystack.contains(alias.lowercase()) }
+}
+
+private fun placeholderModule(template: CourseModuleTemplate, order: Int): CurrentModule =
+    CurrentModule(
+        id = "placeholder_level_$order",
+        title = template.title,
+        description = template.description,
+        level = template.level,
+        order = order,
+        status = "locked",
+        xpReward = 100 + (order - 1) * 50,
+        lessons = emptyList()
+    )
+
+private fun List<CurrentModule>.recomputeMissingModuleStatuses(): List<CurrentModule> {
+    val firstCurrentIndex = indexOfFirst { it.status == "current" }
+    if (firstCurrentIndex >= 0) return this
+
+    val firstIncompleteIndex = indexOfFirst { it.status != "completed" }
+    if (firstIncompleteIndex == -1) return this
+
+    return mapIndexed { index, module ->
+        if (index == firstIncompleteIndex && module.id.startsWith("placeholder_level_")) {
+            module.copy(status = "current")
+        } else {
+            module
+        }
+    }
 }

@@ -309,4 +309,14 @@
     <string name="end_session">सेशन खत्म करें</string>
     <string name="male_voice">पुरुष आवाज</string>
     <string name="type_response_hint">जवाब टाइप करें...</string>
+    <string name="language_changing_title">भाषा बदली जा रही है</string>
+    <string name="language_changing_message">कृपया प्रतीक्षा करें, ऐप आपकी भाषा अपडेट कर रहा है।</string>
+    <string name="change_avatar">अवतार बदलें</string>
+    <string name="terms_of_service">सेवा की शर्तें</string>
+    <string name="data_export_csv">डेटा निर्यात (CSV)</string>
+    <string name="lingocoach_data_export">LingoCoach डेटा निर्यात</string>
+    <string name="export_data_as_csv">डेटा CSV के रूप में निर्यात करें</string>
+    <string name="delete_account">खाता हटाएं</string>
+    <string name="logout_confirm_message">क्या आप वाकई अपने खाते से लॉग आउट करना चाहते हैं?</string>
+    <string name="delete_account_confirm_message">यह आपकी सारी प्रगति और खाता डेटा स्थायी रूप से हटा देगा। यह कार्रवाई वापस नहीं ली जा सकती।</string>
 </resources>

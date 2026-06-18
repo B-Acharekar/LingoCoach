@@ -64,7 +64,12 @@ enum class VocabSortOrder(val label: String, val icon: androidx.compose.ui.graph
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
+fun VocabBuilderScreen(
+    onNavigateBack: () -> Unit,
+    onNavigateToHome: () -> Unit = onNavigateBack,
+    onNavigateToAILab: () -> Unit = {},
+    onNavigateToMistakes: () -> Unit = {}
+) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
 
@@ -157,13 +162,7 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        // ── Background Image ──────────────────────────────────────────────────
-        Image(
-            painter = painterResource(R.drawable.background),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
+        AppBackgroundTexture()
 
         // ── Core Layout ───────────────────────────────────────────────────────
         Column(
@@ -240,7 +239,9 @@ fun VocabBuilderScreen(onNavigateBack: () -> Unit) {
                             onCategorySelected = { selectedCategory = it },
                             onContinueSession = { startDrillSession(selectedCategory) },
                             onStartDrillForCategory = { startDrillSession(it) },
-                            onNavigateHome = onNavigateBack,
+                            onNavigateHome = onNavigateToHome,
+                            onNavigateToAILab = onNavigateToAILab,
+                            onNavigateToMistakes = onNavigateToMistakes,
                             progressVersion = progressVersion
                         )
                     }
@@ -390,6 +391,8 @@ fun ColumnScope.DashboardView(
     onContinueSession: () -> Unit,
     onStartDrillForCategory: (String) -> Unit,
     onNavigateHome: () -> Unit,
+    onNavigateToAILab: () -> Unit,
+    onNavigateToMistakes: () -> Unit,
     progressVersion: Int
 ) {
     val context = LocalContext.current
@@ -820,26 +823,17 @@ fun ColumnScope.DashboardView(
     }
 
     // ── Bottom Nav Bar ──
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(Color(0xFFFAFAFF))
-            .border(width = 0.5.dp, color = Color(0x1A000000))
-            .padding(vertical = 6.dp)
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceAround,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            HomeNavItem("HOME", Icons.Default.Home, false) {
-                onNavigateHome()
+    HomeBottomNav(
+        selectedTab = 2,
+        onTabSelected = { index ->
+            when (index) {
+                0 -> onNavigateHome()
+                1 -> onNavigateToAILab()
+                2 -> Unit
+                3 -> onNavigateToMistakes()
             }
-            HomeNavItem("AI LAB", Icons.Default.Science, false) { }
-            HomeNavItem("VOCAB", Icons.Default.Book, true) { }
-            HomeNavItem("VAULT", Icons.Default.VerifiedUser, false) { }
         }
-    }
+    )
 }
 
 // ─── Contextual Drill Component (Image 3) ────────────────────────────────────

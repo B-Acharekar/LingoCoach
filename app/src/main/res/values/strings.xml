@@ -44,6 +44,8 @@
     <string name="username">Username</string>
     <string name="name">Name</string>
     <string name="loading">Loading...</string>
+    <string name="language_changing_title">Changing language</string>
+    <string name="language_changing_message">Please wait while the app updates your language.</string>
     <string name="error">Error</string>
     <string name="success">Success</string>
     <string name="warning">Warning</string>
@@ -204,6 +206,14 @@
     <string name="rate_app">Rate App</string>
     <string name="share_app">Share App</string>
     <string name="version">Version</string>
+    <string name="change_avatar">Change Avatar</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="data_export_csv">Data Export (CSV)</string>
+    <string name="lingocoach_data_export">LingoCoach Data Export</string>
+    <string name="export_data_as_csv">Export Data as CSV</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="logout_confirm_message">Are you sure you want to log out of your account?</string>
+    <string name="delete_account_confirm_message">This will permanently delete all your progress and account data. This action cannot be undone.</string>
     
     <!-- Notifications -->
     <string name="daily_reminder">Daily Reminder</string>
