@@ -267,92 +267,334 @@ fun HomeStep(
 ) {
     val infiniteTransition = rememberInfiniteTransition(label = "pulse")
     val pulseScale by infiniteTransition.animateFloat(
-        initialValue = 0.95f, targetValue = 1.05f,
-        animationSpec = infiniteRepeatable(tween(1000, easing = FastOutSlowInEasing), RepeatMode.Reverse),
+        initialValue = 0.98f, targetValue = 1.02f,
+        animationSpec = infiniteRepeatable(tween(2000, easing = FastOutSlowInEasing), RepeatMode.Reverse),
         label = "pulse"
     )
     var isPressed by remember { mutableStateOf(false) }
-    val buttonScale by animateFloatAsState(if (isPressed) 0.96f else 1f, label = "btn")
+    val buttonScale by animateFloatAsState(if (isPressed) 0.94f else 1f, label = "btn")
 
     val isLimited = aiLabStatus != null && aiLabStatus.sessions_remaining <= 0
+    val sessionsRemaining = aiLabStatus?.sessions_remaining ?: 0
+    val sessionsUsed = aiLabStatus?.sessions_used_today ?: 0
+    val sessionsLimit = aiLabStatus?.sessions_limit ?: 5
+    val progressPercentage = (sessionsUsed.toFloat() / sessionsLimit).coerceIn(0f, 1f)
 
     Column(
-        modifier            = Modifier.fillMaxSize().padding(24.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFF8F9FC))
+            .padding(horizontal = 24.dp, vertical = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
-        Text(stringResource(R.string.ai_lab_intro),
-            color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
-
-        // Daily usage counter
-        if (aiLabStatus != null) {
-            Spacer(Modifier.height(16.dp))
+        // Welcome Section
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Box(
                 modifier = Modifier
-                    .background(
-                        if (isLimited) Color(0xFFFFEBEE) else BrandPurpleSoft,
-                        RoundedCornerShape(12.dp)
-                    )
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
+                    .size(72.dp)
+                    .background(Color(0xFFEDECF9), CircleShape),
+                contentAlignment = Alignment.Center
             ) {
-                Text(
-                    text = if (isLimited)
-                        stringResource(R.string.daily_limit_reached, aiLabStatus.sessions_used_today, aiLabStatus.sessions_limit)
-                    else
-                        stringResource(R.string.sessions_today, aiLabStatus.sessions_used_today, aiLabStatus.sessions_limit),
-                    color = if (isLimited) BrandRed else BrandPurple,
-                    fontSize = 13.sp,
-                    fontWeight = FontWeight.SemiBold
+                Icon(
+                    Icons.Default.Psychology,
+                    contentDescription = null,
+                    tint = BrandPurple,
+                    modifier = Modifier.size(40.dp)
                 )
             }
-            if (isLimited && aiLabStatus.bonus_sessions == 0) {
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    stringResource(R.string.earn_bonus_session),
-                    color = TextLight, fontSize = 12.sp, textAlign = TextAlign.Center
-                )
+            
+            Spacer(Modifier.height(16.dp))
+            
+            Text(
+                "AI Conversation Practice",
+                style = TextStyle(
+                    color = Color(0xFF1D1D1F),
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                textAlign = TextAlign.Center
+            )
+            
+            Spacer(Modifier.height(8.dp))
+            
+            Text(
+                "Improve your speaking skills with real-time feedback from our AI tutor",
+                style = TextStyle(
+                    color = Color(0xFF86868B),
+                    fontSize = 14.sp,
+                    lineHeight = 20.sp
+                ),
+                textAlign = TextAlign.Center
+            )
+        }
+
+        Spacer(Modifier.height(8.dp))
+
+        // Features Grid
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            FeatureItem(
+                icon = Icons.Default.ChatBubble,
+                title = "Natural Conversations",
+                description = "Chat about any topic with a helpful AI assistant"
+            )
+            FeatureItem(
+                icon = Icons.Default.Check,
+                title = "Instant Corrections",
+                description = "Get real-time feedback on grammar and pronunciation"
+            )
+            FeatureItem(
+                icon = Icons.Default.TrendingUp,
+                title = "Track Progress",
+                description = "See your improvements over time with detailed insights"
+            )
+        }
+
+        Spacer(Modifier.height(8.dp))
+
+        // Usage Counter Card
+        if (aiLabStatus != null) {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .shadow(2.dp, RoundedCornerShape(16.dp)),
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.White),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(20.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            "Today's Sessions",
+                            style = TextStyle(
+                                color = Color(0xFF1D1D1F),
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                        )
+                        Text(
+                            "$sessionsUsed/$sessionsLimit",
+                            style = TextStyle(
+                                color = BrandPurple,
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        )
+                    }
+
+                    // Progress Bar
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(8.dp)
+                            .clip(RoundedCornerShape(4.dp))
+                            .background(Color(0xFFE8E8ED))
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxHeight()
+                                .fillMaxWidth(progressPercentage)
+                                .clip(RoundedCornerShape(4.dp))
+                                .background(
+                                    if (isLimited) BrandRed else BrandPurple
+                                )
+                        )
+                    }
+
+                    if (isLimited && sessionsRemaining <= 0) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(Color(0xFFFFF3E0), RoundedCornerShape(8.dp))
+                                .padding(horizontal = 12.dp, vertical = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Icon(
+                                Icons.Default.Info,
+                                contentDescription = null,
+                                tint = Color(0xFFFF9800),
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Text(
+                                "Daily limit reached. Come back tomorrow!",
+                                style = TextStyle(
+                                    color = Color(0xFFE65100),
+                                    fontSize = 12.sp
+                                )
+                            )
+                        }
+                    } else if (sessionsRemaining <= 2 && !isLimited) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(Color(0xFFF3E5F5), RoundedCornerShape(8.dp))
+                                .padding(horizontal = 12.dp, vertical = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Icon(
+                                Icons.Default.Star,
+                                contentDescription = null,
+                                tint = BrandPurple,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Text(
+                                "$sessionsRemaining session${if (sessionsRemaining != 1) "s" else ""} remaining today",
+                                style = TextStyle(
+                                    color = BrandPurple,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.SemiBold
+                                )
+                            )
+                        }
+                    }
+                }
             }
         }
 
-        Spacer(Modifier.height(32.dp))
+        Spacer(Modifier.height(16.dp))
 
+        // CTA Button
         if (!isLimited) {
             Button(
-                onClick  = onStart,
-                shape    = RoundedCornerShape(32.dp),
-                colors   = ButtonDefaults.buttonColors(containerColor = BrandPurple, contentColor = Color.White),
-                elevation = ButtonDefaults.buttonElevation(0.dp),
+                onClick = onStart,
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = BrandPurple,
+                    contentColor = Color.White
+                ),
+                elevation = ButtonDefaults.buttonElevation(
+                    defaultElevation = 4.dp,
+                    pressedElevation = 2.dp
+                ),
                 modifier = Modifier
-                    .height(56.dp).width(240.dp)
+                    .fillMaxWidth()
+                    .height(56.dp)
                     .scale(pulseScale * buttonScale)
-                    .shadow(6.dp, RoundedCornerShape(32.dp))
                     .pointerInput(Unit) {
                         detectTapGestures(
                             onPress = { isPressed = true; tryAwaitRelease(); isPressed = false },
-                            onTap   = { onStart() }
+                            onTap = { onStart() }
                         )
                     }
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(stringResource(R.string.start_session), fontWeight = FontWeight.Bold)
-                    Spacer(Modifier.width(8.dp))
-                    Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(
+                        Icons.Default.Mic,
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Spacer(Modifier.width(10.dp))
+                    Text(
+                        "Start Conversation",
+                        style = TextStyle(
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    )
                 }
             }
         } else {
-            // Locked state
             Box(
                 modifier = Modifier
-                    .height(56.dp).width(240.dp)
-                    .background(Color(0xFFEEEEEE), RoundedCornerShape(32.dp)),
+                    .fillMaxWidth()
+                    .height(56.dp)
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(Color(0xFFE8E8ED)),
                 contentAlignment = Alignment.Center
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(Icons.Default.Lock, null, tint = TextLight, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(R.string.locked_for_today), color = TextLight, fontWeight = FontWeight.Bold)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Icon(
+                        Icons.Default.Lock,
+                        contentDescription = null,
+                        tint = Color(0xFF999999),
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Spacer(Modifier.width(10.dp))
+                    Text(
+                        "Daily limit reached. Try again tomorrow",
+                        style = TextStyle(
+                            color = Color(0xFF666666),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun FeatureItem(
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    title: String,
+    description: String
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.White, RoundedCornerShape(12.dp))
+            .padding(16.dp),
+        verticalAlignment = Alignment.Top,
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .size(48.dp)
+                .background(Color(0xFFEDECF9), CircleShape),
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                icon,
+                contentDescription = null,
+                tint = BrandPurple,
+                modifier = Modifier.size(24.dp)
+            )
+        }
+        Column(
+            modifier = Modifier.weight(1f),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            Text(
+                title,
+                style = TextStyle(
+                    color = Color(0xFF1D1D1F),
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.SemiBold
+                )
+            )
+            Text(
+                description,
+                style = TextStyle(
+                    color = Color(0xFF86868B),
+                    fontSize = 13.sp,
+                    lineHeight = 18.sp
+                )
+            )
         }
     }
 }
