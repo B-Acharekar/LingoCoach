@@ -1,4 +1,4 @@
-﻿package com.mk.lingocoach.ui.screens
+package com.mk.lingocoach.ui.screens
 
 import android.content.Context
 import android.content.Intent
@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.mk.lingocoach.R
+import com.mk.lingocoach.config.AppConfig
 import com.mk.lingocoach.notifications.NotificationScheduler
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
@@ -47,7 +48,7 @@ import com.mk.lingocoach.data.model.appLanguages
 import com.mk.lingocoach.data.repository.LanguagePreferencesRepository
 import kotlinx.coroutines.delay
 
-// ─── Settings Design Tokens ───────────────────────────────────────────────────
+// --- Settings Design Tokens ---------------------------------------------------
 private val SettingsBg        = Color(0xFFF5F4FF)
 private val SettingsCardBg    = Color(0xFFFFFFFF)
 private val SettingsPurple    = Color(0xFF6A5CFF)
@@ -60,21 +61,21 @@ private val SettingsSectionLabel = Color(0xFF9E9E9E)
 private val SettingsGreen     = Color(0xFF4CAF50)
 private val SettingsRed       = Color(0xFFE53935)
 
-// ─── Fluency levels list ──────────────────────────────────────────────────────
+// --- Fluency levels list ------------------------------------------------------
 private val fluencyLevels = listOf(
     "Beginner / A1", "Elementary / A2", "Intermediate / B1",
     "Upper-Intermediate / B2", "Advanced / C1", "Professional / Business"
 )
 
-// ─── Native language list ─────────────────────────────────────────────────────
-// ─── AI tutor voice profiles ──────────────────────────────────────────────────
+// --- Native language list -----------------------------------------------------
+// --- AI tutor voice profiles --------------------------------------------------
 private val voiceProfiles = listOf(
-    "Male – British Accent", "Male – American Accent",
-    "Female – British Accent", "Female – American Accent",
-    "Female – Australian Accent"
+    "Male � British Accent", "Male � American Accent",
+    "Female � British Accent", "Female � American Accent",
+    "Female � Australian Accent"
 )
 
-// ─── Main Settings Screen ─────────────────────────────────────────────────────
+// --- Main Settings Screen -----------------------------------------------------
 @Composable
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
@@ -88,15 +89,15 @@ fun SettingsScreen(
         .getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
         .getString("selected_language", "system") ?: "system"
 
-    // ── Persisted state ──────────────────────────────────────────────────────
+    // -- Persisted state ------------------------------------------------------
     var displayName    by remember { mutableStateOf(prefs.getString("display_name", "Alex Mercer") ?: "Alex Mercer") }
     var targetFluency  by remember { mutableStateOf(prefs.getString("target_fluency", "Professional / Business") ?: "Professional / Business") }
     var appLanguageCode by remember { mutableStateOf(mirroredLanguageCode) }
-    var voiceProfile   by remember { mutableStateOf(prefs.getString("voice_profile", "Male – British Accent") ?: "Male – British Accent") }
+    var voiceProfile   by remember { mutableStateOf(prefs.getString("voice_profile", "Male � British Accent") ?: "Male � British Accent") }
     var dailyReminder  by remember { mutableStateOf(prefs.getBoolean("daily_reminder", true)) }
     var offlineCache   by remember { mutableStateOf(prefs.getBoolean("offline_cache", false)) }
 
-    // ── Dialog state ─────────────────────────────────────────────────────────
+    // -- Dialog state ---------------------------------------------------------
     var showNameDialog     by remember { mutableStateOf(false) }
     var showFluencyDialog  by remember { mutableStateOf(false) }
     var showLangDialog     by remember { mutableStateOf(false) }
@@ -107,11 +108,11 @@ fun SettingsScreen(
     var pendingLanguageCode by remember { mutableStateOf<String?>(null) }
     val currentAppLanguageLabel = localizedSettingsLanguageLabel(appLanguageCode)
 
-    // ── Helper: persist a boolean ─────────────────────────────────────────────
+    // -- Helper: persist a boolean ---------------------------------------------
     fun saveBool(key: String, value: Boolean) = prefs.edit().putBoolean(key, value).apply()
     fun saveStr(key: String, value: String)   = prefs.edit().putString(key, value).apply()
 
-    // ── Helper: persist + sync one field to backend ───────────────────────────
+    // -- Helper: persist + sync one field to backend ---------------------------
     fun saveAndSync(key: String, value: String) {
         saveStr(key, value)
         val mapping = mapOf(
@@ -139,33 +140,14 @@ fun SettingsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .statusBarsPadding()
                 .navigationBarsPadding()
         ) {
-            // ── Top Bar ──────────────────────────────────────────────────────
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.White.copy(alpha = 0.92f))
-                    .padding(horizontal = 16.dp, vertical = 14.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                IconButton(onClick = onNavigateBack, modifier = Modifier.size(36.dp)) {
-                    Icon(
-                        Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = stringResource(R.string.back),
-                        tint = SettingsPurple,
-                        modifier = Modifier.size(22.dp)
-                    )
-                }
-                Spacer(Modifier.width(8.dp))
-                Text(
-                    stringResource(R.string.settings),
-                    style = TextStyle(color = SettingsTextDark, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
-                )
-            }
-
-            // ── Scrollable content ────────────────────────────────────────────
+            CommonTopBar(
+                title = stringResource(R.string.settings),
+                onBack = onNavigateBack,
+                onSettings = null
+            )
+            // -- Scrollable content --------------------------------------------
             Column(
                 modifier = Modifier
                     .weight(1f)
@@ -176,7 +158,7 @@ fun SettingsScreen(
             ) {
                 Spacer(Modifier.height(20.dp))
 
-                // ── Avatar + Profile card ─────────────────────────────────────
+                // -- Avatar + Profile card -------------------------------------
                 SettingsCard {
                     Column(
                         modifier = Modifier
@@ -250,7 +232,7 @@ fun SettingsScreen(
                 SettingsSectionHeader(stringResource(R.string.app_settings).uppercase())
                 Spacer(Modifier.height(8.dp))
 
-                // ── App & Learning Preferences card ──────────────────────────
+                // -- App & Learning Preferences card --------------------------
                 SettingsCard {
                     Column(modifier = Modifier.fillMaxWidth()) {
                         // Daily Reminder toggle
@@ -279,15 +261,15 @@ fun SettingsScreen(
                 SettingsSectionHeader(stringResource(R.string.privacy).uppercase())
                 Spacer(Modifier.height(8.dp))
 
-                // ── Legal card ────────────────────────────────────────────────
+                // -- Legal card ------------------------------------------------
                 SettingsCard {
                     Column(modifier = Modifier.fillMaxWidth()) {
                         SettingsLinkRow(label = stringResource(R.string.privacy)) {
-                            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://lingocoach.app/privacy")))
+                            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(AppConfig.privacyPolicyUrl)))
                         }
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
                         SettingsLinkRow(label = stringResource(R.string.terms_of_service)) {
-                            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://lingocoach.app/terms")))
+                            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(AppConfig.termsOfServiceUrl)))
                         }
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
                         SettingsLinkRow(
@@ -315,7 +297,7 @@ fun SettingsScreen(
 
                 Spacer(Modifier.height(24.dp))
 
-                // ── Delete Data & Account button ─────────────────────────────
+                // -- Delete Data & Account button -----------------------------
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -351,7 +333,7 @@ fun SettingsScreen(
         }
     }
 
-    // ── Dialogs ───────────────────────────────────────────────────────────────
+    // -- Dialogs ---------------------------------------------------------------
 
     // Edit Display Name
     if (showNameDialog) {
@@ -628,7 +610,7 @@ private fun localizedSettingsLanguageLabel(code: String): String {
     return "${language.flagEmoji} ${localizedAppLanguageName(code)}"
 }
 
-// ─── Reusable sub-components ──────────────────────────────────────────────────
+// --- Reusable sub-components --------------------------------------------------
 
 @Composable
 private fun SettingsCard(content: @Composable () -> Unit) {
@@ -737,7 +719,7 @@ private fun SettingsLinkRow(
     }
 }
 
-// ─── Dialog Components ────────────────────────────────────────────────────────
+// --- Dialog Components --------------------------------------------------------
 
 @Composable
 private fun SettingsEditDialog(

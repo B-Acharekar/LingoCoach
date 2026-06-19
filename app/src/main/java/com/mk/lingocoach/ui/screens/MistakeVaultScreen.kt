@@ -27,6 +27,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -39,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import com.mk.lingocoach.R
 import com.mk.lingocoach.network.AssessmentApi
 import com.mk.lingocoach.network.Mistake
 import kotlinx.coroutines.Dispatchers
@@ -75,6 +77,7 @@ data class DisplayMistake(
     val explanation: String,
     val timesMissed: Int,
     val source: String,           // "server" | "local"
+    val originSource: String = "unknown",
     val mastered: Boolean = false,
     val masteryScore: Int = 0,
     val createdAt: Long = System.currentTimeMillis()
@@ -85,6 +88,50 @@ enum class VaultTab { ALL, RECENT, PAST_LOGS }
 
 // Retest session state
 enum class RetestCardState { IDLE, RECORDING, RECORDED, MARKED_CORRECT, MARKED_WRONG, NEEDS_REVIEW }
+
+private fun cleanMistakeText(value: String?): String {
+    val cleaned = value?.trim().orEmpty()
+    return if (cleaned.lowercase() in setOf("null", "none", "\"\"", "\"", "'", "''")) "" else cleaned
+}
+
+private fun mistakeOrigin(source: String?, mistakeType: String): String {
+    val explicit = cleanMistakeText(source).lowercase()
+    if (explicit != "unknown" && explicit.isNotBlank()) return explicit
+    return when {
+        mistakeType.contains("TIMELY_DUEL", true) -> "timely_duel"
+        mistakeType.contains("VOCAB", true) -> "vocab_builder"
+        mistakeType.contains("FLASHCARD", true) -> "flashcards"
+        else -> "lessons"
+    }
+}
+
+private fun sourceLabel(source: String): String = when (source.lowercase()) {
+    "ai_lab" -> "AI LAB"
+    "vocab_builder" -> "VOCAB BUILDER"
+    "timely_duel" -> "TIMELY DUEL"
+    "lessons", "lesson" -> "LESSONS"
+    "flashcards" -> "FLASHCARDS"
+    else -> "OTHER"
+}
+
+private fun DisplayMistake.hasContent(): Boolean =
+    listOf(word, userAnswer, correctAnswer, explanation).any { cleanMistakeText(it).isNotBlank() }
+
+private fun Mistake.toDisplayMistake(): DisplayMistake = DisplayMistake(
+    id = cleanMistakeText(id),
+    word = cleanMistakeText(word),
+    mistakeType = cleanMistakeText(mistake_type).ifBlank { "grammar" },
+    userAnswer = cleanMistakeText(user_sentence),
+    correctAnswer = cleanMistakeText(correct_sentence),
+    explanation = cleanMistakeText(explanation),
+    timesMissed = times_missed,
+    mastered = mastered,
+    masteryScore = mastery_score,
+    source = "server",
+    originSource = mistakeOrigin(source, mistake_type),
+    createdAt = runCatching { java.time.Instant.parse(created_at).toEpochMilli() }
+        .getOrDefault(System.currentTimeMillis())
+)
 
 // ─── Main Vault Screen ────────────────────────────────────────────────────────
 @OptIn(ExperimentalMaterial3Api::class)
@@ -100,8 +147,10 @@ fun MistakeVaultScreen(
     val scope   = rememberCoroutineScope()
     val prefs   = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
 
-    var allMistakes   by remember { mutableStateOf<List<DisplayMistake>>(emptyList()) }
-    var isLoading     by remember { mutableStateOf(true) }
+    var allMistakes   by remember {
+        mutableStateOf(AppCache.mistakes.orEmpty().map { it.toDisplayMistake() }.filter { it.hasContent() })
+    }
+    var isLoading     by remember { mutableStateOf(AppCache.mistakes == null) }
     var selectedTab   by remember { mutableStateOf(VaultTab.ALL) }
     var showRetest    by remember { mutableStateOf(false) }
     var retestList    by remember { mutableStateOf<List<DisplayMistake>>(emptyList()) }
@@ -122,28 +171,26 @@ fun MistakeVaultScreen(
                     explanation = e.explanation,
                     timesMissed = e.timesMissed,
                     source      = "local",
+                    originSource = mistakeOrigin(null, e.mistakeType),
                     createdAt   = e.createdAt
                 )
-            }
+            }.filter { it.hasContent() }
+            val cachedServer = AppCache.mistakes.orEmpty()
+                .map { it.toDisplayMistake() }
+                .filter { it.hasContent() }
             scope.launch(Dispatchers.Main) {
-                allMistakes = localMistakes
+                val cachedWords = cachedServer.map { it.word.lowercase() }.toSet()
+                allMistakes = cachedServer + localMistakes.filter { it.word.lowercase() !in cachedWords }
                 isLoading   = false
             }
             AssessmentApi.getMistakes(userId) { serverList ->
-                val serverMapped = (serverList ?: emptyList()).map { m ->
-                    DisplayMistake(
-                        id          = m.id,
-                        word        = m.word,
-                        mistakeType = m.mistake_type,
-                        userAnswer  = m.user_sentence,
-                        correctAnswer = m.correct_sentence,
-                        explanation = m.explanation,
-                        timesMissed = m.times_missed,
-                        mastered    = m.mastered,
-                        masteryScore = m.mastery_score,
-                        source      = "server"
-                    )
+                if (serverList != null) {
+                    AppCache.mistakes = serverList
+                    AppCache.mistakesAt = System.currentTimeMillis()
                 }
+                val serverMapped = (serverList ?: AppCache.mistakes.orEmpty())
+                    .map { it.toDisplayMistake() }
+                    .filter { it.hasContent() }
                 val serverWords = serverMapped.map { it.word.lowercase() }.toSet()
                 val uniqueLocal = localMistakes.filter { it.word.lowercase() !in serverWords }
                 scope.launch(Dispatchers.Main) {
@@ -187,10 +234,9 @@ fun MistakeVaultScreen(
     Scaffold(
         topBar = {
             CommonTopBar(
-                title = "Mistake Vault",
+                title = stringResource(R.string.mistake_vault),
                 onBack = onNavigateBack,
-                onSettings = onNavigateToSettings,
-                backgroundColor = VaultBg
+                onSettings = onNavigateToSettings
             )
         },
         bottomBar = {
@@ -367,17 +413,17 @@ private fun VaultFilterTabs(
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         VaultTabChip(
-            label    = "All Slips ($allCount)",
+            label    = stringResource(R.string.all_slips_count, allCount),
             selected = selected == VaultTab.ALL,
             onClick  = { onSelect(VaultTab.ALL) }
         )
         VaultTabChip(
-            label    = "Recent ($recentCount)",
+            label    = stringResource(R.string.recent_count, recentCount),
             selected = selected == VaultTab.RECENT,
             onClick  = { onSelect(VaultTab.RECENT) }
         )
         VaultTabChip(
-            label    = "Past Logs ($pastCount)",
+            label    = stringResource(R.string.past_logs_count, pastCount),
             selected = selected == VaultTab.PAST_LOGS,
             onClick  = { onSelect(VaultTab.PAST_LOGS) }
         )
@@ -441,6 +487,9 @@ private fun VaultSlipCard(
             else                                  -> "${TimeUnit.MILLISECONDS.toDays(diff)} days ago"
         }
     }
+    val displayTerm = cleanMistakeText(mistake.word)
+        .ifBlank { cleanMistakeText(mistake.correctAnswer) }
+        .ifBlank { cleanMistakeText(mistake.userAnswer) }
 
     Card(
         modifier  = Modifier
@@ -467,12 +516,14 @@ private fun VaultSlipCard(
                         lineHeight = 24.sp
                     )
                     Spacer(Modifier.height(2.dp))
-                    Text(
-                        "'${mistake.word}'",
-                        color      = VaultPurple,
-                        fontSize   = 14.sp,
-                        fontWeight = FontWeight.SemiBold
-                    )
+                    if (displayTerm.isNotBlank()) {
+                        Text(
+                            displayTerm,
+                            color      = VaultPurple,
+                            fontSize   = 14.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
                 }
                 Column(horizontalAlignment = Alignment.End) {
                     Box(
@@ -482,6 +533,20 @@ private fun VaultSlipCard(
                             .padding(horizontal = 8.dp, vertical = 4.dp)
                     ) {
                         Text(tagLabel, color = tagColor, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.5.sp)
+                    }
+                    Spacer(Modifier.height(4.dp))
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(8.dp))
+                            .background(VaultPurpleSoft)
+                            .padding(horizontal = 8.dp, vertical = 4.dp)
+                    ) {
+                        Text(
+                            "FROM ${sourceLabel(mistake.originSource)}",
+                            color = VaultPurple,
+                            fontSize = 8.sp,
+                            fontWeight = FontWeight.ExtraBold
+                        )
                     }
                     Spacer(Modifier.height(4.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
@@ -527,9 +592,9 @@ private fun VaultSlipCard(
 
             // Wrong / Correct rows (grammar mistakes)
             if (!isPronun && mistake.userAnswer.isNotBlank()) {
-                VaultAnswerRow(isCorrect = false, label = "YOUR ANSWER", text = mistake.userAnswer)
+                VaultAnswerRow(isCorrect = false, label = stringResource(R.string.your_answer), text = mistake.userAnswer)
                 Spacer(Modifier.height(8.dp))
-                VaultAnswerRow(isCorrect = true,  label = "CORRECT",     text = mistake.correctAnswer)
+                VaultAnswerRow(isCorrect = true,  label = stringResource(R.string.correct), text = mistake.correctAnswer)
                 Spacer(Modifier.height(12.dp))
             }
 
@@ -921,7 +986,7 @@ private fun RetestFlashcard(
             ) {
                 Icon(Icons.Default.PlayCircle, contentDescription = null, tint = VaultPurple, modifier = Modifier.size(22.dp))
                 Spacer(Modifier.width(8.dp))
-                Text("Hear Pronunciation", fontWeight = FontWeight.Medium, fontSize = 14.sp)
+                Text(stringResource(R.string.hear_pronunciation), fontWeight = FontWeight.Medium, fontSize = 14.sp)
             }
 
             Spacer(Modifier.height(16.dp))
@@ -982,7 +1047,7 @@ private fun RetestActionZone(
                         )
                         Spacer(Modifier.height(8.dp))
                         TextButton(onClick = onNeedsReview) {
-                            Text("I need to review this rule again", color = VaultTextLight, fontSize = 12.sp)
+                            Text(stringResource(R.string.review_rule_again), color = VaultTextLight, fontSize = 12.sp)
                         }
                     }
                 }
@@ -1026,12 +1091,12 @@ private fun RetestActionZone(
                             ) {
                                 Icon(Icons.Default.Close, contentDescription = null, modifier = Modifier.size(16.dp))
                                 Spacer(Modifier.width(4.dp))
-                                Text("Again", fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                                Text(stringResource(R.string.again), fontSize = 13.sp, fontWeight = FontWeight.Bold)
                             }
                         }
                         Spacer(Modifier.height(10.dp))
                         TextButton(onClick = onNeedsReview) {
-                            Text("Skip for now", color = VaultTextLight, fontSize = 12.sp)
+                            Text(stringResource(R.string.skip_for_now), color = VaultTextLight, fontSize = 12.sp)
                         }
                     }
                 }
@@ -1039,14 +1104,14 @@ private fun RetestActionZone(
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Icon(Icons.Default.CheckCircle, contentDescription = null, tint = VaultGreen, modifier = Modifier.size(56.dp))
                         Spacer(Modifier.height(8.dp))
-                        Text("Mastered!", color = VaultGreen, fontWeight = FontWeight.ExtraBold, fontSize = 18.sp)
+                        Text(stringResource(R.string.mastered_exclaim), color = VaultGreen, fontWeight = FontWeight.ExtraBold, fontSize = 18.sp)
                     }
                 }
                 RetestCardState.MARKED_WRONG -> {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Icon(Icons.Default.Cancel, contentDescription = null, tint = VaultRed, modifier = Modifier.size(56.dp))
                         Spacer(Modifier.height(8.dp))
-                        Text("Added for review", color = VaultRed, fontWeight = FontWeight.ExtraBold, fontSize = 18.sp)
+                        Text(stringResource(R.string.added_for_review), color = VaultRed, fontWeight = FontWeight.ExtraBold, fontSize = 18.sp)
                     }
                 }
             }
@@ -1079,7 +1144,7 @@ private fun RetestTypedAnswerBox(
             value = typedAnswer,
             onValueChange = onTypedAnswerChange,
             modifier = Modifier.fillMaxWidth(),
-            placeholder = { Text("Write the correction here", color = VaultTextLight) },
+            placeholder = { Text(stringResource(R.string.write_correction_here), color = VaultTextLight) },
             minLines = 1,
             maxLines = 3,
             shape = RoundedCornerShape(14.dp),
@@ -1111,7 +1176,7 @@ private fun RetestTypedAnswerBox(
         ) {
             Icon(Icons.Default.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
             Spacer(Modifier.width(6.dp))
-            Text("Verify Answer", color = Color.White, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.verify_answer), color = Color.White, fontWeight = FontWeight.Bold)
         }
     }
 }
@@ -1197,9 +1262,9 @@ private fun RetestSessionSummary(
             modifier              = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            SummaryStatBox(icon = Icons.Default.CheckCircle, label = "Mastered", value = masteredCount, color = VaultGreen)
-            SummaryStatBox(icon = Icons.Default.Refresh,      label = "Review",   value = reviewCount,   color = VaultAmber)
-            SummaryStatBox(icon = Icons.AutoMirrored.Filled.MenuBook, label = "Total", value = total, color = VaultPurple)
+            SummaryStatBox(icon = Icons.Default.CheckCircle, label = stringResource(R.string.mastered), value = masteredCount, color = VaultGreen)
+            SummaryStatBox(icon = Icons.Default.Refresh,      label = stringResource(R.string.review),   value = reviewCount,   color = VaultAmber)
+            SummaryStatBox(icon = Icons.AutoMirrored.Filled.MenuBook, label = stringResource(R.string.total), value = total, color = VaultPurple)
         }
 
         Spacer(Modifier.height(40.dp))
@@ -1229,7 +1294,7 @@ private fun RetestSessionSummary(
             colors   = ButtonDefaults.outlinedButtonColors(contentColor = VaultPurple),
             border   = androidx.compose.foundation.BorderStroke(1.5.dp, VaultPurple.copy(alpha = 0.4f))
         ) {
-            Text("Back to Vault", fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.back_to_vault), fontWeight = FontWeight.Bold)
         }
     }
 }
@@ -1256,18 +1321,7 @@ private fun SummaryStatBox(icon: androidx.compose.ui.graphics.vector.ImageVector
 @Composable
 fun MistakeCard(mistake: Mistake) {
     VaultSlipCard(
-        mistake = DisplayMistake(
-            id            = mistake.id,
-            word          = mistake.word,
-            mistakeType   = mistake.mistake_type,
-            userAnswer    = mistake.user_sentence,
-            correctAnswer = mistake.correct_sentence,
-            explanation   = mistake.explanation,
-            timesMissed   = mistake.times_missed,
-            mastered      = mistake.mastered,
-            masteryScore  = mistake.mastery_score,
-            source        = "server"
-        ),
+        mistake = mistake.toDisplayMistake(),
         onPracticeCard = {}
     )
 }

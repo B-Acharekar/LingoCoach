@@ -77,7 +77,7 @@ fun CommonTopBar(
             if (onSettings != null) {
                 Icon(
                     Icons.Default.Settings,
-                    contentDescription = "Settings",
+                    contentDescription = stringResource(R.string.settings),
                     tint = TextDark,
                     modifier = Modifier.size(20.dp)
                 )

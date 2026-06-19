@@ -32,6 +32,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -116,7 +117,7 @@ fun TimelyDuelScreen(onNavigateBack: () -> Unit, onNavigateToSettings: () -> Uni
         AppBackgroundTexture()
         Column(Modifier.fillMaxSize()) {
             CommonTopBar(
-                title = "Timely Duel",
+                title = stringResource(R.string.timely_duel),
                 onBack = onNavigateBack,
                 onSettings = onNavigateToSettings
             )
@@ -185,7 +186,8 @@ fun TimelyDuelScreen(onNavigateBack: () -> Unit, onNavigateToSettings: () -> Uni
                                         mistakeType     = "TIMELY_DUEL",
                                         userSentence    = "(missed in timed duel)",
                                         correctSentence = word.word,
-                                        explanation     = "Meaning: ${word.meaning}"
+                                        explanation     = "Meaning: ${word.meaning}",
+                                        source          = "timely_duel"
                                     )
                                 }
                             }
