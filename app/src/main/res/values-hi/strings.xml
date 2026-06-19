@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
-    <string name="app_name">LingoCoach</string>
+    <string name="app_name">LingoCoach: AI Language Tutor</string>
     
     <!-- Language Selection Screen -->
     <string name="choose_language">भाषा चुनें</string>
@@ -58,6 +58,12 @@
     <string name="your_progress">आपकी प्रगति</string>
     <string name="today_goal">आज का लक्ष्य</string>
     <string name="weekly_stats">साप्ताहिक आँकड़े</string>
+    <string name="daily_stats">दैनिक आँकड़े</string>
+    <string name="overall">कुल मिलाकर</string>
+    <string name="good_morning">सुप्रभात</string>
+    <string name="good_afternoon">शुभ दोपहर</string>
+    <string name="good_evening">शुभ संध्या</string>
+    <string name="view_map">मैप देखें</string>
     <string name="total_time">कुल समय</string>
     <string name="accuracy">सटीकता</string>
     <string name="completed">पूरा हुआ</string>
@@ -82,8 +88,18 @@
     <string name="learning">सीख रहे हैं</string>
     <string name="add_word">शब्द जोड़ें</string>
     <string name="word">शब्द</string>
+    <string name="words">शब्द</string>
     <string name="translation">अनुवाद</string>
     <string name="example">उदाहरण</string>
+    <string name="definition">परिभाषा</string>
+    <string name="category">श्रेणी</string>
+    <string name="search_vocabulary_topics">शब्दावली विषय खोजें...</string>
+    <string name="search_words_meanings">शब्द और अर्थ खोजें...</string>
+    <string name="type_the_match">मेल लिखें...</string>
+    <string name="sort_by">इसके अनुसार क्रमबद्ध करें:</string>
+    <string name="all_level_vocabulary">सभी %1$s शब्दावली</string>
+    <string name="no_vocabulary_found">%1$s / %2$s के लिए कोई शब्दावली नहीं मिली</string>
+    <string name="all">सभी</string>
     <string name="pronunciation">उच्चारण</string>
     
     <!-- Mistakes / Vault -->
@@ -94,6 +110,21 @@
     <string name="fix_mistakes">गलतियाँ सुधारें</string>
     <string name="no_mistakes">अभी तक कोई गलती नहीं!</string>
     <string name="keep_practicing">अभ्यास जारी रखें</string>
+    <string name="all_slips_count">सभी स्लिप (%1$d)</string>
+    <string name="recent_count">हाल की (%1$d)</string>
+    <string name="past_logs_count">पुराने लॉग (%1$d)</string>
+    <string name="your_answer">आपका उत्तर</string>
+    <string name="correct">सही</string>
+    <string name="hear_pronunciation">उच्चारण सुनें</string>
+    <string name="review_rule_again">मुझे यह नियम फिर से देखना है</string>
+    <string name="again">फिर से</string>
+    <string name="skip_for_now">अभी छोड़ें</string>
+    <string name="mastered_exclaim">महारत हासिल!</string>
+    <string name="added_for_review">समीक्षा के लिए जोड़ा गया</string>
+    <string name="write_correction_here">सुधार यहां लिखें</string>
+    <string name="verify_answer">उत्तर जांचें</string>
+    <string name="total">कुल</string>
+    <string name="back_to_vault">वॉल्ट पर वापस जाएं</string>
     
     <!-- Flashcards -->
     <string name="flashcards">फ्लैशकार्ड</string>
@@ -104,6 +135,7 @@
     
     <!-- Duel / Challenge -->
     <string name="timely_duel">समयबद्ध द्वंद्व</string>
+    <string name="battle_against_time">समय के खिलाफ मुकाबला</string>
     <string name="challenge">चुनौती</string>
     <string name="versus">बनाम</string>
     <string name="score">स्कोर</string>
@@ -115,12 +147,25 @@
     
     <!-- AI Lab -->
     <string name="ai_lab">एआई लैब</string>
+    <string name="ai_lab_nav">एआई लैब</string>
+    <string name="vocab_nav">शब्दावली</string>
+    <string name="vault_nav">तिजोरी</string>
     <string name="practice_with_ai">एआई के साथ अभ्यास करें</string>
     <string name="conversation">बातचीत</string>
     <string name="grammar_check">व्याकरण जांच</string>
     <string name="pronunciation_practice">उच्चारण अभ्यास</string>
     <string name="ask_ai">एआई से पूछें</string>
     <string name="ai_tutor">एआई ट्यूटर</string>
+    <string name="todays_sessions_count">आज के सत्र %1$d/%2$d</string>
+    <string name="ai_conversation_practice">एआई बातचीत अभ्यास</string>
+    <string name="ai_lab_intro_feedback">अपने बोलने के कौशल को एआई ट्यूटर की तुरंत प्रतिक्रिया से बेहतर बनाएं</string>
+    <string name="natural_conversations">स्वाभाविक बातचीत</string>
+    <string name="natural_conversations_desc">किसी भी विषय पर मददगार एआई सहायक से बात करें</string>
+    <string name="instant_corrections">तुरंत सुधार</string>
+    <string name="instant_corrections_desc">व्याकरण और उच्चारण पर तुरंत प्रतिक्रिया पाएं</string>
+    <string name="track_progress">प्रगति ट्रैक करें</string>
+    <string name="track_progress_desc">विस्तृत जानकारी के साथ अपनी सुधार यात्रा देखें</string>
+    <string name="daily_limit_try_tomorrow">दैनिक सीमा पूरी हो गई। कल फिर प्रयास करें</string>
     
     <!-- Assessment -->
     <string name="assessment">मूल्यांकन</string>
@@ -314,7 +359,7 @@
     <string name="change_avatar">अवतार बदलें</string>
     <string name="terms_of_service">सेवा की शर्तें</string>
     <string name="data_export_csv">डेटा निर्यात (CSV)</string>
-    <string name="lingocoach_data_export">LingoCoach डेटा निर्यात</string>
+    <string name="lingocoach_data_export">LingoCoach: AI Language Tutor डेटा निर्यात</string>
     <string name="export_data_as_csv">डेटा CSV के रूप में निर्यात करें</string>
     <string name="delete_account">खाता हटाएं</string>
     <string name="logout_confirm_message">क्या आप वाकई अपने खाते से लॉग आउट करना चाहते हैं?</string>
