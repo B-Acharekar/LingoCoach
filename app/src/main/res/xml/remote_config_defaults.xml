@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>backend_base_url</key>
+        <value>https://lingoai-backend-zej0.onrender.com</value>
+    </entry>
+    <entry>
+        <key>privacy_policy_url</key>
+        <value>https://lingocoach.app/privacy</value>
+    </entry>
+    <entry>
+        <key>terms_of_service_url</key>
+        <value>https://lingocoach.app/terms</value>
+    </entry>
+    <entry>
+        <key>onesignal_app_id</key>
+        <value>46957d03-f3f9-435c-b76c-e5cd0b8089b5</value>
+    </entry>
+    <entry>
+        <key>daily_reminder_morning_hour</key>
+        <value>10</value>
+    </entry>
+    <entry>
+        <key>daily_reminder_evening_hour</key>
+        <value>19</value>
+    </entry>
+    <entry>
+        <key>minimum_supported_version_code</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>force_update_enabled</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>maintenance_mode_enabled</key>
+        <value>false</value>
+    </entry>
+</defaultsMap>

@@ -3,6 +3,7 @@ package com.mk.lingocoach.network
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
+import com.mk.lingocoach.config.AppConfig
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
@@ -34,6 +35,17 @@ data class AssessmentResponse(
     val detected_weakness: String?,
     val recommended_focus: String?,
     val transcribed_text: String?
+)
+
+data class FullAssessmentAnswer(
+    val step: Int,
+    val question: String,
+    val answer: String
+)
+
+data class FullAssessmentRequest(
+    val session_id: String,
+    val answers: List<FullAssessmentAnswer>
 )
 
 // ─── Current Learning Path Models ───────────────────────────────────────────
@@ -134,12 +146,14 @@ data class Mistake(
     val mastered: Boolean,
     val mastery_score: Int,
     val created_at: String,
-    val last_reviewed: String?
+    val last_reviewed: String?,
+    val source: String = "unknown"
 )
 
 // ─────────────────────────────────────────────────────────────────────────────
 object AssessmentApi {
-    private const val BASE_URL = "https://lingoai-backend-zej0.onrender.com"
+    private val baseUrl: String
+        get() = AppConfig.backendBaseUrl
     private val JSON_MEDIA_TYPE = "application/json; charset=utf-8".toMediaType()
 
     private val client = OkHttpClient.Builder()
@@ -153,7 +167,7 @@ object AssessmentApi {
     fun createSession(userName: String = "", onResult: (SessionResponse?) -> Unit) {
         val body = gson.toJson(mapOf("user_name" to userName))
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/sessions")
+            .url("${baseUrl}/api/v1/sessions")
             .post(body.toRequestBody(JSON_MEDIA_TYPE))
             .build()
 
@@ -187,7 +201,7 @@ object AssessmentApi {
     fun submitTextAnswer(sessionId: String, answer: String, onResult: (AssessmentResponse?) -> Unit) {
         val json = gson.toJson(mapOf("session_id" to sessionId, "user_answer" to answer))
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/assess")
+            .url("${baseUrl}/api/v1/assess")
             .post(json.toRequestBody(JSON_MEDIA_TYPE))
             .build()
 
@@ -227,7 +241,7 @@ object AssessmentApi {
             .build()
 
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/assess/voice")
+            .url("${baseUrl}/api/v1/assess/voice")
             .post(multipartBody)
             .build()
 
@@ -258,10 +272,87 @@ object AssessmentApi {
         })
     }
 
+    fun transcribeVoiceAnswer(sessionId: String, audioFile: File, onResult: (AssessmentResponse?) -> Unit) {
+        val fileBody = audioFile.asRequestBody("audio/mp4".toMediaType())
+        val multipartBody = MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+            .addFormDataPart("session_id", sessionId)
+            .addFormDataPart("transcribe_only", "true")
+            .addFormDataPart("audio_file", audioFile.name, fileBody)
+            .build()
+
+        val request = Request.Builder()
+            .url("${baseUrl}/api/v1/assess/voice")
+            .post(multipartBody)
+            .build()
+
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to transcribe voice answer", e)
+                onResult(null)
+            }
+
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) {
+                        Log.e("AssessmentApi", "Transcribe voice unsuccessful: ${response.code}")
+                        onResult(null)
+                        return
+                    }
+                    val bodyString = response.body?.string()
+                    Log.d("AssessmentApi", "Transcribe voice response: $bodyString")
+                    try {
+                        val result = gson.fromJson(bodyString, AssessmentResponse::class.java)
+                        onResult(result)
+                    } catch (e: Exception) {
+                        Log.e("AssessmentApi", "Failed to parse transcription response", e)
+                        onResult(null)
+                    }
+                }
+            }
+        })
+    }
+
+    fun submitFullAssessment(requestBody: FullAssessmentRequest, onResult: (AssessmentResponse?) -> Unit) {
+        val json = gson.toJson(requestBody)
+        val request = Request.Builder()
+            .url("${baseUrl}/api/v1/assess/final")
+            .post(json.toRequestBody(JSON_MEDIA_TYPE))
+            .header("accept", "application/json")
+            .header("Content-Type", "application/json")
+            .build()
+
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to submit full assessment", e)
+                onResult(null)
+            }
+
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) {
+                        Log.e("AssessmentApi", "Submit full assessment unsuccessful: ${response.code}")
+                        onResult(null)
+                        return
+                    }
+                    val bodyString = response.body?.string()
+                    Log.d("AssessmentApi", "Submit full assessment response: $bodyString")
+                    try {
+                        val result = gson.fromJson(bodyString, AssessmentResponse::class.java)
+                        onResult(result)
+                    } catch (e: Exception) {
+                        Log.e("AssessmentApi", "Failed to parse full assessment response", e)
+                        onResult(null)
+                    }
+                }
+            }
+        })
+    }
+
     fun getLearningPath(requestBody: LearningPathRequest, onResult: (LearningPathResponse?) -> Unit) {
         val json = gson.toJson(requestBody)
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/learning-path")
+            .url("${baseUrl}/api/v1/learning-path")
             .post(json.toRequestBody(JSON_MEDIA_TYPE))
             .header("accept", "application/json")
             .header("Content-Type", "application/json")
@@ -296,7 +387,7 @@ object AssessmentApi {
 
     fun getCurrentLearningPath(userId: String, onResult: (CurrentLearningPathResponse?) -> Unit) {
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/learning-path/current?user_id=$userId")
+            .url("${baseUrl}/api/v1/learning-path/current?user_id=$userId")
             .get()
             .header("accept", "application/json")
             .build()
@@ -319,7 +410,7 @@ object AssessmentApi {
 
     fun getSublesson(sublessonId: String, onResult: (SublessonDetail?) -> Unit) {
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/sublessons/$sublessonId")
+            .url("${baseUrl}/api/v1/sublessons/$sublessonId")
             .get()
             .header("accept", "application/json")
             .build()
@@ -341,7 +432,7 @@ object AssessmentApi {
     fun completeExercise(request: CompleteExerciseRequest, onResult: (CompleteExerciseResponse?) -> Unit) {
         val json = gson.toJson(request)
         val httpRequest = Request.Builder()
-            .url("$BASE_URL/api/v1/exercise/complete")
+            .url("${baseUrl}/api/v1/exercise/complete")
             .post(json.toRequestBody(JSON_MEDIA_TYPE))
             .header("accept", "application/json")
             .build()
@@ -362,7 +453,7 @@ object AssessmentApi {
 
     fun getMistakes(userId: String, onResult: (List<Mistake>?) -> Unit) {
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/mistakes?user_id=$userId")
+            .url("${baseUrl}/api/v1/mistakes?user_id=$userId")
             .get()
             .header("accept", "application/json")
             .build()
@@ -389,7 +480,7 @@ object AssessmentApi {
         onResult: ((Boolean) -> Unit)? = null
     ) {
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/mistakes/mark-resolved/$mistakeId?user_id=$userId")
+            .url("${baseUrl}/api/v1/mistakes/mark-resolved/$mistakeId?user_id=$userId")
             .post(ByteArray(0).toRequestBody(null))
             .header("accept", "application/json")
             .build()
@@ -405,7 +496,7 @@ object AssessmentApi {
 
     fun getVocabBookmarks(userId: String, onResult: (List<VocabBookmark>?) -> Unit) {
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/vocab/bookmarks?user_id=$userId")
+            .url("${baseUrl}/api/v1/vocab/bookmarks?user_id=$userId")
             .get()
             .header("accept", "application/json")
             .build()
@@ -428,7 +519,7 @@ object AssessmentApi {
 
     fun getFlashcards(userId: String, onResult: (List<Flashcard>?) -> Unit) {
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/flashcards/review?user_id=$userId")
+            .url("${baseUrl}/api/v1/flashcards/review?user_id=$userId")
             .get()
             .header("accept", "application/json")
             .build()
@@ -452,7 +543,7 @@ object AssessmentApi {
     fun reviewFlashcard(cardId: String, rating: Int, onResult: (Boolean) -> Unit) {
         val json = gson.toJson(ReviewRatingRequest(cardId, rating))
         val httpRequest = Request.Builder()
-            .url("$BASE_URL/api/v1/flashcards/review")
+            .url("${baseUrl}/api/v1/flashcards/review")
             .post(json.toRequestBody(JSON_MEDIA_TYPE))
             .header("accept", "application/json")
             .build()
@@ -476,7 +567,7 @@ object AssessmentApi {
     ) {
         val body = gson.toJson(mapOf("client_time" to clientTime, "changes" to changes))
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/vocab/sync?user_id=$userId")
+            .url("${baseUrl}/api/v1/vocab/sync?user_id=$userId")
             .post(body.toRequestBody(JSON_MEDIA_TYPE))
             .header("accept", "application/json")
             .build()
@@ -502,9 +593,9 @@ object AssessmentApi {
         onResult: (List<Map<String, Any>>?) -> Unit
     ) {
         val url = if (lastSyncTime != null)
-            "$BASE_URL/api/v1/vocab/sync?user_id=$userId&last_sync_time=$lastSyncTime"
+            "${baseUrl}/api/v1/vocab/sync?user_id=$userId&last_sync_time=$lastSyncTime"
         else
-            "$BASE_URL/api/v1/vocab/sync?user_id=$userId"
+            "${baseUrl}/api/v1/vocab/sync?user_id=$userId"
         val request = Request.Builder().url(url).get()
             .header("accept", "application/json").build()
         client.newCall(request).enqueue(object : okhttp3.Callback {
@@ -528,7 +619,7 @@ object AssessmentApi {
 
     fun getWeeklyAnalytics(userId: String, onResult: (List<DailyStats>?) -> Unit) {
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/analytics/weekly?user_id=$userId")
+            .url("${baseUrl}/api/v1/analytics/weekly?user_id=$userId")
             .get()
             .header("accept", "application/json")
             .build()
@@ -552,7 +643,7 @@ object AssessmentApi {
 
     fun getProgressMetrics(userId: String, onResult: (ProgressMetrics?) -> Unit) {
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/progress/metrics?user_id=$userId")
+            .url("${baseUrl}/api/v1/progress/metrics?user_id=$userId")
             .get()
             .header("accept", "application/json")
             .build()
@@ -583,7 +674,7 @@ object AssessmentApi {
             "source"    to source
         ))
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/progress/xp")
+            .url("${baseUrl}/api/v1/progress/xp")
             .post(body.toRequestBody(JSON_MEDIA_TYPE))
             .header("accept", "application/json")
             .build()
@@ -608,7 +699,7 @@ object AssessmentApi {
         if (nonNull.isEmpty()) { onResult?.invoke(true); return }
         val body = gson.toJson(nonNull)
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/progress/users/$userId")
+            .url("${baseUrl}/api/v1/progress/users/$userId")
             .patch(body.toRequestBody(JSON_MEDIA_TYPE))
             .header("accept", "application/json")
             .build()
@@ -631,6 +722,7 @@ object AssessmentApi {
         userSentence: String,
         correctSentence: String,
         explanation: String,
+        source: String = "unknown",
         onResult: ((Boolean) -> Unit)? = null
     ) {
         val body = gson.toJson(mapOf(
@@ -639,10 +731,11 @@ object AssessmentApi {
             "mistake_type"     to mistakeType,
             "user_sentence"    to userSentence,
             "correct_sentence" to correctSentence,
-            "explanation"      to explanation
+            "explanation"      to explanation,
+            "source"           to source
         ))
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/mistakes")
+            .url("${baseUrl}/api/v1/mistakes")
             .post(body.toRequestBody(JSON_MEDIA_TYPE))
             .header("accept", "application/json")
             .build()
@@ -736,6 +829,8 @@ data class DailyStats(
     val lessons_completed: Int = 0,
     val exercises_attempted: Int = 0,
     val exercises_correct: Int = 0,
+    val pronunciation_attempts: Int = 0,
+    val pronunciation_score_total: Int = 0,
     val mistakes_logged: Int = 0,
     val vocab_drills_done: Int = 0,
     val vocab_words_mastered: Int = 0,
@@ -752,7 +847,9 @@ data class ProgressActivity(
     val exercise_correct: Int = 0,
     val vocab_words_mastered: Int = 0,
     val ai_lab_sessions: Int = 0,
-    val ai_lab_minutes: Int = 0
+    val ai_lab_minutes: Int = 0,
+    val pronunciation_attempts: Int = 0,
+    val pronunciation_score_total: Int = 0
 )
 
 data class ProgressMetrics(

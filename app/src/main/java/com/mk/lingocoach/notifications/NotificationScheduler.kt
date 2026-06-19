@@ -2,6 +2,7 @@ package com.mk.lingocoach.notifications
 
 import android.content.Context
 import androidx.work.*
+import com.mk.lingocoach.config.AppConfig
 import java.util.Calendar
 import java.util.concurrent.TimeUnit
 
@@ -23,7 +24,7 @@ object NotificationScheduler {
     }
 
     private fun scheduleMorningReminder(context: Context) {
-        val initialDelay = calculateInitialDelay(10, 0) // 10:00 AM
+        val initialDelay = calculateInitialDelay(AppConfig.dailyReminderMorningHour, 0)
         
         val morningWorkRequest = PeriodicWorkRequestBuilder<DailyReminderWorker>(
             24, TimeUnit.HOURS
@@ -40,7 +41,7 @@ object NotificationScheduler {
     }
 
     private fun scheduleEveningReminder(context: Context) {
-        val initialDelay = calculateInitialDelay(19, 0) // 7:00 PM
+        val initialDelay = calculateInitialDelay(AppConfig.dailyReminderEveningHour, 0)
         
         val eveningWorkRequest = PeriodicWorkRequestBuilder<DailyReminderWorker>(
             24, TimeUnit.HOURS
