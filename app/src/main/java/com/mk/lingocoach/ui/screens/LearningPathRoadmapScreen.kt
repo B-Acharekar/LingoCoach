@@ -240,7 +240,7 @@ private fun TopBar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White.copy(alpha = 0.97f))
+            .background(Color.White)
             .padding(horizontal = 16.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
@@ -249,12 +249,12 @@ private fun TopBar(
             onClick = onBack,
             modifier = Modifier
                 .size(40.dp)
-                .background(BrandPurpleLight, CircleShape)
+                .background(Color(0xFFF2F2F2), CircleShape)
         ) {
             Icon(
                 Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = stringResource(R.string.back),
-                tint = BrandPurple,
+                tint = Color(0xFF1A1A1A),
                 modifier = Modifier.size(20.dp)
             )
         }
@@ -262,7 +262,7 @@ private fun TopBar(
         Text(
             stringResource(R.string.learning_path),
             style = TextStyle(
-                color = TextDark,
+                color = Color(0xFF1A1A1A),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.ExtraBold
             )
@@ -272,13 +272,12 @@ private fun TopBar(
             onClick = onSettings,
             modifier = Modifier
                 .size(40.dp)
-                .background(BrandPurpleLight, CircleShape)
+                .background(Color(0xFFF2F2F2), CircleShape)
         ) {
             Icon(
                 Icons.Default.Settings,
                 contentDescription = "Settings",
-                
-                tint = BrandPurple,
+                tint = Color(0xFF1A1A1A),
                 modifier = Modifier.size(20.dp)
             )
         }

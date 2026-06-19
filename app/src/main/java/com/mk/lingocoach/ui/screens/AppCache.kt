@@ -4,6 +4,8 @@ import android.content.Context
 import com.google.gson.Gson
 import com.mk.lingocoach.network.CurrentLearningPathResponse
 import com.mk.lingocoach.network.Mistake
+import com.mk.lingocoach.network.DailyStats
+import com.mk.lingocoach.network.ProgressMetrics
 
 /**
  * In-memory + SharedPreferences cache for data that changes infrequently.
@@ -25,6 +27,12 @@ object AppCache {
     var mistakesAt: Long = 0L
     private const val MK_TTL = 10 * 60 * 1000L         // 10 minutes
 
+    // Analytics are shown immediately on return and refreshed in the background.
+    var weeklyStats: List<DailyStats>? = null
+    var progressMetrics: ProgressMetrics? = null
+    var analyticsAt: Long = 0L
+    private const val ANALYTICS_TTL = 2 * 60 * 1000L
+
     // ── Helpers ───────────────────────────────────────────────────────────────
 
     fun isLearningPathStale() =
@@ -32,6 +40,9 @@ object AppCache {
 
     fun isMistakesStale() =
         System.currentTimeMillis() - mistakesAt > MK_TTL
+
+    fun isAnalyticsStale() =
+        System.currentTimeMillis() - analyticsAt > ANALYTICS_TTL
 
     fun invalidateLearningPath() {
         learningPath = null
@@ -58,6 +69,9 @@ object AppCache {
     fun invalidateAll() {
         invalidateLearningPath()
         invalidateMistakes()
+        weeklyStats = null
+        progressMetrics = null
+        analyticsAt = 0L
     }
 
     // ── Disk persistence (SharedPreferences) ─────────────────────────────────

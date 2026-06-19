@@ -50,9 +50,9 @@ fun ProgressScreen(
     val prefs   = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
     val scroll  = rememberScrollState()
 
-    var weeklyStats by remember { mutableStateOf<List<DailyStats>>(emptyList()) }
-    var progressMetrics by remember { mutableStateOf<ProgressMetrics?>(null) }
-    var isLoading   by remember { mutableStateOf(true) }
+    var weeklyStats by remember { mutableStateOf(AppCache.weeklyStats.orEmpty()) }
+    var progressMetrics by remember { mutableStateOf(AppCache.progressMetrics) }
+    var isLoading   by remember { mutableStateOf(AppCache.weeklyStats == null) }
     var isVocabLoaded by remember { mutableStateOf(VocabTracker.isLoaded) }
 
     val userId = remember {
@@ -71,7 +71,11 @@ fun ProgressScreen(
         scope.launch(Dispatchers.IO) {
             AssessmentApi.getWeeklyAnalytics(userId) { stats ->
                 scope.launch(Dispatchers.Main) {
-                    weeklyStats = stats ?: emptyList()
+                    if (stats != null) {
+                        AppCache.weeklyStats = stats
+                        AppCache.analyticsAt = System.currentTimeMillis()
+                        weeklyStats = stats
+                    }
                     isLoading   = false
                 }
             }
@@ -79,7 +83,11 @@ fun ProgressScreen(
         scope.launch(Dispatchers.IO) {
             AssessmentApi.getProgressMetrics(userId) { metrics ->
                 scope.launch(Dispatchers.Main) {
-                    progressMetrics = metrics
+                    if (metrics != null) {
+                        AppCache.progressMetrics = metrics
+                        AppCache.analyticsAt = System.currentTimeMillis()
+                        progressMetrics = metrics
+                    }
                 }
             }
         }
@@ -131,8 +139,8 @@ private fun AnalyticsContent(
     val totalMistakes   = weeklyStats.sumOf { it.mistakes_logged }
     val totalExercises  = weeklyStats.sumOf { it.exercises_attempted }
     val correctExercises = weeklyStats.sumOf { it.exercises_correct }
-    val aiLabSessions   = weeklyStats.sumOf { it.ai_lab_sessions }
-    val aiLabMinutes    = weeklyStats.sumOf { it.ai_lab_minutes }
+    val pronunciationAttempts = weeklyStats.sumOf { it.pronunciation_attempts }
+    val pronunciationScoreTotal = weeklyStats.sumOf { it.pronunciation_score_total }
     val duelSessions    = weeklyStats.sumOf { it.duel_sessions }
     val duelCorrect     = weeklyStats.sumOf { it.duel_correct }
     val vocabMastered   = weeklyStats.sumOf { it.vocab_words_mastered }
@@ -160,9 +168,8 @@ private fun AnalyticsContent(
         (correctExercises * 100 / totalExercises).coerceIn(0, 100) else 0
     val fallbackVocabScore = if (isVocabLoaded)
         VocabTracker.getOverallProgressPercent().coerceIn(0, 100) else 0
-    val fluencyScore    = (aiLabMinutes.coerceIn(0, 60) * 100 / 60).coerceIn(0, 100)
-    val fallbackPronunciationScore = if (aiLabSessions > 0)
-        ((aiLabMinutes.coerceAtLeast(aiLabSessions) * 100) / 30).coerceIn(0, 100)
+    val fallbackPronunciationScore = if (pronunciationAttempts > 0)
+        (pronunciationScoreTotal / pronunciationAttempts).coerceIn(0, 100)
     else 0
     val fallbackListeningScore  = if (totalExercises > 0)
         ((correctExercises * 65) / totalExercises.coerceAtLeast(1)).coerceIn(0, 100)
@@ -186,16 +193,18 @@ private fun AnalyticsContent(
     val prevVocab = weeklyStats.take(3).sumOf { it.vocab_words_mastered }
     val currVocab = weeklyStats.takeLast(3).sumOf { it.vocab_words_mastered }
     val vocabTrendPct = currVocab - prevVocab
-    val prevAiMinutes = weeklyStats.take(3).sumOf { it.ai_lab_minutes }
-    val currAiMinutes = weeklyStats.takeLast(3).sumOf { it.ai_lab_minutes }
-    val pronounceTrendPct = currAiMinutes - prevAiMinutes
+    val prevPronunciationAttempts = weeklyStats.take(3).sumOf { it.pronunciation_attempts }
+    val currPronunciationAttempts = weeklyStats.takeLast(3).sumOf { it.pronunciation_attempts }
+    val prevPronunciationScore = if (prevPronunciationAttempts > 0)
+        weeklyStats.take(3).sumOf { it.pronunciation_score_total } / prevPronunciationAttempts else 0
+    val currPronunciationScore = if (currPronunciationAttempts > 0)
+        weeklyStats.takeLast(3).sumOf { it.pronunciation_score_total } / currPronunciationAttempts else 0
+    val pronounceTrendPct = currPronunciationScore - prevPronunciationScore
 
     // AI Insight text
     val insightText = buildInsightText(
         grammarScore     = grammarScore,
         pronunciationScore = pronunciationScore,
-        aiLabSessions    = aiLabSessions,
-        fluencyScore     = fluencyScore,
         vocabScore       = vocabScore
     )
 
@@ -569,18 +578,12 @@ private fun SkillBar(
 private fun buildInsightText(
     grammarScore: Int,
     pronunciationScore: Int,
-    aiLabSessions: Int,
-    fluencyScore: Int,
     vocabScore: Int
 ): String = when {
-    pronunciationScore in 1..59 && aiLabSessions == 0 ->
-        "Your pronunciation score is low. Recommended: Speaking Practice."
     pronunciationScore in 1..59 ->
-        "Your pronunciation score has dropped ${100 - pronunciationScore}%. Recommended: Speaking Practice."
+        "Your pronunciation score is $pronunciationScore%. Recommended: Pronunciation Practice."
     grammarScore in 1..59 ->
         "Your grammar accuracy is at $grammarScore%. Recommended: Grammar Drills."
-    fluencyScore in 1..59 ->
-        "You have not practised speaking this week. Recommended: AI Lab session."
     vocabScore < 50 ->
         "Your vocabulary mastery is at $vocabScore%. Recommended: Vocab Builder session."
     else ->
