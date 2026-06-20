@@ -38,6 +38,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -72,7 +73,8 @@ fun VocabBuilderScreen(
     onNavigateBack: () -> Unit,
     onNavigateToHome: () -> Unit = onNavigateBack,
     onNavigateToAILab: () -> Unit = {},
-    onNavigateToMistakes: () -> Unit = {}
+    onNavigateToMistakes: () -> Unit = {},
+    onNavigateToSettings: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -89,7 +91,6 @@ fun VocabBuilderScreen(
             VocabTracker.init(context)
             isTrackerLoaded = true
         }
-        // Sync vocab progress to backend in background
         if (userId.isNotBlank()) {
             scope.launch(kotlinx.coroutines.Dispatchers.IO) {
                 VocabTracker.syncToBackend(userId, context)
@@ -101,9 +102,7 @@ fun VocabBuilderScreen(
     var tts by remember { mutableStateOf<TextToSpeech?>(null) }
     DisposableEffect(context) {
         val t = TextToSpeech(context) { status ->
-            if (status == TextToSpeech.SUCCESS) {
-                // Initialized
-            }
+            if (status == TextToSpeech.SUCCESS) { }
         }
         t.language = Locale.US
         tts = t
@@ -121,9 +120,8 @@ fun VocabBuilderScreen(
     var showAllWords by remember { mutableStateOf(false) }
     var progressVersion by remember { mutableIntStateOf(0) }
 
-    // ── Drill Session State ───────────────────────────────────────────────
+    // ── Drill Session State ───────────────────────────────────────────────────
     var drillQuestions by remember { mutableStateOf<List<DrillQuestion>>(emptyList()) }
-    // Queue of questions still remaining (wrong answers are re-appended)
     val drillQueue = remember { mutableStateListOf<DrillQuestion>() }
     var currentQuestionIdx by remember { mutableStateOf(0) }
     var selectedOptionIdx by remember { mutableStateOf<Int?>(null) }
@@ -147,7 +145,7 @@ fun VocabBuilderScreen(
         handleBackPressed()
     }
 
-    // Helpers to start session
+    // ── Start Drill Session ───────────────────────────────────────────────────
     val startDrillSession = { categoryName: String? ->
         val questions = VocabTracker.generateDrillSession(activeLevel, categoryName, 5)
         if (questions.isNotEmpty()) {
@@ -161,56 +159,30 @@ fun VocabBuilderScreen(
             showReinforcementFeedback = false
             currentViewState = VocabViewState.ContextualDrill
         } else {
-            Toast.makeText(context, "No vocabulary found for $activeLevel / ${categoryName ?: "All"}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                context,
+                context.getString(R.string.no_vocabulary_found, activeLevel, categoryName ?: context.getString(R.string.all)),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
         AppBackgroundTexture()
 
-        // ── Core Layout ───────────────────────────────────────────────────────
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .statusBarsPadding()
                 .navigationBarsPadding()
                 .imePadding()
         ) {
-            
-            // ── Top App Bar ───────────────────────────────────────────────────
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                IconButton(
-                    onClick = { handleBackPressed() },
-                    modifier = Modifier
-                        .size(40.dp)
-                        .background(Color.White.copy(alpha = 0.8f), CircleShape)
-                ) {
-                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = TextDark)
-                }
-                Text(
-                    text = "LingoCoach",
-                    style = TextStyle(
-                        color = TextDark,
-                        fontSize = 22.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
-                )
-                IconButton(
-                    onClick = { /* Settings Action */ },
-                    modifier = Modifier
-                        .size(40.dp)
-                        .background(Color.White.copy(alpha = 0.8f), CircleShape)
-                ) {
-                    Icon(Icons.Default.Settings, contentDescription = "Settings", tint = TextDark)
-                }
-            }
 
+            // ── Top App Bar ───────────────────────────────────────────────────
+            CommonTopBar(
+                title = stringResource(R.string.vocab_builder),
+                onBack = { handleBackPressed() },
+                onSettings = onNavigateToSettings
+            )
             if (!isTrackerLoaded) {
                 Box(
                     modifier = Modifier.weight(1f).fillMaxWidth(),
@@ -221,7 +193,7 @@ fun VocabBuilderScreen(
                 return@Column
             }
 
-            // ── Screen Body Content ───────────────────────────────────────────
+            // ── Screen Body ───────────────────────────────────────────────────
             when (currentViewState) {
                 VocabViewState.Dashboard -> {
                     if (showAllWords) {
@@ -251,7 +223,6 @@ fun VocabBuilderScreen(
                     }
                 }
                 VocabViewState.ContextualDrill -> {
-                    // Show current head of drillQueue
                     if (drillQueue.isNotEmpty()) {
                         val question = drillQueue.first()
                         ContextualDrillView(
@@ -278,7 +249,6 @@ fun VocabBuilderScreen(
                                             explanation = "Meaning: ${question.word.meaning}",
                                             context = context
                                         )
-                                        // Also log to backend (fire-and-forget)
                                         if (userId.isNotBlank()) {
                                             scope.launch(kotlinx.coroutines.Dispatchers.IO) {
                                                 com.mk.lingocoach.network.AssessmentApi.logMistake(
@@ -287,7 +257,8 @@ fun VocabBuilderScreen(
                                                     mistakeType     = "VOCAB_DRILL",
                                                     userSentence    = chosen,
                                                     correctSentence = question.word.word,
-                                                    explanation     = "Meaning: ${question.word.meaning}"
+                                                    explanation     = "Meaning: ${question.word.meaning}",
+                                                    source          = "vocab_builder"
                                                 )
                                             }
                                         }
@@ -308,7 +279,6 @@ fun VocabBuilderScreen(
                                     explanation = "Meaning: ${question.word.meaning}",
                                     context = context
                                 )
-                                // Also log to backend (fire-and-forget)
                                 if (userId.isNotBlank()) {
                                     scope.launch(kotlinx.coroutines.Dispatchers.IO) {
                                         com.mk.lingocoach.network.AssessmentApi.logMistake(
@@ -317,7 +287,8 @@ fun VocabBuilderScreen(
                                             mistakeType     = "VOCAB_DRILL",
                                             userSentence    = "(skipped)",
                                             correctSentence = question.word.word,
-                                            explanation     = "Meaning: ${question.word.meaning}"
+                                            explanation     = "Meaning: ${question.word.meaning}",
+                                            source          = "vocab_builder"
                                         )
                                     }
                                 }
@@ -338,19 +309,15 @@ fun VocabBuilderScreen(
                             reinforcementText = reinforcementText,
                             onReinforcementChanged = { reinforcementText = it },
                             showReinforcementFeedback = showReinforcementFeedback,
-                            onCheckReinforcement = {
-                                showReinforcementFeedback = true
-                            },
+                            onCheckReinforcement = { showReinforcementFeedback = true },
                             onSpeakWord = {
                                 tts?.speak(question.word.word, TextToSpeech.QUEUE_FLUSH, null, null)
                             },
                             tts = tts,
                             onContinue = {
                                 if (isCorrectFeedback) {
-                                    // Correct: remove from queue permanently
                                     drillQueue.removeAt(0)
                                 } else {
-                                    // Wrong: move to end of queue for retry
                                     val failed = drillQueue.removeAt(0)
                                     drillQueue.add(failed)
                                 }
@@ -381,7 +348,75 @@ fun VocabBuilderScreen(
     }
 }
 
-// ─── Dashboard Component (Image 1) ───────────────────────────────────────────
+// ─── Level Selector Tabs ──────────────────────────────────────────────────────
+@Composable
+private fun LevelSelectorTabs(
+    activeLevel: String,
+    onActiveLevelChanged: (String) -> Unit,
+    onCategorySelected: (String?) -> Unit,
+    progressVersion: Int
+) {
+    val levels = listOf("A1", "A2", "B1", "B2", "C1", "C2")
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.White, RoundedCornerShape(16.dp))
+            .padding(4.dp),
+        horizontalArrangement = Arrangement.spacedBy(2.dp)
+    ) {
+        levels.forEach { level ->
+            val isActive = activeLevel == level
+            val progress = remember(level, progressVersion) {
+                VocabTracker.getLevelProgress(level)
+            }
+
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(if (isActive) BrandPurple else Color.Transparent)
+                    .clickable {
+                        onActiveLevelChanged(level)
+                        onCategorySelected(null)
+                    }
+                    .padding(vertical = 8.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = level,
+                        color = if (isActive) Color.White else TextLight,
+                        fontSize = 12.sp,
+                        fontWeight = if (isActive) FontWeight.ExtraBold else FontWeight.SemiBold
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    // 3 mini progress dots
+                    Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+                        repeat(3) { i ->
+                            val filled = progress >= ((i + 1) * 33)
+                            Box(
+                                modifier = Modifier
+                                    .size(4.dp)
+                                    .clip(CircleShape)
+                                    .background(
+                                        when {
+                                            isActive && filled -> Color.White
+                                            isActive           -> Color.White.copy(alpha = 0.35f)
+                                            filled             -> BrandPurple.copy(alpha = 0.55f)
+                                            else               -> Color(0xFFDDDAFF)
+                                        }
+                                    )
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ─── Dashboard ────────────────────────────────────────────────────────────────
 @Composable
 fun ColumnScope.DashboardView(
     activeLevel: String,
@@ -400,10 +435,15 @@ fun ColumnScope.DashboardView(
     progressVersion: Int
 ) {
     val context = LocalContext.current
-    val categoriesStats = remember(activeLevel, progressVersion) { VocabTracker.getCategoryStats(activeLevel) }
+    val categoriesStats = remember(activeLevel, progressVersion) {
+        VocabTracker.getCategoryStats(activeLevel)
+            .sortedWith(compareBy(
+                { it.averageMastery >= 100 },   // fully done → sink to bottom
+                { -it.totalWords }              // within same tier: more words first
+            ))
+    }
     val levelProgress = remember(activeLevel, progressVersion) { VocabTracker.getLevelProgress(activeLevel) }
-    
-    // Auto-select first category if none is selected, to match mockup design layout
+
     LaunchedEffect(activeLevel) {
         if (categoriesStats.isNotEmpty() && selectedCategory == null) {
             onCategorySelected(categoriesStats.first().name)
@@ -415,9 +455,10 @@ fun ColumnScope.DashboardView(
             .weight(1f)
             .fillMaxWidth()
             .padding(horizontal = 20.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            contentPadding = PaddingValues(top = 16.dp, bottom = 24.dp)
     ) {
-        
+
         // ── 1. Mastery Progress Card ──────────────────────────────────────────
         item {
             Card(
@@ -448,8 +489,6 @@ fun ColumnScope.DashboardView(
                                 fontWeight = FontWeight.ExtraBold
                             )
                         }
-                        
-                        // Tier Badge
                         Box(
                             modifier = Modifier
                                 .background(BrandPurpleSoft, RoundedCornerShape(12.dp))
@@ -470,82 +509,38 @@ fun ColumnScope.DashboardView(
 
                     Spacer(modifier = Modifier.height(20.dp))
 
+                    // Stats row (no bar chart — level selection moved to tabs)
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.Bottom
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
-                        // Bar Chart (60% width)
-                        Row(
-                            modifier = Modifier.weight(1.2f),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.Bottom
+                        // Score Card
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .background(Color(0xFFFAFAFF), RoundedCornerShape(12.dp))
+                                .padding(horizontal = 12.dp, vertical = 12.dp)
                         ) {
-                            val levels = listOf("A1", "A2", "B1", "B2", "C1", "C2")
-                            
-                            levels.forEachIndexed { index, lvl ->
-                                val progress = remember(lvl, progressVersion) { VocabTracker.getLevelProgress(lvl) }
-                                val resolvedHeight = 0.05f + (progress / 100f) * 0.95f
-                                
-                                Column(
-                                    horizontalAlignment = Alignment.CenterHorizontally,
-                                    modifier = Modifier
-                                        .clickable {
-                                            onActiveLevelChanged(lvl)
-                                            onCategorySelected(null)
-                                        }
-                                        .padding(horizontal = 2.dp)
-                                ) {
-                                    Box(
-                                        modifier = Modifier
-                                            .width(18.dp)
-                                            .height((60 * resolvedHeight).dp)
-                                            .clip(RoundedCornerShape(topStart = 4.dp, topEnd = 4.dp))
-                                            .background(if (activeLevel == lvl) BrandPurple else Color(0xFFDDDAFF))
-                                    )
-                                    Spacer(modifier = Modifier.height(4.dp))
-                                    Text(
-                                        text = lvl,
-                                        color = if (activeLevel == lvl) BrandPurple else TextLight,
-                                        fontSize = 9.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                }
+                            Column {
+                                Text(text = "$activeLevel SCORE", color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                                Spacer(Modifier.height(2.dp))
+                                Text(text = "$levelProgress%", color = BrandPurple, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
                             }
                         }
-
-                        Spacer(modifier = Modifier.width(16.dp))
-
-                        // Stats (40% width)
-                        Column(
-                            modifier = Modifier.weight(0.8f),
-                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        // Daily Target Card
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .background(Color(0xFFFAFAFF), RoundedCornerShape(12.dp))
+                                .padding(horizontal = 12.dp, vertical = 12.dp)
                         ) {
-                            // Score Card
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .background(Color(0xFFFAFAFF), RoundedCornerShape(12.dp))
-                                    .padding(horizontal = 12.dp, vertical = 8.dp)
-                            ) {
-                                Column {
-                                    Text(text = "$activeLevel SCORE", color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
-                                    Text(text = "$levelProgress%", color = BrandPurple, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
-                                }
-                            }
-                            // Target Card
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .background(Color(0xFFFAFAFF), RoundedCornerShape(12.dp))
-                                    .padding(horizontal = 12.dp, vertical = 8.dp)
-                            ) {
-                                Column {
-                                    Text(text = "DAILY TARGET", color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
-                                    Row(verticalAlignment = Alignment.Bottom) {
-                                        Text(text = "10", color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
-                                        Spacer(modifier = Modifier.width(2.dp))
-                                        Text(text = "words", color = TextMid, fontSize = 10.sp)
-                                    }
+                            Column {
+                                Text(text = "DAILY TARGET", color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                                Spacer(Modifier.height(2.dp))
+                                Row(verticalAlignment = Alignment.Bottom) {
+                                    Text(text = "10", color = TextDark, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
+                                    Spacer(modifier = Modifier.width(3.dp))
+                                    Text(text = "words", color = TextMid, fontSize = 11.sp, modifier = Modifier.padding(bottom = 2.dp))
                                 }
                             }
                         }
@@ -553,7 +548,6 @@ fun ColumnScope.DashboardView(
 
                     Spacer(modifier = Modifier.height(20.dp))
 
-                    // Continue Session Button
                     Button(
                         onClick = onContinueSession,
                         modifier = Modifier.fillMaxWidth().height(48.dp),
@@ -572,7 +566,17 @@ fun ColumnScope.DashboardView(
             }
         }
 
-        // ── 2. Search Bar ─────────────────────────────────────────────────────
+        // ── 2. Level Selector Tabs ────────────────────────────────────────────
+        item {
+            LevelSelectorTabs(
+                activeLevel = activeLevel,
+                onActiveLevelChanged = onActiveLevelChanged,
+                onCategorySelected = onCategorySelected,
+                progressVersion = progressVersion
+            )
+        }
+
+        // ── 3. Search Bar ─────────────────────────────────────────────────────
         item {
             OutlinedTextField(
                 value = searchQuery,
@@ -581,7 +585,7 @@ fun ColumnScope.DashboardView(
                     .fillMaxWidth()
                     .background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp))
                     .bringIntoViewOnFocus(),
-                placeholder = { Text("Search vocabulary topics...", color = TextLight, fontSize = 14.sp) },
+                placeholder = { Text(stringResource(R.string.search_vocabulary_topics), color = TextLight, fontSize = 14.sp) },
                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search", tint = TextLight) },
                 shape = RoundedCornerShape(16.dp),
                 colors = OutlinedTextFieldDefaults.colors(
@@ -593,10 +597,10 @@ fun ColumnScope.DashboardView(
             )
         }
 
-        // ── Search Results or Topic Curations ─────────────────────────────────
+        // ── 4. Search Results or Topic Curations ──────────────────────────────
         if (searchQuery.isNotBlank()) {
             val searchedWords = VocabTracker.searchWords(searchQuery, activeLevel)
-            
+
             item {
                 Text(
                     text = "Search Results (${searchedWords.size} words)",
@@ -605,7 +609,7 @@ fun ColumnScope.DashboardView(
                     fontWeight = FontWeight.Bold
                 )
             }
-            
+
             if (searchedWords.isEmpty()) {
                 item {
                     Box(modifier = Modifier.fillMaxWidth().padding(32.dp), contentAlignment = Alignment.Center) {
@@ -629,13 +633,13 @@ fun ColumnScope.DashboardView(
                             }
                             Text(w.meaning, color = TextMid, fontSize = 13.sp)
                             Spacer(Modifier.height(4.dp))
-                            Text("Category: ${w.category}", color = TextLight, fontSize = 11.sp, fontStyle = FontStyle.Italic)
+                        Text("${stringResource(R.string.category)}: ${w.category}", color = TextLight, fontSize = 11.sp, fontStyle = FontStyle.Italic)
                         }
                     }
                 }
             }
         } else {
-            // Topic Curations
+            // ── Topic Curations ───────────────────────────────────────────────
             item {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -673,9 +677,7 @@ fun ColumnScope.DashboardView(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .background(
-                                    Brush.linearGradient(
-                                        colors = listOf(BrandPurple, BrandPurpleLight)
-                                    )
+                                    Brush.linearGradient(colors = listOf(BrandPurple, BrandPurpleLight))
                                 )
                                 .padding(24.dp)
                         ) {
@@ -698,8 +700,6 @@ fun ColumnScope.DashboardView(
                                             modifier = Modifier.size(18.dp)
                                         )
                                     }
-                                    
-                                    // Stars
                                     Row {
                                         repeat(3) { starIndex ->
                                             Icon(
@@ -728,7 +728,6 @@ fun ColumnScope.DashboardView(
                                     horizontalArrangement = Arrangement.SpaceBetween,
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    // Simple custom progress bar for featured card
                                     Box(
                                         modifier = Modifier
                                             .weight(1f)
@@ -765,7 +764,7 @@ fun ColumnScope.DashboardView(
                 }
             }
 
-            // List of other category cards
+            // Other category cards
             val otherCategories = categoriesStats.filter { it.name != (featuredCat?.name ?: "") }
             items(otherCategories) { cat ->
                 Card(
@@ -795,9 +794,9 @@ fun ColumnScope.DashboardView(
                                 modifier = Modifier.size(20.dp)
                             )
                         }
-                        
+
                         Spacer(modifier = Modifier.width(16.dp))
-                        
+
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
                                 text = cat.name,
@@ -812,7 +811,7 @@ fun ColumnScope.DashboardView(
                                 fontSize = 11.sp
                             )
                         }
-                        
+
                         Icon(
                             imageVector = Icons.Default.ChevronRight,
                             contentDescription = null,
@@ -827,7 +826,7 @@ fun ColumnScope.DashboardView(
         item { Spacer(modifier = Modifier.height(24.dp)) }
     }
 
-    // ── Bottom Nav Bar ──
+    // ── Bottom Nav Bar ────────────────────────────────────────────────────────
     HomeBottomNav(
         selectedTab = 2,
         onTabSelected = { index ->
@@ -841,7 +840,7 @@ fun ColumnScope.DashboardView(
     )
 }
 
-// ─── Contextual Drill Component (Image 3) ────────────────────────────────────
+// ─── Contextual Drill ─────────────────────────────────────────────────────────
 @Composable
 fun ColumnScope.ContextualDrillView(
     level: String,
@@ -861,34 +860,19 @@ fun ColumnScope.ContextualDrillView(
             .padding(horizontal = 20.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        
-        // C1 Mastery Progress bar
         val levelProgress = remember(level) { VocabTracker.getLevelProgress(level) }
         Column(modifier = Modifier.fillMaxWidth()) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(
-                    text = "$level MASTERY PROGRESS",
-                    color = TextLight,
-                    fontSize = 9.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
-                    text = "$levelProgress%",
-                    color = BrandPurple,
-                    fontSize = 9.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                Text(text = "$level MASTERY PROGRESS", color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                Text(text = "$levelProgress%", color = BrandPurple, fontSize = 9.sp, fontWeight = FontWeight.Bold)
             }
             Spacer(modifier = Modifier.height(4.dp))
             LinearProgressIndicator(
                 progress = { levelProgress / 100f },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(6.dp)
-                    .clip(CircleShape),
+                modifier = Modifier.fillMaxWidth().height(6.dp).clip(CircleShape),
                 color = BrandPurple,
                 trackColor = Color(0xFFDDDAFF)
             )
@@ -896,77 +880,37 @@ fun ColumnScope.ContextualDrillView(
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        // Word Card
         Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .shadow(elevation = 4.dp, shape = RoundedCornerShape(20.dp)),
+            modifier = Modifier.fillMaxWidth().shadow(elevation = 4.dp, shape = RoundedCornerShape(20.dp)),
             colors = CardDefaults.cardColors(containerColor = CardWhite),
             shape = RoundedCornerShape(20.dp)
         ) {
             Column(modifier = Modifier.padding(20.dp)) {
-                // Word + part of speech
-                Text(
-                    text = question.word.word,
-                    color = TextDark,
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.ExtraBold
-                )
+                Text(text = question.word.word, color = TextDark, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
                 Spacer(modifier = Modifier.height(2.dp))
                 Text(
                     text = "(${question.word.partOfSpeech.replaceFirstChar { it.uppercase() }}) /${question.word.pronunciation}/",
-                    color = TextLight,
-                    fontSize = 13.sp,
-                    fontStyle = FontStyle.Italic
+                    color = TextLight, fontSize = 13.sp, fontStyle = FontStyle.Italic
                 )
-
                 Spacer(modifier = Modifier.height(14.dp))
-                // Centered pronunciation: speaker icon + S M F pills
-                CardPronunciation(
-                    word = question.word.word,
-                    tts = tts
-                )
-
+                CardPronunciation(word = question.word.word, tts = tts)
                 Spacer(modifier = Modifier.height(14.dp))
                 HorizontalDivider(color = Color(0x0D000000))
                 Spacer(modifier = Modifier.height(12.dp))
-
-                Text(
-                    text = question.word.meaning,
-                    color = TextMid,
-                    fontSize = 14.sp,
-                    lineHeight = 18.sp
-                )
+                Text(text = question.word.meaning, color = TextMid, fontSize = 14.sp, lineHeight = 18.sp)
             }
         }
 
-        // Contextual Drill section
         Column(modifier = Modifier.fillMaxWidth()) {
-            Text(
-                text = "CONTEXTUAL DRILL",
-                color = TextLight,
-                fontSize = 10.sp,
-                fontWeight = FontWeight.Bold
-            )
+            Text(text = "CONTEXTUAL DRILL", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = question.questionText,
-                color = TextDark,
-                fontSize = 15.sp,
-                lineHeight = 20.sp,
-                fontWeight = FontWeight.Medium
-            )
+            Text(text = question.questionText, color = TextDark, fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Medium)
         }
 
-        // Options A, B, C, D
-        LazyColumn(
-            modifier = Modifier.weight(1f),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
+        LazyColumn(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             items(question.options.size) { index ->
                 val optionLetter = ('A' + index).toString()
                 val isSelected = selectedOptionIdx == index
-                
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -976,67 +920,41 @@ fun ColumnScope.ContextualDrillView(
                             color = if (isSelected) BrandPurple else CardBorderColor,
                             shape = RoundedCornerShape(14.dp)
                         ),
-                    colors = CardDefaults.cardColors(
-                        containerColor = if (isSelected) Color(0xFFF6F5FF) else CardWhite
-                    ),
+                    colors = CardDefaults.cardColors(containerColor = if (isSelected) Color(0xFFF6F5FF) else CardWhite),
                     shape = RoundedCornerShape(14.dp)
                 ) {
-                    Row(
-                        modifier = Modifier.padding(14.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
+                    Row(modifier = Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
                         Box(
                             modifier = Modifier
                                 .size(28.dp)
-                                .background(
-                                    if (isSelected) BrandPurpleSoft else Color(0xFFFAFAFF),
-                                    RoundedCornerShape(8.dp)
-                                ),
+                                .background(if (isSelected) BrandPurpleSoft else Color(0xFFFAFAFF), RoundedCornerShape(8.dp)),
                             contentAlignment = Alignment.Center
                         ) {
-                            Text(
-                                text = optionLetter,
-                                color = if (isSelected) BrandPurple else TextLight,
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Bold
-                            )
+                            Text(text = optionLetter, color = if (isSelected) BrandPurple else TextLight, fontSize = 12.sp, fontWeight = FontWeight.Bold)
                         }
                         Spacer(modifier = Modifier.width(14.dp))
-                        Text(
-                            text = question.options[index],
-                            color = TextDark,
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.SemiBold
-                        )
+                        Text(text = question.options[index], color = TextDark, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
                     }
                 }
             }
         }
 
-        // Action Buttons
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 12.dp),
+            modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             Button(
                 onClick = onNotMastered,
-                modifier = Modifier
-                    .weight(1f)
-                    .height(48.dp),
+                modifier = Modifier.weight(1f).height(48.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFEAEA)),
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(text = "Not Mastered", color = BrandRed, fontWeight = FontWeight.Bold, fontSize = 14.sp)
             }
-            
             Button(
                 onClick = onConfirm,
                 enabled = selectedOptionIdx != null,
-                modifier = Modifier
-                    .weight(1f)
-                    .height(48.dp),
+                modifier = Modifier.weight(1f).height(48.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = BrandPurple,
                     disabledContainerColor = BrandPurple.copy(alpha = 0.5f)
@@ -1051,7 +969,7 @@ fun ColumnScope.ContextualDrillView(
     }
 }
 
-// ─── Drill Feedback Component (Image 2) ──────────────────────────────────────
+// ─── Drill Feedback ───────────────────────────────────────────────────────────
 @Composable
 fun ColumnScope.DrillFeedbackView(
     word: VocabWord,
@@ -1068,24 +986,16 @@ fun ColumnScope.DrillFeedbackView(
     val keyboardController = LocalSoftwareKeyboardController.current
 
     LazyColumn(
-        modifier = Modifier
-            .weight(1f)
-            .fillMaxWidth()
-            .padding(horizontal = 20.dp),
+        modifier = Modifier.weight(1f).fillMaxWidth().padding(horizontal = 20.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        
-        // Banner and Word Info Card
         item {
             Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .shadow(elevation = 4.dp, shape = RoundedCornerShape(20.dp)),
+                modifier = Modifier.fillMaxWidth().shadow(elevation = 4.dp, shape = RoundedCornerShape(20.dp)),
                 colors = CardDefaults.cardColors(containerColor = CardWhite),
                 shape = RoundedCornerShape(20.dp)
             ) {
                 Column {
-                    // Success Banner
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -1108,59 +1018,30 @@ fun ColumnScope.DrillFeedbackView(
                             )
                         }
                     }
-
                     Column(modifier = Modifier.padding(16.dp)) {
-                        // Word + pronunciation text
-                        Text(
-                            text = word.word,
-                            color = TextDark,
-                            fontSize = 24.sp,
-                            fontWeight = FontWeight.ExtraBold
-                        )
+                        Text(text = word.word, color = TextDark, fontSize = 24.sp, fontWeight = FontWeight.ExtraBold)
                         Spacer(modifier = Modifier.height(2.dp))
                         Text(
                             text = "(${word.partOfSpeech.replaceFirstChar { it.uppercase() }}) /${word.pronunciation}/",
-                            color = TextLight,
-                            fontSize = 13.sp,
-                            fontStyle = FontStyle.Italic
+                            color = TextLight, fontSize = 13.sp, fontStyle = FontStyle.Italic
                         )
-
                         Spacer(modifier = Modifier.height(14.dp))
-                        // Centered speaker + S M F pills
-                        CardPronunciation(
-                            word = word.word,
-                            tts = tts
-                        )
-
+                        CardPronunciation(word = word.word, tts = tts)
                         Spacer(modifier = Modifier.height(14.dp))
                         HorizontalDivider(color = Color(0x0D000000))
                         Spacer(modifier = Modifier.height(10.dp))
-                        Text(
-                            text = word.meaning,
-                            color = TextMid,
-                            fontSize = 13.sp,
-                            lineHeight = 18.sp
-                        )
+                        Text(text = word.meaning, color = TextMid, fontSize = 13.sp, lineHeight = 18.sp)
                     }
                 }
             }
         }
 
-        // Usage Refinement Section
         item {
             Column(modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    text = "USAGE REFINEMENT",
-                    color = TextLight,
-                    fontSize = 10.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                Text(text = "USAGE REFINEMENT", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(10.dp))
-
                 Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .border(0.5.dp, CardBorderColor, RoundedCornerShape(16.dp)),
+                    modifier = Modifier.fillMaxWidth().border(0.5.dp, CardBorderColor, RoundedCornerShape(16.dp)),
                     colors = CardDefaults.cardColors(containerColor = CardWhite),
                     shape = RoundedCornerShape(16.dp)
                 ) {
@@ -1176,44 +1057,20 @@ fun ColumnScope.DrillFeedbackView(
                             }
                             Spacer(modifier = Modifier.width(12.dp))
                             Column {
-                                Text(
-                                    text = word.mappedCategory,
-                                    color = TextDark,
-                                    fontSize = 13.sp,
-                                    fontWeight = FontWeight.Bold
-                                )
-                                Text(
-                                    text = "Used in contexts relating to ${word.category.lowercase()}.",
-                                    color = TextLight,
-                                    fontSize = 10.sp
-                                )
+                                Text(text = word.mappedCategory, color = TextDark, fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                                Text(text = "Used in contexts relating to ${word.category.lowercase()}.", color = TextLight, fontSize = 10.sp)
                             }
                         }
-
                         Spacer(modifier = Modifier.height(14.dp))
-
-                        // Example box with left vertical accent
                         Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(Color(0xFFFAFAFF), RoundedCornerShape(8.dp))
+                            modifier = Modifier.fillMaxWidth().background(Color(0xFFFAFAFF), RoundedCornerShape(8.dp))
                         ) {
-                            // Left accent line
-                            Box(
-                                modifier = Modifier
-                                    .width(4.dp)
-                                    .fillMaxHeight()
-                                    .background(BrandPurple)
-                            )
-                            
+                            Box(modifier = Modifier.width(4.dp).fillMaxHeight().background(BrandPurple))
                             val exampleSent = word.examples.firstOrNull()?.english ?: ""
                             Text(
                                 text = "\"$exampleSent\"",
-                                color = TextDark,
-                                fontSize = 12.sp,
-                                fontStyle = FontStyle.Italic,
-                                modifier = Modifier.padding(12.dp),
-                                lineHeight = 16.sp
+                                color = TextDark, fontSize = 12.sp, fontStyle = FontStyle.Italic,
+                                modifier = Modifier.padding(12.dp), lineHeight = 16.sp
                             )
                         }
                     }
@@ -1221,38 +1078,20 @@ fun ColumnScope.DrillFeedbackView(
             }
         }
 
-        // Quick Reinforcement Section
         item {
             Column(modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    text = "QUICK REINFORCEMENT",
-                    color = TextLight,
-                    fontSize = 10.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                Text(text = "QUICK REINFORCEMENT", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(10.dp))
-
                 Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .border(0.5.dp, CardBorderColor, RoundedCornerShape(16.dp)),
+                    modifier = Modifier.fillMaxWidth().border(0.5.dp, CardBorderColor, RoundedCornerShape(16.dp)),
                     colors = CardDefaults.cardColors(containerColor = CardWhite),
                     shape = RoundedCornerShape(16.dp)
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
-                        Text(
-                            text = "Type the word to match the definition:",
-                            color = TextDark,
-                            fontSize = 12.sp
-                        )
+                        Text(text = "Type the word to match the definition:", color = TextDark, fontSize = 12.sp)
                         Spacer(modifier = Modifier.height(8.dp))
-                        
-                        // Synonym match indicator
                         Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(Color(0xFFFAFAFF), RoundedCornerShape(10.dp))
-                                .padding(12.dp)
+                            modifier = Modifier.fillMaxWidth().background(Color(0xFFFAFAFF), RoundedCornerShape(10.dp)).padding(12.dp)
                         ) {
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
@@ -1261,33 +1100,24 @@ fun ColumnScope.DrillFeedbackView(
                             ) {
                                 Text(
                                     text = "\"${word.word.replace(Regex("[a-zA-Z]"), "_ ")}\"",
-                                    color = TextMid,
-                                    fontSize = 13.sp,
-                                    fontWeight = FontWeight.Bold
+                                    color = TextMid, fontSize = 13.sp, fontWeight = FontWeight.Bold
                                 )
                                 Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, tint = TextLight, modifier = Modifier.size(16.dp))
                             }
                         }
-
                         Spacer(modifier = Modifier.height(10.dp))
-
-                        // Type Input Box
                         val isReinforcementCorrect = reinforcementText.trim().lowercase() == word.word.trim().lowercase()
                         OutlinedTextField(
                             value = reinforcementText,
                             onValueChange = onReinforcementChanged,
                             modifier = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
-                            placeholder = { Text("Type the match...", color = TextLight, fontSize = 12.sp) },
+                            placeholder = { Text(stringResource(R.string.type_the_match), color = TextLight, fontSize = 12.sp) },
                             singleLine = true,
-                            keyboardOptions = KeyboardOptions(
-                                imeAction = ImeAction.Done
-                            ),
-                            keyboardActions = KeyboardActions(
-                                onDone = {
-                                    keyboardController?.hide()
-                                    onCheckReinforcement()
-                                }
-                            ),
+                            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                            keyboardActions = KeyboardActions(onDone = {
+                                keyboardController?.hide()
+                                onCheckReinforcement()
+                            }),
                             shape = RoundedCornerShape(10.dp),
                             trailingIcon = {
                                 if (showReinforcementFeedback) {
@@ -1318,45 +1148,27 @@ fun ColumnScope.DrillFeedbackView(
         }
 
         item { Spacer(modifier = Modifier.height(24.dp)) }
-        
-        // Progress Bar & Next Button
+
         item {
             Column(modifier = Modifier.fillMaxWidth()) {
-                LinearProgressIndicator(
-                    progress = { 1.0f },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(4.dp)
-                        .clip(CircleShape),
-                    color = BrandPurple,
-                    trackColor = Color(0xFFDDDAFF)
-                )
-                Spacer(modifier = Modifier.height(12.dp))
                 Button(
                     onClick = onContinue,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp),
+                    modifier = Modifier.fillMaxWidth().height(48.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = BrandPurple),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text(
-                        text = "Continue to next word",
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 14.sp
-                    )
+                    Text(text = "Continue to next word", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 14.sp)
                     Spacer(Modifier.width(6.dp))
                     Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
                 }
             }
         }
-        
+
         item { Spacer(modifier = Modifier.height(16.dp)) }
     }
 }
 
-
+// ─── All Words Browser ────────────────────────────────────────────────────────
 @Composable
 fun ColumnScope.AllWordsBrowserView(
     activeLevel: String,
@@ -1367,7 +1179,6 @@ fun ColumnScope.AllWordsBrowserView(
     val context = LocalContext.current
     var bookmarksVersion by remember { mutableStateOf(0) }
     var sortOrder by remember { mutableStateOf(VocabSortOrder.ALPHA_ASC) }
-    var showSortMenu by remember { mutableStateOf(false) }
 
     val words = remember(activeLevel, searchQuery, bookmarksVersion, sortOrder) {
         val base = VocabTracker.searchWords(searchQuery, activeLevel)
@@ -1380,55 +1191,36 @@ fun ColumnScope.AllWordsBrowserView(
         }
     }
 
-    // TTS voice support inside words list
     var tts by remember { mutableStateOf<TextToSpeech?>(null) }
     DisposableEffect(context) {
         val t = TextToSpeech(context) { }
         t.language = Locale.US
         tts = t
-        onDispose {
-            t.stop()
-            t.shutdown()
-        }
+        onDispose { t.stop(); t.shutdown() }
     }
 
     Column(
-        modifier = Modifier
-            .weight(1f)
-            .fillMaxWidth()
-            .padding(horizontal = 20.dp),
+        modifier = Modifier.weight(1f).fillMaxWidth().padding(horizontal = 20.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        // Header row
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = "All $activeLevel Vocabulary",
-                color = TextDark,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold
-            )
+            Text(text = stringResource(R.string.all_level_vocabulary, activeLevel), color = TextDark, fontSize = 18.sp, fontWeight = FontWeight.Bold)
             Text(
                 text = "Show Categories",
-                color = BrandPurple,
-                fontSize = 13.sp,
-                fontWeight = FontWeight.Bold,
+                color = BrandPurple, fontSize = 13.sp, fontWeight = FontWeight.Bold,
                 modifier = Modifier.clickable { onBackToCategories() }
             )
         }
 
-        // Search Bar
         OutlinedTextField(
             value = searchQuery,
             onValueChange = onSearchQueryChanged,
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp))
-                .bringIntoViewOnFocus(),
-            placeholder = { Text("Search words, meanings...", color = TextLight, fontSize = 14.sp) },
+            modifier = Modifier.fillMaxWidth().background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp)).bringIntoViewOnFocus(),
+            placeholder = { Text(stringResource(R.string.search_words_meanings), color = TextLight, fontSize = 14.sp) },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search", tint = TextLight) },
             shape = RoundedCornerShape(16.dp),
             colors = OutlinedTextFieldDefaults.colors(
@@ -1439,25 +1231,13 @@ fun ColumnScope.AllWordsBrowserView(
             singleLine = true
         )
 
-        // ── Filter / Sort Bar ─────────────────────────────────────────────────
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(
-                Icons.Default.FilterList,
-                contentDescription = "Filter",
-                tint = TextLight,
-                modifier = Modifier.size(16.dp)
-            )
-            Text(
-                "Sort by:",
-                color = TextLight,
-                fontSize = 11.sp,
-                fontWeight = FontWeight.Bold
-            )
-            // Scrollable chips row
+            Icon(Icons.Default.FilterList, contentDescription = "Filter", tint = TextLight, modifier = Modifier.size(16.dp))
+            Text(stringResource(R.string.sort_by), color = TextLight, fontSize = 11.sp, fontWeight = FontWeight.Bold)
             androidx.compose.foundation.lazy.LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
                 modifier = Modifier.weight(1f)
@@ -1469,53 +1249,27 @@ fun ColumnScope.AllWordsBrowserView(
                         modifier = Modifier
                             .clip(RoundedCornerShape(20.dp))
                             .background(if (isActive) BrandPurple else Color.White.copy(alpha = 0.85f))
-                            .border(
-                                0.5.dp,
-                                if (isActive) BrandPurple else Color(0xFFDDDAFF),
-                                RoundedCornerShape(20.dp)
-                            )
+                            .border(0.5.dp, if (isActive) BrandPurple else Color(0xFFDDDAFF), RoundedCornerShape(20.dp))
                             .clickable { sortOrder = order }
                             .padding(horizontal = 10.dp, vertical = 6.dp)
                     ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(4.dp)
-                        ) {
-                            Icon(
-                                order.icon,
-                                contentDescription = null,
-                                tint = if (isActive) Color.White else BrandPurple,
-                                modifier = Modifier.size(12.dp)
-                            )
-                            Text(
-                                text = order.label,
-                                color = if (isActive) Color.White else TextMid,
-                                fontSize = 11.sp,
-                                fontWeight = if (isActive) FontWeight.ExtraBold else FontWeight.Medium
-                            )
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                            Icon(order.icon, contentDescription = null, tint = if (isActive) Color.White else BrandPurple, modifier = Modifier.size(12.dp))
+                            Text(text = order.label, color = if (isActive) Color.White else TextMid, fontSize = 11.sp, fontWeight = if (isActive) FontWeight.ExtraBold else FontWeight.Medium)
                         }
                     }
                 }
             }
         }
 
-        // Words count label
-        Text(
-            text = "${words.size} words",
-            color = TextLight,
-            fontSize = 11.sp,
-            fontWeight = FontWeight.Medium
-        )
+        Text(text = "${words.size} words", color = TextLight, fontSize = 11.sp, fontWeight = FontWeight.Medium)
 
         if (words.isEmpty()) {
             Box(modifier = Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Text(text = "No words found matching \"$searchQuery\"", color = TextMid, fontSize = 14.sp)
             }
         } else {
-            LazyColumn(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
+            LazyColumn(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 items(words) { w ->
                     var expanded by remember { mutableStateOf(false) }
                     val isStarred = VocabTracker.isBookmarked(w.word)
@@ -1531,57 +1285,24 @@ fun ColumnScope.AllWordsBrowserView(
                         shape = RoundedCornerShape(16.dp)
                     ) {
                         Column(modifier = Modifier.padding(16.dp)) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
+                            Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                                 Box(
-                                    modifier = Modifier
-                                        .size(36.dp)
-                                        .background(
-                                            getCategoryIconBackground(w.mappedCategory),
-                                            RoundedCornerShape(10.dp)
-                                        ),
+                                    modifier = Modifier.size(36.dp).background(getCategoryIconBackground(w.mappedCategory), RoundedCornerShape(10.dp)),
                                     contentAlignment = Alignment.Center
                                 ) {
-                                    Icon(
-                                        imageVector = getCategoryIcon(w.mappedCategory),
-                                        contentDescription = null,
-                                        tint = getCategoryIconTint(w.mappedCategory),
-                                        modifier = Modifier.size(16.dp)
-                                    )
+                                    Icon(imageVector = getCategoryIcon(w.mappedCategory), contentDescription = null, tint = getCategoryIconTint(w.mappedCategory), modifier = Modifier.size(16.dp))
                                 }
-
                                 Spacer(modifier = Modifier.width(12.dp))
-
                                 Column(modifier = Modifier.weight(1f)) {
-                                    Text(
-                                        text = w.word,
-                                        color = TextDark,
-                                        fontSize = 15.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                    Text(
-                                        text = "(${w.partOfSpeech}) /${w.pronunciation}/",
-                                        color = TextLight,
-                                        fontSize = 11.sp,
-                                        fontStyle = FontStyle.Italic
-                                    )
+                                    Text(text = w.word, color = TextDark, fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                                    Text(text = "(${w.partOfSpeech}) /${w.pronunciation}/", color = TextLight, fontSize = 11.sp, fontStyle = FontStyle.Italic)
                                 }
-
-                                // Mastery tag
                                 Box(
                                     modifier = Modifier
-                                        .background(
-                                            if (score >= 80) BrandGreen.copy(alpha = 0.15f) else BrandAmber.copy(alpha = 0.15f),
-                                            RoundedCornerShape(8.dp)
-                                        )
+                                        .background(if (score >= 80) BrandGreen.copy(alpha = 0.15f) else BrandAmber.copy(alpha = 0.15f), RoundedCornerShape(8.dp))
                                         .padding(horizontal = 8.dp, vertical = 4.dp)
                                 ) {
-                                    Row(
-                                        verticalAlignment = Alignment.CenterVertically,
-                                        horizontalArrangement = Arrangement.spacedBy(3.dp)
-                                    ) {
+                                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(3.dp)) {
                                         Icon(
                                             if (score >= 80) Icons.Default.CheckCircle else Icons.Default.RadioButtonUnchecked,
                                             contentDescription = null,
@@ -1591,20 +1312,13 @@ fun ColumnScope.AllWordsBrowserView(
                                         Text(
                                             text = if (score >= 80) "MASTERED" else "LEARNING",
                                             color = if (score >= 80) BrandGreen else BrandAmberDark,
-                                            fontSize = 9.sp,
-                                            fontWeight = FontWeight.Bold
+                                            fontSize = 9.sp, fontWeight = FontWeight.Bold
                                         )
                                     }
                                 }
-
                                 Spacer(modifier = Modifier.width(8.dp))
-
-                                // Bookmark Toggle
                                 IconButton(
-                                    onClick = {
-                                        VocabTracker.toggleBookmark(w.word, context)
-                                        bookmarksVersion++
-                                    },
+                                    onClick = { VocabTracker.toggleBookmark(w.word, context); bookmarksVersion++ },
                                     modifier = Modifier.size(36.dp)
                                 ) {
                                     Icon(
@@ -1619,34 +1333,24 @@ fun ColumnScope.AllWordsBrowserView(
                                 Spacer(Modifier.height(12.dp))
                                 HorizontalDivider(color = Color(0x0D000000))
                                 Spacer(Modifier.height(12.dp))
-
-                                Text("Definition", color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.definition), color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
                                 Text(w.meaning, color = TextDark, fontSize = 13.sp)
-
                                 Spacer(modifier = Modifier.height(10.dp))
-                                Text("Category", color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.category), color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
                                 Text(w.category, color = TextDark, fontSize = 13.sp)
-
                                 if (w.examples.isNotEmpty()) {
                                     Spacer(modifier = Modifier.height(10.dp))
-                                    Text("Example", color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.example), color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
                                     val ex = w.examples.first()
                                     Text("\"${ex.english}\"", color = TextDark, fontSize = 13.sp, fontStyle = FontStyle.Italic)
-
                                     val translation = ex.translations.values.firstOrNull()
                                     if (translation != null) {
                                         Spacer(modifier = Modifier.height(2.dp))
                                         Text(translation, color = TextMid, fontSize = 12.sp)
                                     }
                                 }
-
                                 Spacer(modifier = Modifier.height(12.dp))
-                                // Pronunciation bar with speed control
-                                PronunciationBar(
-                                    word = w.word,
-                                    tts = tts,
-                                    label = "Listen Pronunciation"
-                                )
+                                PronunciationBar(word = w.word, tts = tts, label = "Listen Pronunciation")
                             }
                         }
                     }
@@ -1657,7 +1361,7 @@ fun ColumnScope.AllWordsBrowserView(
     }
 }
 
-// ─── Category Icon Helpers ─────────────────────────────────────────────────────
+// ─── Category Icon Helpers ────────────────────────────────────────────────────
 
 fun getCategoryIcon(category: String): ImageVector {
     val c = category.lowercase()

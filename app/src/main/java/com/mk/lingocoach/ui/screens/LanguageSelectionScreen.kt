@@ -132,10 +132,10 @@ fun LanguageSelectionScreen(
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = "LingoCoach",
+                        text = "LingoCoach: AI Language Tutor",
                         style = TextStyle(
                             color = Color(0xFF6A5CFF),
-                            fontSize = 16.sp,
+                            fontSize = 12.sp,
                             fontWeight = FontWeight.Bold
                         )
                     )

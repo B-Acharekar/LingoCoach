@@ -293,10 +293,41 @@ fun HomeStep(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF8F9FC))
-            .padding(horizontal = 24.dp, vertical = 32.dp),
+            .padding(horizontal = 24.dp, vertical = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(24.dp)
+        verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.End,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            if (aiLabStatus != null) {
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(18.dp))
+                        .background(Color.White)
+                        .border(1.dp, Color(0xFFE4E1FF), RoundedCornerShape(18.dp))
+                        .padding(horizontal = 12.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Icon(
+                        Icons.Default.Bolt,
+                        contentDescription = null,
+                        tint = if (isLimited) BrandRed else BrandPurple,
+                        modifier = Modifier.size(15.dp)
+                    )
+                    Text(
+                        stringResource(R.string.todays_sessions_count, sessionsUsed, sessionsLimit),
+                        color = if (isLimited) BrandRed else BrandPurple,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.ExtraBold
+                    )
+                }
+            }
+        }
+
         // Welcome Section
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -319,7 +350,7 @@ fun HomeStep(
             Spacer(Modifier.height(16.dp))
             
             Text(
-                "AI Conversation Practice",
+                stringResource(R.string.ai_conversation_practice),
                 style = TextStyle(
                     color = Color(0xFF1D1D1F),
                     fontSize = 26.sp,
@@ -331,7 +362,7 @@ fun HomeStep(
             Spacer(Modifier.height(8.dp))
             
             Text(
-                "Improve your speaking skills with real-time feedback from our AI tutor",
+                stringResource(R.string.ai_lab_intro_feedback),
                 style = TextStyle(
                     color = Color(0xFF86868B),
                     fontSize = 14.sp,
@@ -350,134 +381,22 @@ fun HomeStep(
         ) {
             FeatureItem(
                 icon = Icons.Default.ChatBubble,
-                title = "Natural Conversations",
-                description = "Chat about any topic with a helpful AI assistant"
+                title = stringResource(R.string.natural_conversations),
+                description = stringResource(R.string.natural_conversations_desc)
             )
             FeatureItem(
                 icon = Icons.Default.Check,
-                title = "Instant Corrections",
-                description = "Get real-time feedback on grammar and pronunciation"
+                title = stringResource(R.string.instant_corrections),
+                description = stringResource(R.string.instant_corrections_desc)
             )
             FeatureItem(
                 icon = Icons.AutoMirrored.Filled.TrendingUp,
-                title = "Track Progress",
-                description = "See your improvements over time with detailed insights"
+                title = stringResource(R.string.track_progress),
+                description = stringResource(R.string.track_progress_desc)
             )
         }
 
-        Spacer(Modifier.height(8.dp))
-
-        // Usage Counter Card
-        if (aiLabStatus != null) {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .shadow(2.dp, RoundedCornerShape(16.dp)),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
-                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(20.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(
-                            "Today's Sessions",
-                            style = TextStyle(
-                                color = Color(0xFF1D1D1F),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.SemiBold
-                            )
-                        )
-                        Text(
-                            "$sessionsUsed/$sessionsLimit",
-                            style = TextStyle(
-                                color = BrandPurple,
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        )
-                    }
-
-                    // Progress Bar
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(8.dp)
-                            .clip(RoundedCornerShape(4.dp))
-                            .background(Color(0xFFE8E8ED))
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxHeight()
-                                .fillMaxWidth(progressPercentage)
-                                .clip(RoundedCornerShape(4.dp))
-                                .background(
-                                    if (isLimited) BrandRed else BrandPurple
-                                )
-                        )
-                    }
-
-                    if (isLimited && sessionsRemaining <= 0) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(Color(0xFFFFF3E0), RoundedCornerShape(8.dp))
-                                .padding(horizontal = 12.dp, vertical = 10.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
-                        ) {
-                            Icon(
-                                Icons.Default.Info,
-                                contentDescription = null,
-                                tint = Color(0xFFFF9800),
-                                modifier = Modifier.size(18.dp)
-                            )
-                            Text(
-                                "Daily limit reached. Come back tomorrow!",
-                                style = TextStyle(
-                                    color = Color(0xFFE65100),
-                                    fontSize = 12.sp
-                                )
-                            )
-                        }
-                    } else if (sessionsRemaining <= 2 && !isLimited) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(Color(0xFFF3E5F5), RoundedCornerShape(8.dp))
-                                .padding(horizontal = 12.dp, vertical = 10.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
-                        ) {
-                            Icon(
-                                Icons.Default.Star,
-                                contentDescription = null,
-                                tint = BrandPurple,
-                                modifier = Modifier.size(18.dp)
-                            )
-                            Text(
-                                "$sessionsRemaining session${if (sessionsRemaining != 1) "s" else ""} remaining today",
-                                style = TextStyle(
-                                    color = BrandPurple,
-                                    fontSize = 12.sp,
-                                    fontWeight = FontWeight.SemiBold
-                                )
-                            )
-                        }
-                    }
-                }
-            }
-        }
-
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.weight(1f))
 
         // CTA Button
         if (!isLimited) {
@@ -515,7 +434,7 @@ fun HomeStep(
                     )
                     Spacer(Modifier.width(10.dp))
                     Text(
-                        "Start Conversation",
+                        stringResource(R.string.start_conversation),
                         style = TextStyle(
                             fontSize = 16.sp,
                             fontWeight = FontWeight.SemiBold
@@ -544,7 +463,7 @@ fun HomeStep(
                     )
                     Spacer(Modifier.width(10.dp))
                     Text(
-                        "Daily limit reached. Try again tomorrow",
+                        stringResource(R.string.daily_limit_try_tomorrow),
                         style = TextStyle(
                             color = Color(0xFF666666),
                             fontSize = 16.sp,
@@ -762,6 +681,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
     var inputText      by remember { mutableStateOf("") }
     var isListening    by remember { mutableStateOf(false) }
     var isTranscribing by remember { mutableStateOf(false) }
+    var isSendingMessage by remember { mutableStateOf(false) }
     var ttsEnabled     by remember { mutableStateOf(false) }
     var speechRate     by remember { mutableStateOf(1.0f) }
     var textToSpeech   by remember { mutableStateOf<TextToSpeech?>(null) }
@@ -819,6 +739,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
             PackageManager.PERMISSION_GRANTED
 
     fun startRecording() {
+        if (isSendingMessage || isTranscribing) return
         if (!hasAudioPermission()) { permLauncher.launch(Manifest.permission.RECORD_AUDIO); return }
         try {
             val file = File(context.cacheDir, "ailab_voice_${System.currentTimeMillis()}.mp4")
@@ -842,6 +763,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
     }
 
     fun stopRecordingAndSend() {
+        if (isSendingMessage) return
         try { recorder?.stop(); recorder?.release() } catch (e: Exception) { Log.e("AILab", "Stop failed", e) }
         recorder    = null
         isListening = false
@@ -850,6 +772,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
         if (sessionId == null) return
 
         isTranscribing = true
+        isSendingMessage = true
         val typingId = (System.currentTimeMillis() + 1).toString()
         messages = messages + ChatMessage(id = typingId, role = MessageRole.AI, text = "", isTyping = true)
 
@@ -859,40 +782,43 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
             message   = null,
             audioFile = file
         ) { response ->
-            messages       = messages.filter { it.id != typingId }
-            isTranscribing = false
-            if (response != null) {
-                val uiMistakes = response.mistakes.map { m ->
-                    Mistake(
-                        wrong = m.wrong ?: "",
-                        correct = m.correct ?: "",
-                        explanation = m.explanation ?: "",
-                        mistakeType = m.mistake_type ?: ""
-                    )
-                }
-                val transcribedText = response.transcribed_text?.trim().orEmpty()
-                if (transcribedText.isNotBlank()) {
+            scope.launch(Dispatchers.Main) {
+                messages = messages.filter { it.id != typingId }
+                isTranscribing = false
+                isSendingMessage = false
+                if (response != null) {
+                    val uiMistakes = response.mistakes.map { m ->
+                        Mistake(
+                            wrong = m.wrong ?: "",
+                            correct = m.correct ?: "",
+                            explanation = m.explanation ?: "",
+                            mistakeType = m.mistake_type ?: ""
+                        )
+                    }
+                    val transcribedText = response.transcribed_text?.trim().orEmpty()
+                    if (transcribedText.isNotBlank()) {
+                        messages = messages + ChatMessage(
+                            id       = System.currentTimeMillis().toString(),
+                            role     = MessageRole.USER,
+                            text     = transcribedText,
+                            mistakes = uiMistakes
+                        )
+                    }
                     messages = messages + ChatMessage(
-                        id       = System.currentTimeMillis().toString(),
-                        role     = MessageRole.USER,
-                        text     = transcribedText,
-                        mistakes = uiMistakes
+                        id   = (System.currentTimeMillis() + 1).toString(),
+                        role = MessageRole.AI,
+                        text = response.ai_response
+                    )
+                    speakAi(response.ai_response)
+                } else {
+                    messages = messages + ChatMessage(
+                        id   = System.currentTimeMillis().toString(),
+                        role = MessageRole.AI,
+                        text = context.getString(R.string.ai_voice_process_failed)
                     )
                 }
-                messages = messages + ChatMessage(
-                    id   = (System.currentTimeMillis() + 1).toString(),
-                    role = MessageRole.AI,
-                    text = response.ai_response
-                )
-                speakAi(response.ai_response)
-            } else {
-                messages = messages + ChatMessage(
-                    id   = System.currentTimeMillis().toString(),
-                    role = MessageRole.AI,
-                    text = context.getString(R.string.ai_voice_process_failed)
-                )
+                scope.launch(Dispatchers.IO) { file.delete() }
             }
-            scope.launch { file.delete() }
         }
     }
 
@@ -937,6 +863,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
             onInputChange  = { inputText = it },
             isListening    = isListening,
             isTranscribing = isTranscribing,
+            isSending      = isSendingMessage,
             ttsEnabled     = ttsEnabled,
             speechRate     = speechRate,
             onTtsToggle    = {
@@ -945,8 +872,9 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
             },
             onSpeechRateChange = { speechRate = it },
             onSend         = {
-                if (inputText.isNotBlank() && sessionId != null) {
+                if (inputText.isNotBlank() && sessionId != null && !isSendingMessage && !isTranscribing) {
                     val msg = inputText
+                    isSendingMessage = true
                     messages  = messages + ChatMessage(System.currentTimeMillis().toString(), MessageRole.USER, msg)
                     inputText = ""
                     val tid   = (System.currentTimeMillis() + 1).toString()
@@ -957,23 +885,26 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
                         message   = msg,
                         audioFile = null
                     ) { response ->
-                        messages = messages.filter { it.id != tid }
-                        messages = messages + if (response != null) {
-                            ChatMessage(
-                                id       = System.currentTimeMillis().toString(),
-                                role     = MessageRole.AI,
-                                text     = response.ai_response,
-                                mistakes = response.mistakes.map { m -> 
-                                    Mistake(
-                                        wrong = m.wrong ?: "",
-                                        correct = m.correct ?: "",
-                                        explanation = m.explanation ?: "",
-                                        mistakeType = m.mistake_type ?: ""
-                                    )
-                                }
-                            ).also { speakAi(response.ai_response) }
-                        } else {
-                            ChatMessage(System.currentTimeMillis().toString(), MessageRole.AI, context.getString(R.string.ai_connection_failed))
+                        scope.launch(Dispatchers.Main) {
+                            messages = messages.filter { it.id != tid }
+                            isSendingMessage = false
+                            messages = messages + if (response != null) {
+                                ChatMessage(
+                                    id       = System.currentTimeMillis().toString(),
+                                    role     = MessageRole.AI,
+                                    text     = response.ai_response,
+                                    mistakes = response.mistakes.map { m ->
+                                        Mistake(
+                                            wrong = m.wrong ?: "",
+                                            correct = m.correct ?: "",
+                                            explanation = m.explanation ?: "",
+                                            mistakeType = m.mistake_type ?: ""
+                                        )
+                                    }
+                                ).also { speakAi(response.ai_response) }
+                            } else {
+                                ChatMessage(System.currentTimeMillis().toString(), MessageRole.AI, context.getString(R.string.ai_connection_failed))
+                            }
                         }
                     }
                 }
@@ -1091,6 +1022,7 @@ fun ChatInputArea(
     isListening: Boolean,
     onMicToggle: () -> Unit,
     isTranscribing: Boolean,
+    isSending: Boolean,
     ttsEnabled: Boolean,
     speechRate: Float,
     onTtsToggle: () -> Unit,
@@ -1167,10 +1099,10 @@ fun ChatInputArea(
                 if (inputText.isEmpty()) Text(stringResource(R.string.type_response_hint), color = TextLight, fontSize = 15.sp)
                 BasicTextField(
                     value          = inputText,
-                    onValueChange  = onInputChange,
+                    onValueChange  = { if (!isSending && !isTranscribing) onInputChange(it) },
                     textStyle      = TextStyle(color = TextDark, fontSize = 15.sp),
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Send),
-                    keyboardActions = KeyboardActions(onSend = { onSend() }),
+                    keyboardActions = KeyboardActions(onSend = { if (!isSending && !isTranscribing) onSend() }),
                     modifier       = Modifier
                         .fillMaxWidth()
                         .defaultMinSize(minHeight = 44.dp)
@@ -1182,11 +1114,18 @@ fun ChatInputArea(
             if (inputText.isNotBlank()) {
                 Spacer(Modifier.width(8.dp))
                 Box(
-                    modifier         = Modifier.size(32.dp).background(BrandPurple, CircleShape).clickable { onSend() },
+                    modifier         = Modifier
+                        .size(32.dp)
+                        .background(if (isSending || isTranscribing) Color(0x22000000) else BrandPurple, CircleShape)
+                        .clickable(enabled = !isSending && !isTranscribing) { onSend() },
                     contentAlignment = Alignment.Center
                 ) {
-                    Icon(Icons.Default.ArrowUpward, contentDescription = stringResource(R.string.send),
-                        tint = Color.White, modifier = Modifier.size(16.dp))
+                    if (isSending || isTranscribing) {
+                        CircularProgressIndicator(color = Color.White, modifier = Modifier.size(15.dp), strokeWidth = 2.dp)
+                    } else {
+                        Icon(Icons.Default.ArrowUpward, contentDescription = stringResource(R.string.send),
+                            tint = Color.White, modifier = Modifier.size(16.dp))
+                    }
                 }
             }
         }
@@ -1197,7 +1136,11 @@ fun ChatInputArea(
                 if (isListening) Color(0xFFFFECEC) else Color(0xFFF5F5F5), label = "micBg"
             )
             Box(
-                modifier         = Modifier.size(40.dp).clip(CircleShape).background(micBg).clickable { onMicToggle() },
+                modifier         = Modifier
+                    .size(40.dp)
+                    .clip(CircleShape)
+                    .background(micBg)
+                    .clickable(enabled = !isSending && !isTranscribing) { onMicToggle() },
                 contentAlignment = Alignment.Center
             ) {
                 Icon(

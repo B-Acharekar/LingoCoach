@@ -11,6 +11,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -24,12 +25,14 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.offset
@@ -79,6 +82,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -110,9 +114,12 @@ import com.google.gson.Gson
 import com.mk.lingocoach.R
 import com.mk.lingocoach.network.AssessmentApi
 import com.mk.lingocoach.network.AssessmentResponse
+import com.mk.lingocoach.network.FullAssessmentAnswer
+import com.mk.lingocoach.network.FullAssessmentRequest
 import com.mk.lingocoach.network.LearningPathRequest
 import com.mk.lingocoach.network.LearningPathResponse
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.File
 import kotlin.math.absoluteValue
@@ -125,6 +132,7 @@ import kotlin.math.sin
 @Composable
 fun AssessmentScreen(
     onNavigateToLearningPath: () -> Unit,
+    onNavigateHome: () -> Unit = onNavigateToLearningPath,
     onNavigateBack: () -> Unit
 ) {
     val context = LocalContext.current
@@ -142,6 +150,8 @@ fun AssessmentScreen(
     var mediaRecorder by remember { mutableStateOf<MediaRecorder?>(null) }
     var recordedFile by remember { mutableStateOf<File?>(null) }
     var textAnswer by remember { mutableStateOf("") }
+    val answers = remember { mutableStateMapOf<Int, String>() }
+    var lastTranscribedText by remember { mutableStateOf("") }
     var finalResponse by remember { mutableStateOf<AssessmentResponse?>(null) }
 
     // Start in text mode if permission already denied
@@ -174,22 +184,54 @@ fun AssessmentScreen(
         }
     }
 
-    // API response handler
-    fun handleResponse(response: AssessmentResponse?) {
+    fun handleFinalResponse(response: AssessmentResponse?) {
         coroutineScope.launch(Dispatchers.Main) {
             isSubmitting = false
             if (response == null) {
-                Toast.makeText(context, "Submission failed. Please try again.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Assessment failed. Please try again.", Toast.LENGTH_SHORT).show()
                 return@launch
             }
             if (response.assessment_complete) {
                 finalResponse = response
             } else {
-                currentStep = response.current_step
-                currentQuestion = response.next_question
-                    ?: localQuestions[response.current_step] ?: ""
-                textAnswer = ""
+                Toast.makeText(context, "Final result was not ready. Please try again.", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    fun submitFullAssessment() {
+        val payload = (1..5).mapNotNull { step ->
+            val answer = answers[step]?.trim().orEmpty()
+            val question = localQuestions[step].orEmpty()
+            if (answer.isBlank() || question.isBlank()) null
+            else FullAssessmentAnswer(step = step, question = question, answer = answer)
+        }
+        if (payload.size != 5) {
+            isSubmitting = false
+            Toast.makeText(context, "Please answer all 5 questions first.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        AssessmentApi.submitFullAssessment(
+            FullAssessmentRequest(session_id = sessionId, answers = payload)
+        ) { response ->
+            handleFinalResponse(response)
+        }
+    }
+
+    fun saveCurrentAnswerAndContinue(answer: String) {
+        answers[currentStep] = answer.trim()
+        lastTranscribedText = ""
+
+        if (currentStep >= 5) {
+            isSubmitting = true
+            submitFullAssessment()
+        } else {
+            currentStep += 1
+            currentQuestion = localQuestions[currentStep] ?: ""
+            textAnswer = answers[currentStep].orEmpty()
+            isTextMode = ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED
+            isSubmitting = false
         }
     }
 
@@ -231,7 +273,8 @@ fun AssessmentScreen(
     // Init session — pass the display name entered in UserProfileSetupScreen
     LaunchedEffect(Unit) {
         val userName = sharedPrefs.getString("display_name", "") ?: ""
-        AssessmentApi.createSession(userName) { response ->
+        val username = sharedPrefs.getString("username", "") ?: ""
+        AssessmentApi.createSession(userName, username) { response ->
             coroutineScope.launch(Dispatchers.Main) {
                 if (response != null) {
                     sessionId = response.session_id
@@ -240,6 +283,9 @@ fun AssessmentScreen(
                     // If backend echoes name back, ensure it's saved locally
                     if (response.user_name.isNotBlank()) {
                         sharedPrefs.edit().putString("display_name", response.user_name).apply()
+                    }
+                    if (response.username.isNotBlank()) {
+                        sharedPrefs.edit().putString("username", response.username).apply()
                     }
                     isLoading = false
                 } else {
@@ -262,7 +308,8 @@ fun AssessmentScreen(
                 errorMessage = ""
                 isLoading = true
                 val userName = sharedPrefs.getString("display_name", "") ?: ""
-                AssessmentApi.createSession(userName) { response ->
+                val username = sharedPrefs.getString("username", "") ?: ""
+                AssessmentApi.createSession(userName, username) { response ->
                     coroutineScope.launch(Dispatchers.Main) {
                         if (response != null) {
                             sessionId = response.session_id
@@ -281,6 +328,46 @@ fun AssessmentScreen(
                 response = finalResponse!!,
                 onContinue = {
                     isGeneratingPath = true
+                    fun saveAndOpenLearningPath(pathResponse: LearningPathResponse) {
+                        val gson = Gson()
+                        sharedPrefs.edit()
+                            .putString("assessment_response_json", gson.toJson(finalResponse))
+                            .putString("learning_path_json", gson.toJson(pathResponse))
+                            .putString("learning_path_generation_state", "ready")
+                            .remove("learning_path_generation_started_at")
+                            .putString("session_id", finalResponse!!.session_id)
+                            .putBoolean("assessment_completed", true)
+                            .apply()
+                        AssessmentApi.getCurrentLearningPath(finalResponse!!.session_id) { currentPath ->
+                            coroutineScope.launch(Dispatchers.Main) {
+                                if (currentPath != null) {
+                                    AppCache.learningPath = AppCache.applyLocalLearningPathProgress(currentPath)
+                                    AppCache.learningPathAt = System.currentTimeMillis()
+                                    AppCache.saveToDisk(context)
+                                }
+                            }
+                        }
+                    }
+                    fun generateLearningPathWithRetry(request: LearningPathRequest, attempt: Int = 1) {
+                        AssessmentApi.getLearningPath(request) { pathResponse ->
+                            coroutineScope.launch(Dispatchers.Main) {
+                                if (pathResponse != null) {
+                                    saveAndOpenLearningPath(pathResponse)
+                                } else if (attempt < 3) {
+                                    generateLearningPathWithRetry(request, attempt + 1)
+                                } else {
+                                    sharedPrefs.edit()
+                                        .putString("learning_path_generation_state", "failed")
+                                        .apply()
+                                    android.widget.Toast.makeText(
+                                        context,
+                                        "Failed to generate learning path. Please try again.",
+                                        android.widget.Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        }
+                    }
                     val request = LearningPathRequest(
                         session_id = finalResponse!!.session_id,
                         user_name  = sharedPrefs.getString("display_name", "") ?: "",
@@ -295,22 +382,20 @@ fun AssessmentScreen(
                         user_goal            = sharedPrefs.getString("user_goal", "general") ?: "general",
                         user_level_self_reported = sharedPrefs.getString("user_level", "intermediate") ?: "intermediate"
                     )
-                    AssessmentApi.getLearningPath(request) { pathResponse ->
-                        coroutineScope.launch(Dispatchers.Main) {
-                            isGeneratingPath = false
-                            if (pathResponse != null) {
-                                val gson = Gson()
-                                sharedPrefs.edit()
-                                    .putString("assessment_response_json", gson.toJson(finalResponse))
-                                    .putString("learning_path_json", gson.toJson(pathResponse))
-                                    .putString("session_id", finalResponse!!.session_id)
-                                    .putBoolean("assessment_completed", true)
-                                    .apply()
-                                onNavigateToLearningPath()
-                            } else {
-                                android.widget.Toast.makeText(context, "Failed to generate learning path. Please try again.", android.widget.Toast.LENGTH_SHORT).show()
-                            }
-                        }
+                    val gson = Gson()
+                    sharedPrefs.edit()
+                        .putString("assessment_response_json", gson.toJson(finalResponse))
+                        .putString("session_id", finalResponse!!.session_id)
+                        .putBoolean("assessment_completed", true)
+                        .putString("learning_path_generation_state", "generating")
+                        .putLong("learning_path_generation_started_at", System.currentTimeMillis())
+                        .remove("learning_path_json")
+                        .apply()
+                    generateLearningPathWithRetry(request)
+                    coroutineScope.launch(Dispatchers.Main) {
+                        delay(18_000)
+                        isGeneratingPath = false
+                        onNavigateHome()
                     }
                 },
                 onBack = onNavigateBack
@@ -323,6 +408,7 @@ fun AssessmentScreen(
                 isSubmitting = isSubmitting,
                 isTextMode = isTextMode,
                 textAnswer = textAnswer,
+                transcribedText = lastTranscribedText,
                 onTextChange = { textAnswer = it },
                 onBack = onNavigateBack,
                 onMicClick = {
@@ -330,8 +416,18 @@ fun AssessmentScreen(
                         stopRecording { file ->
                             if (file != null) {
                                 isSubmitting = true
-                                AssessmentApi.submitVoiceAnswer(sessionId, file) { r ->
-                                    handleResponse(r)
+                                AssessmentApi.transcribeVoiceAnswer(sessionId, file) { r ->
+                                    coroutineScope.launch(Dispatchers.Main) {
+                                        isSubmitting = false
+                                        val transcript = r?.transcribed_text?.trim().orEmpty()
+                                        if (transcript.isBlank()) {
+                                            Toast.makeText(context, "Could not hear that clearly. Please try again.", Toast.LENGTH_SHORT).show()
+                                        } else {
+                                            lastTranscribedText = transcript
+                                            textAnswer = transcript
+                                            isTextMode = true
+                                        }
+                                    }
                                     try { file.delete() } catch (_: Exception) {}
                                 }
                             }
@@ -352,7 +448,7 @@ fun AssessmentScreen(
                         Toast.makeText(context, "Please write a little more.", Toast.LENGTH_SHORT).show()
                     } else {
                         isSubmitting = true
-                        AssessmentApi.submitTextAnswer(sessionId, trimmed) { r -> handleResponse(r) }
+                        saveCurrentAnswerAndContinue(trimmed)
                     }
                 }
             )
@@ -396,6 +492,7 @@ fun AssessmentQuestionView(
     isSubmitting: Boolean,
     isTextMode: Boolean,
     textAnswer: String,
+    transcribedText: String,
     onTextChange: (String) -> Unit,
     onBack: () -> Unit,
     onMicClick: () -> Unit,
@@ -406,6 +503,7 @@ fun AssessmentQuestionView(
     val progress = currentStep / 5f
     val completePct = currentStep * 20
     val keyboardController = LocalSoftwareKeyboardController.current
+    val textModeScrollState = rememberScrollState()
 
     Column(
         modifier = Modifier
@@ -414,6 +512,10 @@ fun AssessmentQuestionView(
             .navigationBarsPadding()
             .imePadding()
             .padding(horizontal = 24.dp)
+            .then(
+                if (isTextMode) Modifier.verticalScroll(textModeScrollState)
+                else Modifier
+            )
     ) {
         // ── Header ────────────────────────────────────────────────────────────
         Row(
@@ -475,7 +577,8 @@ fun AssessmentQuestionView(
             }
         }
 
-        Spacer(Modifier.height(16.dp))
+        if (currentStep <= 3) {
+            Spacer(Modifier.height(16.dp))
 
         // ── Hint card ─────────────────────────────────────────────────────────
         Card(
@@ -493,8 +596,13 @@ fun AssessmentQuestionView(
                 )
             }
         }
+        }
 
-        Spacer(Modifier.weight(1f))
+        if (isTextMode) {
+            Spacer(Modifier.height(12.dp))
+        } else {
+            Spacer(Modifier.weight(1f))
+        }
 
         // ── BOTTOM SECTION: Voice vs Text ─────────────────────────────────────
         if (!isTextMode) {
@@ -609,23 +717,56 @@ fun AssessmentQuestionView(
                     modifier = Modifier.padding(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Box(
+                    Column(
                         modifier = Modifier
                             .fillMaxWidth()
                             .background(Color.White, RoundedCornerShape(20.dp))
                             .border(BorderStroke(1.dp, Color(0xFFE2E2E6)), RoundedCornerShape(20.dp))
-                            .padding(bottom = 12.dp, end = 12.dp)
                     ) {
+                        val canSend = textAnswer.trim().length >= 5
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 16.dp, top = 10.dp, end = 12.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                "Your response",
+                                color = Color(0xFF6E6E73),
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                            Box(
+                                modifier = Modifier
+                                    .size(40.dp)
+                                    .clip(CircleShape)
+                                    .background(if (canSend) Color(0xFF6A5CFF) else Color(0xFFD2D2D7))
+                                    .clickable(enabled = canSend) {
+                                        keyboardController?.hide()
+                                        onSubmitText()
+                                    },
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.Send,
+                                    contentDescription = "Submit response",
+                                    tint = Color.White,
+                                    modifier = Modifier.size(19.dp)
+                                )
+                            }
+                        }
+
                         OutlinedTextField(
                             value = textAnswer,
                             onValueChange = onTextChange,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(bottom = 36.dp)
+                                .heightIn(min = 132.dp, max = 212.dp)
                                 .bringIntoViewOnFocus(),
                             placeholder = { Text("Type your response here...", color = Color(0xFF8E8D9F), fontSize = 15.sp) },
-                            minLines = 4,
-                            maxLines = 6,
+                            minLines = 5,
+                            maxLines = 9,
                             colors = OutlinedTextFieldDefaults.colors(
                                 focusedContainerColor = Color.Transparent,
                                 unfocusedContainerColor = Color.Transparent,
@@ -636,27 +777,6 @@ fun AssessmentQuestionView(
                             ),
                             textStyle = TextStyle(fontSize = 15.sp, lineHeight = 22.sp)
                         )
-
-                        val canSend = textAnswer.trim().length >= 5
-                        Box(
-                            modifier = Modifier
-                                .size(44.dp)
-                                .align(Alignment.BottomEnd)
-                                .clip(CircleShape)
-                                .background(if (canSend) Color(0xFF6A5CFF) else Color(0xFFD2D2D7))
-                                .clickable(enabled = canSend) {
-                                    keyboardController?.hide()
-                                    onSubmitText()
-                                },
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.Send,
-                                contentDescription = "Submit",
-                                tint = Color.White,
-                                modifier = Modifier.size(20.dp)
-                            )
-                        }
                     }
 
                     Spacer(Modifier.height(16.dp))
@@ -675,7 +795,7 @@ fun AssessmentQuestionView(
                 }
             }
 
-            Spacer(Modifier.weight(0.8f))
+            Spacer(Modifier.height(16.dp))
 
             // Estimated time card
             Card(
@@ -732,154 +852,28 @@ fun LoadingView() {
 
 @Composable
 fun GeneratingPathView() {
-    val totalAnimationTime = 10000 // 10 seconds
-    val drawingProgress = remember { androidx.compose.animation.core.Animatable(0f) }
-    
-    val tips = remember {
-        listOf(
-            "Tip: Practicing 15 minutes a day is better than 2 hours once a week.",
-            "Fun Fact: There are over 7,000 languages spoken in the world today.",
-            "Tip: Don't worry about making mistakes; they are proof you are trying!",
-            "Fun Fact: The language with the most words is English, with over 1 million.",
-            "Tip: Try watching your favorite movies with subtitles in your target language."
-        )
-    }
-    var currentTipIndex by remember { mutableStateOf(0) }
-    val tipAlpha = remember { androidx.compose.animation.core.Animatable(0f) }
-    val finalPulse = remember { androidx.compose.animation.core.Animatable(1f) }
-
-    LaunchedEffect(Unit) {
-        launch {
-            drawingProgress.animateTo(
-                targetValue = 1f,
-                animationSpec = androidx.compose.animation.core.tween(
-                    durationMillis = totalAnimationTime,
-                    easing = androidx.compose.animation.core.LinearEasing
-                )
-            )
-            // Start infinite pulse for the final checkpoint
-            while(true) {
-                finalPulse.animateTo(1.5f, androidx.compose.animation.core.tween(800, easing = androidx.compose.animation.core.FastOutSlowInEasing))
-                finalPulse.animateTo(1f, androidx.compose.animation.core.tween(800, easing = androidx.compose.animation.core.FastOutSlowInEasing))
-            }
-        }
-        
-        // Start carousel
-        launch {
-            while (true) {
-                tipAlpha.animateTo(1f, androidx.compose.animation.core.tween(500))
-                kotlinx.coroutines.delay(3500)
-                tipAlpha.animateTo(0f, androidx.compose.animation.core.tween(500))
-                currentTipIndex = (currentTipIndex + 1) % tips.size
-            }
-        }
-    }
-
-    val primaryColor = Color(0xFF6A5CFF)
-    val steps = remember {
-        listOf(
-            "Analyzing your proficiency level...",
-            "Finding the best vocabulary for you...",
-            "Structuring your custom lessons...",
-            "Almost ready!"
-        )
-    }
-
-    val pointThresholds = listOf(0.33f, 0.66f, 0.9f, 1.0f)
-
     Box(
-        modifier = Modifier.fillMaxSize().background(Color(0xE6FFFFFF)),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFF7F5FF))
+            .statusBarsPadding()
+            .navigationBarsPadding()
+            .padding(horizontal = 28.dp),
         contentAlignment = Alignment.Center
     ) {
-        Canvas(modifier = Modifier.fillMaxSize()) {
-            val startX = size.width / 2f
-            val startY = size.height * 0.2f
-            val verticalStep = size.height * 0.15f
-            val widthAmplitude = size.width * 0.25f
-
-            val path = androidx.compose.ui.graphics.Path().apply {
-                moveTo(startX, startY)
-                quadraticBezierTo(startX + widthAmplitude, startY + verticalStep / 2, startX, startY + verticalStep)
-                quadraticBezierTo(startX - widthAmplitude, startY + verticalStep * 1.5f, startX, startY + verticalStep * 2)
-                quadraticBezierTo(startX + widthAmplitude, startY + verticalStep * 2.5f, startX, startY + verticalStep * 3)
-                lineTo(startX, startY + verticalStep * 3.6f)
-            }
-            
-            val outPath = androidx.compose.ui.graphics.Path()
-            val pathMeasure = androidx.compose.ui.graphics.PathMeasure().apply { setPath(path, false) }
-            val currentLength = pathMeasure.length * drawingProgress.value
-            pathMeasure.getSegment(0f, currentLength, outPath, true)
-            
-            drawPath(
-                path = outPath,
-                color = primaryColor,
-                style = androidx.compose.ui.graphics.drawscope.Stroke(
-                    width = 6.dp.toPx(),
-                    cap = StrokeCap.Round,
-                    join = androidx.compose.ui.graphics.StrokeJoin.Round
-                )
-            )
-
-            steps.forEachIndexed { index, _ ->
-                if (drawingProgress.value >= pointThresholds[index]) {
-                    val yPos = when(index) {
-                        0 -> startY + verticalStep
-                        1 -> startY + verticalStep * 2
-                        2 -> startY + verticalStep * 3
-                        else -> startY + verticalStep * 3.6f
-                    }
-                    val isFinal = index == 3
-                    val radius = if (isFinal) 10.dp.toPx() * finalPulse.value else 10.dp.toPx()
-                    
-                    drawCircle(
-                        color = primaryColor.copy(alpha = 0.3f),
-                        radius = radius * 1.5f,
-                        center = androidx.compose.ui.geometry.Offset(startX, yPos)
-                    )
-                    drawCircle(
-                        color = primaryColor,
-                        radius = 8.dp.toPx(),
-                        center = androidx.compose.ui.geometry.Offset(startX, yPos)
-                    )
-                }
-            }
-        }
-
-        BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-            val h = maxHeight
-            steps.forEachIndexed { index, text ->
-                val yOffsetMultiplier = when(index) {
-                    0 -> 0.35f
-                    1 -> 0.50f
-                    2 -> 0.65f
-                    else -> 0.74f
-                }
-                androidx.compose.animation.AnimatedVisibility(
-                    visible = drawingProgress.value >= pointThresholds[index],
-                    enter = androidx.compose.animation.fadeIn(animationSpec = androidx.compose.animation.core.tween(500)),
-                    modifier = Modifier.offset(y = h * yOffsetMultiplier + 16.dp).align(Alignment.TopCenter)
-                ) {
-                    Text(
-                        text = text,
-                        color = Color(0xFF1D1D1F),
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
-            }
-        }
-
-        Box(
-            modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 40.dp).padding(horizontal = 32.dp),
-            contentAlignment = Alignment.Center
-        ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            CircularProgressIndicator(color = Color(0xFF6A5CFF))
+            Spacer(Modifier.height(20.dp))
             Text(
-                text = tips[currentTipIndex],
-                color = Color(0xFF6E6E73),
-                fontSize = 13.sp,
-                textAlign = TextAlign.Center,
-                lineHeight = 18.sp,
-                modifier = Modifier.alpha(tipAlpha.value)
+                "Analyzing assessment metrics...",
+                fontWeight = FontWeight.Bold, color = Color(0xFF1D1D1F), fontSize = 17.sp,
+                textAlign = TextAlign.Center, modifier = Modifier.padding(horizontal = 24.dp)
+            )
+            Spacer(Modifier.height(8.dp))
+            Text(
+                "Generating your personalized learning path",
+                color = Color(0xFF6E6E73), fontSize = 13.sp,
+                textAlign = TextAlign.Center, modifier = Modifier.padding(horizontal = 24.dp)
             )
         }
     }
@@ -1064,19 +1058,19 @@ fun AssessmentResultView(
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.White)
             ) {
-                Row(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+                Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
                     RadarChart(
                         grammar      = grammarScore / 100f,
                         vocabulary   = vocabScore / 100f,
                         coherence    = coherenceScore / 100f,
                         fluency      = fluencyScore / 100f,
                         pronunciation = pronunciationScore / 100f,
-                        modifier     = Modifier.size(150.dp)
+                        modifier     = Modifier.fillMaxWidth().height(230.dp)
                     )
-                    Spacer(Modifier.width(12.dp))
+                    Spacer(Modifier.height(12.dp))
                     Column(
-                        modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalArrangement = Arrangement.spacedBy(7.dp)
                     ) {
                         RadarLegendRow("Grammar",       grammarScore,       Color(0xFF4CAF50))
                         RadarLegendRow("Vocabulary",    vocabScore,         Color(0xFFFF9800))
@@ -1092,9 +1086,18 @@ fun AssessmentResultView(
             // Areas to Improve
             ResultSectionHeader(Icons.AutoMirrored.Filled.TrendingUp, Color(0xFF2196F3), "Areas to Improve")
             Spacer(Modifier.height(12.dp))
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max),
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
                 dimensionScores.forEach { (name, score, color) ->
-                    ImprovementCard(name, score, color, improvementTips[name] ?: "", Modifier.weight(1f))
+                    ImprovementCard(
+                        name,
+                        score,
+                        color,
+                        improvementTips[name] ?: "",
+                        Modifier.weight(1f).fillMaxHeight()
+                    )
                 }
             }
 
@@ -1108,7 +1111,7 @@ fun AssessmentResultView(
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.White)
             ) {
-                Row(modifier = Modifier.fillMaxWidth().padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                Row(modifier = Modifier.fillMaxWidth().padding(18.dp), verticalAlignment = Alignment.CenterVertically) {
                     Box(
                         modifier = Modifier.size(54.dp).clip(RoundedCornerShape(14.dp))
                             .background(Color(0xFFF0EEFF)),
@@ -1131,15 +1134,6 @@ fun AssessmentResultView(
                             Spacer(Modifier.width(3.dp))
                             Text("Estimated Time: 15 min/day", color = Color(0xFF8E8E93), fontSize = 11.sp)
                         }
-                    }
-                    Spacer(Modifier.width(8.dp))
-                    Button(
-                        onClick = onContinue,
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6A5CFF)),
-                        shape = RoundedCornerShape(10.dp),
-                        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 8.dp)
-                    ) {
-                        Text("Start Now →", color = Color.White, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                     }
                 }
             }
@@ -1353,20 +1347,21 @@ fun RadarChart(
 ) {
     Canvas(
         modifier = modifier
-            .fillMaxWidth()
-            .height(260.dp)
-            .background(Color.White, RoundedCornerShape(24.dp))
-            .padding(16.dp)
     ) {
         val cx = size.width / 2f
-        val cy = size.height / 2f
-        val maxR = minOf(size.width, size.height) / 2.8f
+        val cy = size.height / 2f + 4.dp.toPx()
+        val horizontalLabelSpace = 78.dp.toPx()
+        val verticalLabelSpace = 34.dp.toPx()
+        val maxR = minOf(
+            (size.width - horizontalLabelSpace * 2f) / 2f,
+            (size.height - verticalLabelSpace * 2f) / 2f
+        ).coerceAtLeast(48.dp.toPx())
         
         val labels = listOf("Grammar", "Vocab", "Fluency", "Pronunciation", "Coherence")
         val scores = listOf(grammar, vocabulary, fluency, pronunciation, coherence)
 
         // 1. Grid: Concentric pentagons (dashed)
-        val dashEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 10f), 0f)
+        val dashEffect = PathEffect.dashPathEffect(floatArrayOf(7.dp.toPx(), 5.dp.toPx()), 0f)
         for (grid in 1..5) {
             val r = maxR * (grid / 5f)
             val path = androidx.compose.ui.graphics.Path()
@@ -1402,13 +1397,13 @@ fun RadarChart(
             val xOffset = cos(angle).toFloat()
             val yOffset = sin(angle).toFloat()
             
-            val labelRadius = maxR + 14.dp.toPx()
+            val labelRadius = maxR + 12.dp.toPx()
             val tx = cx + labelRadius * xOffset
             val ty = cy + labelRadius * yOffset
             
             val textPaint = android.graphics.Paint().apply {
                 color = android.graphics.Color.parseColor("#8E8E93")
-                textSize = 28f
+                textSize = 12.sp.toPx()
                 isAntiAlias = true
                 typeface = android.graphics.Typeface.create(android.graphics.Typeface.DEFAULT, android.graphics.Typeface.NORMAL)
                 textAlign = when {
@@ -1434,10 +1429,10 @@ fun RadarChart(
             )
         }
 
-        // 4. Draw rounded filled polygon
+        // 4. Draw the measured score polygon
         val scorePath = androidx.compose.ui.graphics.Path()
         for (i in 0 until 5) {
-            val r = maxR * scores[i].coerceIn(0.1f, 1f)
+            val r = maxR * scores[i].coerceIn(0.03f, 1f)
             val angle = i * 2 * Math.PI / 5 - Math.PI / 2
             val x = cx + r * cos(angle).toFloat()
             val y = cy + r * sin(angle).toFloat()
@@ -1445,22 +1440,32 @@ fun RadarChart(
         }
         scorePath.close()
 
-        // Smooth rounded fill via native canvas
+        // Keep the score polygon sharp so each measured dimension is unambiguous.
         val fillPaint = android.graphics.Paint().apply {
             color = android.graphics.Color.parseColor("#1F6A5CFF") // 12% opacity purple
             style = android.graphics.Paint.Style.FILL
-            pathEffect = android.graphics.CornerPathEffect(12.dp.toPx())
             isAntiAlias = true
         }
         drawContext.canvas.nativeCanvas.drawPath(scorePath.asAndroidPath(), fillPaint)
 
-        // Smooth rounded border stroke
-        val strokeEffect = PathEffect.cornerPathEffect(12.dp.toPx())
         drawPath(
             scorePath,
             color = Color(0xFF6A5CFF),
-            style = Stroke(width = 3.dp.toPx(), pathEffect = strokeEffect)
+            style = Stroke(width = 2.dp.toPx())
         )
+
+        for (i in 0 until 5) {
+            val r = maxR * scores[i].coerceIn(0.03f, 1f)
+            val angle = i * 2 * Math.PI / 5 - Math.PI / 2
+            drawCircle(
+                color = Color(0xFF6A5CFF),
+                radius = 3.dp.toPx(),
+                center = Offset(
+                    cx + r * cos(angle).toFloat(),
+                    cy + r * sin(angle).toFloat()
+                )
+            )
+        }
     }
 }
 

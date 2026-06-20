@@ -18,7 +18,6 @@ import androidx.compose.ui.graphics.Color
 import com.mk.lingocoach.ui.screens.*
 import com.mk.lingocoach.ui.theme.LingoCoachTheme
 import com.mk.lingocoach.notifications.NotificationScheduler
-import com.onesignal.OneSignal
 
 enum class Screen {
     Splash,
@@ -49,9 +48,6 @@ class MainActivity : AppCompatActivity() {
         if (!savedLang.isNullOrEmpty() && savedLang != "system") {
             AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(savedLang))
         }
-
-        // Initialize OneSignal
-        OneSignal.initWithContext(this, "46957d03-f3f9-435c-b76c-e5cd0b8089b5")
 
         // Schedule daily reminder notifications at 10am and 7pm
         NotificationScheduler.scheduleDailyReminders(this)
@@ -97,7 +93,8 @@ class MainActivity : AppCompatActivity() {
                         Screen.UserProfileSetup -> {
                             UserProfileSetupScreen(
                                 onNavigateBack = { currentScreenName = Screen.WelcomeAboard.name },
-                                onSetupComplete = { currentScreenName = Screen.Assessment.name }
+                                onSetupComplete = { currentScreenName = Screen.Assessment.name },
+                                onExistingUserRestored = { currentScreenName = Screen.Home.name }
                             )
                         }
                         Screen.Assessment -> {
@@ -105,6 +102,10 @@ class MainActivity : AppCompatActivity() {
                                 onNavigateToLearningPath = {
                                     roadmapLaunchedFromAssessment = true
                                     currentScreenName = Screen.LearningPathRoadmap.name
+                                },
+                                onNavigateHome = {
+                                    roadmapLaunchedFromAssessment = false
+                                    currentScreenName = Screen.Home.name
                                 },
                                 onNavigateBack = { currentScreenName = Screen.WelcomeAboard.name }
                             )
@@ -167,7 +168,8 @@ class MainActivity : AppCompatActivity() {
                                 onNavigateBack = { currentScreenName = Screen.Home.name },
                                 onNavigateToHome = { currentScreenName = Screen.Home.name },
                                 onNavigateToAILab = { currentScreenName = Screen.AILab.name },
-                                onNavigateToMistakes = { currentScreenName = Screen.MistakeVault.name }
+                                onNavigateToMistakes = { currentScreenName = Screen.MistakeVault.name },
+                                onNavigateToSettings = { currentScreenName = Screen.Settings.name }
                             )
                         }
                         Screen.MistakeVault -> {

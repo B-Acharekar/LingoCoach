@@ -270,7 +270,8 @@ fun LsTopBar(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Brush.linearGradient(listOf(Color(0xFF17133B), BrandPurple)))
+            .background(Color.White)
+            .border(0.5.dp, Color(0xFFE9E6F2))
             .padding(horizontal = 18.dp, vertical = 16.dp)
     ) {
         Row(
@@ -282,14 +283,14 @@ fun LsTopBar(
                 modifier = Modifier
                     .size(38.dp)
                     .clip(CircleShape)
-                    .background(Color.White.copy(alpha = 0.14f))
+                    .background(BrandPurpleSoft)
                     .clickable { onBack() },
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "Back",
-                    tint = Color.White,
+                    tint = BrandPurple,
                     modifier = Modifier.size(18.dp)
                 )
             }
@@ -297,26 +298,27 @@ fun LsTopBar(
             Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f).padding(horizontal = 12.dp)) {
                 Text(
                     title,
-                    style = TextStyle(color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold),
+                    style = TextStyle(color = TextDark, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
                 Text(
                     if (isContentPhase) "Learn" else "Exercise $currentIndex of $exerciseCount",
-                    color = Color.White.copy(alpha = 0.65f),
+                    color = TextLight,
                     fontSize = 11.sp
                 )
             }
 
             Box(
                 modifier = Modifier
-                    .background(Color(0xFFFFD166).copy(alpha = 0.18f), RoundedCornerShape(12.dp))
+                    .background(Color(0xFFFFF3D1), RoundedCornerShape(12.dp))
+                    .border(1.dp, Color(0xFFFFE1A3), RoundedCornerShape(12.dp))
                     .padding(horizontal = 10.dp, vertical = 5.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(Icons.Default.Star, contentDescription = null, tint = Color(0xFFFFD166), modifier = Modifier.size(12.dp))
+                    Icon(Icons.Default.Star, contentDescription = null, tint = BrandAmberDark, modifier = Modifier.size(12.dp))
                     Spacer(Modifier.width(3.dp))
-                    Text("20 XP", color = Color.White, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold)
+                    Text("20 XP", color = BrandAmberDark, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold)
                 }
             }
         }
@@ -329,8 +331,8 @@ fun LsTopBar(
                 .fillMaxWidth()
                 .height(5.dp)
                 .clip(RoundedCornerShape(3.dp)),
-            color = Color.White,
-            trackColor = Color.White.copy(alpha = 0.18f),
+            color = BrandPurple,
+            trackColor = Color(0xFFE8E4FF),
             strokeCap = StrokeCap.Round
         )
 
@@ -342,9 +344,9 @@ fun LsTopBar(
                 horizontalArrangement = Arrangement.End,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Icon(Icons.Default.Replay, contentDescription = null, tint = Color(0xFFFFD166), modifier = Modifier.size(12.dp))
+                Icon(Icons.Default.Replay, contentDescription = null, tint = BrandAmberDark, modifier = Modifier.size(12.dp))
                 Spacer(Modifier.width(4.dp))
-                Text("Retry round | $retryCount left", color = Color(0xFFFFD166), fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                Text("Retry round | $retryCount left", color = BrandAmberDark, fontSize = 10.sp, fontWeight = FontWeight.Bold)
             }
         }
     }
@@ -675,10 +677,15 @@ fun LsExercisePhase(
         Spacer(Modifier.height(18.dp))
 
         // ── Input ──────────────────────────────────────────────────────────
-        when (exercise.type) {
-            "multiple_choice" -> LsMultipleChoice(
-                options       = exercise.options ?: emptyList(),
-                correctAnswer = exercise.correct_answer ?: "",
+        val correctAnswer = exercise.correct_answer.orEmpty()
+        val options = exercise.options.orEmpty()
+        val hasValidMultipleChoice = exercise.type == "multiple_choice" &&
+            options.any { it.trim().equals(correctAnswer.trim(), ignoreCase = true) }
+
+        when {
+            hasValidMultipleChoice -> LsMultipleChoice(
+                options       = options,
+                correctAnswer = correctAnswer,
                 answerState   = answerState,
                 onSelected    = { onSubmit(it) }
             )
@@ -1003,8 +1010,13 @@ fun LsCompleteButton(
             .padding(20.dp)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(44.dp).background(BrandGreen.copy(alpha = 0.12f), RoundedCornerShape(14.dp)), contentAlignment = Alignment.Center) {
-                Icon(Icons.Default.TaskAlt, null, tint = BrandGreen, modifier = Modifier.size(23.dp))
+            Box(Modifier.size(50.dp).background(Color(0xFFFFF5DD), RoundedCornerShape(16.dp)), contentAlignment = Alignment.Center) {
+                Image(
+                    painter = painterResource(R.drawable.trophy),
+                    contentDescription = "Trophy",
+                    modifier = Modifier.size(36.dp),
+                    contentScale = ContentScale.Fit
+                )
             }
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
@@ -1115,6 +1127,71 @@ fun LsConfettiOverlay(modifier: Modifier = Modifier) {
 }
 
 // ─── Completion Screen ────────────────────────────────────────────────────────
+private data class FireworkBurst(
+    val centerX: Float,
+    val centerY: Float,
+    val delay: Int,
+    val color: Color,
+    val radius: Float
+)
+
+@Composable
+fun LsFireworksOverlay(modifier: Modifier = Modifier) {
+    val fireworkColors = listOf(BrandPurple, BrandPurpleLight, BrandAmber, BrandGreen, Color(0xFF42A5F5))
+    val bursts = remember {
+        List(7) {
+            FireworkBurst(
+                centerX = Random.nextFloat() * 0.76f + 0.12f,
+                centerY = Random.nextFloat() * 0.30f + 0.08f,
+                delay = Random.nextInt(700),
+                color = fireworkColors[Random.nextInt(fireworkColors.size)],
+                radius = Random.nextFloat() * 44f + 54f
+            )
+        }
+    }
+
+    val anim = remember { Animatable(0f) }
+    LaunchedEffect(Unit) {
+        anim.animateTo(1f, animationSpec = tween(durationMillis = 1600, easing = LinearEasing))
+    }
+
+    Canvas(modifier = modifier.fillMaxSize()) {
+        val duration = 1600f
+        bursts.forEach { burst ->
+            val localProgress = ((anim.value * duration - burst.delay) / 900f).coerceIn(0f, 1f)
+            if (localProgress <= 0f || localProgress >= 1f) return@forEach
+
+            val center = Offset(burst.centerX * size.width, burst.centerY * size.height)
+            val alpha = (1f - localProgress).coerceIn(0f, 1f)
+            val sparkRadius = burst.radius * localProgress
+
+            repeat(14) { index ->
+                val angle = (Math.PI * 2.0 * index / 14.0).toFloat()
+                val end = Offset(
+                    center.x + kotlin.math.cos(angle) * sparkRadius,
+                    center.y + kotlin.math.sin(angle) * sparkRadius
+                )
+                val start = Offset(
+                    center.x + kotlin.math.cos(angle) * sparkRadius * 0.62f,
+                    center.y + kotlin.math.sin(angle) * sparkRadius * 0.62f
+                )
+                drawLine(
+                    color = burst.color.copy(alpha = alpha),
+                    start = start,
+                    end = end,
+                    strokeWidth = 3.dp.toPx(),
+                    cap = StrokeCap.Round
+                )
+                drawCircle(
+                    color = burst.color.copy(alpha = alpha),
+                    radius = 2.5.dp.toPx(),
+                    center = end
+                )
+            }
+        }
+    }
+}
+
 @Composable
 fun LsCompletionView(
     totalXp: Int,
@@ -1238,17 +1315,25 @@ private fun LsProfessionalCompletionView(
         else -> "Lesson completed"
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .statusBarsPadding()
-            .navigationBarsPadding()
-            .verticalScroll(rememberScrollState())
-            .padding(horizontal = 24.dp, vertical = 28.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Box(Modifier.size(68.dp).background(BrandGreen.copy(alpha = 0.12f), RoundedCornerShape(22.dp)), contentAlignment = Alignment.Center) {
-            Icon(Icons.Default.CheckCircle, "Lesson completed", tint = BrandGreen, modifier = Modifier.size(36.dp))
+    Box(modifier = Modifier.fillMaxSize()) {
+        LsFireworksOverlay(modifier = Modifier.matchParentSize())
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .statusBarsPadding()
+                .navigationBarsPadding()
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 24.dp, vertical = 28.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+        Box(Modifier.size(82.dp).background(Color(0xFFFFF5DD), RoundedCornerShape(26.dp)), contentAlignment = Alignment.Center) {
+            Image(
+                painter = painterResource(R.drawable.trophy),
+                contentDescription = "Lesson completed trophy",
+                modifier = Modifier.size(62.dp),
+                contentScale = ContentScale.Fit
+            )
         }
         Spacer(Modifier.height(18.dp))
         Text("Lesson completed", color = Color(0xFF17133B), fontSize = 26.sp, fontWeight = FontWeight.ExtraBold)
@@ -1305,6 +1390,7 @@ private fun LsProfessionalCompletionView(
             colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFF3F3A59))
         ) {
             Text("Back to learning path", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+        }
         }
     }
 }

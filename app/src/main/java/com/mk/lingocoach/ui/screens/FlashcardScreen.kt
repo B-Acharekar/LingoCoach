@@ -176,7 +176,8 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
                                     mistakeType     = "FLASHCARD_RETEST",
                                     userSentence    = "(flashcard again)",
                                     correctSentence = currentCard.back.take(120),
-                                    explanation     = "Missed during SRS flashcard review"
+                                    explanation     = "Missed during SRS flashcard review",
+                                    source          = "flashcards"
                                 )
                             }
                         }

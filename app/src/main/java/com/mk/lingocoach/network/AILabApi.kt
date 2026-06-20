@@ -2,6 +2,7 @@ package com.mk.lingocoach.network
 
 import android.util.Log
 import com.google.gson.Gson
+import com.mk.lingocoach.config.AppConfig
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
@@ -64,7 +65,8 @@ data class AILabEndSessionResponse(
 // ─── AILab API Client ───────────────────────────────────────────────────────
 
 object AILabApi {
-    private const val BASE_URL = "https://lingoai-backend-zej0.onrender.com"
+    private val baseUrl: String
+        get() = AppConfig.backendBaseUrl
     private val JSON_MEDIA_TYPE = "application/json; charset=utf-8".toMediaType()
 
     private val client = OkHttpClient.Builder()
@@ -86,7 +88,7 @@ object AILabApi {
         val json = gson.toJson(requestBody)
 
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/ailab/start")
+            .url("${baseUrl}/api/v1/ailab/start")
             .post(json.toRequestBody(JSON_MEDIA_TYPE))
             .header("Content-Type", "application/json")
             .build()
@@ -137,7 +139,7 @@ object AILabApi {
         }
 
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/ailab/chat")
+            .url("${baseUrl}/api/v1/ailab/chat")
             .post(multipartBuilder.build())
             .build()
 
@@ -172,7 +174,7 @@ object AILabApi {
         val json = gson.toJson(requestBody)
 
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/ailab/end")
+            .url("${baseUrl}/api/v1/ailab/end")
             .post(json.toRequestBody(JSON_MEDIA_TYPE))
             .header("Content-Type", "application/json")
             .build()
@@ -205,7 +207,7 @@ object AILabApi {
 
     fun getStatus(userId: String, onResult: (AILabStatusResponse?) -> Unit) {
         val request = Request.Builder()
-            .url("$BASE_URL/api/v1/ailab/status?user_id=$userId")
+            .url("${baseUrl}/api/v1/ailab/status?user_id=$userId")
             .get()
             .header("accept", "application/json")
             .build()

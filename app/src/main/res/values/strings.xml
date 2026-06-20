@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
-    <string name="app_name">LingoCoach</string>
+    <string name="app_name">LingoCoach: AI Language Tutor</string>
     
     <!-- Language Selection Screen -->
     <string name="choose_language">Choose Language</string>
@@ -60,6 +60,12 @@
     <string name="your_progress">Your Progress</string>
     <string name="today_goal">Today\'s Goal</string>
     <string name="weekly_stats">Weekly Stats</string>
+    <string name="daily_stats">Daily Stats</string>
+    <string name="overall">Overall</string>
+    <string name="good_morning">Good morning</string>
+    <string name="good_afternoon">Good afternoon</string>
+    <string name="good_evening">Good evening</string>
+    <string name="view_map">View Map</string>
     <string name="total_time">Total Time</string>
     <string name="accuracy">Accuracy</string>
     <string name="completed">Completed</string>
@@ -92,8 +98,18 @@
     <string name="learning">Learning</string>
     <string name="add_word">Add Word</string>
     <string name="word">Word</string>
+    <string name="words">Words</string>
     <string name="translation">Translation</string>
     <string name="example">Example</string>
+    <string name="definition">Definition</string>
+    <string name="category">Category</string>
+    <string name="search_vocabulary_topics">Search vocabulary topics...</string>
+    <string name="search_words_meanings">Search words, meanings...</string>
+    <string name="type_the_match">Type the match...</string>
+    <string name="sort_by">Sort by:</string>
+    <string name="all_level_vocabulary">All %1$s Vocabulary</string>
+    <string name="no_vocabulary_found">No vocabulary found for %1$s / %2$s</string>
+    <string name="all">All</string>
     <string name="pronunciation">Pronunciation</string>
     
     <!-- Mistakes / Vault -->
@@ -104,6 +120,21 @@
     <string name="fix_mistakes">Fix Mistakes</string>
     <string name="no_mistakes">No mistakes yet!</string>
     <string name="keep_practicing">Keep practicing</string>
+    <string name="all_slips_count">All Slips (%1$d)</string>
+    <string name="recent_count">Recent (%1$d)</string>
+    <string name="past_logs_count">Past Logs (%1$d)</string>
+    <string name="your_answer">YOUR ANSWER</string>
+    <string name="correct">CORRECT</string>
+    <string name="hear_pronunciation">Hear Pronunciation</string>
+    <string name="review_rule_again">I need to review this rule again</string>
+    <string name="again">Again</string>
+    <string name="skip_for_now">Skip for now</string>
+    <string name="mastered_exclaim">Mastered!</string>
+    <string name="added_for_review">Added for review</string>
+    <string name="write_correction_here">Write the correction here</string>
+    <string name="verify_answer">Verify Answer</string>
+    <string name="total">Total</string>
+    <string name="back_to_vault">Back to Vault</string>
     
     <!-- Flashcards -->
     <string name="flashcards">Flashcards</string>
@@ -114,6 +145,7 @@
     
     <!-- Duel / Challenge -->
     <string name="timely_duel">Timely Duel</string>
+    <string name="battle_against_time">Battle against time</string>
     <string name="challenge">Challenge</string>
     <string name="versus">VS</string>
     <string name="score">Score</string>
@@ -132,6 +164,9 @@
     <string name="ask_ai">Ask AI</string>
     <string name="ai_tutor">AI Tutor</string>
     <string name="ai_conversation">AI Conversation</string>
+    <string name="ai_lab_nav">AI Lab</string>
+    <string name="vocab_nav">Vocab</string>
+    <string name="vault_nav">Vault</string>
     <string name="choose_voice">Choose a Voice</string>
     <string name="choose_personality">Choose Personality</string>
     <string name="lingo_ai_conv_start">Lingo AI Conv Start</string>
@@ -164,6 +199,16 @@
     <string name="tone_nerdy_desc">Analytical, detailed, learning-focused</string>
     <string name="tone_warm_desc">Encouraging, patient, supportive tone</string>
     <string name="start_conversation">Start Conversation</string>
+    <string name="todays_sessions_count">Today\'s Sessions %1$d/%2$d</string>
+    <string name="ai_conversation_practice">AI Conversation Practice</string>
+    <string name="ai_lab_intro_feedback">Improve your speaking skills with real-time feedback from our AI tutor</string>
+    <string name="natural_conversations">Natural Conversations</string>
+    <string name="natural_conversations_desc">Chat about any topic with a helpful AI assistant</string>
+    <string name="instant_corrections">Instant Corrections</string>
+    <string name="instant_corrections_desc">Get real-time feedback on grammar and pronunciation</string>
+    <string name="track_progress">Track Progress</string>
+    <string name="track_progress_desc">See your improvements over time with detailed insights</string>
+    <string name="daily_limit_try_tomorrow">Daily limit reached. Try again tomorrow</string>
     <string name="microphone_permission_required">Microphone permission required</string>
     <string name="could_not_start_recording">Could not start recording</string>
     <string name="type_response_hint">Type a response...</string>
@@ -209,7 +254,7 @@
     <string name="change_avatar">Change Avatar</string>
     <string name="terms_of_service">Terms of Service</string>
     <string name="data_export_csv">Data Export (CSV)</string>
-    <string name="lingocoach_data_export">LingoCoach Data Export</string>
+    <string name="lingocoach_data_export">LingoCoach: AI Language Tutor Data Export</string>
     <string name="export_data_as_csv">Export Data as CSV</string>
     <string name="delete_account">Delete Account</string>
     <string name="logout_confirm_message">Are you sure you want to log out of your account?</string>

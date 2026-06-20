@@ -1,9 +1,17 @@
 package com.mk.lingocoach.ui.screens
 
 import android.content.Context
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -21,6 +29,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
@@ -37,6 +46,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -47,7 +57,10 @@ import com.mk.lingocoach.network.CurrentModule
 import com.mk.lingocoach.network.CurrentSublesson
 import com.mk.lingocoach.network.Mistake
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 // ─── Shared Design Tokens (same across Home + Lesson) ────────────────────────
 internal val BrandPurple      = Color(0xFF6A5CFF)
@@ -83,14 +96,42 @@ fun HomeScreen(
     val scrollState   = rememberScrollState()
 
     var selectedTab   by remember { mutableStateOf(0) }
-    var learningPath  by remember { mutableStateOf<CurrentLearningPathResponse?>(null) }
-    var mistakes      by remember { mutableStateOf<List<Mistake>>(emptyList()) }
-    var weeklyStats   by remember { mutableStateOf<List<com.mk.lingocoach.network.DailyStats>>(emptyList()) }
-    var isLoading     by remember { mutableStateOf(true) }
+    var learningPath  by remember { mutableStateOf(AppCache.learningPath) }
+    var mistakes      by remember { mutableStateOf(AppCache.mistakes.orEmpty()) }
+    var weeklyStats   by remember { mutableStateOf(AppCache.weeklyStats.orEmpty()) }
+    var isLoading     by remember { mutableStateOf(AppCache.learningPath == null) }
     var isVocabLoaded by remember { mutableStateOf(VocabTracker.isLoaded) }
+    var learningPathGenerationState by remember {
+        mutableStateOf(sharedPrefs.getString("learning_path_generation_state", "") ?: "")
+    }
+    var learningPathGenerationStartedAt by remember {
+        mutableStateOf(sharedPrefs.getLong("learning_path_generation_started_at", 0L))
+    }
+    var learningPathGenerationElapsedSeconds by remember { mutableStateOf(0L) }
 
     val userId = remember {
         sharedPrefs.getString("session_id", null) ?: "df31075e-bc40-459f-bbfb-e10c2d3ea34e"
+    }
+
+    val isLearningPathGenerating =
+        learningPathGenerationState == "generating" && learningPath == null
+
+    LaunchedEffect(learningPathGenerationState, learningPathGenerationStartedAt, learningPath) {
+        while (learningPathGenerationState == "generating" && learningPath == null) {
+            val startedAt = learningPathGenerationStartedAt.takeIf { it > 0L } ?: System.currentTimeMillis()
+            learningPathGenerationElapsedSeconds =
+                ((System.currentTimeMillis() - startedAt) / 1000L).coerceAtLeast(0L)
+            delay(1000L)
+            learningPathGenerationState =
+                sharedPrefs.getString("learning_path_generation_state", "") ?: ""
+            learningPathGenerationStartedAt =
+                sharedPrefs.getLong("learning_path_generation_started_at", learningPathGenerationStartedAt)
+            if (learningPathGenerationState == "ready") {
+                AppCache.loadFromDisk(context)
+                learningPath = AppCache.learningPath
+                isLoading = AppCache.learningPath == null
+            }
+        }
     }
 
     DisposableEffect(lifecycleOwner, userId) {
@@ -110,6 +151,11 @@ fun HomeScreen(
                                     AppCache.learningPath = AppCache.applyLocalLearningPathProgress(path)
                                     AppCache.learningPathAt = System.currentTimeMillis()
                                     AppCache.saveToDisk(context)
+                                    sharedPrefs.edit()
+                                        .putString("learning_path_generation_state", "ready")
+                                        .remove("learning_path_generation_started_at")
+                                        .apply()
+                                    learningPathGenerationState = "ready"
 
                                     learningPath = AppCache.learningPath
                                 }
@@ -153,6 +199,11 @@ fun HomeScreen(
                     if (path != null) {
                         AppCache.learningPath  = AppCache.applyLocalLearningPathProgress(path)
                         AppCache.learningPathAt = System.currentTimeMillis()
+                        sharedPrefs.edit()
+                            .putString("learning_path_generation_state", "ready")
+                            .remove("learning_path_generation_started_at")
+                            .apply()
+                        learningPathGenerationState = "ready"
                         scope.launch(Dispatchers.Main) {
                             AppCache.saveToDisk(context)
                             learningPath = AppCache.learningPath
@@ -186,6 +237,8 @@ fun HomeScreen(
         scope.launch(Dispatchers.IO) {
             AssessmentApi.getWeeklyAnalytics(userId) { stats ->
                 if (stats != null) {
+                    AppCache.weeklyStats = stats
+                    AppCache.analyticsAt = System.currentTimeMillis()
                     scope.launch(Dispatchers.Main) { weeklyStats = stats }
                 }
             }
@@ -230,9 +283,9 @@ fun HomeScreen(
                         val displayName = sharedPrefs.getString("display_name", "there") ?: "there"
                         val greetingHour = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
                         val greeting = when {
-                            greetingHour < 12 -> "Good morning"
-                            greetingHour < 17 -> "Good afternoon"
-                            else              -> "Good evening"
+                            greetingHour < 12 -> stringResource(R.string.good_morning)
+                            greetingHour < 17 -> stringResource(R.string.good_afternoon)
+                            else              -> stringResource(R.string.good_evening)
                         }
                         Text(
                             "$greeting, $displayName",
@@ -296,7 +349,7 @@ fun HomeScreen(
                 // ── Daily Stats Section ─────────────────────────────────────
                 Column {
                     Text(
-                        "Daily Stats",
+                        stringResource(R.string.daily_stats),
                         color = TextDark,
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Bold
@@ -317,13 +370,13 @@ fun HomeScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        "Learning Path",
+                        stringResource(R.string.learning_path),
                         color = TextDark,
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        "View Map",
+                        stringResource(R.string.view_map),
                         color = BrandPurple,
                         fontSize = 13.sp,
                         fontWeight = FontWeight.SemiBold,
@@ -332,7 +385,11 @@ fun HomeScreen(
                 }
 
                 // ── Current Module Card ──────────────────────────────────────
-                if (isLoading) {
+                if (isLearningPathGenerating) {
+                    HomeGeneratingLearningPathCard(
+                        elapsedSeconds = learningPathGenerationElapsedSeconds
+                    )
+                } else if (isLoading) {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -379,28 +436,6 @@ fun HomeScreen(
                 HomeMistakeVaultCard(mistakes = mistakes, onClick = onNavigateToMistakes)
 
                 // ── Activity Section ─────────────────────────────────────────
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        "Activity",
-                        color = TextDark,
-                        fontSize = 17.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Text(
-                        "Details",
-                        color = BrandPurple,
-                        fontSize = 13.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.clickable { onNavigateToProgress() }
-                    )
-                }
-
-                HomeSpeakingStats(weeklyStats = weeklyStats)
-
                 Spacer(Modifier.height(16.dp))
             }
 
@@ -417,6 +452,7 @@ fun HomeScreen(
                 }
             )
         }
+        LoadingOverlay(visible = isLoading)
     }
 }
 
@@ -438,12 +474,11 @@ fun HomeDailyStatsCard(
     
     val lessonsProgress = (totalLessons.coerceIn(0, 10) / 10f).coerceIn(0.05f, 1f)
     val grammarProgress = if (totalExercises > 0) (correctExercises.toFloat() / totalExercises).coerceIn(0.05f, 1f) else 0f
-    val speakingMinutes = weeklyStats.sumOf { it.ai_lab_minutes }
-    val aiLabSessions = weeklyStats.sumOf { it.ai_lab_sessions }
-    val pronunciationProgress = if (aiLabSessions > 0) {
-        (speakingMinutes.coerceAtLeast(aiLabSessions).coerceIn(0, 30) / 30f).coerceIn(0.05f, 1f)
+    val pronunciationAttempts = weeklyStats.sumOf { it.pronunciation_attempts }
+    val pronunciationScoreTotal = weeklyStats.sumOf { it.pronunciation_score_total }
+    val pronunciationProgress = if (pronunciationAttempts > 0) {
+        (pronunciationScoreTotal.toFloat() / pronunciationAttempts / 100f).coerceIn(0.05f, 1f)
     } else 0f
-    val fluencyProgress = if (speakingMinutes > 0) (speakingMinutes.coerceIn(0, 60) / 60f).coerceIn(0.05f, 1f) else 0f
     
     // Calculate accuracy - show 0 if no data
     val accuracy = if (totalExercises > 0) {
@@ -469,7 +504,6 @@ fun HomeDailyStatsCard(
                 CapsuleProgressIndicator(stringResource(R.string.grammar_check).uppercase(), grammarProgress)
                 CapsuleProgressIndicator(stringResource(R.string.vocabulary).uppercase(), vocabProgress)
                 CapsuleProgressIndicator(stringResource(R.string.pronunciation).uppercase(), pronunciationProgress)
-                CapsuleProgressIndicator(stringResource(R.string.speaking).uppercase(), fluencyProgress)
             }
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -487,7 +521,7 @@ fun HomeDailyStatsCard(
                     modifier = Modifier.weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Overall", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.overall), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
                     Text(tier, color = BrandPurple, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                 }
@@ -782,6 +816,67 @@ fun HomeDynamicLearningPathCard(
 }
 
 @Composable
+fun HomeGeneratingLearningPathCard(
+    elapsedSeconds: Long
+) {
+    val minutes = elapsedSeconds / 60
+    val seconds = elapsedSeconds % 60
+    val timerText = "%02d:%02d".format(minutes, seconds)
+
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        border = BorderStroke(1.dp, Color(0xFFE8E3FF))
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(18.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(14.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(52.dp)
+                    .clip(CircleShape)
+                    .background(Color(0xFFF0EEFF)),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(28.dp),
+                    color = BrandPurple,
+                    strokeWidth = 3.dp
+                )
+            }
+
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    "Learning Path Locked",
+                    color = TextDark,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    "Generating your personalized route in the background.",
+                    color = TextMid,
+                    fontSize = 12.sp,
+                    lineHeight = 16.sp
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    "Elapsed $timerText",
+                    color = BrandPurple,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
+        }
+    }
+}
+
+@Composable
 fun HomeNoModuleCard() {
     Box(
         modifier = Modifier
@@ -915,7 +1010,7 @@ fun TimelyDuelCard(modifier: Modifier = Modifier, onClick: () -> Unit) {
             Text(stringResource(R.string.timely_duel), color = darkBrown, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(2.dp))
             Text(
-                "BATTLE AGAINST TIME",
+                stringResource(R.string.battle_against_time).uppercase(),
                 color = darkBrown.copy(alpha = 0.65f),
                 fontSize = 9.sp,
                 fontWeight = FontWeight.Bold,
@@ -1123,7 +1218,26 @@ fun HomeMistakeVaultCard(mistakes: List<Mistake>, onClick: () -> Unit = {}) {
 // ─── Activity / Speaking Stats Chart Card Component ──────────────────────────
 @Composable
 fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = emptyList()) {
-    val days = listOf("M", "T", "W", "T", "F", "S", "S")
+    val fallbackDays = remember {
+        val formatter = SimpleDateFormat("EEE", Locale.getDefault())
+        val today = java.util.Calendar.getInstance()
+        (6 downTo 0).map { offset ->
+            val day = today.clone() as java.util.Calendar
+            day.add(java.util.Calendar.DAY_OF_YEAR, -offset)
+            formatter.format(day.time).take(1).uppercase(Locale.getDefault())
+        }
+    }
+    val days = if (weeklyStats.size == 7) {
+        weeklyStats.map { stat ->
+            runCatching {
+                val parser = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+                val formatter = SimpleDateFormat("EEE", Locale.getDefault())
+                formatter.format(parser.parse(stat.date)!!).take(1).uppercase(Locale.getDefault())
+            }.getOrDefault("")
+        }.mapIndexed { index, label -> label.ifBlank { fallbackDays[index] } }
+    } else {
+        fallbackDays
+    }
 
     // Normalise XP into bar heights (0.05 min so bars are always visible)
     val heights = if (weeklyStats.size == 7) {
@@ -1137,6 +1251,7 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
     val todayStats   = weeklyStats.lastOrNull()
     val mistakesFixed = todayStats?.mistakes_logged ?: 0
     val lessonsDone  = weeklyStats.sumOf { it.lessons_completed }
+    val weekXp       = weeklyStats.sumOf { it.xp_earned }
 
     // Weekly XP delta vs previous week (simplified: today vs yesterday)
     val todayXp    = weeklyStats.lastOrNull()?.xp_earned ?: 0
@@ -1152,57 +1267,123 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
         colors = CardDefaults.cardColors(containerColor = CardWhite),
         shape = RoundedCornerShape(24.dp)
     ) {
-        Column(modifier = Modifier.padding(20.dp)) {
+        Column(
+            modifier = Modifier
+                .background(
+                    Brush.verticalGradient(
+                        listOf(Color(0xFFFFFFFF), Color(0xFFFAFAFF))
+                    )
+                )
+                .border(1.dp, Color(0x11000000), RoundedCornerShape(24.dp))
+                .padding(20.dp)
+        ) {
             // Header
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Column {
-                    Text("Weekly Overview", color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                    Text("Your XP activity this week", color = TextLight, fontSize = 11.sp)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(36.dp)
+                            .clip(CircleShape)
+                            .background(BrandPurpleSoft),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            Icons.Default.BarChart,
+                            contentDescription = null,
+                            tint = BrandPurple,
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                    Column {
+                        Text("Weekly Overview", color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        Text("$weekXp XP earned this week", color = TextLight, fontSize = 11.sp)
+                    }
                 }
                 Box(
                     modifier = Modifier
                         .background(
                             if (xpDiff >= 0) Color(0xFFE8F5E9) else Color(0xFFFFEBEE),
-                            RoundedCornerShape(8.dp)
+                            RoundedCornerShape(12.dp)
                         )
-                        .padding(horizontal = 8.dp, vertical = 4.dp)
+                        .padding(horizontal = 10.dp, vertical = 6.dp)
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.AutoMirrored.Filled.TrendingUp, null, tint = trendColor, modifier = Modifier.size(12.dp))
-                        Spacer(Modifier.width(2.dp))
-                        Text(trendText, color = trendColor, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Icon(Icons.AutoMirrored.Filled.TrendingUp, null, tint = trendColor, modifier = Modifier.size(13.dp))
+                        Text(trendText, color = trendColor, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                     }
                 }
             }
 
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(22.dp))
 
             // Bar chart — today is the last bar (index 6)
-            Row(
-                modifier = Modifier.fillMaxWidth().height(80.dp),
-                verticalAlignment = Alignment.Bottom,
-                horizontalArrangement = Arrangement.SpaceBetween
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(116.dp)
+                    .clip(RoundedCornerShape(18.dp))
+                    .background(Color(0xFFF5F3FF))
+                    .padding(horizontal = 12.dp, vertical = 12.dp)
             ) {
-                days.forEachIndexed { idx, day ->
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.weight(1f)
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .width(22.dp)
-                                .height((60 * heights[idx]).dp)
-                                .clip(RoundedCornerShape(topStart = 4.dp, topEnd = 4.dp))
-                                .background(if (idx == 6) BrandPurple else Color(0xFFDDDAFF))
-                        )
-                        Spacer(Modifier.height(6.dp))
-                        Text(day,
-                            color = if (idx == 6) BrandPurple else TextLight,
-                            fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                Row(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalAlignment = Alignment.Bottom,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    days.forEachIndexed { idx, day ->
+                        val isToday = idx == 6
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Bottom,
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .width(22.dp)
+                                    .height(64.dp)
+                                    .clip(RoundedCornerShape(20.dp))
+                                    .background(Color(0xFFE8E4FF)),
+                                contentAlignment = Alignment.BottomCenter
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height((64 * heights[idx]).dp)
+                                        .clip(RoundedCornerShape(20.dp))
+                                        .background(
+                                            if (isToday) {
+                                                Brush.verticalGradient(listOf(BrandPurpleLight, BrandPurple))
+                                            } else {
+                                                Brush.verticalGradient(listOf(Color(0xFFFFD54F), BrandAmber))
+                                            }
+                                        )
+                                )
+                            }
+                            Spacer(Modifier.height(7.dp))
+                            Text(
+                                day,
+                                color = if (isToday) BrandPurple else TextLight,
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                            Spacer(Modifier.height(3.dp))
+                            Box(
+                                modifier = Modifier
+                                    .size(width = 6.dp, height = 3.dp)
+                                    .clip(RoundedCornerShape(6.dp))
+                                    .background(if (isToday) BrandPurple else Color.Transparent)
+                            )
+                        }
                     }
                 }
             }
@@ -1258,10 +1439,10 @@ fun HomeBottomNav(selectedTab: Int, onTabSelected: (Int) -> Unit) {
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            HomeNavItem("HOME", Icons.Default.Home, selectedTab == 0) { onTabSelected(0) }
-            HomeNavItem("AI LAB", Icons.Default.Science, selectedTab == 1) { onTabSelected(1) }
-            HomeNavItem("VOCAB", Icons.Default.Book, selectedTab == 2) { onTabSelected(2) }
-            HomeNavItem("VAULT", Icons.Default.VerifiedUser, selectedTab == 3) { onTabSelected(3) }
+            HomeNavItem(stringResource(R.string.home).uppercase(), Icons.Default.Home, selectedTab == 0) { onTabSelected(0) }
+            HomeNavItem(stringResource(R.string.ai_lab_nav).uppercase(), Icons.Default.Science, selectedTab == 1) { onTabSelected(1) }
+            HomeNavItem(stringResource(R.string.vocab_nav).uppercase(), Icons.Default.Book, selectedTab == 2) { onTabSelected(2) }
+            HomeNavItem(stringResource(R.string.vault_nav).uppercase(), Icons.Default.VerifiedUser, selectedTab == 3) { onTabSelected(3) }
         }
     }
 }
@@ -1353,3 +1534,95 @@ fun BottomNavItem(
     isSelected: Boolean,
     onClick: () -> Unit
 ) = HomeNavItem(label, icon, isSelected, onClick)
+
+@Composable
+fun LoadingOverlay(visible: Boolean) {
+    AnimatedVisibility(
+        visible = visible,
+        enter = fadeIn(),
+        exit = fadeOut(animationSpec = tween(400))
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White)
+                .zIndex(10f),
+            contentAlignment = Alignment.Center
+        ) {
+            // Background texture at low opacity
+            Image(
+                painter = painterResource(R.drawable.background), // make sure background.png is in res/drawable
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .alpha(0.08f),           // tweak: 0.05f–0.12f to taste
+                contentScale = ContentScale.Crop
+            )
+
+            // Foreground content
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(20.dp)
+            ) {
+                // Logo box
+                Box(
+                    modifier = Modifier
+                        .size(88.dp)
+                        .clip(RoundedCornerShape(24.dp))
+                        .background(BrandPurple.copy(alpha = 0.10f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(52.dp)
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(Color.White),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.logo),
+                            contentDescription = null,
+                            modifier = Modifier.size(36.dp)
+                        )
+                    }
+                }
+
+                Text(
+                    "LingoCoach",
+                    color = Color(0xFF1A1A1A),
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.ExtraBold
+                )
+
+                Text(
+                    "Fetching your data…",
+                    color = Color(0xFF888888),
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Medium
+                )
+
+                // Animated dots
+                val infiniteTransition = rememberInfiniteTransition(label = "dots")
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    repeat(3) { index ->
+                        val alpha by infiniteTransition.animateFloat(
+                            initialValue = 0.25f,
+                            targetValue = 1f,
+                            animationSpec = infiniteRepeatable(
+                                animation = tween(600, delayMillis = index * 200),
+                                repeatMode = RepeatMode.Reverse
+                            ),
+                            label = "dot$index"
+                        )
+                        Box(
+                            modifier = Modifier
+                                .size(8.dp)
+                                .clip(CircleShape)
+                                .background(BrandPurple.copy(alpha = alpha))
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
