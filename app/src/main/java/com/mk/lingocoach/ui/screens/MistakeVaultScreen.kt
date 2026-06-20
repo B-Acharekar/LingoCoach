@@ -217,7 +217,7 @@ fun MistakeVaultScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(padding),
-                contentPadding = PaddingValues(bottom = 32.dp)
+                contentPadding = PaddingValues(bottom = 16.dp)
             ) {
                 item { VaultSummaryHeader(count = allMistakes.size) }
                 item {

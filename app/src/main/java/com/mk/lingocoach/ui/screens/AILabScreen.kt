@@ -113,7 +113,7 @@ fun AILabScreen(
         }
     }
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize().navigationBarsPadding()) {
         AppBackgroundTexture()
         Scaffold(
             topBar = {
@@ -148,9 +148,14 @@ fun AILabScreen(
                     }
                 )
             },
-            containerColor = Color.Transparent
+            containerColor = Color.Transparent,
+            modifier = Modifier.fillMaxSize()
         ) { paddingValues ->
-            Box(modifier = Modifier.fillMaxSize().padding(paddingValues)) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+            ) {
                 AnimatedContent(
                     targetState = currentStep,
                     transitionSpec = {
