@@ -93,7 +93,8 @@ class MainActivity : AppCompatActivity() {
                         Screen.UserProfileSetup -> {
                             UserProfileSetupScreen(
                                 onNavigateBack = { currentScreenName = Screen.WelcomeAboard.name },
-                                onSetupComplete = { currentScreenName = Screen.Assessment.name }
+                                onSetupComplete = { currentScreenName = Screen.Assessment.name },
+                                onExistingUserRestored = { currentScreenName = Screen.Home.name }
                             )
                         }
                         Screen.Assessment -> {

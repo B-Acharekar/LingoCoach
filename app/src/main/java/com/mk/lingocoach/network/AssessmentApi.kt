@@ -22,6 +22,17 @@ data class SessionResponse(
     val username: String = ""
 )
 
+data class UsernameLookupResponse(
+    val session_id: String,
+    val username: String,
+    val user_name: String = ""
+)
+
+data class UsernameAvailabilityResponse(
+    val username: String,
+    val available: Boolean
+)
+
 data class AssessmentResponse(
     val session_id: String,
     val assessment_complete: Boolean,
@@ -196,6 +207,74 @@ object AssessmentApi {
                         onResult(session)
                     } catch (e: Exception) {
                         Log.e("AssessmentApi", "Failed to parse session response", e)
+                        onResult(null)
+                    }
+                }
+            }
+        })
+    }
+
+    fun findUserByUsername(username: String, onResult: (UsernameLookupResponse?) -> Unit) {
+        val normalized = username.trim().lowercase()
+        val request = Request.Builder()
+            .url("${baseUrl}/api/v1/users/by-username/$normalized")
+            .get()
+            .build()
+
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to find user by username", e)
+                onResult(null)
+            }
+
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) {
+                        Log.e("AssessmentApi", "Find user unsuccessful: ${response.code}")
+                        onResult(null)
+                        return
+                    }
+                    val bodyString = response.body?.string()
+                    Log.d("AssessmentApi", "Find user response: $bodyString")
+                    try {
+                        val user = gson.fromJson(bodyString, UsernameLookupResponse::class.java)
+                        onResult(user)
+                    } catch (e: Exception) {
+                        Log.e("AssessmentApi", "Failed to parse find user response", e)
+                        onResult(null)
+                    }
+                }
+            }
+        })
+    }
+
+    fun checkUsernameAvailability(username: String, onResult: (UsernameAvailabilityResponse?) -> Unit) {
+        val normalized = username.trim().lowercase()
+        val request = Request.Builder()
+            .url("${baseUrl}/api/v1/usernames/$normalized/availability")
+            .get()
+            .build()
+
+        client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to check username availability", e)
+                onResult(null)
+            }
+
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) {
+                        Log.e("AssessmentApi", "Username availability unsuccessful: ${response.code}")
+                        onResult(null)
+                        return
+                    }
+                    val bodyString = response.body?.string()
+                    Log.d("AssessmentApi", "Username availability response: $bodyString")
+                    try {
+                        val availability = gson.fromJson(bodyString, UsernameAvailabilityResponse::class.java)
+                        onResult(availability)
+                    } catch (e: Exception) {
+                        Log.e("AssessmentApi", "Failed to parse username availability response", e)
                         onResult(null)
                     }
                 }
