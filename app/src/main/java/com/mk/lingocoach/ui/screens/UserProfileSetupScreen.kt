@@ -69,6 +69,22 @@ private val levelOptions = listOf(
     LevelOption("advanced",     "Advanced",      "I can speak comfortably",        Icons.Default.RecordVoiceOver)
 )
 
+private fun normalizeUsernameInput(value: String): String =
+    value.lowercase().filter { it.isLetterOrDigit() || it == '_' }.take(20)
+
+private fun usernameValidationError(username: String): String? {
+    val value = username.trim()
+    return when {
+        value.length < 3 -> "Username must be at least 3 characters."
+        value.length > 20 -> "Username must be 20 characters or less."
+        !value.first().isLetter() -> "Username must start with a letter."
+        value.any { !(it.isLowerCase() || it.isDigit() || it == '_') } -> "Use lowercase letters, numbers, or underscores only."
+        "__" in value -> "Username cannot contain consecutive underscores."
+        value.endsWith("_") -> "Username cannot end with an underscore."
+        else -> null
+    }
+}
+
 // ─── Main Screen ──────────────────────────────────────────────────────────────
 @Composable
 fun UserProfileSetupScreen(
@@ -83,7 +99,17 @@ fun UserProfileSetupScreen(
     val totalSteps    = 4
 
     var displayName   by remember { mutableStateOf(prefs.getString("display_name", "") ?: "") }
-    var selectedGoal  by remember { mutableStateOf(prefs.getString("user_goal",    "") ?: "") }
+    var username      by remember { mutableStateOf(prefs.getString("username", "") ?: "") }
+    val selectedGoals = remember {
+        mutableStateListOf<String>().apply {
+            addAll(
+                (prefs.getString("user_goal", "") ?: "")
+                    .split(",")
+                    .map { it.trim() }
+                    .filter { it.isNotBlank() }
+            )
+        }
+    }
     var selectedLevel by remember { mutableStateOf(prefs.getString("user_level",   "") ?: "") }
 
     fun goBack() { if (step == 1) onNavigateBack() else step-- }
@@ -91,7 +117,8 @@ fun UserProfileSetupScreen(
     fun saveAndProceed() {
         prefs.edit()
             .putString("display_name", displayName.trim())
-            .putString("user_goal",    selectedGoal)
+            .putString("username", username.trim().lowercase())
+            .putString("user_goal",    selectedGoals.joinToString(","))
             .putString("user_level",   selectedLevel)
             .putBoolean("personalization_done", true)
             .apply()
@@ -116,12 +143,23 @@ fun UserProfileSetupScreen(
                 1 -> StepName(
                     displayName  = displayName,
                     onNameChange = { displayName = it },
-                    onContinue   = { if (displayName.trim().isNotBlank()) step++ }
+                    username = username,
+                    onUsernameChange = { username = normalizeUsernameInput(it) },
+                    onAlreadyUser = onNavigateBack,
+                    onContinue   = {
+                        if (displayName.trim().isNotBlank() && usernameValidationError(username) == null) step++
+                    }
                 )
                 2 -> StepGoal(
-                    selectedGoal  = selectedGoal,
-                    onGoalSelected = { selectedGoal = it },
-                    onContinue    = { if (selectedGoal.isNotBlank()) step++ }
+                    selectedGoals  = selectedGoals,
+                    onGoalToggled = { goalId ->
+                        if (selectedGoals.contains(goalId)) {
+                            selectedGoals.remove(goalId)
+                        } else {
+                            selectedGoals.add(goalId)
+                        }
+                    },
+                    onContinue    = { if (selectedGoals.isNotEmpty()) step++ }
                 )
                 3 -> StepLevel(
                     selectedLevel  = selectedLevel,
@@ -202,10 +240,14 @@ private fun SetupTopBar(step: Int, totalSteps: Int, onBack: () -> Unit) {
 private fun StepName(
     displayName: String,
     onNameChange: (String) -> Unit,
+    username: String,
+    onUsernameChange: (String) -> Unit,
+    onAlreadyUser: () -> Unit,
     onContinue: () -> Unit
 ) {
-    val keyboard    = LocalSoftwareKeyboardController.current
-    val canContinue = displayName.trim().isNotBlank()
+    val keyboard      = LocalSoftwareKeyboardController.current
+    val usernameError = usernameValidationError(username)
+    val canContinue   = displayName.trim().isNotBlank() && usernameError == null
 
     Column(
         modifier = Modifier
@@ -216,13 +258,30 @@ private fun StepName(
     ) {
         Column {
             Spacer(Modifier.height(28.dp))
-            Text(
-                "What's your name?",
-                style = TextStyle(color = SetupTextDark, fontSize = 28.sp, fontWeight = FontWeight.Bold)
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    "What's your name?",
+                    style = TextStyle(color = SetupTextDark, fontSize = 28.sp, fontWeight = FontWeight.Bold)
+                )
+                TextButton(
+                    onClick = onAlreadyUser,
+                    contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
+                ) {
+                    Text(
+                        "Already a user?",
+                        color = SetupPurple,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
             Spacer(Modifier.height(8.dp))
             Text(
-                "We'll personalise your experience just for you.",
+                "Tell us what to call you and choose a unique username.",
                 style = TextStyle(color = SetupTextMid, fontSize = 15.sp, lineHeight = 22.sp)
             )
             Spacer(Modifier.height(32.dp))
@@ -230,6 +289,7 @@ private fun StepName(
             OutlinedTextField(
                 value          = displayName,
                 onValueChange  = onNameChange,
+                label          = { Text("Full name") },
                 placeholder    = { Text("e.g. Alex Mercer", color = SetupTextLight, fontSize = 16.sp) },
                 singleLine     = true,
                 modifier       = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
@@ -237,9 +297,8 @@ private fun StepName(
                 textStyle      = TextStyle(fontSize = 17.sp, color = SetupTextDark, fontWeight = FontWeight.Medium),
                 keyboardOptions = KeyboardOptions(
                     capitalization = KeyboardCapitalization.Words,
-                    imeAction      = ImeAction.Done
+                    imeAction      = ImeAction.Next
                 ),
-                keyboardActions = KeyboardActions(onDone = { keyboard?.hide(); onContinue() }),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor      = SetupPurple,
                     unfocusedBorderColor    = Color(0xFFDDDCF0),
@@ -250,12 +309,62 @@ private fun StepName(
                     cursorColor             = SetupPurple
                 )
             )
+
+            Spacer(Modifier.height(16.dp))
+
+            OutlinedTextField(
+                value          = username,
+                onValueChange  = onUsernameChange,
+                label          = { Text("How should we remember you?") },
+                placeholder    = { Text("alex_mercer", color = SetupTextLight, fontSize = 16.sp) },
+                leadingIcon    = {
+                    Text("@", color = SetupPurple, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                },
+                singleLine     = true,
+                isError        = username.isNotBlank() && usernameError != null,
+                supportingText = {
+                    Text(
+                        text = usernameError ?: "3-20 chars, starts with a letter. Use lowercase, numbers, underscores.",
+                        color = if (usernameError == null) SetupTextLight else Color(0xFFD64545),
+                        fontSize = 12.sp,
+                        lineHeight = 16.sp
+                    )
+                },
+                modifier       = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
+                shape          = RoundedCornerShape(16.dp),
+                textStyle      = TextStyle(fontSize = 17.sp, color = SetupTextDark, fontWeight = FontWeight.Medium),
+                keyboardOptions = KeyboardOptions(
+                    capitalization = KeyboardCapitalization.None,
+                    imeAction      = ImeAction.Done
+                ),
+                keyboardActions = KeyboardActions(
+                    onDone = {
+                        keyboard?.hide()
+                        if (canContinue) onContinue()
+                    }
+                ),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor      = SetupPurple,
+                    unfocusedBorderColor    = Color(0xFFDDDCF0),
+                    errorBorderColor        = Color(0xFFD64545),
+                    focusedContainerColor   = Color.White,
+                    unfocusedContainerColor = Color.White,
+                    errorContainerColor     = Color.White,
+                    focusedTextColor        = SetupTextDark,
+                    unfocusedTextColor      = SetupTextDark,
+                    errorTextColor          = SetupTextDark,
+                    cursorColor             = SetupPurple
+                )
+            )
         }
 
         SetupContinueButton(
             enabled = canContinue,
             label   = "Continue",
-            onClick = { keyboard?.hide(); onContinue() }
+            onClick = {
+                keyboard?.hide()
+                if (canContinue) onContinue()
+            }
         )
     }
 }
@@ -263,8 +372,8 @@ private fun StepName(
 // ─── Step 2 : Goal ────────────────────────────────────────────────────────────
 @Composable
 private fun StepGoal(
-    selectedGoal: String,
-    onGoalSelected: (String) -> Unit,
+    selectedGoals: List<String>,
+    onGoalToggled: (String) -> Unit,
     onContinue: () -> Unit
 ) {
     Column(
@@ -281,7 +390,7 @@ private fun StepGoal(
             )
             Spacer(Modifier.height(8.dp))
             Text(
-                "This helps us personalise your learning journey.",
+                "Choose one or more goals so we can personalise your learning journey.",
                 style = TextStyle(color = SetupTextMid, fontSize = 15.sp, lineHeight = 22.sp)
             )
             Spacer(Modifier.height(20.dp))
@@ -295,8 +404,8 @@ private fun StepGoal(
                         title    = option.title,
                         subtitle = option.subtitle,
                         icon     = option.icon,
-                        selected = selectedGoal == option.id,
-                        onClick  = { onGoalSelected(option.id) }
+                        selected = selectedGoals.contains(option.id),
+                        onClick  = { onGoalToggled(option.id) }
                     )
                 }
                 Spacer(Modifier.height(4.dp))
@@ -304,7 +413,7 @@ private fun StepGoal(
         }
 
         SetupContinueButton(
-            enabled = selectedGoal.isNotBlank(),
+            enabled = selectedGoals.isNotEmpty(),
             label   = "Continue",
             onClick = onContinue
         )

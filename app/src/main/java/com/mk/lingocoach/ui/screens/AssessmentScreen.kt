@@ -11,6 +11,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -272,7 +273,8 @@ fun AssessmentScreen(
     // Init session — pass the display name entered in UserProfileSetupScreen
     LaunchedEffect(Unit) {
         val userName = sharedPrefs.getString("display_name", "") ?: ""
-        AssessmentApi.createSession(userName) { response ->
+        val username = sharedPrefs.getString("username", "") ?: ""
+        AssessmentApi.createSession(userName, username) { response ->
             coroutineScope.launch(Dispatchers.Main) {
                 if (response != null) {
                     sessionId = response.session_id
@@ -281,6 +283,9 @@ fun AssessmentScreen(
                     // If backend echoes name back, ensure it's saved locally
                     if (response.user_name.isNotBlank()) {
                         sharedPrefs.edit().putString("display_name", response.user_name).apply()
+                    }
+                    if (response.username.isNotBlank()) {
+                        sharedPrefs.edit().putString("username", response.username).apply()
                     }
                     isLoading = false
                 } else {
@@ -303,7 +308,8 @@ fun AssessmentScreen(
                 errorMessage = ""
                 isLoading = true
                 val userName = sharedPrefs.getString("display_name", "") ?: ""
-                AssessmentApi.createSession(userName) { response ->
+                val username = sharedPrefs.getString("username", "") ?: ""
+                AssessmentApi.createSession(userName, username) { response ->
                     coroutineScope.launch(Dispatchers.Main) {
                         if (response != null) {
                             sessionId = response.session_id
@@ -846,23 +852,225 @@ fun LoadingView() {
 
 @Composable
 fun GeneratingPathView() {
+    val context = LocalContext.current
+    val sharedPrefs = remember {
+        context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
+    }
+    var elapsedSeconds by remember { mutableStateOf(0) }
+    var generationReady by remember {
+        mutableStateOf(sharedPrefs.getString("learning_path_generation_state", "") == "ready")
+    }
+
+    LaunchedEffect(Unit) {
+        while (elapsedSeconds < 15) {
+            delay(1000)
+            elapsedSeconds += 1
+            generationReady = sharedPrefs.getString("learning_path_generation_state", "") == "ready"
+        }
+    }
+
+    val phase = when {
+        elapsedSeconds < 5 -> 0
+        elapsedSeconds < 10 -> 1
+        else -> 2
+    }
+    val targetProgress = (elapsedSeconds / 15f).coerceIn(0f, 1f)
+    val animatedProgress by animateFloatAsState(
+        targetValue = targetProgress,
+        animationSpec = tween(durationMillis = 500, easing = LinearEasing),
+        label = "checkpointProgress"
+    )
+
+    val headline: String
+    val subHeadline: String
+    val microCopy: String
+
+    when (phase) {
+        0 -> {
+            headline = "Assessment Complete!"
+            subHeadline = "Sending your responses to our AI engine..."
+            microCopy = "Securing your data and prepping the blueprint."
+        }
+        1 -> {
+            headline = "Analyzing Your Profile"
+            subHeadline = "Crunching the numbers to find your skill gaps and strengths..."
+            microCopy = "Mapping 12 distinct data points from your answers."
+        }
+        else -> {
+            if (generationReady) {
+                headline = "Learning Path Created!"
+                subHeadline = "Your personalized roadmap is ready. Let's proceed!"
+                microCopy = "Redirecting to your Home Screen..."
+            } else {
+                headline = "Cooking Your Custom Path"
+                subHeadline = "Gathering resources, videos, and quizzes just for you..."
+                microCopy = "Almost there! Taking you to your dashboard."
+            }
+        }
+    }
+
     Box(
-        modifier = Modifier.fillMaxSize().background(Color(0xE6FFFFFF)),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFF7F5FF))
+            .statusBarsPadding()
+            .navigationBarsPadding()
+            .padding(horizontal = 28.dp),
         contentAlignment = Alignment.Center
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            CircularProgressIndicator(color = Color(0xFF6A5CFF))
-            Spacer(Modifier.height(20.dp))
-            Text(
-                "Preparing your checkpoint...",
-                fontWeight = FontWeight.Bold, color = Color(0xFF1D1D1F), fontSize = 17.sp,
-                textAlign = TextAlign.Center, modifier = Modifier.padding(horizontal = 24.dp)
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            CheckpointVisual(
+                phase = phase,
+                progress = animatedProgress
             )
-            Spacer(Modifier.height(8.dp))
+
+            Spacer(Modifier.height(30.dp))
+
             Text(
-                "Your learning path is generating in the background. You can keep using the app in a moment.",
-                color = Color(0xFF6E6E73), fontSize = 13.sp,
-                textAlign = TextAlign.Center, modifier = Modifier.padding(horizontal = 24.dp)
+                headline,
+                fontWeight = FontWeight.ExtraBold,
+                color = Color(0xFF1D1D1F),
+                fontSize = 24.sp,
+                textAlign = TextAlign.Center
+            )
+
+            Spacer(Modifier.height(12.dp))
+
+            Text(
+                subHeadline,
+                color = Color(0xFF5F5B71),
+                fontSize = 14.sp,
+                lineHeight = 20.sp,
+                textAlign = TextAlign.Center
+            )
+
+            Spacer(Modifier.height(28.dp))
+
+            LinearProgressIndicator(
+                progress = { animatedProgress },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(8.dp)
+                    .clip(RoundedCornerShape(50)),
+                color = Color(0xFF6A5CFF),
+                trackColor = Color(0xFFE2DEFF),
+                strokeCap = StrokeCap.Round
+            )
+
+            Spacer(Modifier.height(10.dp))
+
+            Text(
+                "${(animatedProgress * 100).toInt()}%",
+                color = Color(0xFF6A5CFF),
+                fontWeight = FontWeight.Bold,
+                fontSize = 13.sp
+            )
+
+            Spacer(Modifier.height(64.dp))
+
+            Text(
+                microCopy,
+                color = Color(0xFF8A849B),
+                fontSize = 12.sp,
+                lineHeight = 17.sp,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
+
+@Composable
+private fun CheckpointVisual(
+    phase: Int,
+    progress: Float
+) {
+    val transition = rememberInfiniteTransition(label = "checkpointPulse")
+    val pulse by transition.animateFloat(
+        initialValue = 0.88f,
+        targetValue = 1.08f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(900, easing = LinearEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "corePulse"
+    )
+    val nodePhase by transition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(1200, easing = LinearEasing),
+            repeatMode = RepeatMode.Restart
+        ),
+        label = "nodePhase"
+    )
+
+    Box(
+        modifier = Modifier.size(170.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        CircularProgressIndicator(
+            progress = { progress },
+            modifier = Modifier.fillMaxSize(),
+            color = Color(0xFF6A5CFF),
+            trackColor = Color(0xFFE5E1FF),
+            strokeWidth = 8.dp,
+            strokeCap = StrokeCap.Round
+        )
+
+        Canvas(modifier = Modifier.size(120.dp)) {
+            val center = Offset(size.width / 2f, size.height / 2f)
+            if (phase >= 1) {
+                val radius = 44.dp.toPx()
+                val nodes = List(6) { index ->
+                    val angle = index * (Math.PI * 2 / 6) - Math.PI / 2
+                    Offset(
+                        center.x + radius * cos(angle).toFloat(),
+                        center.y + radius * sin(angle).toFloat()
+                    )
+                }
+                nodes.forEachIndexed { index, node ->
+                    drawLine(
+                        color = Color(0x556A5CFF),
+                        start = center,
+                        end = node,
+                        strokeWidth = 2.dp.toPx()
+                    )
+                    drawCircle(
+                        color = if ((nodePhase * 6).toInt() == index) Color(0xFFFFC83D) else Color(0xFF6A5CFF),
+                        radius = 4.dp.toPx(),
+                        center = node
+                    )
+                }
+            }
+        }
+
+        Box(
+            modifier = Modifier
+                .size((64 * pulse).dp)
+                .clip(CircleShape)
+                .background(
+                    Brush.radialGradient(
+                        colors = listOf(
+                            if (phase == 2) Color(0xFFFFD866) else Color(0xFF8B7CFF),
+                            Color(0xFF6A5CFF)
+                        )
+                    )
+                )
+                .shadow(20.dp, CircleShape, spotColor = Color(0x666A5CFF)),
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                imageVector = when (phase) {
+                    0 -> Icons.Default.CheckCircle
+                    1 -> Icons.Default.BarChart
+                    else -> Icons.Default.WorkspacePremium
+                },
+                contentDescription = null,
+                tint = Color.White,
+                modifier = Modifier.size(30.dp)
             )
         }
     }

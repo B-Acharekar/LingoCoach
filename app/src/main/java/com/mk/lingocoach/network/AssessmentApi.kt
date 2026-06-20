@@ -18,7 +18,8 @@ data class SessionResponse(
     val session_id: String,
     val current_step: Int,
     val next_question: String,
-    val user_name: String = ""   // echoed back from backend
+    val user_name: String = "",   // echoed back from backend
+    val username: String = ""
 )
 
 data class AssessmentResponse(
@@ -164,8 +165,12 @@ object AssessmentApi {
 
     private val gson = Gson()
 
-    fun createSession(userName: String = "", onResult: (SessionResponse?) -> Unit) {
-        val body = gson.toJson(mapOf("user_name" to userName))
+    fun createSession(
+        userName: String = "",
+        username: String = "",
+        onResult: (SessionResponse?) -> Unit
+    ) {
+        val body = gson.toJson(mapOf("user_name" to userName, "username" to username))
         val request = Request.Builder()
             .url("${baseUrl}/api/v1/sessions")
             .post(body.toRequestBody(JSON_MEDIA_TYPE))
