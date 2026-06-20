@@ -89,6 +89,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
@@ -97,6 +98,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.layout.ContentScale
@@ -852,28 +854,163 @@ fun LoadingView() {
 
 @Composable
 fun GeneratingPathView() {
+    val totalAnimationTime = 10000 // 10 seconds
+    val drawingProgress = remember { androidx.compose.animation.core.Animatable(0f) }
+    
+    val tips = remember {
+        listOf(
+            "Tip: Practicing 15 minutes a day is better than 2 hours once a week.",
+            "Fun Fact: There are over 7,000 languages spoken in the world today.",
+            "Tip: Don't worry about making mistakes; they are proof you are trying!",
+            "Fun Fact: The language with the most words is English, with over 1 million.",
+            "Tip: Try watching your favorite movies with subtitles in your target language."
+        )
+    }
+    var currentTipIndex by remember { mutableStateOf(0) }
+    val tipAlpha = remember { androidx.compose.animation.core.Animatable(0f) }
+    val finalPulse = remember { androidx.compose.animation.core.Animatable(1f) }
+
+    LaunchedEffect(Unit) {
+        launch {
+            drawingProgress.animateTo(
+                targetValue = 1f,
+                animationSpec = androidx.compose.animation.core.tween(
+                    durationMillis = totalAnimationTime,
+                    easing = androidx.compose.animation.core.LinearEasing
+                )
+            )
+            // Start infinite pulse for the final checkpoint
+            while(true) {
+                finalPulse.animateTo(1.5f, androidx.compose.animation.core.tween(800, easing = androidx.compose.animation.core.FastOutSlowInEasing))
+                finalPulse.animateTo(1f, androidx.compose.animation.core.tween(800, easing = androidx.compose.animation.core.FastOutSlowInEasing))
+            }
+        }
+        
+        // Start carousel
+        launch {
+            while (true) {
+                tipAlpha.animateTo(1f, androidx.compose.animation.core.tween(500))
+                kotlinx.coroutines.delay(3500)
+                tipAlpha.animateTo(0f, androidx.compose.animation.core.tween(500))
+                currentTipIndex = (currentTipIndex + 1) % tips.size
+            }
+        }
+    }
+
+    val primaryColor = Color(0xFF6A5CFF)
+    val steps = remember {
+        listOf(
+            "Analyzing your proficiency level...",
+            "Finding the best vocabulary for you...",
+            "Structuring your custom lessons...",
+            "Almost ready!"
+        )
+    }
+
+    val pointThresholds = listOf(0.0f, 0.33f, 0.66f, 0.98f)
+
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFFF7F5FF))
-            .statusBarsPadding()
-            .navigationBarsPadding()
-            .padding(horizontal = 28.dp),
+        modifier = Modifier.fillMaxSize().background(Color(0xFFF7F5FF)).statusBarsPadding().navigationBarsPadding(),
         contentAlignment = Alignment.Center
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            CircularProgressIndicator(color = Color(0xFF6A5CFF))
-            Spacer(Modifier.height(20.dp))
-            Text(
-                "Analyzing assessment metrics...",
-                fontWeight = FontWeight.Bold, color = Color(0xFF1D1D1F), fontSize = 17.sp,
-                textAlign = TextAlign.Center, modifier = Modifier.padding(horizontal = 24.dp)
+        androidx.compose.foundation.Canvas(modifier = Modifier.fillMaxSize()) {
+            val startX = size.width / 2f
+            val startY = size.height * 0.12f
+            val verticalStep = size.height * 0.20f
+            val widthAmplitude = size.width * 0.25f
+
+            val path = androidx.compose.ui.graphics.Path().apply {
+                moveTo(startX, startY)
+                quadraticBezierTo(startX + widthAmplitude, startY + verticalStep / 2, startX, startY + verticalStep)
+                quadraticBezierTo(startX - widthAmplitude, startY + verticalStep * 1.5f, startX, startY + verticalStep * 2)
+                quadraticBezierTo(startX + widthAmplitude, startY + verticalStep * 2.5f, startX, startY + verticalStep * 3)
+            }
+            
+            val outPath = androidx.compose.ui.graphics.Path()
+            val pathMeasure = androidx.compose.ui.graphics.PathMeasure().apply { setPath(path, false) }
+            val currentLength = pathMeasure.length * drawingProgress.value
+            pathMeasure.getSegment(0f, currentLength, outPath, true)
+            
+            drawPath(
+                path = outPath,
+                color = primaryColor,
+                style = androidx.compose.ui.graphics.drawscope.Stroke(
+                    width = 6.dp.toPx(),
+                    cap = androidx.compose.ui.graphics.StrokeCap.Round,
+                    join = androidx.compose.ui.graphics.StrokeJoin.Round
+                )
             )
-            Spacer(Modifier.height(8.dp))
+        }
+
+        androidx.compose.foundation.layout.BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+            val h = maxHeight
+            val w = maxWidth
+            steps.forEachIndexed { index, text ->
+                val yOffsetMultiplier = when(index) {
+                    0 -> 0.12f
+                    1 -> 0.32f
+                    2 -> 0.52f
+                    else -> 0.72f
+                }
+                
+                val isFinal = index == 3
+                val glowScale = if (isFinal) finalPulse.value else 1f
+
+                androidx.compose.animation.AnimatedVisibility(
+                    visible = drawingProgress.value >= pointThresholds[index],
+                    enter = androidx.compose.animation.scaleIn(animationSpec = androidx.compose.animation.core.tween(400, easing = androidx.compose.animation.core.FastOutSlowInEasing)) + androidx.compose.animation.fadeIn(animationSpec = androidx.compose.animation.core.tween(400)),
+                    modifier = Modifier.fillMaxWidth().offset(y = h * yOffsetMultiplier - 28.dp).align(Alignment.TopCenter)
+                ) {
+                    val isLeft = index % 2 == 0
+                    Box(modifier = Modifier.fillMaxWidth()) {
+                        // Text on the side
+                        Box(
+                            modifier = Modifier
+                                .width(w / 2 - 36.dp)
+                                .align(if (isLeft) Alignment.CenterStart else Alignment.CenterEnd)
+                        ) {
+                            Text(
+                                text = text,
+                                color = Color(0xFF1D1D1F),
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = if (isLeft) TextAlign.End else TextAlign.Start,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        }
+
+                        // Checkpoint Button with Star
+                        Box(
+                            modifier = Modifier
+                                .size(56.dp)
+                                .align(Alignment.Center)
+                                .graphicsLayer {
+                                    scaleX = glowScale
+                                    scaleY = glowScale
+                                }
+                                .shadow(if (isFinal) 24.dp else 12.dp, CircleShape, spotColor = primaryColor)
+                                .clip(CircleShape)
+                                .background(primaryColor),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(Icons.Default.Star, contentDescription = null, tint = Color.White, modifier = Modifier.size(28.dp))
+                        }
+                    }
+                }
+            }
+        }
+
+        Box(
+            modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 40.dp).padding(horizontal = 32.dp),
+            contentAlignment = Alignment.Center
+        ) {
             Text(
-                "Generating your personalized learning path",
-                color = Color(0xFF6E6E73), fontSize = 13.sp,
-                textAlign = TextAlign.Center, modifier = Modifier.padding(horizontal = 24.dp)
+                text = tips[currentTipIndex],
+                color = Color(0xFF6E6E73),
+                fontSize = 13.sp,
+                textAlign = TextAlign.Center,
+                lineHeight = 18.sp,
+                modifier = Modifier.alpha(tipAlpha.value)
             )
         }
     }
