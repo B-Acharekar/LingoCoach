@@ -2,6 +2,7 @@ package com.mk.lingocoach.network
 
 import android.util.Log
 import com.google.gson.Gson
+import com.google.gson.JsonParser
 import com.google.gson.annotations.SerializedName
 import com.mk.lingocoach.config.AppConfig
 import okhttp3.MediaType.Companion.toMediaType
@@ -168,9 +169,18 @@ object AssessmentApi {
         get() = AppConfig.backendBaseUrl
     private val JSON_MEDIA_TYPE = "application/json; charset=utf-8".toMediaType()
 
+    private const val LEARNING_PATH_TIMEOUT_SECONDS = 310L
+
     private val client = OkHttpClient.Builder()
         .connectTimeout(60, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
+        .writeTimeout(60, TimeUnit.SECONDS)
+        .build()
+
+    private val learningPathClient = client.newBuilder()
+        .callTimeout(LEARNING_PATH_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+        .connectTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(LEARNING_PATH_TIMEOUT_SECONDS, TimeUnit.SECONDS)
         .writeTimeout(60, TimeUnit.SECONDS)
         .build()
 
@@ -442,7 +452,7 @@ object AssessmentApi {
             .header("Content-Type", "application/json")
             .build()
 
-        client.newCall(request).enqueue(object : okhttp3.Callback {
+        learningPathClient.newCall(request).enqueue(object : okhttp3.Callback {
             override fun onFailure(call: okhttp3.Call, e: IOException) {
                 Log.e("AssessmentApi", "Failed to fetch learning path", e)
                 onResult(null)
@@ -469,6 +479,89 @@ object AssessmentApi {
         })
     }
 
+    fun getLearningPathStream(
+        requestBody: LearningPathRequest,
+        onProgress: (String) -> Unit,
+        onResult: (LearningPathResponse?) -> Unit
+    ) {
+        val json = gson.toJson(requestBody)
+        val request = Request.Builder()
+            .url("${baseUrl}/api/v1/learning-path/stream")
+            .post(json.toRequestBody(JSON_MEDIA_TYPE))
+            .header("accept", "text/event-stream")
+            .header("Content-Type", "application/json")
+            .build()
+
+        learningPathClient.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("AssessmentApi", "Failed to stream learning path", e)
+                onResult(null)
+            }
+
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                response.use {
+                    if (!response.isSuccessful) {
+                        Log.e("AssessmentApi", "Stream learning path unsuccessful: ${response.code}")
+                        onResult(null)
+                        return
+                    }
+
+                    val source = response.body?.source()
+                    if (source == null) {
+                        onResult(null)
+                        return
+                    }
+
+                    var eventName = "message"
+                    val dataLines = mutableListOf<String>()
+                    var completed = false
+
+                    fun dispatchEvent() {
+                        if (dataLines.isEmpty()) return
+                        val data = dataLines.joinToString("\n")
+                        try {
+                            when (eventName) {
+                                "progress" -> {
+                                    val message = JsonParser.parseString(data)
+                                        .asJsonObject
+                                        .get("message")
+                                        ?.asString
+                                    if (!message.isNullOrBlank()) onProgress(message)
+                                }
+                                "token" -> onProgress("Receiving your roadmap...")
+                                "complete" -> {
+                                    completed = true
+                                    val result = gson.fromJson(data, LearningPathResponse::class.java)
+                                    onResult(result)
+                                }
+                            }
+                        } catch (e: Exception) {
+                            Log.e("AssessmentApi", "Failed to parse learning path stream event", e)
+                        } finally {
+                            eventName = "message"
+                            dataLines.clear()
+                        }
+                    }
+
+                    try {
+                        while (true) {
+                            val line = source.readUtf8Line() ?: break
+                            when {
+                                line.isEmpty() -> dispatchEvent()
+                                line.startsWith("event:") -> eventName = line.removePrefix("event:").trim()
+                                line.startsWith("data:") -> dataLines.add(line.removePrefix("data:").trim())
+                            }
+                        }
+                        dispatchEvent()
+                        if (!completed) onResult(null)
+                    } catch (e: IOException) {
+                        Log.e("AssessmentApi", "Learning path stream interrupted", e)
+                        onResult(null)
+                    }
+                }
+            }
+        })
+    }
     fun getCurrentLearningPath(userId: String, onResult: (CurrentLearningPathResponse?) -> Unit) {
         val request = Request.Builder()
             .url("${baseUrl}/api/v1/learning-path/current?user_id=$userId")
@@ -948,3 +1041,4 @@ data class ProgressMetrics(
     val xp: Int = 0,
     val activity: ProgressActivity = ProgressActivity()
 )
+

@@ -65,7 +65,6 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mk.lingocoach.R
 import com.mk.lingocoach.viewmodel.LanguageViewModel
-import kotlinx.coroutines.delay
 
 /**
  * Language Selection Screen with full ViewModel integration
@@ -91,8 +90,6 @@ fun LanguageSelectionScreen(
     val searchQuery by viewModel.searchQuery.collectAsState()
     val filteredLanguages by viewModel.filteredLanguages.collectAsState()
     var draftLanguage by remember { mutableStateOf(selectedLanguage) }
-    var showLanguageChanging by remember { mutableStateOf(false) }
-    var pendingLanguage by remember { mutableStateOf<String?>(null) }
 
     LaunchedEffect(selectedLanguage) {
         draftLanguage = selectedLanguage
@@ -144,8 +141,12 @@ fun LanguageSelectionScreen(
                 // Done Button in capsule style (navigates to welcome onboarding)
                 Button(
                     onClick = {
-                        showLanguageChanging = true
-                        pendingLanguage = draftLanguage
+                        viewModel.selectLanguage(draftLanguage)
+                        context.getSharedPreferences("LingoCoachPrefs", android.content.Context.MODE_PRIVATE)
+                            .edit()
+                            .putBoolean("lang_selected", true)
+                            .apply()
+                        onNavigateToWelcome()
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFF6A5CFF)
@@ -331,19 +332,6 @@ fun LanguageSelectionScreen(
             }
         }
 
-        if (showLanguageChanging) {
-            LaunchedEffect(pendingLanguage) {
-                val languageToApply = pendingLanguage ?: return@LaunchedEffect
-                delay(6000)
-                viewModel.selectLanguage(languageToApply)
-                context.getSharedPreferences("LingoCoachPrefs", android.content.Context.MODE_PRIVATE)
-                    .edit()
-                    .putBoolean("lang_selected", true)
-                    .apply()
-                onNavigateToWelcome()
-            }
-            LanguageChangeOverlay()
-        }
     }
 }
 
@@ -487,3 +475,4 @@ fun localizedAppLanguageName(code: String): String {
         else -> code
     }
 }
+

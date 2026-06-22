@@ -42,7 +42,7 @@ import com.mk.lingocoach.network.AssessmentApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-// ─── Design tokens ─────────────────────────────────────────────────────────────
+// â”€â”€â”€ Design tokens â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 private val SetupPurple      = Color(0xFF6A5CFF)
 private val SetupPurpleSoft  = Color(0xFFF0EEFF)
 private val SetupPurpleDark  = Color(0xFF4A3FCC)
@@ -53,7 +53,7 @@ private val SetupCardBg      = Color(0xFFFFFFFF)
 private val SetupAmber       = Color(0xFFFFB800)
 private val SetupCardBorder  = Color(0xFFEEECFF)
 
-// ─── Data models ──────────────────────────────────────────────────────────────
+// â”€â”€â”€ Data models â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 private data class GoalOption(val id: String, val title: String, val subtitle: String, val icon: ImageVector)
 private data class LevelOption(val id: String, val title: String, val subtitle: String, val icon: ImageVector)
 
@@ -88,7 +88,7 @@ private fun usernameValidationError(username: String): String? {
     }
 }
 
-// ─── Main Screen ──────────────────────────────────────────────────────────────
+// â”€â”€â”€ Main Screen â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 fun UserProfileSetupScreen(
     onNavigateBack: () -> Unit,
@@ -99,9 +99,9 @@ fun UserProfileSetupScreen(
     val coroutineScope = rememberCoroutineScope()
     val prefs   = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
 
-    // 4 steps: 1=Name, 2=Goal, 3=Level, 4=Speaking Assessment Intro
+    // 3 steps: 1=Goal, 2=Level, 3=Speaking Assessment Intro
     var step         by remember { mutableStateOf(1) }
-    val totalSteps    = 4
+    val totalSteps    = 3
 
     var displayName   by remember { mutableStateOf(prefs.getString("display_name", "") ?: "") }
     var username      by remember { mutableStateOf(prefs.getString("username", "") ?: "") }
@@ -123,20 +123,11 @@ fun UserProfileSetupScreen(
     var selectedLevel by remember { mutableStateOf(prefs.getString("user_level",   "") ?: "") }
 
     fun goBack() {
-        when {
-            step == 1 && isReturningUserMode -> {
-                isReturningUserMode = false
-                existingUserError = null
-            }
-            step == 1 -> onNavigateBack()
-            else -> step--
-        }
+        if (step == 1) onNavigateBack() else step--
     }
 
     fun saveAndProceed() {
         prefs.edit()
-            .putString("display_name", displayName.trim())
-            .putString("username", username.trim().lowercase())
             .putString("user_goal",    selectedGoals.joinToString(","))
             .putString("user_level",   selectedLevel)
             .putBoolean("personalization_done", true)
@@ -202,7 +193,7 @@ fun UserProfileSetupScreen(
     Box(modifier = Modifier.fillMaxSize()) {
         AppBackgroundTexture()
 
-        // ── Content ───────────────────────────────────────────────────────
+        // â”€â”€ Content â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -214,33 +205,7 @@ fun UserProfileSetupScreen(
 
             // Step content
             when (step) {
-                1 -> StepName(
-                    displayName  = displayName,
-                    onNameChange = { displayName = it },
-                    username = username,
-                    onUsernameChange = {
-                        username = normalizeUsernameInput(it)
-                        existingUserError = null
-                        usernameAvailabilityError = null
-                    },
-                    isReturningUserMode = isReturningUserMode,
-                    existingUserError = existingUserError,
-                    isExistingUserLoading = isExistingUserLoading,
-                    usernameAvailabilityError = usernameAvailabilityError,
-                    isUsernameCheckLoading = isUsernameCheckLoading,
-                    onAlreadyUser = {
-                        isReturningUserMode = true
-                        existingUserError = null
-                        usernameAvailabilityError = null
-                    },
-                    onBackToNewUser = {
-                        isReturningUserMode = false
-                        existingUserError = null
-                    },
-                    onVerifyExistingUser = ::restoreExistingUser,
-                    onContinue = ::verifyNewUsernameAndContinue
-                )
-                2 -> StepGoal(
+                1 -> StepGoal(
                     selectedGoals  = selectedGoals,
                     onGoalToggled = { goalId ->
                         if (selectedGoals.contains(goalId)) {
@@ -251,18 +216,18 @@ fun UserProfileSetupScreen(
                     },
                     onContinue    = { if (selectedGoals.isNotEmpty()) step++ }
                 )
-                3 -> StepLevel(
+                2 -> StepLevel(
                     selectedLevel  = selectedLevel,
                     onLevelSelected = { selectedLevel = it },
                     onContinue     = { if (selectedLevel.isNotBlank()) step++ }
                 )
-                4 -> StepSpeakingIntro(onStartAssessment = ::saveAndProceed)
+                3 -> StepSpeakingIntro(onStartAssessment = ::saveAndProceed)
             }
         }
     }
 }
 
-// ─── Top Progress Bar ─────────────────────────────────────────────────────────
+// â”€â”€â”€ Top Progress Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 private fun SetupTopBar(step: Int, totalSteps: Int, onBack: () -> Unit) {
     Row(
@@ -325,7 +290,7 @@ private fun SetupTopBar(step: Int, totalSteps: Int, onBack: () -> Unit) {
     }
 }
 
-// ─── Step 1 : Name ────────────────────────────────────────────────────────────
+// â”€â”€â”€ Step 1 : Name â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 private fun StepName(
     displayName: String,
@@ -505,7 +470,7 @@ private fun StepName(
     }
 }
 
-// ─── Step 2 : Goal ────────────────────────────────────────────────────────────
+// â”€â”€â”€ Step 2 : Goal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 private fun StepGoal(
     selectedGoals: List<String>,
@@ -556,7 +521,7 @@ private fun StepGoal(
     }
 }
 
-// ─── Step 3 : Level ───────────────────────────────────────────────────────────
+// â”€â”€â”€ Step 3 : Level â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 private fun StepLevel(
     selectedLevel: String,
@@ -603,7 +568,7 @@ private fun StepLevel(
     }
 }
 
-// ─── Step 4 : Speaking Assessment Intro ──────────────────────────────────────
+// â”€â”€â”€ Step 4 : Speaking Assessment Intro â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
     Column(
@@ -618,7 +583,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            // ── Clipboard illustration ────────────────────────────────────
+            // â”€â”€ Clipboard illustration â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             Box(
                 modifier = Modifier.size(200.dp),
                 contentAlignment = Alignment.Center
@@ -718,7 +683,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
 
             Spacer(Modifier.height(28.dp))
 
-            // ── Feature bullets ───────────────────────────────────────────
+            // â”€â”€ Feature bullets â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -764,7 +729,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
     }
 }
 
-// ─── Shared: Selection card ───────────────────────────────────────────────────
+// â”€â”€â”€ Shared: Selection card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 private fun SetupSelectionCard(
     title: String,
@@ -835,7 +800,7 @@ private fun SetupSelectionCard(
     }
 }
 
-// ─── Shared: Continue button ──────────────────────────────────────────────────
+// â”€â”€â”€ Shared: Continue button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @Composable
 private fun SetupContinueButton(enabled: Boolean, label: String, onClick: () -> Unit) {
     Spacer(Modifier.height(12.dp))
@@ -859,3 +824,4 @@ private fun SetupContinueButton(enabled: Boolean, label: String, onClick: () -> 
     }
     Spacer(Modifier.height(16.dp))
 }
+

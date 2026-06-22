@@ -65,7 +65,7 @@ fun LearningPathRoadmapScreen(
     val scrollState = rememberScrollState()
     val sharedPrefs = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
     val userId = remember { sharedPrefs.getString("session_id", null) ?: "" }
-    var learningPath by remember { mutableStateOf(AppCache.learningPath) }
+    var learningPath by remember { mutableStateOf(AppCache.learningPath?.takeIf { it.isBackendLearningPathReady() }) }
     var isLoading by remember { mutableStateOf(learningPath == null) }
 
     // Back destination depends on how we arrived here
@@ -73,7 +73,7 @@ fun LearningPathRoadmapScreen(
 
     LaunchedEffect(userId) {
         AppCache.loadFromDisk(context)
-        AppCache.learningPath?.let {
+        AppCache.learningPath?.takeIf { it.isBackendLearningPathReady() }?.let {
             learningPath = it
             isLoading = false
         }
@@ -81,11 +81,13 @@ fun LearningPathRoadmapScreen(
             scope.launch(Dispatchers.IO) {
                 AssessmentApi.getCurrentLearningPath(userId) { path ->
                     scope.launch(Dispatchers.Main) {
-                        if (path != null) {
+                        if (path != null && path.isBackendLearningPathReady()) {
                             AppCache.learningPath = AppCache.applyLocalLearningPathProgress(path)
                             AppCache.learningPathAt = System.currentTimeMillis()
                             AppCache.saveToDisk(context)
                             learningPath = AppCache.learningPath
+                        } else {
+                            learningPath = null
                         }
                         isLoading = false
                     }

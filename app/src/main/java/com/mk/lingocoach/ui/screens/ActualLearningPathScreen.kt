@@ -55,26 +55,26 @@ fun ActualLearningPathScreen(
     val scope = rememberCoroutineScope()
     val sharedPrefs = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
     val userId = remember { sharedPrefs.getString("session_id", null) ?: "" }
-    var learningPath by remember { mutableStateOf<CurrentLearningPathResponse?>(AppCache.learningPath) }
+    var learningPath by remember { mutableStateOf<CurrentLearningPathResponse?>(AppCache.learningPath?.takeIf { it.isBackendLearningPathReady() }) }
     var isLoading by remember { mutableStateOf(learningPath == null) }
     var selectedTab by remember { mutableStateOf(0) }
 
     LaunchedEffect(userId) {
         AppCache.loadFromDisk(context)
-        AppCache.learningPath?.let {
+        AppCache.learningPath?.takeIf { it.isBackendLearningPathReady() }?.let {
             learningPath = it
             isLoading = false
         }
         if (userId.isNotBlank()) {
             scope.launch(Dispatchers.IO) {
                 AssessmentApi.getCurrentLearningPath(userId) { path ->
-                    if (path != null) {
+                    if (path != null && path.isBackendLearningPathReady()) {
                         AppCache.learningPath = AppCache.applyLocalLearningPathProgress(path)
                         AppCache.learningPathAt = System.currentTimeMillis()
                         AppCache.saveToDisk(context)
                     }
                     scope.launch(Dispatchers.Main) {
-                        learningPath = AppCache.learningPath
+                        learningPath = AppCache.learningPath?.takeIf { it.isBackendLearningPathReady() }
                         isLoading = false
                     }
                 }

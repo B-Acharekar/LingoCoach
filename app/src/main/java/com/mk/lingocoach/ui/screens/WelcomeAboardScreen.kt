@@ -1,51 +1,30 @@
-package com.mk.lingocoach.ui.screens
+﻿package com.mk.lingocoach.ui.screens
 
 import android.content.Context
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.FastOutLinearInEasing
-import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.expandIn
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.shrinkOut
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.Forum
 import androidx.compose.material.icons.filled.Psychology
@@ -56,40 +35,21 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.PathEffect
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.lottiefiles.dotlottie.core.compose.ui.DotLottieAnimation
 import com.lottiefiles.dotlottie.core.util.DotLottieSource
-import com.mk.lingocoach.R
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -100,63 +60,55 @@ fun WelcomeAboardScreen(
 ) {
     val context = LocalContext.current
     val sharedPreferences = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
-
-    val features = remember {
+    val cards = remember {
         listOf(
-            OnboardingFeature(
+            OnboardingCarouselCard(
                 title = "AI Language Coach",
-                description = "Get personalized feedback and guidance tailored to your learning pace.",
+                description = "Personal feedback and guided practice shaped around your pace.",
                 icon = Icons.Default.Psychology,
-                gradientColors = listOf(Color(0xFF6A5CFF), Color(0xFF9B7DFF))
+                color = Color(0xFF6A5CFF),
+                animationUrl = "https://lottie.host/adf6baea-da11-4d02-8fdc-4044fe8270f6/yEzG9jPCbt.lottie"
             ),
-            OnboardingFeature(
+            OnboardingCarouselCard(
                 title = "Interactive Conversations",
-                description = "Practice real-life conversations with our intelligent AI tutor.",
+                description = "Practice real situations with an AI tutor that keeps the flow natural.",
                 icon = Icons.Default.Forum,
-                gradientColors = listOf(Color(0xFF00C9FF), Color(0xFF84FAB0))
+                color = Color(0xFF00A3FF),
+                animationUrl = "https://lottie.host/ba7975e4-bb73-4984-a577-f4ff2220604e/AbMrjn9wby.lottie"
             ),
-            OnboardingFeature(
-                title = "Real-time Feedback",
-                description = "Instantly track your progress with detailed performance insights.",
+            OnboardingCarouselCard(
+                title = "Progress That Sticks",
+                description = "Track your level, mistakes, and wins as your learning path adapts.",
                 icon = Icons.AutoMirrored.Filled.TrendingUp,
-                gradientColors = listOf(Color(0xFFFF6B6B), Color(0xFFFE9669))
+                color = Color(0xFFFF8A3D),
+                animationUrl = "https://lottie.host/04364580-082d-4f76-a6a2-19d8eac77e9c/A6BnSRhyix.lottie"
             )
         )
     }
+    val pagerState = rememberPagerState(pageCount = { cards.size })
 
-    val pagerState = rememberPagerState(pageCount = { features.size })
-    val coroutineScope = rememberCoroutineScope()
+    fun finishOnboarding() {
+        sharedPreferences.edit()
+            .putBoolean("onboarding_completed", true)
+            .apply()
+        onNavigateToProfileSetup()
+    }
 
-    // Animation states
-    var pageOffset by remember { mutableStateOf(0f) }
-
-    // Animated colors based on current page
-    val primaryColor by animateColorAsState(
-        targetValue = features[pagerState.currentPage].gradientColors.first(),
-        animationSpec = tween(durationMillis = 400, easing = FastOutSlowInEasing)
-    )
-
-    val animatedProgress by animateFloatAsState(
-        targetValue = (pagerState.currentPage + pageOffset) / (features.size - 1f),
-        animationSpec = tween(durationMillis = 400, easing = LinearEasing)
-    )
-
-    // Background gradient overlay
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFFAFAFC))
+            .background(Color(0xFFF6F4FF))
     ) {
+        AppBackgroundTexture()
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .statusBarsPadding()
                 .navigationBarsPadding()
-                .padding(horizontal = 24.dp, vertical = 20.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
+                .padding(horizontal = 22.dp, vertical = 18.dp),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            // Header: Back arrow, Progress dots and Skip button
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -164,238 +116,181 @@ fun WelcomeAboardScreen(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Back arrow (clickable)
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Back",
-                    tint = primaryColor,
+                Box(
                     modifier = Modifier
-                        .size(32.dp)
-                        .clickable(
-                            interactionSource = remember { MutableInteractionSource() },
-                            indication = null
-                        ) {
-                            if (pagerState.currentPage > 0) {
-                                coroutineScope.launch {
-                                    pagerState.animateScrollToPage(pagerState.currentPage - 1)
-                                }
-                            }
-                        }
-                        .padding(8.dp)
-                )
-
-                Row(
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.weight(1f)
+                        .size(40.dp)
+                        .clip(CircleShape)
+                        .background(Color.White.copy(alpha = 0.82f))
+                        .clickable { onNavigateToLanguage() },
+                    contentAlignment = Alignment.Center
                 ) {
-                    repeat(features.size) { index ->
-                        val isSelected = pagerState.currentPage == index
-                        Box(
-                            modifier = Modifier
-                                .padding(4.dp)
-                                .size(if (isSelected) 8.dp else 6.dp)
-                                .clip(CircleShape)
-                                .background(
-                                    if (isSelected) primaryColor else Color(0xFFE5E5E7)
-                                )
-                        )
-                    }
+                    Icon(
+                        Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Back",
+                        tint = Color(0xFF6A5CFF),
+                        modifier = Modifier.size(20.dp)
+                    )
                 }
 
-                // Skip button
                 Text(
-                    text = "Skip",
-                    style = TextStyle(
-                        color = Color(0xFF999999),
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.SemiBold
-                    ),
+                    "LingoCoach",
+                    color = Color(0xFF6A5CFF),
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.ExtraBold
+                )
+
+                Text(
+                    "Skip",
+                    color = Color(0xFF6A5CFF),
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold,
                     modifier = Modifier
-                        .clickable(
-                            interactionSource = remember { MutableInteractionSource() },
-                            indication = null
-                        ) {
-                            sharedPreferences.edit()
-                                .putBoolean("onboarding_completed", true)
-                                .apply()
-                            onNavigateToProfileSetup()
-                        }
-                        .padding(8.dp)
+                        .clip(RoundedCornerShape(18.dp))
+                        .background(Color.White.copy(alpha = 0.82f))
+                        .clickable { finishOnboarding() }
+                        .padding(horizontal = 15.dp, vertical = 9.dp)
                 )
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Main content: Animation space + Text
             Column(
                 modifier = Modifier
+                    .fillMaxWidth()
                     .weight(1f)
-                    .fillMaxWidth(),
+                    .padding(vertical = 16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                // Animation area - shows on first page
-                if (pagerState.currentPage == 0) {
-                    DotLottieAnimation(
-                        source = DotLottieSource.Url("https://lottie.host/adf6baea-da11-4d02-8fdc-4044fe8270f6/yEzG9jPCbt.lottie"),
-                        autoplay = true,
-                        loop = true,
-                        speed = 1.5f,
-                        useFrameInterpolation = false,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(280.dp)
-                            .clip(RoundedCornerShape(20.dp))
-                            .background(Color.White)
-                    )
-                } else if (pagerState.currentPage == 1) {
-                    DotLottieAnimation(
-                        source = DotLottieSource.Url("https://lottie.host/ba7975e4-bb73-4984-a577-f4ff2220604e/AbMrjn9wby.lottie"),
-                        autoplay = true,
-                        loop = true,
-                        speed = 1.5f,
-                        useFrameInterpolation = false,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(280.dp)
-                            .clip(RoundedCornerShape(20.dp))
-                            .background(Color.White)
-                    )
-                } else if (pagerState.currentPage == 2) {
-                    DotLottieAnimation(
-                        source = DotLottieSource.Url("https://lottie.host/04364580-082d-4f76-a6a2-19d8eac77e9c/A6BnSRhyix.lottie"),
-                        autoplay = true,
-                        loop = true,
-                        speed = 1.5f,
-                        useFrameInterpolation = false,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(280.dp)
-                            .clip(RoundedCornerShape(20.dp))
-                            .background(Color.White)
-                    )
-                } else {
-                    // Placeholder for other pages
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(280.dp)
-                            .clip(RoundedCornerShape(20.dp))
-                            .background(Color(0xFFF0F0F5))
-                            .border(
-                                width = 1.dp,
-                                color = Color(0xFFE5E5E7),
-                                shape = RoundedCornerShape(20.dp)
-                            ),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        // Placeholder text
-                    }
-                }
+                Text(
+                    "Welcome aboard",
+                    color = Color(0xFF101018),
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    "Swipe through what LingoCoach will do for your speaking practice.",
+                    color = Color(0xFF686875),
+                    fontSize = 15.sp,
+                    lineHeight = 22.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = 8.dp)
+                )
+                Spacer(Modifier.height(18.dp))
 
-                Spacer(modifier = Modifier.height(32.dp))
-
-                // Feature content: Title + Description
                 HorizontalPager(
                     state = pagerState,
                     modifier = Modifier.fillMaxWidth(),
-                    userScrollEnabled = true,
-                    pageSpacing = 0.dp
+                    contentPadding = PaddingValues(horizontal = 4.dp),
+                    pageSpacing = 14.dp
                 ) { page ->
-                    val feature = features[page]
-                    
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        // Label
-                        Text(
-                            text = "STEP ${page + 1}",
-                            style = TextStyle(
-                                color = feature.gradientColors[0],
-                                fontSize = 11.sp,
-                                fontWeight = FontWeight.Bold,
-                                letterSpacing = 1.2.sp
-                            )
-                        )
+                    OnboardingAnimatedCard(cards[page])
+                }
 
-                        Spacer(modifier = Modifier.height(8.dp))
-
-                        // Title
-                        Text(
-                            text = feature.title,
-                            style = TextStyle(
-                                color = Color(0xFF1D1D1F),
-                                fontSize = 24.sp,
-                                fontWeight = FontWeight.Bold,
-                                textAlign = TextAlign.Center
-                            )
-                        )
-
-                        Spacer(modifier = Modifier.height(12.dp))
-
-                        // Description
-                        Text(
-                            text = feature.description,
-                            style = TextStyle(
-                                color = Color(0xFF86868B),
-                                fontSize = 15.sp,
-                                textAlign = TextAlign.Center,
-                                lineHeight = 22.sp
-                            ),
-                            modifier = Modifier.padding(horizontal = 12.dp)
+                Spacer(Modifier.height(14.dp))
+                Row(horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
+                    repeat(cards.size) { index ->
+                        val selected = pagerState.currentPage == index
+                        Box(
+                            modifier = Modifier
+                                .padding(horizontal = 4.dp)
+                                .size(width = if (selected) 22.dp else 7.dp, height = 7.dp)
+                                .clip(CircleShape)
+                                .background(if (selected) cards[index].color else Color(0xFFD8D3EE))
                         )
                     }
                 }
             }
 
-            // Bottom: Action button
-            val buttonColor = when (pagerState.currentPage) {
-                1 -> Color(0xFFFFC83D)  // Page 2: Amber
-                2 -> Color(0xFF4E80FF)  // Page 3: Light blue
-                else -> primaryColor     // Page 1: Dynamic color
-            }
-            
             Button(
-                onClick = {
-                    if (pagerState.currentPage == features.size - 1) {
-                        sharedPreferences.edit()
-                            .putBoolean("onboarding_completed", true)
-                            .apply()
-                        onNavigateToProfileSetup()
-                    } else {
-                        coroutineScope.launch {
-                            pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                        }
-                    }
-                },
+                onClick = ::finishOnboarding,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = buttonColor
-                ),
-                shape = RoundedCornerShape(16.dp)
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6A5CFF)),
+                shape = RoundedCornerShape(18.dp)
             ) {
-                Text(
-                    text = if (pagerState.currentPage == features.size - 1) "Get Started" else "Next",
-                    style = TextStyle(
-                        color = Color.White,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                )
+                Text("Continue", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
             }
-
-            Spacer(modifier = Modifier.height(8.dp))
         }
     }
 }
 
-data class OnboardingFeature(
+@Composable
+private fun OnboardingAnimatedCard(card: OnboardingCarouselCard) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(430.dp)
+            .shadow(18.dp, RoundedCornerShape(28.dp), spotColor = card.color.copy(alpha = 0.22f)),
+        shape = RoundedCornerShape(28.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(18.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(250.dp)
+                    .clip(RoundedCornerShape(22.dp))
+                    .background(
+                        Brush.linearGradient(
+                            listOf(card.color.copy(alpha = 0.10f), Color(0xFFF8F7FF))
+                        )
+                    )
+                    .border(1.dp, card.color.copy(alpha = 0.12f), RoundedCornerShape(22.dp)),
+                contentAlignment = Alignment.Center
+            ) {
+                DotLottieAnimation(
+                    source = DotLottieSource.Url(card.animationUrl),
+                    autoplay = true,
+                    loop = true,
+                    speed = 1.35f,
+                    useFrameInterpolation = false,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(238.dp)
+                )
+            }
+
+            Spacer(Modifier.height(18.dp))
+            Box(
+                modifier = Modifier
+                    .size(48.dp)
+                    .clip(RoundedCornerShape(15.dp))
+                    .background(card.color.copy(alpha = 0.14f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(card.icon, contentDescription = null, tint = card.color, modifier = Modifier.size(25.dp))
+            }
+            Spacer(Modifier.height(12.dp))
+            Text(
+                card.title,
+                color = Color(0xFF171722),
+                fontSize = 21.sp,
+                fontWeight = FontWeight.ExtraBold,
+                textAlign = TextAlign.Center
+            )
+            Spacer(Modifier.height(7.dp))
+            Text(
+                card.description,
+                color = Color(0xFF747481),
+                fontSize = 14.sp,
+                lineHeight = 20.sp,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
+
+private data class OnboardingCarouselCard(
     val title: String,
     val description: String,
     val icon: ImageVector,
-    val gradientColors: List<Color>
+    val color: Color,
+    val animationUrl: String
 )

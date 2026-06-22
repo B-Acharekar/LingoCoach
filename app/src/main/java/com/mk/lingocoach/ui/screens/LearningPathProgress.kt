@@ -5,6 +5,19 @@ import com.mk.lingocoach.network.CurrentLesson
 import com.mk.lingocoach.network.CurrentModule
 import com.mk.lingocoach.network.CurrentSublesson
 
+
+internal fun CurrentLearningPathResponse.isBackendLearningPathReady(): Boolean =
+    modules.isNotEmpty() && modules.all { module ->
+        module.id.isNotBlank() &&
+            module.lessons.isNotEmpty() &&
+            module.lessons.all { lesson ->
+                lesson.id.isNotBlank() && lesson.sublessons.isNotEmpty() &&
+                    lesson.sublessons.all { sublesson ->
+                        sublesson.id.isNotBlank() && sublesson.title.isNotBlank()
+                    }
+            }
+    }
+
 internal fun CurrentLearningPathResponse.withCompletedSublesson(completedSublessonId: String): CurrentLearningPathResponse {
     if (completedSublessonId.isBlank()) return this
 

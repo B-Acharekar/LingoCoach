@@ -96,10 +96,10 @@ fun HomeScreen(
     val scrollState   = rememberScrollState()
 
     var selectedTab   by remember { mutableStateOf(0) }
-    var learningPath  by remember { mutableStateOf(AppCache.learningPath) }
+    var learningPath  by remember { mutableStateOf(AppCache.learningPath?.takeIf { it.isBackendLearningPathReady() }) }
     var mistakes      by remember { mutableStateOf(AppCache.mistakes.orEmpty()) }
     var weeklyStats   by remember { mutableStateOf(AppCache.weeklyStats.orEmpty()) }
-    var isLoading     by remember { mutableStateOf(AppCache.learningPath == null) }
+    var isLoading     by remember { mutableStateOf(false) }
     var isVocabLoaded by remember { mutableStateOf(VocabTracker.isLoaded) }
     var learningPathGenerationState by remember {
         mutableStateOf(sharedPrefs.getString("learning_path_generation_state", "") ?: "")
@@ -111,6 +111,35 @@ fun HomeScreen(
 
     val userId = remember {
         sharedPrefs.getString("session_id", null) ?: "df31075e-bc40-459f-bbfb-e10c2d3ea34e"
+    }
+
+    fun applyLearningPathIfReady(path: CurrentLearningPathResponse?): Boolean {
+        if (path != null && path.isBackendLearningPathReady()) {
+            AppCache.learningPath = AppCache.applyLocalLearningPathProgress(path)
+            AppCache.learningPathAt = System.currentTimeMillis()
+            AppCache.saveToDisk(context)
+            sharedPrefs.edit()
+                .putString("learning_path_generation_state", "ready")
+                .remove("learning_path_generation_started_at")
+                .apply()
+            learningPathGenerationState = "ready"
+            learningPath = AppCache.learningPath
+            isLoading = false
+            return true
+        }
+
+        if (sharedPrefs.getBoolean("assessment_completed", false)) {
+            AppCache.learningPath = null
+            learningPath = null
+            sharedPrefs.edit()
+                .putString("learning_path_generation_state", "generating")
+                .putLong("learning_path_generation_started_at", learningPathGenerationStartedAt.takeIf { it > 0L } ?: System.currentTimeMillis())
+                .apply()
+            learningPathGenerationStartedAt = sharedPrefs.getLong("learning_path_generation_started_at", learningPathGenerationStartedAt)
+            learningPathGenerationState = "generating"
+        }
+        isLoading = false
+        return false
     }
 
     val isLearningPathGenerating =
@@ -128,8 +157,7 @@ fun HomeScreen(
                 sharedPrefs.getLong("learning_path_generation_started_at", learningPathGenerationStartedAt)
             if (learningPathGenerationState == "ready") {
                 AppCache.loadFromDisk(context)
-                learningPath = AppCache.learningPath
-                isLoading = AppCache.learningPath == null
+                applyLearningPathIfReady(AppCache.learningPath)
             }
         }
     }
@@ -139,27 +167,14 @@ fun HomeScreen(
             if (event == Lifecycle.Event.ON_RESUME) {
                 val cached = AppCache.learningPath
                 if (cached != null) {
-                    learningPath = cached
-                    isLoading = false
+                    applyLearningPathIfReady(cached)
                 }
 
                 if (AppCache.isLearningPathStale()) {
                     scope.launch(Dispatchers.IO) {
                         AssessmentApi.getCurrentLearningPath(userId) { path ->
                             scope.launch(Dispatchers.Main) {
-                                if (path != null) {
-                                    AppCache.learningPath = AppCache.applyLocalLearningPathProgress(path)
-                                    AppCache.learningPathAt = System.currentTimeMillis()
-                                    AppCache.saveToDisk(context)
-                                    sharedPrefs.edit()
-                                        .putString("learning_path_generation_state", "ready")
-                                        .remove("learning_path_generation_started_at")
-                                        .apply()
-                                    learningPathGenerationState = "ready"
-
-                                    learningPath = AppCache.learningPath
-                                }
-                                isLoading = false
+                                applyLearningPathIfReady(path)
                             }
                         }
                     }
@@ -196,21 +211,8 @@ fun HomeScreen(
         scope.launch(Dispatchers.IO) {
             if (AppCache.isLearningPathStale()) {
                 AssessmentApi.getCurrentLearningPath(userId) { path ->
-                    if (path != null) {
-                        AppCache.learningPath  = AppCache.applyLocalLearningPathProgress(path)
-                        AppCache.learningPathAt = System.currentTimeMillis()
-                        sharedPrefs.edit()
-                            .putString("learning_path_generation_state", "ready")
-                            .remove("learning_path_generation_started_at")
-                            .apply()
-                        learningPathGenerationState = "ready"
-                        scope.launch(Dispatchers.Main) {
-                            AppCache.saveToDisk(context)
-                            learningPath = AppCache.learningPath
-                            isLoading = false
-                        }
-                    } else {
-                        scope.launch(Dispatchers.Main) { isLoading = false }
+                    scope.launch(Dispatchers.Main) {
+                        applyLearningPathIfReady(path)
                     }
                 }
             }
@@ -380,7 +382,7 @@ fun HomeScreen(
                         color = BrandPurple,
                         fontSize = 13.sp,
                         fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.clickable { onNavigateToRoadmap() }
+                        modifier = Modifier.clickable(enabled = !isLearningPathGenerating) { onNavigateToRoadmap() }
                     )
                 }
 
@@ -389,22 +391,6 @@ fun HomeScreen(
                     HomeGeneratingLearningPathCard(
                         elapsedSeconds = learningPathGenerationElapsedSeconds
                     )
-                } else if (isLoading) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(110.dp)
-                            .shadow(4.dp, RoundedCornerShape(24.dp))
-                            .clip(RoundedCornerShape(24.dp))
-                            .background(CardWhite),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        CircularProgressIndicator(
-                            color = BrandPurple,
-                            modifier = Modifier.size(26.dp),
-                            strokeWidth = 2.5.dp
-                        )
-                    }
                 } else if (activeModule != null) {
                     HomeDynamicLearningPathCard(
                         module = activeModule,
@@ -452,7 +438,6 @@ fun HomeScreen(
                 }
             )
         }
-        LoadingOverlay(visible = isLoading)
     }
 }
 
@@ -1595,7 +1580,7 @@ fun LoadingOverlay(visible: Boolean) {
                 )
 
                 Text(
-                    "Fetching your data…",
+                    "",
                     color = Color(0xFF888888),
                     fontSize = 13.sp,
                     fontWeight = FontWeight.Medium
@@ -1626,3 +1611,5 @@ fun LoadingOverlay(visible: Boolean) {
         }
     }
 }
+
+

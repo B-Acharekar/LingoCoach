@@ -144,9 +144,10 @@ fun AssessmentScreen(
     var sessionId by remember { mutableStateOf("") }
     var currentStep by remember { mutableStateOf(1) }
     var currentQuestion by remember { mutableStateOf("") }
-    var isLoading by remember { mutableStateOf(true) }
+    var isLoading by remember { mutableStateOf(false) }
     var isSubmitting by remember { mutableStateOf(false) }
     var isGeneratingPath by remember { mutableStateOf(false) }
+    var generationStatusText by remember { mutableStateOf("Starting your learning path...") }
     var errorMessage by remember { mutableStateOf("") }
     var isRecording by remember { mutableStateOf(false) }
     var mediaRecorder by remember { mutableStateOf<MediaRecorder?>(null) }
@@ -156,13 +157,11 @@ fun AssessmentScreen(
     var lastTranscribedText by remember { mutableStateOf("") }
     var finalResponse by remember { mutableStateOf<AssessmentResponse?>(null) }
 
-    // Start in text mode if permission already denied
-    var isTextMode by remember {
-        mutableStateOf(
-            ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO)
-                    != PackageManager.PERMISSION_GRANTED
-        )
+    val startsInTextMode = remember {
+        ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED
     }
+    var preferredTextMode by remember { mutableStateOf(startsInTextMode) }
+    var isTextMode by remember { mutableStateOf(startsInTextMode) }
 
     val localQuestions = remember {
         mapOf(
@@ -179,8 +178,10 @@ fun AssessmentScreen(
         ActivityResultContracts.RequestPermission()
     ) { granted ->
         if (granted) {
+            preferredTextMode = false
             isTextMode = false
         } else {
+            preferredTextMode = true
             isTextMode = true
             Toast.makeText(context, "Mic unavailable — using text input", Toast.LENGTH_SHORT).show()
         }
@@ -214,6 +215,12 @@ fun AssessmentScreen(
             return
         }
 
+        if (sessionId.isBlank()) {
+            isSubmitting = false
+            Toast.makeText(context, "Assessment is still preparing. Please try again in a moment.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         AssessmentApi.submitFullAssessment(
             FullAssessmentRequest(session_id = sessionId, answers = payload)
         ) { response ->
@@ -232,7 +239,7 @@ fun AssessmentScreen(
             currentStep += 1
             currentQuestion = localQuestions[currentStep] ?: ""
             textAnswer = answers[currentStep].orEmpty()
-            isTextMode = ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED
+            isTextMode = preferredTextMode || ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED
             isSubmitting = false
         }
     }
@@ -258,6 +265,7 @@ fun AssessmentScreen(
             isRecording = true
         } catch (e: Exception) {
             Log.e("Assessment", "Recording failed", e)
+            preferredTextMode = true
             isTextMode = true
             Toast.makeText(context, "Mic unavailable — using text input", Toast.LENGTH_SHORT).show()
         }
@@ -291,7 +299,7 @@ fun AssessmentScreen(
                     }
                     isLoading = false
                 } else {
-                    errorMessage = "Failed to start session. Check your connection."
+                    Toast.makeText(context, "Preparing assessment in the background. Check your connection if submit fails.", Toast.LENGTH_SHORT).show()
                     isLoading = false
                 }
             }
@@ -302,13 +310,12 @@ fun AssessmentScreen(
         AppBackgroundTexture()
 
         when {
-            isLoading -> LoadingView()
 
-            isGeneratingPath -> GeneratingPathView()
+            isGeneratingPath -> GeneratingPathView(generationStatusText)
 
             errorMessage.isNotEmpty() -> ErrorView(message = errorMessage) {
                 errorMessage = ""
-                isLoading = true
+                isLoading = false
                 val userName = sharedPrefs.getString("display_name", "") ?: ""
                 val username = sharedPrefs.getString("username", "") ?: ""
                 AssessmentApi.createSession(userName, username) { response ->
@@ -330,45 +337,93 @@ fun AssessmentScreen(
                 response = finalResponse!!,
                 onContinue = {
                     isGeneratingPath = true
-                    fun saveAndOpenLearningPath(pathResponse: LearningPathResponse) {
+                    generationStatusText = "Starting your learning path..."
+                    val generationStartedAt = System.currentTimeMillis()
+                    val generationTimeoutMillis = 5 * 60 * 1000L
+                    val generationFinished = java.util.concurrent.atomic.AtomicBoolean(false)
+
+                    fun finishGeneration() {
+                        if (generationFinished.compareAndSet(false, true)) {
+                            isGeneratingPath = false
+                            onNavigateHome()
+                        }
+                    }
+
+                    fun saveGeneratedLearningPath(pathResponse: LearningPathResponse) {
                         val gson = Gson()
                         sharedPrefs.edit()
                             .putString("assessment_response_json", gson.toJson(finalResponse))
                             .putString("learning_path_json", gson.toJson(pathResponse))
-                            .putString("learning_path_generation_state", "ready")
-                            .remove("learning_path_generation_started_at")
+                            .putString("learning_path_generation_state", "generating")
+                            .putLong("learning_path_generation_started_at", generationStartedAt)
                             .putString("session_id", finalResponse!!.session_id)
                             .putBoolean("assessment_completed", true)
                             .apply()
                         AssessmentApi.getCurrentLearningPath(finalResponse!!.session_id) { currentPath ->
                             coroutineScope.launch(Dispatchers.Main) {
-                                if (currentPath != null) {
+                                if (currentPath != null && currentPath.isBackendLearningPathReady()) {
                                     AppCache.learningPath = AppCache.applyLocalLearningPathProgress(currentPath)
                                     AppCache.learningPathAt = System.currentTimeMillis()
                                     AppCache.saveToDisk(context)
                                 }
+                                sharedPrefs.edit()
+                                    .putString("learning_path_generation_state", "ready")
+                                    .remove("learning_path_generation_started_at")
+                                    .apply()
+                                finishGeneration()
                             }
                         }
                     }
+
                     fun generateLearningPathWithRetry(request: LearningPathRequest, attempt: Int = 1) {
-                        AssessmentApi.getLearningPath(request) { pathResponse ->
+                        if (generationFinished.get()) return
+                        val elapsedMillis = System.currentTimeMillis() - generationStartedAt
+                        if (elapsedMillis >= generationTimeoutMillis) {
+                            sharedPrefs.edit()
+                                .putString("learning_path_generation_state", "fallback")
+                                .remove("learning_path_generation_started_at")
+                                .apply()
+                            finishGeneration()
+                            return
+                        }
+
+                        val handleResult: (LearningPathResponse?) -> Unit = { pathResponse ->
                             coroutineScope.launch(Dispatchers.Main) {
+                                if (generationFinished.get()) return@launch
                                 if (pathResponse != null) {
-                                    saveAndOpenLearningPath(pathResponse)
-                                } else if (attempt < 3) {
-                                    generateLearningPathWithRetry(request, attempt + 1)
+                                    generationStatusText = "Saving your roadmap..."
+                                    saveGeneratedLearningPath(pathResponse)
                                 } else {
-                                    sharedPrefs.edit()
-                                        .putString("learning_path_generation_state", "failed")
-                                        .apply()
-                                    android.widget.Toast.makeText(
-                                        context,
-                                        "Failed to generate learning path. Please try again.",
-                                        android.widget.Toast.LENGTH_SHORT
-                                    ).show()
+                                    val stillWithinTimeout = System.currentTimeMillis() - generationStartedAt < generationTimeoutMillis
+                                    if (attempt < 3 && stillWithinTimeout) {
+                                        generationStatusText = "Retrying the roadmap stream..."
+                                        generateLearningPathWithRetry(request, attempt + 1)
+                                    } else {
+                                        sharedPrefs.edit()
+                                            .putString("learning_path_generation_state", "fallback")
+                                            .remove("learning_path_generation_started_at")
+                                            .apply()
+                                        generationStatusText = "Using the default learning path for now."
+                                        android.widget.Toast.makeText(
+                                            context,
+                                            "Using the default learning path for now.",
+                                            android.widget.Toast.LENGTH_SHORT
+                                        ).show()
+                                        finishGeneration()
+                                    }
                                 }
                             }
                         }
+
+                        AssessmentApi.getLearningPathStream(
+                            request,
+                            onProgress = { message ->
+                                coroutineScope.launch(Dispatchers.Main) {
+                                    if (!generationFinished.get()) generationStatusText = message
+                                }
+                            },
+                            onResult = handleResult
+                        )
                     }
                     val request = LearningPathRequest(
                         session_id = finalResponse!!.session_id,
@@ -390,14 +445,19 @@ fun AssessmentScreen(
                         .putString("session_id", finalResponse!!.session_id)
                         .putBoolean("assessment_completed", true)
                         .putString("learning_path_generation_state", "generating")
-                        .putLong("learning_path_generation_started_at", System.currentTimeMillis())
+                        .putLong("learning_path_generation_started_at", generationStartedAt)
                         .remove("learning_path_json")
                         .apply()
                     generateLearningPathWithRetry(request)
                     coroutineScope.launch(Dispatchers.Main) {
-                        delay(18_000)
-                        isGeneratingPath = false
-                        onNavigateHome()
+                        delay(generationTimeoutMillis)
+                        if (!generationFinished.get()) {
+                            sharedPrefs.edit()
+                                .putString("learning_path_generation_state", "fallback")
+                                .remove("learning_path_generation_started_at")
+                                .apply()
+                            finishGeneration()
+                        }
                     }
                 },
                 onBack = onNavigateBack
@@ -405,7 +465,7 @@ fun AssessmentScreen(
 
             else -> AssessmentQuestionView(
                 currentStep = currentStep,
-                questionText = currentQuestion,
+                questionText = currentQuestion.ifBlank { localQuestions[currentStep].orEmpty() },
                 isRecording = isRecording,
                 isSubmitting = isSubmitting,
                 isTextMode = isTextMode,
@@ -442,8 +502,19 @@ fun AssessmentScreen(
                         else permissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
                     }
                 },
-                onSwitchToText = { isTextMode = true },
-                onSwitchToVoice = { permissionLauncher.launch(Manifest.permission.RECORD_AUDIO) },
+                onSwitchToText = {
+                    preferredTextMode = true
+                    isTextMode = true
+                },
+                onSwitchToVoice = {
+                    val granted = ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
+                    if (granted) {
+                        preferredTextMode = false
+                        isTextMode = false
+                    } else {
+                        permissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
+                    }
+                },
                 onSubmitText = {
                     val trimmed = textAnswer.trim()
                     if (trimmed.length < 5) {
@@ -457,7 +528,7 @@ fun AssessmentScreen(
         }
 
         // Analysing overlay
-        if (isSubmitting && finalResponse == null && !isLoading) {
+        if (isSubmitting && finalResponse == null) {
             Box(
                 modifier = Modifier.fillMaxSize().background(Color(0x88000000)),
                 contentAlignment = Alignment.Center
@@ -853,7 +924,7 @@ fun LoadingView() {
 }
 
 @Composable
-fun GeneratingPathView() {
+fun GeneratingPathView(statusText: String) {
     val totalAnimationTime = 10000 // 10 seconds
     val drawingProgress = remember { androidx.compose.animation.core.Animatable(0f) }
     
@@ -1000,10 +1071,22 @@ fun GeneratingPathView() {
             }
         }
 
-        Box(
-            modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 40.dp).padding(horizontal = 32.dp),
-            contentAlignment = Alignment.Center
+        Column(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 36.dp)
+                .padding(horizontal = 32.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Text(
+                text = statusText,
+                color = primaryColor,
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                lineHeight = 20.sp
+            )
+            Spacer(Modifier.height(12.dp))
             Text(
                 text = tips[currentTipIndex],
                 color = Color(0xFF6E6E73),
@@ -1605,4 +1688,5 @@ fun RadarChart(
         }
     }
 }
+
 

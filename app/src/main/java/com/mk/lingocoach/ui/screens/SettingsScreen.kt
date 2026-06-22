@@ -46,7 +46,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import com.mk.lingocoach.data.model.appLanguages
 import com.mk.lingocoach.data.repository.LanguagePreferencesRepository
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 // --- Settings Design Tokens ---------------------------------------------------
 private val SettingsBg        = Color(0xFFF5F4FF)
@@ -70,10 +70,27 @@ private val fluencyLevels = listOf(
 // --- Native language list -----------------------------------------------------
 // --- AI tutor voice profiles --------------------------------------------------
 private val voiceProfiles = listOf(
-    "Male – British Accent", "Male – American Accent",
-    "Female – British Accent", "Female – American Accent",
-    "Female – Australian Accent"
+    "Male - British Accent", "Male - American Accent",
+    "Female - British Accent", "Female - American Accent",
+    "Female - Australian Accent"
 )
+
+private fun normalizeSettingsUsername(value: String): String =
+    value.lowercase().filter { it.isLetterOrDigit() || it == '_' }.take(20)
+
+private fun settingsUsernameError(username: String): String? {
+    val value = username.trim()
+    return when {
+        value.isBlank() -> "Choose a username to save and restore your progress."
+        value.length < 3 -> "Username must be at least 3 characters."
+        value.length > 20 -> "Username must be 20 characters or less."
+        !value.first().isLetter() -> "Username must start with a letter."
+        value.any { !(it.isLowerCase() || it.isDigit() || it == '_') } -> "Use lowercase letters, numbers, or underscores only."
+        "__" in value -> "Username cannot contain consecutive underscores."
+        value.endsWith("_") -> "Username cannot end with an underscore."
+        else -> null
+    }
+}
 
 // --- Main Settings Screen -----------------------------------------------------
 @Composable
@@ -91,21 +108,21 @@ fun SettingsScreen(
 
     // -- Persisted state ------------------------------------------------------
     var displayName    by remember { mutableStateOf(prefs.getString("display_name", "Alex Mercer") ?: "Alex Mercer") }
+    var username       by remember { mutableStateOf(prefs.getString("username", "") ?: "") }
     var targetFluency  by remember { mutableStateOf(prefs.getString("target_fluency", "Professional / Business") ?: "Professional / Business") }
     var appLanguageCode by remember { mutableStateOf(mirroredLanguageCode) }
-    var voiceProfile   by remember { mutableStateOf(prefs.getString("voice_profile", "Male – British Accent") ?: "Male – British Accent") }
+    var voiceProfile   by remember { mutableStateOf(prefs.getString("voice_profile", "Male - British Accent") ?: "Male - British Accent") }
     var dailyReminder  by remember { mutableStateOf(prefs.getBoolean("daily_reminder", true)) }
     var offlineCache   by remember { mutableStateOf(prefs.getBoolean("offline_cache", false)) }
 
     // -- Dialog state ---------------------------------------------------------
     var showNameDialog     by remember { mutableStateOf(false) }
+    var showUsernameDialog by remember { mutableStateOf(false) }
     var showFluencyDialog  by remember { mutableStateOf(false) }
     var showLangDialog     by remember { mutableStateOf(false) }
     var showVoiceDialog    by remember { mutableStateOf(false) }
     var showDeleteDialog   by remember { mutableStateOf(false) }
     var showLogoutDialog   by remember { mutableStateOf(false) }
-    var showLanguageChanging by remember { mutableStateOf(false) }
-    var pendingLanguageCode by remember { mutableStateOf<String?>(null) }
     val currentAppLanguageLabel = localizedSettingsLanguageLabel(appLanguageCode)
 
     // -- Helper: persist a boolean ---------------------------------------------
@@ -117,6 +134,7 @@ fun SettingsScreen(
         saveStr(key, value)
         val mapping = mapOf(
             "display_name"    to "display_name",
+            "username"        to "username",
             "native_language" to "native_language",
             "target_fluency"  to "target_fluency",
             "voice_profile"   to "voice_profile"
@@ -212,6 +230,16 @@ fun SettingsScreen(
                             value = displayName,
                             onClick = { showNameDialog = true }
                         )
+                        HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(vertical = 8.dp))
+                        SettingsInfoRow(
+                            label = stringResource(R.string.username),
+                            value = if (username.isBlank()) "Add username" else "@$username",
+                            onClick = { showUsernameDialog = true }
+                        )
+                        if (username.isBlank()) {
+                            Spacer(Modifier.height(8.dp))
+                            SettingsProgressReminder(onClick = { showUsernameDialog = true })
+                        }
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(vertical = 8.dp))
                         // Target Fluency row
                         SettingsInfoRow(
@@ -351,6 +379,18 @@ fun SettingsScreen(
         )
     }
 
+    if (showUsernameDialog) {
+        SettingsUsernameDialog(
+            value = username,
+            onDismiss = { showUsernameDialog = false },
+            onConfirm = { value ->
+                username = value
+                saveAndSync("username", value)
+                showUsernameDialog = false
+            }
+        )
+    }
+
     // Target Fluency picker
     if (showFluencyDialog) {
         SettingsPickerDialog(
@@ -372,8 +412,20 @@ fun SettingsScreen(
                 if (code == appLanguageCode) {
                     return@AppLanguagePickerDialog
                 }
-                pendingLanguageCode = code
-                showLanguageChanging = true
+                appLanguageCode = code
+                saveAndSync("native_language", code)
+                context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
+                    .edit()
+                    .putString("selected_language", code)
+                    .apply()
+                kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.Main).launch {
+                    languageRepository.saveSelectedLanguage(code)
+                    if (code != "system") {
+                        AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(code))
+                    } else {
+                        AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
+                    }
+                }
             }
         )
     }
@@ -426,29 +478,6 @@ fun SettingsScreen(
         )
     }
 
-    if (showLanguageChanging) {
-        LaunchedEffect(pendingLanguageCode) {
-            val code = pendingLanguageCode ?: return@LaunchedEffect
-            delay(6000)
-            appLanguageCode = code
-            saveAndSync("native_language", code)
-            context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
-                .edit()
-                .putString("selected_language", code)
-                .apply()
-            languageRepository.saveSelectedLanguage(code)
-            if (code != "system") {
-                AppCompatDelegate.setApplicationLocales(
-                    LocaleListCompat.forLanguageTags(code)
-                )
-            } else {
-                AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
-            }
-            showLanguageChanging = false
-            pendingLanguageCode = null
-        }
-        LanguageChangeOverlay()
-    }
 }
 
 @Composable
@@ -623,6 +652,30 @@ private fun SettingsCard(content: @Composable () -> Unit) {
     ) { content() }
 }
 
+
+@Composable
+private fun SettingsProgressReminder(onClick: () -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(14.dp))
+            .background(SettingsPurpleSoft)
+            .clickable { onClick() }
+            .padding(12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(Icons.Default.Notifications, contentDescription = null, tint = SettingsPurple, modifier = Modifier.size(20.dp))
+        Spacer(Modifier.width(10.dp))
+        Text(
+            "Add a username to save your progress and restore it later.",
+            color = SettingsTextMid,
+            fontSize = 13.sp,
+            lineHeight = 18.sp,
+            modifier = Modifier.weight(1f)
+        )
+    }
+}
+
 @Composable
 private fun SettingsSectionHeader(text: String) {
     Text(
@@ -772,6 +825,79 @@ private fun SettingsEditDialog(
     }
 }
 
+
+@Composable
+private fun SettingsUsernameDialog(
+    value: String,
+    onDismiss: () -> Unit,
+    onConfirm: (String) -> Unit
+) {
+    var draft by remember(value) { mutableStateOf(value) }
+    val error = settingsUsernameError(draft)
+
+    Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth(0.88f)
+                .imePadding()
+                .shadow(16.dp, RoundedCornerShape(24.dp))
+                .clip(RoundedCornerShape(24.dp))
+                .background(Color.White)
+                .padding(24.dp)
+        ) {
+            Column {
+                Text(stringResource(R.string.username), color = SettingsTextDark, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    "This lets LingoCoach save your progress and restore your account later.",
+                    color = SettingsTextMid,
+                    fontSize = 13.sp,
+                    lineHeight = 18.sp
+                )
+                Spacer(Modifier.height(14.dp))
+                OutlinedTextField(
+                    value = draft,
+                    onValueChange = { draft = normalizeSettingsUsername(it) },
+                    singleLine = true,
+                    leadingIcon = { Text("@", color = SettingsPurple, fontSize = 18.sp, fontWeight = FontWeight.Bold) },
+                    isError = error != null,
+                    supportingText = {
+                        Text(
+                            error ?: "3-20 chars. Lowercase letters, numbers, and underscores.",
+                            color = if (error != null) SettingsRed else SettingsTextLight,
+                            fontSize = 12.sp,
+                            lineHeight = 16.sp
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
+                    shape = RoundedCornerShape(12.dp),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = SettingsPurple,
+                        unfocusedBorderColor = SettingsDivider,
+                        errorBorderColor = SettingsRed,
+                        focusedTextColor = SettingsTextDark,
+                        unfocusedTextColor = SettingsTextDark,
+                        cursorColor = SettingsPurple
+                    )
+                )
+                Spacer(Modifier.height(20.dp))
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                    TextButton(onClick = onDismiss) {
+                        Text(stringResource(R.string.cancel), color = SettingsTextLight)
+                    }
+                    Spacer(Modifier.width(8.dp))
+                    Button(
+                        onClick = { if (error == null) onConfirm(draft.trim()) },
+                        enabled = error == null,
+                        colors = ButtonDefaults.buttonColors(containerColor = SettingsPurple),
+                        shape = RoundedCornerShape(12.dp)
+                    ) { Text(stringResource(R.string.save), color = Color.White, fontWeight = FontWeight.Bold) }
+                }
+            }
+        }
+    }
+}
+
 @Composable
 private fun SettingsPickerDialog(
     title: String,
@@ -867,4 +993,5 @@ private fun SettingsConfirmDialog(
         }
     }
 }
+
 
