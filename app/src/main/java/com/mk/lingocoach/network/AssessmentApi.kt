@@ -34,6 +34,12 @@ data class UsernameAvailabilityResponse(
     val available: Boolean
 )
 
+data class ProfilePatchResult(
+    val ok: Boolean,
+    val statusCode: Int = 0,
+    val message: String = ""
+)
+
 data class AssessmentResponse(
     val session_id: String,
     val assessment_complete: Boolean,
@@ -872,8 +878,21 @@ object AssessmentApi {
         fields: Map<String, Any?>,
         onResult: ((Boolean) -> Unit)? = null
     ) {
+        patchUserProfileDetailed(userId, fields) { result ->
+            onResult?.invoke(result.ok)
+        }
+    }
+
+    fun patchUserProfileDetailed(
+        userId: String,
+        fields: Map<String, Any?>,
+        onResult: (ProfilePatchResult) -> Unit
+    ) {
         val nonNull = fields.filterValues { it != null }
-        if (nonNull.isEmpty()) { onResult?.invoke(true); return }
+        if (nonNull.isEmpty()) {
+            onResult(ProfilePatchResult(ok = true))
+            return
+        }
         val body = gson.toJson(nonNull)
         val request = Request.Builder()
             .url("${baseUrl}/api/v1/progress/users/$userId")
@@ -882,15 +901,34 @@ object AssessmentApi {
             .build()
         client.newCall(request).enqueue(object : okhttp3.Callback {
             override fun onFailure(call: okhttp3.Call, e: IOException) {
-                Log.e("AssessmentApi", "Profile patch failed", e); onResult?.invoke(false)
+                Log.e("AssessmentApi", "Profile patch failed", e)
+                onResult(ProfilePatchResult(ok = false, message = "Could not connect. Please try again."))
             }
+
             override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
-                response.use { onResult?.invoke(it.isSuccessful) }
+                response.use {
+                    val bodyString = it.body?.string().orEmpty()
+                    if (it.isSuccessful) {
+                        onResult(ProfilePatchResult(ok = true, statusCode = it.code))
+                        return
+                    }
+
+                    val detail = runCatching {
+                        JsonParser.parseString(bodyString).asJsonObject.get("detail")?.asString
+                    }.getOrNull().orEmpty()
+                    val fallback = when (it.code) {
+                        409 -> "This username is already taken."
+                        400 -> "Please check the details and try again."
+                        404 -> "Could not find your profile. Please sign in again."
+                        else -> "Could not save your profile. Please try again."
+                    }
+                    onResult(ProfilePatchResult(ok = false, statusCode = it.code, message = detail.ifBlank { fallback }))
+                }
             }
         })
     }
 
-    // ── Direct mistake log ────────────────────────────────────────────────────
+    // -- Direct mistake log ────────────────────────────────────────────────────
 
     fun logMistake(
         userId: String,
@@ -1041,4 +1079,5 @@ data class ProgressMetrics(
     val xp: Int = 0,
     val activity: ProgressActivity = ProgressActivity()
 )
+
 

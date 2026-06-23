@@ -44,9 +44,12 @@ import com.mk.lingocoach.config.AppConfig
 import com.mk.lingocoach.notifications.NotificationScheduler
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
+import androidx.core.content.FileProvider
 import com.mk.lingocoach.data.model.appLanguages
 import com.mk.lingocoach.data.repository.LanguagePreferencesRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
 
 // --- Settings Design Tokens ---------------------------------------------------
 private val SettingsBg        = Color(0xFFF5F4FF)
@@ -78,6 +81,11 @@ private val voiceProfiles = listOf(
 private fun normalizeSettingsUsername(value: String): String =
     value.lowercase().filter { it.isLetterOrDigit() || it == '_' }.take(20)
 
+private fun csvCell(value: Any?): String {
+    val text = value?.toString().orEmpty()
+    return "\"${text.replace("\"", "\"\"")}\""
+}
+
 private fun settingsUsernameError(username: String): String? {
     val value = username.trim()
     return when {
@@ -102,6 +110,7 @@ fun SettingsScreen(
     val prefs   = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
     val languageRepository = remember(context) { LanguagePreferencesRepository(context) }
     val scroll  = rememberScrollState()
+    val scope = rememberCoroutineScope()
     val mirroredLanguageCode = context
         .getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
         .getString("selected_language", "system") ?: "system"
@@ -123,6 +132,8 @@ fun SettingsScreen(
     var showVoiceDialog    by remember { mutableStateOf(false) }
     var showDeleteDialog   by remember { mutableStateOf(false) }
     var showLogoutDialog   by remember { mutableStateOf(false) }
+    var usernameSaveError by remember { mutableStateOf<String?>(null) }
+    var isUsernameSaving by remember { mutableStateOf(false) }
     val currentAppLanguageLabel = localizedSettingsLanguageLabel(appLanguageCode)
 
     // -- Helper: persist a boolean ---------------------------------------------
@@ -306,17 +317,26 @@ fun SettingsScreen(
                         ) {
                             // Export user data as CSV
                             val csvData = buildString {
-                                append("Field,Value\n")
-                                append("Display Name,$displayName\n")
-                                append("Target Fluency,$targetFluency\n")
-                                append("App Language,$currentAppLanguageLabel\n")
-                                append("Daily Reminder,$dailyReminder\n")
-                                append("Offline Cache,$offlineCache\n")
+                                append("Name,Username,Skill\n")
+                                append(csvCell(displayName))
+                                append(",")
+                                append(csvCell(username))
+                                append(",")
+                                append(csvCell(targetFluency))
+                                append("\n")
                             }
+                            val exportFile = File(context.cacheDir, "lingocoach_profile_export.csv")
+                            exportFile.writeText(csvData)
+                            val uri = FileProvider.getUriForFile(
+                                context,
+                                "${context.packageName}.fileprovider",
+                                exportFile
+                            )
                             val intent = Intent(Intent.ACTION_SEND).apply {
                                 type = "text/csv"
-                                putExtra(Intent.EXTRA_TEXT, csvData)
+                                putExtra(Intent.EXTRA_STREAM, uri)
                                 putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.lingocoach_data_export))
+                                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                             }
                             context.startActivity(Intent.createChooser(intent, context.getString(R.string.export_data_as_csv)))
                         }
@@ -382,11 +402,35 @@ fun SettingsScreen(
     if (showUsernameDialog) {
         SettingsUsernameDialog(
             value = username,
-            onDismiss = { showUsernameDialog = false },
+            isSaving = isUsernameSaving,
+            backendError = usernameSaveError,
+            onDismiss = {
+                if (!isUsernameSaving) {
+                    usernameSaveError = null
+                    showUsernameDialog = false
+                }
+            },
             onConfirm = { value ->
-                username = value
-                saveAndSync("username", value)
-                showUsernameDialog = false
+                val uid = prefs.getString("session_id", null)
+                if (uid == null) {
+                    usernameSaveError = "Could not find your profile. Please sign in again."
+                    return@SettingsUsernameDialog
+                }
+                isUsernameSaving = true
+                usernameSaveError = null
+                com.mk.lingocoach.network.AssessmentApi.patchUserProfileDetailed(uid, mapOf("username" to value)) { result ->
+                    scope.launch(Dispatchers.Main) {
+                        isUsernameSaving = false
+                        if (result.ok) {
+                            username = value
+                            saveStr("username", value)
+                            usernameSaveError = null
+                            showUsernameDialog = false
+                        } else {
+                            usernameSaveError = result.message.ifBlank { "Could not save username. Please try again." }
+                        }
+                    }
+                }
             }
         )
     }
@@ -402,14 +446,14 @@ fun SettingsScreen(
         )
     }
 
-    // Native Language picker
+    // App Language picker
     if (showLangDialog) {
         AppLanguagePickerDialog(
             selectedCode = appLanguageCode,
             onDismiss = { showLangDialog = false },
             onConfirm = { code ->
-                showLangDialog = false
                 if (code == appLanguageCode) {
+                    showLangDialog = false
                     return@AppLanguagePickerDialog
                 }
                 appLanguageCode = code
@@ -418,14 +462,13 @@ fun SettingsScreen(
                     .edit()
                     .putString("selected_language", code)
                     .apply()
-                kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.Main).launch {
+                scope.launch(Dispatchers.Main) {
                     languageRepository.saveSelectedLanguage(code)
-                    if (code != "system") {
-                        AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(code))
-                    } else {
-                        AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
-                    }
+                    AppCompatDelegate.setApplicationLocales(
+                        LocaleListCompat.forLanguageTags(if (code == "system") "" else code)
+                    )
                 }
+                showLangDialog = false
             }
         )
     }
@@ -809,7 +852,7 @@ private fun SettingsEditDialog(
                     )
                 )
                 Spacer(Modifier.height(20.dp))
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                     TextButton(onClick = onDismiss) {
                         Text(stringResource(R.string.cancel), color = SettingsTextLight)
                     }
@@ -819,8 +862,7 @@ private fun SettingsEditDialog(
                         colors = ButtonDefaults.buttonColors(containerColor = SettingsPurple),
                         shape = RoundedCornerShape(12.dp)
                     ) { Text(stringResource(R.string.save), color = Color.White, fontWeight = FontWeight.Bold) }
-                }
-            }
+                }            }
         }
     }
 }
@@ -829,11 +871,14 @@ private fun SettingsEditDialog(
 @Composable
 private fun SettingsUsernameDialog(
     value: String,
+    isSaving: Boolean,
+    backendError: String?,
     onDismiss: () -> Unit,
     onConfirm: (String) -> Unit
 ) {
     var draft by remember(value) { mutableStateOf(value) }
-    val error = settingsUsernameError(draft)
+    val localError = settingsUsernameError(draft)
+    val error = localError ?: backendError
 
     Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
         Box(
@@ -857,7 +902,9 @@ private fun SettingsUsernameDialog(
                 Spacer(Modifier.height(14.dp))
                 OutlinedTextField(
                     value = draft,
-                    onValueChange = { draft = normalizeSettingsUsername(it) },
+                    onValueChange = {
+                        draft = normalizeSettingsUsername(it)
+                    },
                     singleLine = true,
                     leadingIcon = { Text("@", color = SettingsPurple, fontSize = 18.sp, fontWeight = FontWeight.Bold) },
                     isError = error != null,
@@ -882,16 +929,22 @@ private fun SettingsUsernameDialog(
                 )
                 Spacer(Modifier.height(20.dp))
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                    TextButton(onClick = onDismiss) {
+                    TextButton(onClick = onDismiss, enabled = !isSaving) {
                         Text(stringResource(R.string.cancel), color = SettingsTextLight)
                     }
                     Spacer(Modifier.width(8.dp))
                     Button(
-                        onClick = { if (error == null) onConfirm(draft.trim()) },
-                        enabled = error == null,
+                        onClick = { if (localError == null) onConfirm(draft.trim()) },
+                        enabled = localError == null && !isSaving,
                         colors = ButtonDefaults.buttonColors(containerColor = SettingsPurple),
                         shape = RoundedCornerShape(12.dp)
-                    ) { Text(stringResource(R.string.save), color = Color.White, fontWeight = FontWeight.Bold) }
+                    ) {
+                            if (isSaving) {
+                                CircularProgressIndicator(modifier = Modifier.size(18.dp), strokeWidth = 2.dp, color = Color.White)
+                            } else {
+                                Text(stringResource(R.string.save), color = Color.White, fontWeight = FontWeight.Bold)
+                            }
+                        }
                 }
             }
         }
@@ -993,5 +1046,13 @@ private fun SettingsConfirmDialog(
         }
     }
 }
+
+
+
+
+
+
+
+
 
 

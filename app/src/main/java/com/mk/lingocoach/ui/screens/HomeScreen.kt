@@ -47,6 +47,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -76,6 +78,22 @@ internal val TextLight        = Color(0xFF6B6B6B)
 internal val CardWhite        = Color(0xFFFFFEFF)
 internal val CardBorderColor  = Color(0x18000000)
 
+private fun normalizeHomeUsername(value: String): String =
+    value.lowercase().filter { it.isLetterOrDigit() || it == '_' }.take(20)
+
+private fun homeUsernameError(username: String): String? {
+    val value = username.trim()
+    return when {
+        value.isBlank() -> "Choose a username to save and restore your progress."
+        value.length < 3 -> "Username must be at least 3 characters."
+        value.length > 20 -> "Username must be 20 characters or less."
+        !value.first().isLetter() -> "Username must start with a letter."
+        value.any { !(it.isLowerCase() || it.isDigit() || it == '_') } -> "Use lowercase letters, numbers, or underscores only."
+        "__" in value -> "Username cannot contain consecutive underscores."
+        value.endsWith("_") -> "Username cannot end with an underscore."
+        else -> null
+    }
+}
 @Composable
 fun HomeScreen(
     onNavigateToLesson: (sublessonId: String) -> Unit,
@@ -108,6 +126,11 @@ fun HomeScreen(
         mutableStateOf(sharedPrefs.getLong("learning_path_generation_started_at", 0L))
     }
     var learningPathGenerationElapsedSeconds by remember { mutableStateOf(0L) }
+    var displayName by remember { mutableStateOf(sharedPrefs.getString("display_name", "") ?: "") }
+    var username by remember { mutableStateOf(sharedPrefs.getString("username", "") ?: "") }
+    var showProfilePrompt by remember { mutableStateOf(displayName.isBlank() || username.isBlank()) }
+    var isProfileSaving by remember { mutableStateOf(false) }
+    var profileSaveError by remember { mutableStateOf<String?>(null) }
 
     val userId = remember {
         sharedPrefs.getString("session_id", null) ?: "df31075e-bc40-459f-bbfb-e10c2d3ea34e"
@@ -282,7 +305,7 @@ fun HomeScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column {
-                        val displayName = sharedPrefs.getString("display_name", "there") ?: "there"
+                        val greetingName = displayName.ifBlank { "there" }
                         val greetingHour = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
                         val greeting = when {
                             greetingHour < 12 -> stringResource(R.string.good_morning)
@@ -290,7 +313,7 @@ fun HomeScreen(
                             else              -> stringResource(R.string.good_evening)
                         }
                         Text(
-                            "$greeting, $displayName",
+                            "$greeting, $greetingName",
                             color = TextMid,
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Medium
@@ -438,9 +461,158 @@ fun HomeScreen(
                 }
             )
         }
+        if (showProfilePrompt) {
+            HomeProfileCompletionDialog(
+                displayName = displayName,
+                username = username,
+                isSaving = isProfileSaving,
+                backendError = profileSaveError,
+                onNameChange = {
+                    displayName = it
+                    profileSaveError = null
+                },
+                onUsernameChange = {
+                    username = normalizeHomeUsername(it)
+                    profileSaveError = null
+                },
+                onDismiss = {
+                    if (!isProfileSaving) showProfilePrompt = false
+                },
+                onSave = {
+                    val nameError = displayName.trim().isBlank()
+                    val usernameError = homeUsernameError(username)
+                    if (nameError) {
+                        profileSaveError = "Please enter your name."
+                        return@HomeProfileCompletionDialog
+                    }
+                    if (usernameError != null) {
+                        profileSaveError = usernameError
+                        return@HomeProfileCompletionDialog
+                    }
+                    isProfileSaving = true
+                    profileSaveError = null
+                    AssessmentApi.patchUserProfileDetailed(
+                        userId,
+                        mapOf("display_name" to displayName.trim(), "username" to username.trim())
+                    ) { result ->
+                        scope.launch(Dispatchers.Main) {
+                            isProfileSaving = false
+                            if (result.ok) {
+                                displayName = displayName.trim()
+                                username = username.trim()
+                                sharedPrefs.edit()
+                                    .putString("display_name", displayName)
+                                    .putString("username", username)
+                                    .apply()
+                                showProfilePrompt = false
+                            } else {
+                                profileSaveError = result.message.ifBlank { "Could not save your profile. Please try again." }
+                            }
+                        }
+                    }
+                }
+            )
+        }
     }
 }
 
+@Composable
+private fun HomeProfileCompletionDialog(
+    displayName: String,
+    username: String,
+    isSaving: Boolean,
+    backendError: String?,
+    onNameChange: (String) -> Unit,
+    onUsernameChange: (String) -> Unit,
+    onDismiss: () -> Unit,
+    onSave: () -> Unit
+) {
+    val usernameError = homeUsernameError(username)
+    val shownError = backendError ?: usernameError
+
+    Dialog(onDismissRequest = { if (!isSaving) onDismiss() }, properties = DialogProperties(usePlatformDefaultWidth = false)) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth(0.90f)
+                .imePadding()
+                .shadow(18.dp, RoundedCornerShape(24.dp))
+                .clip(RoundedCornerShape(24.dp))
+                .background(Color.White)
+                .padding(22.dp)
+        ) {
+            Text("Complete your profile", color = TextDark, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
+            Spacer(Modifier.height(6.dp))
+            Text(
+                "Add your name and username so your progress is saved and restored properly.",
+                color = TextMid,
+                fontSize = 13.sp,
+                lineHeight = 18.sp
+            )
+            Spacer(Modifier.height(16.dp))
+            OutlinedTextField(
+                value = displayName,
+                onValueChange = onNameChange,
+                singleLine = true,
+                label = { Text("Name") },
+                modifier = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
+                shape = RoundedCornerShape(14.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = BrandPurple,
+                    unfocusedBorderColor = Color(0xFFE0DFFA),
+                    focusedTextColor = TextDark,
+                    unfocusedTextColor = TextDark,
+                    cursorColor = BrandPurple
+                )
+            )
+            Spacer(Modifier.height(12.dp))
+            OutlinedTextField(
+                value = username,
+                onValueChange = onUsernameChange,
+                singleLine = true,
+                label = { Text("Username") },
+                leadingIcon = { Text("@", color = BrandPurple, fontSize = 18.sp, fontWeight = FontWeight.Bold) },
+                isError = shownError != null,
+                supportingText = {
+                    Text(
+                        shownError ?: "3-20 chars. Lowercase letters, numbers, and underscores.",
+                        color = if (shownError != null) BrandRed else TextLight,
+                        fontSize = 12.sp,
+                        lineHeight = 16.sp
+                    )
+                },
+                modifier = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
+                shape = RoundedCornerShape(14.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = BrandPurple,
+                    unfocusedBorderColor = Color(0xFFE0DFFA),
+                    errorBorderColor = BrandRed,
+                    focusedTextColor = TextDark,
+                    unfocusedTextColor = TextDark,
+                    cursorColor = BrandPurple
+                )
+            )
+            Spacer(Modifier.height(18.dp))
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                TextButton(onClick = onDismiss, enabled = !isSaving) {
+                    Text("Later", color = TextLight)
+                }
+                Spacer(Modifier.width(8.dp))
+                Button(
+                    onClick = onSave,
+                    enabled = !isSaving && displayName.trim().isNotBlank() && usernameError == null,
+                    shape = RoundedCornerShape(14.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandPurple)
+                ) {
+                    if (isSaving) {
+                        CircularProgressIndicator(modifier = Modifier.size(18.dp), strokeWidth = 2.dp, color = Color.White)
+                    } else {
+                        Text("Save", color = Color.White, fontWeight = FontWeight.Bold)
+                    }
+                }
+            }
+        }
+    }
+}
 // ─── Daily Stats Card Component ──────────────────────────────────────────────
 @Composable
 fun HomeDailyStatsCard(
@@ -1611,5 +1783,9 @@ fun LoadingOverlay(visible: Boolean) {
         }
     }
 }
+
+
+
+
 
 

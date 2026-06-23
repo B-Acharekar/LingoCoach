@@ -269,8 +269,11 @@ fun MistakeVaultScreen(
                 item {
                     Spacer(Modifier.height(12.dp))
                     SmartReviewButton(count = allMistakes.size) {
-                        retestList  = allMistakes.take(12)
-                        showRetest = true
+                        val reviewList = allMistakes.take(12)
+                        if (reviewList.isNotEmpty()) {
+                            retestList = reviewList
+                            showRetest = true
+                        }
                     }
                 }
                 item { Spacer(Modifier.height(16.dp)) }
@@ -379,12 +382,17 @@ private fun SmartReviewButton(count: Int, onClick: () -> Unit) {
     val estimatedMin = (count * 50 / 60).coerceAtLeast(1)
     Button(
         onClick   = onClick,
+        enabled   = count > 0,
         modifier  = Modifier
             .fillMaxWidth()
             .padding(horizontal = 20.dp)
             .height(52.dp),
         shape     = RoundedCornerShape(16.dp),
-        colors    = ButtonDefaults.buttonColors(containerColor = VaultPurple)
+        colors    = ButtonDefaults.buttonColors(
+            containerColor = VaultPurple,
+            disabledContainerColor = VaultPurple.copy(alpha = 0.35f),
+            disabledContentColor = Color.White.copy(alpha = 0.85f)
+        )
     ) {
         Icon(Icons.Default.Bolt, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
         Spacer(Modifier.width(8.dp))
@@ -667,6 +675,7 @@ fun RetestModeOverlay(
     onMistakeResolved: (String) -> Unit,
     onDismiss: () -> Unit
 ) {
+    var sessionMistakes by remember(mistakes) { mutableStateOf(mistakes) }
     var currentIndex    by remember { mutableStateOf(0) }
     var cardState       by remember { mutableStateOf(RetestCardState.IDLE) }
     var isRecording     by remember { mutableStateOf(false) }
@@ -677,7 +686,7 @@ fun RetestModeOverlay(
     var feedbackText    by remember { mutableStateOf("") }
     val scope           = rememberCoroutineScope()
 
-    val total    = mistakes.size
+    val total    = sessionMistakes.size
     val progress = if (total > 0) (currentIndex.toFloat() / total) else 0f
 
     // Pulse animation for mic button
@@ -704,15 +713,18 @@ fun RetestModeOverlay(
                     )
                 )
         ) {
-            if (sessionDone) {
+            if (total == 0) {
+                EmptyRetestSession(onClose = onDismiss)
+            } else if (sessionDone) {
                 RetestSessionSummary(
                     total         = total,
                     masteredCount = masteredIndices.size,
                     reviewCount   = reviewIndices.size,
                     onClose       = onDismiss,
                     onRetryWrong  = {
-                        val wrongList = reviewIndices.map { mistakes[it] }
+                        val wrongList = reviewIndices.mapNotNull { sessionMistakes.getOrNull(it) }
                         if (wrongList.isNotEmpty()) {
+                            sessionMistakes = wrongList
                             currentIndex    = 0
                             cardState       = RetestCardState.IDLE
                             masteredIndices = emptySet()
@@ -724,7 +736,11 @@ fun RetestModeOverlay(
                     }
                 )
             } else {
-                val mistake = mistakes[currentIndex]
+                val mistake = sessionMistakes.getOrNull(currentIndex)
+                if (mistake == null) {
+                    EmptyRetestSession(onClose = onDismiss)
+                    return@Box
+                }
                 Column(modifier = Modifier.fillMaxSize().imePadding()) {
 
                     // Top bar
@@ -848,6 +864,50 @@ private fun normalizeRetestAnswer(value: String): String {
 }
 
 // ─── Retest: Top Bar ──────────────────────────────────────────────────────────
+@Composable
+private fun EmptyRetestSession(onClose: () -> Unit) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Icon(
+            Icons.Default.CheckCircle,
+            contentDescription = null,
+            tint = VaultGreen,
+            modifier = Modifier.size(64.dp)
+        )
+        Spacer(Modifier.height(16.dp))
+        Text(
+            "No slips to review",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.ExtraBold,
+            color = VaultTextDark,
+            textAlign = TextAlign.Center
+        )
+        Spacer(Modifier.height(8.dp))
+        Text(
+            "Your mistake vault is empty right now.",
+            color = VaultTextLight,
+            fontSize = 14.sp,
+            textAlign = TextAlign.Center
+        )
+        Spacer(Modifier.height(28.dp))
+        Button(
+            onClick = onClose,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(52.dp),
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = VaultPurple)
+        ) {
+            Text(stringResource(R.string.back_to_vault), color = Color.White, fontWeight = FontWeight.Bold)
+        }
+    }
+}
+
 @Composable
 private fun RetestTopBar(current: Int, total: Int, progress: Float, onClose: () -> Unit) {
     Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 16.dp)) {
