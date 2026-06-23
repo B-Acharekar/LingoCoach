@@ -123,11 +123,11 @@ fun ActualLearningPathScreen(
                             verticalAlignment = Alignment.Bottom
                         ) {
                             Column {
-                                Text("YOUR NEXT STEPS", color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.2.sp)
+                                Text(stringResource(R.string.path_next_steps), color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.2.sp)
                                 Spacer(Modifier.height(4.dp))
-                                Text("Keep your momentum", color = PathNavy, fontSize = 21.sp, fontWeight = FontWeight.ExtraBold)
+                                Text(stringResource(R.string.keep_your_momentum), color = PathNavy, fontSize = 21.sp, fontWeight = FontWeight.ExtraBold)
                             }
-                            Text("${currentModule.lessons.size} lessons", color = PathMuted, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+                            Text(stringResource(R.string.lessons_count, currentModule.lessons.size), color = PathMuted, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
                         }
                         Spacer(Modifier.height(14.dp))
 
@@ -192,16 +192,16 @@ private fun PathProgressHero(level: String, title: String, completed: Int, total
                 Spacer(Modifier.weight(1f))
                 Icon(Icons.Default.LocalFireDepartment, null, tint = Color(0xFFFFD166), modifier = Modifier.size(20.dp))
                 Spacer(Modifier.width(5.dp))
-                Text("ON TRACK", color = Color.White.copy(0.86f), fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.on_track), color = Color.White.copy(0.86f), fontSize = 10.sp, fontWeight = FontWeight.Bold)
             }
             Spacer(Modifier.height(18.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(1f)) {
-                    Text("Current focus", color = Color.White.copy(0.68f), fontSize = 12.sp)
+                    Text(stringResource(R.string.current_focus), color = Color.White.copy(0.68f), fontSize = 12.sp)
                     Spacer(Modifier.height(4.dp))
                     Text(title, color = Color.White, fontSize = 24.sp, fontWeight = FontWeight.ExtraBold, maxLines = 2, overflow = TextOverflow.Ellipsis)
                     Spacer(Modifier.height(15.dp))
-                    Text("$completed of $total lessons complete", color = Color.White.copy(0.78f), fontSize = 12.sp, fontWeight = FontWeight.Medium)
+                    Text(stringResource(R.string.lessons_complete, completed, total), color = Color.White.copy(0.78f), fontSize = 12.sp, fontWeight = FontWeight.Medium)
                 }
                 Box(Modifier.size(74.dp), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator(
@@ -272,9 +272,9 @@ private fun JourneyLessonCard(
                     Column(Modifier.weight(1f)) {
                         Text(
                             when {
-                                isCurrent -> "IN PROGRESS"
-                                isCompleted -> "COMPLETED"
-                                else -> "LOCKED"
+                                isCurrent -> stringResource(R.string.in_progress)
+                                isCompleted -> stringResource(R.string.completed)
+                                else -> stringResource(R.string.locked)
                             },
                             color = accent,
                             fontSize = 9.sp,
@@ -301,7 +301,7 @@ private fun JourneyLessonCard(
                             strokeCap = StrokeCap.Round
                         )
                         Spacer(Modifier.width(10.dp))
-                        Text("$completedParts/${sublessons.size} parts", color = PathMuted, fontSize = 10.sp, fontWeight = FontWeight.SemiBold)
+                        Text(stringResource(R.string.parts_count, completedParts, sublessons.size), color = PathMuted, fontSize = 10.sp, fontWeight = FontWeight.SemiBold)
                     }
                 }
             }
@@ -323,7 +323,7 @@ private fun PathContinueButton(activeSub: CurrentSublesson, onNavigate: (String)
         }
         Spacer(Modifier.width(12.dp))
         Column(Modifier.weight(1f)) {
-            Text("CONTINUE LEARNING", color = Color.White.copy(0.72f), fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
+            Text(stringResource(R.string.continue_learning), color = Color.White.copy(0.72f), fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
             Text(activeSub.title, color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
         Icon(Icons.AutoMirrored.Filled.ArrowForward, null, tint = Color.White)
@@ -336,7 +336,7 @@ private fun PathLoadingState(modifier: Modifier = Modifier) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             CircularProgressIndicator(color = BrandPurple, strokeWidth = 3.dp)
             Spacer(Modifier.height(14.dp))
-            Text("Building your learning path...", color = PathMuted, fontSize = 13.sp)
+            Text(stringResource(R.string.building_learning_path), color = PathMuted, fontSize = 13.sp)
         }
     }
 }
@@ -349,11 +349,11 @@ private fun PathEmptyState(modifier: Modifier = Modifier, onBack: () -> Unit) {
                 Icon(Icons.AutoMirrored.Filled.MenuBook, null, tint = BrandPurple, modifier = Modifier.size(32.dp))
             }
             Spacer(Modifier.height(18.dp))
-            Text("Your path is getting ready", color = PathNavy, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
+            Text(stringResource(R.string.path_getting_ready), color = PathNavy, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(7.dp))
-            Text("Complete your assessment to unlock a personalized route.", color = PathMuted, fontSize = 13.sp)
+            Text(stringResource(R.string.complete_assessment_unlock_path), color = PathMuted, fontSize = 13.sp)
             Spacer(Modifier.height(20.dp))
-            OutlinedButton(onClick = onBack, shape = RoundedCornerShape(16.dp)) { Text("Go back", color = BrandPurple) }
+            OutlinedButton(onClick = onBack, shape = RoundedCornerShape(16.dp)) { Text(stringResource(R.string.go_back), color = BrandPurple) }
         }
     }
 }

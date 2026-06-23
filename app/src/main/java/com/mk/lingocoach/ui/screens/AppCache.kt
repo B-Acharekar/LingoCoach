@@ -2,7 +2,10 @@ package com.mk.lingocoach.ui.screens
 
 import android.content.Context
 import com.google.gson.Gson
+import com.mk.lingocoach.network.AssessmentApi
+import com.mk.lingocoach.network.AssessmentResponse
 import com.mk.lingocoach.network.CurrentLearningPathResponse
+import com.mk.lingocoach.network.LearningPathRequest
 import com.mk.lingocoach.network.Mistake
 import com.mk.lingocoach.network.DailyStats
 import com.mk.lingocoach.network.ProgressMetrics
@@ -47,6 +50,61 @@ object AppCache {
     fun invalidateLearningPath() {
         learningPath = null
         learningPathAt = 0L
+    }
+
+    fun invalidateLocalizedLearningPath(context: Context) {
+        invalidateLearningPath()
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .edit()
+            .remove(KEY_PATH)
+            .remove(KEY_PATH_AT)
+            .remove("learning_path_json")
+            .apply()
+    }
+
+    fun regenerateLocalizedLearningPath(context: Context, languageCode: String) {
+        invalidateLocalizedLearningPath(context)
+        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val assessmentJson = prefs.getString("assessment_response_json", null) ?: return
+        val assessment = try {
+            gson.fromJson(assessmentJson, AssessmentResponse::class.java)
+        } catch (_: Exception) {
+            return
+        }
+        val locale = if (languageCode == "system") java.util.Locale.getDefault()
+            else java.util.Locale.forLanguageTag(languageCode)
+        val request = LearningPathRequest(
+            session_id = assessment.session_id,
+            user_name = prefs.getString("display_name", "") ?: "",
+            tier = assessment.assigned_tier ?: "B2 Upper-Intermediate",
+            grammar_score = assessment.grammar_score.toInt(),
+            vocabulary_score = assessment.vocabulary_score.toInt(),
+            coherence_score = assessment.coherence_score.toInt(),
+            structural_break = assessment.structural_break,
+            detected_strength = assessment.detected_strength ?: "",
+            detected_weakness = assessment.detected_weakness ?: "",
+            recommended_focus = assessment.recommended_focus ?: "",
+            user_goal = prefs.getString("user_goal", "general") ?: "general",
+            user_level_self_reported = prefs.getString("user_level", "intermediate") ?: "intermediate",
+            output_language = locale.getDisplayLanguage(java.util.Locale.ENGLISH).ifBlank { "English" }
+        )
+        prefs.edit().putString("learning_path_generation_state", "generating").apply()
+        AssessmentApi.getLearningPath(request) { generated ->
+            if (generated == null) {
+                prefs.edit().putString("learning_path_generation_state", "fallback").apply()
+                return@getLearningPath
+            }
+            AssessmentApi.getCurrentLearningPath(assessment.session_id) { current ->
+                if (current != null && current.isBackendLearningPathReady()) {
+                    learningPath = applyLocalLearningPathProgress(current)
+                    learningPathAt = System.currentTimeMillis()
+                    saveToDisk(context)
+                    prefs.edit().putString("learning_path_generation_state", "ready").apply()
+                } else {
+                    prefs.edit().putString("learning_path_generation_state", "fallback").apply()
+                }
+            }
+        }
     }
 
     fun rememberCompletedSublesson(sublessonId: String) {

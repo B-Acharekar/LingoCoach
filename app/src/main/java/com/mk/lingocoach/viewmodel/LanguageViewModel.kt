@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.mk.lingocoach.data.model.LanguageItem
 import com.mk.lingocoach.data.model.appLanguages
 import com.mk.lingocoach.data.repository.LanguagePreferencesRepository
+import com.mk.lingocoach.ui.screens.AppCache
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -19,7 +20,8 @@ import kotlinx.coroutines.launch
  * Uses StateFlow for reactive UI updates and handles locale changes via AppCompatDelegate
  */
 class LanguageViewModel(
-    private val repository: LanguagePreferencesRepository
+    private val repository: LanguagePreferencesRepository,
+    private val appContext: Context
 ) : ViewModel() {
 
     // All available languages
@@ -95,6 +97,9 @@ class LanguageViewModel(
      */
     fun selectLanguage(languageCode: String) {
         viewModelScope.launch {
+            if (_selectedLanguage.value != languageCode) {
+                AppCache.regenerateLocalizedLearningPath(appContext, languageCode)
+            }
             _selectedLanguage.value = languageCode
             repository.saveSelectedLanguage(languageCode)
             applyLanguageToSystem(languageCode)
@@ -131,7 +136,7 @@ class LanguageViewModel(
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(LanguageViewModel::class.java)) {
                 val repository = LanguagePreferencesRepository(context)
-                return LanguageViewModel(repository) as T
+                return LanguageViewModel(repository, context.applicationContext) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach: AI Language Tutor</string>
@@ -364,4 +364,15 @@
     <string name="delete_account">खाता हटाएं</string>
     <string name="logout_confirm_message">क्या आप वाकई अपने खाते से लॉग आउट करना चाहते हैं?</string>
     <string name="delete_account_confirm_message">यह आपकी सारी प्रगति और खाता डेटा स्थायी रूप से हटा देगा। यह कार्रवाई वापस नहीं ली जा सकती।</string>
+    <string name="path_next_steps">आपके अगले कदम</string>
+    <string name="keep_your_momentum">अपनी गति बनाए रखें</string>
+    <string name="lessons_count">%1$d पाठ</string>
+    <string name="on_track">सही दिशा में</string>
+    <string name="current_focus">वर्तमान लक्ष्य</string>
+    <string name="lessons_complete">%2$d में से %1$d पाठ पूरे</string>
+    <string name="parts_count">%1$d/%2$d भाग</string>
+    <string name="building_learning_path">आपका सीखने का मार्ग बनाया जा रहा है…</string>
+    <string name="path_getting_ready">आपका मार्ग तैयार हो रहा है</string>
+    <string name="complete_assessment_unlock_path">व्यक्तिगत मार्ग खोलने के लिए अपना आकलन पूरा करें।</string>
+    <string name="go_back">वापस जाएँ</string>
 </resources>

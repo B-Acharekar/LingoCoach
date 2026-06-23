@@ -415,6 +415,7 @@ fun SettingsScreen(
                     .edit()
                     .putString("selected_language", code)
                     .apply()
+                AppCache.regenerateLocalizedLearningPath(context, code)
                 scope.launch(Dispatchers.Main) {
                     languageRepository.saveSelectedLanguage(code)
                     AppCompatDelegate.setApplicationLocales(

@@ -363,4 +363,15 @@
     <string name="lang_arabic">Arabic</string>
     <string name="lang_turkish">Turkish</string>
     <string name="lang_vietnamese">Vietnamese</string>
+    <string name="path_next_steps">YOUR NEXT STEPS</string>
+    <string name="keep_your_momentum">Keep your momentum</string>
+    <string name="lessons_count">%1$d lessons</string>
+    <string name="on_track">ON TRACK</string>
+    <string name="current_focus">Current focus</string>
+    <string name="lessons_complete">%1$d of %2$d lessons complete</string>
+    <string name="parts_count">%1$d/%2$d parts</string>
+    <string name="building_learning_path">Building your learning path…</string>
+    <string name="path_getting_ready">Your path is getting ready</string>
+    <string name="complete_assessment_unlock_path">Complete your assessment to unlock a personalized route.</string>
+    <string name="go_back">Go back</string>
 </resources>

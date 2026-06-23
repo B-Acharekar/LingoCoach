@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach: AI Language Tutor</string>
@@ -309,6 +309,17 @@
     <string name="end_session">Sitzung beenden</string>
     <string name="male_voice">Männliche Stimme</string>
     <string name="type_response_hint">Antwort eingeben...</string>
+    <string name="path_next_steps">DEINE NÄCHSTEN SCHRITTE</string>
+    <string name="keep_your_momentum">Bleib in Schwung</string>
+    <string name="lessons_count">%1$d Lektionen</string>
+    <string name="on_track">AUF KURS</string>
+    <string name="current_focus">Aktueller Fokus</string>
+    <string name="lessons_complete">%1$d von %2$d Lektionen abgeschlossen</string>
+    <string name="parts_count">%1$d/%2$d Teile</string>
+    <string name="building_learning_path">Dein Lernpfad wird erstellt…</string>
+    <string name="path_getting_ready">Dein Lernpfad wird vorbereitet</string>
+    <string name="complete_assessment_unlock_path">Schließe die Bewertung ab, um einen persönlichen Lernpfad freizuschalten.</string>
+    <string name="go_back">Zurück</string>
 </resources>
 
 

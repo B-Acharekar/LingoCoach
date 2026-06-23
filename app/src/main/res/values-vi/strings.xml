@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach: AI Language Tutor</string>
@@ -309,4 +309,15 @@
     <string name="end_session">Kết thúc phiên</string>
     <string name="male_voice">Giọng nam</string>
     <string name="type_response_hint">Nhập phản hồi...</string>
+    <string name="path_next_steps">CÁC BƯỚC TIẾP THEO</string>
+    <string name="keep_your_momentum">Duy trì đà học tập</string>
+    <string name="lessons_count">%1$d bài học</string>
+    <string name="on_track">ĐÚNG TIẾN ĐỘ</string>
+    <string name="current_focus">Trọng tâm hiện tại</string>
+    <string name="lessons_complete">Đã hoàn thành %1$d/%2$d bài học</string>
+    <string name="parts_count">%1$d/%2$d phần</string>
+    <string name="building_learning_path">Đang tạo lộ trình học của bạn…</string>
+    <string name="path_getting_ready">Lộ trình của bạn đang được chuẩn bị</string>
+    <string name="complete_assessment_unlock_path">Hoàn thành bài đánh giá để mở khóa lộ trình cá nhân hóa.</string>
+    <string name="go_back">Quay lại</string>
 </resources>

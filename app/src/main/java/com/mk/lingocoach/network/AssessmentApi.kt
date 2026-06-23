@@ -1035,7 +1035,8 @@ data class LearningPathRequest(
     val detected_weakness: String,
     val recommended_focus: String,
     val user_goal: String = "general",
-    val user_level_self_reported: String = "intermediate"
+    val user_level_self_reported: String = "intermediate",
+    val output_language: String = "English"
 )
 
 data class DailyStats(

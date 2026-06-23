@@ -437,7 +437,13 @@ fun AssessmentScreen(
                         detected_weakness   = finalResponse!!.detected_weakness ?: "",
                         recommended_focus   = finalResponse!!.recommended_focus ?: "",
                         user_goal            = sharedPrefs.getString("user_goal", "general") ?: "general",
-                        user_level_self_reported = sharedPrefs.getString("user_level", "intermediate") ?: "intermediate"
+                        user_level_self_reported = sharedPrefs.getString("user_level", "intermediate") ?: "intermediate",
+                        output_language = java.util.Locale.forLanguageTag(
+                            context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
+                                .getString("selected_language", "en")
+                                .takeUnless { it == "system" }
+                                ?: java.util.Locale.getDefault().language
+                        ).getDisplayLanguage(java.util.Locale.ENGLISH).ifBlank { "English" }
                     )
                     val gson = Gson()
                     sharedPrefs.edit()

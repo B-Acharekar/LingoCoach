@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
     <string name="app_name">LingoCoach: AI Language Tutor</string>
@@ -309,4 +309,15 @@
     <string name="end_session">セッション終了</string>
     <string name="male_voice">男性音声</string>
     <string name="type_response_hint">返信を入力...</string>
+    <string name="path_next_steps">次のステップ</string>
+    <string name="keep_your_momentum">この調子で続けましょう</string>
+    <string name="lessons_count">%1$d レッスン</string>
+    <string name="on_track">順調です</string>
+    <string name="current_focus">現在の学習目標</string>
+    <string name="lessons_complete">%2$d 件中 %1$d 件のレッスンを完了</string>
+    <string name="parts_count">%1$d/%2$d パート</string>
+    <string name="building_learning_path">学習パスを作成しています…</string>
+    <string name="path_getting_ready">学習パスを準備しています</string>
+    <string name="complete_assessment_unlock_path">評価を完了して、あなた専用の学習ルートを開きましょう。</string>
+    <string name="go_back">戻る</string>
 </resources>
