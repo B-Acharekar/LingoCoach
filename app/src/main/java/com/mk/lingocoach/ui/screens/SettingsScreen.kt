@@ -3,7 +3,6 @@ package com.mk.lingocoach.ui.screens
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -11,7 +10,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -28,9 +26,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -187,53 +183,14 @@ fun SettingsScreen(
             ) {
                 Spacer(Modifier.height(20.dp))
 
-                // -- Avatar + Profile card -------------------------------------
+                // -- Profile card ----------------------------------------------
                 SettingsCard {
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(20.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.Start
                     ) {
-                        Box(contentAlignment = Alignment.BottomEnd) {
-                            Box(
-                                modifier = Modifier
-                                    .size(80.dp)
-                                    .shadow(8.dp, CircleShape)
-                                    .clip(CircleShape)
-                                    .background(SettingsPurpleSoft),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Icon(
-                                    Icons.Default.Person,
-                                    contentDescription = null,
-                                    tint = SettingsPurple,
-                                    modifier = Modifier.size(48.dp)
-                                )
-                            }
-                            Box(
-                                modifier = Modifier
-                                    .size(26.dp)
-                                    .clip(CircleShape)
-                                    .background(SettingsPurple)
-                                    .border(2.dp, Color.White, CircleShape)
-                                    .clickable { showNameDialog = true },
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Icon(Icons.Default.Edit, contentDescription = null, tint = Color.White, modifier = Modifier.size(14.dp))
-                            }
-                        }
-                        Spacer(Modifier.height(8.dp))
-                        Text(
-                            stringResource(R.string.change_avatar),
-                            color = SettingsPurple,
-                            fontSize = 13.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            modifier = Modifier.clickable { showNameDialog = true }
-                        )
-                        Spacer(Modifier.height(16.dp))
-                        HorizontalDivider(color = SettingsDivider)
-                        Spacer(Modifier.height(12.dp))
 
                         // Display Name row
                         SettingsInfoRow(
@@ -305,10 +262,6 @@ fun SettingsScreen(
                     Column(modifier = Modifier.fillMaxWidth()) {
                         SettingsLinkRow(label = stringResource(R.string.privacy)) {
                             context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(AppConfig.privacyPolicyUrl)))
-                        }
-                        HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
-                        SettingsLinkRow(label = stringResource(R.string.terms_of_service)) {
-                            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(AppConfig.termsOfServiceUrl)))
                         }
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
                         SettingsLinkRow(
