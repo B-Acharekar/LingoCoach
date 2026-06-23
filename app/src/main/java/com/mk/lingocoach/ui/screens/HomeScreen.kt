@@ -128,7 +128,7 @@ fun HomeScreen(
     var learningPathGenerationElapsedSeconds by remember { mutableStateOf(0L) }
     var displayName by remember { mutableStateOf(sharedPrefs.getString("display_name", "") ?: "") }
     var username by remember { mutableStateOf(sharedPrefs.getString("username", "") ?: "") }
-    var showProfilePrompt by remember { mutableStateOf(displayName.isBlank() || username.isBlank()) }
+    var showProfilePrompt by remember { mutableStateOf(false) }
     var isProfileSaving by remember { mutableStateOf(false) }
     var profileSaveError by remember { mutableStateOf<String?>(null) }
 
@@ -275,6 +275,7 @@ fun HomeScreen(
     val activeSublesson = activeModule?.currentSublesson()
     val streak = learningPath?.streak ?: 7
     val tier   = learningPath?.tier ?: "B2 Level"
+    val isProfileIncomplete = displayName.isBlank() || username.isBlank()
 
     Box(modifier = Modifier.fillMaxSize()) {
 
@@ -372,6 +373,17 @@ fun HomeScreen(
                 }
 
                 // ── Daily Stats Section ─────────────────────────────────────
+                if (isProfileIncomplete) {
+                    HomeProfileCompletionCard(
+                        hasName = displayName.isNotBlank(),
+                        hasUsername = username.isNotBlank(),
+                        onClick = {
+                            profileSaveError = null
+                            showProfilePrompt = true
+                        }
+                    )
+                }
+
                 Column {
                     Text(
                         stringResource(R.string.daily_stats),
@@ -517,6 +529,86 @@ fun HomeScreen(
 }
 
 @Composable
+private fun HomeProfileCompletionCard(
+    hasName: Boolean,
+    hasUsername: Boolean,
+    onClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(4.dp, RoundedCornerShape(22.dp), clip = true)
+            .clickable { onClick() },
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        shape = RoundedCornerShape(22.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Brush.horizontalGradient(listOf(Color.White, BrandPurpleSoft)))
+                .border(1.dp, Color(0x1A6A5CFF), RoundedCornerShape(22.dp))
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(44.dp)
+                    .clip(CircleShape)
+                    .background(BrandPurple),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(Icons.Default.PersonAdd, contentDescription = null, tint = Color.White, modifier = Modifier.size(23.dp))
+            }
+            Column(modifier = Modifier.weight(1f)) {
+                Text("Complete your profile", color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+                Spacer(Modifier.height(3.dp))
+                Text(
+                    when {
+                        !hasName && !hasUsername -> "Add your name and username to save progress properly."
+                        !hasName -> "Add your name to personalize LingoCoach."
+                        else -> "Choose a username to save and restore progress."
+                    },
+                    color = TextMid,
+                    fontSize = 12.sp,
+                    lineHeight = 17.sp
+                )
+                Spacer(Modifier.height(10.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    ProfileRequirementChip(label = "Name", complete = hasName)
+                    ProfileRequirementChip(label = "Username", complete = hasUsername)
+                }
+            }
+            Icon(Icons.Default.ChevronRight, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(22.dp))
+        }
+    }
+}
+
+@Composable
+private fun ProfileRequirementChip(label: String, complete: Boolean) {
+    Row(
+        modifier = Modifier
+            .clip(RoundedCornerShape(14.dp))
+            .background(if (complete) Color(0xFFE8F5E9) else Color(0xFFFFF8E1))
+            .padding(horizontal = 9.dp, vertical = 5.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
+        Icon(
+            if (complete) Icons.Default.CheckCircle else Icons.Default.RadioButtonUnchecked,
+            contentDescription = null,
+            tint = if (complete) BrandGreen else BrandAmberDark,
+            modifier = Modifier.size(13.dp)
+        )
+        Text(
+            label,
+            color = if (complete) BrandGreen else BrandAmberDark,
+            fontSize = 10.sp,
+            fontWeight = FontWeight.Bold
+        )
+    }
+}
+@Composable
 private fun HomeProfileCompletionDialog(
     displayName: String,
     username: String,
@@ -540,7 +632,12 @@ private fun HomeProfileCompletionDialog(
                 .background(Color.White)
                 .padding(22.dp)
         ) {
-            Text("Complete your profile", color = TextDark, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
+            Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                Text("Complete your profile", color = TextDark, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.weight(1f))
+                IconButton(onClick = onDismiss, enabled = !isSaving, modifier = Modifier.size(34.dp)) {
+                    Icon(Icons.Default.Close, contentDescription = "Close", tint = TextLight, modifier = Modifier.size(18.dp))
+                }
+            }
             Spacer(Modifier.height(6.dp))
             Text(
                 "Add your name and username so your progress is saved and restored properly.",
@@ -594,7 +691,7 @@ private fun HomeProfileCompletionDialog(
             Spacer(Modifier.height(18.dp))
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                 TextButton(onClick = onDismiss, enabled = !isSaving) {
-                    Text("Later", color = TextLight)
+                    Text("Cancel", color = TextLight)
                 }
                 Spacer(Modifier.width(8.dp))
                 Button(
@@ -1783,6 +1880,8 @@ fun LoadingOverlay(visible: Boolean) {
         }
     }
 }
+
+
 
 
 
