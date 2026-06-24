@@ -35,7 +35,7 @@ object NotificationScheduler {
 
         WorkManager.getInstance(context).enqueueUniquePeriodicWork(
             MORNING_REMINDER_TAG,
-            ExistingPeriodicWorkPolicy.REPLACE,
+            ExistingPeriodicWorkPolicy.KEEP,
             morningWorkRequest
         )
     }
@@ -52,7 +52,7 @@ object NotificationScheduler {
 
         WorkManager.getInstance(context).enqueueUniquePeriodicWork(
             EVENING_REMINDER_TAG,
-            ExistingPeriodicWorkPolicy.REPLACE,
+            ExistingPeriodicWorkPolicy.KEEP,
             eveningWorkRequest
         )
     }

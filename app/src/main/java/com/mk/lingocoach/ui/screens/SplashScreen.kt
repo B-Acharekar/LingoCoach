@@ -49,14 +49,14 @@ fun SplashScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF6A5CFF)),
+            .background(Color(0xFF7056FF)),
         contentAlignment = Alignment.Center
     ) {
         Image(
             painter = painterResource(R.drawable.logo),
             contentDescription = null,
             contentScale = ContentScale.Fit,
-            modifier = Modifier.size(220.dp)
+            modifier = Modifier.size(240.dp)
         )
 
         Column(
@@ -97,7 +97,7 @@ fun SplashScreen(
 
         splashProgress.animateTo(
             targetValue = 1f,
-            animationSpec = tween(durationMillis = 1_800, easing = LinearEasing)
+            animationSpec = tween(durationMillis = 450, easing = LinearEasing)
         )
 
         val languageSelected = preferences.getBoolean("lang_selected", false)

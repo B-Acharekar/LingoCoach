@@ -7,6 +7,7 @@ import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
@@ -21,6 +22,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import com.mk.lingocoach.ui.screens.*
 import com.mk.lingocoach.ui.theme.LingoCoachTheme
 import com.mk.lingocoach.notifications.NotificationScheduler
@@ -48,6 +52,15 @@ enum class Screen {
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
+        splashScreen.setOnExitAnimationListener { splashScreenViewProvider ->
+            splashScreenViewProvider.view.animate()
+                .alpha(0f)
+                .setDuration(220L)
+                .withEndAction { splashScreenViewProvider.remove() }
+                .start()
+        }
+
         super.onCreate(savedInstanceState)
 
         // Restore locale on cold start
@@ -55,8 +68,10 @@ class MainActivity : AppCompatActivity() {
             .getString("selected_language", null)
         AppLocaleManager.setLanguage(savedLang ?: "system")
 
-        // Schedule daily reminder notifications at 10am and 7pm
-        NotificationScheduler.scheduleDailyReminders(this)
+        // Schedule reminders away from the first UI frame so cold start stays snappy.
+        lifecycleScope.launch(Dispatchers.IO) {
+            NotificationScheduler.scheduleDailyReminders(this@MainActivity)
+        }
 
         enableEdgeToEdge()
         setContent {
