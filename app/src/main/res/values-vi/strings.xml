@@ -611,4 +611,23 @@
     <string name="sort_learning_first">Học đầu tiên</string>
     <string name="words_count_progress">%1$d / %2$d từ</string>
     <string name="most_used_words">Được sử dụng nhiều nhất</string>
+    <string name="no_slips_here">Không có trượt ở đây!</string>
+    <string name="keep_practising_fill_vault">Hãy tiếp tục luyện tập để lấp đầy kho tiền của bạn.</string>
+    <string name="available_review">Đánh giá có sẵn</string>
+    <string name="active_slips_count">%1$d Trượt tích cực</string>
+    <string name="remaining">Còn lại</string>
+    <string name="smart_review_session_minutes">Phiên đánh giá thông minh (%1$dtôi)</string>
+    <string name="no_slips_to_review">Không có phiếu để xem xét</string>
+    <string name="vault_empty_now">Kho lưu trữ nhầm lẫn của bạn hiện đang trống.</string>
+    <string name="slip_of_total">Trượt %1$d / %2$d</string>
+    <string name="pronunciation_remediation">Chữa phát âm</string>
+    <string name="grammar_remediation">Chữa ngữ pháp</string>
+    <string name="vocabulary_review">Ôn tập từ vựng</string>
+    <string name="session_complete">Phiên hoàn tất!</string>
+    <string name="reviewed_slips_count">Bạn đã xem xét %1$d trượt.</string>
+    <string name="speak_word_instruction">Nhấn vào micrô bên dưới và nói to từ đó. Tập trung vào trọng âm của âm tiết /%1$s/.</string>
+    <string name="recording_speak_clearly">Đang ghi âm... nói rõ ràng bây giờ.</string>
+    <string name="recording_complete_how">Ghi âm hoàn tất. Bạn đã làm như thế nào?</string>
+    <string name="great_job_moving_on">Làm tốt lắm! Tiếp tục...</string>
+    <string name="noted_keep_practising">Đã lưu ý. Hãy tiếp tục luyện tập!</string>
 </resources>

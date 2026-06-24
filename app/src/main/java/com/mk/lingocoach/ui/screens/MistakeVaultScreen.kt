@@ -304,13 +304,13 @@ fun MistakeVaultScreen(
                                 )
                                 Spacer(Modifier.height(12.dp))
                                 Text(
-                                    "No slips here!",
+                                    stringResource(R.string.no_slips_here),
                                     color = VaultTextDark,
                                     fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold
                                 )
                                 Text(
-                                    "Keep practising to fill your vault.",
+                                    stringResource(R.string.keep_practising_fill_vault),
                                     color = VaultTextLight,
                                     fontSize = 13.sp
                                 )
@@ -346,7 +346,7 @@ private fun VaultSummaryHeader(count: Int) {
     ) {
         Column {
             Text(
-                "AVAILABLE REVIEW",
+                stringResource(R.string.available_review).uppercase(),
                 color = VaultTextLight,
                 fontSize = 10.sp,
                 fontWeight = FontWeight.Bold,
@@ -356,10 +356,11 @@ private fun VaultSummaryHeader(count: Int) {
             Text(
                 buildAnnotatedString {
                     withStyle(SpanStyle(fontWeight = FontWeight.ExtraBold, fontSize = 26.sp, color = VaultTextDark)) {
-                        append("$count Active Slips\n")
+                        append(stringResource(R.string.active_slips_count, count))
+                        append("\n")
                     }
                     withStyle(SpanStyle(fontWeight = FontWeight.ExtraBold, fontSize = 26.sp, color = VaultTextDark)) {
-                        append("Remaining")
+                        append(stringResource(R.string.remaining))
                     }
                 }
             )
@@ -397,7 +398,7 @@ private fun SmartReviewButton(count: Int, onClick: () -> Unit) {
         Icon(Icons.Default.Bolt, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
         Spacer(Modifier.width(8.dp))
         Text(
-            "✦ Smart Review Session (${estimatedMin}m)",
+            stringResource(R.string.smart_review_session_minutes, estimatedMin),
             color      = Color.White,
             fontSize   = 15.sp,
             fontWeight = FontWeight.Bold
@@ -882,7 +883,7 @@ private fun EmptyRetestSession(onClose: () -> Unit) {
         )
         Spacer(Modifier.height(16.dp))
         Text(
-            "No slips to review",
+            stringResource(R.string.no_slips_to_review),
             fontSize = 24.sp,
             fontWeight = FontWeight.ExtraBold,
             color = VaultTextDark,
@@ -890,7 +891,7 @@ private fun EmptyRetestSession(onClose: () -> Unit) {
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            "Your mistake vault is empty right now.",
+            stringResource(R.string.vault_empty_now),
             color = VaultTextLight,
             fontSize = 14.sp,
             textAlign = TextAlign.Center
@@ -921,7 +922,7 @@ private fun RetestTopBar(current: Int, total: Int, progress: Float, onClose: () 
                 Icon(Icons.Default.Close, contentDescription = stringResource(R.string.close), tint = VaultTextMid)
             }
             Text(
-                "Slip $current of $total",
+                stringResource(R.string.slip_of_total, current, total),
                 fontWeight = FontWeight.Bold,
                 fontSize   = 15.sp,
                 color      = VaultTextDark
@@ -964,9 +965,9 @@ private fun RetestFlashcard(
     val isGrammar = mistake.mistakeType.contains("GRAMMAR", ignoreCase = true)
 
     val tagLabel = when {
-        isPronun  -> "Pronunciation Remediation"
-        isGrammar -> "Grammar Remediation"
-        else      -> "Vocabulary Review"
+        isPronun  -> stringResource(R.string.pronunciation_remediation)
+        isGrammar -> stringResource(R.string.grammar_remediation)
+        else      -> stringResource(R.string.vocabulary_review)
     }
 
     // Card elevation animation on state change
@@ -1055,11 +1056,11 @@ private fun RetestFlashcard(
             // Instruction or feedback
             val instructionText = when (cardState) {
                 RetestCardState.IDLE, RetestCardState.NEEDS_REVIEW ->
-                    "Tap the microphone below and speak the word out loud. Focus on the /${mistake.word.take(4).lowercase()}/ syllable stress."
+                    stringResource(R.string.speak_word_instruction, mistake.word.take(4).lowercase())
                 RetestCardState.RECORDING -> "Recording… speak clearly now."
-                RetestCardState.RECORDED  -> "Recording complete. How did you do?"
-                RetestCardState.MARKED_CORRECT -> "Great job! Moving on…"
-                RetestCardState.MARKED_WRONG   -> "Noted. Keep practising!"
+                RetestCardState.RECORDED  -> stringResource(R.string.recording_complete_how)
+                RetestCardState.MARKED_CORRECT -> stringResource(R.string.great_job_moving_on)
+                RetestCardState.MARKED_WRONG   -> stringResource(R.string.noted_keep_practising)
             }
 
             Text(
@@ -1302,7 +1303,7 @@ private fun RetestSessionSummary(
         }
         Spacer(Modifier.height(16.dp))
         Text(
-            "Session Complete!",
+            stringResource(R.string.session_complete),
             fontSize   = 26.sp,
             fontWeight = FontWeight.ExtraBold,
             color      = VaultTextDark,
@@ -1310,7 +1311,7 @@ private fun RetestSessionSummary(
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            "You reviewed $total slip${if (total != 1) "s" else ""}.",
+            stringResource(R.string.reviewed_slips_count, total),
             color    = VaultTextLight,
             fontSize = 14.sp,
             textAlign = TextAlign.Center

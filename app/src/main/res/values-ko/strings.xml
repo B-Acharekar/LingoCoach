@@ -611,4 +611,23 @@
     <string name="sort_learning_first">먼저 학습하기</string>
     <string name="words_count_progress">%1$d / %2$d 단어</string>
     <string name="most_used_words">가장 많이 사용됨</string>
+    <string name="no_slips_here">여기에는 미끄러짐이 없습니다!</string>
+    <string name="keep_practising_fill_vault">금고를 채우기 위해 계속 연습하세요.</string>
+    <string name="available_review">검토 가능</string>
+    <string name="active_slips_count">%1$d 활성 전표</string>
+    <string name="remaining">남은</string>
+    <string name="smart_review_session_minutes">스마트 리뷰 세션 (%1$d중)</string>
+    <string name="no_slips_to_review">검토할 전표 없음</string>
+    <string name="vault_empty_now">당신의 실수 저장소는 지금 비어 있습니다.</string>
+    <string name="slip_of_total">슬립 %1$d / %2$d</string>
+    <string name="pronunciation_remediation">발음 교정</string>
+    <string name="grammar_remediation">문법 교정</string>
+    <string name="vocabulary_review">어휘 복습</string>
+    <string name="session_complete">세션이 완료되었습니다!</string>
+    <string name="reviewed_slips_count">귀하가 리뷰한 내용 %1$d 미끄러짐.</string>
+    <string name="speak_word_instruction">아래 마이크를 탭하고 단어를 크게 말해보세요. /%1$s/ 음절 강세에 집중하세요.</string>
+    <string name="recording_speak_clearly">녹음 중... 이제 명확하게 말하세요.</string>
+    <string name="recording_complete_how">녹음이 완료되었습니다. 어떻게 지내셨나요?</string>
+    <string name="great_job_moving_on">정말 잘했어요! 계속해서...</string>
+    <string name="noted_keep_practising">유명한. 계속 연습하세요!</string>
 </resources>

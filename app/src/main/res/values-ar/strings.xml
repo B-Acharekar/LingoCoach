@@ -610,4 +610,23 @@
     <string name="sort_learning_first">التعلم أولا</string>
     <string name="words_count_progress">%1$d / %2$d كلمات</string>
     <string name="most_used_words">الأكثر استخداما</string>
+    <string name="no_slips_here">لا زلات هنا!</string>
+    <string name="keep_practising_fill_vault">استمر في التدرب لملء خزانتك.</string>
+    <string name="available_review">المراجعة المتاحة</string>
+    <string name="active_slips_count">%1$d زلات نشطة</string>
+    <string name="remaining">متبقي</string>
+    <string name="smart_review_session_minutes">جلسة مراجعة ذكية (%1$dم)</string>
+    <string name="no_slips_to_review">لا زلات للمراجعة</string>
+    <string name="vault_empty_now">قبو الخطأ الخاص بك فارغ الآن.</string>
+    <string name="slip_of_total">ينزلق %1$d / %2$d</string>
+    <string name="pronunciation_remediation">علاج النطق</string>
+    <string name="grammar_remediation">العلاج النحوي</string>
+    <string name="vocabulary_review">مراجعة المفردات</string>
+    <string name="session_complete">اكتملت الجلسة!</string>
+    <string name="reviewed_slips_count">لقد قمت بمراجعة %1$d زلات.</string>
+    <string name="speak_word_instruction">اضغط على الميكروفون أدناه وتحدث بالكلمة بصوت عالٍ. التركيز على ضغط مقطع لفظي /%1$s/.</string>
+    <string name="recording_speak_clearly">التسجيل... تحدث بوضوح الآن.</string>
+    <string name="recording_complete_how">اكتمل التسجيل. كيف فعلت؟</string>
+    <string name="great_job_moving_on">عمل عظيم! المضي قدما...</string>
+    <string name="noted_keep_practising">ذُكر. استمر في التدرب!</string>
 </resources>

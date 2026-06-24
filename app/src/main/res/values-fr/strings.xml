@@ -610,4 +610,23 @@
     <string name="sort_learning_first">Apprendre d’abord</string>
     <string name="words_count_progress">%1$d / %2$d mots</string>
     <string name="most_used_words">Les plus utilisés</string>
+    <string name="no_slips_here">Pas de faux pas ici !</string>
+    <string name="keep_practising_fill_vault">Continuez à vous entraîner pour remplir votre coffre-fort.</string>
+    <string name="available_review">Examen disponible</string>
+    <string name="active_slips_count">%1$d Feuillets actifs</string>
+    <string name="remaining">Restant</string>
+    <string name="smart_review_session_minutes">Séance de révision intelligente (%1$dm)</string>
+    <string name="no_slips_to_review">Aucun relevé à réviser</string>
+    <string name="vault_empty_now">Votre coffre-fort d\'erreurs est vide en ce moment.</string>
+    <string name="slip_of_total">Glisser %1$d / %2$d</string>
+    <string name="pronunciation_remediation">Correction de la prononciation</string>
+    <string name="grammar_remediation">Correction de la grammaire</string>
+    <string name="vocabulary_review">Révision du vocabulaire</string>
+    <string name="session_complete">Séance terminée !</string>
+    <string name="reviewed_slips_count">Vous avez révisé %1$d glisse.</string>
+    <string name="speak_word_instruction">Appuyez sur le microphone ci-dessous et prononcez le mot à voix haute. Concentrez-vous sur l’accentuation de la syllabe /%1$s/.</string>
+    <string name="recording_speak_clearly">Enregistrement... parlez clairement maintenant.</string>
+    <string name="recording_complete_how">Enregistrement terminé. Comment as-tu fait ?</string>
+    <string name="great_job_moving_on">Super travail ! Passons à autre chose...</string>
+    <string name="noted_keep_practising">Noté. Continuez à vous entraîner !</string>
 </resources>

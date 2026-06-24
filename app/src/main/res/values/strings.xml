@@ -604,4 +604,23 @@
     <string name="sort_learning_first">Learning First</string>
     <string name="words_count_progress">%1$d / %2$d words</string>
     <string name="most_used_words">Most Used</string>
+    <string name="no_slips_here">No slips here!</string>
+    <string name="keep_practising_fill_vault">Keep practising to fill your vault.</string>
+    <string name="available_review">Available Review</string>
+    <string name="active_slips_count">%1$d Active Slips</string>
+    <string name="remaining">Remaining</string>
+    <string name="smart_review_session_minutes">Smart Review Session (%1$dm)</string>
+    <string name="no_slips_to_review">No slips to review</string>
+    <string name="vault_empty_now">Your mistake vault is empty right now.</string>
+    <string name="slip_of_total">Slip %1$d of %2$d</string>
+    <string name="pronunciation_remediation">Pronunciation Remediation</string>
+    <string name="grammar_remediation">Grammar Remediation</string>
+    <string name="vocabulary_review">Vocabulary Review</string>
+    <string name="session_complete">Session Complete!</string>
+    <string name="reviewed_slips_count">You reviewed %1$d slips.</string>
+    <string name="speak_word_instruction">Tap the microphone below and speak the word out loud. Focus on the /%1$s/ syllable stress.</string>
+    <string name="recording_speak_clearly">Recording... speak clearly now.</string>
+    <string name="recording_complete_how">Recording complete. How did you do?</string>
+    <string name="great_job_moving_on">Great job! Moving on...</string>
+    <string name="noted_keep_practising">Noted. Keep practising!</string>
 </resources>

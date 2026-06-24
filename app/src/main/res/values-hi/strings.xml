@@ -605,4 +605,23 @@
     <string name="sort_learning_first">पहले सीख रहे</string>
     <string name="words_count_progress">%1$d / %2$d शब्द</string>
     <string name="most_used_words">सबसे अधिक उपयोग किए गए</string>
+    <string name="no_slips_here">यहाँ कोई स्लिप नहीं है!</string>
+    <string name="keep_practising_fill_vault">अपना वॉल्ट भरने के लिए अभ्यास जारी रखें।</string>
+    <string name="available_review">उपलब्ध समीक्षा</string>
+    <string name="active_slips_count">%1$d सक्रिय स्लिप</string>
+    <string name="remaining">बाकी</string>
+    <string name="smart_review_session_minutes">स्मार्ट समीक्षा सत्र (%1$d मिनट)</string>
+    <string name="no_slips_to_review">समीक्षा के लिए कोई स्लिप नहीं</string>
+    <string name="vault_empty_now">आपका मिस्टेक वॉल्ट अभी खाली है।</string>
+    <string name="slip_of_total">स्लिप %1$d / %2$d</string>
+    <string name="pronunciation_remediation">उच्चारण सुधार</string>
+    <string name="grammar_remediation">व्याकरण सुधार</string>
+    <string name="vocabulary_review">शब्दावली समीक्षा</string>
+    <string name="session_complete">सत्र पूरा!</string>
+    <string name="reviewed_slips_count">आपने %1$d स्लिप की समीक्षा की।</string>
+    <string name="speak_word_instruction">नीचे माइक्रोफ़ोन टैप करें और शब्द को ज़ोर से बोलें। /%1$s/ syllable stress पर ध्यान दें।</string>
+    <string name="recording_speak_clearly">रिकॉर्डिंग... अब साफ़ बोलें।</string>
+    <string name="recording_complete_how">रिकॉर्डिंग पूरी हुई। आपने कैसा किया?</string>
+    <string name="great_job_moving_on">बहुत अच्छा! आगे बढ़ रहे हैं...</string>
+    <string name="noted_keep_practising">नोट किया गया। अभ्यास जारी रखें!</string>
 </resources>

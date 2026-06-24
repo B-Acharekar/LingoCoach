@@ -611,4 +611,23 @@
     <string name="sort_learning_first">Imparare prima</string>
     <string name="words_count_progress">%1$d / %2$d parole</string>
     <string name="most_used_words">Più usato</string>
+    <string name="no_slips_here">Niente scivoloni qui!</string>
+    <string name="keep_practising_fill_vault">Continua a esercitarti per riempire il tuo caveau.</string>
+    <string name="available_review">Recensione disponibile</string>
+    <string name="active_slips_count">%1$d Scivoli attivi</string>
+    <string name="remaining">Rimanente</string>
+    <string name="smart_review_session_minutes">Sessione di revisione intelligente (%1$dM)</string>
+    <string name="no_slips_to_review">Nessuna ricevuta da rivedere</string>
+    <string name="vault_empty_now">Il tuo caveau degli errori è vuoto in questo momento.</string>
+    <string name="slip_of_total">Scontrino %1$d / %2$d</string>
+    <string name="pronunciation_remediation">Pronunciation Remediation</string>
+    <string name="grammar_remediation">Correzione grammaticale</string>
+    <string name="vocabulary_review">Revisione del vocabolario</string>
+    <string name="session_complete">Sessione completata!</string>
+    <string name="reviewed_slips_count">Hai rivisto %1$d scivola.</string>
+    <string name="speak_word_instruction">Tocca il microfono qui sotto e pronuncia la parola ad alta voce. Concentrati sull&amp;apos;accento della sillaba /%1$s/.</string>
+    <string name="recording_speak_clearly">Registrazione... parla chiaro adesso.</string>
+    <string name="recording_complete_how">Registrazione completata. Come hai fatto?</string>
+    <string name="great_job_moving_on">Ottimo lavoro! Andando avanti...</string>
+    <string name="noted_keep_practising">Notato. Continua a esercitarti!</string>
 </resources>

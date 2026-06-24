@@ -611,4 +611,23 @@
     <string name="sort_learning_first">まずは学ぶこと</string>
     <string name="words_count_progress">%1$d / %2$d 言葉</string>
     <string name="most_used_words">最もよく使われる</string>
+    <string name="no_slips_here">ここは滑りませんよ！</string>
+    <string name="keep_practising_fill_vault">ボールトを埋めるために練習を続けてください。</string>
+    <string name="available_review">利用可能なレビュー</string>
+    <string name="active_slips_count">%1$d アクティブスリップ</string>
+    <string name="remaining">残り</string>
+    <string name="smart_review_session_minutes">スマートレビューセッション (%1$dメートル)</string>
+    <string name="no_slips_to_review">レビューするスリップはありません</string>
+    <string name="vault_empty_now">あなたの間違いの保管庫は現在空です。</string>
+    <string name="slip_of_total">スリップ %1$d / %2$d</string>
+    <string name="pronunciation_remediation">発音矯正</string>
+    <string name="grammar_remediation">文法修正</string>
+    <string name="vocabulary_review">語彙の復習</string>
+    <string name="session_complete">セッション完了！</string>
+    <string name="reviewed_slips_count">レビューしました %1$d 滑る。</string>
+    <string name="speak_word_instruction">下のマイクをタップして、単語を大声で話します。 /%1$s/ 音節の強調に注目してください。</string>
+    <string name="recording_speak_clearly">録音中...今すぐはっきりと話してください。</string>
+    <string name="recording_complete_how">録音が完了しました。どうでしたか？</string>
+    <string name="great_job_moving_on">素晴らしい仕事だ！次に進みます...</string>
+    <string name="noted_keep_practising">指摘した。練習を続けてください！</string>
 </resources>

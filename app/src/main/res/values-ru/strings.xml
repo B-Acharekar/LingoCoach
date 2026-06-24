@@ -611,4 +611,23 @@
     <string name="sort_learning_first">Обучение в первую очередь</string>
     <string name="words_count_progress">%1$d / %2$d слова</string>
     <string name="most_used_words">Наиболее часто используемый</string>
+    <string name="no_slips_here">Никаких промахов здесь!</string>
+    <string name="keep_practising_fill_vault">Продолжайте тренироваться, чтобы заполнить свое хранилище.</string>
+    <string name="available_review">Доступный обзор</string>
+    <string name="active_slips_count">%1$d Активные слипы</string>
+    <string name="remaining">Оставшийся</string>
+    <string name="smart_review_session_minutes">Умная сессия обзора (%1$dм)</string>
+    <string name="no_slips_to_review">Нет пропусков для проверки</string>
+    <string name="vault_empty_now">Ваше хранилище ошибок сейчас пусто.</string>
+    <string name="slip_of_total">Соскальзывать %1$d / %2$d</string>
+    <string name="pronunciation_remediation">Исправление произношения</string>
+    <string name="grammar_remediation">Исправление грамматики</string>
+    <string name="vocabulary_review">Обзор словарного запаса</string>
+    <string name="session_complete">Сессия завершена!</string>
+    <string name="reviewed_slips_count">Вы рассмотрели %1$d скользит.</string>
+    <string name="speak_word_instruction">Коснитесь микрофона внизу и произнесите слово вслух. Сосредоточьтесь на ударении в слоге /%1$s/.</string>
+    <string name="recording_speak_clearly">Запись... теперь говори четко.</string>
+    <string name="recording_complete_how">Запись завершена. Как у тебя дела?</string>
+    <string name="great_job_moving_on">Отличная работа! Двигаемся дальше...</string>
+    <string name="noted_keep_practising">Отмеченный. Продолжайте практиковаться!</string>
 </resources>

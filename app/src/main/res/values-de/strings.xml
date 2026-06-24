@@ -611,6 +611,25 @@
     <string name="sort_learning_first">Zuerst lernen</string>
     <string name="words_count_progress">%1$d / %2$d Worte</string>
     <string name="most_used_words">Am häufigsten verwendet</string>
+    <string name="no_slips_here">Keine Ausrutscher hier!</string>
+    <string name="keep_practising_fill_vault">Übe weiter, um deinen Tresorraum zu füllen.</string>
+    <string name="available_review">Verfügbare Rezension</string>
+    <string name="active_slips_count">%1$d Aktive Slips</string>
+    <string name="remaining">Übrig</string>
+    <string name="smart_review_session_minutes">Intelligente Überprüfungssitzung (%1$dM)</string>
+    <string name="no_slips_to_review">Keine Belege zur Überprüfung</string>
+    <string name="vault_empty_now">Ihr Fehlerspeicher ist derzeit leer.</string>
+    <string name="slip_of_total">Beleg %1$d / %2$d</string>
+    <string name="pronunciation_remediation">Korrektur der Aussprache</string>
+    <string name="grammar_remediation">Grammatikkorrektur</string>
+    <string name="vocabulary_review">Vokabelüberprüfung</string>
+    <string name="session_complete">Sitzung abgeschlossen!</string>
+    <string name="reviewed_slips_count">Sie haben es überprüft %1$d rutscht aus.</string>
+    <string name="speak_word_instruction">Tippen Sie unten auf das Mikrofon und sprechen Sie das Wort laut aus. Konzentrieren Sie sich auf die Betonung der Silbe /%1$s/.</string>
+    <string name="recording_speak_clearly">Aufnahme... Sprechen Sie jetzt deutlich.</string>
+    <string name="recording_complete_how">Aufnahme abgeschlossen. Wie ist es dir ergangen?</string>
+    <string name="great_job_moving_on">Tolle Arbeit! Weiter geht\'s...</string>
+    <string name="noted_keep_practising">Zur Kenntnis genommen. Übe weiter!</string>
 </resources>
 
 

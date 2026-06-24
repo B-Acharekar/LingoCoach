@@ -610,4 +610,23 @@
     <string name="sort_learning_first">Aprender primero</string>
     <string name="words_count_progress">%1$d / %2$d palabras</string>
     <string name="most_used_words">Más utilizado</string>
+    <string name="no_slips_here">¡Aquí no hay resbalones!</string>
+    <string name="keep_practising_fill_vault">Sigue practicando para llenar tu bóveda.</string>
+    <string name="available_review">Revisión disponible</string>
+    <string name="active_slips_count">%1$d Resbalones activos</string>
+    <string name="remaining">Restante</string>
+    <string name="smart_review_session_minutes">Sesión de revisión inteligente (%1$dmetro)</string>
+    <string name="no_slips_to_review">No hay resbalones para revisar</string>
+    <string name="vault_empty_now">Su bóveda de errores está vacía en este momento.</string>
+    <string name="slip_of_total">Deslizar %1$d / %2$d</string>
+    <string name="pronunciation_remediation">Corrección de pronunciación</string>
+    <string name="grammar_remediation">Corrección gramatical</string>
+    <string name="vocabulary_review">Revisión de vocabulario</string>
+    <string name="session_complete">¡Sesión completa!</string>
+    <string name="reviewed_slips_count">tu revisaste %1$d resbalones.</string>
+    <string name="speak_word_instruction">Toca el micrófono de abajo y di la palabra en voz alta. Concéntrate en el acento de la sílaba /%1$s/.</string>
+    <string name="recording_speak_clearly">Grabando... habla claro ahora.</string>
+    <string name="recording_complete_how">Grabación completa. ¿Cómo te fue?</string>
+    <string name="great_job_moving_on">¡Buen trabajo! Continuando...</string>
+    <string name="noted_keep_practising">Anotado. ¡Sigue practicando!</string>
 </resources>

@@ -611,4 +611,23 @@
     <string name="sort_learning_first">学习第一</string>
     <string name="words_count_progress">%1$d / %2$d 字</string>
     <string name="most_used_words">最常用</string>
+    <string name="no_slips_here">这里没有滑倒！</string>
+    <string name="keep_practising_fill_vault">继续练习以填满你的金库。</string>
+    <string name="available_review">可用评论</string>
+    <string name="active_slips_count">%1$d 主动卡条</string>
+    <string name="remaining">其余的</string>
+    <string name="smart_review_session_minutes">智能评审会议 (%1$d米)</string>
+    <string name="no_slips_to_review">没有需要审查的单据</string>
+    <string name="vault_empty_now">您的错误库现在是空的。</string>
+    <string name="slip_of_total">滑 %1$d / %2$d</string>
+    <string name="pronunciation_remediation">发音矫正</string>
+    <string name="grammar_remediation">语法辅导</string>
+    <string name="vocabulary_review">词汇复习</string>
+    <string name="session_complete">会议结束！</string>
+    <string name="reviewed_slips_count">您评论了 %1$d 滑倒了。</string>
+    <string name="speak_word_instruction">点击下面的麦克风并大声说出这个单词。注意 /%1$s/ 音节重音。</string>
+    <string name="recording_speak_clearly">录音……现在说清楚。</string>
+    <string name="recording_complete_how">录音完成。你做得怎么样？</string>
+    <string name="great_job_moving_on">干得好！继续...</string>
+    <string name="noted_keep_practising">著名的。继续练习！</string>
 </resources>

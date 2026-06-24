@@ -611,4 +611,23 @@
     <string name="sort_learning_first">Önce Öğrenme</string>
     <string name="words_count_progress">%1$d / %2$d kelimeler</string>
     <string name="most_used_words">En Çok Kullanılan</string>
+    <string name="no_slips_here">Burada kayma yok!</string>
+    <string name="keep_practising_fill_vault">Kasanızı doldurmak için pratik yapmaya devam edin.</string>
+    <string name="available_review">Mevcut İnceleme</string>
+    <string name="active_slips_count">%1$d Aktif Fişler</string>
+    <string name="remaining">Geriye kalan</string>
+    <string name="smart_review_session_minutes">Akıllı İnceleme Oturumu (%1$dM)</string>
+    <string name="no_slips_to_review">İncelenecek slayt yok</string>
+    <string name="vault_empty_now">Hata kasanız şu anda boş.</string>
+    <string name="slip_of_total">Kayma %1$d / %2$d</string>
+    <string name="pronunciation_remediation">Telaffuz Düzeltme</string>
+    <string name="grammar_remediation">Dilbilgisi Düzeltme</string>
+    <string name="vocabulary_review">Kelime İncelemesi</string>
+    <string name="session_complete">Oturum Tamamlandı!</string>
+    <string name="reviewed_slips_count">İncelediniz %1$d Kayıyor.</string>
+    <string name="speak_word_instruction">Aşağıdaki mikrofona dokunun ve sözcüğü yüksek sesle söyleyin. /%1$s/ hece vurgusuna odaklanın.</string>
+    <string name="recording_speak_clearly">Kaydediliyor... Şimdi açıkça konuşun.</string>
+    <string name="recording_complete_how">Kayıt tamamlandı. Nasıl yaptın?</string>
+    <string name="great_job_moving_on">Harika iş! Devam ediyoruz...</string>
+    <string name="noted_keep_practising">Not edildi. Pratik yapmaya devam edin!</string>
 </resources>
