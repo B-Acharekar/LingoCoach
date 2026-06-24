@@ -1,4 +1,4 @@
-﻿package com.mk.lingocoach.ui.screens
+package com.mk.lingocoach.ui.screens
 
 import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -44,6 +44,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import com.mk.lingocoach.R
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -60,31 +62,30 @@ fun WelcomeAboardScreen(
 ) {
     val context = LocalContext.current
     val sharedPreferences = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
-    val cards = remember {
+    val cards =
         listOf(
             OnboardingCarouselCard(
-                title = "AI Language Coach",
-                description = "Personal feedback and guided practice shaped around your pace.",
+                title = stringResource(R.string.ai_language_coach_title),
+                description = stringResource(R.string.ai_language_coach_desc),
                 icon = Icons.Default.Psychology,
                 color = Color(0xFF6A5CFF),
                 animationUrl = "https://lottie.host/adf6baea-da11-4d02-8fdc-4044fe8270f6/yEzG9jPCbt.lottie"
             ),
             OnboardingCarouselCard(
-                title = "Interactive Conversations",
-                description = "Practice real situations with an AI tutor that keeps the flow natural.",
+                title = stringResource(R.string.interactive_conversations_title),
+                description = stringResource(R.string.interactive_conversations_desc),
                 icon = Icons.Default.Forum,
                 color = Color(0xFF00A3FF),
                 animationUrl = "https://lottie.host/ba7975e4-bb73-4984-a577-f4ff2220604e/AbMrjn9wby.lottie"
             ),
             OnboardingCarouselCard(
-                title = "Progress That Sticks",
-                description = "Track your level, mistakes, and wins as your learning path adapts.",
+                title = stringResource(R.string.progress_that_sticks_title),
+                description = stringResource(R.string.progress_that_sticks_desc),
                 icon = Icons.AutoMirrored.Filled.TrendingUp,
                 color = Color(0xFFFF8A3D),
                 animationUrl = "https://lottie.host/04364580-082d-4f76-a6a2-19d8eac77e9c/A6BnSRhyix.lottie"
             )
         )
-    }
     val pagerState = rememberPagerState(pageCount = { cards.size })
 
     fun finishOnboarding() {
@@ -126,21 +127,21 @@ fun WelcomeAboardScreen(
                 ) {
                     Icon(
                         Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back",
+                        contentDescription = stringResource(R.string.back),
                         tint = Color(0xFF6A5CFF),
                         modifier = Modifier.size(20.dp)
                     )
                 }
 
                 Text(
-                    "LingoCoach",
+                    stringResource(R.string.app_brand_short),
                     color = Color(0xFF6A5CFF),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.ExtraBold
                 )
 
                 Text(
-                    "Skip",
+                    stringResource(R.string.skip),
                     color = Color(0xFF6A5CFF),
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold,
@@ -161,7 +162,7 @@ fun WelcomeAboardScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    "Welcome aboard",
+                    stringResource(R.string.welcome_aboard_plain),
                     color = Color(0xFF101018),
                     fontSize = 30.sp,
                     fontWeight = FontWeight.ExtraBold,
@@ -169,7 +170,7 @@ fun WelcomeAboardScreen(
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    "Swipe through what LingoCoach will do for your speaking practice.",
+                    stringResource(R.string.welcome_swipe_intro),
                     color = Color(0xFF686875),
                     fontSize = 15.sp,
                     lineHeight = 22.sp,
@@ -210,7 +211,7 @@ fun WelcomeAboardScreen(
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6A5CFF)),
                 shape = RoundedCornerShape(18.dp)
             ) {
-                Text("Continue", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.continue_text), color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
             }
         }
     }

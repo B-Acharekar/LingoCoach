@@ -685,6 +685,7 @@ fun RetestModeOverlay(
     var typedAnswer     by remember { mutableStateOf("") }
     var feedbackText    by remember { mutableStateOf("") }
     val scope           = rememberCoroutineScope()
+    val context         = LocalContext.current
 
     val total    = sessionMistakes.size
     val progress = if (total > 0) (currentIndex.toFloat() / total) else 0f
@@ -787,7 +788,7 @@ fun RetestModeOverlay(
                             val isCorrect = normalizeRetestAnswer(typedAnswer) == normalizeRetestAnswer(expected)
                             if (isCorrect) {
                                 masteredIndices = masteredIndices + currentIndex
-                                feedbackText = "Correct. This slip is mastered."
+                                feedbackText = context.getString(R.string.slip_mastered_feedback)
                                 cardState = RetestCardState.MARKED_CORRECT
                                 if (mistake.source == "server" && mistake.id.isNotBlank()) {
                                     AssessmentApi.markMistakeResolved(userId, mistake.id) { ok ->
@@ -807,7 +808,7 @@ fun RetestModeOverlay(
                                 }
                             } else {
                                 reviewIndices = reviewIndices + currentIndex
-                                feedbackText = "Not quite. Check the correction and try this one again."
+                                feedbackText = context.getString(R.string.slip_retry_feedback)
                                 cardState = RetestCardState.MARKED_WRONG
                                 scope.launch {
                                     delay(900)
@@ -917,7 +918,7 @@ private fun RetestTopBar(current: Int, total: Int, progress: Float, onClose: () 
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             IconButton(onClick = onClose) {
-                Icon(Icons.Default.Close, contentDescription = "Close", tint = VaultTextMid)
+                Icon(Icons.Default.Close, contentDescription = stringResource(R.string.close), tint = VaultTextMid)
             }
             Text(
                 "Slip $current of $total",
@@ -1253,7 +1254,7 @@ private fun MicButton(scale: Float, isActive: Boolean, onClick: () -> Unit) {
     ) {
         Icon(
             Icons.Default.Mic,
-            contentDescription = "Record",
+            contentDescription = stringResource(R.string.record),
             tint               = Color.White,
             modifier           = Modifier.size(32.dp)
         )
@@ -1340,7 +1341,7 @@ private fun RetestSessionSummary(
             ) {
                 Icon(Icons.Default.Refresh, contentDescription = null, tint = Color.White)
                 Spacer(Modifier.width(8.dp))
-                Text("Retry ${reviewCount} Slip${if (reviewCount != 1) "s" else ""}", color = Color.White, fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.retry_slips, reviewCount), color = Color.White, fontWeight = FontWeight.Bold)
             }
             Spacer(Modifier.height(12.dp))
         }

@@ -30,6 +30,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -54,22 +55,22 @@ private val SetupAmber       = Color(0xFFFFB800)
 private val SetupCardBorder  = Color(0xFFEEECFF)
 
 // â”€â”€â”€ Data models â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-private data class GoalOption(val id: String, val title: String, val subtitle: String, val icon: ImageVector)
-private data class LevelOption(val id: String, val title: String, val subtitle: String, val icon: ImageVector)
+private data class GoalOption(val id: String, val titleRes: Int, val subtitleRes: Int, val icon: ImageVector)
+private data class LevelOption(val id: String, val titleRes: Int, val subtitleRes: Int, val icon: ImageVector)
 
 private val goalOptions = listOf(
-    GoalOption("job_interview", "Job Interviews",         "Speak confidently in interviews",      Icons.Default.Work),
-    GoalOption("business",      "Business Communication", "Improve workplace conversations",       Icons.Default.BusinessCenter),
-    GoalOption("study_abroad",  "Study Abroad",           "Communicate while studying overseas",   Icons.Default.School),
-    GoalOption("travel",        "Travel",                 "Speak easily while travelling",         Icons.Default.Flight),
-    GoalOption("daily_life",    "Daily Life",             "Handle everyday situations with ease",  Icons.Default.Home),
-    GoalOption("general",       "General Improvement",    "Build fluency across all areas",        Icons.AutoMirrored.Filled.TrendingUp)
+    GoalOption("job_interview", R.string.goal_job_interviews, R.string.goal_job_interviews_desc, Icons.Default.Work),
+    GoalOption("business", R.string.goal_business_communication, R.string.goal_business_communication_desc, Icons.Default.BusinessCenter),
+    GoalOption("study_abroad", R.string.goal_study_abroad, R.string.goal_study_abroad_desc, Icons.Default.School),
+    GoalOption("travel", R.string.travel, R.string.goal_travel_desc, Icons.Default.Flight),
+    GoalOption("daily_life", R.string.goal_daily_life, R.string.goal_daily_life_desc, Icons.Default.Home),
+    GoalOption("general", R.string.goal_general_improvement, R.string.goal_general_improvement_desc, Icons.AutoMirrored.Filled.TrendingUp)
 )
 
 private val levelOptions = listOf(
-    LevelOption("beginner",     "Beginner",      "I'm just getting started",      Icons.Default.Person),
-    LevelOption("intermediate", "Intermediate",  "I can have basic conversations", Icons.Default.Mic),
-    LevelOption("advanced",     "Advanced",      "I can speak comfortably",        Icons.Default.RecordVoiceOver)
+    LevelOption("beginner", R.string.beginner, R.string.level_beginner_desc, Icons.Default.Person),
+    LevelOption("intermediate", R.string.intermediate, R.string.level_intermediate_desc, Icons.Default.Mic),
+    LevelOption("advanced", R.string.advanced, R.string.level_advanced_desc, Icons.Default.RecordVoiceOver)
 )
 
 private fun normalizeUsernameInput(value: String): String =
@@ -249,7 +250,7 @@ private fun SetupTopBar(step: Int, totalSteps: Int, onBack: () -> Unit) {
         ) {
             Icon(
                 Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = "Back",
+                contentDescription = stringResource(R.string.back),
                 tint = SetupPurple,
                 modifier = Modifier.size(17.dp)
             )
@@ -327,7 +328,7 @@ private fun StepName(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    if (isReturningUserMode) "Enter your username" else "What's your name?",
+                    if (isReturningUserMode) stringResource(R.string.enter_your_username) else stringResource(R.string.whats_your_name),
                     style = TextStyle(color = SetupTextDark, fontSize = 28.sp, fontWeight = FontWeight.Bold)
                 )
                 TextButton(
@@ -343,7 +344,7 @@ private fun StepName(
                         )
                     } else {
                         Text(
-                            if (isReturningUserMode) "New user?" else "Already a user?",
+                            if (isReturningUserMode) stringResource(R.string.new_user_question) else stringResource(R.string.already_user_question),
                             color = SetupPurple,
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Bold
@@ -354,9 +355,9 @@ private fun StepName(
             Spacer(Modifier.height(8.dp))
             Text(
                 if (isReturningUserMode) {
-                    "Verify your username and we'll restore your existing LingoCoach session."
+                    stringResource(R.string.verify_username_restore)
                 } else {
-                    "Tell us what to call you and choose a unique username."
+                    stringResource(R.string.tell_us_name_username)
                 },
                 style = TextStyle(color = SetupTextMid, fontSize = 15.sp, lineHeight = 22.sp)
             )
@@ -366,8 +367,8 @@ private fun StepName(
                 OutlinedTextField(
                     value          = displayName,
                     onValueChange  = onNameChange,
-                    label          = { Text("Full name") },
-                    placeholder    = { Text("e.g. Alex Mercer", color = SetupTextLight, fontSize = 16.sp) },
+                    label          = { Text(stringResource(R.string.full_name)) },
+                    placeholder    = { Text(stringResource(R.string.full_name_example), color = SetupTextLight, fontSize = 16.sp) },
                     singleLine     = true,
                     modifier       = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
                     shape          = RoundedCornerShape(16.dp),
@@ -393,7 +394,7 @@ private fun StepName(
             OutlinedTextField(
                 value          = username,
                 onValueChange  = onUsernameChange,
-                label          = { Text(if (isReturningUserMode) "Username" else "How should we remember you?") },
+                label          = { Text(if (isReturningUserMode) stringResource(R.string.username) else stringResource(R.string.remember_you_label)) },
                 placeholder    = { Text("alex_mercer", color = SetupTextLight, fontSize = 16.sp) },
                 leadingIcon    = {
                     Text("@", color = SetupPurple, fontSize = 18.sp, fontWeight = FontWeight.Bold)
@@ -404,11 +405,11 @@ private fun StepName(
                     usernameAvailabilityError != null,
                 supportingText = {
                     val helperText = if (isReturningUserMode) {
-                        existingUserError ?: usernameError ?: "Use your saved LingoCoach username."
+                        existingUserError ?: usernameError ?: stringResource(R.string.saved_username_hint)
                     } else {
                         usernameAvailabilityError
                             ?: usernameError
-                            ?: "3-20 chars, starts with a letter. Use lowercase, numbers, underscores."
+                            ?: stringResource(R.string.username_rules_hint)
                     }
                     val hasError = usernameError != null || existingUserError != null || usernameAvailabilityError != null
                     Text(
@@ -453,10 +454,10 @@ private fun StepName(
         SetupContinueButton(
             enabled = if (isReturningUserMode) canVerifyExisting else canContinue,
             label   = when {
-                isReturningUserMode && isExistingUserLoading -> "Verifying..."
-                isReturningUserMode -> "Verify & Continue"
-                isUsernameCheckLoading -> "Checking..."
-                else -> "Continue"
+                isReturningUserMode && isExistingUserLoading -> stringResource(R.string.verifying)
+                isReturningUserMode -> stringResource(R.string.verify_continue)
+                isUsernameCheckLoading -> stringResource(R.string.checking)
+                else -> stringResource(R.string.continue_text)
             },
             onClick = {
                 keyboard?.hide()
@@ -486,12 +487,12 @@ private fun StepGoal(
         Column(modifier = Modifier.weight(1f)) {
             Spacer(Modifier.height(28.dp))
             Text(
-                "What is your goal?",
+                stringResource(R.string.what_is_your_goal),
                 style = TextStyle(color = SetupTextDark, fontSize = 28.sp, fontWeight = FontWeight.Bold)
             )
             Spacer(Modifier.height(8.dp))
             Text(
-                "Choose one or more goals so we can personalise your learning journey.",
+                stringResource(R.string.choose_goals_desc),
                 style = TextStyle(color = SetupTextMid, fontSize = 15.sp, lineHeight = 22.sp)
             )
             Spacer(Modifier.height(20.dp))
@@ -502,8 +503,8 @@ private fun StepGoal(
             ) {
                 goalOptions.forEach { option ->
                     SetupSelectionCard(
-                        title    = option.title,
-                        subtitle = option.subtitle,
+                        title    = stringResource(option.titleRes),
+                        subtitle = stringResource(option.subtitleRes),
                         icon     = option.icon,
                         selected = selectedGoals.contains(option.id),
                         onClick  = { onGoalToggled(option.id) }
@@ -515,7 +516,7 @@ private fun StepGoal(
 
         SetupContinueButton(
             enabled = selectedGoals.isNotEmpty(),
-            label   = "Continue",
+            label   = stringResource(R.string.continue_text),
             onClick = onContinue
         )
     }
@@ -537,12 +538,12 @@ private fun StepLevel(
         Column {
             Spacer(Modifier.height(28.dp))
             Text(
-                "What is your current level?",
+                stringResource(R.string.what_is_current_level),
                 style = TextStyle(color = SetupTextDark, fontSize = 28.sp, fontWeight = FontWeight.Bold)
             )
             Spacer(Modifier.height(8.dp))
             Text(
-                "This will help us assess you better.",
+                stringResource(R.string.assess_better_desc),
                 style = TextStyle(color = SetupTextMid, fontSize = 15.sp, lineHeight = 22.sp)
             )
             Spacer(Modifier.height(24.dp))
@@ -550,8 +551,8 @@ private fun StepLevel(
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 levelOptions.forEach { option ->
                     SetupSelectionCard(
-                        title    = option.title,
-                        subtitle = option.subtitle,
+                        title    = stringResource(option.titleRes),
+                        subtitle = stringResource(option.subtitleRes),
                         icon     = option.icon,
                         selected = selectedLevel == option.id,
                         onClick  = { onLevelSelected(option.id) }
@@ -562,7 +563,7 @@ private fun StepLevel(
 
         SetupContinueButton(
             enabled = selectedLevel.isNotBlank(),
-            label   = "Continue",
+            label   = stringResource(R.string.continue_text),
             onClick = onContinue
         )
     }
@@ -662,7 +663,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
             Spacer(Modifier.height(28.dp))
 
             Text(
-                "Speaking Assessment",
+                stringResource(R.string.speaking_assessment),
                 style = TextStyle(
                     color      = SetupTextDark,
                     fontSize   = 22.sp,
@@ -672,7 +673,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
             )
             Spacer(Modifier.height(8.dp))
             Text(
-                "Let's understand your speaking level",
+                stringResource(R.string.understand_speaking_level),
                 style = TextStyle(
                     color     = SetupTextMid,
                     fontSize  = 15.sp,
@@ -694,9 +695,9 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(14.dp)) {
                     listOf(
-                        "5 short questions",
-                        "Takes about 3 minutes",
-                        "Get instant AI feedback"
+                        stringResource(R.string.five_short_questions),
+                        stringResource(R.string.takes_three_minutes),
+                        stringResource(R.string.instant_ai_feedback)
                     ).forEach { item ->
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Box(
@@ -723,7 +724,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
 
         SetupContinueButton(
             enabled = true,
-            label   = "Start Assessment",
+            label   = stringResource(R.string.start_assessment),
             onClick = onStartAssessment
         )
     }

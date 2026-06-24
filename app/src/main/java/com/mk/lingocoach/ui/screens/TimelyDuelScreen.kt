@@ -266,13 +266,13 @@ fun DuelSetupScreen(
             ) {
                 Icon(Icons.Default.Timer, contentDescription = null, tint = dark, modifier = Modifier.size(36.dp))
                 Spacer(Modifier.height(10.dp))
-                Text("Battle Against Time", color = dark, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
-                Text("Answer before the clock runs out!", color = dark.copy(0.65f), fontSize = 12.sp)
+                Text(stringResource(R.string.battle_against_time), color = dark, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
+                Text(stringResource(R.string.answer_before_clock), color = dark.copy(0.65f), fontSize = 12.sp)
             }
         }
 
         Spacer(Modifier.height(28.dp))
-        Text("Choose Difficulty", color = dark, fontSize = 16.sp, fontWeight = FontWeight.Bold,
+        Text(stringResource(R.string.choose_difficulty), color = dark, fontSize = 16.sp, fontWeight = FontWeight.Bold,
             modifier = Modifier.fillMaxWidth())
         Spacer(Modifier.height(12.dp))
 
@@ -337,7 +337,7 @@ fun DuelSetupScreen(
         ) {
             Icon(Icons.Default.PlayArrow, contentDescription = null, tint = Color.White, modifier = Modifier.size(20.dp))
             Spacer(Modifier.width(8.dp))
-            Text("Start Duel", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+            Text(stringResource(R.string.start_duel), color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
         }
         Spacer(Modifier.height(24.dp))
     }
@@ -429,7 +429,7 @@ fun DuelGameScreen(
         // Header
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f)) {
-                Text("Question $questionNum / $totalQuestions", color = TextLight, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.question_fraction, questionNum, totalQuestions), color = TextLight, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                 LinearProgressIndicator(
                     progress = { questionNum / totalQuestions.toFloat() },
                     modifier = Modifier.fillMaxWidth().height(4.dp).clip(CircleShape),
@@ -482,7 +482,7 @@ fun DuelGameScreen(
             Column(modifier = Modifier.padding(20.dp)) {
                 when (question.type) {
                     DuelQuestionType.SPELLING -> {
-                        Text("Listen and type the word", color = TextDark, fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.listen_type_word), color = TextDark, fontSize = 15.sp, fontWeight = FontWeight.Bold)
                         Spacer(Modifier.height(4.dp))
                         Text("/${question.vocabWord.pronunciation}/", color = TextLight,
                             fontSize = 13.sp, fontStyle = FontStyle.Italic)
@@ -496,7 +496,7 @@ fun DuelGameScreen(
                         )
                     }
                     DuelQuestionType.PRONUNCIATION -> {
-                        Text("Speak this word aloud:", color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.speak_word_aloud), color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.Bold)
                         Spacer(Modifier.height(8.dp))
                         Text(question.vocabWord.word, color = TextDark, fontSize = 28.sp, fontWeight = FontWeight.ExtraBold)
                         Text("(${question.vocabWord.partOfSpeech}) /${question.vocabWord.pronunciation}/",
@@ -511,13 +511,13 @@ fun DuelGameScreen(
                         )
                     }
                     DuelQuestionType.FILL_BLANK -> {
-                        Text("Complete the sentence:", color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.complete_sentence), color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.Bold)
                         Spacer(Modifier.height(10.dp))
                         Text(question.fillBlankText, color = TextDark, fontSize = 15.sp,
                             fontWeight = FontWeight.Medium, lineHeight = 22.sp)
                     }
                     DuelQuestionType.SENTENCE -> {
-                        Text("Frame a sentence using:", color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.frame_sentence_using), color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.Bold)
                         Spacer(Modifier.height(10.dp))
                         Text(question.vocabWord.word, color = TextDark, fontSize = 26.sp, fontWeight = FontWeight.ExtraBold)
                         Text("${question.vocabWord.partOfSpeech} · ${question.vocabWord.meaning}",
@@ -567,7 +567,7 @@ fun DuelGameScreen(
 
             DuelQuestionType.SPELLING, DuelQuestionType.SENTENCE -> {
                 val placeholder = if (question.type == DuelQuestionType.SPELLING)
-                    "Type the word..." else "Write your sentence using the word..."
+                    stringResource(R.string.type_word_placeholder) else stringResource(R.string.write_sentence_placeholder)
                 OutlinedTextField(
                     value = userInput,
                     onValueChange = { if (!answered) userInput = it },
@@ -611,7 +611,7 @@ fun DuelGameScreen(
                         disabledContainerColor = BrandPurple.copy(0.4f)),
                     shape = RoundedCornerShape(14.dp)
                 ) {
-                    Text("Submit", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 15.sp)
+                    Text(stringResource(R.string.submit), color = Color.White, fontWeight = FontWeight.Bold, fontSize = 15.sp)
                 }
             }
 
@@ -627,7 +627,7 @@ fun DuelGameScreen(
                     ) {
                         Icon(Icons.Default.Close, contentDescription = null, tint = BrandRed, modifier = Modifier.size(16.dp))
                         Spacer(Modifier.width(4.dp))
-                        Text("Wrong", color = BrandRed, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.wrong), color = BrandRed, fontWeight = FontWeight.Bold)
                     }
                     Button(
                         onClick = { submitAnswer(true) },
@@ -638,14 +638,14 @@ fun DuelGameScreen(
                     ) {
                         Icon(Icons.Default.Check, contentDescription = null, tint = BrandGreen, modifier = Modifier.size(16.dp))
                         Spacer(Modifier.width(4.dp))
-                        Text("Got it", color = BrandGreen, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.got_it), color = BrandGreen, fontWeight = FontWeight.Bold)
                     }
                 }
                 Spacer(Modifier.height(12.dp))
                 PronunciationBar(
                     word = question.vocabWord.word,
                     tts = tts,
-                    label = "Listen Again"
+                    label = stringResource(R.string.listen_again)
                 )
             }
         }
@@ -670,13 +670,13 @@ fun DuelGameScreen(
                     Spacer(Modifier.width(12.dp))
                     Column {
                         Text(
-                            if (showResult == true) "Correct! +${difficulty.xpGain} XP"
-                            else "Wrong! -${difficulty.xpLoss} XP",
+                            if (showResult == true) stringResource(R.string.correct_xp, difficulty.xpGain)
+                            else stringResource(R.string.wrong_xp, difficulty.xpLoss),
                             color = if (showResult == true) BrandGreen else BrandRed,
                             fontWeight = FontWeight.Bold, fontSize = 14.sp
                         )
                         if (showResult == false) {
-                            Text("Answer: ${question.vocabWord.word}", color = TextDark, fontSize = 13.sp)
+                            Text(stringResource(R.string.answer_format, question.vocabWord.word), color = TextDark, fontSize = 13.sp)
                         }
                     }
                 }
@@ -737,10 +737,10 @@ fun DuelResultScreen(
         )
         Spacer(Modifier.height(12.dp))
         Text(
-            if (accuracy >= 80) "Excellent!" else if (accuracy >= 60) "Good Job!" else "Keep Practicing!",
+            if (accuracy >= 80) stringResource(R.string.excellent) else if (accuracy >= 60) stringResource(R.string.good_job) else stringResource(R.string.duel_keep_practicing),
             color = TextDark, fontSize = 24.sp, fontWeight = FontWeight.ExtraBold
         )
-        Text("${difficulty.label} Duel Complete", color = TextMid, fontSize = 14.sp)
+        Text(stringResource(R.string.duel_complete, difficulty.label), color = TextMid, fontSize = 14.sp)
 
         Spacer(Modifier.height(28.dp))
 
@@ -752,9 +752,9 @@ fun DuelResultScreen(
         ) {
             Column(modifier = Modifier.padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                    ResultStat("CORRECT", "$correctCount", BrandGreen)
-                    ResultStat("WRONG", "$wrongCount", BrandRed)
-                    ResultStat("ACCURACY", "$accuracy%", BrandPurple)
+                    ResultStat(stringResource(R.string.stat_correct).uppercase(), "$correctCount", BrandGreen)
+                    ResultStat(stringResource(R.string.stat_wrong).uppercase(), "$wrongCount", BrandRed)
+                    ResultStat(stringResource(R.string.stat_accuracy).uppercase(), "$accuracy%", BrandPurple)
                 }
                 HorizontalDivider(color = CardBorderColor)
                 // XP summary
@@ -775,10 +775,10 @@ fun DuelResultScreen(
                         )
                         Spacer(Modifier.width(10.dp))
                         Column {
-                            Text("XP ${if (isPositive) "Gained" else "Lost"}",
+                            Text(if (isPositive) stringResource(R.string.xp_gained) else stringResource(R.string.xp_lost),
                                 color = TextMid, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                             Text(
-                                "${if (isPositive) "+" else ""}$xpDelta XP",
+                                "${if (isPositive) "+" else ""}${stringResource(R.string.xp_amount, kotlin.math.abs(xpDelta))}",
                                 color = if (isPositive) BrandGreen else BrandRed,
                                 fontSize = 22.sp, fontWeight = FontWeight.ExtraBold
                             )
@@ -799,7 +799,7 @@ fun DuelResultScreen(
         ) {
             Icon(Icons.Default.Refresh, null, tint = Color.White, modifier = Modifier.size(20.dp))
             Spacer(Modifier.width(8.dp))
-            Text("Play Again", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+            Text(stringResource(R.string.play_again), color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
         }
 
         Spacer(Modifier.height(10.dp))
@@ -812,7 +812,7 @@ fun DuelResultScreen(
         ) {
             Icon(Icons.Default.Home, null, tint = BrandPurple, modifier = Modifier.size(18.dp))
             Spacer(Modifier.width(8.dp))
-            Text("Back to Home", color = BrandPurple, fontSize = 15.sp, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.back_to_home), color = BrandPurple, fontSize = 15.sp, fontWeight = FontWeight.Bold)
         }
     }
 }

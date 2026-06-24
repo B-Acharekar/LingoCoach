@@ -38,11 +38,10 @@ import androidx.compose.ui.window.DialogProperties
 import com.mk.lingocoach.R
 import com.mk.lingocoach.config.AppConfig
 import com.mk.lingocoach.notifications.NotificationScheduler
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.os.LocaleListCompat
 import androidx.core.content.FileProvider
 import com.mk.lingocoach.data.model.appLanguages
 import com.mk.lingocoach.data.repository.LanguagePreferencesRepository
+import com.mk.lingocoach.data.repository.AppLocaleManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
@@ -416,12 +415,8 @@ fun SettingsScreen(
                     .putString("selected_language", code)
                     .apply()
                 AppCache.regenerateLocalizedLearningPath(context, code)
-                scope.launch(Dispatchers.Main) {
-                    languageRepository.saveSelectedLanguage(code)
-                    AppCompatDelegate.setApplicationLocales(
-                        LocaleListCompat.forLanguageTags(if (code == "system") "" else code)
-                    )
-                }
+                AppLocaleManager.setLanguage(code)
+                scope.launch(Dispatchers.Main) { languageRepository.saveSelectedLanguage(code) }
                 showLangDialog = false
             }
         )

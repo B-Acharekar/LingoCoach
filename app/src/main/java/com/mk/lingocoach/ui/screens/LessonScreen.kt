@@ -36,6 +36,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -165,7 +166,7 @@ fun LessonScreen(
                                     }
                                     Spacer(Modifier.width(10.dp))
                                     Column(Modifier.weight(1f)) {
-                                        Text("LESSON PART ${sub.order} OF ${currentSublessonsList.size}", color = BrandPurple, fontSize = 8.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.7.sp)
+                                        Text(stringResource(R.string.lesson_part_of, sub.order, currentSublessonsList.size).uppercase(), color = BrandPurple, fontSize = 8.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.7.sp)
                                         Text(sub.title, color = Color(0xFF17133B), fontSize = 13.sp, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
                                     }
                                 }
@@ -188,7 +189,7 @@ fun LessonScreen(
                                     DropdownMenuItem(
                                         text = {
                                             Text(
-                                                text = "Part ${subItem.order}: ${subItem.title}",
+                                                text = stringResource(R.string.part_title, subItem.order, subItem.title),
                                                 color = if (isSelected) BrandPurple else TextDark,
                                                 fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
                                                 fontSize = 13.sp
@@ -289,7 +290,7 @@ fun LsTopBar(
             ) {
                 Icon(
                     Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Back",
+                    contentDescription = stringResource(R.string.back),
                     tint = BrandPurple,
                     modifier = Modifier.size(18.dp)
                 )
@@ -318,7 +319,7 @@ fun LsTopBar(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(Icons.Default.Star, contentDescription = null, tint = BrandAmberDark, modifier = Modifier.size(12.dp))
                     Spacer(Modifier.width(3.dp))
-                    Text("20 XP", color = BrandAmberDark, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold)
+                    Text(stringResource(R.string.xp_amount, 20), color = BrandAmberDark, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold)
                 }
             }
         }
@@ -346,7 +347,7 @@ fun LsTopBar(
             ) {
                 Icon(Icons.Default.Replay, contentDescription = null, tint = BrandAmberDark, modifier = Modifier.size(12.dp))
                 Spacer(Modifier.width(4.dp))
-                Text("Retry round | $retryCount left", color = BrandAmberDark, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.retry_round_left, retryCount), color = BrandAmberDark, fontSize = 10.sp, fontWeight = FontWeight.Bold)
             }
         }
     }
@@ -390,7 +391,7 @@ fun LsContentPhase(
                         Icon(Icons.Default.AutoStories, null, tint = Color.White, modifier = Modifier.size(20.dp))
                     }
                     Spacer(Modifier.width(10.dp))
-                    Text("LEARN", color = Color.White.copy(0.7f), fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
+                    Text(stringResource(R.string.learn).uppercase(), color = Color.White.copy(0.7f), fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
                 }
                 Spacer(Modifier.height(15.dp))
                 Text(sublesson.title, color = Color.White, fontSize = 23.sp, fontWeight = FontWeight.ExtraBold, lineHeight = 28.sp)
@@ -415,7 +416,7 @@ fun LsContentPhase(
         LsLearningOutcomes(sublesson.title, examples.isNotEmpty(), tips.isNotEmpty())
         Spacer(Modifier.height(24.dp))
 
-        LsLearningStepHeader(1, "Understand the concept", "Focus on the rule and why it works.")
+        LsLearningStepHeader(1, stringResource(R.string.understand_concept), stringResource(R.string.focus_rule_why))
         Spacer(Modifier.height(12.dp))
         (explanations + supportingBlocks).forEach { block ->
             LsContentBlockCard(block)
@@ -428,7 +429,7 @@ fun LsContentPhase(
 
         if (examples.isNotEmpty()) {
             Spacer(Modifier.height(10.dp))
-            LsLearningStepHeader(2, "See it in context", "Notice how the concept changes real communication.")
+            LsLearningStepHeader(2, stringResource(R.string.see_context), stringResource(R.string.notice_real_communication))
             Spacer(Modifier.height(12.dp))
             examples.forEach { block ->
                 LsContentBlockCard(block)
@@ -438,7 +439,7 @@ fun LsContentPhase(
 
         if (tips.isNotEmpty()) {
             Spacer(Modifier.height(10.dp))
-            LsLearningStepHeader(3, "Make it stick", "Use this shortcut to remember the idea.")
+            LsLearningStepHeader(3, stringResource(R.string.make_it_stick), stringResource(R.string.remember_shortcut))
             Spacer(Modifier.height(12.dp))
             tips.forEach { block ->
                 LsContentBlockCard(block)
@@ -490,8 +491,8 @@ private fun LsLearningOutcomes(title: String, hasExamples: Boolean, hasTips: Boo
             }
             Spacer(Modifier.width(11.dp))
             Column {
-                Text("YOUR GOAL", color = BrandPurple, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
-                Text("By the end, you can...", color = Color(0xFF17133B), fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+                Text(stringResource(R.string.your_goal).uppercase(), color = BrandPurple, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
+                Text(stringResource(R.string.by_end_you_can), color = Color(0xFF17133B), fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
             }
         }
         Spacer(Modifier.height(15.dp))
@@ -540,12 +541,12 @@ private fun LsReadyForPracticeCard(questionCount: Int, onStartExercises: () -> U
             }
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
-                Text("PAUSE AND RECALL", color = BrandAmberDark, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.7.sp)
-                Text("Can you explain the idea?", color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
+                Text(stringResource(R.string.pause_and_recall).uppercase(), color = BrandAmberDark, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.7.sp)
+                Text(stringResource(R.string.explain_idea), color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
             }
         }
         Spacer(Modifier.height(13.dp))
-        Text("Take a moment to say the rule in your own words. If you can, you are ready to use it.", color = TextLight, fontSize = 13.sp, lineHeight = 19.sp)
+        Text(stringResource(R.string.recall_instruction), color = TextLight, fontSize = 13.sp, lineHeight = 19.sp)
         Spacer(Modifier.height(17.dp))
         Box(
             modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(17.dp))
@@ -554,7 +555,7 @@ private fun LsReadyForPracticeCard(questionCount: Int, onStartExercises: () -> U
             contentAlignment = Alignment.Center
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("I'm ready | $questionCount questions", color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
+                Text(stringResource(R.string.ready_questions, questionCount), color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold)
                 Spacer(Modifier.width(8.dp))
                 Icon(Icons.AutoMirrored.Filled.ArrowForward, null, tint = Color.White, modifier = Modifier.size(18.dp))
             }
@@ -937,7 +938,7 @@ fun LsFeedbackBanner(isCorrect: Boolean, feedback: String) {
             }
             Spacer(Modifier.width(12.dp))
             Column {
-                Text(if (isCorrect) "Correct!" else "Not quite...", color = border, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
+                Text(if (isCorrect) stringResource(R.string.correct_xp, 0).substringBefore("+").trim() else stringResource(R.string.not_quite), color = border, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                 Spacer(Modifier.height(4.dp))
                 Text(feedback, color = TextDark, fontSize = 13.sp, lineHeight = 18.sp)
             }
@@ -952,7 +953,7 @@ fun LsLoadingView() {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             CircularProgressIndicator(color = BrandPurple, strokeWidth = 3.dp)
             Spacer(Modifier.height(16.dp))
-            Text("Loading lesson…", color = TextMid, fontSize = 14.sp)
+            Text(stringResource(R.string.loading_lesson), color = TextMid, fontSize = 14.sp)
         }
     }
 }
@@ -976,12 +977,12 @@ fun LsErrorView(onBack: () -> Unit, onRetry: () -> Unit) {
                     onClick = onBack,
                     shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = BrandPurpleSoft)
-                ) { Text("Go Back", color = BrandPurple) }
+                ) { Text(stringResource(R.string.go_back), color = BrandPurple) }
                 Button(
                     onClick = onRetry,
                     shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = BrandPurple)
-                ) { Text("Retry", color = Color.White, fontWeight = FontWeight.Bold) }
+                ) { Text(stringResource(R.string.retry), color = Color.White, fontWeight = FontWeight.Bold) }
             }
         }
     }
@@ -1013,14 +1014,14 @@ fun LsCompleteButton(
             Box(Modifier.size(50.dp).background(Color(0xFFFFF5DD), RoundedCornerShape(16.dp)), contentAlignment = Alignment.Center) {
                 Image(
                     painter = painterResource(R.drawable.trophy),
-                    contentDescription = "Trophy",
+                    contentDescription = stringResource(R.string.trophy),
                     modifier = Modifier.size(36.dp),
                     contentScale = ContentScale.Fit
                 )
             }
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
-                Text("READY TO COMPLETE", color = BrandGreen, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
+                Text(stringResource(R.string.ready_to_complete).uppercase(), color = BrandGreen, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
                 Text(sublesson.title, color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold, maxLines = 2, overflow = TextOverflow.Ellipsis)
             }
         }
@@ -1028,7 +1029,7 @@ fun LsCompleteButton(
         Spacer(Modifier.height(18.dp))
         HorizontalDivider(color = Color(0xFFECE9F3))
         Spacer(Modifier.height(16.dp))
-        Text("Performance summary", color = Color(0xFF17133B), fontSize = 14.sp, fontWeight = FontWeight.Bold)
+        Text(stringResource(R.string.performance_summary), color = Color(0xFF17133B), fontSize = 14.sp, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(11.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
             LsSummaryPill("ACCURACY", "$accuracy%", BrandPurple, Modifier.weight(1f))
@@ -1232,7 +1233,7 @@ fun LsCompletionView(
                     ) {
                         Image(
                             painter = painterResource(R.drawable.trophy),
-                            contentDescription = "Trophy",
+                            contentDescription = stringResource(R.string.trophy),
                             modifier = Modifier.size((122 * pulse).dp)
                         )
                     }
@@ -1244,7 +1245,7 @@ fun LsCompletionView(
                         style = TextStyle(color = TextDark, fontSize = 28.sp, fontWeight = FontWeight.ExtraBold)
                     )
                     Spacer(Modifier.height(8.dp))
-                    Text("Great work! You're making real progress.", color = TextMid, fontSize = 14.sp, textAlign = TextAlign.Center)
+                    Text(stringResource(R.string.great_work_progress), color = TextMid, fontSize = 14.sp, textAlign = TextAlign.Center)
 
                     Spacer(Modifier.height(28.dp))
 
@@ -1258,7 +1259,7 @@ fun LsCompletionView(
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(Icons.Default.Star, null, tint = Color.White, modifier = Modifier.size(20.dp))
                             Spacer(Modifier.width(8.dp))
-                            Text("+$totalXp XP Earned", color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
+                            Text(stringResource(R.string.xp_earned, totalXp), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
                         }
                     }
 
@@ -1275,7 +1276,7 @@ fun LsCompletionView(
                                 .padding(18.dp),
                             contentAlignment = Alignment.Center
                         ) {
-                            Text("Next Lesson  →", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+                            Text(stringResource(R.string.next_lesson), color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
                         }
                         Spacer(Modifier.height(12.dp))
                     }
@@ -1291,7 +1292,7 @@ fun LsCompletionView(
                             .padding(18.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text("Back to Home", color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.back_to_home), color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                     }
                 }
             }
@@ -1330,13 +1331,13 @@ private fun LsProfessionalCompletionView(
         Box(Modifier.size(82.dp).background(Color(0xFFFFF5DD), RoundedCornerShape(26.dp)), contentAlignment = Alignment.Center) {
             Image(
                 painter = painterResource(R.drawable.trophy),
-                contentDescription = "Lesson completed trophy",
+                contentDescription = stringResource(R.string.lesson_completed_trophy),
                 modifier = Modifier.size(62.dp),
                 contentScale = ContentScale.Fit
             )
         }
         Spacer(Modifier.height(18.dp))
-        Text("Lesson completed", color = Color(0xFF17133B), fontSize = 26.sp, fontWeight = FontWeight.ExtraBold)
+        Text(stringResource(R.string.lesson_completed), color = Color(0xFF17133B), fontSize = 26.sp, fontWeight = FontWeight.ExtraBold)
         Spacer(Modifier.height(6.dp))
         Text(resultLabel, color = TextLight, fontSize = 14.sp, textAlign = TextAlign.Center)
 
@@ -1349,9 +1350,9 @@ private fun LsProfessionalCompletionView(
                 .border(1.dp, Color(0xFFE4E1EF), RoundedCornerShape(22.dp))
                 .padding(20.dp)
         ) {
-            Text("Result", color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
+            Text(stringResource(R.string.result), color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(4.dp))
-            Text("Your performance for this lesson", color = TextLight, fontSize = 12.sp)
+            Text(stringResource(R.string.lesson_performance), color = TextLight, fontSize = 12.sp)
             Spacer(Modifier.height(18.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
                 LsSummaryPill("ACCURACY", "$accuracy%", BrandPurple, Modifier.weight(1f))
@@ -1376,7 +1377,7 @@ private fun LsProfessionalCompletionView(
                 shape = RoundedCornerShape(16.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = BrandPurple)
             ) {
-                Text("Continue to next lesson", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.continue_next_lesson), fontSize = 15.sp, fontWeight = FontWeight.Bold)
                 Spacer(Modifier.width(8.dp))
                 Icon(Icons.AutoMirrored.Filled.ArrowForward, null, modifier = Modifier.size(18.dp))
             }
@@ -1389,7 +1390,7 @@ private fun LsProfessionalCompletionView(
             border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFDCD8E8)),
             colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFF3F3A59))
         ) {
-            Text("Back to learning path", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.back_learning_path), fontSize = 15.sp, fontWeight = FontWeight.Bold)
         }
         }
     }

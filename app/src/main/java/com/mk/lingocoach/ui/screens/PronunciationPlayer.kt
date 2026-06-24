@@ -2,6 +2,7 @@ package com.mk.lingocoach.ui.screens
 
 import android.speech.tts.TextToSpeech
 import android.os.Bundle
+import com.mk.lingocoach.R
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
@@ -18,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
@@ -103,7 +105,7 @@ fun CardPronunciation(
         ) {
             Icon(
                 Icons.AutoMirrored.Filled.VolumeUp,
-                contentDescription = "Listen",
+                contentDescription = stringResource(R.string.listen),
                 tint = iconTint,
                 modifier = Modifier.size(22.dp)
             )
@@ -201,7 +203,7 @@ fun PronunciationButton(
         ) {
             Icon(
                 Icons.AutoMirrored.Filled.VolumeUp,
-                contentDescription = "Listen",
+                contentDescription = stringResource(R.string.listen),
                 tint = BrandPurple,
                 modifier = Modifier.size(if (compact) 15.dp else 18.dp)
             )
@@ -256,7 +258,7 @@ fun PronunciationBar(
                 ) {
                     Icon(
                         Icons.AutoMirrored.Filled.VolumeUp,
-                        contentDescription = "Listen",
+                        contentDescription = stringResource(R.string.listen),
                         tint = Color.White,
                         modifier = Modifier.size(17.dp)
                     )

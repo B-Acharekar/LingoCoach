@@ -273,6 +273,10 @@ object VocabTracker {
         return "$masteredCount / ${wordsInLevel.size} words"
     }
 
+    fun getMasteredWordsCountInLevel(level: String): Int {
+        return allWords.count { it.level.uppercase() == level.uppercase() && (progressMap[it.word]?.masteryScore ?: 0) >= 80 }
+    }
+
     // Get total words count in a level
     fun getWordsCountInLevel(level: String): Int {
         return allWords.count { it.level.uppercase() == level.uppercase() }

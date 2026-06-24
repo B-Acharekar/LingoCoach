@@ -133,11 +133,11 @@ fun LearningPathRoadmapScreen(
                     verticalAlignment = Alignment.Bottom
                 ) {
                     Column {
-                        Text("PERSONALIZED ROUTE", color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.1.sp)
+                        Text(stringResource(R.string.personalized_route).uppercase(), color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.1.sp)
                         Spacer(Modifier.height(4.dp))
-                        Text("Your milestones", color = Color(0xFF17133B), fontSize = 21.sp, fontWeight = FontWeight.ExtraBold)
+                        Text(stringResource(R.string.your_milestones), color = Color(0xFF17133B), fontSize = 21.sp, fontWeight = FontWeight.ExtraBold)
                     }
-                    Text("${modules.size} levels", color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(R.string.levels_count, modules.size), color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
                 }
                 Spacer(Modifier.height(16.dp))
 
@@ -199,8 +199,8 @@ private fun RoadmapHero(modules: List<CurrentModule>) {
                 }
                 Spacer(Modifier.width(12.dp))
                 Column {
-                    Text("YOUR FLUENCY ROADMAP", color = Color.White.copy(0.68f), fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
-                    Text("A clear route forward", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
+                    Text(stringResource(R.string.fluency_roadmap).uppercase(), color = Color.White.copy(0.68f), fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp)
+                    Text(stringResource(R.string.clear_route_forward), color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
                 }
             }
             Spacer(Modifier.height(22.dp))
@@ -278,7 +278,7 @@ private fun TopBar(
         ) {
             Icon(
                 Icons.Default.Settings,
-                contentDescription = "Settings",
+                contentDescription = stringResource(R.string.settings),
                 tint = Color(0xFF1A1A1A),
                 modifier = Modifier.size(20.dp)
             )

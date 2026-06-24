@@ -1,25 +1,30 @@
-﻿package com.mk.lingocoach
+package com.mk.lingocoach
 
 import android.os.Bundle
+import android.content.res.Configuration
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.os.LocaleListCompat
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.Color
 import com.mk.lingocoach.ui.screens.*
 import com.mk.lingocoach.ui.theme.LingoCoachTheme
 import com.mk.lingocoach.notifications.NotificationScheduler
+import com.mk.lingocoach.data.repository.AppLocaleManager
+import java.util.Locale
 
 enum class Screen {
     Splash,
@@ -47,16 +52,30 @@ class MainActivity : AppCompatActivity() {
         // Restore locale on cold start
         val savedLang = getSharedPreferences("language_preferences_mirror", MODE_PRIVATE)
             .getString("selected_language", null)
-        if (!savedLang.isNullOrEmpty() && savedLang != "system") {
-            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(savedLang))
-        }
+        AppLocaleManager.setLanguage(savedLang ?: "system")
 
         // Schedule daily reminder notifications at 10am and 7pm
         NotificationScheduler.scheduleDailyReminders(this)
 
         enableEdgeToEdge()
         setContent {
-            LingoCoachTheme(dynamicColor = false) {
+            val languageCode by AppLocaleManager.languageCode.collectAsState()
+            val baseContext = LocalContext.current
+            val localizedConfiguration = remember(baseContext, languageCode) {
+                Configuration(baseContext.resources.configuration).apply {
+                    val locale = if (languageCode == "system") Locale.getDefault() else Locale.forLanguageTag(languageCode)
+                    setLocale(locale)
+                    setLayoutDirection(locale)
+                }
+            }
+            val localizedContext = remember(baseContext, localizedConfiguration) {
+                baseContext.createConfigurationContext(localizedConfiguration)
+            }
+            CompositionLocalProvider(
+                LocalContext provides localizedContext,
+                LocalConfiguration provides localizedConfiguration
+            ) {
+                LingoCoachTheme(dynamicColor = false) {
                 var currentScreenName by rememberSaveable { mutableStateOf(Screen.Splash.name) }
                 var currentSublessonId by rememberSaveable { mutableStateOf("") }
                 val currentScreen = runCatching { Screen.valueOf(currentScreenName) }.getOrDefault(Screen.Splash)
@@ -269,3 +288,4 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+}

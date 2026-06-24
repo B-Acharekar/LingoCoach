@@ -66,7 +66,14 @@ enum class VocabSortOrder(val label: String, val icon: androidx.compose.ui.graph
     MASTERED("Mastered First", Icons.Default.Star),
     LEARNING("Learning First", Icons.Default.AutoStories)
 }
-
+@Composable
+private fun localizedSortLabel(order: VocabSortOrder): String = when (order) {
+    VocabSortOrder.ALPHA_ASC -> "A → Z"
+    VocabSortOrder.ALPHA_DESC -> "Z → A"
+    VocabSortOrder.MOST_USED -> stringResource(R.string.most_used_words)
+    VocabSortOrder.MASTERED -> stringResource(R.string.sort_mastered_first)
+    VocabSortOrder.LEARNING -> stringResource(R.string.sort_learning_first)
+}
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VocabBuilderScreen(
@@ -476,14 +483,14 @@ fun ColumnScope.DashboardView(
                     ) {
                         Column {
                             Text(
-                                text = "CURRENT PROFICIENCY",
+                                text = stringResource(R.string.current_proficiency).uppercase(),
                                 color = TextLight,
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Bold
                             )
                             Spacer(modifier = Modifier.height(2.dp))
                             Text(
-                                text = "Mastery Progress",
+                                text = stringResource(R.string.mastery_progress),
                                 color = TextDark,
                                 fontSize = 24.sp,
                                 fontWeight = FontWeight.ExtraBold
@@ -496,9 +503,9 @@ fun ColumnScope.DashboardView(
                         ) {
                             Text(
                                 text = when (activeLevel) {
-                                    "A1", "A2" -> "Beginner Tier"
-                                    "B1", "B2" -> "Intermediate Tier"
-                                    else -> "Advanced Tier"
+                                    "A1", "A2" -> stringResource(R.string.beginner_tier)
+                                    "B1", "B2" -> stringResource(R.string.intermediate_tier)
+                                    else -> stringResource(R.string.advanced_tier)
                                 },
                                 color = BrandPurple,
                                 fontSize = 11.sp,
@@ -522,7 +529,7 @@ fun ColumnScope.DashboardView(
                                 .padding(horizontal = 12.dp, vertical = 12.dp)
                         ) {
                             Column {
-                                Text(text = "$activeLevel SCORE", color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                                Text(text = stringResource(R.string.level_score, activeLevel).uppercase(), color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
                                 Spacer(Modifier.height(2.dp))
                                 Text(text = "$levelProgress%", color = BrandPurple, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
                             }
@@ -535,12 +542,12 @@ fun ColumnScope.DashboardView(
                                 .padding(horizontal = 12.dp, vertical = 12.dp)
                         ) {
                             Column {
-                                Text(text = "DAILY TARGET", color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                                Text(text = stringResource(R.string.daily_target).uppercase(), color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
                                 Spacer(Modifier.height(2.dp))
                                 Row(verticalAlignment = Alignment.Bottom) {
                                     Text(text = "10", color = TextDark, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
                                     Spacer(modifier = Modifier.width(3.dp))
-                                    Text(text = "words", color = TextMid, fontSize = 11.sp, modifier = Modifier.padding(bottom = 2.dp))
+                                    Text(text = stringResource(R.string.words).lowercase(), color = TextMid, fontSize = 11.sp, modifier = Modifier.padding(bottom = 2.dp))
                                 }
                             }
                         }
@@ -556,7 +563,7 @@ fun ColumnScope.DashboardView(
                         elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp)
                     ) {
                         Text(
-                            text = "Continue Session >",
+                            text = stringResource(R.string.continue_session),
                             color = Color.White,
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Bold
@@ -586,7 +593,7 @@ fun ColumnScope.DashboardView(
                     .background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp))
                     .bringIntoViewOnFocus(),
                 placeholder = { Text(stringResource(R.string.search_vocabulary_topics), color = TextLight, fontSize = 14.sp) },
-                leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search", tint = TextLight) },
+                leadingIcon = { Icon(Icons.Default.Search, contentDescription = stringResource(R.string.search), tint = TextLight) },
                 shape = RoundedCornerShape(16.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color.Transparent,
@@ -603,7 +610,7 @@ fun ColumnScope.DashboardView(
 
             item {
                 Text(
-                    text = "Search Results (${searchedWords.size} words)",
+                    text = stringResource(R.string.search_results_words, searchedWords.size),
                     color = TextDark,
                     fontSize = 17.sp,
                     fontWeight = FontWeight.Bold
@@ -613,7 +620,7 @@ fun ColumnScope.DashboardView(
             if (searchedWords.isEmpty()) {
                 item {
                     Box(modifier = Modifier.fillMaxWidth().padding(32.dp), contentAlignment = Alignment.Center) {
-                        Text(text = "No words matching \"$searchQuery\"", color = TextMid, fontSize = 14.sp)
+                        Text(text = stringResource(R.string.no_words_matching, searchQuery), color = TextMid, fontSize = 14.sp)
                     }
                 }
             } else {
@@ -633,7 +640,7 @@ fun ColumnScope.DashboardView(
                             }
                             Text(w.meaning, color = TextMid, fontSize = 13.sp)
                             Spacer(Modifier.height(4.dp))
-                        Text("${stringResource(R.string.category)}: ${w.category}", color = TextLight, fontSize = 11.sp, fontStyle = FontStyle.Italic)
+                        Text(stringResource(R.string.category_label_format, w.category), color = TextLight, fontSize = 11.sp, fontStyle = FontStyle.Italic)
                         }
                     }
                 }
@@ -647,13 +654,13 @@ fun ColumnScope.DashboardView(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Topic Curations",
+                        text = stringResource(R.string.topic_curations),
                         color = TextDark,
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "View All",
+                        text = stringResource(R.string.view_all),
                         color = BrandPurple,
                         fontSize = 13.sp,
                         fontWeight = FontWeight.Bold,
@@ -743,7 +750,7 @@ fun ColumnScope.DashboardView(
                                     }
                                     Spacer(modifier = Modifier.width(12.dp))
                                     Text(
-                                        text = "${featuredCat.averageMastery}% Mastery",
+                                        text = stringResource(R.string.mastery_percent, featuredCat.averageMastery),
                                         color = Color.White,
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.Bold
@@ -806,7 +813,7 @@ fun ColumnScope.DashboardView(
                             )
                             Spacer(modifier = Modifier.height(2.dp))
                             Text(
-                                text = "${cat.totalWords} words  •  Mastery ${cat.averageMastery}%",
+                                text = stringResource(R.string.words_mastery_format, cat.totalWords, cat.averageMastery),
                                 color = TextLight,
                                 fontSize = 11.sp
                             )
@@ -866,7 +873,7 @@ fun ColumnScope.ContextualDrillView(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(text = "$level MASTERY PROGRESS", color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                Text(text = stringResource(R.string.level_mastery_progress, level).uppercase(), color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
                 Text(text = "$levelProgress%", color = BrandPurple, fontSize = 9.sp, fontWeight = FontWeight.Bold)
             }
             Spacer(modifier = Modifier.height(4.dp))
@@ -902,7 +909,7 @@ fun ColumnScope.ContextualDrillView(
         }
 
         Column(modifier = Modifier.fillMaxWidth()) {
-            Text(text = "CONTEXTUAL DRILL", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+            Text(text = stringResource(R.string.contextual_drill).uppercase(), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.height(8.dp))
             Text(text = question.questionText, color = TextDark, fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Medium)
         }
@@ -949,7 +956,7 @@ fun ColumnScope.ContextualDrillView(
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFEAEA)),
                 shape = RoundedCornerShape(12.dp)
             ) {
-                Text(text = "Not Mastered", color = BrandRed, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                Text(text = stringResource(R.string.not_mastered), color = BrandRed, fontWeight = FontWeight.Bold, fontSize = 14.sp)
             }
             Button(
                 onClick = onConfirm,
@@ -963,7 +970,7 @@ fun ColumnScope.ContextualDrillView(
             ) {
                 Icon(Icons.Default.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
                 Spacer(Modifier.width(6.dp))
-                Text(text = "Confirm", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                Text(text = stringResource(R.string.confirm), color = Color.White, fontWeight = FontWeight.Bold, fontSize = 14.sp)
             }
         }
     }
@@ -1038,7 +1045,7 @@ fun ColumnScope.DrillFeedbackView(
 
         item {
             Column(modifier = Modifier.fillMaxWidth()) {
-                Text(text = "USAGE REFINEMENT", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                Text(text = stringResource(R.string.usage_refinement).uppercase(), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(10.dp))
                 Card(
                     modifier = Modifier.fillMaxWidth().border(0.5.dp, CardBorderColor, RoundedCornerShape(16.dp)),
@@ -1058,7 +1065,7 @@ fun ColumnScope.DrillFeedbackView(
                             Spacer(modifier = Modifier.width(12.dp))
                             Column {
                                 Text(text = word.mappedCategory, color = TextDark, fontSize = 13.sp, fontWeight = FontWeight.Bold)
-                                Text(text = "Used in contexts relating to ${word.category.lowercase()}.", color = TextLight, fontSize = 10.sp)
+                                Text(text = stringResource(R.string.used_in_contexts, word.category.lowercase()), color = TextLight, fontSize = 10.sp)
                             }
                         }
                         Spacer(modifier = Modifier.height(14.dp))
@@ -1080,7 +1087,7 @@ fun ColumnScope.DrillFeedbackView(
 
         item {
             Column(modifier = Modifier.fillMaxWidth()) {
-                Text(text = "QUICK REINFORCEMENT", color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                Text(text = stringResource(R.string.quick_reinforcement).uppercase(), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(10.dp))
                 Card(
                     modifier = Modifier.fillMaxWidth().border(0.5.dp, CardBorderColor, RoundedCornerShape(16.dp)),
@@ -1088,7 +1095,7 @@ fun ColumnScope.DrillFeedbackView(
                     shape = RoundedCornerShape(16.dp)
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
-                        Text(text = "Type the word to match the definition:", color = TextDark, fontSize = 12.sp)
+                        Text(text = stringResource(R.string.type_word_match_definition), color = TextDark, fontSize = 12.sp)
                         Spacer(modifier = Modifier.height(8.dp))
                         Box(
                             modifier = Modifier.fillMaxWidth().background(Color(0xFFFAFAFF), RoundedCornerShape(10.dp)).padding(12.dp)
@@ -1131,7 +1138,7 @@ fun ColumnScope.DrillFeedbackView(
                                         keyboardController?.hide()
                                         onCheckReinforcement()
                                     }) {
-                                        Icon(Icons.AutoMirrored.Filled.KeyboardReturn, contentDescription = "Verify", tint = BrandPurple)
+                                        Icon(Icons.AutoMirrored.Filled.KeyboardReturn, contentDescription = stringResource(R.string.verify), tint = BrandPurple)
                                     }
                                 }
                             },
@@ -1157,7 +1164,7 @@ fun ColumnScope.DrillFeedbackView(
                     colors = ButtonDefaults.buttonColors(containerColor = BrandPurple),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text(text = "Continue to next word", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                    Text(text = stringResource(R.string.continue_next_word), color = Color.White, fontWeight = FontWeight.Bold, fontSize = 14.sp)
                     Spacer(Modifier.width(6.dp))
                     Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
                 }
@@ -1210,7 +1217,7 @@ fun ColumnScope.AllWordsBrowserView(
         ) {
             Text(text = stringResource(R.string.all_level_vocabulary, activeLevel), color = TextDark, fontSize = 18.sp, fontWeight = FontWeight.Bold)
             Text(
-                text = "Show Categories",
+                text = stringResource(R.string.show_categories),
                 color = BrandPurple, fontSize = 13.sp, fontWeight = FontWeight.Bold,
                 modifier = Modifier.clickable { onBackToCategories() }
             )
@@ -1221,7 +1228,7 @@ fun ColumnScope.AllWordsBrowserView(
             onValueChange = onSearchQueryChanged,
             modifier = Modifier.fillMaxWidth().background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp)).bringIntoViewOnFocus(),
             placeholder = { Text(stringResource(R.string.search_words_meanings), color = TextLight, fontSize = 14.sp) },
-            leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search", tint = TextLight) },
+            leadingIcon = { Icon(Icons.Default.Search, contentDescription = stringResource(R.string.search), tint = TextLight) },
             shape = RoundedCornerShape(16.dp),
             colors = OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = Color.Transparent,
@@ -1236,7 +1243,7 @@ fun ColumnScope.AllWordsBrowserView(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(Icons.Default.FilterList, contentDescription = "Filter", tint = TextLight, modifier = Modifier.size(16.dp))
+            Icon(Icons.Default.FilterList, contentDescription = stringResource(R.string.filter), tint = TextLight, modifier = Modifier.size(16.dp))
             Text(stringResource(R.string.sort_by), color = TextLight, fontSize = 11.sp, fontWeight = FontWeight.Bold)
             androidx.compose.foundation.lazy.LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
@@ -1255,18 +1262,18 @@ fun ColumnScope.AllWordsBrowserView(
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
                             Icon(order.icon, contentDescription = null, tint = if (isActive) Color.White else BrandPurple, modifier = Modifier.size(12.dp))
-                            Text(text = order.label, color = if (isActive) Color.White else TextMid, fontSize = 11.sp, fontWeight = if (isActive) FontWeight.ExtraBold else FontWeight.Medium)
+                            Text(text = localizedSortLabel(order), color = if (isActive) Color.White else TextMid, fontSize = 11.sp, fontWeight = if (isActive) FontWeight.ExtraBold else FontWeight.Medium)
                         }
                     }
                 }
             }
         }
 
-        Text(text = "${words.size} words", color = TextLight, fontSize = 11.sp, fontWeight = FontWeight.Medium)
+        Text(text = stringResource(R.string.words_count, words.size), color = TextLight, fontSize = 11.sp, fontWeight = FontWeight.Medium)
 
         if (words.isEmpty()) {
             Box(modifier = Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
-                Text(text = "No words found matching \"$searchQuery\"", color = TextMid, fontSize = 14.sp)
+                Text(text = stringResource(R.string.no_words_found_matching, searchQuery), color = TextMid, fontSize = 14.sp)
             }
         } else {
             LazyColumn(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -1310,7 +1317,7 @@ fun ColumnScope.AllWordsBrowserView(
                                             modifier = Modifier.size(10.dp)
                                         )
                                         Text(
-                                            text = if (score >= 80) "MASTERED" else "LEARNING",
+                                            text = if (score >= 80) stringResource(R.string.mastered).uppercase() else stringResource(R.string.learning).uppercase(),
                                             color = if (score >= 80) BrandGreen else BrandAmberDark,
                                             fontSize = 9.sp, fontWeight = FontWeight.Bold
                                         )
@@ -1323,7 +1330,7 @@ fun ColumnScope.AllWordsBrowserView(
                                 ) {
                                     Icon(
                                         imageVector = if (isStarred) Icons.Default.Bookmark else Icons.Default.BookmarkBorder,
-                                        contentDescription = "Bookmark",
+                                        contentDescription = stringResource(R.string.bookmark),
                                         tint = if (isStarred) BrandPurple else TextLight
                                     )
                                 }
@@ -1350,7 +1357,7 @@ fun ColumnScope.AllWordsBrowserView(
                                     }
                                 }
                                 Spacer(modifier = Modifier.height(12.dp))
-                                PronunciationBar(word = w.word, tts = tts, label = "Listen Pronunciation")
+                                PronunciationBar(word = w.word, tts = tts, label = stringResource(R.string.hear_pronunciation))
                             }
                         }
                     }

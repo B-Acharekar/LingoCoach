@@ -64,7 +64,8 @@ data class FullAssessmentAnswer(
 
 data class FullAssessmentRequest(
     val session_id: String,
-    val answers: List<FullAssessmentAnswer>
+    val answers: List<FullAssessmentAnswer>,
+    val output_language: String = "English"
 )
 
 // ─── Current Learning Path Models ───────────────────────────────────────────

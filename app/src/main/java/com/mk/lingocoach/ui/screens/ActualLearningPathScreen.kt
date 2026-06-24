@@ -86,7 +86,7 @@ fun ActualLearningPathScreen(
 
     Box(Modifier.fillMaxSize()) {
         AppBackgroundTexture()
-        Column(Modifier.fillMaxSize().navigationBarsPadding()) {
+        Column(Modifier.fillMaxSize()) {
             CommonTopBar(
                 title = stringResource(R.string.learning_path),
                 onBack = onNavigateToHome,

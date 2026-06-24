@@ -209,7 +209,7 @@ private fun AnalyticsContent(
     )
 
     // Bar chart heights
-    val dayLabels = listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+    val dayLabels = listOf(R.string.day_mon, R.string.day_tue, R.string.day_wed, R.string.day_thu, R.string.day_fri, R.string.day_sat, R.string.day_sun).map { stringResource(it) }
     val xpValues  = if (weeklyStats.size == 7) weeklyStats.map { it.xp_earned } else List(7) { 0 }
     val maxXp     = xpValues.maxOrNull()?.coerceAtLeast(1) ?: 1
     val barHeights = xpValues.map { (it.toFloat() / maxXp).coerceIn(0.05f, 1f) }
@@ -235,7 +235,7 @@ private fun AnalyticsContent(
             ) {
                 Column {
                     Text(
-                        "LEARNING PROGRESS",
+                        stringResource(R.string.learning_progress).uppercase(),
                         color = TextLight,
                         fontSize = 10.sp,
                         fontWeight = FontWeight.Bold,
@@ -251,7 +251,7 @@ private fun AnalyticsContent(
                         )
                         Spacer(Modifier.width(8.dp))
                         Text(
-                            "$trendSign$weeklyTrendPct% this week",
+                            stringResource(R.string.percent_this_week, "$trendSign$weeklyTrendPct"),
                             color = if (weeklyTrendPct >= 0) BrandGreen else BrandRed,
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Bold,
@@ -265,7 +265,7 @@ private fun AnalyticsContent(
                         .padding(horizontal = 12.dp, vertical = 6.dp)
                 ) {
                     Text(
-                        "Weekly",
+                        stringResource(R.string.weekly),
                         color = BrandPurple,
                         fontSize = 12.sp,
                         fontWeight = FontWeight.SemiBold
@@ -286,7 +286,7 @@ private fun AnalyticsContent(
                 modifier = Modifier.weight(1f),
                 label = stringResource(R.string.daily_streak).uppercase(),
                 value = "$streak ${stringResource(R.string.days)}",
-                sub = "Personal Best",
+                sub = stringResource(R.string.personal_best),
                 subColor = BrandPurple,
                 icon = Icons.Default.Whatshot,
                 iconTint = BrandAmberDark
@@ -295,7 +295,7 @@ private fun AnalyticsContent(
                 modifier = Modifier.weight(1f),
                 label = stringResource(R.string.lessons).uppercase(),
                 value = "$totalLessons",
-                sub = "This Week",
+                sub = stringResource(R.string.this_week),
                 subColor = TextLight,
                 icon = Icons.AutoMirrored.Filled.MenuBook,
                 iconTint = BrandPurple
@@ -307,9 +307,9 @@ private fun AnalyticsContent(
         ) {
             StatCard(
                 modifier = Modifier.weight(1f),
-                label = "ACTIVE DAYS",
+                label = stringResource(R.string.active_days).uppercase(),
                 value = "$activeDays",
-                sub = "In Progress",
+                sub = stringResource(R.string.in_progress),
                 subColor = TextLight,
                 icon = Icons.Default.CheckCircle,
                 iconTint = BrandGreen
@@ -318,8 +318,8 @@ private fun AnalyticsContent(
                 modifier = Modifier.weight(1f),
                 label = stringResource(R.string.mistakes).uppercase(),
                 value = "$totalMistakes",
-                sub = if (mistakeTrendPct <= 0) "${mistakeTrendPct}% vs last week"
-                      else "+${mistakeTrendPct}% vs last week",
+                sub = if (mistakeTrendPct <= 0) stringResource(R.string.percent_vs_last_week, mistakeTrendPct)
+                      else stringResource(R.string.percent_vs_last_week, mistakeTrendPct),
                 subColor = if (mistakeTrendPct <= 0) BrandGreen else BrandRed,
                 icon = Icons.Default.Warning,
                 iconTint = BrandAmberDark
@@ -332,7 +332,7 @@ private fun AnalyticsContent(
         // ── Skills Overview ───────────────────────────────────────────────────
         AnalyticsCard {
             Text(
-                "SKILLS OVERVIEW",
+                stringResource(R.string.skills_overview).uppercase(),
                 color = TextLight,
                 fontSize = 10.sp,
                 fontWeight = FontWeight.Bold,
@@ -354,7 +354,7 @@ private fun AnalyticsContent(
                     label = stringResource(R.string.listening).uppercase(),
                     score = listeningScore,
                     trendPct = null,
-                    trendLabel = "Stable"
+                    trendLabel = stringResource(R.string.stable)
                 )
             }
             Spacer(Modifier.height(20.dp))
@@ -499,7 +499,7 @@ private fun AiInsightCard(insightText: String) {
             Spacer(Modifier.width(14.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    "AI INSIGHT",
+                    stringResource(R.string.ai_insight).uppercase(),
                     color = BrandPurple,
                     fontSize = 9.sp,
                     fontWeight = FontWeight.ExtraBold,
@@ -575,17 +575,18 @@ private fun SkillBar(
 }
 
 // ─── Insight text builder ─────────────────────────────────────────────────────
+@Composable
 private fun buildInsightText(
     grammarScore: Int,
     pronunciationScore: Int,
     vocabScore: Int
 ): String = when {
     pronunciationScore in 1..59 ->
-        "Your pronunciation score is $pronunciationScore%. Recommended: Pronunciation Practice."
+        stringResource(R.string.insight_pronunciation, pronunciationScore)
     grammarScore in 1..59 ->
-        "Your grammar accuracy is at $grammarScore%. Recommended: Grammar Drills."
+        stringResource(R.string.insight_grammar, grammarScore)
     vocabScore < 50 ->
-        "Your vocabulary mastery is at $vocabScore%. Recommended: Vocab Builder session."
+        stringResource(R.string.insight_vocabulary, vocabScore)
     else ->
-        "Great work this week! Keep practising daily to maintain your streak."
+        stringResource(R.string.insight_great_week)
 }

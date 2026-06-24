@@ -287,7 +287,6 @@ fun HomeScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .statusBarsPadding()
-                .navigationBarsPadding()
         ) {
             // Scrollable body
             Column(
@@ -364,7 +363,7 @@ fun HomeScreen(
                         ) {
                             Icon(
                                 Icons.Default.Settings,
-                                contentDescription = "Settings",
+                                contentDescription = stringResource(R.string.settings),
                                 tint = TextDark,
                                 modifier = Modifier.size(20.dp)
                             )
@@ -561,13 +560,13 @@ private fun HomeProfileCompletionCard(
                 Icon(Icons.Default.PersonAdd, contentDescription = null, tint = Color.White, modifier = Modifier.size(23.dp))
             }
             Column(modifier = Modifier.weight(1f)) {
-                Text("Complete your profile", color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+                Text(stringResource(R.string.complete_profile), color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
                 Spacer(Modifier.height(3.dp))
                 Text(
                     when {
-                        !hasName && !hasUsername -> "Add your name and username to save progress properly."
-                        !hasName -> "Add your name to personalize LingoCoach."
-                        else -> "Choose a username to save and restore progress."
+                        !hasName && !hasUsername -> stringResource(R.string.add_name_username_save)
+                        !hasName -> stringResource(R.string.add_name_personalize)
+                        else -> stringResource(R.string.choose_username_restore)
                     },
                     color = TextMid,
                     fontSize = 12.sp,
@@ -575,8 +574,8 @@ private fun HomeProfileCompletionCard(
                 )
                 Spacer(Modifier.height(10.dp))
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    ProfileRequirementChip(label = "Name", complete = hasName)
-                    ProfileRequirementChip(label = "Username", complete = hasUsername)
+                    ProfileRequirementChip(label = stringResource(R.string.name), complete = hasName)
+                    ProfileRequirementChip(label = stringResource(R.string.username), complete = hasUsername)
                 }
             }
             Icon(Icons.Default.ChevronRight, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(22.dp))
@@ -633,14 +632,14 @@ private fun HomeProfileCompletionDialog(
                 .padding(22.dp)
         ) {
             Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Text("Complete your profile", color = TextDark, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.weight(1f))
+                Text(stringResource(R.string.complete_profile), color = TextDark, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.weight(1f))
                 IconButton(onClick = onDismiss, enabled = !isSaving, modifier = Modifier.size(34.dp)) {
-                    Icon(Icons.Default.Close, contentDescription = "Close", tint = TextLight, modifier = Modifier.size(18.dp))
+                    Icon(Icons.Default.Close, contentDescription = stringResource(R.string.close), tint = TextLight, modifier = Modifier.size(18.dp))
                 }
             }
             Spacer(Modifier.height(6.dp))
             Text(
-                "Add your name and username so your progress is saved and restored properly.",
+                stringResource(R.string.add_profile_restore),
                 color = TextMid,
                 fontSize = 13.sp,
                 lineHeight = 18.sp
@@ -650,7 +649,7 @@ private fun HomeProfileCompletionDialog(
                 value = displayName,
                 onValueChange = onNameChange,
                 singleLine = true,
-                label = { Text("Name") },
+                label = { Text(stringResource(R.string.name)) },
                 modifier = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
                 shape = RoundedCornerShape(14.dp),
                 colors = OutlinedTextFieldDefaults.colors(
@@ -666,12 +665,12 @@ private fun HomeProfileCompletionDialog(
                 value = username,
                 onValueChange = onUsernameChange,
                 singleLine = true,
-                label = { Text("Username") },
+                label = { Text(stringResource(R.string.username)) },
                 leadingIcon = { Text("@", color = BrandPurple, fontSize = 18.sp, fontWeight = FontWeight.Bold) },
                 isError = shownError != null,
                 supportingText = {
                     Text(
-                        shownError ?: "3-20 chars. Lowercase letters, numbers, and underscores.",
+                        shownError ?: stringResource(R.string.username_short_rules),
                         color = if (shownError != null) BrandRed else TextLight,
                         fontSize = 12.sp,
                         lineHeight = 16.sp
@@ -691,7 +690,7 @@ private fun HomeProfileCompletionDialog(
             Spacer(Modifier.height(18.dp))
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                 TextButton(onClick = onDismiss, enabled = !isSaving) {
-                    Text("Cancel", color = TextLight)
+                    Text(stringResource(R.string.cancel), color = TextLight)
                 }
                 Spacer(Modifier.width(8.dp))
                 Button(
@@ -703,7 +702,7 @@ private fun HomeProfileCompletionDialog(
                     if (isSaving) {
                         CircularProgressIndicator(modifier = Modifier.size(18.dp), strokeWidth = 2.dp, color = Color.White)
                     } else {
-                        Text("Save", color = Color.White, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.save), color = Color.White, fontWeight = FontWeight.Bold)
                     }
                 }
             }
@@ -1106,7 +1105,7 @@ fun HomeGeneratingLearningPathCard(
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    "Learning Path Locked",
+                    stringResource(R.string.learning_path_locked),
                     color = TextDark,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
@@ -1338,7 +1337,7 @@ fun HomeVocabBuilderCard(
     onClick: () -> Unit = {}
 ) {
     val progressPercent = if (isLoaded) VocabTracker.getLevelProgress("A1") else 0
-    val wordsCountText = if (isLoaded) VocabTracker.getLevelWordsCountText("A1") else "Loading A1 words"
+    val wordsCountText = if (isLoaded) stringResource(R.string.words_count_progress, VocabTracker.getMasteredWordsCountInLevel("A1"), VocabTracker.getWordsCountInLevel("A1")) else stringResource(R.string.loading_level_words, "A1")
 
     Card(
         modifier = Modifier
@@ -1556,8 +1555,8 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
                         )
                     }
                     Column {
-                        Text("Weekly Overview", color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                        Text("$weekXp XP earned this week", color = TextLight, fontSize = 11.sp)
+                        Text(stringResource(R.string.weekly_overview), color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.xp_earned_week, weekXp), color = TextLight, fontSize = 11.sp)
                     }
                 }
                 Box(
@@ -1653,21 +1652,21 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("MISTAKES LOGGED", color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.mistakes_logged).uppercase(), color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text("$mistakesFixed", color = TextDark, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
                         Spacer(Modifier.width(6.dp))
-                        Text("today", color = BrandGreen, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.today).lowercase(), color = BrandGreen, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                     }
                 }
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("LESSONS DONE", color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.lessons_done).uppercase(), color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text("$lessonsDone", color = TextDark, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
                         Spacer(Modifier.width(6.dp))
-                        Text("this week", color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.this_week).lowercase(), color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     }
                 }
             }
@@ -1682,6 +1681,7 @@ fun HomeBottomNav(selectedTab: Int, onTabSelected: (Int) -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .background(Color(0xFFFAFAFF))
+            .navigationBarsPadding()
             .border(
                 width = 0.5.dp,
                 color = Color(0x1A000000)
@@ -1761,7 +1761,7 @@ fun SectionHeader(title: String) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(title, color = TextDark, fontSize = 17.sp, fontWeight = FontWeight.Bold)
-        Text("See All", color = BrandPurple, fontSize = 12.sp, modifier = Modifier.clickable { })
+        Text(stringResource(R.string.see_all), color = BrandPurple, fontSize = 12.sp, modifier = Modifier.clickable { })
     }
 }
 

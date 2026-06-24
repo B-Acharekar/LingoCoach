@@ -15,10 +15,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mk.lingocoach.R
 import com.mk.lingocoach.network.AssessmentApi
 import com.mk.lingocoach.network.Flashcard
 import kotlinx.coroutines.Dispatchers
@@ -54,10 +56,10 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("SRS Review", fontWeight = FontWeight.Bold, color = TextDark) },
+                title = { Text(stringResource(R.string.srs_review), fontWeight = FontWeight.Bold, color = TextDark) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -78,14 +80,14 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(Icons.Default.Psychology, contentDescription = null, tint = BrandPurple, modifier = androidx.compose.ui.Modifier.size(64.dp))
                     Spacer(modifier = Modifier.height(16.dp))
-                    Text("All caught up!", color = TextDark, fontSize = 24.sp, fontWeight = FontWeight.Bold)
-                    Text("You've reviewed all your due flashcards.", color = TextMid, fontSize = 14.sp)
+                    Text(stringResource(R.string.all_caught_up), color = TextDark, fontSize = 24.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.reviewed_due_flashcards), color = TextMid, fontSize = 14.sp)
                     Spacer(modifier = Modifier.height(24.dp))
                     Button(
                         onClick = onNavigateBack,
                         colors = ButtonDefaults.buttonColors(containerColor = BrandPurple)
                     ) {
-                        Text("Back to Home")
+                        Text(stringResource(R.string.back_to_home))
                     }
                 }
             }
@@ -100,7 +102,7 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "${flashcards.size - currentIndex} cards remaining",
+                    text = stringResource(R.string.cards_remaining_count, flashcards.size - currentIndex),
                     color = TextMid,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold
@@ -154,10 +156,10 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
                         shape = RoundedCornerShape(16.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = BrandPurple)
                     ) {
-                        Text("Show Answer", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.show_answer), fontSize = 16.sp, fontWeight = FontWeight.Bold)
                     }
                 } else {
-                    Text("How well did you know this?", color = TextMid, fontSize = 14.sp)
+                    Text(stringResource(R.string.how_well_know), color = TextMid, fontSize = 14.sp)
                     Spacer(modifier = Modifier.height(16.dp))
                     Row(
                         modifier = Modifier.fillMaxWidth(),

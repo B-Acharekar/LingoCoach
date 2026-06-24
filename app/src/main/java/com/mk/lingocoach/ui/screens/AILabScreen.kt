@@ -1,4 +1,4 @@
-﻿package com.mk.lingocoach.ui.screens
+package com.mk.lingocoach.ui.screens
 
 import android.Manifest
 import android.content.Context
@@ -1055,7 +1055,7 @@ fun ChatInputArea(
                     modifier         = Modifier.size(44.dp).background(BrandPurple, CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
-                    Icon(Icons.Default.Mic, contentDescription = "Mic",
+                    Icon(Icons.Default.Mic, contentDescription = stringResource(R.string.microphone),
                         tint = Color.White, modifier = Modifier.size(22.dp))
                 }
                 Spacer(Modifier.width(12.dp))

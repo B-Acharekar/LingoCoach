@@ -105,6 +105,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -147,7 +148,7 @@ fun AssessmentScreen(
     var isLoading by remember { mutableStateOf(false) }
     var isSubmitting by remember { mutableStateOf(false) }
     var isGeneratingPath by remember { mutableStateOf(false) }
-    var generationStatusText by remember { mutableStateOf("Starting your learning path...") }
+    var generationStatusText by remember { mutableStateOf(context.getString(R.string.starting_learning_path)) }
     var errorMessage by remember { mutableStateOf("") }
     var isRecording by remember { mutableStateOf(false) }
     var mediaRecorder by remember { mutableStateOf<MediaRecorder?>(null) }
@@ -211,18 +212,27 @@ fun AssessmentScreen(
         }
         if (payload.size != 5) {
             isSubmitting = false
-            Toast.makeText(context, "Please answer all 5 questions first.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.assessment_answer_all_questions), Toast.LENGTH_SHORT).show()
             return
         }
 
         if (sessionId.isBlank()) {
             isSubmitting = false
-            Toast.makeText(context, "Assessment is still preparing. Please try again in a moment.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.assessment_still_preparing), Toast.LENGTH_SHORT).show()
             return
         }
 
         AssessmentApi.submitFullAssessment(
-            FullAssessmentRequest(session_id = sessionId, answers = payload)
+            FullAssessmentRequest(
+                session_id = sessionId,
+                answers = payload,
+                output_language = java.util.Locale.forLanguageTag(
+                    context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
+                        .getString("selected_language", "en")
+                        .takeUnless { it == "system" }
+                        ?: java.util.Locale.getDefault().language
+                ).getDisplayLanguage(java.util.Locale.ENGLISH).ifBlank { "English" }
+            )
         ) { response ->
             handleFinalResponse(response)
         }
@@ -337,7 +347,7 @@ fun AssessmentScreen(
                 response = finalResponse!!,
                 onContinue = {
                     isGeneratingPath = true
-                    generationStatusText = "Starting your learning path..."
+                    generationStatusText = context.getString(R.string.starting_learning_path)
                     val generationStartedAt = System.currentTimeMillis()
                     val generationTimeoutMillis = 5 * 60 * 1000L
                     val generationFinished = java.util.concurrent.atomic.AtomicBoolean(false)
@@ -391,19 +401,19 @@ fun AssessmentScreen(
                             coroutineScope.launch(Dispatchers.Main) {
                                 if (generationFinished.get()) return@launch
                                 if (pathResponse != null) {
-                                    generationStatusText = "Saving your roadmap..."
+                                    generationStatusText = context.getString(R.string.saving_roadmap)
                                     saveGeneratedLearningPath(pathResponse)
                                 } else {
                                     val stillWithinTimeout = System.currentTimeMillis() - generationStartedAt < generationTimeoutMillis
                                     if (attempt < 3 && stillWithinTimeout) {
-                                        generationStatusText = "Retrying the roadmap stream..."
+                                        generationStatusText = context.getString(R.string.retrying_roadmap)
                                         generateLearningPathWithRetry(request, attempt + 1)
                                     } else {
                                         sharedPrefs.edit()
                                             .putString("learning_path_generation_state", "fallback")
                                             .remove("learning_path_generation_started_at")
                                             .apply()
-                                        generationStatusText = "Using the default learning path for now."
+                                        generationStatusText = context.getString(R.string.using_default_path)
                                         android.widget.Toast.makeText(
                                             context,
                                             "Using the default learning path for now.",
@@ -550,9 +560,9 @@ fun AssessmentScreen(
                     ) {
                         CircularProgressIndicator(color = Color(0xFF6A5CFF), strokeWidth = 3.dp)
                         Spacer(Modifier.height(16.dp))
-                        Text("Analysing your response…", fontWeight = FontWeight.Bold, color = Color(0xFF1D1D1F), textAlign = TextAlign.Center)
+                        Text(stringResource(R.string.analysing_response), fontWeight = FontWeight.Bold, color = Color(0xFF1D1D1F), textAlign = TextAlign.Center)
                         Spacer(Modifier.height(4.dp))
-                        Text("This takes a few seconds", color = Color(0xFF6E6E73), fontSize = 12.sp, textAlign = TextAlign.Center)
+                        Text(stringResource(R.string.takes_few_seconds), color = Color(0xFF6E6E73), fontSize = 12.sp, textAlign = TextAlign.Center)
                     }
                 }
             }
@@ -607,10 +617,10 @@ fun AssessmentQuestionView(
                     .background(Color(0x12000000)).clickable { onBack() },
                 contentAlignment = Alignment.Center
             ) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color(0xFF1D1D1F), modifier = Modifier.size(20.dp))
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.back), tint = Color(0xFF1D1D1F), modifier = Modifier.size(20.dp))
             }
             Text(
-                "Speaking Assessment",
+                stringResource(R.string.speaking_assessment),
                 style = TextStyle(color = Color(0xFF1D1D1F), fontSize = 17.sp, fontWeight = FontWeight.Bold)
             )
             Box(
@@ -623,8 +633,8 @@ fun AssessmentQuestionView(
 
         // ── Progress ──────────────────────────────────────────────────────────
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text("Question $currentStep of 5", color = Color(0xFF6E6E73), fontSize = 13.sp, fontWeight = FontWeight.Bold)
-            Text("$completePct% Complete", color = Color(0xFF6A5CFF), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.question_of_total, currentStep, 5), color = Color(0xFF6E6E73), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.percent_complete, completePct), color = Color(0xFF6A5CFF), fontSize = 13.sp, fontWeight = FontWeight.Bold)
         }
         Spacer(Modifier.height(8.dp))
         LinearProgressIndicator(
@@ -646,7 +656,7 @@ fun AssessmentQuestionView(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(Icons.Default.Stars, null, tint = Color(0xFFFFC83D), modifier = Modifier.size(20.dp))
                     Spacer(Modifier.width(8.dp))
-                    Text("ASSESSMENT QUESTION", color = Color(0xFFFFC83D), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.5.sp)
+                    Text(stringResource(R.string.assessment_question).uppercase(), color = Color(0xFFFFC83D), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.5.sp)
                 }
                 Spacer(Modifier.height(16.dp))
                 Text(
@@ -670,7 +680,7 @@ fun AssessmentQuestionView(
                 Icon(Icons.Default.Info, null, tint = Color(0xFF8A7CFF), modifier = Modifier.size(18.dp))
                 Spacer(Modifier.width(12.dp))
                 Text(
-                    "Answer in 2–4 sentences. There are no wrong answers. Speak naturally at your own pace.",
+                    stringResource(R.string.assessment_hint),
                     color = Color(0xFF6A5CFF), fontSize = 12.sp, lineHeight = 16.sp, fontWeight = FontWeight.Medium
                 )
             }
@@ -721,14 +731,14 @@ fun AssessmentQuestionView(
                 ) {
                     Icon(
                         imageVector = if (isRecording) Icons.Default.Stop else Icons.Default.Mic,
-                        contentDescription = "Microphone",
+                        contentDescription = stringResource(R.string.microphone),
                         tint = Color.White,
                         modifier = Modifier.size(36.dp)
                     )
                 }
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    if (isRecording) "Recording… Tap to Stop" else "Tap to Record",
+                    if (isRecording) stringResource(R.string.recording_tap_stop) else stringResource(R.string.tap_to_record),
                     color = Color(0xFF1D1D1F), fontWeight = FontWeight.Bold, fontSize = 15.sp
                 )
                 Spacer(Modifier.height(8.dp))
@@ -740,7 +750,7 @@ fun AssessmentQuestionView(
                 ) {
                     Icon(Icons.Default.MicOff, null, tint = Color(0xFF6A5CFF), modifier = Modifier.size(16.dp))
                     Spacer(Modifier.width(6.dp))
-                    Text("Use Text Instead", color = Color(0xFF6A5CFF), fontWeight = FontWeight.Bold, fontSize = 13.sp)
+                    Text(stringResource(R.string.use_text_instead), color = Color(0xFF6A5CFF), fontWeight = FontWeight.Bold, fontSize = 13.sp)
                 }
             }
 
@@ -767,8 +777,8 @@ fun AssessmentQuestionView(
                         }
                         Spacer(Modifier.width(12.dp))
                         Column {
-                            Text("ESTIMATED TIME", color = Color(0xFF6E6E73), fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
-                            Text("45–60 seconds", color = Color(0xFF1D1D1F), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                            Text(stringResource(R.string.estimated_time).uppercase(), color = Color(0xFF6E6E73), fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
+                            Text(stringResource(R.string.seconds_45_60), color = Color(0xFF1D1D1F), fontSize = 13.sp, fontWeight = FontWeight.Bold)
                         }
                     }
                     Icon(Icons.Default.Info, null, tint = Color(0xFF8E8D9F), modifier = Modifier.size(18.dp))
@@ -811,7 +821,7 @@ fun AssessmentQuestionView(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(
-                                "Your response",
+                                stringResource(R.string.your_response),
                                 color = Color(0xFF6E6E73),
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.SemiBold
@@ -829,7 +839,7 @@ fun AssessmentQuestionView(
                             ) {
                                 Icon(
                                     imageVector = Icons.AutoMirrored.Filled.Send,
-                                    contentDescription = "Submit response",
+                                    contentDescription = stringResource(R.string.submit_response),
                                     tint = Color.White,
                                     modifier = Modifier.size(19.dp)
                                 )
@@ -843,7 +853,7 @@ fun AssessmentQuestionView(
                                 .fillMaxWidth()
                                 .heightIn(min = 132.dp, max = 212.dp)
                                 .bringIntoViewOnFocus(),
-                            placeholder = { Text("Type your response here...", color = Color(0xFF8E8D9F), fontSize = 15.sp) },
+                            placeholder = { Text(stringResource(R.string.type_response_here), color = Color(0xFF8E8D9F), fontSize = 15.sp) },
                             minLines = 5,
                             maxLines = 9,
                             colors = OutlinedTextFieldDefaults.colors(
@@ -869,7 +879,7 @@ fun AssessmentQuestionView(
                     ) {
                         Icon(Icons.Default.Mic, null, tint = Color(0xFF6A5CFF), modifier = Modifier.size(16.dp))
                         Spacer(Modifier.width(6.dp))
-                        Text("Use Voice Instead", color = Color(0xFF6A5CFF), fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                        Text(stringResource(R.string.use_voice_instead), color = Color(0xFF6A5CFF), fontWeight = FontWeight.Bold, fontSize = 14.sp)
                     }
                 }
             }
@@ -897,8 +907,8 @@ fun AssessmentQuestionView(
                         }
                         Spacer(Modifier.width(12.dp))
                         Column {
-                            Text("ESTIMATED TIME", color = Color(0xFF6E6E73), fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
-                            Text("45–60 seconds", color = Color(0xFF1D1D1F), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                            Text(stringResource(R.string.estimated_time).uppercase(), color = Color(0xFF6E6E73), fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
+                            Text(stringResource(R.string.seconds_45_60), color = Color(0xFF1D1D1F), fontSize = 13.sp, fontWeight = FontWeight.Bold)
                         }
                     }
                     Icon(Icons.Default.Info, null, tint = Color(0xFF8E8D9F), modifier = Modifier.size(18.dp))
@@ -921,7 +931,7 @@ fun LoadingView() {
             CircularProgressIndicator(color = Color(0xFF6A5CFF))
             Spacer(Modifier.height(16.dp))
             Text(
-                "Initialising Speaking Assessment…",
+                stringResource(R.string.initialising_speaking_assessment),
                 fontWeight = FontWeight.Bold, color = Color(0xFF1D1D1F),
                 textAlign = TextAlign.Center, modifier = Modifier.padding(horizontal = 24.dp)
             )
@@ -934,15 +944,13 @@ fun GeneratingPathView(statusText: String) {
     val totalAnimationTime = 10000 // 10 seconds
     val drawingProgress = remember { androidx.compose.animation.core.Animatable(0f) }
     
-    val tips = remember {
-        listOf(
-            "Tip: Practicing 15 minutes a day is better than 2 hours once a week.",
-            "Fun Fact: There are over 7,000 languages spoken in the world today.",
-            "Tip: Don't worry about making mistakes; they are proof you are trying!",
-            "Fun Fact: The language with the most words is English, with over 1 million.",
-            "Tip: Try watching your favorite movies with subtitles in your target language."
-        )
-    }
+    val tips = listOf(
+        stringResource(R.string.tip_practice_daily),
+        stringResource(R.string.fun_fact_languages),
+        stringResource(R.string.tip_mistakes),
+        stringResource(R.string.fun_fact_english_words),
+        stringResource(R.string.tip_subtitles)
+    )
     var currentTipIndex by remember { mutableStateOf(0) }
     val tipAlpha = remember { androidx.compose.animation.core.Animatable(0f) }
     val finalPulse = remember { androidx.compose.animation.core.Animatable(1f) }
@@ -975,14 +983,12 @@ fun GeneratingPathView(statusText: String) {
     }
 
     val primaryColor = Color(0xFF6A5CFF)
-    val steps = remember {
-        listOf(
-            "Analyzing your proficiency level...",
-            "Finding the best vocabulary for you...",
-            "Structuring your custom lessons...",
-            "Almost ready!"
-        )
-    }
+    val steps = listOf(
+        stringResource(R.string.analyzing_proficiency),
+        stringResource(R.string.finding_vocabulary),
+        stringResource(R.string.structuring_lessons),
+        stringResource(R.string.almost_ready)
+    )
 
     val pointThresholds = listOf(0.0f, 0.33f, 0.66f, 0.98f)
 
@@ -1120,7 +1126,7 @@ fun ErrorView(message: String, onRetry: () -> Unit) {
             Text(message, color = Color(0xFF1D1D1F), textAlign = TextAlign.Center, fontWeight = FontWeight.Medium)
             Spacer(Modifier.height(24.dp))
             Button(onClick = onRetry, colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6A5CFF))) {
-                Text("Retry")
+                Text(stringResource(R.string.retry))
             }
         }
     }
@@ -1147,10 +1153,10 @@ fun AssessmentResultView(
     val assignedTier       = response.assigned_tier ?: "B2 Upper-Intermediate"
 
     val (gradeEmoji, gradeTitle, gradeSubtitle) = when {
-        proficiencyScore >= 85 -> Triple("🎉", "Excellent performance!", "You demonstrated strong language skills with great clarity and confidence.")
-        proficiencyScore >= 70 -> Triple("👍", "Good performance!", "You have solid conversational skills with room to refine vocabulary and fluency.")
-        proficiencyScore >= 55 -> Triple("📈", "Keep it up!", "You're building a good foundation. Focus on grammar and coherence to improve.")
-        else                   -> Triple("💪", "Keep practicing!", "Good start! Regular practice will help you improve quickly.")
+        proficiencyScore >= 85 -> Triple("🎉", stringResource(R.string.grade_excellent), stringResource(R.string.grade_excellent_desc))
+        proficiencyScore >= 70 -> Triple("👍", stringResource(R.string.grade_good), stringResource(R.string.grade_good_desc))
+        proficiencyScore >= 55 -> Triple("📈", stringResource(R.string.grade_keep_it_up), stringResource(R.string.grade_keep_it_up_desc))
+        else -> Triple("💪", stringResource(R.string.grade_keep_practicing), stringResource(R.string.grade_keep_practicing_desc))
     }
 
     val completedAt = remember {
@@ -1193,10 +1199,10 @@ fun AssessmentResultView(
                     .background(Color(0xFFF0EEFF)).clickable { onBack() },
                 contentAlignment = Alignment.Center
             ) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back",
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.back),
                     tint = Color(0xFF6A5CFF), modifier = Modifier.size(20.dp))
             }
-            Text("Assessment Result",
+            Text(stringResource(R.string.assessment_result),
                 style = TextStyle(color = Color(0xFF1D1D1F), fontSize = 17.sp, fontWeight = FontWeight.Bold))
             Box(
                 modifier = Modifier.size(38.dp).clip(CircleShape).background(Color(0xFFF0EEFF)),
@@ -1258,7 +1264,7 @@ fun AssessmentResultView(
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(Icons.Default.CalendarToday, null, tint = Color(0xFF8E8E93), modifier = Modifier.size(12.dp))
                         Spacer(Modifier.width(4.dp))
-                        Text("Completed on $completedAt", color = Color(0xFF8E8E93), fontSize = 11.sp)
+                        Text(stringResource(R.string.completed_on, completedAt), color = Color(0xFF8E8E93), fontSize = 11.sp)
                     }
                 }
             }
@@ -1266,7 +1272,7 @@ fun AssessmentResultView(
             Spacer(Modifier.height(24.dp))
 
             // Strengths row
-            ResultSectionHeader(Icons.Default.Star, Color(0xFFFF9800), "Strengths")
+            ResultSectionHeader(Icons.Default.Star, Color(0xFFFF9800), stringResource(R.string.strengths))
             Spacer(Modifier.height(12.dp))
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 StrengthScoreCard("Grammar",   grammarScore,   Color(0xFF4CAF50), "G", Modifier.weight(1f))
@@ -1277,7 +1283,7 @@ fun AssessmentResultView(
             Spacer(Modifier.height(24.dp))
 
             // Performance Overview — radar + legend
-            ResultSectionHeader(Icons.Default.BarChart, Color(0xFF6A5CFF), "Performance Overview")
+            ResultSectionHeader(Icons.Default.BarChart, Color(0xFF6A5CFF), stringResource(R.string.performance_overview))
             Spacer(Modifier.height(12.dp))
             Card(
                 modifier = Modifier.fillMaxWidth().shadow(4.dp, RoundedCornerShape(20.dp)),
@@ -1310,7 +1316,7 @@ fun AssessmentResultView(
             Spacer(Modifier.height(24.dp))
 
             // Areas to Improve
-            ResultSectionHeader(Icons.AutoMirrored.Filled.TrendingUp, Color(0xFF2196F3), "Areas to Improve")
+            ResultSectionHeader(Icons.AutoMirrored.Filled.TrendingUp, Color(0xFF2196F3), stringResource(R.string.areas_to_improve))
             Spacer(Modifier.height(12.dp))
             Row(
                 modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max),
@@ -1330,7 +1336,7 @@ fun AssessmentResultView(
             Spacer(Modifier.height(24.dp))
 
             // Recommended Actions
-            ResultSectionHeader(Icons.Default.CheckCircle, Color(0xFF6A5CFF), "Recommended Actions")
+            ResultSectionHeader(Icons.Default.CheckCircle, Color(0xFF6A5CFF), stringResource(R.string.recommended_actions))
             Spacer(Modifier.height(12.dp))
             Card(
                 modifier = Modifier.fillMaxWidth().shadow(4.dp, RoundedCornerShape(20.dp)),
@@ -1349,16 +1355,16 @@ fun AssessmentResultView(
                     Column(modifier = Modifier.weight(1f)) {
                         Box(modifier = Modifier.clip(RoundedCornerShape(8.dp))
                             .background(Color(0xFFE8F5E9)).padding(horizontal = 8.dp, vertical = 3.dp)) {
-                            Text("Complete", color = Color(0xFF4CAF50), fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                            Text(stringResource(R.string.completed), color = Color(0xFF4CAF50), fontSize = 10.sp, fontWeight = FontWeight.Bold)
                         }
                         Spacer(Modifier.height(4.dp))
-                        Text(response.recommended_focus ?: "Build vocabulary for your target area",
+                        Text(response.recommended_focus ?: stringResource(R.string.build_target_vocabulary),
                             color = Color(0xFF1D1D1F), fontSize = 13.sp, fontWeight = FontWeight.Bold, lineHeight = 18.sp)
                         Spacer(Modifier.height(4.dp))
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(Icons.Default.Schedule, null, tint = Color(0xFF8E8E93), modifier = Modifier.size(11.dp))
                             Spacer(Modifier.width(3.dp))
-                            Text("Estimated Time: 15 min/day", color = Color(0xFF8E8E93), fontSize = 11.sp)
+                            Text(stringResource(R.string.estimated_minutes_day, 15), color = Color(0xFF8E8E93), fontSize = 11.sp)
                         }
                     }
                 }
@@ -1374,7 +1380,7 @@ fun AssessmentResultView(
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6A5CFF)),
                 shape = RoundedCornerShape(28.dp)
             ) {
-                Text("Continue to Lessons",
+                Text(stringResource(R.string.continue_to_lessons),
                     style = TextStyle(color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold))
             }
             Spacer(Modifier.height(32.dp))
@@ -1497,7 +1503,7 @@ private fun ImprovementCard(
                 Icon(Icons.Default.Lightbulb, null,
                     tint = Color(0xFFFF9800), modifier = Modifier.size(11.dp))
                 Spacer(Modifier.width(3.dp))
-                Text("Tip: $tip", color = Color(0xFFFF9800), fontSize = 10.sp, lineHeight = 14.sp,
+                Text(stringResource(R.string.tip_format, tip), color = Color(0xFFFF9800), fontSize = 10.sp, lineHeight = 14.sp,
                     maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
             }
         }

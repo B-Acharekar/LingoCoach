@@ -1,14 +1,13 @@
 package com.mk.lingocoach.viewmodel
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.mk.lingocoach.data.model.LanguageItem
 import com.mk.lingocoach.data.model.appLanguages
 import com.mk.lingocoach.data.repository.LanguagePreferencesRepository
+import com.mk.lingocoach.data.repository.AppLocaleManager
 import com.mk.lingocoach.ui.screens.AppCache
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -48,24 +47,6 @@ class LanguageViewModel(
             }
         }
 
-        // Initialize from AppCompatDelegate if available
-        initializeFromSystemLocale()
-    }
-
-    /**
-     * Initialize the selected language from AppCompatDelegate's current locale
-     */
-    private fun initializeFromSystemLocale() {
-        val currentLocales = AppCompatDelegate.getApplicationLocales()
-        if (!currentLocales.isEmpty) {
-            val primaryLocale = currentLocales[0]
-            primaryLocale?.let {
-                val languageCode = it.language
-                if (languageCode.isNotEmpty() && languageCode != _selectedLanguage.value) {
-                    _selectedLanguage.value = languageCode
-                }
-            }
-        }
     }
 
     /**
@@ -111,16 +92,7 @@ class LanguageViewModel(
      * @param languageCode The ISO 639-1 language code or "system" for default
      */
     private fun applyLanguageToSystem(languageCode: String) {
-        val localeList = if (languageCode == "system") {
-            // Use system default
-            LocaleListCompat.getEmptyLocaleList()
-        } else {
-            // Set specific language
-            LocaleListCompat.forLanguageTags(languageCode)
-        }
-        val currentLocales = AppCompatDelegate.getApplicationLocales()
-        if (currentLocales.toLanguageTags() == localeList.toLanguageTags()) return
-        AppCompatDelegate.setApplicationLocales(localeList)
+        AppLocaleManager.setLanguage(languageCode)
     }
 
     /**
