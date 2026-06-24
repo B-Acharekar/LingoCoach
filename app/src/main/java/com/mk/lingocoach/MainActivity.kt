@@ -3,6 +3,7 @@ package com.mk.lingocoach
 import android.os.Bundle
 import android.content.res.Configuration
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -61,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         setContent {
             val languageCode by AppLocaleManager.languageCode.collectAsState()
             val baseContext = LocalContext.current
+            val activityResultRegistryOwner = LocalActivityResultRegistryOwner.current ?: this
             val localizedConfiguration = remember(baseContext, languageCode) {
                 Configuration(baseContext.resources.configuration).apply {
                     val locale = if (languageCode == "system") Locale.getDefault() else Locale.forLanguageTag(languageCode)
@@ -73,7 +75,8 @@ class MainActivity : AppCompatActivity() {
             }
             CompositionLocalProvider(
                 LocalContext provides localizedContext,
-                LocalConfiguration provides localizedConfiguration
+                LocalConfiguration provides localizedConfiguration,
+                LocalActivityResultRegistryOwner provides activityResultRegistryOwner
             ) {
                 LingoCoachTheme(dynamicColor = false) {
                 var currentScreenName by rememberSaveable { mutableStateOf(Screen.Splash.name) }
