@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/intro_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splash_purple">
+
+    <ImageView
+        android:id="@+id/intro_bot"
+        android:layout_width="288dp"
+        android:layout_height="288dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/splash_bot_icon" />
+
+    <LinearLayout
+        android:id="@+id/intro_title_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:alpha="0"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:translationY="162dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:includeFontPadding="false"
+            android:letterSpacing="0"
+            android:text="LINGOCOACH"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="sans-serif-medium"
+            android:includeFontPadding="false"
+            android:letterSpacing="0.18"
+            android:text="AI LANGUAGE TUTOR"
+            android:textColor="#E6FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/intro_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="280dp"
+        android:layout_height="10dp"
+        android:layout_gravity="center"
+        android:alpha="0"
+        android:indeterminate="false"
+        android:max="1000"
+        android:progress="0"
+        android:progressDrawable="@drawable/intro_progress"
+        android:translationY="238dp" />
+
+</FrameLayout>

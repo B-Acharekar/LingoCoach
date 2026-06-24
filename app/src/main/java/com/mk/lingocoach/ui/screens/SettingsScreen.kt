@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.background
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -11,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -580,40 +582,45 @@ private fun AppLanguagePickerDialog(
                         modifier = Modifier
                             .fillMaxWidth()
                             .weight(1f),
-                        contentPadding = PaddingValues(bottom = 12.dp)
+                        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 8.dp),
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         items(filteredLanguages, key = { it.code }) { language ->
                             val selected = language.code == draftCode
-                            Row(
+                            Card(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .clickable { draftCode = language.code }
-                                    .background(if (selected) SettingsPurpleSoft else Color.Transparent)
-                                    .padding(horizontal = 24.dp, vertical = 13.dp),
-                                verticalAlignment = Alignment.CenterVertically
+                                    .shadow(
+                                        elevation = if (selected) 12.dp else 4.dp,
+                                        shape = RoundedCornerShape(20.dp),
+                                        clip = false,
+                                        ambientColor = Color(0x05000000),
+                                        spotColor = if (selected) Color(0x1F6A5CFF) else Color(0x0A000000)
+                                    ),
+                                shape = RoundedCornerShape(20.dp),
+                                colors = CardDefaults.cardColors(containerColor = if (selected) SettingsPurple else Color.White),
+                                border = if (selected) null else BorderStroke(1.dp, Color(0xFFE2E2E6))
                             ) {
-                                Text(language.flagEmoji, fontSize = 22.sp)
-                                Spacer(Modifier.width(12.dp))
-                                Column(modifier = Modifier.weight(1f)) {
-                                    Text(
-                                        localizedAppLanguageName(language.code),
-                                        color = if (selected) SettingsPurple else SettingsTextDark,
-                                        fontSize = 15.sp,
-                                        fontWeight = if (selected) FontWeight.ExtraBold else FontWeight.SemiBold
-                                    )
-                                    Text(
-                                        language.nativeName,
-                                        color = SettingsTextLight,
-                                        fontSize = 12.sp
-                                    )
-                                }
-                                if (selected) {
-                                    Icon(
-                                        Icons.Default.Check,
-                                        contentDescription = null,
-                                        tint = SettingsPurple,
-                                        modifier = Modifier.size(20.dp)
-                                    )
+                                Row(
+                                    modifier = Modifier.fillMaxWidth().padding(16.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        Box(
+                                            modifier = Modifier.size(44.dp).clip(CircleShape)
+                                                .background(if (selected) Color(0x33FFFFFF) else Color(0xFFF4F4F6)),
+                                            contentAlignment = Alignment.Center
+                                        ) { Text(language.flagEmoji, fontSize = 24.sp) }
+                                        Spacer(Modifier.width(16.dp))
+                                        Column {
+                                            Text(localizedAppLanguageName(language.code), color = if (selected) Color.White else Color(0xFF1D1D1F), fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
+                                            Spacer(Modifier.height(2.dp))
+                                            Text(language.nativeName, color = if (selected) Color.White.copy(alpha = 0.8f) else Color(0xFF8E8D9F), fontSize = 13.sp)
+                                        }
+                                    }
+                                    CustomRadioButton(selected, Color.White, Color(0xFFD2D2D7))
                                 }
                             }
                         }

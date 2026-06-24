@@ -1,6 +1,11 @@
 package com.mk.lingocoach
 
 import android.os.Bundle
+import android.animation.ValueAnimator
+import android.view.View
+import android.view.animation.DecelerateInterpolator
+import android.widget.ProgressBar
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.LocalActivityResultRegistryOwner
@@ -32,7 +37,6 @@ import com.mk.lingocoach.data.repository.AppLocaleManager
 import java.util.Locale
 
 enum class Screen {
-    Splash,
     LanguageSelection,
     WelcomeAboard,
     UserProfileSetup,
@@ -52,16 +56,9 @@ enum class Screen {
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        val splashScreen = installSplashScreen()
-        splashScreen.setOnExitAnimationListener { splashScreenViewProvider ->
-            splashScreenViewProvider.view.animate()
-                .alpha(0f)
-                .setDuration(220L)
-                .withEndAction { splashScreenViewProvider.remove() }
-                .start()
-        }
-
+        installSplashScreen()
         super.onCreate(savedInstanceState)
+        val startupScreen = resolveStartScreen()
 
         // Restore locale on cold start
         val savedLang = getSharedPreferences("language_preferences_mirror", MODE_PRIVATE)
@@ -74,7 +71,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         enableEdgeToEdge()
-        setContent {
+        setContentView(R.layout.activity_intro)
+        runIntroSequence {
+            setContent {
             val languageCode by AppLocaleManager.languageCode.collectAsState()
             val baseContext = LocalContext.current
             val activityResultRegistryOwner = LocalActivityResultRegistryOwner.current ?: this
@@ -94,9 +93,11 @@ class MainActivity : AppCompatActivity() {
                 LocalActivityResultRegistryOwner provides activityResultRegistryOwner
             ) {
                 LingoCoachTheme(dynamicColor = false) {
-                var currentScreenName by rememberSaveable { mutableStateOf(Screen.Splash.name) }
+                var currentScreenName by rememberSaveable {
+                    mutableStateOf(startupScreen.name)
+                }
                 var currentSublessonId by rememberSaveable { mutableStateOf("") }
-                val currentScreen = runCatching { Screen.valueOf(currentScreenName) }.getOrDefault(Screen.Splash)
+                val currentScreen = runCatching { Screen.valueOf(currentScreenName) }.getOrDefault(Screen.LanguageSelection)
                 val screenBackStack = remember { mutableStateListOf<String>() }
 
                 fun navigateTo(screen: Screen) {
@@ -126,7 +127,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     currentScreenName = when (currentScreen) {
-                        Screen.LanguageSelection -> Screen.Splash.name
+                        Screen.LanguageSelection -> Screen.LanguageSelection.name
                         Screen.WelcomeAboard -> Screen.LanguageSelection.name
                         Screen.UserProfileSetup -> Screen.WelcomeAboard.name
                         Screen.Assessment -> Screen.UserProfileSetup.name
@@ -141,11 +142,10 @@ class MainActivity : AppCompatActivity() {
                         Screen.Settings,
                         Screen.Analytics -> Screen.Home.name
                         Screen.Home -> Screen.Home.name
-                        Screen.Splash -> Screen.Splash.name
                     }
                 }
 
-                BackHandler(enabled = currentScreen != Screen.Splash) {
+                BackHandler(enabled = true) {
                     goBack()
                 }
 
@@ -154,15 +154,6 @@ class MainActivity : AppCompatActivity() {
                     color = Color(0xFF07051A)
                 ) {
                     when (currentScreen) {
-                        Screen.Splash -> {
-                            SplashScreen(
-                                onNavigateToWelcome = { replaceWith(Screen.WelcomeAboard) },
-                                onNavigateToLanguage = { replaceWith(Screen.LanguageSelection) },
-                                onNavigateToAssessment = { replaceWith(Screen.Assessment) },
-                                onNavigateToProfileSetup = { replaceWith(Screen.UserProfileSetup) },
-                                onNavigateToHome = { replaceWith(Screen.Home) }
-                            )
-                        }
                         Screen.LanguageSelection -> {
                             LanguageSelectionScreen(
                                 onNavigateToWelcome = { navigateTo(Screen.WelcomeAboard) },
@@ -290,7 +281,14 @@ class MainActivity : AppCompatActivity() {
                         Screen.Settings -> {
                             SettingsScreen(
                                 onNavigateBack = { goBack() },
-                                onLogout = { resetTo(Screen.Splash) }
+                                onLogout = {
+                                    startActivity(
+                                        Intent(this@MainActivity, MainActivity::class.java).apply {
+                                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                        }
+                                    )
+                                    finish()
+                                }
                             )
                         }
                         Screen.Analytics -> {
@@ -303,7 +301,66 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+            }
+        }
     }
-}
+
+    private fun runIntroSequence(onComplete: () -> Unit) {
+        val root = findViewById<View>(R.id.intro_root)
+        val title = findViewById<View>(R.id.intro_title_group)
+        val progress = findViewById<ProgressBar>(R.id.intro_progress)
+
+        title.translationY += 16f * resources.displayMetrics.density
+        title.animate()
+            .alpha(1f)
+            .translationY(title.translationY - 16f * resources.displayMetrics.density)
+            .setDuration(500L)
+            .setInterpolator(DecelerateInterpolator())
+            .withEndAction {
+                progress.animate().alpha(1f).setDuration(120L).start()
+                ValueAnimator.ofInt(0, 1000).apply {
+                    duration = 1400L
+                    interpolator = DecelerateInterpolator()
+                    addUpdateListener { progress.progress = it.animatedValue as Int }
+                    start()
+                }
+            }
+            .start()
+
+        root.postDelayed({
+            root.animate()
+                .alpha(0f)
+                .setDuration(100L)
+                .withEndAction(onComplete)
+                .start()
+        }, 1900L)
+    }
+
+    private fun resolveStartScreen(): Screen {
+        val preferences = getSharedPreferences("LingoCoachPrefs", MODE_PRIVATE)
+        val languageSelected = preferences.getBoolean("lang_selected", false)
+        val onboardingCompleted = preferences.getBoolean("onboarding_completed", false)
+        val personalizationDone = preferences.getBoolean("personalization_done", false)
+        val assessmentCompleted = preferences.getBoolean("assessment_completed", false)
+        val sessionId = preferences.getString("session_id", "").orEmpty()
+        val assessmentJson = preferences.getString("assessment_response_json", "").orEmpty()
+        val hasValidAssessment = assessmentCompleted && sessionId.isNotBlank() && assessmentJson.isNotBlank()
+
+        if (assessmentCompleted && !hasValidAssessment) {
+            preferences.edit()
+                .remove("assessment_completed")
+                .remove("session_id")
+                .remove("assessment_response_json")
+                .apply()
+        }
+
+        return when {
+            hasValidAssessment -> Screen.Home
+            languageSelected && onboardingCompleted && personalizationDone -> Screen.Assessment
+            languageSelected && onboardingCompleted -> Screen.UserProfileSetup
+            languageSelected -> Screen.WelcomeAboard
+            else -> Screen.LanguageSelection
+        }
+    }
 
 }

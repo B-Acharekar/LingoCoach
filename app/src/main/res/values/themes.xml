@@ -3,7 +3,7 @@
 
     <style name="Theme.LingoCoach" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/splash_purple</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo_icon</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_bot_system</item>
         <item name="windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
         <item name="postSplashScreenTheme">@style/Theme.LingoCoach.App</item>
         <item name="android:windowIsTranslucent">false</item>
