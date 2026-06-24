@@ -49,7 +49,7 @@ fun SplashScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
+            .background(Color(0xFF6A5CFF)),
         contentAlignment = Alignment.Center
     ) {
         Image(
@@ -67,7 +67,7 @@ fun SplashScreen(
         ) {
             Text(
                 text = "$progressPercent%",
-                color = Color(0xFF6A5CFF),
+                color = Color.White,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold
             )
@@ -78,8 +78,8 @@ fun SplashScreen(
                     .width(200.dp)
                     .height(6.dp)
                     .clip(RoundedCornerShape(50)),
-                color = Color(0xFF6A5CFF),
-                trackColor = Color(0xFF6A5CFF).copy(alpha = 0.18f)
+                color = Color.White,
+                trackColor = Color.White.copy(alpha = 0.28f)
             )
         }
     }

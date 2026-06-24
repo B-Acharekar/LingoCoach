@@ -52,17 +52,17 @@ import kotlin.math.sin
 // ─── Duel Enums & Data ───────────────────────────────────────────────────────
 
 enum class DuelDifficulty(
-    val label: String,
-    val subtitle: String,
+    val labelRes: Int,
+    val subtitleRes: Int,
     val timePerQuestion: Int, // seconds
     val xpGain: Int,
     val xpLoss: Int,
     val level: String
 ) {
-    BEGINNER("Beginner", "A1 · A2 words  ·  30s per Q", 30, 5, 2, "A1"),
-    INTERMEDIATE("Intermediate", "B1 · B2 words  ·  20s per Q", 20, 10, 5, "B1"),
-    ADVANCED("Advanced", "C1 words  ·  15s per Q", 15, 20, 10, "C1"),
-    MASTER("Master", "C1 · C2 words  ·  10s per Q", 10, 50, 25, "C1")
+    BEGINNER(R.string.duel_beginner, R.string.duel_beginner_subtitle, 30, 5, 2, "A1"),
+    INTERMEDIATE(R.string.duel_intermediate, R.string.duel_intermediate_subtitle, 20, 10, 5, "B1"),
+    ADVANCED(R.string.duel_advanced, R.string.duel_advanced_subtitle, 15, 20, 10, "C1"),
+    MASTER(R.string.duel_master, R.string.duel_master_subtitle, 10, 50, 25, "C1")
 }
 
 enum class DuelQuestionType { FILL_BLANK, SPELLING, PRONUNCIATION, SENTENCE }
@@ -311,9 +311,9 @@ fun DuelSetupScreen(
                     }
                     Spacer(Modifier.width(14.dp))
                     Column(Modifier.weight(1f)) {
-                        Text(diff.label, color = if (isSelected) Color.White else dark,
+                        Text(stringResource(diff.labelRes), color = if (isSelected) Color.White else dark,
                             fontSize = 15.sp, fontWeight = FontWeight.Bold)
-                        Text(diff.subtitle, color = if (isSelected) Color.White.copy(0.75f) else Color(0xFF9B96B0),
+                        Text(stringResource(diff.subtitleRes), color = if (isSelected) Color.White.copy(0.75f) else Color(0xFF9B96B0),
                             fontSize = 11.sp)
                     }
                     Column(horizontalAlignment = Alignment.End) {
@@ -740,7 +740,7 @@ fun DuelResultScreen(
             if (accuracy >= 80) stringResource(R.string.excellent) else if (accuracy >= 60) stringResource(R.string.good_job) else stringResource(R.string.duel_keep_practicing),
             color = TextDark, fontSize = 24.sp, fontWeight = FontWeight.ExtraBold
         )
-        Text(stringResource(R.string.duel_complete, difficulty.label), color = TextMid, fontSize = 14.sp)
+        Text(stringResource(R.string.duel_complete, stringResource(difficulty.labelRes)), color = TextMid, fontSize = 14.sp)
 
         Spacer(Modifier.height(28.dp))
 

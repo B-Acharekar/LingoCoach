@@ -1043,14 +1043,14 @@ fun HomeDynamicLearningPathCard(
                 )
                 Spacer(Modifier.height(2.dp))        // 4 → 2
                 Text(
-                    "${module.lessons.size} Lessons",
+                    stringResource(R.string.lessons_count, module.lessons.size),
                     color = TextLight,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Medium
                 )
                 Spacer(Modifier.height(3.dp))        // 6 → 3
                 Text(
-                    "${completedLessons}/${totalLessons} Completed",
+                    stringResource(R.string.lessons_complete, completedLessons, totalLessons),
                     color = BrandGreen,
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Bold

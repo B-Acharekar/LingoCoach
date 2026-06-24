@@ -630,4 +630,29 @@
     <string name="recording_complete_how">녹음이 완료되었습니다. 어떻게 지내셨나요?</string>
     <string name="great_job_moving_on">정말 잘했어요! 계속해서...</string>
     <string name="noted_keep_practising">유명한. 계속 연습하세요!</string>
+
+    <string name="add_username">Add username</string>
+    <string name="add_username_save_restore">Add a username to save your progress and restore it later.</string>
+    <string name="settings_username_restore_desc">This lets LingoCoach save your progress and restore your account later.</string>
+    <string name="settings_username_rules">3-20 chars. Lowercase letters, numbers, and underscores.</string>
+    <string name="fluency_beginner_a1">Beginner / A1</string>
+    <string name="fluency_elementary_a2">Elementary / A2</string>
+    <string name="fluency_intermediate_b1">Intermediate / B1</string>
+    <string name="fluency_upper_intermediate_b2">Upper-Intermediate / B2</string>
+    <string name="fluency_advanced_c1">Advanced / C1</string>
+    <string name="fluency_professional_business">Professional / Business</string>
+    <string name="level">Level</string>
+    <string name="in_progress_lessons_count">In progress - %1$d lessons</string>
+    <string name="level_lessons_syncing">This level is part of your path. Lessons will appear here after the curriculum syncs.</string>
+    <string name="completed_parts_count">Completed - %1$d parts</string>
+    <string name="ready_to_learn_parts_count">Ready to learn - %1$d parts</string>
+    <string name="complete_previous_lesson">Complete the previous lesson</string>
+    <string name="duel_beginner">Beginner</string>
+    <string name="duel_intermediate">Intermediate</string>
+    <string name="duel_advanced">Advanced</string>
+    <string name="duel_master">Master</string>
+    <string name="duel_beginner_subtitle">A1 - A2 words - 30s per Q</string>
+    <string name="duel_intermediate_subtitle">B1 - B2 words - 20s per Q</string>
+    <string name="duel_advanced_subtitle">C1 words - 15s per Q</string>
+    <string name="duel_master_subtitle">C1 - C2 words - 10s per Q</string>
 </resources>

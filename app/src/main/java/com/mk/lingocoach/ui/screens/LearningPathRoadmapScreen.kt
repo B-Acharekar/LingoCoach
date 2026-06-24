@@ -205,9 +205,9 @@ private fun RoadmapHero(modules: List<CurrentModule>) {
             }
             Spacer(Modifier.height(22.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
-                RoadmapStat("LEVEL", if (modules.isEmpty()) "--" else "${currentIndex + 1}/${modules.size}", Modifier.weight(1f))
-                RoadmapStat("COMPLETED", "$completed", Modifier.weight(1f))
-                RoadmapStat("REMAINING", "${(modules.size - completed).coerceAtLeast(0)}", Modifier.weight(1f))
+                RoadmapStat(stringResource(R.string.level), if (modules.isEmpty()) "--" else "${currentIndex + 1}/${modules.size}", Modifier.weight(1f))
+                RoadmapStat(stringResource(R.string.completed), "$completed", Modifier.weight(1f))
+                RoadmapStat(stringResource(R.string.remaining), "${(modules.size - completed).coerceAtLeast(0)}", Modifier.weight(1f))
             }
             Spacer(Modifier.height(16.dp))
             LinearProgressIndicator(
@@ -469,7 +469,7 @@ private fun ExpandableModule(
 
                     if (lessons.isEmpty()) {
                         Text(
-                            "This level is part of your path. Lessons will appear here after the curriculum syncs.",
+                            stringResource(R.string.level_lessons_syncing),
                             color = TextLight,
                             fontSize = 12.sp,
                             lineHeight = 17.sp,
@@ -557,9 +557,9 @@ private fun LessonRow(index: Int, lesson: CurrentLesson, onClick: () -> Unit) {
                 Spacer(Modifier.height(3.dp))
                 Text(
                     when {
-                        completed -> "Completed | ${lesson.sublessons.size} parts"
-                        current -> "Ready to learn | ${lesson.sublessons.size} parts"
-                        else -> "Complete the previous lesson"
+                        completed -> stringResource(R.string.completed_parts_count, lesson.sublessons.size)
+                        current -> stringResource(R.string.ready_to_learn_parts_count, lesson.sublessons.size)
+                        else -> stringResource(R.string.complete_previous_lesson)
                     },
                     color = accent,
                     fontSize = 10.sp,

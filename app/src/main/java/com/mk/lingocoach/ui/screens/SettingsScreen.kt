@@ -59,12 +59,6 @@ private val SettingsSectionLabel = Color(0xFF9E9E9E)
 private val SettingsGreen     = Color(0xFF4CAF50)
 private val SettingsRed       = Color(0xFFE53935)
 
-// --- Fluency levels list ------------------------------------------------------
-private val fluencyLevels = listOf(
-    "Beginner / A1", "Elementary / A2", "Intermediate / B1",
-    "Upper-Intermediate / B2", "Advanced / C1", "Professional / Business"
-)
-
 // --- Native language list -----------------------------------------------------
 // --- AI tutor voice profiles --------------------------------------------------
 private val voiceProfiles = listOf(
@@ -130,6 +124,7 @@ fun SettingsScreen(
     var usernameSaveError by remember { mutableStateOf<String?>(null) }
     var isUsernameSaving by remember { mutableStateOf(false) }
     val currentAppLanguageLabel = localizedSettingsLanguageLabel(appLanguageCode)
+    val fluencyLevelOptions = localizedFluencyLevels()
 
     // -- Helper: persist a boolean ---------------------------------------------
     fun saveBool(key: String, value: Boolean) = prefs.edit().putBoolean(key, value).apply()
@@ -200,7 +195,7 @@ fun SettingsScreen(
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(vertical = 8.dp))
                         SettingsInfoRow(
                             label = stringResource(R.string.username),
-                            value = if (username.isBlank()) "Add username" else "@$username",
+                            value = if (username.isBlank()) stringResource(R.string.add_username) else "@$username",
                             onClick = { showUsernameDialog = true }
                         )
                         if (username.isBlank()) {
@@ -211,7 +206,7 @@ fun SettingsScreen(
                         // Target Fluency row
                         SettingsInfoRow(
                             label = stringResource(R.string.skill_level),
-                            value = targetFluency,
+                            value = localizedFluencyLevel(targetFluency),
                             onClick = { showFluencyDialog = true }
                         )
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(vertical = 8.dp))
@@ -391,10 +386,15 @@ fun SettingsScreen(
     if (showFluencyDialog) {
         SettingsPickerDialog(
             title   = stringResource(R.string.skill_level),
-            options = fluencyLevels,
-            selected = targetFluency,
+            options = fluencyLevelOptions.map { it.second },
+            selected = localizedFluencyLevel(targetFluency),
             onDismiss = { showFluencyDialog = false },
-            onSelect  = { targetFluency = it; saveAndSync("target_fluency", it); showFluencyDialog = false }
+            onSelect  = { label ->
+                val storedValue = fluencyLevelOptions.firstOrNull { it.second == label }?.first ?: label
+                targetFluency = storedValue
+                saveAndSync("target_fluency", storedValue)
+                showFluencyDialog = false
+            }
         )
     }
 
@@ -659,7 +659,7 @@ private fun SettingsProgressReminder(onClick: () -> Unit) {
         Icon(Icons.Default.Notifications, contentDescription = null, tint = SettingsPurple, modifier = Modifier.size(20.dp))
         Spacer(Modifier.width(10.dp))
         Text(
-            "Add a username to save your progress and restore it later.",
+            stringResource(R.string.add_username_save_restore),
             color = SettingsTextMid,
             fontSize = 13.sp,
             lineHeight = 18.sp,
@@ -843,7 +843,7 @@ private fun SettingsUsernameDialog(
                 Text(stringResource(R.string.username), color = SettingsTextDark, fontSize = 18.sp, fontWeight = FontWeight.Bold)
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    "This lets LingoCoach save your progress and restore your account later.",
+                    stringResource(R.string.settings_username_restore_desc),
                     color = SettingsTextMid,
                     fontSize = 13.sp,
                     lineHeight = 18.sp
@@ -859,7 +859,7 @@ private fun SettingsUsernameDialog(
                     isError = error != null,
                     supportingText = {
                         Text(
-                            error ?: "3-20 chars. Lowercase letters, numbers, and underscores.",
+                            error ?: stringResource(R.string.settings_username_rules),
                             color = if (error != null) SettingsRed else SettingsTextLight,
                             fontSize = 12.sp,
                             lineHeight = 16.sp
@@ -899,6 +899,20 @@ private fun SettingsUsernameDialog(
         }
     }
 }
+
+@Composable
+private fun localizedFluencyLevels(): List<Pair<String, String>> = listOf(
+    "Beginner / A1" to stringResource(R.string.fluency_beginner_a1),
+    "Elementary / A2" to stringResource(R.string.fluency_elementary_a2),
+    "Intermediate / B1" to stringResource(R.string.fluency_intermediate_b1),
+    "Upper-Intermediate / B2" to stringResource(R.string.fluency_upper_intermediate_b2),
+    "Advanced / C1" to stringResource(R.string.fluency_advanced_c1),
+    "Professional / Business" to stringResource(R.string.fluency_professional_business)
+)
+
+@Composable
+private fun localizedFluencyLevel(value: String): String =
+    localizedFluencyLevels().firstOrNull { it.first == value }?.second ?: value
 
 @Composable
 private fun SettingsPickerDialog(

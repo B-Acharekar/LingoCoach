@@ -629,4 +629,29 @@
     <string name="recording_complete_how">Grabación completa. ¿Cómo te fue?</string>
     <string name="great_job_moving_on">¡Buen trabajo! Continuando...</string>
     <string name="noted_keep_practising">Anotado. ¡Sigue practicando!</string>
+
+    <string name="add_username">Agregar usuario</string>
+    <string name="add_username_save_restore">Agrega un usuario para guardar tu progreso y restaurarlo despu?s.</string>
+    <string name="settings_username_restore_desc">Esto permite que LingoCoach guarde tu progreso y restaure tu cuenta despu?s.</string>
+    <string name="settings_username_rules">3-20 caracteres. Min?sculas, n?meros y guiones bajos.</string>
+    <string name="fluency_beginner_a1">Principiante / A1</string>
+    <string name="fluency_elementary_a2">Elemental / A2</string>
+    <string name="fluency_intermediate_b1">Intermedio / B1</string>
+    <string name="fluency_upper_intermediate_b2">Intermedio alto / B2</string>
+    <string name="fluency_advanced_c1">Avanzado / C1</string>
+    <string name="fluency_professional_business">Profesional / Negocios</string>
+    <string name="level">Nivel</string>
+    <string name="in_progress_lessons_count">En progreso - %1$d lecciones</string>
+    <string name="level_lessons_syncing">Este nivel forma parte de tu ruta. Las lecciones aparecer?n aqu? despu?s de sincronizar el curr?culo.</string>
+    <string name="completed_parts_count">Completado - %1$d partes</string>
+    <string name="ready_to_learn_parts_count">Listo para aprender - %1$d partes</string>
+    <string name="complete_previous_lesson">Completa la lecci?n anterior</string>
+    <string name="duel_beginner">Principiante</string>
+    <string name="duel_intermediate">Intermedio</string>
+    <string name="duel_advanced">Avanzado</string>
+    <string name="duel_master">Maestro</string>
+    <string name="duel_beginner_subtitle">Palabras A1 - A2 - 30 s por pregunta</string>
+    <string name="duel_intermediate_subtitle">Palabras B1 - B2 - 20 s por pregunta</string>
+    <string name="duel_advanced_subtitle">Palabras C1 - 15 s por pregunta</string>
+    <string name="duel_master_subtitle">Palabras C1 - C2 - 10 s por pregunta</string>
 </resources>
