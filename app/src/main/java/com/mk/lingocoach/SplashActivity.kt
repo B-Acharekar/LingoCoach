@@ -9,6 +9,7 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
+import android.os.SystemClock
 import android.util.Log
 import android.util.TypedValue
 import android.widget.ImageView
@@ -27,10 +28,13 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 class SplashActivity : AppCompatActivity() {
 
     private var customSplashReady = false
+    private var systemSplashStartedAt = 0L
     private lateinit var analytics: FirebaseAnalytics
     private val crashlytics by lazy { FirebaseCrashlytics.getInstance() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        systemSplashStartedAt = SystemClock.elapsedRealtime()
+        logSplashLine("SYSTEM onCreate_enter sdk=${Build.VERSION.SDK_INT} release=${Build.VERSION.RELEASE}")
         analytics = FirebaseAnalytics.getInstance(this)
 
         logSplashEvent(
@@ -40,7 +44,11 @@ class SplashActivity : AppCompatActivity() {
 
         try {
             val splashScreen = installSplashScreen()
-            splashScreen.setKeepOnScreenCondition { !customSplashReady }
+            logSplashLine("SYSTEM installSplashScreen_done elapsed=${SystemClock.elapsedRealtime() - systemSplashStartedAt}ms")
+            splashScreen.setKeepOnScreenCondition {
+                val elapsed = SystemClock.elapsedRealtime() - systemSplashStartedAt
+                !customSplashReady || elapsed < MIN_SYSTEM_SPLASH_MS
+            }
 
             logSystemSplashDiagnostics()
             logSplashEvent("system_splash_installed")
@@ -54,6 +62,7 @@ class SplashActivity : AppCompatActivity() {
             setContentView(R.layout.activity_splash)
             findViewById<View>(R.id.splash_root).post {
                 customSplashReady = true
+                logSplashLine("SYSTEM release_to_custom elapsed=${SystemClock.elapsedRealtime() - systemSplashStartedAt}ms")
                 logCustomSplashViewDiagnostics("custom_splash_ready")
                 logSplashEvent("custom_splash_ready")
             }
@@ -291,5 +300,6 @@ class SplashActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "LingoSplash"
+        private const val MIN_SYSTEM_SPLASH_MS = 450L
     }
 }
