@@ -6,15 +6,18 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.addListener
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.crashlytics.FirebaseCrashlytics
@@ -37,6 +40,7 @@ class SplashActivity : AppCompatActivity() {
             val splashScreen = installSplashScreen()
             splashScreen.setKeepOnScreenCondition { !customSplashReady }
 
+            logSystemSplashDiagnostics()
             logSplashEvent("system_splash_installed")
 
             super.onCreate(savedInstanceState)
@@ -60,6 +64,69 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
+    private fun logSystemSplashDiagnostics() {
+        try {
+            val iconValue = TypedValue()
+            val backgroundValue = TypedValue()
+            val iconResolved = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                theme.resolveAttribute(android.R.attr.windowSplashScreenAnimatedIcon, iconValue, true)
+            } else {
+                iconValue.resourceId = R.mipmap.splash_adaptive_icon
+                true
+            }
+            val backgroundResolved = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                theme.resolveAttribute(android.R.attr.windowSplashScreenBackground, backgroundValue, true)
+            } else {
+                backgroundValue.resourceId = R.color.splash_purple
+                true
+            }
+            val configuredIconDrawable = runCatching {
+                ResourcesCompat.getDrawable(resources, R.mipmap.splash_adaptive_icon, theme)
+            }.getOrNull()
+            val resolvedIconDrawable = iconValue.resourceId.takeIf { iconResolved && it != 0 }?.let { resourceId ->
+                runCatching { ResourcesCompat.getDrawable(resources, resourceId, theme) }.getOrNull()
+            }
+
+            val details = listOf(
+                "iconResolved=$iconResolved",
+                "iconResId=${iconValue.resourceId}",
+                "iconName=${resourceEntryName(iconValue.resourceId)}",
+                "iconType=${resolvedIconDrawable.drawableTypeName()}",
+                "iconSize=${resolvedIconDrawable.intrinsicSize()}",
+                "configuredIconName=${resourceEntryName(R.mipmap.splash_adaptive_icon)}",
+                "configuredIconType=${configuredIconDrawable.drawableTypeName()}",
+                "configuredIconSize=${configuredIconDrawable.intrinsicSize()}",
+                "backgroundResolved=$backgroundResolved",
+                "backgroundResId=${backgroundValue.resourceId}",
+                "backgroundName=${resourceEntryName(backgroundValue.resourceId)}",
+                "densityDpi=${resources.displayMetrics.densityDpi}",
+                "fontScale=${resources.configuration.fontScale}"
+            ).joinToString(" ")
+
+            logSplashEvent("system_splash_diagnostics", details)
+            crashlytics.setCustomKey("splash_icon_res_id", iconValue.resourceId)
+            crashlytics.setCustomKey("splash_icon_name", resourceEntryName(iconValue.resourceId))
+            crashlytics.setCustomKey("splash_icon_type", resolvedIconDrawable.drawableTypeName())
+            crashlytics.setCustomKey("splash_icon_size", resolvedIconDrawable.intrinsicSize())
+            crashlytics.setCustomKey("splash_configured_icon_type", configuredIconDrawable.drawableTypeName())
+            crashlytics.setCustomKey("splash_configured_icon_size", configuredIconDrawable.intrinsicSize())
+            crashlytics.setCustomKey("splash_density_dpi", resources.displayMetrics.densityDpi)
+        } catch (e: Exception) {
+            logSplashError("system_splash_diagnostics_failed", e)
+        }
+    }
+
+    private fun resourceEntryName(resourceId: Int): String =
+        if (resourceId != 0) {
+            runCatching { resources.getResourceEntryName(resourceId) }.getOrDefault("unknown")
+        } else {
+            "none"
+        }
+
+    private fun Drawable?.drawableTypeName(): String = this?.javaClass?.simpleName ?: "null"
+
+    private fun Drawable?.intrinsicSize(): String =
+        if (this == null) "null" else "${intrinsicWidth}x${intrinsicHeight}"
     private fun runBackgroundTransition() {
         val root = findViewById<View>(R.id.splash_root)
         val purple = Color.parseColor("#7053FF")
