@@ -43,6 +43,7 @@ class SplashActivity : AppCompatActivity() {
         )
 
         try {
+            logSystemSplashDiagnostics("launch_theme_before_install")
             val splashScreen = installSplashScreen()
             logSplashLine("SYSTEM installSplashScreen_done elapsed=${SystemClock.elapsedRealtime() - systemSplashStartedAt}ms")
             splashScreen.setKeepOnScreenCondition {
@@ -50,7 +51,7 @@ class SplashActivity : AppCompatActivity() {
                 !customSplashReady || elapsed < MIN_SYSTEM_SPLASH_MS
             }
 
-            logSystemSplashDiagnostics()
+            logSystemSplashDiagnostics("theme_after_install")
             logSplashEvent("system_splash_installed")
 
             super.onCreate(savedInstanceState)
@@ -77,14 +78,14 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
-    private fun logSystemSplashDiagnostics() {
+    private fun logSystemSplashDiagnostics(stage: String) {
         try {
             val iconValue = TypedValue()
             val backgroundValue = TypedValue()
             val iconResolved = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 theme.resolveAttribute(android.R.attr.windowSplashScreenAnimatedIcon, iconValue, true)
             } else {
-                iconValue.resourceId = R.mipmap.splash_adaptive_icon
+                iconValue.resourceId = R.mipmap.splash_system_plain
                 true
             }
             val backgroundResolved = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -94,19 +95,20 @@ class SplashActivity : AppCompatActivity() {
                 true
             }
             val configuredIconDrawable = runCatching {
-                ResourcesCompat.getDrawable(resources, R.mipmap.splash_adaptive_icon, theme)
+                ResourcesCompat.getDrawable(resources, R.mipmap.splash_system_plain, theme)
             }.getOrNull()
             val resolvedIconDrawable = iconValue.resourceId.takeIf { iconResolved && it != 0 }?.let { resourceId ->
                 runCatching { ResourcesCompat.getDrawable(resources, resourceId, theme) }.getOrNull()
             }
 
             val details = listOf(
+                "stage=$stage",
                 "iconResolved=$iconResolved",
                 "iconResId=${iconValue.resourceId}",
                 "iconName=${resourceEntryName(iconValue.resourceId)}",
                 "iconType=${resolvedIconDrawable.drawableTypeName()}",
                 "iconSize=${resolvedIconDrawable.intrinsicSize()}",
-                "configuredIconName=${resourceEntryName(R.mipmap.splash_adaptive_icon)}",
+                "configuredIconName=${resourceEntryName(R.mipmap.splash_system_plain)}",
                 "configuredIconType=${configuredIconDrawable.drawableTypeName()}",
                 "configuredIconSize=${configuredIconDrawable.intrinsicSize()}",
                 "backgroundResolved=$backgroundResolved",
