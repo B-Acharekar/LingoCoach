@@ -11,6 +11,8 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
+import android.widget.ImageView
+import android.widget.TextView
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
@@ -52,8 +54,10 @@ class SplashActivity : AppCompatActivity() {
             setContentView(R.layout.activity_splash)
             findViewById<View>(R.id.splash_root).post {
                 customSplashReady = true
+                logCustomSplashViewDiagnostics("custom_splash_ready")
                 logSplashEvent("custom_splash_ready")
             }
+            logCustomSplashViewDiagnostics("content_view_set")
             logSplashEvent("content_view_set")
 
             runBackgroundTransition()
@@ -103,6 +107,7 @@ class SplashActivity : AppCompatActivity() {
                 "fontScale=${resources.configuration.fontScale}"
             ).joinToString(" ")
 
+            logSplashLine("SYSTEM diagnostics $details")
             logSplashEvent("system_splash_diagnostics", details)
             crashlytics.setCustomKey("splash_icon_res_id", iconValue.resourceId)
             crashlytics.setCustomKey("splash_icon_name", resourceEntryName(iconValue.resourceId))
@@ -116,6 +121,33 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
+    private fun logCustomSplashViewDiagnostics(stage: String) {
+        val root = findViewById<View?>(R.id.splash_root)
+        val bot = findViewById<ImageView?>(R.id.splash_bot)
+        val branding = findViewById<View?>(R.id.splash_branding)
+        val title = findViewById<TextView?>(R.id.splash_title)
+        val progress = findViewById<ProgressBar?>(R.id.splash_progress)
+        val details = listOf(
+            "stage=$stage",
+            "root=${root.viewDiagnostics()}",
+            "bot=${bot.viewDiagnostics()} drawable=${bot?.drawable.drawableTypeName()} drawableSize=${bot?.drawable.intrinsicSize()}",
+            "branding=${branding.viewDiagnostics()}",
+            "title=${title.viewDiagnostics()} text=${title?.text}",
+            "progress=${progress.viewDiagnostics()} progress=${progress?.progress}",
+            "windowStatus=#${window.statusBarColor.toUInt().toString(16)}",
+            "windowNav=#${window.navigationBarColor.toUInt().toString(16)}"
+        ).joinToString(" ")
+
+        logSplashLine("CUSTOM $details")
+        crashlytics.log("SplashActivity:CUSTOM $details")
+    }
+
+    private fun View?.viewDiagnostics(): String =
+        if (this == null) {
+            "null"
+        } else {
+            "${width}x${height}@(${x.toInt()},${y.toInt()}) vis=$visibility alpha=$alpha bg=${background.drawableTypeName()} bgSize=${background.intrinsicSize()}"
+        }
     private fun resourceEntryName(resourceId: Int): String =
         if (resourceId != 0) {
             runCatching { resources.getResourceEntryName(resourceId) }.getOrDefault("unknown")
@@ -218,6 +250,11 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun logSplashLine(message: String) {
+        Log.w(TAG, message)
+    }
+
     private fun logSplashEvent(name: String, details: String? = null) {
         val message = buildString {
             append("SplashActivity:")
@@ -232,7 +269,7 @@ class SplashActivity : AppCompatActivity() {
             }
         }
 
-        Log.d(TAG, message)
+        logSplashLine(message)
         crashlytics.log(message)
 
         analytics.logEvent("splash_$name", Bundle().apply {
@@ -244,7 +281,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun logSplashError(stage: String, error: Exception) {
-        Log.e(TAG, "SplashActivity:$stage", error)
+        Log.e(TAG, "ERROR stage=$stage", error)
         crashlytics.log("SplashActivity:$stage ${error.javaClass.simpleName}: ${error.message}")
         crashlytics.setCustomKey("splash_error_stage", stage)
         crashlytics.setCustomKey("splash_android_sdk", Build.VERSION.SDK_INT)
@@ -253,6 +290,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val TAG = "SplashActivity"
+        private const val TAG = "LingoSplash"
     }
 }
