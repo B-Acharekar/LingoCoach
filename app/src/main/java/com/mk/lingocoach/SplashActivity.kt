@@ -9,7 +9,6 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
 import android.widget.ProgressBar
@@ -35,10 +34,7 @@ class SplashActivity : AppCompatActivity() {
         try {
             val splashScreen = installSplashScreen()
             splashScreen.setKeepOnScreenCondition { false }
-            splashScreen.setOnExitAnimationListener { splashScreenView ->
-                logSplashEvent("system_splash_exit_animation_start")
-                animateSystemSplashExit(splashScreenView)
-            }
+
             logSplashEvent("system_splash_installed")
 
             super.onCreate(savedInstanceState)
@@ -57,30 +53,6 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
-    private fun animateSystemSplashExit(splashScreenView: androidx.core.splashscreen.SplashScreenViewProvider) {
-        val iconView = splashScreenView.iconView
-        val scaleX = ObjectAnimator.ofFloat(iconView, View.SCALE_X, 1f, 0.82f)
-        val scaleY = ObjectAnimator.ofFloat(iconView, View.SCALE_Y, 1f, 0.82f)
-        val rotation = ObjectAnimator.ofFloat(iconView, View.ROTATION, 0f, -8f, 8f, 0f)
-        val fade = ObjectAnimator.ofFloat(splashScreenView.view, View.ALPHA, 1f, 0f)
-
-        AnimatorSet().apply {
-            playTogether(scaleX, scaleY, rotation, fade)
-            duration = 420L
-            interpolator = AccelerateDecelerateInterpolator()
-            addListener(
-                onEnd = {
-                    logSplashEvent("system_splash_exit_animation_end")
-                    splashScreenView.remove()
-                },
-                onCancel = {
-                    logSplashEvent("system_splash_exit_animation_cancel")
-                    splashScreenView.remove()
-                }
-            )
-            start()
-        }
-    }
     private fun runIntroSequence() {
         try {
             logSplashEvent("intro_sequence_start")
