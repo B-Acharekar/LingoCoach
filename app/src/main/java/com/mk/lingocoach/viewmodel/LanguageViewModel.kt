@@ -8,7 +8,6 @@ import com.mk.lingocoach.data.model.LanguageItem
 import com.mk.lingocoach.data.model.appLanguages
 import com.mk.lingocoach.data.repository.LanguagePreferencesRepository
 import com.mk.lingocoach.data.repository.AppLocaleManager
-import com.mk.lingocoach.ui.screens.AppCache
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -78,9 +77,6 @@ class LanguageViewModel(
      */
     fun selectLanguage(languageCode: String) {
         viewModelScope.launch {
-            if (_selectedLanguage.value != languageCode) {
-                AppCache.regenerateLocalizedLearningPath(appContext, languageCode)
-            }
             _selectedLanguage.value = languageCode
             repository.saveSelectedLanguage(languageCode)
             applyLanguageToSystem(languageCode)

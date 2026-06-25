@@ -37,6 +37,8 @@ import com.mk.lingocoach.network.DailyStats
 import com.mk.lingocoach.network.ProgressMetrics
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 // ─── Analytics / Progress Screen ─────────────────────────────────────────────
 @OptIn(ExperimentalMaterial3Api::class)
@@ -208,8 +210,27 @@ private fun AnalyticsContent(
         vocabScore       = vocabScore
     )
 
-    // Bar chart heights
-    val dayLabels = listOf(R.string.day_mon, R.string.day_tue, R.string.day_wed, R.string.day_thu, R.string.day_fri, R.string.day_sat, R.string.day_sun).map { stringResource(it) }
+    // Bar chart heights; today is always the final bar.
+    val fallbackDayLabels = remember {
+        val formatter = SimpleDateFormat("EEE", Locale.getDefault())
+        val today = java.util.Calendar.getInstance()
+        (6 downTo 0).map { offset ->
+            val day = today.clone() as java.util.Calendar
+            day.add(java.util.Calendar.DAY_OF_YEAR, -offset)
+            formatter.format(day.time)
+        }
+    }
+    val dayLabels = if (weeklyStats.size == 7) {
+        weeklyStats.map { stat ->
+            runCatching {
+                val parser = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+                val formatter = SimpleDateFormat("EEE", Locale.getDefault())
+                formatter.format(parser.parse(stat.date)!!)
+            }.getOrDefault("")
+        }.mapIndexed { index, label -> label.ifBlank { fallbackDayLabels[index] } }
+    } else {
+        fallbackDayLabels
+    }
     val xpValues  = if (weeklyStats.size == 7) weeklyStats.map { it.xp_earned } else List(7) { 0 }
     val maxXp     = xpValues.maxOrNull()?.coerceAtLeast(1) ?: 1
     val barHeights = xpValues.map { (it.toFloat() / maxXp).coerceIn(0.05f, 1f) }
