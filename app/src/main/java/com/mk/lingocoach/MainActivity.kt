@@ -1,13 +1,18 @@
 package com.mk.lingocoach
 
+import android.Manifest
 import android.os.Bundle
+import android.os.Build
 import android.content.Intent
 import android.content.res.Configuration
+import android.content.pm.PackageManager
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
@@ -50,6 +55,21 @@ enum class Screen {
 }
 
 class MainActivity : AppCompatActivity() {
+    private var notificationPermissionChecked = false
+    private val notificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { granted ->
+        val preferences = getSharedPreferences("LingoCoachPrefs", MODE_PRIVATE)
+        preferences.edit()
+            .putBoolean("notification_permission_prompt_shown", true)
+            .apply()
+
+        if (granted) {
+            lifecycleScope.launch(Dispatchers.IO) {
+                NotificationScheduler.scheduleDailyReminders(this@MainActivity)
+            }
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val startupScreen = resolveStartScreen()
@@ -298,6 +318,26 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    }
+
+    override fun onPostResume() {
+        super.onPostResume()
+        requestNotificationPermissionAfterSplash()
+    }
+
+    private fun requestNotificationPermissionAfterSplash() {
+        if (notificationPermissionChecked || Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
+        notificationPermissionChecked = true
+
+        val preferences = getSharedPreferences("LingoCoachPrefs", MODE_PRIVATE)
+        val shouldPrompt = preferences.getBoolean("daily_reminder", true) &&
+            !preferences.getBoolean("notification_permission_prompt_shown", false) &&
+            ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) !=
+                PackageManager.PERMISSION_GRANTED
+
+        if (shouldPrompt) {
+            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
     }
 
     private fun resolveStartScreen(): Screen {
