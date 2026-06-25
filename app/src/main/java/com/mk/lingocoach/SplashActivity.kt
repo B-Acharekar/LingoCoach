@@ -1,6 +1,7 @@
 package com.mk.lingocoach
 
 import android.animation.AnimatorSet
+import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Intent
@@ -46,10 +47,33 @@ class SplashActivity : AppCompatActivity() {
             setContentView(R.layout.activity_splash)
             logSplashEvent("content_view_set")
 
+            runBackgroundTransition()
             runIntroSequence()
         } catch (e: Exception) {
             logSplashError("on_create_failed", e)
             throw e
+        }
+    }
+
+    private fun runBackgroundTransition() {
+        val root = findViewById<View>(R.id.splash_root)
+        val purple = Color.parseColor("#7053FF")
+
+        root.setBackgroundColor(Color.BLACK)
+        ValueAnimator.ofObject(ArgbEvaluator(), Color.BLACK, purple).apply {
+            duration = 520L
+            interpolator = DecelerateInterpolator()
+            addUpdateListener { animator ->
+                val color = animator.animatedValue as Int
+                root.setBackgroundColor(color)
+                window.statusBarColor = color
+                window.navigationBarColor = color
+            }
+            addListener(
+                onStart = { logSplashEvent("background_transition_start") },
+                onEnd = { logSplashEvent("background_transition_end") }
+            )
+            start()
         }
     }
 
