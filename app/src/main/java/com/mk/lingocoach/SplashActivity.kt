@@ -21,6 +21,7 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 
 class SplashActivity : AppCompatActivity() {
 
+    private var customSplashReady = false
     private lateinit var analytics: FirebaseAnalytics
     private val crashlytics by lazy { FirebaseCrashlytics.getInstance() }
 
@@ -34,7 +35,7 @@ class SplashActivity : AppCompatActivity() {
 
         try {
             val splashScreen = installSplashScreen()
-            splashScreen.setKeepOnScreenCondition { false }
+            splashScreen.setKeepOnScreenCondition { !customSplashReady }
 
             logSplashEvent("system_splash_installed")
 
@@ -45,6 +46,10 @@ class SplashActivity : AppCompatActivity() {
             window.navigationBarColor = Color.parseColor("#7053FF")
 
             setContentView(R.layout.activity_splash)
+            findViewById<View>(R.id.splash_root).post {
+                customSplashReady = true
+                logSplashEvent("custom_splash_ready")
+            }
             logSplashEvent("content_view_set")
 
             runBackgroundTransition()
