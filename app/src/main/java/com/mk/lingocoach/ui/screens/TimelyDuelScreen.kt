@@ -8,6 +8,8 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -234,6 +236,7 @@ fun DuelSetupScreen(
         modifier = Modifier
             .fillMaxSize()
             .navigationBarsPadding()
+            .verticalScroll(rememberScrollState())
             .padding(horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -266,7 +269,14 @@ fun DuelSetupScreen(
             ) {
                 Icon(Icons.Default.Timer, contentDescription = null, tint = dark, modifier = Modifier.size(36.dp))
                 Spacer(Modifier.height(10.dp))
-                Text(stringResource(R.string.battle_against_time), color = dark, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
+                Text(
+                    stringResource(R.string.battle_against_time),
+                    color = dark,
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    textAlign = TextAlign.Center,
+                    maxLines = 2
+                )
                 Text(stringResource(R.string.answer_before_clock), color = dark.copy(0.65f), fontSize = 12.sp)
             }
         }
@@ -326,11 +336,11 @@ fun DuelSetupScreen(
             }
         }
 
-        Spacer(Modifier.weight(1f))
+        Spacer(Modifier.height(20.dp))
 
         Button(
             onClick = onStart,
-            modifier = Modifier.fillMaxWidth().height(56.dp),
+            modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6A5CFF)),
             shape = RoundedCornerShape(16.dp),
             elevation = ButtonDefaults.buttonElevation(6.dp)
@@ -617,11 +627,11 @@ fun DuelGameScreen(
 
             DuelQuestionType.PRONUNCIATION -> {
                 // "I said it correctly" / "I got it wrong" buttons
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(10.dp)) {
                     Button(
                         onClick = { submitAnswer(false) },
                         enabled = !answered,
-                        modifier = Modifier.weight(1f).height(50.dp),
+                        modifier = Modifier.fillMaxWidth().heightIn(min = 50.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFEAEA)),
                         shape = RoundedCornerShape(14.dp)
                     ) {
@@ -632,7 +642,7 @@ fun DuelGameScreen(
                     Button(
                         onClick = { submitAnswer(true) },
                         enabled = !answered,
-                        modifier = Modifier.weight(1f).height(50.dp),
+                        modifier = Modifier.fillMaxWidth().heightIn(min = 50.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFE8F5E9)),
                         shape = RoundedCornerShape(14.dp)
                     ) {

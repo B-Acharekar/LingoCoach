@@ -601,10 +601,6 @@ fun AssessmentQuestionView(
             .navigationBarsPadding()
             .imePadding()
             .padding(horizontal = 24.dp)
-            .then(
-                if (isTextMode) Modifier.verticalScroll(textModeScrollState)
-                else Modifier
-            )
     ) {
         // ── Header ────────────────────────────────────────────────────────────
         Row(
@@ -631,6 +627,14 @@ fun AssessmentQuestionView(
             }
         }
 
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .then(
+                    if (isTextMode) Modifier.verticalScroll(textModeScrollState)
+                    else Modifier
+                )
+        ) {
         // ── Progress ──────────────────────────────────────────────────────────
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text(stringResource(R.string.question_of_total, currentStep, 5), color = Color(0xFF6E6E73), fontSize = 13.sp, fontWeight = FontWeight.Bold)
@@ -914,6 +918,7 @@ fun AssessmentQuestionView(
                     Icon(Icons.Default.Info, null, tint = Color(0xFF8E8D9F), modifier = Modifier.size(18.dp))
                 }
             }
+        }
         }
     }
 }

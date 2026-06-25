@@ -1,6 +1,12 @@
 package com.mk.lingocoach.ui.screens
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -58,6 +64,7 @@ import com.mk.lingocoach.network.CurrentLearningPathResponse
 import com.mk.lingocoach.network.CurrentModule
 import com.mk.lingocoach.network.CurrentSublesson
 import com.mk.lingocoach.network.Mistake
+import com.mk.lingocoach.notifications.NotificationScheduler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -131,6 +138,26 @@ fun HomeScreen(
     var showProfilePrompt by remember { mutableStateOf(false) }
     var isProfileSaving by remember { mutableStateOf(false) }
     var profileSaveError by remember { mutableStateOf<String?>(null) }
+    var showNotificationPrompt by remember {
+        mutableStateOf(
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                sharedPrefs.getBoolean("daily_reminder", true) &&
+                !sharedPrefs.getBoolean("notification_permission_prompt_shown", false) &&
+                ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) !=
+                    PackageManager.PERMISSION_GRANTED
+        )
+    }
+    val notificationPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { granted ->
+        sharedPrefs.edit()
+            .putBoolean("notification_permission_prompt_shown", true)
+            .apply()
+        showNotificationPrompt = false
+        if (granted) {
+            NotificationScheduler.scheduleDailyReminders(context)
+        }
+    }
 
     val userId = remember {
         sharedPrefs.getString("session_id", null) ?: "df31075e-bc40-459f-bbfb-e10c2d3ea34e"
@@ -276,6 +303,48 @@ fun HomeScreen(
     val streak = learningPath?.streak ?: 7
     val tier   = learningPath?.tier ?: "B2 Level"
     val isProfileIncomplete = displayName.isBlank() || username.isBlank()
+
+    if (showNotificationPrompt) {
+        AlertDialog(
+            onDismissRequest = {
+                sharedPrefs.edit()
+                    .putBoolean("notification_permission_prompt_shown", true)
+                    .apply()
+                showNotificationPrompt = false
+            },
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Notifications,
+                    contentDescription = null,
+                    tint = BrandPurple
+                )
+            },
+            title = { Text(stringResource(R.string.notification_prompt_title)) },
+            text = { Text(stringResource(R.string.notification_prompt_message)) },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandPurple)
+                ) {
+                    Text(stringResource(R.string.enable_reminders))
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        sharedPrefs.edit()
+                            .putBoolean("notification_permission_prompt_shown", true)
+                            .apply()
+                        showNotificationPrompt = false
+                    }
+                ) {
+                    Text(stringResource(R.string.not_now))
+                }
+            }
+        )
+    }
 
     Box(modifier = Modifier.fillMaxSize()) {
 

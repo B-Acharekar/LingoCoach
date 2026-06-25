@@ -481,7 +481,7 @@ fun ColumnScope.DashboardView(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Column {
+                        Column(modifier = Modifier.weight(1f)) {
                             Text(
                                 text = stringResource(R.string.current_proficiency).uppercase(),
                                 color = TextLight,
@@ -496,6 +496,7 @@ fun ColumnScope.DashboardView(
                                 fontWeight = FontWeight.ExtraBold
                             )
                         }
+                        Spacer(Modifier.width(12.dp))
                         Box(
                             modifier = Modifier
                                 .background(BrandPurpleSoft, RoundedCornerShape(12.dp))
@@ -557,7 +558,7 @@ fun ColumnScope.DashboardView(
 
                     Button(
                         onClick = onContinueSession,
-                        modifier = Modifier.fillMaxWidth().height(48.dp),
+                        modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = BrandPurple),
                         shape = RoundedCornerShape(14.dp),
                         elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp)
@@ -635,7 +636,8 @@ fun ColumnScope.DashboardView(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
-                                Text(w.word, color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                                Text(w.word, color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
+                                Spacer(Modifier.width(10.dp))
                                 Text(w.partOfSpeech.uppercase(), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                             }
                             Text(w.meaning, color = TextMid, fontSize = 13.sp)
@@ -657,8 +659,11 @@ fun ColumnScope.DashboardView(
                         text = stringResource(R.string.topic_curations),
                         color = TextDark,
                         fontSize = 17.sp,
-                        fontWeight = FontWeight.Bold
+                        lineHeight = 22.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.weight(1f)
                     )
+                    Spacer(Modifier.width(12.dp))
                     Text(
                         text = stringResource(R.string.view_all),
                         color = BrandPurple,
@@ -1160,7 +1165,7 @@ fun ColumnScope.DrillFeedbackView(
             Column(modifier = Modifier.fillMaxWidth()) {
                 Button(
                     onClick = onContinue,
-                    modifier = Modifier.fillMaxWidth().height(48.dp),
+                    modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = BrandPurple),
                     shape = RoundedCornerShape(12.dp)
                 ) {

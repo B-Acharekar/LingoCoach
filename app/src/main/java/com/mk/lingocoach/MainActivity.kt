@@ -1,10 +1,6 @@
 package com.mk.lingocoach
 
 import android.os.Bundle
-import android.animation.ValueAnimator
-import android.view.View
-import android.view.animation.DecelerateInterpolator
-import android.widget.ProgressBar
 import android.content.Intent
 import android.content.res.Configuration
 import androidx.activity.compose.BackHandler
@@ -12,7 +8,6 @@ import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
@@ -56,7 +51,6 @@ enum class Screen {
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
         super.onCreate(savedInstanceState)
         val startupScreen = resolveStartScreen()
 
@@ -71,9 +65,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         enableEdgeToEdge()
-        setContentView(R.layout.activity_intro)
-        runIntroSequence {
-            setContent {
+        setContent {
             val languageCode by AppLocaleManager.languageCode.collectAsState()
             val baseContext = LocalContext.current
             val activityResultRegistryOwner = LocalActivityResultRegistryOwner.current ?: this
@@ -155,8 +147,11 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     when (currentScreen) {
                         Screen.LanguageSelection -> {
+                            val openedFromSettings = screenBackStack.lastOrNull() == Screen.Settings.name
                             LanguageSelectionScreen(
-                                onNavigateToWelcome = { navigateTo(Screen.WelcomeAboard) },
+                                onNavigateToWelcome = {
+                                    if (openedFromSettings) goBack() else navigateTo(Screen.WelcomeAboard)
+                                },
                                 onNavigateBack = { goBack() }
                             )
                         }
@@ -281,6 +276,7 @@ class MainActivity : AppCompatActivity() {
                         Screen.Settings -> {
                             SettingsScreen(
                                 onNavigateBack = { goBack() },
+                                onNavigateToLanguage = { navigateTo(Screen.LanguageSelection) },
                                 onLogout = {
                                     startActivity(
                                         Intent(this@MainActivity, MainActivity::class.java).apply {
@@ -301,39 +297,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-            }
-        }
     }
-
-    private fun runIntroSequence(onComplete: () -> Unit) {
-        val root = findViewById<View>(R.id.intro_root)
-        val title = findViewById<View>(R.id.intro_title_group)
-        val progress = findViewById<ProgressBar>(R.id.intro_progress)
-
-        title.translationY += 16f * resources.displayMetrics.density
-        title.animate()
-            .alpha(1f)
-            .translationY(title.translationY - 16f * resources.displayMetrics.density)
-            .setDuration(500L)
-            .setInterpolator(DecelerateInterpolator())
-            .withEndAction {
-                progress.animate().alpha(1f).setDuration(120L).start()
-                ValueAnimator.ofInt(0, 1000).apply {
-                    duration = 1400L
-                    interpolator = DecelerateInterpolator()
-                    addUpdateListener { progress.progress = it.animatedValue as Int }
-                    start()
-                }
-            }
-            .start()
-
-        root.postDelayed({
-            root.animate()
-                .alpha(0f)
-                .setDuration(100L)
-                .withEndAction(onComplete)
-                .start()
-        }, 1900L)
     }
 
     private fun resolveStartScreen(): Screen {

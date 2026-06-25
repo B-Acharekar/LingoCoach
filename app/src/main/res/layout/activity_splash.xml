@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/intro_root"
+    android:id="@+id/splash_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/splash_purple">
 
     <ImageView
-        android:id="@+id/intro_bot"
+        android:id="@+id/splash_bot"
         android:layout_width="288dp"
         android:layout_height="288dp"
         android:layout_gravity="center"
@@ -15,16 +15,17 @@
         android:src="@drawable/splash_bot_icon" />
 
     <LinearLayout
-        android:id="@+id/intro_title_group"
+        android:id="@+id/splash_branding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:alpha="0"
+        android:layout_marginTop="150dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:translationY="162dp">
+        android:visibility="invisible">
 
         <TextView
+            android:id="@+id/splash_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
@@ -35,6 +36,7 @@
             android:textSize="30sp" />
 
         <TextView
+            android:id="@+id/splash_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -47,16 +49,16 @@
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/intro_progress"
+        android:id="@+id/splash_progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="280dp"
         android:layout_height="10dp"
-        android:layout_gravity="center"
-        android:alpha="0"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="72dp"
         android:indeterminate="false"
-        android:max="1000"
+        android:max="100"
         android:progress="0"
         android:progressDrawable="@drawable/intro_progress"
-        android:translationY="238dp" />
+        android:visibility="invisible" />
 
 </FrameLayout>

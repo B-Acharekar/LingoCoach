@@ -15,6 +15,8 @@ import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -293,6 +295,8 @@ fun HomeStep(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF8F9FC))
+            .verticalScroll(rememberScrollState())
+            .navigationBarsPadding()
             .padding(horizontal = 24.dp, vertical = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(20.dp)
@@ -396,7 +400,7 @@ fun HomeStep(
             )
         }
 
-        Spacer(Modifier.weight(1f))
+        Spacer(Modifier.height(8.dp))
 
         // CTA Button
         if (!isLimited) {
@@ -413,7 +417,7 @@ fun HomeStep(
                 ),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp)
+                    .heightIn(min = 56.dp)
                     .scale(pulseScale * buttonScale)
                     .pointerInput(Unit) {
                         detectTapGestures(
@@ -446,7 +450,7 @@ fun HomeStep(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp)
+                    .heightIn(min = 56.dp)
                     .clip(RoundedCornerShape(16.dp))
                     .background(Color(0xFFE8E8ED)),
                 contentAlignment = Alignment.Center
@@ -532,7 +536,7 @@ private fun FeatureItem(
 fun VoiceSelectionStep(selectedVoice: String, onVoiceSelected: (String) -> Unit, onNext: () -> Unit) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier            = Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 18.dp),
+            modifier            = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start = 20.dp, top = 18.dp, end = 20.dp, bottom = 104.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(stringResource(R.string.voice_selection_hint),
@@ -560,7 +564,7 @@ fun VoiceSelectionStep(selectedVoice: String, onVoiceSelected: (String) -> Unit,
             elevation = ButtonDefaults.buttonElevation(0.dp),
             modifier = Modifier
                 .align(Alignment.BottomCenter).padding(24.dp)
-                .fillMaxWidth().height(56.dp).shadow(6.dp, RoundedCornerShape(32.dp))
+                .fillMaxWidth().heightIn(min = 56.dp).shadow(6.dp, RoundedCornerShape(32.dp))
         ) { Text(stringResource(R.string.continue_text), fontWeight = FontWeight.Bold) }
     }
 }
@@ -571,7 +575,7 @@ fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, on
     var isLoading by remember { mutableStateOf(false) }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier            = Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 18.dp),
+            modifier            = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start = 20.dp, top = 18.dp, end = 20.dp, bottom = 104.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(stringResource(R.string.tone_selection_hint), color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
@@ -611,7 +615,7 @@ fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, on
             elevation = ButtonDefaults.buttonElevation(0.dp),
             modifier = Modifier
                 .align(Alignment.BottomCenter).padding(24.dp)
-                .fillMaxWidth().height(56.dp).shadow(6.dp, RoundedCornerShape(32.dp)),
+                .fillMaxWidth().heightIn(min = 56.dp).shadow(6.dp, RoundedCornerShape(32.dp)),
             enabled  = !isLoading
         ) {
             if (isLoading) CircularProgressIndicator(color = Color.White, modifier = Modifier.size(24.dp))
@@ -635,14 +639,14 @@ private fun AILabChoiceCard(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(92.dp)
+            .heightIn(min = 92.dp)
             .scale(scale)
             .shadow(if (selected) 7.dp else 3.dp, RoundedCornerShape(22.dp))
             .clip(RoundedCornerShape(22.dp))
             .background(bg)
             .border(1.dp, border, RoundedCornerShape(22.dp))
             .clickable { onClick() }
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = 16.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Box(
@@ -660,6 +664,7 @@ private fun AILabChoiceCard(
             Spacer(Modifier.height(4.dp))
             Text(description, color = TextLight, fontSize = 12.sp, lineHeight = 16.sp)
         }
+        Spacer(Modifier.width(10.dp))
         Box(
             modifier = Modifier
                 .size(24.dp)

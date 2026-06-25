@@ -95,6 +95,7 @@ private fun settingsUsernameError(username: String): String? {
 @Composable
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
+    onNavigateToLanguage: () -> Unit,
     onLogout: () -> Unit
 ) {
     val context = LocalContext.current
@@ -119,7 +120,6 @@ fun SettingsScreen(
     var showNameDialog     by remember { mutableStateOf(false) }
     var showUsernameDialog by remember { mutableStateOf(false) }
     var showFluencyDialog  by remember { mutableStateOf(false) }
-    var showLangDialog     by remember { mutableStateOf(false) }
     var showVoiceDialog    by remember { mutableStateOf(false) }
     var showDeleteDialog   by remember { mutableStateOf(false) }
     var showLogoutDialog   by remember { mutableStateOf(false) }
@@ -215,7 +215,7 @@ fun SettingsScreen(
                         SettingsInfoRow(
                             label = stringResource(R.string.app_language),
                             value = currentAppLanguageLabel,
-                            onClick = { showLangDialog = true }
+                            onClick = onNavigateToLanguage
                         )
                     }
                 }
@@ -400,30 +400,6 @@ fun SettingsScreen(
         )
     }
 
-    // App Language picker
-    if (showLangDialog) {
-        AppLanguagePickerDialog(
-            selectedCode = appLanguageCode,
-            onDismiss = { showLangDialog = false },
-            onConfirm = { code ->
-                if (code == appLanguageCode) {
-                    showLangDialog = false
-                    return@AppLanguagePickerDialog
-                }
-                appLanguageCode = code
-                saveAndSync("native_language", code)
-                context.getSharedPreferences("language_preferences_mirror", Context.MODE_PRIVATE)
-                    .edit()
-                    .putString("selected_language", code)
-                    .apply()
-                AppCache.regenerateLocalizedLearningPath(context, code)
-                AppLocaleManager.setLanguage(code)
-                scope.launch(Dispatchers.Main) { languageRepository.saveSelectedLanguage(code) }
-                showLangDialog = false
-            }
-        )
-    }
-
     // Voice Profile picker
     if (showVoiceDialog) {
         SettingsPickerDialog(
@@ -470,164 +446,6 @@ fun SettingsScreen(
                 onLogout()
             }
         )
-    }
-
-}
-
-@Composable
-private fun AppLanguagePickerDialog(
-    selectedCode: String,
-    onDismiss: () -> Unit,
-    onConfirm: (String) -> Unit
-) {
-    var query by remember { mutableStateOf("") }
-    var draftCode by remember(selectedCode) { mutableStateOf(selectedCode) }
-    val filteredLanguages = remember(query) {
-        val term = query.trim()
-        if (term.isBlank()) {
-            appLanguages
-        } else {
-            appLanguages.filter { language ->
-                language.name.contains(term, ignoreCase = true) ||
-                    language.nativeName.contains(term, ignoreCase = true) ||
-                    language.code.contains(term, ignoreCase = true)
-            }
-        }
-    }
-
-    Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth(0.92f)
-                .fillMaxHeight(0.82f)
-                .shadow(16.dp, RoundedCornerShape(24.dp))
-                .clip(RoundedCornerShape(24.dp))
-                .background(Color.White)
-        ) {
-            Column(modifier = Modifier.fillMaxSize()) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 24.dp, end = 12.dp, top = 18.dp, bottom = 8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        stringResource(R.string.app_language),
-                        color = SettingsTextDark,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.weight(1f)
-                    )
-                    TextButton(onClick = { onConfirm(draftCode) }) {
-                        Text(
-                            stringResource(R.string.done),
-                            color = SettingsPurple,
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.ExtraBold
-                        )
-                    }
-                }
-
-                OutlinedTextField(
-                    value = query,
-                    onValueChange = { query = it },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp)
-                        .bringIntoViewOnFocus(),
-                    singleLine = true,
-                    placeholder = { Text(stringResource(R.string.search_languages), color = SettingsTextLight) },
-                    leadingIcon = { Icon(Icons.Default.Search, contentDescription = null, tint = SettingsTextLight) },
-                    trailingIcon = {
-                        if (query.isNotBlank()) {
-                            IconButton(onClick = { query = "" }) {
-                                Icon(
-                                    Icons.Default.Close,
-                                    contentDescription = stringResource(R.string.close),
-                                    tint = SettingsTextLight
-                                )
-                            }
-                        }
-                    },
-                    shape = RoundedCornerShape(14.dp),
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = SettingsPurple,
-                        unfocusedBorderColor = SettingsDivider,
-                        focusedTextColor = SettingsTextDark,
-                        unfocusedTextColor = SettingsTextDark,
-                        cursorColor = SettingsPurple
-                    )
-                )
-
-                Spacer(Modifier.height(10.dp))
-
-                if (filteredLanguages.isEmpty()) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            stringResource(R.string.no_languages_found, query),
-                            color = SettingsTextLight,
-                            fontSize = 14.sp,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.padding(horizontal = 24.dp)
-                        )
-                    }
-                } else {
-                    LazyColumn(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f),
-                        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 8.dp),
-                        verticalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        items(filteredLanguages, key = { it.code }) { language ->
-                            val selected = language.code == draftCode
-                            Card(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .clickable { draftCode = language.code }
-                                    .shadow(
-                                        elevation = if (selected) 12.dp else 4.dp,
-                                        shape = RoundedCornerShape(20.dp),
-                                        clip = false,
-                                        ambientColor = Color(0x05000000),
-                                        spotColor = if (selected) Color(0x1F6A5CFF) else Color(0x0A000000)
-                                    ),
-                                shape = RoundedCornerShape(20.dp),
-                                colors = CardDefaults.cardColors(containerColor = if (selected) SettingsPurple else Color.White),
-                                border = if (selected) null else BorderStroke(1.dp, Color(0xFFE2E2E6))
-                            ) {
-                                Row(
-                                    modifier = Modifier.fillMaxWidth().padding(16.dp),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.SpaceBetween
-                                ) {
-                                    Row(verticalAlignment = Alignment.CenterVertically) {
-                                        Box(
-                                            modifier = Modifier.size(44.dp).clip(CircleShape)
-                                                .background(if (selected) Color(0x33FFFFFF) else Color(0xFFF4F4F6)),
-                                            contentAlignment = Alignment.Center
-                                        ) { Text(language.flagEmoji, fontSize = 24.sp) }
-                                        Spacer(Modifier.width(16.dp))
-                                        Column {
-                                            Text(localizedAppLanguageName(language.code), color = if (selected) Color.White else Color(0xFF1D1D1F), fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
-                                            Spacer(Modifier.height(2.dp))
-                                            Text(language.nativeName, color = if (selected) Color.White.copy(alpha = 0.8f) else Color(0xFF8E8D9F), fontSize = 13.sp)
-                                        }
-                                    }
-                                    CustomRadioButton(selected, Color.White, Color(0xFFD2D2D7))
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 
 }
@@ -697,8 +515,24 @@ private fun SettingsInfoRow(label: String, value: String, onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(label, color = SettingsTextDark, fontSize = 15.sp)
-        Text(value, color = SettingsTextDark, fontSize = 14.sp, fontWeight = FontWeight.Bold)
+        Text(
+            text = label,
+            color = SettingsTextDark,
+            fontSize = 15.sp,
+            lineHeight = 20.sp,
+            modifier = Modifier.weight(1f)
+        )
+        Spacer(Modifier.width(12.dp))
+        Text(
+            text = value,
+            color = SettingsTextDark,
+            fontSize = 14.sp,
+            lineHeight = 19.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.End,
+            maxLines = 2,
+            modifier = Modifier.weight(1f)
+        )
     }
 }
 
@@ -712,7 +546,15 @@ private fun SettingsArrowRow(label: String, onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(label, color = SettingsTextDark, fontSize = 15.sp, fontWeight = FontWeight.Medium)
+        Text(
+            text = label,
+            color = SettingsTextDark,
+            fontSize = 15.sp,
+            lineHeight = 20.sp,
+            fontWeight = FontWeight.Medium,
+            modifier = Modifier.weight(1f)
+        )
+        Spacer(Modifier.width(12.dp))
         Icon(Icons.Default.ChevronRight, contentDescription = null, tint = SettingsTextLight, modifier = Modifier.size(20.dp))
     }
 }
@@ -737,8 +579,16 @@ private fun SettingsToggleRow(
                 Icon(icon, contentDescription = null, tint = SettingsTextLight, modifier = Modifier.size(20.dp))
                 Spacer(Modifier.width(10.dp))
             }
-            Text(label, color = SettingsTextDark, fontSize = 15.sp, fontWeight = FontWeight.Medium)
+            Text(
+                text = label,
+                color = SettingsTextDark,
+                fontSize = 15.sp,
+                lineHeight = 20.sp,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier.weight(1f)
+            )
         }
+        Spacer(Modifier.width(12.dp))
         Switch(
             checked = checked,
             onCheckedChange = onCheckedChange,
@@ -766,7 +616,15 @@ private fun SettingsLinkRow(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(label, color = SettingsTextDark, fontSize = 15.sp, fontWeight = FontWeight.Medium)
+        Text(
+            text = label,
+            color = SettingsTextDark,
+            fontSize = 15.sp,
+            lineHeight = 20.sp,
+            fontWeight = FontWeight.Medium,
+            modifier = Modifier.weight(1f)
+        )
+        Spacer(Modifier.width(12.dp))
         Icon(icon, contentDescription = null, tint = SettingsTextLight, modifier = Modifier.size(20.dp))
     }
 }

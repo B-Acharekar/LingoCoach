@@ -105,6 +105,7 @@ fun WelcomeAboardScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .statusBarsPadding()
                 .navigationBarsPadding()
                 .padding(horizontal = 22.dp, vertical = 18.dp),
             verticalArrangement = Arrangement.SpaceBetween

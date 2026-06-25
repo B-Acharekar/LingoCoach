@@ -648,4 +648,8 @@
     <string name="duel_intermediate_subtitle">B1 - B2 words - 20s per Q</string>
     <string name="duel_advanced_subtitle">C1 words - 15s per Q</string>
     <string name="duel_master_subtitle">C1 - C2 words - 10s per Q</string>
+    <string name="notification_prompt_title">Keep your learning streak going</string>
+    <string name="notification_prompt_message">Enable notifications for timely practice reminders and learning streak updates.</string>
+    <string name="enable_reminders">Enable reminders</string>
+    <string name="not_now">Not now</string>
 </resources>

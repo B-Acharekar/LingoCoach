@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.LingoCoach" parent="Theme.SplashScreen">
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/splash_purple</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_bot_system</item>
         <item name="windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
-        <item name="postSplashScreenTheme">@style/Theme.LingoCoach.App</item>
+        <item name="postSplashScreenTheme">@style/Theme.App.CustomSplash</item>
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:statusBarColor">@color/splash_purple</item>
         <item name="android:navigationBarColor">@color/splash_purple</item>
     </style>
 
-    <style name="Theme.LingoCoach.App" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.App.CustomSplash" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/splash_purple</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:statusBarColor">@color/splash_purple</item>
+        <item name="android:navigationBarColor">@color/splash_purple</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <style name="Theme.LingoCoach" parent="Theme.App.Starting" />
+
+    <style name="Theme.LingoCoach.App" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:statusBarColor">@color/splash_purple</item>
         <item name="android:navigationBarColor">@color/splash_purple</item>

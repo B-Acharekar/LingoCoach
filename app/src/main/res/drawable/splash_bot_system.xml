@@ -6,8 +6,8 @@
         android:gravity="center"
         android:drawable="@drawable/splash_icon_canvas" />
     <item
-        android:width="116dp"
-        android:height="116dp"
+        android:width="96dp"
+        android:height="96dp"
         android:gravity="center"
         android:drawable="@drawable/bot" />
 </layer-list>

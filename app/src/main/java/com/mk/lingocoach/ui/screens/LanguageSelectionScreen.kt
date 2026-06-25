@@ -119,7 +119,9 @@ fun LanguageSelectionScreen(
                 // Clickable Back button area
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.clickable { onNavigateBack() }
+                    modifier = Modifier
+                        .weight(1f)
+                        .clickable { onNavigateBack() }
                 ) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
@@ -134,7 +136,9 @@ fun LanguageSelectionScreen(
                             color = Color(0xFF6A5CFF),
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold
-                        )
+                        ),
+                        maxLines = 1,
+                        modifier = Modifier.weight(1f)
                     )
                 }
 
@@ -152,14 +156,15 @@ fun LanguageSelectionScreen(
                         containerColor = Color(0xFF6A5CFF)
                     ),
                     shape = RoundedCornerShape(18.dp),
-                    contentPadding = PaddingValues(horizontal = 20.dp, vertical = 8.dp),
+                    contentPadding = PaddingValues(horizontal = 14.dp, vertical = 8.dp),
                     modifier = Modifier.height(36.dp)
                 ) {
                     Text(
                         text = stringResource(R.string.done),
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 13.sp
+                        fontSize = 13.sp,
+                        maxLines = 1
                     )
                 }
             }
@@ -275,7 +280,8 @@ fun LanguageSelectionScreen(
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
                                 Row(
-                                    verticalAlignment = Alignment.CenterVertically
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier.weight(1f)
                                 ) {
                                     // Circular Flag container
                                     Box(
@@ -294,14 +300,15 @@ fun LanguageSelectionScreen(
                                     Spacer(modifier = Modifier.width(16.dp))
 
                                     // Names
-                                    Column {
+                                    Column(modifier = Modifier.weight(1f)) {
                                         Text(
                                             text = localizedAppLanguageName(language.code),
                                             style = TextStyle(
                                                 color = if (isSelected) Color.White else Color(0xFF1D1D1F),
                                                 fontSize = 16.sp,
                                                 fontWeight = FontWeight.SemiBold
-                                            )
+                                            ),
+                                            maxLines = 2
                                         )
                                         Spacer(modifier = Modifier.height(2.dp))
                                         Text(
@@ -309,11 +316,13 @@ fun LanguageSelectionScreen(
                                             style = TextStyle(
                                                 color = if (isSelected) Color.White.copy(alpha = 0.8f) else Color(0xFF8E8D9F),
                                                 fontSize = 13.sp
-                                            )
+                                            ),
+                                            maxLines = 2
                                         )
                                     }
                                 }
 
+                                Spacer(modifier = Modifier.width(12.dp))
                                 // Premium Custom Radio Button
                                 CustomRadioButton(
                                     selected = isSelected,
