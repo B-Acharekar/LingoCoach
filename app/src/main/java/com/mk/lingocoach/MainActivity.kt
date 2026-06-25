@@ -2,6 +2,8 @@ package com.mk.lingocoach
 
 import android.Manifest
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.os.Build
 import android.content.Intent
 import android.content.res.Configuration
@@ -322,7 +324,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPostResume() {
         super.onPostResume()
-        requestNotificationPermissionAfterSplash()
+        window.decorView.post {
+            Handler(Looper.getMainLooper()).postDelayed({
+                requestNotificationPermissionAfterSplash()
+            }, 700L)
+        }
     }
 
     private fun requestNotificationPermissionAfterSplash() {
