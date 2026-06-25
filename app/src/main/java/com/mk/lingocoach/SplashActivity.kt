@@ -125,7 +125,6 @@ class SplashActivity : AppCompatActivity() {
                                 try {
                                     logSplashEvent("navigate_main_start")
                                     startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-                                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                                     logSplashEvent("navigate_main_complete")
                                     finish()
                                 } catch (e: Exception) {
