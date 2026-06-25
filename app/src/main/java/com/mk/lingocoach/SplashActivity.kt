@@ -85,7 +85,7 @@ class SplashActivity : AppCompatActivity() {
             val iconResolved = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 theme.resolveAttribute(android.R.attr.windowSplashScreenAnimatedIcon, iconValue, true)
             } else {
-                iconValue.resourceId = R.mipmap.splash_system_plain
+                iconValue.resourceId = R.drawable.ic_launcher_foreground
                 true
             }
             val backgroundResolved = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -95,7 +95,7 @@ class SplashActivity : AppCompatActivity() {
                 true
             }
             val configuredIconDrawable = runCatching {
-                ResourcesCompat.getDrawable(resources, R.mipmap.splash_system_plain, theme)
+                ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_foreground, theme)
             }.getOrNull()
             val resolvedIconDrawable = iconValue.resourceId.takeIf { iconResolved && it != 0 }?.let { resourceId ->
                 runCatching { ResourcesCompat.getDrawable(resources, resourceId, theme) }.getOrNull()
@@ -116,7 +116,7 @@ class SplashActivity : AppCompatActivity() {
                 "appIconName=${resourceEntryName(appIconResId)}",
                 "appIconType=${appIconDrawable.drawableTypeName()}",
                 "appIconSize=${appIconDrawable.intrinsicSize()}",
-                "configuredIconName=${resourceEntryName(R.mipmap.splash_system_plain)}",
+                "configuredIconName=${resourceEntryName(R.drawable.ic_launcher_foreground)}",
                 "configuredIconType=${configuredIconDrawable.drawableTypeName()}",
                 "configuredIconSize=${configuredIconDrawable.intrinsicSize()}",
                 "backgroundResolved=$backgroundResolved",
