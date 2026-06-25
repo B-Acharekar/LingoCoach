@@ -100,6 +100,9 @@ class SplashActivity : AppCompatActivity() {
             val resolvedIconDrawable = iconValue.resourceId.takeIf { iconResolved && it != 0 }?.let { resourceId ->
                 runCatching { ResourcesCompat.getDrawable(resources, resourceId, theme) }.getOrNull()
             }
+            val appIconResId = applicationInfo.icon
+            val appIconDrawable = runCatching { packageManager.getApplicationIcon(applicationInfo) }.getOrNull()
+            val systemSplashIconSource = if (iconValue.resourceId == 0) "app_icon_fallback" else "explicit_splash_attr"
 
             val details = listOf(
                 "stage=$stage",
@@ -108,6 +111,11 @@ class SplashActivity : AppCompatActivity() {
                 "iconName=${resourceEntryName(iconValue.resourceId)}",
                 "iconType=${resolvedIconDrawable.drawableTypeName()}",
                 "iconSize=${resolvedIconDrawable.intrinsicSize()}",
+                "iconSource=$systemSplashIconSource",
+                "appIconResId=$appIconResId",
+                "appIconName=${resourceEntryName(appIconResId)}",
+                "appIconType=${appIconDrawable.drawableTypeName()}",
+                "appIconSize=${appIconDrawable.intrinsicSize()}",
                 "configuredIconName=${resourceEntryName(R.mipmap.splash_system_plain)}",
                 "configuredIconType=${configuredIconDrawable.drawableTypeName()}",
                 "configuredIconSize=${configuredIconDrawable.intrinsicSize()}",
@@ -124,6 +132,10 @@ class SplashActivity : AppCompatActivity() {
             crashlytics.setCustomKey("splash_icon_name", resourceEntryName(iconValue.resourceId))
             crashlytics.setCustomKey("splash_icon_type", resolvedIconDrawable.drawableTypeName())
             crashlytics.setCustomKey("splash_icon_size", resolvedIconDrawable.intrinsicSize())
+            crashlytics.setCustomKey("splash_icon_source", systemSplashIconSource)
+            crashlytics.setCustomKey("splash_app_icon_name", resourceEntryName(appIconResId))
+            crashlytics.setCustomKey("splash_app_icon_type", appIconDrawable.drawableTypeName())
+            crashlytics.setCustomKey("splash_app_icon_size", appIconDrawable.intrinsicSize())
             crashlytics.setCustomKey("splash_configured_icon_type", configuredIconDrawable.drawableTypeName())
             crashlytics.setCustomKey("splash_configured_icon_size", configuredIconDrawable.intrinsicSize())
             crashlytics.setCustomKey("splash_density_dpi", resources.displayMetrics.densityDpi)
