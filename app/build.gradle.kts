@@ -38,6 +38,9 @@ android {
         compose = true
         buildConfig = true
     }
+    androidResources {
+        noCompress += "lottie"
+    }
 }
 
 dependencies {
