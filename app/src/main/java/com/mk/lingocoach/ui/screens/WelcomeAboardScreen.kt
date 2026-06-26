@@ -69,21 +69,21 @@ fun WelcomeAboardScreen(
                 description = stringResource(R.string.ai_language_coach_desc),
                 icon = Icons.Default.Psychology,
                 color = Color(0xFF6A5CFF),
-                animationUrl = "https://lottie.host/adf6baea-da11-4d02-8fdc-4044fe8270f6/yEzG9jPCbt.lottie"
+                animationAsset = "AI_LANG.lottie"
             ),
             OnboardingCarouselCard(
                 title = stringResource(R.string.interactive_conversations_title),
                 description = stringResource(R.string.interactive_conversations_desc),
                 icon = Icons.Default.Forum,
                 color = Color(0xFF00A3FF),
-                animationUrl = "https://lottie.host/ba7975e4-bb73-4984-a577-f4ff2220604e/AbMrjn9wby.lottie"
+                animationAsset = "interact_convo.lottie"
             ),
             OnboardingCarouselCard(
                 title = stringResource(R.string.progress_that_sticks_title),
                 description = stringResource(R.string.progress_that_sticks_desc),
                 icon = Icons.AutoMirrored.Filled.TrendingUp,
                 color = Color(0xFFFF8A3D),
-                animationUrl = "https://lottie.host/04364580-082d-4f76-a6a2-19d8eac77e9c/A6BnSRhyix.lottie"
+                animationAsset = "progresstick.lottie"
             )
         )
     val pagerState = rememberPagerState(pageCount = { cards.size })
@@ -247,7 +247,7 @@ private fun OnboardingAnimatedCard(card: OnboardingCarouselCard) {
                 contentAlignment = Alignment.Center
             ) {
                 DotLottieAnimation(
-                    source = DotLottieSource.Url(card.animationUrl),
+                    source = DotLottieSource.Asset(card.animationAsset),
                     autoplay = true,
                     loop = true,
                     speed = 1.35f,
@@ -293,5 +293,5 @@ private data class OnboardingCarouselCard(
     val description: String,
     val icon: ImageVector,
     val color: Color,
-    val animationUrl: String
+    val animationAsset: String
 )

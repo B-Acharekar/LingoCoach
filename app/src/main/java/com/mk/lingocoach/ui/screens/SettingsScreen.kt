@@ -3,6 +3,7 @@ package com.mk.lingocoach.ui.screens
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
@@ -270,6 +271,11 @@ fun SettingsScreen(
                             label = stringResource(R.string.data_export_csv),
                             icon = Icons.Default.Download
                         ) {
+                            if (prefs.getString("display_name", "").isNullOrBlank() || username.isBlank()) {
+                                Toast.makeText(context, "Add username and name first", Toast.LENGTH_SHORT).show()
+                                return@SettingsLinkRow
+                            }
+
                             // Export user data as CSV
                             val csvData = buildString {
                                 append("Name,Username,Skill\n")
