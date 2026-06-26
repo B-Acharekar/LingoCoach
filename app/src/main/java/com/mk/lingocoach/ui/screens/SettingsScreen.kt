@@ -257,7 +257,13 @@ fun SettingsScreen(
                 SettingsCard {
                     Column(modifier = Modifier.fillMaxWidth()) {
                         SettingsLinkRow(label = stringResource(R.string.privacy)) {
-                            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(AppConfig.privacyPolicyUrl)))
+                            runCatching {
+                                context.startActivity(
+                                    Intent(Intent.ACTION_VIEW, Uri.parse(AppConfig.privacyPolicyUrl)).apply {
+                                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    }
+                                )
+                            }
                         }
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
                         SettingsLinkRow(
@@ -287,7 +293,13 @@ fun SettingsScreen(
                                 putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.lingocoach_data_export))
                                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                             }
-                            context.startActivity(Intent.createChooser(intent, context.getString(R.string.export_data_as_csv)))
+                            runCatching {
+                                context.startActivity(
+                                    Intent.createChooser(intent, context.getString(R.string.export_data_as_csv)).apply {
+                                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    }
+                                )
+                            }
                         }
                     }
                 }
