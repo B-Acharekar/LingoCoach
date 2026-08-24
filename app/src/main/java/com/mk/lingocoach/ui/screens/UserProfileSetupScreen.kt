@@ -1,8 +1,13 @@
 package com.mk.lingocoach.ui.screens
 
 import android.content.Context
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -199,31 +204,48 @@ fun UserProfileSetupScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .statusBarsPadding()
-                .navigationBarsPadding()
         ) {
             // Top bar
             SetupTopBar(step = step, totalSteps = totalSteps, onBack = ::goBack)
 
-            // Step content
-            when (step) {
-                1 -> StepGoal(
-                    selectedGoals  = selectedGoals,
-                    onGoalToggled = { goalId ->
-                        if (selectedGoals.contains(goalId)) {
-                            selectedGoals.remove(goalId)
-                        } else {
-                            selectedGoals.add(goalId)
-                        }
-                    },
-                    onContinue    = { if (selectedGoals.isNotEmpty()) step++ }
-                )
-                2 -> StepLevel(
-                    selectedLevel  = selectedLevel,
-                    onLevelSelected = { selectedLevel = it },
-                    onContinue     = { if (selectedLevel.isNotBlank()) step++ }
-                )
-                3 -> StepSpeakingIntro(onStartAssessment = ::saveAndProceed)
+            AnimatedContent(
+                targetState = step,
+                modifier = Modifier.weight(1f),
+                transitionSpec = {
+                    val direction = if (targetState > initialState) 1 else -1
+                    slideInHorizontally(animationSpec = tween(260)) { fullWidth -> direction * fullWidth } togetherWith
+                        slideOutHorizontally(animationSpec = tween(260)) { fullWidth -> -direction * fullWidth } using
+                        SizeTransform(clip = false)
+                },
+                label = "setup_step_carousel"
+            ) { currentStep ->
+                when (currentStep) {
+                    1 -> StepGoal(
+                        selectedGoals  = selectedGoals,
+                        onGoalToggled = { goalId ->
+                            if (selectedGoals.contains(goalId)) {
+                                selectedGoals.remove(goalId)
+                            } else {
+                                selectedGoals.add(goalId)
+                            }
+                        },
+                        onContinue    = { if (selectedGoals.isNotEmpty()) step++ }
+                    )
+                    2 -> StepLevel(
+                        selectedLevel  = selectedLevel,
+                        onLevelSelected = { selectedLevel = it },
+                        onContinue     = { if (selectedLevel.isNotBlank()) step++ }
+                    )
+                    3 -> StepSpeakingIntro(onStartAssessment = ::saveAndProceed)
+                }
             }
+
+            NativeAdSlot(
+                placement = "native_pre_assessment",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .border(1.dp, Color(0xFFE2E2E6))
+            )
         }
     }
 }
@@ -480,11 +502,14 @@ private fun StepGoal(
 ) {
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 24.dp),
-        verticalArrangement = Arrangement.SpaceBetween
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        Column(modifier = Modifier.weight(1f)) {
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .padding(horizontal = 24.dp)
+        ) {
             Spacer(Modifier.height(28.dp))
             Text(
                 stringResource(R.string.what_is_your_goal),
@@ -514,11 +539,26 @@ private fun StepGoal(
             }
         }
 
-        SetupContinueButton(
+        Button(
+            onClick = onContinue,
             enabled = selectedGoals.isNotEmpty(),
-            label   = stringResource(R.string.continue_text),
-            onClick = onContinue
-        )
+            modifier = Modifier
+                .padding(horizontal = 24.dp)
+                .fillMaxWidth()
+                .height(54.dp),
+            shape = RoundedCornerShape(27.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = SetupPurple,
+                disabledContainerColor = Color(0xFFB8B4E8)
+            ),
+            elevation = ButtonDefaults.buttonElevation(defaultElevation = 6.dp)
+        ) {
+            Text(
+                stringResource(R.string.continue_text),
+                style = TextStyle(color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+            )
+        }
+
     }
 }
 

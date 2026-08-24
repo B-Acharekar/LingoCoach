@@ -6,6 +6,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -38,8 +39,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 private val PathNavy = Color(0xFF17133B)
-private val PathSurface = Color(0xFFF8F7FF)
-private val PathMuted = Color(0xFF77728F)
+private val PathSurface: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF151224) else Color(0xFFF8F7FF)
+private val PathMuted: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFA9A4BF) else Color(0xFF77728F)
 
 @Composable
 fun ActualLearningPathScreen(
@@ -86,7 +89,11 @@ fun ActualLearningPathScreen(
 
     Box(Modifier.fillMaxSize()) {
         AppBackgroundTexture()
-        Column(Modifier.fillMaxSize()) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(bottom = 126.dp)
+        ) {
             CommonTopBar(
                 title = stringResource(R.string.learning_path),
                 onBack = onNavigateToHome,
@@ -151,20 +158,20 @@ fun ActualLearningPathScreen(
                     }
                 }
             }
-
-            HomeBottomNav(
-                selectedTab = selectedTab,
-                onTabSelected = { index ->
-                    selectedTab = index
-                    when (index) {
-                        0 -> onNavigateToHome()
-                        1 -> onNavigateToAILab()
-                        2 -> onNavigateToVocab()
-                        3 -> onNavigateToVault()
-                    }
-                }
-            )
         }
+        HomeBottomNav(
+            selectedTab = selectedTab,
+            onTabSelected = { index ->
+                selectedTab = index
+                when (index) {
+                    0 -> onNavigateToHome()
+                    1 -> onNavigateToAILab()
+                    2 -> onNavigateToVocab()
+                    3 -> onNavigateToVault()
+                }
+            },
+            modifier = Modifier.align(Alignment.BottomCenter)
+        )
     }
 }
 

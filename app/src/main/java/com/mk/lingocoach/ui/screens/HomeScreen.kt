@@ -16,6 +16,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -53,6 +54,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.mk.lingocoach.R
+import com.mk.lingocoach.config.AppConfig
 import com.mk.lingocoach.network.AssessmentApi
 import com.mk.lingocoach.network.CurrentLearningPathResponse
 import com.mk.lingocoach.network.CurrentModule
@@ -77,6 +79,12 @@ internal val TextMid          = Color(0xFF3A3A3A)
 internal val TextLight        = Color(0xFF6B6B6B)
 internal val CardWhite        = Color(0xFFFFFEFF)
 internal val CardBorderColor  = Color(0x18000000)
+internal val SubtlePurpleTrack = Color(0xFFE8E4FF)
+internal val ElevatedSurface   = Color(0xFFFFFFFF)
+internal val SoftPurpleSurface = Color(0xFFF0EEFF)
+internal val SuccessSurface    = Color(0xFFE8F5E9)
+internal val ErrorSurface      = Color(0xFFFFEBEE)
+internal val WarningSurface    = Color(0xFFFFF8E1)
 
 private fun normalizeHomeUsername(value: String): String =
     value.lowercase().filter { it.isLetterOrDigit() || it == '_' }.take(20)
@@ -105,7 +113,10 @@ fun HomeScreen(
     onNavigateToSettings: () -> Unit = {},
     onNavigateToRoadmap: () -> Unit = {},
     onNavigateToActualLearningPath: () -> Unit = {},
-    onNavigateToProgress: () -> Unit = {}
+    onNavigateToProgress: () -> Unit = {},
+    onBottomNavigateToAILab: () -> Unit = onNavigateToAILab,
+    onBottomNavigateToVocab: () -> Unit = onNavigateToVocab,
+    onBottomNavigateToMistakes: () -> Unit = onNavigateToMistakes
 ) {
     val context       = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -399,6 +410,8 @@ fun HomeScreen(
                         onClick = onNavigateToProgress
                     )
                 }
+
+                InlineNativeAdSlot(placement = "native_home")
 
                 // ── Learning Path header ─────────────────────────────────────
                 Row(
@@ -1677,27 +1690,42 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
 
 // ─── Bottom Navigation ────────────────────────────────────────────────────────
 @Composable
-fun HomeBottomNav(selectedTab: Int, onTabSelected: (Int) -> Unit) {
-    Box(
-        modifier = Modifier
+fun HomeBottomNav(
+    selectedTab: Int,
+    onTabSelected: (Int) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val shouldShowBottomBanner = AppConfig.canShowBannerPlacement("banner_bottom_nav")
+
+    Column(
+        modifier = modifier
             .fillMaxWidth()
-            .background(Color(0xFFFAFAFF))
-            .navigationBarsPadding()
-            .border(
-                width = 0.5.dp,
-                color = Color(0x1A000000)
-            )
-            .padding(vertical = 8.dp)
+            .height(if (shouldShowBottomBanner) 126.dp else 76.dp)
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceAround,
-            verticalAlignment = Alignment.CenterVertically
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(76.dp)
+                .background(if (isSystemInDarkTheme()) Color.Black else Color(0xFFFAFAFF))
+                .border(
+                    width = 0.5.dp,
+                    color = CardBorderColor
+                )
+                .padding(vertical = 8.dp)
         ) {
-            HomeNavItem(stringResource(R.string.home).uppercase(), Icons.Default.Home, selectedTab == 0) { onTabSelected(0) }
-            HomeNavItem(stringResource(R.string.ai_lab_nav).uppercase(), Icons.Default.Science, selectedTab == 1) { onTabSelected(1) }
-            HomeNavItem(stringResource(R.string.vocab_nav).uppercase(), Icons.Default.Book, selectedTab == 2) { onTabSelected(2) }
-            HomeNavItem(stringResource(R.string.vault_nav).uppercase(), Icons.Default.VerifiedUser, selectedTab == 3) { onTabSelected(3) }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceAround,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                HomeNavItem(stringResource(R.string.home).uppercase(), Icons.Default.Home, selectedTab == 0) { onTabSelected(0) }
+                HomeNavItem(stringResource(R.string.ai_lab_nav).uppercase(), Icons.Default.Science, selectedTab == 1) { onTabSelected(1) }
+                HomeNavItem(stringResource(R.string.vocab_nav).uppercase(), Icons.Default.Book, selectedTab == 2) { onTabSelected(2) }
+                HomeNavItem(stringResource(R.string.vault_nav).uppercase(), Icons.Default.VerifiedUser, selectedTab == 3) { onTabSelected(3) }
+            }
+        }
+        if (shouldShowBottomBanner) {
+            BannerAdSlot(placement = "banner_bottom_nav")
         }
     }
 }
@@ -1881,7 +1909,6 @@ fun LoadingOverlay(visible: Boolean) {
         }
     }
 }
-
 
 
 

@@ -652,4 +652,11 @@
     <string name="notification_prompt_message">Enable notifications for timely practice reminders and learning streak updates.</string>
     <string name="enable_reminders">Enable reminders</string>
     <string name="not_now">Not now</string>
+    <string name="app_theme">App Theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_system">System</string>
+    <string name="theme_dark">Dark</string>
+    <string name="rate_lingocoach_title">Rate LingoCoach</string>
+    <string name="rate_lingocoach_message">Enjoying your lessons? Your rating helps more learners find the app.</string>
+    <string name="rate_on_play_store">Rate on Play Store</string>
 </resources>

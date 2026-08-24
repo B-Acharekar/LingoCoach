@@ -1,8 +1,10 @@
 package com.mk.lingocoach.ui.screens
 
 import android.content.Context
+import android.app.Activity
 import android.speech.tts.TextToSpeech
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
@@ -44,6 +46,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mk.lingocoach.R
+import com.mk.lingocoach.ads.LingoCoachAds
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.Locale
@@ -82,6 +85,7 @@ data class DuelQuestion(
 @Composable
 fun TimelyDuelScreen(onNavigateBack: () -> Unit, onNavigateToSettings: () -> Unit) {
     val context = LocalContext.current
+    val activity = LocalActivityResultRegistryOwner.current as? Activity
     val scope = rememberCoroutineScope()
     val userId = remember {
         context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
@@ -98,6 +102,14 @@ fun TimelyDuelScreen(onNavigateBack: () -> Unit, onNavigateToSettings: () -> Uni
     var xpDelta by remember { mutableStateOf(0) }
     var correctCount by remember { mutableStateOf(0) }
     var wrongCount by remember { mutableStateOf(0) }
+
+    fun showDuelCompletionInterstitial(onComplete: () -> Unit) {
+        if (activity != null) {
+            LingoCoachAds.showInterstitial(activity, "inter_time_duel", onComplete = onComplete)
+        } else {
+            onComplete()
+        }
+    }
 
     // TTS
     var tts by remember { mutableStateOf<TextToSpeech?>(null) }
@@ -163,7 +175,9 @@ fun TimelyDuelScreen(onNavigateBack: () -> Unit, onNavigateToSettings: () -> Uni
                             correctCount++
                             xpDelta += selectedDifficulty.xpGain
                             score += selectedDifficulty.xpGain
-                            if (currentIdx + 1 >= questions.size) screen = DuelScreen.RESULT
+                            if (currentIdx + 1 >= questions.size) {
+                                showDuelCompletionInterstitial { screen = DuelScreen.RESULT }
+                            }
                             else currentIdx++
                         },
                         onWrong = { word ->
@@ -193,7 +207,9 @@ fun TimelyDuelScreen(onNavigateBack: () -> Unit, onNavigateToSettings: () -> Uni
                                     )
                                 }
                             }
-                            if (currentIdx + 1 >= questions.size) screen = DuelScreen.RESULT
+                            if (currentIdx + 1 >= questions.size) {
+                                showDuelCompletionInterstitial { screen = DuelScreen.RESULT }
+                            }
                             else currentIdx++
                         },
                         onBack = onNavigateBack
@@ -230,7 +246,7 @@ fun DuelSetupScreen(
 ) {
     val amber = Color(0xFFFFCA28)
     val amberDeep = Color(0xFFFF8F00)
-    val dark = Color(0xFF1A1040)
+    val heroText = Color(0xFF1A1040)
 
     Column(
         modifier = Modifier
@@ -267,29 +283,29 @@ fun DuelSetupScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Icon(Icons.Default.Timer, contentDescription = null, tint = dark, modifier = Modifier.size(36.dp))
+                Icon(Icons.Default.Timer, contentDescription = null, tint = heroText, modifier = Modifier.size(36.dp))
                 Spacer(Modifier.height(10.dp))
                 Text(
                     stringResource(R.string.battle_against_time),
-                    color = dark,
+                    color = heroText,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.ExtraBold,
                     textAlign = TextAlign.Center,
                     maxLines = 2
                 )
-                Text(stringResource(R.string.answer_before_clock), color = dark.copy(0.65f), fontSize = 12.sp)
+                Text(stringResource(R.string.answer_before_clock), color = heroText.copy(0.65f), fontSize = 12.sp)
             }
         }
 
         Spacer(Modifier.height(28.dp))
-        Text(stringResource(R.string.choose_difficulty), color = dark, fontSize = 16.sp, fontWeight = FontWeight.Bold,
+        Text(stringResource(R.string.choose_difficulty), color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold,
             modifier = Modifier.fillMaxWidth())
         Spacer(Modifier.height(12.dp))
 
         DuelDifficulty.values().forEach { diff ->
             val isSelected = diff == selectedDifficulty
             val cardBg = if (isSelected) Brush.linearGradient(listOf(Color(0xFF6A5CFF), Color(0xFF8A79FF)))
-                        else Brush.linearGradient(listOf(Color.White, Color.White))
+                        else Brush.linearGradient(listOf(CardWhite, CardWhite))
 
             Box(
                 modifier = Modifier
@@ -304,7 +320,7 @@ fun DuelSetupScreen(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Box(
                         modifier = Modifier.size(40.dp).clip(RoundedCornerShape(12.dp))
-                            .background(if (isSelected) Color.White.copy(0.2f) else Color(0xFFF0EEFF)),
+                            .background(if (isSelected) Color.White.copy(0.2f) else BrandPurpleSoft),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
@@ -321,9 +337,9 @@ fun DuelSetupScreen(
                     }
                     Spacer(Modifier.width(14.dp))
                     Column(Modifier.weight(1f)) {
-                        Text(stringResource(diff.labelRes), color = if (isSelected) Color.White else dark,
+                        Text(stringResource(diff.labelRes), color = if (isSelected) Color.White else TextDark,
                             fontSize = 15.sp, fontWeight = FontWeight.Bold)
-                        Text(stringResource(diff.subtitleRes), color = if (isSelected) Color.White.copy(0.75f) else Color(0xFF9B96B0),
+                        Text(stringResource(diff.subtitleRes), color = if (isSelected) Color.White.copy(0.75f) else TextLight,
                             fontSize = 11.sp)
                     }
                     Column(horizontalAlignment = Alignment.End) {
@@ -368,6 +384,7 @@ fun DuelGameScreen(
     onBack: () -> Unit
 ) {
     val scope = rememberCoroutineScope()
+    val scrollState = rememberScrollState()
     val timeLimit = difficulty.timePerQuestion
     var timeLeft by remember(questionNum) { mutableStateOf(timeLimit) }
     var answered by remember(questionNum) { mutableStateOf(false) }
@@ -431,6 +448,7 @@ fun DuelGameScreen(
             .fillMaxSize()
             .navigationBarsPadding()
             .imePadding()
+            .verticalScroll(scrollState)
             .padding(horizontal = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -444,7 +462,7 @@ fun DuelGameScreen(
                     progress = { questionNum / totalQuestions.toFloat() },
                     modifier = Modifier.fillMaxWidth().height(4.dp).clip(CircleShape),
                     color = BrandPurple,
-                    trackColor = Color(0xFFDDDAFF)
+                    trackColor = SubtlePurpleTrack
                 )
             }
             Spacer(Modifier.width(12.dp))
@@ -546,9 +564,9 @@ fun DuelGameScreen(
                 mcOptions.forEachIndexed { idx, opt ->
                     val isSelected = selectedOpt == idx
                     val bgColor = when {
-                        showResult == null && isSelected -> Color(0xFFF0EEFF)
-                        showResult == true && opt == question.vocabWord.word -> Color(0xFFE8F5E9)
-                        showResult == false && isSelected -> Color(0xFFFFEBEE)
+                        showResult == null && isSelected -> BrandPurpleSoft
+                        showResult == true && opt == question.vocabWord.word -> SuccessSurface
+                        showResult == false && isSelected -> ErrorSurface
                         else -> CardWhite
                     }
                     val borderColor = when {
@@ -598,9 +616,9 @@ fun DuelGameScreen(
                         }
                     }),
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedTextColor = Color.Black,
-                        unfocusedTextColor = Color.Black,
-                        disabledTextColor = Color.Black,
+                        focusedTextColor = TextDark,
+                        unfocusedTextColor = TextDark,
+                        disabledTextColor = TextLight,
                         focusedBorderColor = BrandPurple,
                         unfocusedBorderColor = CardBorderColor
                     ),
@@ -632,7 +650,7 @@ fun DuelGameScreen(
                         onClick = { submitAnswer(false) },
                         enabled = !answered,
                         modifier = Modifier.fillMaxWidth().heightIn(min = 50.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFEAEA)),
+                        colors = ButtonDefaults.buttonColors(containerColor = ErrorSurface),
                         shape = RoundedCornerShape(14.dp)
                     ) {
                         Icon(Icons.Default.Close, contentDescription = null, tint = BrandRed, modifier = Modifier.size(16.dp))
@@ -643,7 +661,7 @@ fun DuelGameScreen(
                         onClick = { submitAnswer(true) },
                         enabled = !answered,
                         modifier = Modifier.fillMaxWidth().heightIn(min = 50.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFE8F5E9)),
+                        colors = ButtonDefaults.buttonColors(containerColor = SuccessSurface),
                         shape = RoundedCornerShape(14.dp)
                     ) {
                         Icon(Icons.Default.Check, contentDescription = null, tint = BrandGreen, modifier = Modifier.size(16.dp))
@@ -667,7 +685,7 @@ fun DuelGameScreen(
                     .fillMaxWidth()
                     .padding(top = 16.dp)
                     .clip(RoundedCornerShape(16.dp))
-                    .background(if (showResult == true) Color(0xFFE8F5E9) else Color(0xFFFFEBEE))
+                    .background(if (showResult == true) SuccessSurface else ErrorSurface)
                     .padding(16.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -692,6 +710,7 @@ fun DuelGameScreen(
                 }
             }
         }
+        Spacer(Modifier.height(24.dp))
     }
 }
 
@@ -771,7 +790,7 @@ fun DuelResultScreen(
                 Box(
                     modifier = Modifier.fillMaxWidth()
                         .background(
-                            if (isPositive) Color(0xFFE8F5E9) else Color(0xFFFFEBEE),
+                            if (isPositive) SuccessSurface else ErrorSurface,
                             RoundedCornerShape(12.dp)
                         )
                         .padding(14.dp)

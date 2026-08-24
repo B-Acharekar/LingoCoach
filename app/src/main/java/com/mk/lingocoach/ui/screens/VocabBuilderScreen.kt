@@ -1,8 +1,10 @@
 package com.mk.lingocoach.ui.screens
 
 import android.content.Context
+import android.app.Activity
 import android.speech.tts.TextToSpeech
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.LocalActivityResultRegistryOwner
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
@@ -13,6 +15,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -48,6 +51,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mk.lingocoach.R
+import com.mk.lingocoach.ads.LingoCoachAds
 import kotlinx.coroutines.launch
 import java.util.Locale
 
@@ -84,6 +88,7 @@ fun VocabBuilderScreen(
     onNavigateToSettings: () -> Unit = {}
 ) {
     val context = LocalContext.current
+    val activity = LocalActivityResultRegistryOwner.current as? Activity
     val scope = rememberCoroutineScope()
 
     // ── Vocab Load State ──────────────────────────────────────────────────────
@@ -136,6 +141,14 @@ fun VocabBuilderScreen(
     var isCorrectFeedback by remember { mutableStateOf(false) }
     var reinforcementText by remember { mutableStateOf("") }
     var showReinforcementFeedback by remember { mutableStateOf(false) }
+
+    fun showVocabCompletionInterstitial(onComplete: () -> Unit) {
+        if (activity != null) {
+            LingoCoachAds.showInterstitial(activity, "inter_vocab", onComplete = onComplete)
+        } else {
+            onComplete()
+        }
+    }
 
     // ── Back Handlers ─────────────────────────────────────────────────────────
     val handleBackPressed = {
@@ -242,6 +255,7 @@ fun VocabBuilderScreen(
                             onConfirm = {
                                 if (selectedOptionIdx != null) {
                                     val isCorrect = selectedOptionIdx == question.correctIndex
+                                    val isCompletingDrill = isCorrect && drillQueue.size == 1
                                     isCorrectFeedback = isCorrect
                                     isAnswered = true
                                     VocabTracker.updateWordMastery(question.word.word, isCorrect, context)
@@ -270,7 +284,13 @@ fun VocabBuilderScreen(
                                             }
                                         }
                                     }
-                                    currentViewState = VocabViewState.DrillFeedback
+                                    if (isCompletingDrill) {
+                                        showVocabCompletionInterstitial {
+                                            currentViewState = VocabViewState.DrillFeedback
+                                        }
+                                    } else {
+                                        currentViewState = VocabViewState.DrillFeedback
+                                    }
                                 }
                             },
                             onNotMastered = {
@@ -368,7 +388,7 @@ private fun LevelSelectorTabs(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White, RoundedCornerShape(16.dp))
+            .background(CardWhite, RoundedCornerShape(16.dp))
             .padding(4.dp),
         horizontalArrangement = Arrangement.spacedBy(2.dp)
     ) {
@@ -411,7 +431,7 @@ private fun LevelSelectorTabs(
                                             isActive && filled -> Color.White
                                             isActive           -> Color.White.copy(alpha = 0.35f)
                                             filled             -> BrandPurple.copy(alpha = 0.55f)
-                                            else               -> Color(0xFFDDDAFF)
+                                            else               -> SubtlePurpleTrack
                                         }
                                     )
                             )
@@ -463,7 +483,7 @@ fun ColumnScope.DashboardView(
             .fillMaxWidth()
             .padding(horizontal = 20.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
-            contentPadding = PaddingValues(top = 16.dp, bottom = 24.dp)
+            contentPadding = PaddingValues(top = 16.dp, bottom = 126.dp)
     ) {
 
         // ── 1. Mastery Progress Card ──────────────────────────────────────────
@@ -526,7 +546,7 @@ fun ColumnScope.DashboardView(
                         Box(
                             modifier = Modifier
                                 .weight(1f)
-                                .background(Color(0xFFFAFAFF), RoundedCornerShape(12.dp))
+                                .background(ElevatedSurface, RoundedCornerShape(12.dp))
                                 .padding(horizontal = 12.dp, vertical = 12.dp)
                         ) {
                             Column {
@@ -539,7 +559,7 @@ fun ColumnScope.DashboardView(
                         Box(
                             modifier = Modifier
                                 .weight(1f)
-                                .background(Color(0xFFFAFAFF), RoundedCornerShape(12.dp))
+                                .background(ElevatedSurface, RoundedCornerShape(12.dp))
                                 .padding(horizontal = 12.dp, vertical = 12.dp)
                         ) {
                             Column {
@@ -591,7 +611,7 @@ fun ColumnScope.DashboardView(
                 onValueChange = onSearchQueryChanged,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp))
+                    .background(CardWhite.copy(alpha = 0.88f), RoundedCornerShape(16.dp))
                     .bringIntoViewOnFocus(),
                 placeholder = { Text(stringResource(R.string.search_vocabulary_topics), color = TextLight, fontSize = 14.sp) },
                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = stringResource(R.string.search), tint = TextLight) },
@@ -778,57 +798,71 @@ fun ColumnScope.DashboardView(
 
             // Other category cards
             val otherCategories = categoriesStats.filter { it.name != (featuredCat?.name ?: "") }
-            items(otherCategories) { cat ->
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { onCategorySelected(cat.name) }
-                        .border(0.5.dp, CardBorderColor, RoundedCornerShape(16.dp)),
-                    colors = CardDefaults.cardColors(containerColor = CardWhite),
-                    shape = RoundedCornerShape(16.dp)
+            itemsIndexed(otherCategories) { index, cat ->
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    Row(
+                    Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(16.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                            .clickable { onCategorySelected(cat.name) }
+                            .border(0.5.dp, CardBorderColor, RoundedCornerShape(16.dp)),
+                        colors = CardDefaults.cardColors(containerColor = CardWhite),
+                        shape = RoundedCornerShape(16.dp)
                     ) {
-                        Box(
+                        Row(
                             modifier = Modifier
-                                .size(40.dp)
-                                .background(getCategoryIconBackground(cat.name), RoundedCornerShape(12.dp)),
-                            contentAlignment = Alignment.Center
+                                .fillMaxWidth()
+                                .padding(16.dp),
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(40.dp)
+                                    .background(getCategoryIconBackground(cat.name), RoundedCornerShape(12.dp)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Icon(
+                                    imageVector = getCategoryIcon(cat.name),
+                                    contentDescription = null,
+                                    tint = getCategoryIconTint(cat.name),
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.width(16.dp))
+
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = cat.name,
+                                    color = TextDark,
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                                Spacer(modifier = Modifier.height(2.dp))
+                                Text(
+                                    text = stringResource(R.string.words_mastery_format, cat.totalWords, cat.averageMastery),
+                                    color = TextLight,
+                                    fontSize = 11.sp
+                                )
+                            }
+
                             Icon(
-                                imageVector = getCategoryIcon(cat.name),
+                                imageVector = Icons.Default.ChevronRight,
                                 contentDescription = null,
-                                tint = getCategoryIconTint(cat.name),
+                                tint = TextLight,
                                 modifier = Modifier.size(20.dp)
                             )
                         }
+                    }
 
-                        Spacer(modifier = Modifier.width(16.dp))
-
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = cat.name,
-                                color = TextDark,
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                            Spacer(modifier = Modifier.height(2.dp))
-                            Text(
-                                text = stringResource(R.string.words_mastery_format, cat.totalWords, cat.averageMastery),
-                                color = TextLight,
-                                fontSize = 11.sp
-                            )
-                        }
-
-                        Icon(
-                            imageVector = Icons.Default.ChevronRight,
-                            contentDescription = null,
-                            tint = TextLight,
-                            modifier = Modifier.size(20.dp)
+                    val shouldShowNativeAd =
+                        (index + 1) % 3 == 0 && index < otherCategories.lastIndex
+                    if (shouldShowNativeAd) {
+                        NativeAdSlot(
+                            placement = "native_vocab",
+                            slotKey = "topic_${index + 1}_${activeLevel}"
                         )
                     }
                 }
@@ -865,61 +899,71 @@ fun ColumnScope.ContextualDrillView(
     onNotMastered: () -> Unit,
     tts: TextToSpeech? = null
 ) {
+    val levelProgress = remember(level) { VocabTracker.getLevelProgress(level) }
+
     Column(
         modifier = Modifier
             .weight(1f)
             .fillMaxWidth()
-            .padding(horizontal = 20.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+            .padding(horizontal = 20.dp)
     ) {
-        val levelProgress = remember(level) { VocabTracker.getLevelProgress(level) }
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(text = stringResource(R.string.level_mastery_progress, level).uppercase(), color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
-                Text(text = "$levelProgress%", color = BrandPurple, fontSize = 9.sp, fontWeight = FontWeight.Bold)
-            }
-            Spacer(modifier = Modifier.height(4.dp))
-            LinearProgressIndicator(
-                progress = { levelProgress / 100f },
-                modifier = Modifier.fillMaxWidth().height(6.dp).clip(CircleShape),
-                color = BrandPurple,
-                trackColor = Color(0xFFDDDAFF)
-            )
-        }
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-        Card(
-            modifier = Modifier.fillMaxWidth().shadow(elevation = 4.dp, shape = RoundedCornerShape(20.dp)),
-            colors = CardDefaults.cardColors(containerColor = CardWhite),
-            shape = RoundedCornerShape(20.dp)
+        LazyColumn(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            contentPadding = PaddingValues(top = 2.dp, bottom = 16.dp)
         ) {
-            Column(modifier = Modifier.padding(20.dp)) {
-                Text(text = question.word.word, color = TextDark, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
-                Spacer(modifier = Modifier.height(2.dp))
-                Text(
-                    text = "(${question.word.partOfSpeech.replaceFirstChar { it.uppercase() }}) /${question.word.pronunciation}/",
-                    color = TextLight, fontSize = 13.sp, fontStyle = FontStyle.Italic
-                )
-                Spacer(modifier = Modifier.height(14.dp))
-                CardPronunciation(word = question.word.word, tts = tts)
-                Spacer(modifier = Modifier.height(14.dp))
-                HorizontalDivider(color = Color(0x0D000000))
-                Spacer(modifier = Modifier.height(12.dp))
-                Text(text = question.word.meaning, color = TextMid, fontSize = 14.sp, lineHeight = 18.sp)
+            item {
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(text = stringResource(R.string.level_mastery_progress, level).uppercase(), color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                        Text(text = "$levelProgress%", color = BrandPurple, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                    }
+                    Spacer(modifier = Modifier.height(4.dp))
+                    LinearProgressIndicator(
+                        progress = { levelProgress / 100f },
+                        modifier = Modifier.fillMaxWidth().height(6.dp).clip(CircleShape),
+                        color = BrandPurple,
+                        trackColor = SubtlePurpleTrack
+                    )
+                }
             }
-        }
 
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Text(text = stringResource(R.string.contextual_drill).uppercase(), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = question.questionText, color = TextDark, fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Medium)
-        }
+            item {
+                Card(
+                    modifier = Modifier.fillMaxWidth().shadow(elevation = 4.dp, shape = RoundedCornerShape(20.dp)),
+                    colors = CardDefaults.cardColors(containerColor = CardWhite),
+                    shape = RoundedCornerShape(20.dp)
+                ) {
+                    Column(modifier = Modifier.padding(20.dp)) {
+                        Text(text = question.word.word, color = TextDark, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Text(
+                            text = "(${question.word.partOfSpeech.replaceFirstChar { it.uppercase() }}) /${question.word.pronunciation}/",
+                            color = TextLight, fontSize = 13.sp, fontStyle = FontStyle.Italic
+                        )
+                        Spacer(modifier = Modifier.height(14.dp))
+                        CardPronunciation(word = question.word.word, tts = tts)
+                        Spacer(modifier = Modifier.height(14.dp))
+                        HorizontalDivider(color = Color(0x0D000000))
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Text(text = question.word.meaning, color = TextMid, fontSize = 14.sp, lineHeight = 18.sp)
+                    }
+                }
+            }
 
-        LazyColumn(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            item {
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    Text(text = stringResource(R.string.contextual_drill).uppercase(), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(text = question.questionText, color = TextDark, fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Medium)
+                }
+            }
+
             items(question.options.size) { index ->
                 val optionLetter = ('A' + index).toString()
                 val isSelected = selectedOptionIdx == index
@@ -939,7 +983,7 @@ fun ColumnScope.ContextualDrillView(
                         Box(
                             modifier = Modifier
                                 .size(28.dp)
-                                .background(if (isSelected) BrandPurpleSoft else Color(0xFFFAFAFF), RoundedCornerShape(8.dp)),
+                                .background(if (isSelected) BrandPurpleSoft else ElevatedSurface, RoundedCornerShape(8.dp)),
                             contentAlignment = Alignment.Center
                         ) {
                             Text(text = optionLetter, color = if (isSelected) BrandPurple else TextLight, fontSize = 12.sp, fontWeight = FontWeight.Bold)
@@ -952,13 +996,13 @@ fun ColumnScope.ContextualDrillView(
         }
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp),
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 12.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             Button(
                 onClick = onNotMastered,
                 modifier = Modifier.weight(1f).height(48.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFEAEA)),
+                colors = ButtonDefaults.buttonColors(containerColor = ErrorSurface),
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(text = stringResource(R.string.not_mastered), color = BrandRed, fontWeight = FontWeight.Bold, fontSize = 14.sp)
@@ -981,7 +1025,7 @@ fun ColumnScope.ContextualDrillView(
     }
 }
 
-// ─── Drill Feedback ───────────────────────────────────────────────────────────
+// Drill Feedback
 @Composable
 fun ColumnScope.DrillFeedbackView(
     word: VocabWord,
@@ -1011,7 +1055,7 @@ fun ColumnScope.DrillFeedbackView(
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(if (isCorrect) Color(0xFFE8F5E9) else Color(0xFFFFEBEE))
+                            .background(if (isCorrect) SuccessSurface else ErrorSurface)
                             .padding(vertical = 10.dp, horizontal = 16.dp)
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -1075,7 +1119,7 @@ fun ColumnScope.DrillFeedbackView(
                         }
                         Spacer(modifier = Modifier.height(14.dp))
                         Row(
-                            modifier = Modifier.fillMaxWidth().background(Color(0xFFFAFAFF), RoundedCornerShape(8.dp))
+                            modifier = Modifier.fillMaxWidth().background(ElevatedSurface, RoundedCornerShape(8.dp))
                         ) {
                             Box(modifier = Modifier.width(4.dp).fillMaxHeight().background(BrandPurple))
                             val exampleSent = word.examples.firstOrNull()?.english ?: ""
@@ -1103,7 +1147,7 @@ fun ColumnScope.DrillFeedbackView(
                         Text(text = stringResource(R.string.type_word_match_definition), color = TextDark, fontSize = 12.sp)
                         Spacer(modifier = Modifier.height(8.dp))
                         Box(
-                            modifier = Modifier.fillMaxWidth().background(Color(0xFFFAFAFF), RoundedCornerShape(10.dp)).padding(12.dp)
+                            modifier = Modifier.fillMaxWidth().background(ElevatedSurface, RoundedCornerShape(10.dp)).padding(12.dp)
                         ) {
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
@@ -1148,8 +1192,8 @@ fun ColumnScope.DrillFeedbackView(
                                 }
                             },
                             colors = OutlinedTextFieldDefaults.colors(
-                                focusedTextColor = Color(0xFF0D0D0D),
-                                unfocusedTextColor = Color(0xFF0D0D0D),
+                                focusedTextColor = TextDark,
+                                unfocusedTextColor = TextDark,
                                 focusedBorderColor = if (showReinforcementFeedback) (if (isReinforcementCorrect) BrandGreen else BrandRed) else BrandPurple,
                                 unfocusedBorderColor = if (showReinforcementFeedback) (if (isReinforcementCorrect) BrandGreen else BrandRed) else CardBorderColor
                             )
@@ -1231,7 +1275,7 @@ fun ColumnScope.AllWordsBrowserView(
         OutlinedTextField(
             value = searchQuery,
             onValueChange = onSearchQueryChanged,
-            modifier = Modifier.fillMaxWidth().background(Color.White.copy(alpha = 0.8f), RoundedCornerShape(16.dp)).bringIntoViewOnFocus(),
+            modifier = Modifier.fillMaxWidth().background(CardWhite.copy(alpha = 0.88f), RoundedCornerShape(16.dp)).bringIntoViewOnFocus(),
             placeholder = { Text(stringResource(R.string.search_words_meanings), color = TextLight, fontSize = 14.sp) },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = stringResource(R.string.search), tint = TextLight) },
             shape = RoundedCornerShape(16.dp),
@@ -1260,8 +1304,8 @@ fun ColumnScope.AllWordsBrowserView(
                     Box(
                         modifier = Modifier
                             .clip(RoundedCornerShape(20.dp))
-                            .background(if (isActive) BrandPurple else Color.White.copy(alpha = 0.85f))
-                            .border(0.5.dp, if (isActive) BrandPurple else Color(0xFFDDDAFF), RoundedCornerShape(20.dp))
+                            .background(if (isActive) BrandPurple else CardWhite.copy(alpha = 0.88f))
+                            .border(0.5.dp, if (isActive) BrandPurple else SubtlePurpleTrack, RoundedCornerShape(20.dp))
                             .clickable { sortOrder = order }
                             .padding(horizontal = 10.dp, vertical = 6.dp)
                     ) {

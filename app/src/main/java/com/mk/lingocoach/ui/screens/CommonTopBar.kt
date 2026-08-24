@@ -1,6 +1,7 @@
 package com.mk.lingocoach.ui.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -33,8 +34,9 @@ fun CommonTopBar(
     onBack: () -> Unit,
     onSettings: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = Color.White
+    backgroundColor: Color = if (isSystemInDarkTheme()) Color.Black else Color.White
 ) {
+    val iconButtonBg = if (isSystemInDarkTheme()) Color.White.copy(alpha = 0.12f) else Color.Black.copy(alpha = 0.06f)
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -48,7 +50,7 @@ fun CommonTopBar(
             onClick = onBack,
             modifier = Modifier
                 .size(40.dp)
-                .background(Color.Black.copy(alpha = 0.06f), CircleShape)
+                .background(iconButtonBg, CircleShape)
         ) {
             Icon(
                 Icons.AutoMirrored.Filled.ArrowBack,
@@ -72,7 +74,7 @@ fun CommonTopBar(
             enabled = onSettings != null,
             modifier = Modifier
                 .size(40.dp)
-                .background(Color.Black.copy(alpha = if (onSettings != null) 0.06f else 0f), CircleShape)
+                .background(iconButtonBg.copy(alpha = if (onSettings != null) iconButtonBg.alpha else 0f), CircleShape)
         ) {
             if (onSettings != null) {
                 Icon(

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Build
+import android.os.SystemClock
 import android.content.Intent
 import android.content.res.Configuration
 import android.content.pm.PackageManager
@@ -15,16 +16,22 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
@@ -32,10 +39,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import com.mk.lingocoach.ads.LingoCoachAds
 import com.mk.lingocoach.ui.screens.*
 import com.mk.lingocoach.ui.theme.LingoCoachTheme
 import com.mk.lingocoach.notifications.NotificationScheduler
 import com.mk.lingocoach.data.repository.AppLocaleManager
+import com.mk.lingocoach.data.repository.AppThemeManager
+import com.mk.lingocoach.data.repository.AppThemeMode
 import java.util.Locale
 
 enum class Screen {
@@ -58,6 +68,9 @@ enum class Screen {
 
 class MainActivity : AppCompatActivity() {
     private var notificationPermissionChecked = false
+    private var hasCompletedFirstResume = false
+    private var backgroundedAt = 0L
+    private val appOpenBackgroundThresholdMillis = 30 * 60 * 1000L
     private val notificationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { granted ->
@@ -73,6 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppThemeManager.applyStoredMode(this)
         super.onCreate(savedInstanceState)
         val startupScreen = resolveStartScreen()
 
@@ -87,8 +101,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         enableEdgeToEdge()
+        hideSystemNavigationBar()
         setContent {
             val languageCode by AppLocaleManager.languageCode.collectAsState()
+            var themeMode by rememberSaveable {
+                mutableStateOf(AppThemeManager.currentMode(this@MainActivity).value)
+            }
+            val selectedThemeMode = AppThemeMode.fromValue(themeMode)
+            val darkTheme = when (selectedThemeMode) {
+                AppThemeMode.Light -> false
+                AppThemeMode.System -> isSystemInDarkTheme()
+                AppThemeMode.Dark -> true
+            }
             val baseContext = LocalContext.current
             val activityResultRegistryOwner = LocalActivityResultRegistryOwner.current ?: this
             val localizedConfiguration = remember(baseContext, languageCode) {
@@ -106,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                 LocalConfiguration provides localizedConfiguration,
                 LocalActivityResultRegistryOwner provides activityResultRegistryOwner
             ) {
-                LingoCoachTheme(dynamicColor = false) {
+                LingoCoachTheme(darkTheme = darkTheme, dynamicColor = false) {
                 var currentScreenName by rememberSaveable {
                     mutableStateOf(startupScreen.name)
                 }
@@ -128,6 +152,19 @@ class MainActivity : AppCompatActivity() {
                 fun resetTo(screen: Screen) {
                     screenBackStack.clear()
                     currentScreenName = screen.name
+                }
+
+                fun navigateFromHomeWithInterstitial(screen: Screen, placement: String) {
+                    LingoCoachAds.showHomeNavigationInterstitial(this@MainActivity, placement) {
+                        navigateTo(screen)
+                    }
+                }
+
+                fun navigateToLessonFromHome(sublessonId: String) {
+                    LingoCoachAds.showHomeNavigationInterstitial(this@MainActivity, "home_lesson") {
+                        currentSublessonId = sublessonId
+                        navigateTo(Screen.Lesson)
+                    }
                 }
 
                 // Tracks where the user came from before opening the Roadmap,
@@ -159,20 +196,28 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                BackHandler(enabled = true) {
+                // Let Android handle back on the root Home screen so the activity exits
+                // normally for both predictive-back gestures and navigation-bar back.
+                BackHandler(enabled = currentScreen != Screen.Home) {
                     goBack()
                 }
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = Color(0xFF07051A)
+                    color = MaterialTheme.colorScheme.background
                 ) {
                     when (currentScreen) {
                         Screen.LanguageSelection -> {
                             val openedFromSettings = screenBackStack.lastOrNull() == Screen.Settings.name
                             LanguageSelectionScreen(
                                 onNavigateToWelcome = {
-                                    if (openedFromSettings) goBack() else navigateTo(Screen.WelcomeAboard)
+                                    if (openedFromSettings) {
+                                        goBack()
+                                    } else {
+                                        LingoCoachAds.showInterstitial(this@MainActivity, "inter_language_complete") {
+                                            navigateTo(Screen.WelcomeAboard)
+                                        }
+                                    }
                                 },
                                 onNavigateBack = { goBack() }
                             )
@@ -232,23 +277,26 @@ class MainActivity : AppCompatActivity() {
                             )
                         }
                         Screen.Home -> {
+                            LaunchedEffect(Unit) {
+                                LingoCoachAds.recordHomeReached(this@MainActivity)
+                            }
                             HomeScreen(
-                                onNavigateToLesson = { sublessonId ->
-                                    currentSublessonId = sublessonId
-                                    navigateTo(Screen.Lesson)
-                                },
-                                onNavigateToVocab = { navigateTo(Screen.VocabBuilder) },
-                                onNavigateToMistakes = { navigateTo(Screen.MistakeVault) },
-                                onNavigateToFlashcards = { navigateTo(Screen.Flashcards) },
-                                onNavigateToDuel = { navigateTo(Screen.TimelyDuel) },
-                                onNavigateToAILab = { navigateTo(Screen.AILab) },
+                                onNavigateToLesson = { sublessonId -> navigateToLessonFromHome(sublessonId) },
+                                onNavigateToVocab = { navigateFromHomeWithInterstitial(Screen.VocabBuilder, "home_vocab") },
+                                onNavigateToMistakes = { navigateFromHomeWithInterstitial(Screen.MistakeVault, "home_mistakes") },
+                                onNavigateToFlashcards = { navigateFromHomeWithInterstitial(Screen.Flashcards, "home_flashcards") },
+                                onNavigateToDuel = { navigateFromHomeWithInterstitial(Screen.TimelyDuel, "home_duel") },
+                                onNavigateToAILab = { navigateFromHomeWithInterstitial(Screen.AILab, "home_ai_lab") },
                                 onNavigateToSettings = { navigateTo(Screen.Settings) },
                                 onNavigateToRoadmap = {
                                     roadmapLaunchedFromAssessment = false
-                                    navigateTo(Screen.LearningPathRoadmap)
+                                    navigateFromHomeWithInterstitial(Screen.LearningPathRoadmap, "home_learning_path")
                                 },
-                                onNavigateToActualLearningPath = { navigateTo(Screen.ActualLearningPath) },
-                                onNavigateToProgress = { navigateTo(Screen.Analytics) }
+                                onNavigateToActualLearningPath = { navigateFromHomeWithInterstitial(Screen.ActualLearningPath, "home_learning_path") },
+                                onNavigateToProgress = { navigateFromHomeWithInterstitial(Screen.Analytics, "home_progress") },
+                                onBottomNavigateToAILab = { navigateTo(Screen.AILab) },
+                                onBottomNavigateToVocab = { navigateTo(Screen.VocabBuilder) },
+                                onBottomNavigateToMistakes = { navigateTo(Screen.MistakeVault) }
                             )
                         }
                         Screen.Lesson -> {
@@ -299,6 +347,11 @@ class MainActivity : AppCompatActivity() {
                             SettingsScreen(
                                 onNavigateBack = { goBack() },
                                 onNavigateToLanguage = { navigateTo(Screen.LanguageSelection) },
+                                themeMode = selectedThemeMode,
+                                onThemeModeChange = { mode ->
+                                    themeMode = mode.value
+                                    AppThemeManager.saveMode(this@MainActivity, mode)
+                                },
                                 onLogout = {
                                     startActivity(
                                         Intent(this@MainActivity, MainActivity::class.java).apply {
@@ -324,10 +377,41 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPostResume() {
         super.onPostResume()
+        hideSystemNavigationBar()
         window.decorView.post {
             Handler(Looper.getMainLooper()).postDelayed({
+                hideSystemNavigationBar()
                 requestNotificationPermissionAfterSplash()
+                val returnedFromRealBackground =
+                    hasCompletedFirstResume &&
+                        backgroundedAt > 0L &&
+                        SystemClock.elapsedRealtime() - backgroundedAt >= appOpenBackgroundThresholdMillis
+                hasCompletedFirstResume = true
+                if (returnedFromRealBackground) {
+                    backgroundedAt = 0L
+                    LingoCoachAds.showAppOpenIfAvailable(this@MainActivity)
+                }
             }, 700L)
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        backgroundedAt = SystemClock.elapsedRealtime()
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            hideSystemNavigationBar()
+        }
+    }
+
+    private fun hideSystemNavigationBar() {
+        WindowCompat.getInsetsController(window, window.decorView).apply {
+            systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            hide(WindowInsetsCompat.Type.navigationBars())
         }
     }
 

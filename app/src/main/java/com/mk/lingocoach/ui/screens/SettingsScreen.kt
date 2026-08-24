@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -45,22 +46,34 @@ import androidx.core.content.FileProvider
 import com.mk.lingocoach.data.model.appLanguages
 import com.mk.lingocoach.data.repository.LanguagePreferencesRepository
 import com.mk.lingocoach.data.repository.AppLocaleManager
+import com.mk.lingocoach.data.repository.AppThemeMode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
 
 // --- Settings Design Tokens ---------------------------------------------------
-private val SettingsBg        = Color(0xFFF5F4FF)
-private val SettingsCardBg    = Color(0xFFFFFFFF)
+private val SettingsBg: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF000000) else Color(0xFFF5F4FF)
+private val SettingsCardBg: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF101010) else Color(0xFFFFFFFF)
 private val SettingsPurple    = Color(0xFF6A5CFF)
-private val SettingsPurpleSoft = Color(0xFFF0EEFF)
-private val SettingsTextDark  = Color(0xFF0D0D0D)
-private val SettingsTextMid   = Color(0xFF3A3A3A)
-private val SettingsTextLight = Color(0xFF6B6B6B)
-private val SettingsDivider   = Color(0xFFEEEEEE)
-private val SettingsSectionLabel = Color(0xFF9E9E9E)
+private val SettingsPurpleSoft: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF211D38) else Color(0xFFF0EEFF)
+private val SettingsTextDark: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFFFFFFF) else Color(0xFF0D0D0D)
+private val SettingsTextMid: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFCFCFCF) else Color(0xFF3A3A3A)
+private val SettingsTextLight: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF9A9A9A) else Color(0xFF6B6B6B)
+private val SettingsDivider: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF2A2A2A) else Color(0xFFEEEEEE)
+private val SettingsSectionLabel: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF8A8A8A) else Color(0xFF9E9E9E)
 private val SettingsGreen     = Color(0xFF4CAF50)
 private val SettingsRed       = Color(0xFFE53935)
+private val SettingsStarYellow = Color(0xFFFFC107)
+private val SettingsDangerBg: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF2A0F12) else Color(0xFFFFEBEE)
 
 // --- Native language list -----------------------------------------------------
 // --- AI tutor voice profiles --------------------------------------------------
@@ -76,6 +89,18 @@ private fun normalizeSettingsUsername(value: String): String =
 private fun csvCell(value: Any?): String {
     val text = value?.toString().orEmpty()
     return "\"${text.replace("\"", "\"\"")}\""
+}
+
+private fun openExternalUrl(context: Context, url: String) {
+    runCatching {
+        context.startActivity(
+            Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+        )
+    }.onFailure {
+        Toast.makeText(context, "No app found to open this link", Toast.LENGTH_SHORT).show()
+    }
 }
 
 private fun settingsUsernameError(username: String): String? {
@@ -97,6 +122,8 @@ private fun settingsUsernameError(username: String): String? {
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
     onNavigateToLanguage: () -> Unit,
+    themeMode: AppThemeMode = AppThemeMode.System,
+    onThemeModeChange: (AppThemeMode) -> Unit = {},
     onLogout: () -> Unit
 ) {
     val context = LocalContext.current
@@ -124,6 +151,7 @@ fun SettingsScreen(
     var showVoiceDialog    by remember { mutableStateOf(false) }
     var showDeleteDialog   by remember { mutableStateOf(false) }
     var showLogoutDialog   by remember { mutableStateOf(false) }
+    var showRateDialog     by remember { mutableStateOf(false) }
     var usernameSaveError by remember { mutableStateOf<String?>(null) }
     var isUsernameSaving by remember { mutableStateOf(false) }
     val currentAppLanguageLabel = localizedSettingsLanguageLabel(appLanguageCode)
@@ -247,6 +275,24 @@ fun SettingsScreen(
                             checked = offlineCache,
                             onCheckedChange = { offlineCache = it; saveBool("offline_cache", it) }
                         )
+                        HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
+                        SettingsThemeRow(
+                            selected = themeMode,
+                            onSelect = onThemeModeChange
+                        )
+                    }
+                }
+
+                Spacer(Modifier.height(24.dp))
+                SettingsSectionHeader(stringResource(R.string.about).uppercase())
+                Spacer(Modifier.height(8.dp))
+
+                SettingsCard {
+                    SettingsLinkRow(
+                        label = stringResource(R.string.rate_app),
+                        icon = Icons.Default.Star
+                    ) {
+                        showRateDialog = true
                     }
                 }
 
@@ -258,13 +304,7 @@ fun SettingsScreen(
                 SettingsCard {
                     Column(modifier = Modifier.fillMaxWidth()) {
                         SettingsLinkRow(label = stringResource(R.string.privacy)) {
-                            runCatching {
-                                context.startActivity(
-                                    Intent(Intent.ACTION_VIEW, Uri.parse(AppConfig.privacyPolicyUrl)).apply {
-                                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    }
-                                )
-                            }
+                            openExternalUrl(context, AppConfig.privacyPolicyUrl)
                         }
                         HorizontalDivider(color = SettingsDivider, modifier = Modifier.padding(horizontal = 16.dp))
                         SettingsLinkRow(
@@ -318,7 +358,7 @@ fun SettingsScreen(
                         .fillMaxWidth()
                         .shadow(4.dp, RoundedCornerShape(16.dp))
                         .clip(RoundedCornerShape(16.dp))
-                        .background(Color(0xFFFFEBEE))
+                        .background(SettingsDangerBg)
                         .clickable { showDeleteDialog = true }
                         .padding(vertical = 16.dp),
                     contentAlignment = Alignment.Center
@@ -426,6 +466,16 @@ fun SettingsScreen(
             selected = voiceProfile,
             onDismiss = { showVoiceDialog = false },
             onSelect  = { voiceProfile = it; saveAndSync("voice_profile", it); showVoiceDialog = false }
+        )
+    }
+
+    if (showRateDialog) {
+        SettingsRateDialog(
+            onDismiss = { showRateDialog = false },
+            onRate = {
+                showRateDialog = false
+                openExternalUrl(context, AppConfig.playStoreUrl)
+            }
         )
     }
 
@@ -621,6 +671,61 @@ private fun SettingsToggleRow(
 }
 
 @Composable
+private fun SettingsThemeRow(
+    selected: AppThemeMode,
+    onSelect: (AppThemeMode) -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 14.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.app_theme),
+            color = SettingsTextDark,
+            fontSize = 15.sp,
+            lineHeight = 20.sp,
+            fontWeight = FontWeight.Medium
+        )
+        Spacer(Modifier.height(12.dp))
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(14.dp))
+                .background(SettingsPurpleSoft)
+                .padding(4.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            listOf(
+                AppThemeMode.Light to stringResource(R.string.theme_light),
+                AppThemeMode.System to stringResource(R.string.theme_system),
+                AppThemeMode.Dark to stringResource(R.string.theme_dark)
+            ).forEach { (mode, label) ->
+                val isSelected = selected == mode
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(38.dp)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(if (isSelected) SettingsPurple else Color.Transparent)
+                        .clickable { onSelect(mode) },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = label,
+                        color = if (isSelected) Color.White else SettingsTextDark,
+                        fontSize = 13.sp,
+                        lineHeight = 17.sp,
+                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                        maxLines = 1
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
 private fun SettingsLinkRow(
     label: String,
     icon: ImageVector = Icons.AutoMirrored.Filled.OpenInNew,
@@ -664,7 +769,7 @@ private fun SettingsEditDialog(
                 .imePadding()
                 .shadow(16.dp, RoundedCornerShape(24.dp))
                 .clip(RoundedCornerShape(24.dp))
-                .background(Color.White)
+                .background(SettingsCardBg)
                 .padding(24.dp)
         ) {
             Column {
@@ -719,7 +824,7 @@ private fun SettingsUsernameDialog(
                 .imePadding()
                 .shadow(16.dp, RoundedCornerShape(24.dp))
                 .clip(RoundedCornerShape(24.dp))
-                .background(Color.White)
+                .background(SettingsCardBg)
                 .padding(24.dp)
         ) {
             Column {
@@ -811,7 +916,7 @@ private fun SettingsPickerDialog(
                 .fillMaxWidth(0.88f)
                 .shadow(16.dp, RoundedCornerShape(24.dp))
                 .clip(RoundedCornerShape(24.dp))
-                .background(Color.White)
+                .background(SettingsCardBg)
                 .padding(vertical = 24.dp)
         ) {
             Column {
@@ -871,7 +976,7 @@ private fun SettingsConfirmDialog(
                 .fillMaxWidth(0.88f)
                 .shadow(16.dp, RoundedCornerShape(24.dp))
                 .clip(RoundedCornerShape(24.dp))
-                .background(Color.White)
+                .background(SettingsCardBg)
                 .padding(24.dp)
         ) {
             Column {
@@ -887,6 +992,78 @@ private fun SettingsConfirmDialog(
                         colors = ButtonDefaults.buttonColors(containerColor = confirmColor),
                         shape = RoundedCornerShape(12.dp)
                     ) { Text(confirmLabel, color = Color.White, fontWeight = FontWeight.Bold) }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SettingsRateDialog(
+    onDismiss: () -> Unit,
+    onRate: () -> Unit
+) {
+    Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth(0.88f)
+                .shadow(16.dp, RoundedCornerShape(24.dp))
+                .clip(RoundedCornerShape(24.dp))
+                .background(SettingsCardBg)
+                .padding(24.dp)
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Icon(
+                    Icons.Default.Star,
+                    contentDescription = null,
+                    tint = SettingsStarYellow,
+                    modifier = Modifier.size(38.dp)
+                )
+                Spacer(Modifier.height(14.dp))
+                Text(
+                    stringResource(R.string.rate_lingocoach_title),
+                    color = SettingsTextDark,
+                    fontSize = 19.sp,
+                    lineHeight = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    stringResource(R.string.rate_lingocoach_message),
+                    color = SettingsTextMid,
+                    fontSize = 14.sp,
+                    lineHeight = 20.sp,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(Modifier.height(18.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    repeat(5) {
+                        Icon(
+                            Icons.Default.Star,
+                            contentDescription = null,
+                            tint = SettingsStarYellow,
+                            modifier = Modifier.size(26.dp)
+                        )
+                    }
+                }
+                Spacer(Modifier.height(24.dp))
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                    TextButton(onClick = onDismiss) {
+                        Text(stringResource(R.string.not_now), color = SettingsTextLight)
+                    }
+                    Spacer(Modifier.width(8.dp))
+                    Button(
+                        onClick = onRate,
+                        colors = ButtonDefaults.buttonColors(containerColor = SettingsPurple),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            stringResource(R.string.rate_on_play_store),
+                            color = Color.White,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
                 }
             }
         }

@@ -1,6 +1,7 @@
 package com.mk.lingocoach.ui.screens
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
@@ -9,12 +10,14 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.border
@@ -59,6 +62,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import com.mk.lingocoach.R
+import com.mk.lingocoach.ads.LingoCoachAds
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -99,6 +103,7 @@ fun AILabScreen(
 
     // Real user ID â€” the session UUID assigned during assessment
     val context  = LocalContext.current
+    val activity = LocalActivityResultRegistryOwner.current as? Activity
     val userId   = remember {
         context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
             .getString("session_id", "") ?: ""
@@ -115,7 +120,7 @@ fun AILabScreen(
         }
     }
 
-    Box(modifier = Modifier.fillMaxSize().navigationBarsPadding()) {
+    Box(modifier = Modifier.fillMaxSize()) {
         AppBackgroundTexture()
         Scaffold(
             topBar = {
@@ -137,19 +142,6 @@ fun AILabScreen(
                     onSettings = onNavigateToSettings
                 )
             },
-            bottomBar = {
-                HomeBottomNav(
-                    selectedTab = 1,
-                    onTabSelected = { index ->
-                        when (index) {
-                            0 -> onNavigateToHome()
-                            1 -> { /* stay */ }
-                            2 -> onNavigateToVocab()
-                            3 -> onNavigateToMistakes()
-                        }
-                    }
-                )
-            },
             containerColor = Color.Transparent,
             modifier = Modifier.fillMaxSize()
         ) { paddingValues ->
@@ -157,6 +149,7 @@ fun AILabScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
+                    .padding(bottom = 126.dp)
             ) {
                 AnimatedContent(
                     targetState = currentStep,
@@ -185,17 +178,29 @@ fun AILabScreen(
                                 selectedTone    = selectedTone,
                                 onToneSelected  = { selectedTone = it },
                                 onStartSession  = {
-                                    com.mk.lingocoach.network.AILabApi.startSession(
-                                        userId      = userId,
-                                        topic       = "General conversation",
-                                        voiceGender = selectedVoice.lowercase(),
-                                        tone        = selectedTone.lowercase()
-                                    ) { response ->
-                                        if (response != null) {
-                                            sessionId      = response.session_id
-                                            openingMessage = response.opening_message
-                                            currentStep    = AILabStep.CHAT
+                                    val startSession = {
+                                        com.mk.lingocoach.network.AILabApi.startSession(
+                                            userId      = userId,
+                                            topic       = "General conversation",
+                                            voiceGender = selectedVoice.lowercase(),
+                                            tone        = selectedTone.lowercase()
+                                        ) { response ->
+                                            if (response != null) {
+                                                sessionId      = response.session_id
+                                                openingMessage = response.opening_message
+                                                currentStep    = AILabStep.CHAT
+                                            }
                                         }
+                                    }
+                                    if (activity != null) {
+                                        LingoCoachAds.showRewarded(
+                                            activity = activity,
+                                            placement = "reward_ai",
+                                            onReward = {},
+                                            onComplete = startSession
+                                        )
+                                    } else {
+                                        startSession()
                                     }
                                 }
                             )
@@ -215,22 +220,22 @@ fun AILabScreen(
                         title = {
                             Text(
                                 if (endSessionSummary != null) stringResource(R.string.session_summary) else stringResource(R.string.end_session_question),
-                                color = Color.Black
+                                color = TextDark
                             )
                         },
                         text = {
                             if (endSessionSummary != null) {
                                 Column {
-                                    Text(stringResource(R.string.vocabulary_learned, endSessionSummary!!.vocabulary_learned), color = Color.Black)
-                                    Text(stringResource(R.string.grammar_mistakes_count, endSessionSummary!!.grammar_mistakes), color = Color.Black)
+                                    Text(stringResource(R.string.vocabulary_learned, endSessionSummary!!.vocabulary_learned), color = TextDark)
+                                    Text(stringResource(R.string.grammar_mistakes_count, endSessionSummary!!.grammar_mistakes), color = TextDark)
                                     Spacer(Modifier.height(8.dp))
-                                    Text(stringResource(R.string.strengths_label, endSessionSummary!!.strengths), color = Color.Black, fontWeight = FontWeight.Bold)
-                                    Text(stringResource(R.string.weaknesses_label, endSessionSummary!!.weaknesses), color = Color.Black, fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.strengths_label, endSessionSummary!!.strengths), color = TextDark, fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.weaknesses_label, endSessionSummary!!.weaknesses), color = TextDark, fontWeight = FontWeight.Bold)
                                 }
                             } else {
                                 Text(
                                     stringResource(R.string.end_session_confirm),
-                                    color = Color.Black
+                                    color = TextDark
                                 )
                             }
                         },
@@ -267,6 +272,18 @@ fun AILabScreen(
                 }
             }
         }
+        HomeBottomNav(
+            selectedTab = 1,
+            onTabSelected = { index ->
+                when (index) {
+                    0 -> onNavigateToHome()
+                    1 -> { /* stay */ }
+                    2 -> onNavigateToVocab()
+                    3 -> onNavigateToMistakes()
+                }
+            },
+            modifier = Modifier.align(Alignment.BottomCenter)
+        )
     }
 }
 
@@ -276,12 +293,6 @@ fun HomeStep(
     aiLabStatus: com.mk.lingocoach.network.AILabStatusResponse? = null,
     onStart: () -> Unit
 ) {
-    val infiniteTransition = rememberInfiniteTransition(label = "pulse")
-    val pulseScale by infiniteTransition.animateFloat(
-        initialValue = 0.98f, targetValue = 1.02f,
-        animationSpec = infiniteRepeatable(tween(2000, easing = FastOutSlowInEasing), RepeatMode.Reverse),
-        label = "pulse"
-    )
     var isPressed by remember { mutableStateOf(false) }
     val buttonScale by animateFloatAsState(if (isPressed) 0.94f else 1f, label = "btn")
 
@@ -290,117 +301,105 @@ fun HomeStep(
     val sessionsUsed = aiLabStatus?.sessions_used_today ?: 0
     val sessionsLimit = aiLabStatus?.sessions_limit ?: 5
     val progressPercentage = (sessionsUsed.toFloat() / sessionsLimit).coerceIn(0f, 1f)
+    val softSurface = if (isSystemInDarkTheme()) Color(0xFF171421) else Color(0xFFF1F0FF)
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF8F9FC))
+            .background(MaterialTheme.colorScheme.background)
             .verticalScroll(rememberScrollState())
             .navigationBarsPadding()
-            .padding(horizontal = 24.dp, vertical = 20.dp),
+            .padding(horizontal = 20.dp, vertical = 18.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(20.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.End,
-            verticalAlignment = Alignment.CenterVertically
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .shadow(6.dp, RoundedCornerShape(24.dp))
+                .clip(RoundedCornerShape(24.dp))
+                .background(CardWhite)
+                .border(1.dp, CardBorderColor, RoundedCornerShape(24.dp))
+                .padding(20.dp)
         ) {
-            if (aiLabStatus != null) {
-                Row(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(18.dp))
-                        .background(Color.White)
-                        .border(1.dp, Color(0xFFE4E1FF), RoundedCornerShape(18.dp))
-                        .padding(horizontal = 12.dp, vertical = 8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(6.dp)
-                ) {
-                    Icon(
-                        Icons.Default.Bolt,
-                        contentDescription = null,
-                        tint = if (isLimited) BrandRed else BrandPurple,
-                        modifier = Modifier.size(15.dp)
-                    )
-                    Text(
-                        stringResource(R.string.todays_sessions_count, sessionsUsed, sessionsLimit),
-                        color = if (isLimited) BrandRed else BrandPurple,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
+            Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .size(54.dp)
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(BrandPurpleSoft),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(Icons.Default.Psychology, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(30.dp))
+                    }
+                    Spacer(Modifier.width(14.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            stringResource(R.string.ai_conversation_practice),
+                            color = TextDark,
+                            fontSize = 23.sp,
+                            lineHeight = 28.sp,
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            stringResource(R.string.ai_lab_intro_feedback),
+                            color = TextLight,
+                            fontSize = 13.sp,
+                            lineHeight = 18.sp
+                        )
+                    }
+                }
+
+                if (aiLabStatus != null) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(18.dp))
+                            .background(softSurface)
+                            .padding(14.dp),
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(Icons.Default.Bolt, contentDescription = null, tint = if (isLimited) BrandRed else BrandPurple, modifier = Modifier.size(18.dp))
+                            Spacer(Modifier.width(8.dp))
+                            Text(
+                                stringResource(R.string.todays_sessions_count, sessionsUsed, sessionsLimit),
+                                color = if (isLimited) BrandRed else TextDark,
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.ExtraBold
+                            )
+                            Spacer(Modifier.weight(1f))
+                            Text(
+                                "$sessionsRemaining left",
+                                color = if (isLimited) BrandRed else BrandPurple,
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                        LinearProgressIndicator(
+                            progress = { progressPercentage },
+                            color = if (isLimited) BrandRed else BrandPurple,
+                            trackColor = SubtlePurpleTrack,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(6.dp)
+                                .clip(RoundedCornerShape(99.dp))
+                        )
+                    }
                 }
             }
         }
 
-        // Welcome Section
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(72.dp)
-                    .background(Color(0xFFEDECF9), CircleShape),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    Icons.Default.Psychology,
-                    contentDescription = null,
-                    tint = BrandPurple,
-                    modifier = Modifier.size(40.dp)
-                )
-            }
-            
-            Spacer(Modifier.height(16.dp))
-            
-            Text(
-                stringResource(R.string.ai_conversation_practice),
-                style = TextStyle(
-                    color = Color(0xFF1D1D1F),
-                    fontSize = 26.sp,
-                    fontWeight = FontWeight.Bold
-                ),
-                textAlign = TextAlign.Center
-            )
-            
-            Spacer(Modifier.height(8.dp))
-            
-            Text(
-                stringResource(R.string.ai_lab_intro_feedback),
-                style = TextStyle(
-                    color = Color(0xFF86868B),
-                    fontSize = 14.sp,
-                    lineHeight = 20.sp
-                ),
-                textAlign = TextAlign.Center
-            )
-        }
-
-        Spacer(Modifier.height(8.dp))
-
-        // Features Grid
         Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            FeatureItem(
-                icon = Icons.Default.ChatBubble,
-                title = stringResource(R.string.natural_conversations),
-                description = stringResource(R.string.natural_conversations_desc)
-            )
-            FeatureItem(
-                icon = Icons.Default.Check,
-                title = stringResource(R.string.instant_corrections),
-                description = stringResource(R.string.instant_corrections_desc)
-            )
-            FeatureItem(
-                icon = Icons.AutoMirrored.Filled.TrendingUp,
-                title = stringResource(R.string.track_progress),
-                description = stringResource(R.string.track_progress_desc)
-            )
+            FeatureItem(Icons.Default.ChatBubble, stringResource(R.string.natural_conversations), stringResource(R.string.natural_conversations_desc))
+            FeatureItem(Icons.Default.Check, stringResource(R.string.instant_corrections), stringResource(R.string.instant_corrections_desc))
+            FeatureItem(Icons.AutoMirrored.Filled.TrendingUp, stringResource(R.string.track_progress), stringResource(R.string.track_progress_desc))
         }
-
-        Spacer(Modifier.height(8.dp))
 
         // CTA Button
         if (!isLimited) {
@@ -418,7 +417,7 @@ fun HomeStep(
                 modifier = Modifier
                     .fillMaxWidth()
                     .heightIn(min = 56.dp)
-                    .scale(pulseScale * buttonScale)
+                    .scale(buttonScale)
                     .pointerInput(Unit) {
                         detectTapGestures(
                             onPress = { isPressed = true; tryAwaitRelease(); isPressed = false },
@@ -452,7 +451,7 @@ fun HomeStep(
                     .fillMaxWidth()
                     .heightIn(min = 56.dp)
                     .clip(RoundedCornerShape(16.dp))
-                    .background(Color(0xFFE8E8ED)),
+                    .background(ElevatedSurface),
                 contentAlignment = Alignment.Center
             ) {
                 Row(
@@ -462,14 +461,14 @@ fun HomeStep(
                     Icon(
                         Icons.Default.Lock,
                         contentDescription = null,
-                        tint = Color(0xFF999999),
+                        tint = TextLight,
                         modifier = Modifier.size(20.dp)
                     )
                     Spacer(Modifier.width(10.dp))
                     Text(
                         stringResource(R.string.daily_limit_try_tomorrow),
                         style = TextStyle(
-                            color = Color(0xFF666666),
+                            color = TextLight,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.SemiBold
                         )
@@ -489,15 +488,18 @@ private fun FeatureItem(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White, RoundedCornerShape(12.dp))
-            .padding(16.dp),
+            .shadow(2.dp, RoundedCornerShape(18.dp))
+            .clip(RoundedCornerShape(18.dp))
+            .background(CardWhite)
+            .border(1.dp, CardBorderColor, RoundedCornerShape(18.dp))
+            .padding(14.dp),
         verticalAlignment = Alignment.Top,
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Box(
             modifier = Modifier
                 .size(48.dp)
-                .background(Color(0xFFEDECF9), CircleShape),
+                .background(BrandPurpleSoft, CircleShape),
             contentAlignment = Alignment.Center
         ) {
             Icon(
@@ -514,7 +516,7 @@ private fun FeatureItem(
             Text(
                 title,
                 style = TextStyle(
-                    color = Color(0xFF1D1D1F),
+                    color = TextDark,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold
                 )
@@ -522,7 +524,7 @@ private fun FeatureItem(
             Text(
                 description,
                 style = TextStyle(
-                    color = Color(0xFF86868B),
+                    color = TextLight,
                     fontSize = 13.sp,
                     lineHeight = 18.sp
                 )
@@ -536,12 +538,19 @@ private fun FeatureItem(
 fun VoiceSelectionStep(selectedVoice: String, onVoiceSelected: (String) -> Unit, onNext: () -> Unit) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier            = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start = 20.dp, top = 18.dp, end = 20.dp, bottom = 104.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
+                .verticalScroll(rememberScrollState())
+                .padding(start = 20.dp, top = 18.dp, end = 20.dp, bottom = 104.dp),
+            horizontalAlignment = Alignment.Start
         ) {
-            Text(stringResource(R.string.voice_selection_hint),
-                color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
-            Spacer(Modifier.height(22.dp))
+            AILabStepIntro(
+                icon = Icons.Default.RecordVoiceOver,
+                title = stringResource(R.string.choose_voice),
+                message = stringResource(R.string.voice_selection_hint)
+            )
+            Spacer(Modifier.height(18.dp))
 
             listOf(
                 Triple("Male", stringResource(R.string.male_voice_desc), Icons.Default.RecordVoiceOver),
@@ -575,10 +584,18 @@ fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, on
     var isLoading by remember { mutableStateOf(false) }
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier            = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start = 20.dp, top = 18.dp, end = 20.dp, bottom = 104.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
+                .verticalScroll(rememberScrollState())
+                .padding(start = 20.dp, top = 18.dp, end = 20.dp, bottom = 104.dp),
+            horizontalAlignment = Alignment.Start
         ) {
-            Text(stringResource(R.string.tone_selection_hint), color = TextMid, fontSize = 15.sp, textAlign = TextAlign.Center)
+            AILabStepIntro(
+                icon = Icons.Default.AutoAwesome,
+                title = stringResource(R.string.choose_personality),
+                message = stringResource(R.string.tone_selection_hint)
+            )
             Spacer(Modifier.height(18.dp))
             listOf(
                 Triple("Casual", stringResource(R.string.tone_casual_desc), Icons.Default.ChatBubble),
@@ -625,6 +642,39 @@ fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, on
 }
 
 @Composable
+private fun AILabStepIntro(
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    title: String,
+    message: String
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(22.dp))
+            .background(CardWhite)
+            .border(1.dp, CardBorderColor, RoundedCornerShape(22.dp))
+            .padding(18.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Box(
+            modifier = Modifier
+                .size(48.dp)
+                .clip(RoundedCornerShape(15.dp))
+                .background(BrandPurpleSoft),
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(icon, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(26.dp))
+        }
+        Spacer(Modifier.width(14.dp))
+        Column(modifier = Modifier.weight(1f)) {
+            Text(title, color = TextDark, fontSize = 19.sp, lineHeight = 24.sp, fontWeight = FontWeight.ExtraBold)
+            Spacer(Modifier.height(4.dp))
+            Text(message, color = TextLight, fontSize = 13.sp, lineHeight = 18.sp)
+        }
+    }
+}
+
+@Composable
 private fun AILabChoiceCard(
     title: String,
     description: String,
@@ -634,14 +684,14 @@ private fun AILabChoiceCard(
 ) {
     val scale by animateFloatAsState(if (selected) 1.02f else 1f, label = "choiceScale")
     val bg = if (selected) BrandPurpleSoft else CardWhite
-    val border = if (selected) BrandPurple.copy(alpha = 0.35f) else Color(0x11000000)
+    val border = if (selected) BrandPurple.copy(alpha = 0.42f) else CardBorderColor
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(min = 92.dp)
             .scale(scale)
-            .shadow(if (selected) 7.dp else 3.dp, RoundedCornerShape(22.dp))
+            .shadow(if (selected) 7.dp else 2.dp, RoundedCornerShape(22.dp))
             .clip(RoundedCornerShape(22.dp))
             .background(bg)
             .border(1.dp, border, RoundedCornerShape(22.dp))
@@ -669,7 +719,7 @@ private fun AILabChoiceCard(
             modifier = Modifier
                 .size(24.dp)
                 .clip(CircleShape)
-                .background(if (selected) BrandPurple else Color(0xFFEDEDF4)),
+                .background(if (selected) BrandPurple else BrandPurpleSoft),
             contentAlignment = Alignment.Center
         ) {
             if (selected) Icon(Icons.Default.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(15.dp))
@@ -842,7 +892,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF7F7FB))
+            .background(MaterialTheme.colorScheme.background)
             .imePadding()
     ) {
         if (messages.isEmpty()) {
@@ -950,7 +1000,8 @@ fun ChatBubble(message: ChatMessage) {
             modifier = Modifier
                 .widthIn(min = 60.dp, max = 280.dp)
                 .shadow(2.dp, bubbleShape)
-                .background(if (isUser) BrandPurple else Color.White, bubbleShape)
+                .background(if (isUser) BrandPurple else CardWhite, bubbleShape)
+                .border(1.dp, if (isUser) Color.Transparent else CardBorderColor, bubbleShape)
                 .padding(horizontal = 16.dp, vertical = 12.dp)
         ) {
             if (message.isTyping) TypingIndicator()
@@ -966,7 +1017,13 @@ fun ChatBubble(message: ChatMessage) {
                     modifier = Modifier
                         .widthIn(max = 280.dp)
                         .clip(RoundedCornerShape(12.dp))
-                        .background(if (isGrammar) Color(0xFFFFECEC) else Color(0xFFE8F5E9))
+                        .background(
+                            if (isGrammar) {
+                                ErrorSurface
+                            } else {
+                                SuccessSurface
+                            }
+                        )
                         .clickable { expanded = !expanded }
                         .padding(horizontal = 12.dp, vertical = 8.dp)
                 ) {
@@ -1040,7 +1097,8 @@ fun ChatInputArea(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White)
+            .background(CardWhite)
+            .border(0.5.dp, CardBorderColor)
             .navigationBarsPadding()
             .padding(horizontal = 16.dp, vertical = 10.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
@@ -1051,8 +1109,8 @@ fun ChatInputArea(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(16.dp))
-                    .background(Color.White)
-                    .border(1.dp, Color(0xFFEEEEEE), RoundedCornerShape(16.dp))
+                    .background(CardWhite)
+                    .border(1.dp, CardBorderColor, RoundedCornerShape(16.dp))
                     .padding(horizontal = 16.dp, vertical = 14.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -1094,7 +1152,7 @@ fun ChatInputArea(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(14.dp))
-                .background(Color(0xFFF5F5F5))
+                .background(ElevatedSurface)
                 .padding(horizontal = 14.dp, vertical = 13.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -1138,7 +1196,12 @@ fun ChatInputArea(
         // â”€â”€ Action row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             val micBg by animateColorAsState(
-                if (isListening) Color(0xFFFFECEC) else Color(0xFFF5F5F5), label = "micBg"
+                if (isListening) {
+                    ErrorSurface
+                } else {
+                    ElevatedSurface
+                },
+                label = "micBg"
             )
             Box(
                 modifier         = Modifier
@@ -1160,7 +1223,7 @@ fun ChatInputArea(
                 modifier = Modifier
                     .weight(1f)
                     .clip(RoundedCornerShape(18.dp))
-                    .background(Color(0xFFF5F5F5))
+                    .background(ElevatedSurface)
                     .padding(horizontal = 10.dp, vertical = 8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -1168,7 +1231,7 @@ fun ChatInputArea(
                     modifier = Modifier
                         .size(34.dp)
                         .clip(CircleShape)
-                        .background(if (ttsEnabled) BrandPurple else Color.White)
+                        .background(if (ttsEnabled) BrandPurple else CardWhite)
                         .clickable { onTtsToggle() },
                     contentAlignment = Alignment.Center
                 ) {
@@ -1197,10 +1260,10 @@ fun ChatInputArea(
                         colors = SliderDefaults.colors(
                             thumbColor = BrandPurple,
                             activeTrackColor = BrandPurple,
-                            inactiveTrackColor = Color(0xFFE1DFFF),
+                            inactiveTrackColor = SubtlePurpleTrack,
                             disabledThumbColor = TextLight,
-                            disabledActiveTrackColor = Color(0xFFE0E0E0),
-                            disabledInactiveTrackColor = Color(0xFFEAEAEA)
+                            disabledActiveTrackColor = if (isSystemInDarkTheme()) Color(0xFF2A2A2A) else Color(0xFFE0E0E0),
+                            disabledInactiveTrackColor = ElevatedSurface
                         )
                     )
                 }
@@ -1209,11 +1272,11 @@ fun ChatInputArea(
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(20.dp))
-                    .background(Color(0xFFEEEEEE))
+                    .background(ElevatedSurface)
                     .clickable { onEndSessionClick() }
                     .padding(horizontal = 20.dp, vertical = 10.dp)
             ) {
-                Text(stringResource(R.string.end_session), color = Color.Black, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+                Text(stringResource(R.string.end_session), color = TextDark, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
             }
         }
     }

@@ -8,6 +8,7 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -50,22 +51,33 @@ import java.io.File
 import java.util.concurrent.TimeUnit
 
 // ─── Vault Design Tokens ──────────────────────────────────────────────────────
-private val VaultBg          = Color(0xFFF5F4FF)
-private val VaultCardBg      = Color(0xFFFFFFFF)
+private val VaultBg: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color.Black else Color(0xFFF5F4FF)
+private val VaultCardBg: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF101010) else Color(0xFFFFFFFF)
 private val VaultPurple      = Color(0xFF6A5CFF)
-private val VaultPurpleSoft  = Color(0xFFF0EEFF)
+private val VaultPurpleSoft: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF211D38) else Color(0xFFF0EEFF)
 private val VaultPurpleMid   = Color(0xFF8A79FF)
-private val VaultTextDark    = Color(0xFF0D0D0D)
-private val VaultTextMid     = Color(0xFF3A3A3A)
-private val VaultTextLight   = Color(0xFF6B6B6B)
+private val VaultTextDark: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color.White else Color(0xFF0D0D0D)
+private val VaultTextMid: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFD0D0D0) else Color(0xFF3A3A3A)
+private val VaultTextLight: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFA4A4A4) else Color(0xFF6B6B6B)
 private val VaultRed         = Color(0xFFE53935)
 private val VaultGreen       = Color(0xFF4CAF50)
 private val VaultAmber       = Color(0xFFFFB300)
-private val VaultTagPronun   = Color(0xFFF3EFFF)  // light purple chip background
-private val VaultTagGrammar  = Color(0xFFE8F5E9)  // light green chip background
-private val VaultTagVocab    = Color(0xFFFFF3E0)  // light amber chip background
-private val VaultWrongBg     = Color(0xFFFFF0F0)
-private val VaultRightBg     = Color(0xFFF0FFF4)
+private val VaultTagPronun: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF211D38) else Color(0xFFF3EFFF)
+private val VaultTagGrammar: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF102518) else Color(0xFFE8F5E9)
+private val VaultTagVocab: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF2A210F) else Color(0xFFFFF3E0)
+private val VaultWrongBg: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF2A1010) else Color(0xFFFFF0F0)
+private val VaultRightBg: Color
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF102518) else Color(0xFFF0FFF4)
 
 // ─── Unified display model ────────────────────────────────────────────────────
 data class DisplayMistake(
@@ -231,106 +243,106 @@ fun MistakeVaultScreen(
         return
     }
 
-    Scaffold(
-        topBar = {
+    Box(modifier = Modifier.fillMaxSize().background(VaultBg)) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(bottom = 126.dp)
+        ) {
             CommonTopBar(
                 title = stringResource(R.string.mistake_vault),
                 onBack = onNavigateBack,
                 onSettings = onNavigateToSettings
             )
-        },
-        bottomBar = {
-            HomeBottomNav(
-                selectedTab = 3,
-                onTabSelected = { index ->
-                    when (index) {
-                        0 -> onNavigateToHome()
-                        1 -> onNavigateToAILab()
-                        2 -> onNavigateToVocab()
-                        3 -> { /* already here */ }
-                    }
+
+            if (isLoading) {
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator(color = VaultPurple)
                 }
-            )
-        },
-        containerColor = VaultBg
-    ) { padding ->
-        if (isLoading) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator(color = VaultPurple)
-            }
-        } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding),
-                contentPadding = PaddingValues(bottom = 16.dp)
-            ) {
-                item { VaultSummaryHeader(count = allMistakes.size) }
-                item {
-                    Spacer(Modifier.height(12.dp))
-                    SmartReviewButton(count = allMistakes.size) {
-                        val reviewList = allMistakes.take(12)
-                        if (reviewList.isNotEmpty()) {
-                            retestList = reviewList
-                            showRetest = true
-                        }
-                    }
-                }
-                item { Spacer(Modifier.height(16.dp)) }
-                item {
-                    VaultFilterTabs(
-                        selected   = selectedTab,
-                        allCount   = allMistakes.size,
-                        recentCount = recentMistakes.size,
-                        pastCount  = pastLogMistakes.size,
-                        onSelect   = { selectedTab = it }
-                    )
-                }
-                item { Spacer(Modifier.height(16.dp)) }
-                if (displayList.isEmpty()) {
+            } else {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(bottom = 16.dp)
+                ) {
+                    item { VaultSummaryHeader(count = allMistakes.size) }
                     item {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 60.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                Icon(
-                                    Icons.Default.CheckCircle,
-                                    contentDescription = null,
-                                    tint     = VaultGreen,
-                                    modifier = Modifier.size(56.dp)
-                                )
-                                Spacer(Modifier.height(12.dp))
-                                Text(
-                                    stringResource(R.string.no_slips_here),
-                                    color = VaultTextDark,
-                                    fontSize = 18.sp,
-                                    fontWeight = FontWeight.Bold
-                                )
-                                Text(
-                                    stringResource(R.string.keep_practising_fill_vault),
-                                    color = VaultTextLight,
-                                    fontSize = 13.sp
-                                )
-                            }
-                        }
-                    }
-                } else {
-                    items(displayList) { mistake ->
-                        VaultSlipCard(
-                            mistake  = mistake,
-                            onPracticeCard = {
-                                retestList  = listOf(mistake)
+                        Spacer(Modifier.height(12.dp))
+                        SmartReviewButton(count = allMistakes.size) {
+                            val reviewList = allMistakes.take(12)
+                            if (reviewList.isNotEmpty()) {
+                                retestList = reviewList
                                 showRetest = true
                             }
+                        }
+                    }
+                    item { Spacer(Modifier.height(16.dp)) }
+                    item {
+                        VaultFilterTabs(
+                            selected   = selectedTab,
+                            allCount   = allMistakes.size,
+                            recentCount = recentMistakes.size,
+                            pastCount  = pastLogMistakes.size,
+                            onSelect   = { selectedTab = it }
                         )
-                        Spacer(Modifier.height(12.dp))
+                    }
+                    item { Spacer(Modifier.height(16.dp)) }
+                    if (displayList.isEmpty()) {
+                        item {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 60.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                    Icon(
+                                        Icons.Default.CheckCircle,
+                                        contentDescription = null,
+                                        tint     = VaultGreen,
+                                        modifier = Modifier.size(56.dp)
+                                    )
+                                    Spacer(Modifier.height(12.dp))
+                                    Text(
+                                        stringResource(R.string.no_slips_here),
+                                        color = VaultTextDark,
+                                        fontSize = 18.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                    Text(
+                                        stringResource(R.string.keep_practising_fill_vault),
+                                        color = VaultTextLight,
+                                        fontSize = 13.sp
+                                    )
+                                }
+                            }
+                        }
+                    } else {
+                        items(displayList) { mistake ->
+                            VaultSlipCard(
+                                mistake  = mistake,
+                                onPracticeCard = {
+                                    retestList  = listOf(mistake)
+                                    showRetest = true
+                                }
+                            )
+                            Spacer(Modifier.height(12.dp))
+                        }
                     }
                 }
             }
         }
+        HomeBottomNav(
+            selectedTab = 3,
+            onTabSelected = { index ->
+                when (index) {
+                    0 -> onNavigateToHome()
+                    1 -> onNavigateToAILab()
+                    2 -> onNavigateToVocab()
+                    3 -> { /* already here */ }
+                }
+            },
+            modifier = Modifier.align(Alignment.BottomCenter)
+        )
     }
 }
 
@@ -574,7 +586,7 @@ private fun VaultSlipCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(12.dp))
-                        .background(Color(0xFFF8F7FF))
+                        .background(VaultPurpleSoft)
                         .border(1.5.dp, VaultPurple.copy(alpha = 0.25f), RoundedCornerShape(12.dp))
                         .padding(12.dp)
                 ) {
@@ -711,7 +723,7 @@ fun RetestModeOverlay(
                 .fillMaxSize()
                 .background(
                     Brush.verticalGradient(
-                        colors = listOf(Color(0xFFEFECFF), Color(0xFFF8F7FF), Color.White)
+                        colors = listOf(VaultPurpleSoft, VaultBg, VaultBg)
                     )
                 )
         ) {
@@ -935,7 +947,7 @@ private fun RetestTopBar(current: Int, total: Int, progress: Float, onClose: () 
                         modifier = Modifier
                             .size(if (i == (current - 1) % showDots) 10.dp else 7.dp)
                             .clip(CircleShape)
-                            .background(if (i == (current - 1) % showDots) VaultPurple else Color(0xFFDDDAFF))
+                            .background(if (i == (current - 1) % showDots) VaultPurple else VaultPurpleSoft)
                     )
                 }
             }
@@ -948,7 +960,7 @@ private fun RetestTopBar(current: Int, total: Int, progress: Float, onClose: () 
                 .height(5.dp)
                 .clip(CircleShape),
             color       = VaultPurple,
-            trackColor  = Color(0xFFDDDAFF)
+            trackColor  = VaultPurpleSoft
         )
     }
 }
@@ -987,7 +999,7 @@ private fun RetestFlashcard(
         modifier = modifier
             .shadow(cardElevation.dp, RoundedCornerShape(24.dp))
             .border(2.dp, cardBorderColor, RoundedCornerShape(24.dp)),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = VaultCardBg),
         shape  = RoundedCornerShape(24.dp)
     ) {
         Column(

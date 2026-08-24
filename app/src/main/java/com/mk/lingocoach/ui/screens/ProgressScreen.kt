@@ -103,7 +103,7 @@ fun ProgressScreen(
                     title = stringResource(R.string.analytics),
                     onBack = onNavigateBack,
                     onSettings = onNavigateToSettings,
-                    backgroundColor = Color.White.copy(alpha = 0.93f)
+                    backgroundColor = CardWhite.copy(alpha = 0.93f)
                 )
             },
             containerColor = Color.Transparent
@@ -298,6 +298,8 @@ private fun AnalyticsContent(
             AnalyticsBarChart(barHeights = barHeights, dayLabels = dayLabels)
         }
 
+        NativeAdSlot(placement = "native_analytics")
+
         // ── Stats grid (2x2) ─────────────────────────────────────────────────
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -413,7 +415,7 @@ private fun AnalyticsCard(
         modifier = modifier
             .fillMaxWidth()
             .shadow(4.dp, RoundedCornerShape(20.dp), clip = false),
-        colors  = CardDefaults.cardColors(containerColor = Color.White),
+        colors  = CardDefaults.cardColors(containerColor = CardWhite),
         shape   = RoundedCornerShape(20.dp),
         content = { Column(modifier = Modifier.padding(20.dp), content = content) }
     )
@@ -447,7 +449,7 @@ private fun AnalyticsBarChart(
                         .width(26.dp)
                         .height((72 * animH).dp)
                         .clip(RoundedCornerShape(topStart = 6.dp, topEnd = 6.dp))
-                        .background(if (isToday) BrandPurple else Color(0xFFDDDAFF))
+                        .background(if (isToday) BrandPurple else SubtlePurpleTrack)
                 )
                 Spacer(Modifier.height(6.dp))
                 Text(
@@ -473,7 +475,7 @@ private fun StatCard(
 ) {
     Card(
         modifier = modifier.shadow(4.dp, RoundedCornerShape(20.dp), clip = false),
-        colors  = CardDefaults.cardColors(containerColor = Color.White),
+        colors  = CardDefaults.cardColors(containerColor = CardWhite),
         shape   = RoundedCornerShape(20.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
@@ -496,7 +498,7 @@ private fun AiInsightCard(insightText: String) {
         modifier = Modifier
             .fillMaxWidth()
             .shadow(4.dp, RoundedCornerShape(20.dp), clip = false),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFF4F2FF)),
+        colors = CardDefaults.cardColors(containerColor = SoftPurpleSurface),
         shape  = RoundedCornerShape(20.dp)
     ) {
         Row(
@@ -582,7 +584,7 @@ private fun SkillBar(
                 .fillMaxWidth()
                 .height(5.dp)
                 .clip(CircleShape)
-                .background(Color(0xFFEEECFF))
+                .background(SubtlePurpleTrack)
         ) {
             Box(
                 modifier = Modifier

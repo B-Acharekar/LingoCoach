@@ -1,0 +1,483 @@
+{
+  "conditions": [],
+  "parameters": {
+    "backend_base_url": {
+      "defaultValue": {
+        "value": "https://lingoai-backend-zej0.onrender.com"
+      },
+      "valueType": "STRING"
+    },
+    "privacy_policy_url": {
+      "defaultValue": {
+        "value": "https://lingocoach.app/privacy"
+      },
+      "valueType": "STRING"
+    },
+    "terms_of_service_url": {
+      "defaultValue": {
+        "value": "https://lingocoach.app/terms"
+      },
+      "valueType": "STRING"
+    },
+    "play_store_url": {
+      "defaultValue": {
+        "value": "https://play.google.com/store/apps/details?id=com.mk.lingocoach&hl=en_IN"
+      },
+      "valueType": "STRING"
+    },
+    "onesignal_app_id": {
+      "defaultValue": {
+        "value": "2c84ed87-7b54-4a3a-a8be-ace11b73b50d"
+      },
+      "valueType": "STRING"
+    },
+    "daily_reminder_morning_hour": {
+      "defaultValue": {
+        "value": "10"
+      },
+      "valueType": "NUMBER"
+    },
+    "daily_reminder_evening_hour": {
+      "defaultValue": {
+        "value": "19"
+      },
+      "valueType": "NUMBER"
+    },
+    "minimum_supported_version_code": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "force_update_enabled": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "maintenance_mode_enabled": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "ads_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "banner_ad_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "native_ad_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "rewarded_ad_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "app_open_ad_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "interstitial_ads_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "interstitial_ad_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "interstitial_min_interval_seconds": {
+      "defaultValue": {
+        "value": "40"
+      },
+      "valueType": "NUMBER"
+    },
+    "interstitial_first_delay_seconds": {
+      "defaultValue": {
+        "value": "0"
+      },
+      "valueType": "NUMBER"
+    },
+    "interstitial_session_cap": {
+      "defaultValue": {
+        "value": "6"
+      },
+      "valueType": "NUMBER"
+    },
+    "interstitial_home_navigation_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "interstitial_action_gap": {
+      "defaultValue": {
+        "value": "3"
+      },
+      "valueType": "NUMBER"
+    },
+    "rewarded_daily_limit": {
+      "defaultValue": {
+        "value": "3"
+      },
+      "valueType": "NUMBER"
+    },
+    "interstitial_enabled_placements": {
+      "defaultValue": {
+        "value": "inter_splash,inter_language_complete,inter_assessment,inter_all,inter_time_duel,inter_vocab,inter_learning_path,home_lesson,home_learning_path,home_vocab,home_mistakes,home_flashcards,home_duel,home_ai_lab"
+      },
+      "valueType": "STRING"
+    },
+    "banner_splash_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "banner_splash_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/6300978111"
+      },
+      "valueType": "STRING"
+    },
+    "banner_splash_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "banner_splash_cooldown_seconds": {
+      "defaultValue": {
+        "value": "0"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_splash_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "inter_splash_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/1033173712"
+      },
+      "valueType": "STRING"
+    },
+    "inter_splash_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_splash_cooldown_seconds": {
+      "defaultValue": {
+        "value": "40"
+      },
+      "valueType": "NUMBER"
+    },
+    "native_language_select_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "native_language_select_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/2247696110"
+      },
+      "valueType": "STRING"
+    },
+    "native_language_select_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "native_language_select_cooldown_seconds": {
+      "defaultValue": {
+        "value": "0"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_language_complete_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "inter_language_complete_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/1033173712"
+      },
+      "valueType": "STRING"
+    },
+    "inter_language_complete_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_language_complete_cooldown_seconds": {
+      "defaultValue": {
+        "value": "120"
+      },
+      "valueType": "NUMBER"
+    },
+    "native_onboarding_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "native_onboarding_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/2247696110"
+      },
+      "valueType": "STRING"
+    },
+    "native_pre_assessment_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "native_pre_assessment_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/2247696110"
+      },
+      "valueType": "STRING"
+    },
+    "inter_assessment_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "inter_assessment_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/1033173712"
+      },
+      "valueType": "STRING"
+    },
+    "inter_assessment_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_assessment_cooldown_seconds": {
+      "defaultValue": {
+        "value": "40"
+      },
+      "valueType": "NUMBER"
+    },
+    "banner_bottom_nav_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "banner_bottom_nav_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/6300978111"
+      },
+      "valueType": "STRING"
+    },
+    "banner_bottom_nav_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "banner_bottom_nav_cooldown_seconds": {
+      "defaultValue": {
+        "value": "0"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_all_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "inter_all_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/1033173712"
+      },
+      "valueType": "STRING"
+    },
+    "inter_all_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_all_cooldown_seconds": {
+      "defaultValue": {
+        "value": "40"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_time_duel_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "inter_time_duel_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/1033173712"
+      },
+      "valueType": "STRING"
+    },
+    "inter_time_duel_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_time_duel_cooldown_seconds": {
+      "defaultValue": {
+        "value": "40"
+      },
+      "valueType": "NUMBER"
+    },
+    "reward_ai_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "reward_ai_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/5224354917"
+      },
+      "valueType": "STRING"
+    },
+    "native_home_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "native_home_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/2247696110"
+      },
+      "valueType": "STRING"
+    },
+    "inter_vocab_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "inter_vocab_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/1033173712"
+      },
+      "valueType": "STRING"
+    },
+    "inter_vocab_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_vocab_cooldown_seconds": {
+      "defaultValue": {
+        "value": "40"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_learning_path_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "inter_learning_path_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/1033173712"
+      },
+      "valueType": "STRING"
+    },
+    "inter_learning_path_frequency": {
+      "defaultValue": {
+        "value": "1"
+      },
+      "valueType": "NUMBER"
+    },
+    "inter_learning_path_cooldown_seconds": {
+      "defaultValue": {
+        "value": "120"
+      },
+      "valueType": "NUMBER"
+    },
+    "native_analytics_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "native_analytics_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/2247696110"
+      },
+      "valueType": "STRING"
+    },
+    "native_vocab_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "native_vocab_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/2247696110"
+      },
+      "valueType": "STRING"
+    },
+    "app_open_start_enabled": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "app_open_start_ad_unit_id": {
+      "defaultValue": {
+        "value": "ca-app-pub-3940256099942544/9257395921"
+      },
+      "valueType": "STRING"
+    },
+    "app_open_start_cooldown_seconds": {
+      "defaultValue": {
+        "value": "14400"
+      },
+      "valueType": "NUMBER"
+    }
+  },
+  "version": {
+    "description": "LingoCoach client Remote Config template with placement ad test IDs"
+  },
+  "parameterGroups": {}
+}

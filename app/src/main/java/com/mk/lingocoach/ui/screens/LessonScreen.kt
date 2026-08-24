@@ -1,6 +1,8 @@
 package com.mk.lingocoach.ui.screens
 
+import android.app.Activity
 import android.content.Context
+import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
@@ -46,6 +48,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mk.lingocoach.R
+import com.mk.lingocoach.ads.LingoCoachAds
 import com.mk.lingocoach.network.*
 import com.mk.lingocoach.viewmodel.*
 import kotlin.random.Random
@@ -61,6 +64,7 @@ fun LessonScreen(
     onNavigateBack: () -> Unit
 ) {
     val context     = LocalContext.current
+    val activity    = LocalActivityResultRegistryOwner.current as? Activity
     val sharedPrefs = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
     val userId      = remember {
         sharedPrefs.getString("session_id", null) ?: "df31075e-bc40-459f-bbfb-e10c2d3ea34e"
@@ -71,6 +75,16 @@ fun LessonScreen(
 
     var activeSublessonId by remember { mutableStateOf(sublessonId) }
     var dropdownExpanded  by remember { mutableStateOf(false) }
+
+    fun completeLessonWithInterstitial() {
+        if (activity != null) {
+            LingoCoachAds.showInterstitial(activity, "inter_learning_path") {
+                lessonViewModel.completeSublesson(userId, activeSublessonId)
+            }
+        } else {
+            lessonViewModel.completeSublesson(userId, activeSublessonId)
+        }
+    }
 
     LaunchedEffect(activeSublessonId) {
         lessonViewModel.reset()
@@ -153,7 +167,7 @@ fun LessonScreen(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .clip(RoundedCornerShape(18.dp))
-                                    .background(Color(0xFFF1EFFF))
+                                    .background(SoftPurpleSurface)
                                     .border(1.dp, BrandPurple.copy(alpha = 0.12f), RoundedCornerShape(18.dp))
                                     .clickable { dropdownExpanded = true }
                                     .padding(horizontal = 12.dp, vertical = 11.dp),
@@ -167,7 +181,7 @@ fun LessonScreen(
                                     Spacer(Modifier.width(10.dp))
                                     Column(Modifier.weight(1f)) {
                                         Text(stringResource(R.string.lesson_part_of, sub.order, currentSublessonsList.size).uppercase(), color = BrandPurple, fontSize = 8.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.7.sp)
-                                        Text(sub.title, color = Color(0xFF17133B), fontSize = 13.sp, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                        Text(sub.title, color = TextDark, fontSize = 13.sp, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
                                     }
                                 }
                                 Icon(
@@ -231,7 +245,7 @@ fun LessonScreen(
                                 completionSent     = uiState.completionSent,
                                 onSubmit           = { answer -> lessonViewModel.submitAnswer(answer, userId) },
                                 onAdvance          = { lessonViewModel.advance() },
-                                onComplete         = { lessonViewModel.completeSublesson(userId, activeSublessonId) }
+                                onComplete         = { completeLessonWithInterstitial() }
                             )
                         }
                         // If activeExercise == null and phase == EXERCISE it means
@@ -244,7 +258,7 @@ fun LessonScreen(
                                 sublesson = sub,
                                 totalExercises = uiState.originalExercises.size,
                                 correctCount = uiState.correctOriginalCount,
-                                onClick   = { lessonViewModel.completeSublesson(userId, activeSublessonId) }
+                                onClick   = { completeLessonWithInterstitial() }
                             )
                         }
                     }
@@ -271,8 +285,8 @@ fun LsTopBar(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White)
-            .border(0.5.dp, Color(0xFFE9E6F2))
+            .background(CardWhite)
+            .border(0.5.dp, CardBorderColor)
             .padding(horizontal = 18.dp, vertical = 16.dp)
     ) {
         Row(
@@ -312,8 +326,8 @@ fun LsTopBar(
 
             Box(
                 modifier = Modifier
-                    .background(Color(0xFFFFF3D1), RoundedCornerShape(12.dp))
-                    .border(1.dp, Color(0xFFFFE1A3), RoundedCornerShape(12.dp))
+                    .background(WarningSurface, RoundedCornerShape(12.dp))
+                    .border(1.dp, BrandAmber.copy(alpha = 0.24f), RoundedCornerShape(12.dp))
                     .padding(horizontal = 10.dp, vertical = 5.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -333,7 +347,7 @@ fun LsTopBar(
                 .height(5.dp)
                 .clip(RoundedCornerShape(3.dp)),
             color = BrandPurple,
-            trackColor = Color(0xFFE8E4FF),
+            trackColor = SubtlePurpleTrack,
             strokeCap = StrokeCap.Round
         )
 
@@ -482,7 +496,7 @@ private fun LsLessonMetric(icon: ImageVector, value: String, modifier: Modifier 
 @Composable
 private fun LsLearningOutcomes(title: String, hasExamples: Boolean, hasTips: Boolean) {
     Column(
-        modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(22.dp)).background(Color(0xFFF1EFFF))
+        modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(22.dp)).background(SoftPurpleSurface)
             .border(1.dp, BrandPurple.copy(alpha = 0.12f), RoundedCornerShape(22.dp)).padding(18.dp)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -492,7 +506,7 @@ private fun LsLearningOutcomes(title: String, hasExamples: Boolean, hasTips: Boo
             Spacer(Modifier.width(11.dp))
             Column {
                 Text(stringResource(R.string.your_goal).uppercase(), color = BrandPurple, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
-                Text(stringResource(R.string.by_end_you_can), color = Color(0xFF17133B), fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+                Text(stringResource(R.string.by_end_you_can), color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
             }
         }
         Spacer(Modifier.height(15.dp))
@@ -510,7 +524,7 @@ private fun LsOutcomeRow(text: String) {
             Icon(Icons.Default.Check, null, tint = BrandGreen, modifier = Modifier.size(12.dp))
         }
         Spacer(Modifier.width(10.dp))
-        Text(text, color = Color(0xFF3F3A59), fontSize = 13.sp, lineHeight = 18.sp, modifier = Modifier.weight(1f))
+        Text(text, color = TextMid, fontSize = 13.sp, lineHeight = 18.sp, modifier = Modifier.weight(1f))
     }
 }
 
@@ -522,7 +536,7 @@ private fun LsLearningStepHeader(number: Int, title: String, subtitle: String) {
         }
         Spacer(Modifier.width(12.dp))
         Column(Modifier.weight(1f)) {
-            Text(title, color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
+            Text(title, color = TextDark, fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
             Text(subtitle, color = TextLight, fontSize = 11.sp, lineHeight = 15.sp)
         }
     }
@@ -536,13 +550,13 @@ private fun LsReadyForPracticeCard(questionCount: Int, onStartExercises: () -> U
             .border(1.dp, BrandPurple.copy(alpha = 0.14f), RoundedCornerShape(24.dp)).padding(20.dp)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(44.dp).background(Color(0xFFFFF4D6), RoundedCornerShape(14.dp)), contentAlignment = Alignment.Center) {
+            Box(Modifier.size(44.dp).background(WarningSurface, RoundedCornerShape(14.dp)), contentAlignment = Alignment.Center) {
                 Icon(Icons.Default.Psychology, null, tint = BrandAmberDark, modifier = Modifier.size(24.dp))
             }
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
                 Text(stringResource(R.string.pause_and_recall).uppercase(), color = BrandAmberDark, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.7.sp)
-                Text(stringResource(R.string.explain_idea), color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
+                Text(stringResource(R.string.explain_idea), color = TextDark, fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
             }
         }
         Spacer(Modifier.height(13.dp))
@@ -591,7 +605,7 @@ fun LsContentBlockCard(block: ContentBlock) {
                 Text(label, color = accent, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
             }
             Spacer(Modifier.height(14.dp))
-            Text(block.text, style = TextStyle(color = Color(0xFF2B2742), fontSize = 15.sp, lineHeight = 23.sp))
+            Text(block.text, style = TextStyle(color = TextDark, fontSize = 15.sp, lineHeight = 23.sp))
         }
     }
 }
@@ -615,13 +629,21 @@ fun LsExercisePhase(
     onAdvance: () -> Unit,
     onComplete: () -> Unit
 ) {
+    val scrollState = rememberScrollState()
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .imePadding()
             .padding(horizontal = 20.dp)
     ) {
-        Spacer(Modifier.height(14.dp))
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .verticalScroll(scrollState)
+                .padding(top = 14.dp, bottom = 16.dp)
+        ) {
 
         // ── Exercise card ──────────────────────────────────────────────────
         Box(
@@ -712,7 +734,7 @@ fun LsExercisePhase(
             )
         }
 
-        Spacer(Modifier.weight(1f))
+        }
 
         // ── Continue button ────────────────────────────────────────────────
         AnimatedVisibility(
@@ -778,10 +800,10 @@ fun LsMultipleChoice(
             val revealed = answerState !is AnswerState.Unanswered
 
             val cardBg = when {
-                revealed && isCorrectOpt              -> Color(0xFFEAFBF0)
-                revealed && selected && !isCorrectOpt -> Color(0xFFFFECEC)
+                revealed && isCorrectOpt              -> SuccessSurface
+                revealed && selected && !isCorrectOpt -> ErrorSurface
                 selected                              -> BrandPurpleSoft
-                else                                  -> Color(0xFFF8F7FF)
+                else                                  -> ElevatedSurface
             }
             val borderColor = when {
                 revealed && isCorrectOpt              -> BrandGreen
@@ -920,7 +942,7 @@ fun LsFillBlank(
 // ─── Feedback Banner ──────────────────────────────────────────────────────────
 @Composable
 fun LsFeedbackBanner(isCorrect: Boolean, feedback: String) {
-    val bg     = if (isCorrect) Color(0xFFEAFBF0) else Color(0xFFFFECEC)
+    val bg     = if (isCorrect) SuccessSurface else ErrorSurface
     val border = if (isCorrect) BrandGreen else BrandRed
     val icon   = if (isCorrect) Icons.Default.CheckCircle else Icons.Default.Cancel
 
@@ -1011,7 +1033,7 @@ fun LsCompleteButton(
             .padding(20.dp)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(50.dp).background(Color(0xFFFFF5DD), RoundedCornerShape(16.dp)), contentAlignment = Alignment.Center) {
+            Box(Modifier.size(50.dp).background(WarningSurface, RoundedCornerShape(16.dp)), contentAlignment = Alignment.Center) {
                 Image(
                     painter = painterResource(R.drawable.trophy),
                     contentDescription = stringResource(R.string.trophy),
@@ -1022,14 +1044,14 @@ fun LsCompleteButton(
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
                 Text(stringResource(R.string.ready_to_complete).uppercase(), color = BrandGreen, fontSize = 9.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp)
-                Text(sublesson.title, color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                Text(sublesson.title, color = TextDark, fontSize = 17.sp, fontWeight = FontWeight.ExtraBold, maxLines = 2, overflow = TextOverflow.Ellipsis)
             }
         }
 
         Spacer(Modifier.height(18.dp))
         HorizontalDivider(color = Color(0xFFECE9F3))
         Spacer(Modifier.height(16.dp))
-        Text(stringResource(R.string.performance_summary), color = Color(0xFF17133B), fontSize = 14.sp, fontWeight = FontWeight.Bold)
+        Text(stringResource(R.string.performance_summary), color = TextDark, fontSize = 14.sp, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(11.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
             LsSummaryPill("ACCURACY", "$accuracy%", BrandPurple, Modifier.weight(1f))
@@ -1328,7 +1350,7 @@ private fun LsProfessionalCompletionView(
                 .padding(horizontal = 24.dp, vertical = 28.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-        Box(Modifier.size(82.dp).background(Color(0xFFFFF5DD), RoundedCornerShape(26.dp)), contentAlignment = Alignment.Center) {
+        Box(Modifier.size(82.dp).background(WarningSurface, RoundedCornerShape(26.dp)), contentAlignment = Alignment.Center) {
             Image(
                 painter = painterResource(R.drawable.trophy),
                 contentDescription = stringResource(R.string.lesson_completed_trophy),
@@ -1337,7 +1359,7 @@ private fun LsProfessionalCompletionView(
             )
         }
         Spacer(Modifier.height(18.dp))
-        Text(stringResource(R.string.lesson_completed), color = Color(0xFF17133B), fontSize = 26.sp, fontWeight = FontWeight.ExtraBold)
+        Text(stringResource(R.string.lesson_completed), color = TextDark, fontSize = 26.sp, fontWeight = FontWeight.ExtraBold)
         Spacer(Modifier.height(6.dp))
         Text(resultLabel, color = TextLight, fontSize = 14.sp, textAlign = TextAlign.Center)
 
@@ -1350,7 +1372,7 @@ private fun LsProfessionalCompletionView(
                 .border(1.dp, Color(0xFFE4E1EF), RoundedCornerShape(22.dp))
                 .padding(20.dp)
         ) {
-            Text(stringResource(R.string.result), color = Color(0xFF17133B), fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
+            Text(stringResource(R.string.result), color = TextDark, fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(4.dp))
             Text(stringResource(R.string.lesson_performance), color = TextLight, fontSize = 12.sp)
             Spacer(Modifier.height(18.dp))
@@ -1364,7 +1386,7 @@ private fun LsProfessionalCompletionView(
                 progress = { accuracy / 100f },
                 modifier = Modifier.fillMaxWidth().height(7.dp).clip(CircleShape),
                 color = if (accuracy >= 70) BrandGreen else BrandAmber,
-                trackColor = Color(0xFFECE9F3),
+                trackColor = SubtlePurpleTrack,
                 strokeCap = StrokeCap.Round
             )
         }
@@ -1388,7 +1410,7 @@ private fun LsProfessionalCompletionView(
             modifier = Modifier.fillMaxWidth().height(54.dp),
             shape = RoundedCornerShape(16.dp),
             border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFDCD8E8)),
-            colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFF3F3A59))
+            colors = ButtonDefaults.outlinedButtonColors(contentColor = TextDark)
         ) {
             Text(stringResource(R.string.back_learning_path), fontSize = 15.sp, fontWeight = FontWeight.Bold)
         }

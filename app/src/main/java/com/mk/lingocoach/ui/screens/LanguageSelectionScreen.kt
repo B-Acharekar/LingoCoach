@@ -1,7 +1,5 @@
 package com.mk.lingocoach.ui.screens
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
@@ -31,14 +29,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -50,14 +44,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -87,9 +77,12 @@ fun LanguageSelectionScreen(
 
     // Collect state from ViewModel
     val selectedLanguage by viewModel.selectedLanguage.collectAsState()
-    val searchQuery by viewModel.searchQuery.collectAsState()
     val filteredLanguages by viewModel.filteredLanguages.collectAsState()
     var draftLanguage by remember { mutableStateOf(selectedLanguage) }
+
+    LaunchedEffect(Unit) {
+        viewModel.updateSearchQuery("")
+    }
 
     LaunchedEffect(selectedLanguage) {
         draftLanguage = selectedLanguage
@@ -98,25 +91,22 @@ fun LanguageSelectionScreen(
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        // Background Image
         AppBackgroundTexture()
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .statusBarsPadding()
-                .navigationBarsPadding()
-                .padding(horizontal = 24.dp)
         ) {
-            // 1. Header Row (Back Arrow, Title LingoCoach, and Done Button)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 16.dp),
+                    .height(56.dp)
+                    .background(Color.White.copy(alpha = 0.92f))
+                    .padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Clickable Back button area
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
@@ -126,44 +116,46 @@ fun LanguageSelectionScreen(
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = stringResource(R.string.back),
-                        tint = Color(0xFF6A5CFF),
-                        modifier = Modifier.size(20.dp)
+                        tint = BrandPurple,
+                        modifier = Modifier.size(21.dp)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = stringResource(R.string.app_name),
-                        style = TextStyle(
-                            color = Color(0xFF6A5CFF),
-                            fontSize = 12.sp,
-                            fontWeight = FontWeight.Bold
-                        ),
+                        text = "Language",
+                        color = TextDark,
+                        fontSize = 17.sp,
+                        fontWeight = FontWeight.ExtraBold,
                         maxLines = 1,
                         modifier = Modifier.weight(1f)
                     )
                 }
 
-                // Done Button in capsule style (navigates to welcome onboarding)
-                Button(
-                    onClick = {
-                        viewModel.selectLanguage(draftLanguage)
-                        context.getSharedPreferences("LingoCoachPrefs", android.content.Context.MODE_PRIVATE)
-                            .edit()
-                            .putBoolean("lang_selected", true)
-                            .apply()
-                        onNavigateToWelcome()
-                    },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF6A5CFF)
-                    ),
-                    shape = RoundedCornerShape(18.dp),
-                    contentPadding = PaddingValues(horizontal = 14.dp, vertical = 8.dp),
-                    modifier = Modifier.height(36.dp)
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(16.dp))
+                        .clickable {
+                            viewModel.selectLanguage(draftLanguage)
+                            context.getSharedPreferences("LingoCoachPrefs", android.content.Context.MODE_PRIVATE)
+                                .edit()
+                                .putBoolean("lang_selected", true)
+                                .apply()
+                            onNavigateToWelcome()
+                        }
+                        .padding(horizontal = 8.dp, vertical = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
+                    Icon(
+                        imageVector = Icons.Default.Check,
+                        contentDescription = null,
+                        tint = BrandPurple,
+                        modifier = Modifier.size(14.dp)
+                    )
+                    Spacer(modifier = Modifier.width(5.dp))
                     Text(
-                        text = stringResource(R.string.done),
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 13.sp,
+                        text = stringResource(R.string.done).uppercase(),
+                        color = BrandPurple,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 11.sp,
                         maxLines = 1
                     )
                 }
@@ -171,64 +163,6 @@ fun LanguageSelectionScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // 2. Title and Description
-            Text(
-                text = stringResource(R.string.choose_language),
-                style = TextStyle(
-                    color = Color(0xFF1D1D1F),
-                    fontSize = 28.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(
-                text = stringResource(R.string.select_preferred_language),
-                style = TextStyle(
-                    color = Color(0xFF6E6E73),
-                    fontSize = 14.sp
-                )
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            // 3. Search Bar
-            OutlinedTextField(
-                value = searchQuery,
-                onValueChange = { viewModel.updateSearchQuery(it) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp)
-                    .bringIntoViewOnFocus(),
-                placeholder = {
-                    Text(
-                        text = stringResource(R.string.search_languages),
-                        color = Color(0xFF8E8D9F),
-                        fontSize = 15.sp
-                    )
-                },
-                leadingIcon = {
-                    Icon(
-                        imageVector = Icons.Default.Search,
-                        contentDescription = stringResource(R.string.search_languages),
-                        tint = Color(0xFF8E8D9F),
-                        modifier = Modifier.size(22.dp)
-                    )
-                },
-                singleLine = true,
-                shape = RoundedCornerShape(16.dp),
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedContainerColor = Color(0xFFF4F4F6),
-                    unfocusedContainerColor = Color(0xFFF4F4F6),
-                    focusedBorderColor = Color.Transparent,
-                    unfocusedBorderColor = Color.Transparent,
-                    focusedTextColor = Color(0xFF1D1D1F),
-                    unfocusedTextColor = Color(0xFF1D1D1F)
-                )
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            // 4. Scrollable List
             if (filteredLanguages.isEmpty()) {
                 Box(
                     modifier = Modifier
@@ -237,8 +171,8 @@ fun LanguageSelectionScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = stringResource(R.string.no_languages_found, searchQuery),
-                        color = Color(0xFF8E8D9F),
+                        text = stringResource(R.string.no_languages_found, ""),
+                        color = TextLight,
                         fontSize = 15.sp,
                         textAlign = TextAlign.Center
                     )
@@ -248,7 +182,8 @@ fun LanguageSelectionScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                    contentPadding = PaddingValues(start = 20.dp, top = 4.dp, end = 20.dp, bottom = 212.dp)
                 ) {
                     items(filteredLanguages) { language ->
                         val isSelected = language.code == draftLanguage
@@ -258,89 +193,69 @@ fun LanguageSelectionScreen(
                                 .fillMaxWidth()
                                 .clickable { 
                                     draftLanguage = language.code
-                                }
-                                .shadow(
-                                    elevation = if (isSelected) 12.dp else 4.dp,
-                                    shape = RoundedCornerShape(20.dp),
-                                    clip = false,
-                                    ambientColor = Color(0x05000000),
-                                    spotColor = if (isSelected) Color(0x1F6A5CFF) else Color(0x0A000000)
-                                ),
-                            shape = RoundedCornerShape(20.dp),
+                                },
+                            shape = RoundedCornerShape(22.dp),
                             colors = CardDefaults.cardColors(
-                                containerColor = if (isSelected) Color(0xFF6A5CFF) else Color.White
-                            ),
-                            border = if (!isSelected) BorderStroke(1.dp, Color(0xFFE2E2E6)) else null
+                                containerColor = if (isSelected) BrandPurple else Color.White
+                            )
                         ) {
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(16.dp),
+                                    .height(50.dp)
+                                    .padding(horizontal = 16.dp),
                                 verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.SpaceBetween
+                                horizontalArrangement = Arrangement.Start
                             ) {
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    modifier = Modifier.weight(1f)
-                                ) {
-                                    // Circular Flag container
-                                    Box(
-                                        modifier = Modifier
-                                            .size(44.dp)
-                                            .clip(CircleShape)
-                                            .background(if (isSelected) Color(0x33FFFFFF) else Color(0xFFF4F4F6)),
-                                        contentAlignment = Alignment.Center
-                                    ) {
-                                        Text(
-                                            text = language.flagEmoji,
-                                            fontSize = 24.sp
-                                        )
-                                    }
-
-                                    Spacer(modifier = Modifier.width(16.dp))
-
-                                    // Names
-                                    Column(modifier = Modifier.weight(1f)) {
-                                        Text(
-                                            text = localizedAppLanguageName(language.code),
-                                            style = TextStyle(
-                                                color = if (isSelected) Color.White else Color(0xFF1D1D1F),
-                                                fontSize = 16.sp,
-                                                fontWeight = FontWeight.SemiBold
-                                            ),
-                                            maxLines = 2
-                                        )
-                                        Spacer(modifier = Modifier.height(2.dp))
-                                        Text(
-                                            text = language.nativeName,
-                                            style = TextStyle(
-                                                color = if (isSelected) Color.White.copy(alpha = 0.8f) else Color(0xFF8E8D9F),
-                                                fontSize = 13.sp
-                                            ),
-                                            maxLines = 2
-                                        )
-                                    }
-                                }
-
-                                Spacer(modifier = Modifier.width(12.dp))
-                                // Premium Custom Radio Button
                                 CustomRadioButton(
                                     selected = isSelected,
                                     selectedColor = Color.White,
                                     unselectedColor = Color(0xFFD2D2D7)
                                 )
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Box(
+                                    modifier = Modifier
+                                        .size(34.dp)
+                                        .clip(CircleShape)
+                                        .background(if (isSelected) Color.White.copy(alpha = 0.18f) else BrandPurpleSoft),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = language.flagEmoji,
+                                        fontSize = 20.sp,
+                                        maxLines = 1
+                                    )
+                                }
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Text(
+                                    text = localizedAppLanguageName(language.code),
+                                    color = if (isSelected) Color.White else TextDark,
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    maxLines = 1
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = language.nativeName,
+                                    color = if (isSelected) Color.White.copy(alpha = 0.78f) else TextLight,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Medium,
+                                    maxLines = 1
+                                )
                             }
                         }
-                    }
-
-                    // Extra spacing at the bottom
-                    item {
-                        Spacer(modifier = Modifier.height(24.dp))
                     }
                 }
             }
         }
 
+        NativeAdSlot(
+            placement = "native_language_select",
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .border(1.dp, Color(0xFFE2E2E6))
+        )
     }
 }
 

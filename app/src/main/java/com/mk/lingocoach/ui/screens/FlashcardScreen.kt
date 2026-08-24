@@ -26,6 +26,8 @@ import com.mk.lingocoach.network.Flashcard
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+private val RatingStarYellow = Color(0xFFFFC107)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FlashcardScreen(onNavigateBack: () -> Unit) {
@@ -63,13 +65,13 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFFFAFAFF),
+                    containerColor = CardWhite,
                     titleContentColor = TextDark,
                     navigationIconContentColor = TextDark
                 )
             )
         },
-        containerColor = Color(0xFFFAFAFF)
+        containerColor = if (androidx.compose.foundation.isSystemInDarkTheme()) Color.Black else Color(0xFFFAFAFF)
     ) { padding ->
         if (isLoading) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -166,7 +168,7 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         // 0 = Blackout, 1 = Hard, 3 = Good, 5 = Perfect
-                        RatingButton("Again\n(0)", BrandRed, Modifier.weight(1f)) {
+                        RatingButton("Again\n(0)", BrandRed, 1, Modifier.weight(1f)) {
                             submitReview(currentCard.id, 0, scope) {
                                 isRevealed = false; currentIndex++
                             }
@@ -183,17 +185,17 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
                                 )
                             }
                         }
-                        RatingButton("Hard\n(2)", BrandAmberDark, Modifier.weight(1f)) { 
+                        RatingButton("Hard\n(2)", BrandAmberDark, 2, Modifier.weight(1f)) {
                             submitReview(currentCard.id, 2, scope) {
                                 isRevealed = false; currentIndex++
                             }
                         }
-                        RatingButton("Good\n(4)", BrandPurpleLight, Modifier.weight(1f)) { 
+                        RatingButton("Good\n(4)", BrandPurpleLight, 4, Modifier.weight(1f)) {
                             submitReview(currentCard.id, 4, scope) {
                                 isRevealed = false; currentIndex++
                             }
                         }
-                        RatingButton("Easy\n(5)", BrandGreen, Modifier.weight(1f)) { 
+                        RatingButton("Easy\n(5)", BrandGreen, 5, Modifier.weight(1f)) {
                             submitReview(currentCard.id, 5, scope) {
                                 isRevealed = false; currentIndex++
                             }
@@ -216,16 +218,36 @@ private fun submitReview(cardId: String, rating: Int, scope: kotlinx.coroutines.
 }
 
 @Composable
-fun RatingButton(label: String, color: Color, modifier: Modifier = Modifier, onClick: () -> Unit) {
+fun RatingButton(label: String, color: Color, stars: Int, modifier: Modifier = Modifier, onClick: () -> Unit) {
     Button(
         onClick = onClick,
         modifier = modifier
             .padding(horizontal = 4.dp)
-            .height(60.dp),
+            .height(74.dp),
         shape = RoundedCornerShape(12.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = color),
-        contentPadding = PaddingValues(0.dp)
+        colors = ButtonDefaults.buttonColors(containerColor = CardWhite),
+        contentPadding = PaddingValues(horizontal = 4.dp, vertical = 6.dp)
     ) {
-        Text(label, fontSize = 12.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Row(horizontalArrangement = Arrangement.Center) {
+                repeat(5) { index ->
+                    Icon(
+                        imageVector = if (index < stars) Icons.Default.Star else Icons.Default.StarBorder,
+                        contentDescription = null,
+                        tint = if (index < stars) RatingStarYellow else Color(0xFFE0E0E0),
+                        modifier = Modifier.size(11.dp)
+                    )
+                }
+            }
+            Spacer(Modifier.height(4.dp))
+            Text(
+                label,
+                color = color,
+                fontSize = 11.sp,
+                lineHeight = 13.sp,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }

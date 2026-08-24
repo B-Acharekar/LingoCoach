@@ -67,7 +67,7 @@ This guide provides comprehensive instructions for implementing and using the la
 
 ```
 LingoCoach/app/src/main/
-├── java/com/mk/lingocoach/
+├── java/com/lingocoach/app/
 │   ├── data/
 │   │   ├── model/
 │   │   │   └── LanguageItem.kt              # Data class for language

@@ -14,16 +14,21 @@ import android.util.Log
 import android.util.TypedValue
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.FrameLayout
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.addListener
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.mk.lingocoach.ads.LingoCoachAds
 
 class SplashActivity : AppCompatActivity() {
 
@@ -59,6 +64,7 @@ class SplashActivity : AppCompatActivity() {
 
             window.statusBarColor = Color.parseColor("#7053FF")
             window.navigationBarColor = Color.parseColor("#7053FF")
+            hideSystemNavigationBar()
 
             setContentView(R.layout.activity_splash)
             findViewById<View>(R.id.splash_root).post {
@@ -71,10 +77,26 @@ class SplashActivity : AppCompatActivity() {
             logSplashEvent("content_view_set")
 
             runBackgroundTransition()
+            attachSplashBanner()
             runIntroSequence()
         } catch (e: Exception) {
             logSplashError("on_create_failed", e)
             throw e
+        }
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            hideSystemNavigationBar()
+        }
+    }
+
+    private fun hideSystemNavigationBar() {
+        WindowCompat.getInsetsController(window, window.decorView).apply {
+            systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            hide(WindowInsetsCompat.Type.navigationBars())
         }
     }
 
@@ -251,9 +273,11 @@ class SplashActivity : AppCompatActivity() {
                             onEnd = {
                                 try {
                                     logSplashEvent("navigate_main_start")
-                                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-                                    logSplashEvent("navigate_main_complete")
-                                    finish()
+                                    LingoCoachAds.showInterstitial(this@SplashActivity, "inter_splash") {
+                                        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                                        logSplashEvent("navigate_main_complete")
+                                        finish()
+                                    }
                                 } catch (e: Exception) {
                                     logSplashError("navigate_main_failed", e)
                                     throw e
@@ -271,6 +295,17 @@ class SplashActivity : AppCompatActivity() {
             logSplashError("intro_sequence_failed", e)
             throw e
         }
+    }
+
+    private fun attachSplashBanner() {
+        val slot = findViewById<FrameLayout>(R.id.splash_banner_slot)
+        val banner = LingoCoachAds.createBannerView(this, "banner_splash")
+        if (banner == null) {
+            slot.visibility = View.GONE
+            return
+        }
+        slot.removeAllViews()
+        slot.addView(banner)
     }
 
 

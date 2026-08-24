@@ -17,10 +17,11 @@ android {
         applicationId = "com.mk.lingocoach"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders["adMobAppId"] = "ca-app-pub-3940256099942544~3347511713"
     }
 
     buildTypes {
@@ -73,8 +74,12 @@ dependencies {
     // OneSignal
     implementation(libs.onesignal)
 
-    // dotLottie Android
-    implementation(libs.dotlottie.android)
+    // AdMob with Meta Audience Network mediation
+    implementation(libs.play.services.ads)
+    implementation(libs.admob.facebook.adapter)
+
+    // Lottie animations
+    implementation(libs.lottie.compose)
 
     // OkHttp & Gson
     implementation(libs.okhttp)

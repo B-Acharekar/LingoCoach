@@ -1,12 +1,14 @@
 package com.mk.lingocoach.ui.screens
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
 import android.os.Build
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.core.LinearEasing
@@ -115,6 +117,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import com.google.gson.Gson
 import com.mk.lingocoach.R
+import com.mk.lingocoach.ads.LingoCoachAds
 import com.mk.lingocoach.network.AssessmentApi
 import com.mk.lingocoach.network.AssessmentResponse
 import com.mk.lingocoach.network.FullAssessmentAnswer
@@ -139,6 +142,7 @@ fun AssessmentScreen(
     onNavigateBack: () -> Unit
 ) {
     val context = LocalContext.current
+    val activity = LocalActivityResultRegistryOwner.current as? Activity
     val coroutineScope = rememberCoroutineScope()
     val sharedPrefs = context.getSharedPreferences("LingoCoachPrefs", Context.MODE_PRIVATE)
 
@@ -346,6 +350,7 @@ fun AssessmentScreen(
             finalResponse != null -> AssessmentResultView(
                 response = finalResponse!!,
                 onContinue = {
+                    val continueAfterAd = {
                     isGeneratingPath = true
                     generationStatusText = context.getString(R.string.starting_learning_path)
                     val generationStartedAt = System.currentTimeMillis()
@@ -474,6 +479,14 @@ fun AssessmentScreen(
                                 .apply()
                             finishGeneration()
                         }
+                    }
+                    }
+                    if (activity != null) {
+                        LingoCoachAds.showInterstitial(activity, "inter_assessment") {
+                            continueAfterAd()
+                        }
+                    } else {
+                        continueAfterAd()
                     }
                 },
                 onBack = onNavigateBack
