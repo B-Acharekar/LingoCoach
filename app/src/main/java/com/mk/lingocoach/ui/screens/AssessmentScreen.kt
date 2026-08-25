@@ -22,6 +22,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.border
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -564,7 +565,7 @@ fun AssessmentScreen(
             ) {
                 Card(
                     shape = RoundedCornerShape(20.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    colors = CardDefaults.cardColors(containerColor = appSurfaceColor()),
                     modifier = Modifier.padding(32.dp)
                 ) {
                     Column(
@@ -573,9 +574,9 @@ fun AssessmentScreen(
                     ) {
                         CircularProgressIndicator(color = Color(0xFF6A5CFF), strokeWidth = 3.dp)
                         Spacer(Modifier.height(16.dp))
-                        Text(stringResource(R.string.analysing_response), fontWeight = FontWeight.Bold, color = Color(0xFF1D1D1F), textAlign = TextAlign.Center)
+                        Text(stringResource(R.string.analysing_response), fontWeight = FontWeight.Bold, color = appTextPrimaryColor(), textAlign = TextAlign.Center)
                         Spacer(Modifier.height(4.dp))
-                        Text(stringResource(R.string.takes_few_seconds), color = Color(0xFF6E6E73), fontSize = 12.sp, textAlign = TextAlign.Center)
+                        Text(stringResource(R.string.takes_few_seconds), color = appTextMutedColor(), fontSize = 12.sp, textAlign = TextAlign.Center)
                     }
                 }
             }
@@ -630,11 +631,11 @@ fun AssessmentQuestionView(
             }
             Text(
                 stringResource(R.string.speaking_assessment),
-                style = TextStyle(color = Color(0xFF1D1D1F), fontSize = 17.sp, fontWeight = FontWeight.Bold)
+                style = TextStyle(color = appTextPrimaryColor(), fontSize = 17.sp, fontWeight = FontWeight.Bold)
             )
             Box(
                 modifier = Modifier.clip(RoundedCornerShape(12.dp))
-                    .background(Color(0xFFF0EFFF)).padding(horizontal = 12.dp, vertical = 6.dp)
+                    .background(appSoftPurpleColor()).padding(horizontal = 12.dp, vertical = 6.dp)
             ) {
                 Text("$currentStep / 5", color = Color(0xFF6A5CFF), fontWeight = FontWeight.Bold, fontSize = 12.sp)
             }
@@ -650,7 +651,7 @@ fun AssessmentQuestionView(
         ) {
         // ── Progress ──────────────────────────────────────────────────────────
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(stringResource(R.string.question_of_total, currentStep, 5), color = Color(0xFF6E6E73), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.question_of_total, currentStep, 5), color = appTextMutedColor(), fontSize = 13.sp, fontWeight = FontWeight.Bold)
             Text(stringResource(R.string.percent_complete, completePct), color = Color(0xFF6A5CFF), fontSize = 13.sp, fontWeight = FontWeight.Bold)
         }
         Spacer(Modifier.height(8.dp))
@@ -667,7 +668,7 @@ fun AssessmentQuestionView(
             modifier = Modifier.fillMaxWidth()
                 .shadow(16.dp, RoundedCornerShape(20.dp), false, spotColor = Color(0x1A6A5CFF)),
             shape = RoundedCornerShape(20.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.White)
+            colors = CardDefaults.cardColors(containerColor = appSurfaceColor())
         ) {
             Column(modifier = Modifier.padding(20.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -678,7 +679,7 @@ fun AssessmentQuestionView(
                 Spacer(Modifier.height(16.dp))
                 Text(
                     text = "\"$questionText\"",
-                    style = TextStyle(color = Color(0xFF1D1D1F), fontSize = 16.sp, fontWeight = FontWeight.Bold, lineHeight = 22.sp)
+                    style = TextStyle(color = appTextPrimaryColor(), fontSize = 16.sp, fontWeight = FontWeight.Bold, lineHeight = 22.sp)
                 )
             }
         }
@@ -690,7 +691,7 @@ fun AssessmentQuestionView(
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFFF4F3FF)),
+            colors = CardDefaults.cardColors(containerColor = appElevatedSurfaceColor()),
             border = BorderStroke(1.dp, Color(0xFFE0DFFF))
         ) {
             Row(modifier = Modifier.padding(16.dp), verticalAlignment = Alignment.Top) {
@@ -756,7 +757,7 @@ fun AssessmentQuestionView(
                 Spacer(Modifier.height(12.dp))
                 Text(
                     if (isRecording) stringResource(R.string.recording_tap_stop) else stringResource(R.string.tap_to_record),
-                    color = Color(0xFF1D1D1F), fontWeight = FontWeight.Bold, fontSize = 15.sp
+                    color = appTextPrimaryColor(), fontWeight = FontWeight.Bold, fontSize = 15.sp
                 )
                 Spacer(Modifier.height(8.dp))
                 Row(
@@ -794,8 +795,8 @@ fun AssessmentQuestionView(
                         }
                         Spacer(Modifier.width(12.dp))
                         Column {
-                            Text(stringResource(R.string.estimated_time).uppercase(), color = Color(0xFF6E6E73), fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
-                            Text(stringResource(R.string.seconds_45_60), color = Color(0xFF1D1D1F), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                            Text(stringResource(R.string.estimated_time).uppercase(), color = appTextMutedColor(), fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
+                            Text(stringResource(R.string.seconds_45_60), color = appTextPrimaryColor(), fontSize = 13.sp, fontWeight = FontWeight.Bold)
                         }
                     }
                     Icon(Icons.Default.Info, null, tint = Color(0xFF8E8D9F), modifier = Modifier.size(18.dp))
@@ -816,7 +817,7 @@ fun AssessmentQuestionView(
                         spotColor = Color(0x0D6A5CFF)
                     ),
                 shape = RoundedCornerShape(24.dp),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFFF7F6FF)),
+                colors = CardDefaults.cardColors(containerColor = appElevatedSurfaceColor()),
                 border = BorderStroke(1.dp, Color(0xFFE0DFFF))
             ) {
                 Column(
@@ -826,7 +827,7 @@ fun AssessmentQuestionView(
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(Color.White, RoundedCornerShape(20.dp))
+                            .background(appSurfaceColor(), RoundedCornerShape(20.dp))
                             .border(BorderStroke(1.dp, Color(0xFFE2E2E6)), RoundedCornerShape(20.dp))
                     ) {
                         val canSend = textAnswer.trim().length >= 5
@@ -839,7 +840,7 @@ fun AssessmentQuestionView(
                         ) {
                             Text(
                                 stringResource(R.string.your_response),
-                                color = Color(0xFF6E6E73),
+                                color = appTextMutedColor(),
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.SemiBold
                             )
@@ -874,8 +875,8 @@ fun AssessmentQuestionView(
                             minLines = 5,
                             maxLines = 9,
                             colors = OutlinedTextFieldDefaults.colors(
-                                focusedContainerColor = Color.Transparent,
-                                unfocusedContainerColor = Color.Transparent,
+                                focusedContainerColor = appInputColor(),
+                                unfocusedContainerColor = appInputColor(),
                                 focusedBorderColor = Color.Transparent,
                                 unfocusedBorderColor = Color.Transparent,
                                 focusedTextColor = Color(0xFF1D1D1F),
@@ -924,8 +925,8 @@ fun AssessmentQuestionView(
                         }
                         Spacer(Modifier.width(12.dp))
                         Column {
-                            Text(stringResource(R.string.estimated_time).uppercase(), color = Color(0xFF6E6E73), fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
-                            Text(stringResource(R.string.seconds_45_60), color = Color(0xFF1D1D1F), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                            Text(stringResource(R.string.estimated_time).uppercase(), color = appTextMutedColor(), fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
+                            Text(stringResource(R.string.seconds_45_60), color = appTextPrimaryColor(), fontSize = 13.sp, fontWeight = FontWeight.Bold)
                         }
                     }
                     Icon(Icons.Default.Info, null, tint = Color(0xFF8E8D9F), modifier = Modifier.size(18.dp))
@@ -942,7 +943,7 @@ fun AssessmentQuestionView(
 @Composable
 fun LoadingView() {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color(0xCCFFFFFF)),
+        modifier = Modifier.fillMaxSize().background(if (isSystemInDarkTheme()) Color(0xCC0E0D14) else Color(0xCCFFFFFF)),
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -950,7 +951,7 @@ fun LoadingView() {
             Spacer(Modifier.height(16.dp))
             Text(
                 stringResource(R.string.initialising_speaking_assessment),
-                fontWeight = FontWeight.Bold, color = Color(0xFF1D1D1F),
+                fontWeight = FontWeight.Bold, color = appTextPrimaryColor(),
                 textAlign = TextAlign.Center, modifier = Modifier.padding(horizontal = 24.dp)
             )
         }
@@ -1011,7 +1012,7 @@ fun GeneratingPathView(statusText: String) {
     val pointThresholds = listOf(0.0f, 0.33f, 0.66f, 0.98f)
 
     Box(
-        modifier = Modifier.fillMaxSize().background(Color(0xFFF7F5FF)).statusBarsPadding().navigationBarsPadding(),
+        modifier = Modifier.fillMaxSize().background(appScreenBackgroundColor()).statusBarsPadding().navigationBarsPadding(),
         contentAlignment = Alignment.Center
     ) {
         androidx.compose.foundation.Canvas(modifier = Modifier.fillMaxSize()) {
@@ -1072,7 +1073,7 @@ fun GeneratingPathView(statusText: String) {
                         ) {
                             Text(
                                 text = text,
-                                color = Color(0xFF1D1D1F),
+                                color = appTextPrimaryColor(),
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.Bold,
                                 textAlign = if (isLeft) TextAlign.End else TextAlign.Start,
@@ -1119,7 +1120,7 @@ fun GeneratingPathView(statusText: String) {
             Spacer(Modifier.height(12.dp))
             Text(
                 text = tips[currentTipIndex],
-                color = Color(0xFF6E6E73),
+                color = appTextMutedColor(),
                 fontSize = 13.sp,
                 textAlign = TextAlign.Center,
                 lineHeight = 18.sp,
@@ -1135,13 +1136,13 @@ fun GeneratingPathView(statusText: String) {
 @Composable
 fun ErrorView(message: String, onRetry: () -> Unit) {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color(0xCCFFFFFF)).padding(24.dp),
+        modifier = Modifier.fillMaxSize().background(if (isSystemInDarkTheme()) Color(0xCC0E0D14) else Color(0xCCFFFFFF)).padding(24.dp),
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Icon(Icons.Default.Warning, null, tint = Color.Red, modifier = Modifier.size(56.dp))
             Spacer(Modifier.height(16.dp))
-            Text(message, color = Color(0xFF1D1D1F), textAlign = TextAlign.Center, fontWeight = FontWeight.Medium)
+            Text(message, color = appTextPrimaryColor(), textAlign = TextAlign.Center, fontWeight = FontWeight.Medium)
             Spacer(Modifier.height(24.dp))
             Button(onClick = onRetry, colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6A5CFF))) {
                 Text(stringResource(R.string.retry))
@@ -1207,23 +1208,23 @@ fun AssessmentResultView(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.White)
+                .background(appSurfaceColor())
                 .padding(horizontal = 20.dp, vertical = 14.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
                 modifier = Modifier.size(38.dp).clip(CircleShape)
-                    .background(Color(0xFFF0EEFF)).clickable { onBack() },
+                    .background(appSoftPurpleColor()).clickable { onBack() },
                 contentAlignment = Alignment.Center
             ) {
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.back),
                     tint = Color(0xFF6A5CFF), modifier = Modifier.size(20.dp))
             }
             Text(stringResource(R.string.assessment_result),
-                style = TextStyle(color = Color(0xFF1D1D1F), fontSize = 17.sp, fontWeight = FontWeight.Bold))
+                style = TextStyle(color = appTextPrimaryColor(), fontSize = 17.sp, fontWeight = FontWeight.Bold))
             Box(
-                modifier = Modifier.size(38.dp).clip(CircleShape).background(Color(0xFFF0EEFF)),
+                modifier = Modifier.size(38.dp).clip(CircleShape).background(appSoftPurpleColor()),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(Icons.Default.Refresh, null, tint = Color(0xFF6A5CFF), modifier = Modifier.size(18.dp))
@@ -1236,7 +1237,7 @@ fun AssessmentResultView(
                 .fillMaxWidth()
                 .weight(1f)
                 .verticalScroll(scrollState)
-                .background(Color(0xFFF5F4FF))
+                .background(appScreenBackgroundColor())
                 .padding(horizontal = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -1246,24 +1247,25 @@ fun AssessmentResultView(
             Card(
                 modifier = Modifier.fillMaxWidth().shadow(6.dp, RoundedCornerShape(24.dp)),
                 shape = RoundedCornerShape(24.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White)
+                colors = CardDefaults.cardColors(containerColor = appSurfaceColor())
             ) {
                 Column(
                     modifier = Modifier.fillMaxWidth().padding(24.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
+                    val gaugeTrackColor = if (isSystemInDarkTheme()) Color(0xFF302A46) else Color(0xFFECEAFF)
                     Box(modifier = Modifier.size(160.dp), contentAlignment = Alignment.Center) {
                         Canvas(modifier = Modifier.fillMaxSize().padding(10.dp)) {
                             val sw = 12.dp.toPx()
-                            drawArc(Color(0xFFECEAFF), 135f, 270f, false, style = Stroke(sw, cap = StrokeCap.Round))
+                            drawArc(gaugeTrackColor, 135f, 270f, false, style = Stroke(sw, cap = StrokeCap.Round))
                             drawArc(Color(0xFF6A5CFF), 135f, 270f * (proficiencyScore / 100f), false,
                                 style = Stroke(sw, cap = StrokeCap.Round))
                         }
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Text("${proficiencyScore.toInt()}", color = Color(0xFF1D1D1F),
+                            Text("${proficiencyScore.toInt()}", color = appTextPrimaryColor(),
                                 fontSize = 48.sp, fontWeight = FontWeight.ExtraBold,
                                 style = TextStyle(letterSpacing = (-2).sp))
-                            Text("/ 100", color = Color(0xFF8E8E93), fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+                            Text("/ 100", color = appTextMutedColor(), fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
                         }
                     }
                     Spacer(Modifier.height(14.dp))
@@ -1272,17 +1274,17 @@ fun AssessmentResultView(
                         Text(assignedTier, color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold)
                     }
                     Spacer(Modifier.height(10.dp))
-                    Text("$gradeEmoji $gradeTitle", color = Color(0xFF1D1D1F),
+                    Text("$gradeEmoji $gradeTitle", color = appTextPrimaryColor(),
                         fontSize = 18.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(6.dp))
-                    Text(gradeSubtitle, color = Color(0xFF6E6E73), fontSize = 13.sp,
+                    Text(gradeSubtitle, color = appTextMutedColor(), fontSize = 13.sp,
                         textAlign = TextAlign.Center, lineHeight = 19.sp,
                         modifier = Modifier.padding(horizontal = 8.dp))
                     Spacer(Modifier.height(8.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(Icons.Default.CalendarToday, null, tint = Color(0xFF8E8E93), modifier = Modifier.size(12.dp))
                         Spacer(Modifier.width(4.dp))
-                        Text(stringResource(R.string.completed_on, completedAt), color = Color(0xFF8E8E93), fontSize = 11.sp)
+                        Text(stringResource(R.string.completed_on, completedAt), color = appTextMutedColor(), fontSize = 11.sp)
                     }
                 }
             }
@@ -1306,7 +1308,7 @@ fun AssessmentResultView(
             Card(
                 modifier = Modifier.fillMaxWidth().shadow(4.dp, RoundedCornerShape(20.dp)),
                 shape = RoundedCornerShape(20.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White)
+                colors = CardDefaults.cardColors(containerColor = appSurfaceColor())
             ) {
                 Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
                     RadarChart(
@@ -1359,12 +1361,12 @@ fun AssessmentResultView(
             Card(
                 modifier = Modifier.fillMaxWidth().shadow(4.dp, RoundedCornerShape(20.dp)),
                 shape = RoundedCornerShape(20.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White)
+                colors = CardDefaults.cardColors(containerColor = appSurfaceColor())
             ) {
                 Row(modifier = Modifier.fillMaxWidth().padding(18.dp), verticalAlignment = Alignment.CenterVertically) {
                     Box(
                         modifier = Modifier.size(54.dp).clip(RoundedCornerShape(14.dp))
-                            .background(Color(0xFFF0EEFF)),
+                            .background(appSoftPurpleColor()),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(Icons.Default.WorkspacePremium, null, tint = Color(0xFF6A5CFF), modifier = Modifier.size(28.dp))
@@ -1377,12 +1379,12 @@ fun AssessmentResultView(
                         }
                         Spacer(Modifier.height(4.dp))
                         Text(response.recommended_focus ?: stringResource(R.string.build_target_vocabulary),
-                            color = Color(0xFF1D1D1F), fontSize = 13.sp, fontWeight = FontWeight.Bold, lineHeight = 18.sp)
+                            color = appTextPrimaryColor(), fontSize = 13.sp, fontWeight = FontWeight.Bold, lineHeight = 18.sp)
                         Spacer(Modifier.height(4.dp))
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(Icons.Default.Schedule, null, tint = Color(0xFF8E8E93), modifier = Modifier.size(11.dp))
                             Spacer(Modifier.width(3.dp))
-                            Text(stringResource(R.string.estimated_minutes_day, 15), color = Color(0xFF8E8E93), fontSize = 11.sp)
+                            Text(stringResource(R.string.estimated_minutes_day, 15), color = appTextMutedColor(), fontSize = 11.sp)
                         }
                     }
                 }
@@ -1419,7 +1421,7 @@ private fun ResultSectionHeader(
     Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         Icon(icon, null, tint = iconTint, modifier = Modifier.size(18.dp))
         Spacer(Modifier.width(8.dp))
-        Text(title, color = Color(0xFF1D1D1F), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+        Text(title, color = appTextPrimaryColor(), fontSize = 16.sp, fontWeight = FontWeight.Bold)
     }
 }
 
@@ -1434,7 +1436,7 @@ private fun StrengthScoreCard(
     Card(
         modifier = modifier.shadow(3.dp, RoundedCornerShape(16.dp)),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White)
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor())
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
             Box(
@@ -1445,7 +1447,7 @@ private fun StrengthScoreCard(
                 Text(letter, color = color, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
             }
             Spacer(Modifier.height(8.dp))
-            Text(name, color = Color(0xFF1D1D1F), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+            Text(name, color = appTextPrimaryColor(), fontSize = 12.sp, fontWeight = FontWeight.Bold)
             Text("${score.toInt()}/100", color = color, fontSize = 13.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(6.dp))
             Box(
@@ -1472,10 +1474,10 @@ private fun RadarLegendRow(name: String, score: Float, color: Color) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Box(modifier = Modifier.size(8.dp).clip(CircleShape).background(color))
             Spacer(Modifier.width(6.dp))
-            Text(name, color = Color(0xFF1D1D1F), fontSize = 11.sp)
+            Text(name, color = appTextPrimaryColor(), fontSize = 11.sp)
         }
         Text("${score.toInt()}/100",
-            color = Color(0xFF1D1D1F), fontSize = 11.sp, fontWeight = FontWeight.Bold)
+            color = appTextPrimaryColor(), fontSize = 11.sp, fontWeight = FontWeight.Bold)
     }
 }
 
@@ -1490,7 +1492,7 @@ private fun ImprovementCard(
     Card(
         modifier = modifier.shadow(3.dp, RoundedCornerShape(16.dp)),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White)
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor())
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -1509,13 +1511,13 @@ private fun ImprovementCard(
                 }
                 Spacer(Modifier.width(6.dp))
                 Column {
-                    Text(name, color = Color(0xFF1D1D1F), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                    Text(name, color = appTextPrimaryColor(), fontSize = 12.sp, fontWeight = FontWeight.Bold)
                     Text("${score.toInt()}/100", color = color,
                         fontSize = 11.sp, fontWeight = FontWeight.ExtraBold)
                 }
             }
             Spacer(Modifier.height(8.dp))
-            Text(tip, color = Color(0xFF6E6E73), fontSize = 11.sp, lineHeight = 15.sp)
+            Text(tip, color = appTextMutedColor(), fontSize = 11.sp, lineHeight = 15.sp)
             Spacer(Modifier.height(5.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Default.Lightbulb, null,
@@ -1567,14 +1569,14 @@ fun FeedbackCard(
             Column {
                 Text(
                     text = title,
-                    color = Color(0xFF1D1D1F),
+                    color = appTextPrimaryColor(),
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(Modifier.height(4.dp))
                 Text(
                     text = text,
-                    color = Color(0xFF48484A),
+                    color = appTextSecondaryColor(),
                     fontSize = 13.sp,
                     lineHeight = 18.sp
                 )
@@ -1595,6 +1597,7 @@ fun RadarChart(
     vocabulary: Float,
     modifier: Modifier = Modifier
 ) {
+    val radarGridColor = if (isSystemInDarkTheme()) Color(0xFF484158) else Color(0xFFD2D2D7)
     Canvas(
         modifier = modifier
     ) {
@@ -1624,7 +1627,7 @@ fun RadarChart(
             path.close()
             drawPath(
                 path,
-                color = Color(0xFFD2D2D7),
+                color = radarGridColor,
                 style = Stroke(width = 1.dp.toPx(), pathEffect = dashEffect)
             )
         }
@@ -1633,7 +1636,7 @@ fun RadarChart(
         for (i in 0 until 5) {
             val angle = i * 2 * Math.PI / 5 - Math.PI / 2
             drawLine(
-                color = Color(0xFFD2D2D7),
+                color = radarGridColor,
                 start = Offset(cx, cy),
                 end = Offset(cx + maxR * cos(angle).toFloat(), cy + maxR * sin(angle).toFloat()),
                 strokeWidth = 1.dp.toPx(),

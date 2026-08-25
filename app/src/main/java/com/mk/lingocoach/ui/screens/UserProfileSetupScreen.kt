@@ -244,7 +244,7 @@ fun UserProfileSetupScreen(
                 placement = "native_pre_assessment",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .border(1.dp, Color(0xFFE2E2E6))
+                    .border(1.dp, appBorderColor())
             )
         }
     }
@@ -256,7 +256,7 @@ private fun SetupTopBar(step: Int, totalSteps: Int, onBack: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White.copy(alpha = 0.85f))
+            .background(appTopBarColor(0.85f))
             .padding(horizontal = 20.dp, vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -266,7 +266,7 @@ private fun SetupTopBar(step: Int, totalSteps: Int, onBack: () -> Unit) {
             modifier = Modifier
                 .size(34.dp)
                 .clip(CircleShape)
-                .background(SetupPurpleSoft)
+                .background(appSoftPurpleColor())
                 .clickable { onBack() },
             contentAlignment = Alignment.Center
         ) {
@@ -306,7 +306,7 @@ private fun SetupTopBar(step: Int, totalSteps: Int, onBack: () -> Unit) {
         // n/total label
         Text(
             "$step/$totalSteps",
-            color = SetupTextLight,
+            color = appTextMutedColor(),
             fontSize = 13.sp,
             fontWeight = FontWeight.SemiBold
         )
@@ -351,7 +351,7 @@ private fun StepName(
             ) {
                 Text(
                     if (isReturningUserMode) stringResource(R.string.enter_your_username) else stringResource(R.string.whats_your_name),
-                    style = TextStyle(color = SetupTextDark, fontSize = 28.sp, fontWeight = FontWeight.Bold)
+                    style = TextStyle(color = appTextPrimaryColor(), fontSize = 28.sp, fontWeight = FontWeight.Bold)
                 )
                 TextButton(
                     onClick = if (isReturningUserMode) onBackToNewUser else onAlreadyUser,
@@ -381,7 +381,7 @@ private fun StepName(
                 } else {
                     stringResource(R.string.tell_us_name_username)
                 },
-                style = TextStyle(color = SetupTextMid, fontSize = 15.sp, lineHeight = 22.sp)
+                style = TextStyle(color = appTextSecondaryColor(), fontSize = 15.sp, lineHeight = 22.sp)
             )
             Spacer(Modifier.height(32.dp))
 
@@ -390,11 +390,11 @@ private fun StepName(
                     value          = displayName,
                     onValueChange  = onNameChange,
                     label          = { Text(stringResource(R.string.full_name)) },
-                    placeholder    = { Text(stringResource(R.string.full_name_example), color = SetupTextLight, fontSize = 16.sp) },
+                    placeholder    = { Text(stringResource(R.string.full_name_example), color = appTextMutedColor(), fontSize = 16.sp) },
                     singleLine     = true,
                     modifier       = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
                     shape          = RoundedCornerShape(16.dp),
-                    textStyle      = TextStyle(fontSize = 17.sp, color = SetupTextDark, fontWeight = FontWeight.Medium),
+                    textStyle      = TextStyle(fontSize = 17.sp, color = appTextPrimaryColor(), fontWeight = FontWeight.Medium),
                     keyboardOptions = KeyboardOptions(
                         capitalization = KeyboardCapitalization.Words,
                         imeAction      = ImeAction.Next
@@ -402,10 +402,10 @@ private fun StepName(
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor      = SetupPurple,
                         unfocusedBorderColor    = Color(0xFFDDDCF0),
-                        focusedContainerColor   = Color.White,
-                        unfocusedContainerColor = Color.White,
-                        focusedTextColor        = SetupTextDark,
-                        unfocusedTextColor      = SetupTextDark,
+                        focusedContainerColor   = appInputColor(),
+                        unfocusedContainerColor = appInputColor(),
+                        focusedTextColor        = appTextPrimaryColor(),
+                        unfocusedTextColor      = appTextPrimaryColor(),
                         cursorColor             = SetupPurple
                     )
                 )
@@ -417,7 +417,7 @@ private fun StepName(
                 value          = username,
                 onValueChange  = onUsernameChange,
                 label          = { Text(if (isReturningUserMode) stringResource(R.string.username) else stringResource(R.string.remember_you_label)) },
-                placeholder    = { Text("alex_mercer", color = SetupTextLight, fontSize = 16.sp) },
+                placeholder    = { Text("alex_mercer", color = appTextMutedColor(), fontSize = 16.sp) },
                 leadingIcon    = {
                     Text("@", color = SetupPurple, fontSize = 18.sp, fontWeight = FontWeight.Bold)
                 },
@@ -436,14 +436,14 @@ private fun StepName(
                     val hasError = usernameError != null || existingUserError != null || usernameAvailabilityError != null
                     Text(
                         text = helperText,
-                        color = if (hasError) Color(0xFFD64545) else SetupTextLight,
+                        color = if (hasError) Color(0xFFFF6B6B) else appTextMutedColor(),
                         fontSize = 12.sp,
                         lineHeight = 16.sp
                     )
                 },
                 modifier       = Modifier.fillMaxWidth().bringIntoViewOnFocus(),
                 shape          = RoundedCornerShape(16.dp),
-                textStyle      = TextStyle(fontSize = 17.sp, color = SetupTextDark, fontWeight = FontWeight.Medium),
+                textStyle      = TextStyle(fontSize = 17.sp, color = appTextPrimaryColor(), fontWeight = FontWeight.Medium),
                 keyboardOptions = KeyboardOptions(
                     capitalization = KeyboardCapitalization.None,
                     imeAction      = ImeAction.Done
@@ -462,12 +462,12 @@ private fun StepName(
                     focusedBorderColor      = SetupPurple,
                     unfocusedBorderColor    = Color(0xFFDDDCF0),
                     errorBorderColor        = Color(0xFFD64545),
-                    focusedContainerColor   = Color.White,
-                    unfocusedContainerColor = Color.White,
-                    errorContainerColor     = Color.White,
-                    focusedTextColor        = SetupTextDark,
-                    unfocusedTextColor      = SetupTextDark,
-                    errorTextColor          = SetupTextDark,
+                    focusedContainerColor   = appInputColor(),
+                    unfocusedContainerColor = appInputColor(),
+                    errorContainerColor     = appInputColor(),
+                    focusedTextColor        = appTextPrimaryColor(),
+                    unfocusedTextColor      = appTextPrimaryColor(),
+                    errorTextColor          = appTextPrimaryColor(),
                     cursorColor             = SetupPurple
                 )
             )
@@ -513,12 +513,12 @@ private fun StepGoal(
             Spacer(Modifier.height(28.dp))
             Text(
                 stringResource(R.string.what_is_your_goal),
-                style = TextStyle(color = SetupTextDark, fontSize = 28.sp, fontWeight = FontWeight.Bold)
+                style = TextStyle(color = appTextPrimaryColor(), fontSize = 28.sp, fontWeight = FontWeight.Bold)
             )
             Spacer(Modifier.height(8.dp))
             Text(
                 stringResource(R.string.choose_goals_desc),
-                style = TextStyle(color = SetupTextMid, fontSize = 15.sp, lineHeight = 22.sp)
+                style = TextStyle(color = appTextSecondaryColor(), fontSize = 15.sp, lineHeight = 22.sp)
             )
             Spacer(Modifier.height(20.dp))
 
@@ -579,12 +579,12 @@ private fun StepLevel(
             Spacer(Modifier.height(28.dp))
             Text(
                 stringResource(R.string.what_is_current_level),
-                style = TextStyle(color = SetupTextDark, fontSize = 28.sp, fontWeight = FontWeight.Bold)
+                style = TextStyle(color = appTextPrimaryColor(), fontSize = 28.sp, fontWeight = FontWeight.Bold)
             )
             Spacer(Modifier.height(8.dp))
             Text(
                 stringResource(R.string.assess_better_desc),
-                style = TextStyle(color = SetupTextMid, fontSize = 15.sp, lineHeight = 22.sp)
+                style = TextStyle(color = appTextSecondaryColor(), fontSize = 15.sp, lineHeight = 22.sp)
             )
             Spacer(Modifier.height(24.dp))
 
@@ -642,7 +642,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
                         .size(130.dp)
                         .shadow(12.dp, RoundedCornerShape(24.dp), spotColor = SetupPurple.copy(0.3f))
                         .clip(RoundedCornerShape(24.dp))
-                        .background(Color.White),
+                        .background(appSurfaceColor()),
                     contentAlignment = Alignment.Center
                 ) {
                     Column(
@@ -705,7 +705,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
             Text(
                 stringResource(R.string.speaking_assessment),
                 style = TextStyle(
-                    color      = SetupTextDark,
+                    color      = appTextPrimaryColor(),
                     fontSize   = 22.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign  = TextAlign.Center
@@ -715,7 +715,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
             Text(
                 stringResource(R.string.understand_speaking_level),
                 style = TextStyle(
-                    color     = SetupTextMid,
+                    color     = appTextSecondaryColor(),
                     fontSize  = 15.sp,
                     textAlign = TextAlign.Center,
                     lineHeight = 22.sp
@@ -730,7 +730,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
                     .fillMaxWidth()
                     .shadow(4.dp, RoundedCornerShape(20.dp))
                     .clip(RoundedCornerShape(20.dp))
-                    .background(Color.White)
+                    .background(appSurfaceColor())
                     .padding(horizontal = 20.dp, vertical = 18.dp)
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(14.dp)) {
@@ -744,7 +744,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
                                 modifier = Modifier
                                     .size(24.dp)
                                     .clip(CircleShape)
-                                    .background(SetupPurpleSoft),
+                                    .background(appSoftPurpleColor()),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Icon(
@@ -755,7 +755,7 @@ private fun StepSpeakingIntro(onStartAssessment: () -> Unit) {
                                 )
                             }
                             Spacer(Modifier.width(14.dp))
-                            Text(item, color = SetupTextMid, fontSize = 15.sp)
+                            Text(item, color = appTextSecondaryColor(), fontSize = 15.sp)
                         }
                     }
                 }
@@ -784,7 +784,7 @@ private fun SetupSelectionCard(
         animationSpec = tween(220), label = "border"
     )
     val bgColor by animateColorAsState(
-        targetValue   = if (selected) SetupPurpleSoft else SetupCardBg,
+        targetValue   = if (selected) appSoftPurpleColor() else appSurfaceColor(),
         animationSpec = tween(220), label = "bg"
     )
 
@@ -811,7 +811,7 @@ private fun SetupSelectionCard(
                 .clip(RoundedCornerShape(13.dp))
                 .background(
                     if (selected) SetupPurple.copy(alpha = 0.12f)
-                    else Color(0xFFF0EEFF)
+                    else appSoftPurpleColor()
                 ),
             contentAlignment = Alignment.Center
         ) {
@@ -821,9 +821,9 @@ private fun SetupSelectionCard(
         Spacer(Modifier.width(14.dp))
 
         Column(modifier = Modifier.weight(1f)) {
-            Text(title,    color = SetupTextDark,  fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
+            Text(title,    color = appTextPrimaryColor(),  fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
             Spacer(Modifier.height(2.dp))
-            Text(subtitle, color = SetupTextLight, fontSize = 13.sp, lineHeight = 18.sp)
+            Text(subtitle, color = appTextMutedColor(), fontSize = 13.sp, lineHeight = 18.sp)
         }
 
         if (selected) {

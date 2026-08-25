@@ -32,6 +32,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mk.lingocoach.R
+import com.mk.lingocoach.analytics.AppAnalytics
 import com.mk.lingocoach.network.AssessmentApi
 import com.mk.lingocoach.network.CurrentLearningPathResponse
 import com.mk.lingocoach.network.CurrentSublesson
@@ -40,9 +41,9 @@ import kotlinx.coroutines.launch
 
 private val PathNavy = Color(0xFF17133B)
 private val PathSurface: Color
-    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF151224) else Color(0xFFF8F7FF)
+    @Composable get() = appElevatedSurfaceColor()
 private val PathMuted: Color
-    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFA9A4BF) else Color(0xFF77728F)
+    @Composable get() = appTextMutedColor()
 
 @Composable
 fun ActualLearningPathScreen(
@@ -63,6 +64,7 @@ fun ActualLearningPathScreen(
     var selectedTab by remember { mutableStateOf(0) }
 
     LaunchedEffect(userId) {
+        AppAnalytics.screen(context, "learning_path")
         AppCache.loadFromDisk(context)
         AppCache.learningPath?.takeIf { it.isBackendLearningPathReady() }?.let {
             learningPath = it
@@ -132,7 +134,7 @@ fun ActualLearningPathScreen(
                             Column {
                                 Text(stringResource(R.string.path_next_steps), color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.2.sp)
                                 Spacer(Modifier.height(4.dp))
-                                Text(stringResource(R.string.keep_your_momentum), color = PathNavy, fontSize = 21.sp, fontWeight = FontWeight.ExtraBold)
+                                Text(stringResource(R.string.keep_your_momentum), color = appTextPrimaryColor(), fontSize = 21.sp, fontWeight = FontWeight.ExtraBold)
                             }
                             Text(stringResource(R.string.lessons_count, currentModule.lessons.size), color = PathMuted, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
                         }
@@ -146,7 +148,10 @@ fun ActualLearningPathScreen(
                                 status = lesson.status,
                                 sublessons = lesson.sublessons,
                                 isLast = index == currentModule.lessons.lastIndex,
-                                onTap = onNavigateToLesson
+                                onTap = { sublessonId ->
+                                    AppAnalytics.action(context, "learning_path", "lesson_open", "module_level" to currentModule.level, "lesson_status" to lesson.status)
+                                    onNavigateToLesson(sublessonId)
+                                }
                             )
                         }
 
@@ -254,7 +259,7 @@ private fun JourneyLessonCard(
                 Modifier
                     .size(42.dp)
                     .clip(CircleShape)
-                    .background(if (isCurrent) BrandPurple else if (isCompleted) BrandGreen else Color(0xFFEDEBF3)),
+                    .background(if (isCurrent) BrandPurple else if (isCompleted) BrandGreen else appElevatedSurfaceColor()),
                 contentAlignment = Alignment.Center
             ) {
                 if (isCompleted) Icon(Icons.Default.Check, null, tint = Color.White, modifier = Modifier.size(20.dp))
@@ -271,7 +276,7 @@ private fun JourneyLessonCard(
                 .shadow(if (isCurrent) 7.dp else 2.dp, RoundedCornerShape(20.dp), ambientColor = accent.copy(0.14f), spotColor = accent.copy(0.14f))
                 .clickable(enabled = !isLocked && target != null) { target?.let { onTap(it.id) } },
             shape = RoundedCornerShape(20.dp),
-            colors = CardDefaults.cardColors(containerColor = if (isCurrent) PathSurface else CardWhite),
+            colors = CardDefaults.cardColors(containerColor = if (isCurrent) PathSurface else appSurfaceColor()),
             border = if (isCurrent) BorderStroke(1.dp, BrandPurple.copy(0.25f)) else BorderStroke(1.dp, Color(0x0F000000))
         ) {
             Column(Modifier.padding(16.dp)) {
@@ -352,11 +357,11 @@ private fun PathLoadingState(modifier: Modifier = Modifier) {
 private fun PathEmptyState(modifier: Modifier = Modifier, onBack: () -> Unit) {
     Box(modifier.fillMaxSize().padding(28.dp), contentAlignment = Alignment.Center) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Box(Modifier.size(72.dp).background(BrandPurpleSoft, CircleShape), contentAlignment = Alignment.Center) {
+            Box(Modifier.size(72.dp).background(appSoftPurpleColor(), CircleShape), contentAlignment = Alignment.Center) {
                 Icon(Icons.AutoMirrored.Filled.MenuBook, null, tint = BrandPurple, modifier = Modifier.size(32.dp))
             }
             Spacer(Modifier.height(18.dp))
-            Text(stringResource(R.string.path_getting_ready), color = PathNavy, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
+            Text(stringResource(R.string.path_getting_ready), color = appTextPrimaryColor(), fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(7.dp))
             Text(stringResource(R.string.complete_assessment_unlock_path), color = PathMuted, fontSize = 13.sp)
             Spacer(Modifier.height(20.dp))

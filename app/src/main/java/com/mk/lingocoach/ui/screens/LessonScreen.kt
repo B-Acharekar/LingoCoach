@@ -48,6 +48,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mk.lingocoach.R
+import com.mk.lingocoach.analytics.AppAnalytics
 import com.mk.lingocoach.ads.LingoCoachAds
 import com.mk.lingocoach.network.*
 import com.mk.lingocoach.viewmodel.*
@@ -77,6 +78,7 @@ fun LessonScreen(
     var dropdownExpanded  by remember { mutableStateOf(false) }
 
     fun completeLessonWithInterstitial() {
+        AppAnalytics.action(context, "learning_path_lesson", "complete_tap", "exercises" to uiState.originalExercises.size, "correct" to uiState.correctOriginalCount)
         if (activity != null) {
             LingoCoachAds.showInterstitial(activity, "inter_learning_path") {
                 lessonViewModel.completeSublesson(userId, activeSublessonId)
@@ -87,6 +89,7 @@ fun LessonScreen(
     }
 
     LaunchedEffect(activeSublessonId) {
+        AppAnalytics.screen(context, "learning_path_lesson")
         lessonViewModel.reset()
         lessonViewModel.loadSublesson(activeSublessonId, userId)
     }
@@ -211,6 +214,7 @@ fun LessonScreen(
                                         },
                                         onClick = {
                                             dropdownExpanded = false
+                                            AppAnalytics.action(context, "learning_path_lesson", "part_select")
                                             activeSublessonId = subItem.id
                                         }
                                     )
@@ -223,8 +227,14 @@ fun LessonScreen(
                             sublesson          = sub,
                             showCompleteButton = uiState.originalExercises.isEmpty(),
                             completionSent     = uiState.completionSent,
-                            onStartExercises   = { lessonViewModel.startExercises() },
-                            onComplete         = { lessonViewModel.completeSublesson(userId, activeSublessonId) }
+                            onStartExercises   = {
+                                AppAnalytics.action(context, "learning_path_lesson", "start_exercises", "exercises" to uiState.originalExercises.size)
+                                lessonViewModel.startExercises()
+                            },
+                            onComplete         = {
+                                AppAnalytics.action(context, "learning_path_lesson", "complete_tap", "exercises" to uiState.originalExercises.size, "correct" to uiState.correctOriginalCount)
+                                lessonViewModel.completeSublesson(userId, activeSublessonId)
+                            }
                         )
                     } else {
                         // activeExercise is guaranteed set atomically in the VM — no null flash
@@ -243,7 +253,10 @@ fun LessonScreen(
                                 // VM owns this flag now — no inline derivation
                                 showCompleteButton = uiState.showCompleteButton,
                                 completionSent     = uiState.completionSent,
-                                onSubmit           = { answer -> lessonViewModel.submitAnswer(answer, userId) },
+                                onSubmit           = { answer ->
+                                    AppAnalytics.action(context, "learning_path_lesson", "answer_submit", "exercise_number" to (uiState.answeredCount + 1))
+                                    lessonViewModel.submitAnswer(answer, userId)
+                                },
                                 onAdvance          = { lessonViewModel.advance() },
                                 onComplete         = { completeLessonWithInterstitial() }
                             )

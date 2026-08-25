@@ -123,7 +123,7 @@ fun WelcomeAboardScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF6F4FF))
+            .background(appScreenBackgroundColor())
     ) {
         AppBackgroundTexture()
 
@@ -150,7 +150,7 @@ fun WelcomeAboardScreen(
                         modifier = Modifier
                             .size(40.dp)
                             .clip(CircleShape)
-                            .background(Color.White.copy(alpha = 0.82f))
+                            .background(appTopBarColor(0.82f))
                             .clickable { onNavigateToLanguage() },
                         contentAlignment = Alignment.Center
                     ) {
@@ -176,7 +176,7 @@ fun WelcomeAboardScreen(
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .clip(RoundedCornerShape(18.dp))
-                            .background(Color.White.copy(alpha = 0.82f))
+                            .background(appTopBarColor(0.82f))
                             .clickable { finishOnboarding() }
                             .padding(horizontal = 15.dp, vertical = 9.dp)
                     )
@@ -193,7 +193,7 @@ fun WelcomeAboardScreen(
                 ) {
                     Text(
                         stringResource(R.string.welcome_aboard_plain),
-                        color = Color(0xFF101018),
+                        color = appTextPrimaryColor(),
                         fontSize = if (shortLayout) 21.sp else 25.sp,
                         fontWeight = FontWeight.ExtraBold,
                         textAlign = TextAlign.Center
@@ -201,7 +201,7 @@ fun WelcomeAboardScreen(
                     Spacer(Modifier.height(if (compactLayout) 3.dp else 5.dp))
                     Text(
                         stringResource(R.string.welcome_swipe_intro),
-                        color = Color(0xFF686875),
+                        color = appTextMutedColor(),
                         fontSize = if (shortLayout) 11.sp else 13.sp,
                         lineHeight = if (shortLayout) 15.sp else 18.sp,
                         textAlign = TextAlign.Center,
@@ -266,7 +266,7 @@ fun WelcomeAboardScreen(
                 placement = "native_onboarding",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .border(1.dp, Color(0xFFE2E2E6))
+                    .border(1.dp, appBorderColor())
             )
         }
     }
@@ -286,7 +286,7 @@ private fun OnboardingAnimatedCard(
             .height(cardHeight)
             .shadow(10.dp, RoundedCornerShape(22.dp), spotColor = card.color.copy(alpha = 0.18f)),
         shape = RoundedCornerShape(22.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White)
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor())
     ) {
         Column(
             modifier = Modifier
@@ -301,7 +301,7 @@ private fun OnboardingAnimatedCard(
                     .clip(RoundedCornerShape(18.dp))
                     .background(
                         Brush.linearGradient(
-                            listOf(card.color.copy(alpha = 0.10f), Color(0xFFF8F7FF))
+                            listOf(card.color.copy(alpha = 0.16f), appSoftPurpleColor())
                         )
                     )
                     .border(1.dp, card.color.copy(alpha = 0.12f), RoundedCornerShape(18.dp)),
@@ -325,7 +325,7 @@ private fun OnboardingAnimatedCard(
             Spacer(Modifier.height(if (compact) 8.dp else 10.dp))
             Text(
                 card.title,
-                color = Color(0xFF171722),
+                color = appTextPrimaryColor(),
                 fontSize = if (compact) 16.sp else 18.sp,
                 fontWeight = FontWeight.ExtraBold,
                 textAlign = TextAlign.Center
@@ -333,7 +333,7 @@ private fun OnboardingAnimatedCard(
             Spacer(Modifier.height(if (compact) 3.dp else 4.dp))
             Text(
                 card.description,
-                color = Color(0xFF747481),
+                color = appTextMutedColor(),
                 fontSize = if (compact) 11.sp else 12.sp,
                 lineHeight = if (compact) 15.sp else 17.sp,
                 textAlign = TextAlign.Center

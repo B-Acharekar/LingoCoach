@@ -62,6 +62,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import com.mk.lingocoach.R
+import com.mk.lingocoach.analytics.AppAnalytics
 import com.mk.lingocoach.ads.LingoCoachAds
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -111,6 +112,7 @@ fun AILabScreen(
 
     // Fetch daily session status on load
     LaunchedEffect(userId) {
+        AppAnalytics.screen(context, "ai_lab")
         if (userId.isNotBlank()) {
             kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
                 com.mk.lingocoach.network.AILabApi.getStatus(userId) { status ->
@@ -179,6 +181,7 @@ fun AILabScreen(
                                 onToneSelected  = { selectedTone = it },
                                 onStartSession  = {
                                     val startSession = {
+                                        AppAnalytics.action(context, "ai_lab", "session_start", "voice" to selectedVoice.lowercase(), "tone" to selectedTone.lowercase())
                                         com.mk.lingocoach.network.AILabApi.startSession(
                                             userId      = userId,
                                             topic       = "General conversation",
@@ -188,6 +191,7 @@ fun AILabScreen(
                                             if (response != null) {
                                                 sessionId      = response.session_id
                                                 openingMessage = response.opening_message
+                                                AppAnalytics.action(context, "ai_lab", "session_started")
                                                 currentStep    = AILabStep.CHAT
                                             }
                                         }
@@ -220,27 +224,27 @@ fun AILabScreen(
                         title = {
                             Text(
                                 if (endSessionSummary != null) stringResource(R.string.session_summary) else stringResource(R.string.end_session_question),
-                                color = TextDark
+                                color = appTextPrimaryColor()
                             )
                         },
                         text = {
                             if (endSessionSummary != null) {
                                 Column {
-                                    Text(stringResource(R.string.vocabulary_learned, endSessionSummary!!.vocabulary_learned), color = TextDark)
-                                    Text(stringResource(R.string.grammar_mistakes_count, endSessionSummary!!.grammar_mistakes), color = TextDark)
+                                    Text(stringResource(R.string.vocabulary_learned, endSessionSummary!!.vocabulary_learned), color = appTextPrimaryColor())
+                                    Text(stringResource(R.string.grammar_mistakes_count, endSessionSummary!!.grammar_mistakes), color = appTextPrimaryColor())
                                     Spacer(Modifier.height(8.dp))
-                                    Text(stringResource(R.string.strengths_label, endSessionSummary!!.strengths), color = TextDark, fontWeight = FontWeight.Bold)
-                                    Text(stringResource(R.string.weaknesses_label, endSessionSummary!!.weaknesses), color = TextDark, fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.strengths_label, endSessionSummary!!.strengths), color = appTextPrimaryColor(), fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.weaknesses_label, endSessionSummary!!.weaknesses), color = appTextPrimaryColor(), fontWeight = FontWeight.Bold)
                                 }
                             } else {
                                 Text(
                                     stringResource(R.string.end_session_confirm),
-                                    color = TextDark
+                                    color = appTextPrimaryColor()
                                 )
                             }
                         },
                         shape            = RoundedCornerShape(28.dp),
-                        containerColor   = CardWhite,
+                        containerColor   = appSurfaceColor(),
                         confirmButton    = {
                             if (endSessionSummary == null) {
                                 Button(
@@ -306,7 +310,7 @@ fun HomeStep(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
+            .background(appScreenBackgroundColor())
             .verticalScroll(rememberScrollState())
             .navigationBarsPadding()
             .padding(horizontal = 20.dp, vertical = 18.dp),
@@ -318,8 +322,8 @@ fun HomeStep(
                 .fillMaxWidth()
                 .shadow(6.dp, RoundedCornerShape(24.dp))
                 .clip(RoundedCornerShape(24.dp))
-                .background(CardWhite)
-                .border(1.dp, CardBorderColor, RoundedCornerShape(24.dp))
+                .background(appSurfaceColor())
+                .border(1.dp, appBorderColor(), RoundedCornerShape(24.dp))
                 .padding(20.dp)
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
@@ -328,7 +332,7 @@ fun HomeStep(
                         modifier = Modifier
                             .size(54.dp)
                             .clip(RoundedCornerShape(16.dp))
-                            .background(BrandPurpleSoft),
+                            .background(appSoftPurpleColor()),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(Icons.Default.Psychology, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(30.dp))
@@ -337,7 +341,7 @@ fun HomeStep(
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
                             stringResource(R.string.ai_conversation_practice),
-                            color = TextDark,
+                            color = appTextPrimaryColor(),
                             fontSize = 23.sp,
                             lineHeight = 28.sp,
                             fontWeight = FontWeight.ExtraBold
@@ -345,7 +349,7 @@ fun HomeStep(
                         Spacer(Modifier.height(4.dp))
                         Text(
                             stringResource(R.string.ai_lab_intro_feedback),
-                            color = TextLight,
+                            color = appTextMutedColor(),
                             fontSize = 13.sp,
                             lineHeight = 18.sp
                         )
@@ -366,7 +370,7 @@ fun HomeStep(
                             Spacer(Modifier.width(8.dp))
                             Text(
                                 stringResource(R.string.todays_sessions_count, sessionsUsed, sessionsLimit),
-                                color = if (isLimited) BrandRed else TextDark,
+                                color = if (isLimited) BrandRed else appTextPrimaryColor(),
                                 fontSize = 13.sp,
                                 fontWeight = FontWeight.ExtraBold
                             )
@@ -381,7 +385,7 @@ fun HomeStep(
                         LinearProgressIndicator(
                             progress = { progressPercentage },
                             color = if (isLimited) BrandRed else BrandPurple,
-                            trackColor = SubtlePurpleTrack,
+                            trackColor = appSubtleTrackColor(),
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(6.dp)
@@ -451,7 +455,7 @@ fun HomeStep(
                     .fillMaxWidth()
                     .heightIn(min = 56.dp)
                     .clip(RoundedCornerShape(16.dp))
-                    .background(ElevatedSurface),
+                    .background(appElevatedSurfaceColor()),
                 contentAlignment = Alignment.Center
             ) {
                 Row(
@@ -461,14 +465,14 @@ fun HomeStep(
                     Icon(
                         Icons.Default.Lock,
                         contentDescription = null,
-                        tint = TextLight,
+                        tint = appTextMutedColor(),
                         modifier = Modifier.size(20.dp)
                     )
                     Spacer(Modifier.width(10.dp))
                     Text(
                         stringResource(R.string.daily_limit_try_tomorrow),
                         style = TextStyle(
-                            color = TextLight,
+                            color = appTextMutedColor(),
                             fontSize = 16.sp,
                             fontWeight = FontWeight.SemiBold
                         )
@@ -490,8 +494,8 @@ private fun FeatureItem(
             .fillMaxWidth()
             .shadow(2.dp, RoundedCornerShape(18.dp))
             .clip(RoundedCornerShape(18.dp))
-            .background(CardWhite)
-            .border(1.dp, CardBorderColor, RoundedCornerShape(18.dp))
+            .background(appSurfaceColor())
+            .border(1.dp, appBorderColor(), RoundedCornerShape(18.dp))
             .padding(14.dp),
         verticalAlignment = Alignment.Top,
         horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -499,7 +503,7 @@ private fun FeatureItem(
         Box(
             modifier = Modifier
                 .size(48.dp)
-                .background(BrandPurpleSoft, CircleShape),
+                .background(appSoftPurpleColor(), CircleShape),
             contentAlignment = Alignment.Center
         ) {
             Icon(
@@ -516,7 +520,7 @@ private fun FeatureItem(
             Text(
                 title,
                 style = TextStyle(
-                    color = TextDark,
+                    color = appTextPrimaryColor(),
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold
                 )
@@ -524,7 +528,7 @@ private fun FeatureItem(
             Text(
                 description,
                 style = TextStyle(
-                    color = TextLight,
+                    color = appTextMutedColor(),
                     fontSize = 13.sp,
                     lineHeight = 18.sp
                 )
@@ -540,7 +544,7 @@ fun VoiceSelectionStep(selectedVoice: String, onVoiceSelected: (String) -> Unit,
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+                .background(appScreenBackgroundColor())
                 .verticalScroll(rememberScrollState())
                 .padding(start = 20.dp, top = 18.dp, end = 20.dp, bottom = 104.dp),
             horizontalAlignment = Alignment.Start
@@ -586,7 +590,7 @@ fun ToneSelectionStep(selectedTone: String, onToneSelected: (String) -> Unit, on
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+                .background(appScreenBackgroundColor())
                 .verticalScroll(rememberScrollState())
                 .padding(start = 20.dp, top = 18.dp, end = 20.dp, bottom = 104.dp),
             horizontalAlignment = Alignment.Start
@@ -651,8 +655,8 @@ private fun AILabStepIntro(
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(22.dp))
-            .background(CardWhite)
-            .border(1.dp, CardBorderColor, RoundedCornerShape(22.dp))
+            .background(appSurfaceColor())
+            .border(1.dp, appBorderColor(), RoundedCornerShape(22.dp))
             .padding(18.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -660,16 +664,16 @@ private fun AILabStepIntro(
             modifier = Modifier
                 .size(48.dp)
                 .clip(RoundedCornerShape(15.dp))
-                .background(BrandPurpleSoft),
+                .background(appSoftPurpleColor()),
             contentAlignment = Alignment.Center
         ) {
             Icon(icon, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(26.dp))
         }
         Spacer(Modifier.width(14.dp))
         Column(modifier = Modifier.weight(1f)) {
-            Text(title, color = TextDark, fontSize = 19.sp, lineHeight = 24.sp, fontWeight = FontWeight.ExtraBold)
+            Text(title, color = appTextPrimaryColor(), fontSize = 19.sp, lineHeight = 24.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(4.dp))
-            Text(message, color = TextLight, fontSize = 13.sp, lineHeight = 18.sp)
+            Text(message, color = appTextMutedColor(), fontSize = 13.sp, lineHeight = 18.sp)
         }
     }
 }
@@ -683,8 +687,8 @@ private fun AILabChoiceCard(
     onClick: () -> Unit
 ) {
     val scale by animateFloatAsState(if (selected) 1.02f else 1f, label = "choiceScale")
-    val bg = if (selected) BrandPurpleSoft else CardWhite
-    val border = if (selected) BrandPurple.copy(alpha = 0.42f) else CardBorderColor
+    val bg = if (selected) appSoftPurpleColor() else appSurfaceColor()
+    val border = if (selected) BrandPurple.copy(alpha = 0.42f) else appBorderColor()
 
     Row(
         modifier = Modifier
@@ -703,23 +707,23 @@ private fun AILabChoiceCard(
             modifier = Modifier
                 .size(48.dp)
                 .clip(RoundedCornerShape(15.dp))
-                .background(if (selected) BrandPurple else BrandPurpleSoft),
+                .background(if (selected) BrandPurple else appSoftPurpleColor()),
             contentAlignment = Alignment.Center
         ) {
             Icon(icon, contentDescription = null, tint = if (selected) Color.White else BrandPurple, modifier = Modifier.size(24.dp))
         }
         Spacer(Modifier.width(14.dp))
         Column(modifier = Modifier.weight(1f)) {
-            Text(title, color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+            Text(title, color = appTextPrimaryColor(), fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(4.dp))
-            Text(description, color = TextLight, fontSize = 12.sp, lineHeight = 16.sp)
+            Text(description, color = appTextMutedColor(), fontSize = 12.sp, lineHeight = 16.sp)
         }
         Spacer(Modifier.width(10.dp))
         Box(
             modifier = Modifier
                 .size(24.dp)
                 .clip(CircleShape)
-                .background(if (selected) BrandPurple else BrandPurpleSoft),
+                .background(if (selected) BrandPurple else appSoftPurpleColor()),
             contentAlignment = Alignment.Center
         ) {
             if (selected) Icon(Icons.Default.Check, contentDescription = null, tint = Color.White, modifier = Modifier.size(15.dp))
@@ -767,6 +771,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
 
     // Show opening message as first bubble immediately
     LaunchedEffect(sessionId) {
+        if (sessionId != null) AppAnalytics.screen(context, "ai_lab_chat")
         if (openingMessage.isNotBlank() && messages.isEmpty()) {
             messages = listOf(
                 ChatMessage(
@@ -826,6 +831,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
         if (!file.exists() || file.length() == 0L) return
         if (sessionId == null) return
 
+        AppAnalytics.action(context, "ai_lab", "message_send", "mode" to "voice")
         isTranscribing = true
         isSendingMessage = true
         val typingId = (System.currentTimeMillis() + 1).toString()
@@ -892,7 +898,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
+            .background(appScreenBackgroundColor())
             .imePadding()
     ) {
         if (messages.isEmpty()) {
@@ -929,6 +935,7 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
             onSend         = {
                 if (inputText.isNotBlank() && sessionId != null && !isSendingMessage && !isTranscribing) {
                     val msg = inputText
+                    AppAnalytics.action(context, "ai_lab", "message_send", "mode" to "text")
                     isSendingMessage = true
                     messages  = messages + ChatMessage(System.currentTimeMillis().toString(), MessageRole.USER, msg)
                     inputText = ""
@@ -967,7 +974,10 @@ fun ChatStep(userId: String, sessionId: String?, openingMessage: String = "", on
             onMicToggle          = {
                 if (isListening) stopRecordingAndSend() else startRecording()
             },
-            onEndSessionClick    = onEndSession
+            onEndSessionClick    = {
+                AppAnalytics.action(context, "ai_lab", "end_session_click")
+                onEndSession()
+            }
         )
     }
 }
@@ -980,7 +990,7 @@ fun TypewriterText(text: String, modifier: Modifier = Modifier) {
         text.forEachIndexed { index, _ -> delay(40); displayedText = text.substring(0, index + 1) }
     }
     Text(displayedText, fontSize = 18.sp, fontWeight = FontWeight.Medium,
-        color = TextLight, textAlign = TextAlign.Center, modifier = modifier)
+        color = appTextMutedColor(), textAlign = TextAlign.Center, modifier = modifier)
 }
 
 // â”€â”€â”€ Chat Bubble â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -1000,12 +1010,12 @@ fun ChatBubble(message: ChatMessage) {
             modifier = Modifier
                 .widthIn(min = 60.dp, max = 280.dp)
                 .shadow(2.dp, bubbleShape)
-                .background(if (isUser) BrandPurple else CardWhite, bubbleShape)
-                .border(1.dp, if (isUser) Color.Transparent else CardBorderColor, bubbleShape)
+                .background(if (isUser) BrandPurple else appSurfaceColor(), bubbleShape)
+                .border(1.dp, if (isUser) Color.Transparent else appBorderColor(), bubbleShape)
                 .padding(horizontal = 16.dp, vertical = 12.dp)
         ) {
             if (message.isTyping) TypingIndicator()
-            else Text(message.text, color = if (isUser) Color.White else TextDark, fontSize = 15.sp, lineHeight = 22.sp)
+            else Text(message.text, color = if (isUser) Color.White else appTextPrimaryColor(), fontSize = 15.sp, lineHeight = 22.sp)
         }
 
         if (isUser && message.mistakes.isNotEmpty()) {
@@ -1019,9 +1029,9 @@ fun ChatBubble(message: ChatMessage) {
                         .clip(RoundedCornerShape(12.dp))
                         .background(
                             if (isGrammar) {
-                                ErrorSurface
+                                if (isSystemInDarkTheme()) Color(0xFF3A1919) else ErrorSurface
                             } else {
-                                SuccessSurface
+                                if (isSystemInDarkTheme()) Color(0xFF173822) else SuccessSurface
                             }
                         )
                         .clickable { expanded = !expanded }
@@ -1044,7 +1054,7 @@ fun ChatBubble(message: ChatMessage) {
                     }
                     if (expanded && mistake.explanation.isNotBlank()) {
                         Spacer(Modifier.height(4.dp))
-                        Text(mistake.explanation, color = TextMid, fontSize = 11.sp, lineHeight = 15.sp)
+                        Text(mistake.explanation, color = appTextSecondaryColor(), fontSize = 11.sp, lineHeight = 15.sp)
                     }
                 }
                 Spacer(Modifier.height(3.dp))
@@ -1097,8 +1107,8 @@ fun ChatInputArea(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(CardWhite)
-            .border(0.5.dp, CardBorderColor)
+            .background(appSurfaceColor())
+            .border(0.5.dp, appBorderColor())
             .navigationBarsPadding()
             .padding(horizontal = 16.dp, vertical = 10.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
@@ -1109,8 +1119,8 @@ fun ChatInputArea(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(16.dp))
-                    .background(CardWhite)
-                    .border(1.dp, CardBorderColor, RoundedCornerShape(16.dp))
+                    .background(appSurfaceColor())
+                    .border(1.dp, appBorderColor(), RoundedCornerShape(16.dp))
                     .padding(horizontal = 16.dp, vertical = 14.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -1152,18 +1162,18 @@ fun ChatInputArea(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(14.dp))
-                .background(ElevatedSurface)
+                .background(appElevatedSurfaceColor())
                 .padding(horizontal = 14.dp, vertical = 13.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(Icons.Default.Keyboard, contentDescription = null, tint = TextLight, modifier = Modifier.size(18.dp))
+            Icon(Icons.Default.Keyboard, contentDescription = null, tint = appTextMutedColor(), modifier = Modifier.size(18.dp))
             Spacer(Modifier.width(10.dp))
             Box(modifier = Modifier.weight(1f)) {
-                if (inputText.isEmpty()) Text(stringResource(R.string.type_response_hint), color = TextLight, fontSize = 15.sp)
+                if (inputText.isEmpty()) Text(stringResource(R.string.type_response_hint), color = appTextMutedColor(), fontSize = 15.sp)
                 BasicTextField(
                     value          = inputText,
                     onValueChange  = { if (!isSending && !isTranscribing) onInputChange(it) },
-                    textStyle      = TextStyle(color = TextDark, fontSize = 15.sp),
+                    textStyle      = TextStyle(color = appTextPrimaryColor(), fontSize = 15.sp),
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Send),
                     keyboardActions = KeyboardActions(onSend = { if (!isSending && !isTranscribing) onSend() }),
                     modifier       = Modifier
@@ -1197,9 +1207,9 @@ fun ChatInputArea(
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             val micBg by animateColorAsState(
                 if (isListening) {
-                    ErrorSurface
+                    if (isSystemInDarkTheme()) Color(0xFF3A1919) else ErrorSurface
                 } else {
-                    ElevatedSurface
+                    appElevatedSurfaceColor()
                 },
                 label = "micBg"
             )
@@ -1214,7 +1224,7 @@ fun ChatInputArea(
                 Icon(
                     if (isListening) Icons.Default.MicOff else Icons.Default.Mic,
                     contentDescription = if (isListening) stringResource(R.string.stop_recording) else stringResource(R.string.start_recording),
-                    tint     = if (isListening) BrandRed else TextLight,
+                    tint     = if (isListening) BrandRed else appTextMutedColor(),
                     modifier = Modifier.size(20.dp)
                 )
             }
@@ -1223,7 +1233,7 @@ fun ChatInputArea(
                 modifier = Modifier
                     .weight(1f)
                     .clip(RoundedCornerShape(18.dp))
-                    .background(ElevatedSurface)
+                    .background(appElevatedSurfaceColor())
                     .padding(horizontal = 10.dp, vertical = 8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -1231,14 +1241,14 @@ fun ChatInputArea(
                     modifier = Modifier
                         .size(34.dp)
                         .clip(CircleShape)
-                        .background(if (ttsEnabled) BrandPurple else CardWhite)
+                        .background(if (ttsEnabled) BrandPurple else appSurfaceColor())
                         .clickable { onTtsToggle() },
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
                         if (ttsEnabled) Icons.AutoMirrored.Filled.VolumeUp else Icons.AutoMirrored.Filled.VolumeOff,
                         contentDescription = stringResource(R.string.text_to_speech),
-                        tint = if (ttsEnabled) Color.White else TextLight,
+                        tint = if (ttsEnabled) Color.White else appTextMutedColor(),
                         modifier = Modifier.size(18.dp)
                     )
                 }
@@ -1246,7 +1256,7 @@ fun ChatInputArea(
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
                         if (ttsEnabled) stringResource(R.string.text_to_speech_on) else stringResource(R.string.text_to_speech_off),
-                        color = if (ttsEnabled) BrandPurple else TextLight,
+                        color = if (ttsEnabled) BrandPurple else appTextMutedColor(),
                         fontSize = 11.sp,
                         fontWeight = FontWeight.Bold,
                         maxLines = 1
@@ -1260,10 +1270,10 @@ fun ChatInputArea(
                         colors = SliderDefaults.colors(
                             thumbColor = BrandPurple,
                             activeTrackColor = BrandPurple,
-                            inactiveTrackColor = SubtlePurpleTrack,
-                            disabledThumbColor = TextLight,
+                            inactiveTrackColor = appSubtleTrackColor(),
+                            disabledThumbColor = appTextMutedColor(),
                             disabledActiveTrackColor = if (isSystemInDarkTheme()) Color(0xFF2A2A2A) else Color(0xFFE0E0E0),
-                            disabledInactiveTrackColor = ElevatedSurface
+                            disabledInactiveTrackColor = appElevatedSurfaceColor()
                         )
                     )
                 }
@@ -1272,11 +1282,11 @@ fun ChatInputArea(
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(20.dp))
-                    .background(ElevatedSurface)
+                    .background(appElevatedSurfaceColor())
                     .clickable { onEndSessionClick() }
                     .padding(horizontal = 20.dp, vertical = 10.dp)
             ) {
-                Text(stringResource(R.string.end_session), color = TextDark, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+                Text(stringResource(R.string.end_session), color = appTextPrimaryColor(), fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
             }
         }
     }

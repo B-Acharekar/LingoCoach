@@ -168,7 +168,7 @@ fun FlashcardScreen(onNavigateBack: () -> Unit) {
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         // 0 = Blackout, 1 = Hard, 3 = Good, 5 = Perfect
-                        RatingButton("Again\n(0)", BrandRed, 1, Modifier.weight(1f)) {
+                        RatingButton("Again\n(0)", BrandRed, 0, Modifier.weight(1f)) {
                             submitReview(currentCard.id, 0, scope) {
                                 isRevealed = false; currentIndex++
                             }
@@ -225,7 +225,7 @@ fun RatingButton(label: String, color: Color, stars: Int, modifier: Modifier = M
             .padding(horizontal = 4.dp)
             .height(74.dp),
         shape = RoundedCornerShape(12.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = CardWhite),
+        colors = ButtonDefaults.buttonColors(containerColor = appSurfaceColor()),
         contentPadding = PaddingValues(horizontal = 4.dp, vertical = 6.dp)
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -234,7 +234,7 @@ fun RatingButton(label: String, color: Color, stars: Int, modifier: Modifier = M
                     Icon(
                         imageVector = if (index < stars) Icons.Default.Star else Icons.Default.StarBorder,
                         contentDescription = null,
-                        tint = if (index < stars) RatingStarYellow else Color(0xFFE0E0E0),
+                        tint = if (index < stars) RatingStarYellow else appBorderColor(),
                         modifier = Modifier.size(11.dp)
                     )
                 }

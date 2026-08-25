@@ -326,14 +326,14 @@ fun HomeScreen(
                         }
                         Text(
                             "$greeting, $greetingName",
-                            color = TextMid,
+                            color = appTextSecondaryColor(),
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Medium
                         )
                         Text(
                             stringResource(R.string.home),
                             style = TextStyle(
-                                color = TextDark,
+                                color = appTextPrimaryColor(),
                                 fontSize = 28.sp,
                                 fontWeight = FontWeight.ExtraBold
                             )
@@ -371,12 +371,12 @@ fun HomeScreen(
                             onClick = { onNavigateToSettings() },
                             modifier = Modifier
                                 .size(40.dp)
-                                .background(Color.White.copy(alpha = 0.8f), CircleShape)
+                                .background(appTopBarColor(0.82f), CircleShape)
                         ) {
                             Icon(
                                 Icons.Default.Settings,
                                 contentDescription = stringResource(R.string.settings),
-                                tint = TextDark,
+                                tint = appTextPrimaryColor(),
                                 modifier = Modifier.size(20.dp)
                             )
                         }
@@ -398,7 +398,7 @@ fun HomeScreen(
                 Column {
                     Text(
                         stringResource(R.string.daily_stats),
-                        color = TextDark,
+                        color = appTextPrimaryColor(),
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -421,7 +421,7 @@ fun HomeScreen(
                 ) {
                     Text(
                         stringResource(R.string.learning_path),
-                        color = TextDark,
+                        color = appTextPrimaryColor(),
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -552,13 +552,13 @@ private fun HomeProfileCompletionCard(
             .fillMaxWidth()
             .shadow(4.dp, RoundedCornerShape(22.dp), clip = true)
             .clickable { onClick() },
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor()),
         shape = RoundedCornerShape(22.dp)
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Brush.horizontalGradient(listOf(Color.White, BrandPurpleSoft)))
+                .background(Brush.horizontalGradient(listOf(appSurfaceColor(), appSoftPurpleColor())))
                 .border(1.dp, Color(0x1A6A5CFF), RoundedCornerShape(22.dp))
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
@@ -574,7 +574,7 @@ private fun HomeProfileCompletionCard(
                 Icon(Icons.Default.PersonAdd, contentDescription = null, tint = Color.White, modifier = Modifier.size(23.dp))
             }
             Column(modifier = Modifier.weight(1f)) {
-                Text(stringResource(R.string.complete_profile), color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+                Text(stringResource(R.string.complete_profile), color = appTextPrimaryColor(), fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
                 Spacer(Modifier.height(3.dp))
                 Text(
                     when {
@@ -582,7 +582,7 @@ private fun HomeProfileCompletionCard(
                         !hasName -> stringResource(R.string.add_name_personalize)
                         else -> stringResource(R.string.choose_username_restore)
                     },
-                    color = TextMid,
+                    color = appTextSecondaryColor(),
                     fontSize = 12.sp,
                     lineHeight = 17.sp
                 )
@@ -642,19 +642,19 @@ private fun HomeProfileCompletionDialog(
                 .imePadding()
                 .shadow(18.dp, RoundedCornerShape(24.dp))
                 .clip(RoundedCornerShape(24.dp))
-                .background(Color.White)
+                .background(appSurfaceColor())
                 .padding(22.dp)
         ) {
             Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Text(stringResource(R.string.complete_profile), color = TextDark, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.weight(1f))
+                Text(stringResource(R.string.complete_profile), color = appTextPrimaryColor(), fontSize = 20.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.weight(1f))
                 IconButton(onClick = onDismiss, enabled = !isSaving, modifier = Modifier.size(34.dp)) {
-                    Icon(Icons.Default.Close, contentDescription = stringResource(R.string.close), tint = TextLight, modifier = Modifier.size(18.dp))
+                    Icon(Icons.Default.Close, contentDescription = stringResource(R.string.close), tint = appTextMutedColor(), modifier = Modifier.size(18.dp))
                 }
             }
             Spacer(Modifier.height(6.dp))
             Text(
                 stringResource(R.string.add_profile_restore),
-                color = TextMid,
+                color = appTextSecondaryColor(),
                 fontSize = 13.sp,
                 lineHeight = 18.sp
             )
@@ -669,8 +669,8 @@ private fun HomeProfileCompletionDialog(
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = BrandPurple,
                     unfocusedBorderColor = Color(0xFFE0DFFA),
-                    focusedTextColor = TextDark,
-                    unfocusedTextColor = TextDark,
+                    focusedTextColor = appTextPrimaryColor(),
+                    unfocusedTextColor = appTextPrimaryColor(),
                     cursorColor = BrandPurple
                 )
             )
@@ -685,7 +685,7 @@ private fun HomeProfileCompletionDialog(
                 supportingText = {
                     Text(
                         shownError ?: stringResource(R.string.username_short_rules),
-                        color = if (shownError != null) BrandRed else TextLight,
+                        color = if (shownError != null) BrandRed else appTextMutedColor(),
                         fontSize = 12.sp,
                         lineHeight = 16.sp
                     )
@@ -696,15 +696,15 @@ private fun HomeProfileCompletionDialog(
                     focusedBorderColor = BrandPurple,
                     unfocusedBorderColor = Color(0xFFE0DFFA),
                     errorBorderColor = BrandRed,
-                    focusedTextColor = TextDark,
-                    unfocusedTextColor = TextDark,
+                    focusedTextColor = appTextPrimaryColor(),
+                    unfocusedTextColor = appTextPrimaryColor(),
                     cursorColor = BrandPurple
                 )
             )
             Spacer(Modifier.height(18.dp))
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                 TextButton(onClick = onDismiss, enabled = !isSaving) {
-                    Text(stringResource(R.string.cancel), color = TextLight)
+                    Text(stringResource(R.string.cancel), color = appTextMutedColor())
                 }
                 Spacer(Modifier.width(8.dp))
                 Button(
@@ -757,7 +757,7 @@ fun HomeDailyStatsCard(
             .fillMaxWidth()
             .clickable { onClick() }
             .shadow(elevation = 6.dp, shape = RoundedCornerShape(24.dp), clip = true),
-        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor()),
         shape = RoundedCornerShape(24.dp)
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
@@ -788,7 +788,7 @@ fun HomeDailyStatsCard(
                     modifier = Modifier.weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text(stringResource(R.string.overall), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.overall), color = appTextMutedColor(), fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
                     Text(tier, color = BrandPurple, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                 }
@@ -801,9 +801,9 @@ fun HomeDailyStatsCard(
                     modifier = Modifier.weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text(stringResource(R.string.accuracy), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.accuracy), color = appTextMutedColor(), fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
-                    Text("$accuracy%", color = TextDark, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
+                    Text("$accuracy%", color = appTextPrimaryColor(), fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                 }
 
                 // Vertical divider
@@ -814,7 +814,7 @@ fun HomeDailyStatsCard(
                     modifier = Modifier.weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text(stringResource(R.string.daily_streak), color = TextLight, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.daily_streak), color = appTextMutedColor(), fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
                     Text("$streak ${stringResource(R.string.days)}", color = Color(0xFFFFB300), fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                 }
@@ -847,7 +847,7 @@ fun CapsuleProgressIndicator(label: String, progress: Float) {
         Spacer(modifier = Modifier.height(6.dp))
         Text(
             text = label,
-            color = TextLight,
+            color = appTextMutedColor(),
             fontSize = 8.sp,
             fontWeight = FontWeight.Bold,
             maxLines = 1,
@@ -868,7 +868,7 @@ fun HomeCurrentModuleCard(
             .fillMaxWidth()
             .clickable { onContinue() }
             .shadow(6.dp, RoundedCornerShape(24.dp), clip = true),
-        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor()),
         shape = RoundedCornerShape(24.dp)
     ) {
         Row(
@@ -929,7 +929,7 @@ fun HomeCurrentModuleCard(
                 Spacer(Modifier.height(2.dp))
                 Text(
                     module.title,
-                    color = TextDark,
+                    color = appTextPrimaryColor(),
                     fontSize = 16.sp,
                     fontWeight = FontWeight.ExtraBold,
                     maxLines = 1,
@@ -938,7 +938,7 @@ fun HomeCurrentModuleCard(
                 Spacer(Modifier.height(2.dp))
                 Text(
                     activeSublesson?.let { "Lesson ${it.order}: ${it.title}" } ?: module.description,
-                    color = TextMid,
+                    color = appTextSecondaryColor(),
                     fontSize = 12.sp,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
@@ -989,7 +989,7 @@ fun HomeDynamicLearningPathCard(
             .height(140.dp)                          // ← unchanged
             .clickable { onClick() }
             .shadow(6.dp, RoundedCornerShape(24.dp), clip = true),
-        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor()),
         shape = RoundedCornerShape(24.dp)
     ) {
         Row(
@@ -1049,7 +1049,7 @@ fun HomeDynamicLearningPathCard(
                 Spacer(Modifier.height(2.dp))        // 4 → 2
                 Text(
                     module.title,
-                    color = TextDark,
+                    color = appTextPrimaryColor(),
                     fontSize = 16.sp,                // 18 → 16 prevents 2-line wrap on short cards
                     fontWeight = FontWeight.ExtraBold,
                     maxLines = 2,
@@ -1058,7 +1058,7 @@ fun HomeDynamicLearningPathCard(
                 Spacer(Modifier.height(2.dp))        // 4 → 2
                 Text(
                     stringResource(R.string.lessons_count, module.lessons.size),
-                    color = TextLight,
+                    color = appTextMutedColor(),
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Medium
                 )
@@ -1093,7 +1093,7 @@ fun HomeGeneratingLearningPathCard(
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor()),
         border = BorderStroke(1.dp, Color(0xFFE8E3FF))
     ) {
         Row(
@@ -1120,14 +1120,14 @@ fun HomeGeneratingLearningPathCard(
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     stringResource(R.string.learning_path_locked),
-                    color = TextDark,
+                    color = appTextPrimaryColor(),
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(Modifier.height(4.dp))
                 Text(
                     "Generating your personalized route in the background.",
-                    color = TextMid,
+                    color = appTextSecondaryColor(),
                     fontSize = 12.sp,
                     lineHeight = 16.sp
                 )
@@ -1150,7 +1150,7 @@ fun HomeNoModuleCard() {
             .fillMaxWidth()
             .shadow(4.dp, RoundedCornerShape(24.dp))
             .clip(RoundedCornerShape(24.dp))
-            .background(CardWhite)
+            .background(appSurfaceColor())
             .padding(24.dp),
         contentAlignment = Alignment.Center
     ) {
@@ -1164,7 +1164,7 @@ fun HomeNoModuleCard() {
             Spacer(Modifier.height(6.dp))
             Text(
                 "Complete the assessment to start your path!",
-                color = TextMid,
+                color = appTextSecondaryColor(),
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Medium
             )
@@ -1358,7 +1358,7 @@ fun HomeVocabBuilderCard(
             .fillMaxWidth()
             .clickable { onClick() }
             .shadow(4.dp, RoundedCornerShape(24.dp), clip = true),
-        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor()),
         shape = RoundedCornerShape(24.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
@@ -1372,7 +1372,7 @@ fun HomeVocabBuilderCard(
                         modifier = Modifier
                             .size(40.dp)
                             .clip(RoundedCornerShape(12.dp))
-                            .background(BrandPurpleSoft),
+                            .background(appSoftPurpleColor()),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(Icons.Default.Book, contentDescription = null, tint = BrandPurple, modifier = Modifier.size(20.dp))
@@ -1381,13 +1381,13 @@ fun HomeVocabBuilderCard(
                     Column {
                         Text(
                             stringResource(R.string.vocab_builder),
-                            color = TextDark,
+                            color = appTextPrimaryColor(),
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
                             text = wordsCountText.uppercase(),
-                            color = TextLight,
+                            color = appTextMutedColor(),
                             fontSize = 9.sp,
                             fontWeight = FontWeight.Bold
                         )
@@ -1396,7 +1396,7 @@ fun HomeVocabBuilderCard(
                 
                 Box(
                     modifier = Modifier
-                        .background(BrandPurpleSoft, RoundedCornerShape(8.dp))
+                        .background(appSoftPurpleColor(), RoundedCornerShape(8.dp))
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Text(
@@ -1418,7 +1418,7 @@ fun HomeVocabBuilderCard(
                     .height(6.dp)
                     .clip(CircleShape),
                 color = BrandPurple,
-                trackColor = BrandPurpleSoft
+                trackColor = appSoftPurpleColor()
             )
         }
     }
@@ -1432,7 +1432,7 @@ fun HomeMistakeVaultCard(mistakes: List<Mistake>, onClick: () -> Unit = {}) {
             .fillMaxWidth()
             .clickable { onClick() }
             .shadow(4.dp, RoundedCornerShape(24.dp), clip = true),
-        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor()),
         shape = RoundedCornerShape(24.dp)
     ) {
         Row(
@@ -1461,13 +1461,13 @@ fun HomeMistakeVaultCard(mistakes: List<Mistake>, onClick: () -> Unit = {}) {
                 Column {
                     Text(
                         stringResource(R.string.mistake_vault),
-                        color = TextDark,
+                        color = appTextPrimaryColor(),
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold
                     )
                     Text(
                         stringResource(R.string.review_mistakes),
-                        color = TextLight,
+                        color = appTextMutedColor(),
                         fontSize = 11.sp
                     )
                 }
@@ -1475,7 +1475,7 @@ fun HomeMistakeVaultCard(mistakes: List<Mistake>, onClick: () -> Unit = {}) {
             Icon(
                 Icons.Default.ChevronRight,
                 contentDescription = null,
-                tint = TextLight,
+                tint = appTextMutedColor(),
                 modifier = Modifier.size(20.dp)
             )
         }
@@ -1531,7 +1531,7 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
         modifier = Modifier
             .fillMaxWidth()
             .shadow(4.dp, RoundedCornerShape(24.dp), clip = true),
-        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        colors = CardDefaults.cardColors(containerColor = appSurfaceColor()),
         shape = RoundedCornerShape(24.dp)
     ) {
         Column(
@@ -1558,7 +1558,7 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
                         modifier = Modifier
                             .size(36.dp)
                             .clip(CircleShape)
-                            .background(BrandPurpleSoft),
+                            .background(appSoftPurpleColor()),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
@@ -1569,8 +1569,8 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
                         )
                     }
                     Column {
-                        Text(stringResource(R.string.weekly_overview), color = TextDark, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                        Text(stringResource(R.string.xp_earned_week, weekXp), color = TextLight, fontSize = 11.sp)
+                        Text(stringResource(R.string.weekly_overview), color = appTextPrimaryColor(), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.xp_earned_week, weekXp), color = appTextMutedColor(), fontSize = 11.sp)
                     }
                 }
                 Box(
@@ -1639,7 +1639,7 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
                             Spacer(Modifier.height(7.dp))
                             Text(
                                 day,
-                                color = if (isToday) BrandPurple else TextLight,
+                                color = if (isToday) BrandPurple else appTextMutedColor(),
                                 fontSize = 10.sp,
                                 fontWeight = FontWeight.Bold
                             )
@@ -1666,19 +1666,19 @@ fun HomeSpeakingStats(weeklyStats: List<com.mk.lingocoach.network.DailyStats> = 
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(stringResource(R.string.mistakes_logged).uppercase(), color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.mistakes_logged).uppercase(), color = appTextMutedColor(), fontSize = 8.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text("$mistakesFixed", color = TextDark, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
+                        Text("$mistakesFixed", color = appTextPrimaryColor(), fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
                         Spacer(Modifier.width(6.dp))
                         Text(stringResource(R.string.today).lowercase(), color = BrandGreen, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                     }
                 }
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(stringResource(R.string.lessons_done).uppercase(), color = TextLight, fontSize = 8.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.lessons_done).uppercase(), color = appTextMutedColor(), fontSize = 8.sp, fontWeight = FontWeight.Bold)
                     Spacer(Modifier.height(2.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text("$lessonsDone", color = TextDark, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
+                        Text("$lessonsDone", color = appTextPrimaryColor(), fontSize = 18.sp, fontWeight = FontWeight.ExtraBold)
                         Spacer(Modifier.width(6.dp))
                         Text(stringResource(R.string.this_week).lowercase(), color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.Bold)
                     }
@@ -1709,7 +1709,7 @@ fun HomeBottomNav(
                 .background(if (isSystemInDarkTheme()) Color.Black else Color(0xFFFAFAFF))
                 .border(
                     width = 0.5.dp,
-                    color = CardBorderColor
+                    color = appBorderColor()
                 )
                 .padding(vertical = 8.dp)
         ) {
@@ -1754,7 +1754,7 @@ fun HomeNavItem(
                 Icon(
                     icon,
                     contentDescription = label,
-                    tint = TextDark,
+                    tint = appTextPrimaryColor(),
                     modifier = Modifier.size(20.dp)
                 )
             }
@@ -1766,7 +1766,7 @@ fun HomeNavItem(
                 Icon(
                     icon,
                     contentDescription = label,
-                    tint = TextLight,
+                    tint = appTextMutedColor(),
                     modifier = Modifier.size(20.dp)
                 )
             }
@@ -1774,7 +1774,7 @@ fun HomeNavItem(
         Spacer(Modifier.height(3.dp))
         Text(
             label,
-            color = if (isSelected) TextDark else TextLight,
+            color = if (isSelected) appTextPrimaryColor() else appTextMutedColor(),
             fontSize = 9.sp,
             fontWeight = if (isSelected) FontWeight.ExtraBold else FontWeight.Normal
         )
@@ -1789,7 +1789,7 @@ fun SectionHeader(title: String) {
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(title, color = TextDark, fontSize = 17.sp, fontWeight = FontWeight.Bold)
+        Text(title, color = appTextPrimaryColor(), fontSize = 17.sp, fontWeight = FontWeight.Bold)
         Text(stringResource(R.string.see_all), color = BrandPurple, fontSize = 12.sp, modifier = Modifier.clickable { })
     }
 }
@@ -1804,9 +1804,9 @@ private fun ProgressStatRow(label: String, percentage: String, dotColor: Color) 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Box(modifier = Modifier.size(8.dp).background(dotColor, CircleShape))
             Spacer(Modifier.width(8.dp))
-            Text(label, color = TextMid, fontSize = 12.sp)
+            Text(label, color = appTextSecondaryColor(), fontSize = 12.sp)
         }
-        Text(percentage, color = TextDark, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+        Text(percentage, color = appTextPrimaryColor(), fontSize = 12.sp, fontWeight = FontWeight.Bold)
     }
 }
 
@@ -1828,7 +1828,7 @@ fun LoadingOverlay(visible: Boolean) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
+                .background(appSurfaceColor())
                 .zIndex(10f),
             contentAlignment = Alignment.Center
         ) {
@@ -1859,7 +1859,7 @@ fun LoadingOverlay(visible: Boolean) {
                         modifier = Modifier
                             .size(52.dp)
                             .clip(RoundedCornerShape(14.dp))
-                            .background(Color.White),
+                            .background(appSurfaceColor()),
                         contentAlignment = Alignment.Center
                     ) {
                         Image(

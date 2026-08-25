@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.mk.lingocoach.R
+import com.mk.lingocoach.analytics.AppAnalytics
 import com.mk.lingocoach.network.AssessmentApi
 import com.mk.lingocoach.network.Mistake
 import kotlinx.coroutines.Dispatchers
@@ -52,19 +53,19 @@ import java.util.concurrent.TimeUnit
 
 // ─── Vault Design Tokens ──────────────────────────────────────────────────────
 private val VaultBg: Color
-    @Composable get() = if (isSystemInDarkTheme()) Color.Black else Color(0xFFF5F4FF)
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF0E0D14) else Color(0xFFF5F4FF)
 private val VaultCardBg: Color
-    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF101010) else Color(0xFFFFFFFF)
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFF15131C) else Color(0xFFFFFFFF)
 private val VaultPurple      = Color(0xFF6A5CFF)
 private val VaultPurpleSoft: Color
     @Composable get() = if (isSystemInDarkTheme()) Color(0xFF211D38) else Color(0xFFF0EEFF)
 private val VaultPurpleMid   = Color(0xFF8A79FF)
 private val VaultTextDark: Color
-    @Composable get() = if (isSystemInDarkTheme()) Color.White else Color(0xFF0D0D0D)
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFF6F3FF) else Color(0xFF0D0D0D)
 private val VaultTextMid: Color
-    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFD0D0D0) else Color(0xFF3A3A3A)
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFD6D0E8) else Color(0xFF3A3A3A)
 private val VaultTextLight: Color
-    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFA4A4A4) else Color(0xFF6B6B6B)
+    @Composable get() = if (isSystemInDarkTheme()) Color(0xFFAFA7C2) else Color(0xFF6B6B6B)
 private val VaultRed         = Color(0xFFE53935)
 private val VaultGreen       = Color(0xFF4CAF50)
 private val VaultAmber       = Color(0xFFFFB300)
@@ -173,6 +174,7 @@ fun MistakeVaultScreen(
 
     // Load mistakes
     LaunchedEffect(userId) {
+        AppAnalytics.screen(context, "mistake_vault")
         scope.launch(Dispatchers.IO) {
             val localMistakes = VocabTracker.getLocalMistakes(context).map { e ->
                 DisplayMistake(
@@ -270,6 +272,7 @@ fun MistakeVaultScreen(
                         SmartReviewButton(count = allMistakes.size) {
                             val reviewList = allMistakes.take(12)
                             if (reviewList.isNotEmpty()) {
+                                AppAnalytics.action(context, "mistake_vault", "review_start", "source" to "smart_review", "count" to reviewList.size)
                                 retestList = reviewList
                                 showRetest = true
                             }
@@ -321,6 +324,7 @@ fun MistakeVaultScreen(
                             VaultSlipCard(
                                 mistake  = mistake,
                                 onPracticeCard = {
+                                    AppAnalytics.action(context, "mistake_vault", "review_start", "source" to "card", "mistake_type" to mistake.mistakeType, "origin" to mistake.originSource)
                                     retestList  = listOf(mistake)
                                     showRetest = true
                                 }
@@ -703,6 +707,10 @@ fun RetestModeOverlay(
     val total    = sessionMistakes.size
     val progress = if (total > 0) (currentIndex.toFloat() / total) else 0f
 
+    LaunchedEffect(total) {
+        AppAnalytics.action(context, "mistake_vault", "retest_open", "count" to total)
+    }
+
     // Pulse animation for mic button
     val infiniteTransition = rememberInfiniteTransition(label = "mic_pulse")
     val micScale by infiniteTransition.animateFloat(
@@ -800,6 +808,7 @@ fun RetestModeOverlay(
                             val expected = mistake.correctAnswer.ifBlank { mistake.word }
                             val isCorrect = normalizeRetestAnswer(typedAnswer) == normalizeRetestAnswer(expected)
                             if (isCorrect) {
+                                AppAnalytics.action(context, "mistake_vault", "verify_answer", "correct" to true, "mistake_type" to mistake.mistakeType)
                                 masteredIndices = masteredIndices + currentIndex
                                 feedbackText = context.getString(R.string.slip_mastered_feedback)
                                 cardState = RetestCardState.MARKED_CORRECT
@@ -820,6 +829,7 @@ fun RetestModeOverlay(
                                     cardState = RetestCardState.IDLE
                                 }
                             } else {
+                                AppAnalytics.action(context, "mistake_vault", "verify_answer", "correct" to false, "mistake_type" to mistake.mistakeType)
                                 reviewIndices = reviewIndices + currentIndex
                                 feedbackText = context.getString(R.string.slip_retry_feedback)
                                 cardState = RetestCardState.MARKED_WRONG
@@ -833,6 +843,7 @@ fun RetestModeOverlay(
                             }
                         },
                         onMarkWrong = {
+                            AppAnalytics.action(context, "mistake_vault", "mark_wrong", "mistake_type" to mistake.mistakeType)
                             reviewIndices = reviewIndices + currentIndex
                             cardState = RetestCardState.MARKED_WRONG
                             scope.launch {
@@ -844,6 +855,7 @@ fun RetestModeOverlay(
                             }
                         },
                         onNeedsReview = {
+                            AppAnalytics.action(context, "mistake_vault", "needs_review", "mistake_type" to mistake.mistakeType)
                             reviewIndices = reviewIndices + currentIndex
                             cardState = RetestCardState.IDLE
                             typedAnswer = ""

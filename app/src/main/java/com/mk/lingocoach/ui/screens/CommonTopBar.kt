@@ -34,9 +34,9 @@ fun CommonTopBar(
     onBack: () -> Unit,
     onSettings: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = if (isSystemInDarkTheme()) Color.Black else Color.White
+    backgroundColor: Color = appTopBarColor(0.96f)
 ) {
-    val iconButtonBg = if (isSystemInDarkTheme()) Color.White.copy(alpha = 0.12f) else Color.Black.copy(alpha = 0.06f)
+    val iconButtonBg = if (isSystemInDarkTheme()) Color.White.copy(alpha = 0.16f) else Color.Black.copy(alpha = 0.06f)
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -55,13 +55,13 @@ fun CommonTopBar(
             Icon(
                 Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = stringResource(R.string.back),
-                tint = TextDark,
+                tint = appTextPrimaryColor(),
                 modifier = Modifier.size(20.dp)
             )
         }
         Text(
             text = title,
-            color = TextDark,
+            color = appTextPrimaryColor(),
             fontSize = 18.sp,
             fontWeight = FontWeight.ExtraBold,
             maxLines = 1,
@@ -80,7 +80,7 @@ fun CommonTopBar(
                 Icon(
                     Icons.Default.Settings,
                     contentDescription = stringResource(R.string.settings),
-                    tint = TextDark,
+                    tint = appTextPrimaryColor(),
                     modifier = Modifier.size(20.dp)
                 )
             }

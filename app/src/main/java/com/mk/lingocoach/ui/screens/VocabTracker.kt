@@ -298,6 +298,7 @@ object VocabTracker {
             }
             val avgMastery = if (wordList.isEmpty()) 0 else totalMastery / wordList.size
             val stars = when {
+                avgMastery <= 0 -> 0
                 avgMastery >= 75 -> 3
                 avgMastery >= 35 -> 2
                 else -> 1

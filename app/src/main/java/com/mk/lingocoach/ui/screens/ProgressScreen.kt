@@ -32,6 +32,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mk.lingocoach.R
+import com.mk.lingocoach.analytics.AppAnalytics
 import com.mk.lingocoach.network.AssessmentApi
 import com.mk.lingocoach.network.DailyStats
 import com.mk.lingocoach.network.ProgressMetrics
@@ -62,6 +63,7 @@ fun ProgressScreen(
     }
 
     LaunchedEffect(userId) {
+        AppAnalytics.screen(context, "analytics")
         scope.launch(Dispatchers.IO) {
             if (!VocabTracker.isLoaded) {
                 VocabTracker.init(context)
@@ -75,8 +77,10 @@ fun ProgressScreen(
                 scope.launch(Dispatchers.Main) {
                     if (stats != null) {
                         AppCache.weeklyStats = stats
+                        AppAnalytics.action(context, "analytics", "weekly_loaded", "days" to stats.size)
                         AppCache.analyticsAt = System.currentTimeMillis()
                         weeklyStats = stats
+                        AppAnalytics.action(context, "analytics", "weekly_loaded", "days" to stats.size)
                     }
                     isLoading   = false
                 }
@@ -87,8 +91,10 @@ fun ProgressScreen(
                 scope.launch(Dispatchers.Main) {
                     if (metrics != null) {
                         AppCache.progressMetrics = metrics
+                        AppAnalytics.action(context, "analytics", "metrics_loaded")
                         AppCache.analyticsAt = System.currentTimeMillis()
                         progressMetrics = metrics
+                        AppAnalytics.action(context, "analytics", "metrics_loaded")
                     }
                 }
             }
@@ -103,7 +109,7 @@ fun ProgressScreen(
                     title = stringResource(R.string.analytics),
                     onBack = onNavigateBack,
                     onSettings = onNavigateToSettings,
-                    backgroundColor = CardWhite.copy(alpha = 0.93f)
+                    backgroundColor = appTopBarColor(0.96f)
                 )
             },
             containerColor = Color.Transparent
@@ -257,7 +263,7 @@ private fun AnalyticsContent(
                 Column {
                     Text(
                         stringResource(R.string.learning_progress).uppercase(),
-                        color = TextLight,
+                        color = appTextMutedColor(),
                         fontSize = 10.sp,
                         fontWeight = FontWeight.Bold,
                         letterSpacing = 0.5.sp
@@ -266,7 +272,7 @@ private fun AnalyticsContent(
                     Row(verticalAlignment = Alignment.Bottom) {
                         Text(
                             displayHours,
-                            color = TextDark,
+                            color = appTextPrimaryColor(),
                             fontSize = 32.sp,
                             fontWeight = FontWeight.ExtraBold
                         )
@@ -282,7 +288,7 @@ private fun AnalyticsContent(
                 }
                 Box(
                     modifier = Modifier
-                        .background(BrandPurpleSoft, RoundedCornerShape(20.dp))
+                        .background(appSoftPurpleColor(), RoundedCornerShape(20.dp))
                         .padding(horizontal = 12.dp, vertical = 6.dp)
                 ) {
                     Text(
@@ -319,7 +325,7 @@ private fun AnalyticsContent(
                 label = stringResource(R.string.lessons).uppercase(),
                 value = "$totalLessons",
                 sub = stringResource(R.string.this_week),
-                subColor = TextLight,
+                subColor = appTextMutedColor(),
                 icon = Icons.AutoMirrored.Filled.MenuBook,
                 iconTint = BrandPurple
             )
@@ -333,7 +339,7 @@ private fun AnalyticsContent(
                 label = stringResource(R.string.active_days).uppercase(),
                 value = "$activeDays",
                 sub = stringResource(R.string.in_progress),
-                subColor = TextLight,
+                subColor = appTextMutedColor(),
                 icon = Icons.Default.CheckCircle,
                 iconTint = BrandGreen
             )
@@ -356,7 +362,7 @@ private fun AnalyticsContent(
         AnalyticsCard {
             Text(
                 stringResource(R.string.skills_overview).uppercase(),
-                color = TextLight,
+                color = appTextMutedColor(),
                 fontSize = 10.sp,
                 fontWeight = FontWeight.Bold,
                 letterSpacing = 0.5.sp
@@ -415,7 +421,7 @@ private fun AnalyticsCard(
         modifier = modifier
             .fillMaxWidth()
             .shadow(4.dp, RoundedCornerShape(20.dp), clip = false),
-        colors  = CardDefaults.cardColors(containerColor = CardWhite),
+        colors  = CardDefaults.cardColors(containerColor = appSurfaceColor()),
         shape   = RoundedCornerShape(20.dp),
         content = { Column(modifier = Modifier.padding(20.dp), content = content) }
     )
@@ -454,7 +460,7 @@ private fun AnalyticsBarChart(
                 Spacer(Modifier.height(6.dp))
                 Text(
                     dayLabels[idx],
-                    color = if (isToday) BrandPurple else TextLight,
+                    color = if (isToday) BrandPurple else appTextMutedColor(),
                     fontSize = 10.sp,
                     fontWeight = FontWeight.Bold
                 )
@@ -475,17 +481,17 @@ private fun StatCard(
 ) {
     Card(
         modifier = modifier.shadow(4.dp, RoundedCornerShape(20.dp), clip = false),
-        colors  = CardDefaults.cardColors(containerColor = CardWhite),
+        colors  = CardDefaults.cardColors(containerColor = appSurfaceColor()),
         shape   = RoundedCornerShape(20.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(icon, contentDescription = null, tint = iconTint, modifier = Modifier.size(14.dp))
                 Spacer(Modifier.width(6.dp))
-                Text(label, color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 0.4.sp)
+                Text(label, color = appTextMutedColor(), fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 0.4.sp)
             }
             Spacer(Modifier.height(8.dp))
-            Text(value, color = TextDark, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
+            Text(value, color = appTextPrimaryColor(), fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
             Spacer(Modifier.height(4.dp))
             Text(sub, color = subColor, fontSize = 11.sp, fontWeight = FontWeight.SemiBold)
         }
@@ -498,7 +504,7 @@ private fun AiInsightCard(insightText: String) {
         modifier = Modifier
             .fillMaxWidth()
             .shadow(4.dp, RoundedCornerShape(20.dp), clip = false),
-        colors = CardDefaults.cardColors(containerColor = SoftPurpleSurface),
+        colors = CardDefaults.cardColors(containerColor = appSoftPurpleColor()),
         shape  = RoundedCornerShape(20.dp)
     ) {
         Row(
@@ -531,7 +537,7 @@ private fun AiInsightCard(insightText: String) {
                 Spacer(Modifier.height(4.dp))
                 Text(
                     insightText,
-                    color = TextDark,
+                    color = appTextPrimaryColor(),
                     fontSize = 13.sp,
                     fontWeight = FontWeight.Medium,
                     lineHeight = 19.sp
@@ -555,10 +561,10 @@ private fun SkillBar(
         label = "skill_$label"
     )
     val trendColor = when {
-        trendPct == null   -> TextLight
+        trendPct == null   -> appTextMutedColor()
         trendPct > 0       -> BrandGreen
         trendPct < 0       -> BrandRed
-        else               -> TextLight
+        else               -> appTextMutedColor()
     }
     val trendText = when {
         trendLabel != null -> trendLabel
@@ -568,14 +574,14 @@ private fun SkillBar(
     }
 
     Column(modifier = modifier) {
-        Text(label, color = TextLight, fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 0.4.sp)
+        Text(label, color = appTextMutedColor(), fontSize = 9.sp, fontWeight = FontWeight.Bold, letterSpacing = 0.4.sp)
         Spacer(Modifier.height(6.dp))
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("$score%", color = TextDark, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
+            Text("$score%", color = appTextPrimaryColor(), fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
             Text(trendText, color = trendColor, fontSize = 11.sp, fontWeight = FontWeight.SemiBold)
         }
         Spacer(Modifier.height(8.dp))

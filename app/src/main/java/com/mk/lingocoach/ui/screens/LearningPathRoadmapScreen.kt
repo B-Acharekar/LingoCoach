@@ -5,6 +5,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -135,9 +136,9 @@ fun LearningPathRoadmapScreen(
                     Column {
                         Text(stringResource(R.string.personalized_route).uppercase(), color = BrandPurple, fontSize = 10.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.1.sp)
                         Spacer(Modifier.height(4.dp))
-                        Text(stringResource(R.string.your_milestones), color = Color(0xFF17133B), fontSize = 21.sp, fontWeight = FontWeight.ExtraBold)
+                        Text(stringResource(R.string.your_milestones), color = appTextPrimaryColor(), fontSize = 21.sp, fontWeight = FontWeight.ExtraBold)
                     }
-                    Text(stringResource(R.string.levels_count, modules.size), color = TextLight, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(R.string.levels_count, modules.size), color = appTextMutedColor(), fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
                 }
                 Spacer(Modifier.height(16.dp))
 
@@ -148,7 +149,7 @@ fun LearningPathRoadmapScreen(
                     modules.isEmpty() -> {
                         Text(
                             stringResource(R.string.no_learning_path_found),
-                            color = TextLight,
+                            color = appTextMutedColor(),
                             fontSize = 14.sp,
                             textAlign = TextAlign.Center
                         )
@@ -242,7 +243,7 @@ private fun TopBar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White)
+            .background(appTopBarColor(0.96f))
             .padding(horizontal = 16.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
@@ -251,12 +252,12 @@ private fun TopBar(
             onClick = onBack,
             modifier = Modifier
                 .size(40.dp)
-                .background(Color(0xFFF2F2F2), CircleShape)
+                .background(appSoftPurpleColor(), CircleShape)
         ) {
             Icon(
                 Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = stringResource(R.string.back),
-                tint = Color(0xFF1A1A1A),
+                tint = appTextPrimaryColor(),
                 modifier = Modifier.size(20.dp)
             )
         }
@@ -264,7 +265,7 @@ private fun TopBar(
         Text(
             stringResource(R.string.learning_path),
             style = TextStyle(
-                color = Color(0xFF1A1A1A),
+                color = appTextPrimaryColor(),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.ExtraBold
             )
@@ -274,12 +275,12 @@ private fun TopBar(
             onClick = onSettings,
             modifier = Modifier
                 .size(40.dp)
-                .background(Color(0xFFF2F2F2), CircleShape)
+                .background(appSoftPurpleColor(), CircleShape)
         ) {
             Icon(
                 Icons.Default.Settings,
                 contentDescription = stringResource(R.string.settings),
-                tint = Color(0xFF1A1A1A),
+                tint = appTextPrimaryColor(),
                 modifier = Modifier.size(20.dp)
             )
         }
@@ -290,7 +291,7 @@ private fun TopBar(
 private fun BottomStartLearningBar(onClick: () -> Unit) {
     Surface(
         modifier = Modifier.fillMaxWidth(),
-        color = Color.White.copy(alpha = 0.97f),
+        color = appTopBarColor(0.97f),
         shadowElevation = 12.dp
     ) {
         Button(
@@ -317,7 +318,7 @@ private fun RoadmapConnector(unlocked: Boolean) {
             .width(2.dp)
             .height(28.dp)
             .background(
-                if (unlocked) BrandPurple.copy(alpha = 0.35f) else Color(0xFFE0E0E0),
+                if (unlocked) BrandPurple.copy(alpha = 0.35f) else appBorderColor(),
                 RoundedCornerShape(2.dp)
             )
     )
@@ -356,7 +357,7 @@ private fun ExpandableModule(
             ),
         shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (locked) Color(0xFFF8F8FC) else CardWhite
+            containerColor = if (locked) appElevatedSurfaceColor() else appSurfaceColor()
         ),
         border = cardBorder,
         onClick = { if (!locked) expanded = !expanded }
@@ -373,7 +374,7 @@ private fun ExpandableModule(
                         .clip(RoundedCornerShape(15.dp))
                         .background(
                             when {
-                                locked    -> Brush.linearGradient(listOf(Color(0xFFF0F0F4), Color(0xFFF0F0F4)))
+                                locked    -> Brush.linearGradient(listOf(appElevatedSurfaceColor(), appElevatedSurfaceColor()))
                                 completed -> Brush.linearGradient(listOf(SuccessGreen, SuccessGreen))
                                 else      -> Brush.linearGradient(listOf(BrandPurple, BrandPurpleLight))
                             }
@@ -381,7 +382,7 @@ private fun ExpandableModule(
                     contentAlignment = Alignment.Center
                 ) {
                     when {
-                        locked -> Icon(Icons.Default.Lock, null, tint = TextLight, modifier = Modifier.size(19.dp))
+                        locked -> Icon(Icons.Default.Lock, null, tint = appTextMutedColor(), modifier = Modifier.size(19.dp))
                         completed -> Icon(Icons.Default.Check, null, tint = Color.White, modifier = Modifier.size(22.dp))
                         else -> Text(stageNumber.toString().padStart(2, '0'), color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
                     }
@@ -392,7 +393,7 @@ private fun ExpandableModule(
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
                         level,
-                        color = if (locked) TextLight else BrandPurple,
+                        color = if (locked) appTextMutedColor() else BrandPurple,
                         fontSize = 10.sp,
                         fontWeight = FontWeight.Bold,
                         letterSpacing = 1.sp
@@ -400,7 +401,7 @@ private fun ExpandableModule(
                     Spacer(Modifier.height(2.dp))
                     Text(
                         title,
-                        color = if (locked) TextLight else TextDark,
+                        color = if (locked) appTextMutedColor() else appTextPrimaryColor(),
                         fontSize = 17.sp,
                         fontWeight = FontWeight.ExtraBold
                     )
@@ -424,7 +425,7 @@ private fun ExpandableModule(
                         Spacer(Modifier.height(4.dp))
                         Text(
                             stringResource(R.string.complete_previous_level_to_unlock),
-                            color = TextLight,
+                            color = appTextMutedColor(),
                             fontSize = 11.sp
                         )
                     }
@@ -448,7 +449,7 @@ private fun ExpandableModule(
                         progress = { progress },
                         modifier = Modifier.weight(1f).height(5.dp).clip(CircleShape),
                         color = if (completed) SuccessGreen else BrandPurple,
-                        trackColor = Color(0xFFEDEAF8),
+                        trackColor = appSubtleTrackColor(),
                         strokeCap = StrokeCap.Round
                     )
                     Spacer(Modifier.width(10.dp))
@@ -464,13 +465,13 @@ private fun ExpandableModule(
             ) {
                 Column {
                     Spacer(Modifier.height(14.dp))
-                    HorizontalDivider(color = Color(0xFFF0EEFF), thickness = 1.dp)
+                    HorizontalDivider(color = appBorderColor(), thickness = 1.dp)
                     Spacer(Modifier.height(8.dp))
 
                     if (lessons.isEmpty()) {
                         Text(
                             stringResource(R.string.level_lessons_syncing),
-                            color = TextLight,
+                            color = appTextMutedColor(),
                             fontSize = 12.sp,
                             lineHeight = 17.sp,
                             modifier = Modifier.padding(horizontal = 4.dp, vertical = 10.dp)
@@ -505,9 +506,9 @@ private fun LessonRow(index: Int, lesson: CurrentLesson, onClick: () -> Unit) {
         else -> Color(0xFFAAA6B8)
     }
     val container = when {
-        completed -> Color(0xFFF1FBF4)
-        current -> Color(0xFFF3F1FF)
-        else -> Color(0xFFF7F6FA)
+        completed -> if (isSystemInDarkTheme()) Color(0xFF173822) else Color(0xFFF1FBF4)
+        current -> appSoftPurpleColor()
+        else -> appElevatedSurfaceColor()
     }
 
     Surface(
@@ -531,7 +532,7 @@ private fun LessonRow(index: Int, lesson: CurrentLesson, onClick: () -> Unit) {
                         when {
                             completed -> SuccessGreen
                             current -> BrandPurple
-                            else -> Color(0xFFE8E6ED)
+                            else -> appBorderColor()
                         },
                         RoundedCornerShape(13.dp)
                     ),
@@ -539,7 +540,7 @@ private fun LessonRow(index: Int, lesson: CurrentLesson, onClick: () -> Unit) {
             ) {
                 when {
                     completed -> Icon(Icons.Default.Check, null, tint = Color.White, modifier = Modifier.size(20.dp))
-                    locked -> Icon(Icons.Default.Lock, null, tint = Color(0xFF8F8B9B), modifier = Modifier.size(17.dp))
+                    locked -> Icon(Icons.Default.Lock, null, tint = appTextMutedColor(), modifier = Modifier.size(17.dp))
                     else -> Text(index.toString().padStart(2, '0'), color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.ExtraBold)
                 }
             }
@@ -549,7 +550,7 @@ private fun LessonRow(index: Int, lesson: CurrentLesson, onClick: () -> Unit) {
             Column(Modifier.weight(1f)) {
                 Text(
                     lesson.title,
-                    color = if (locked) Color(0xFF8F8B9B) else Color(0xFF17133B),
+                    color = if (locked) appTextMutedColor() else appTextPrimaryColor(),
                     fontSize = 14.sp,
                     fontWeight = FontWeight.ExtraBold,
                     maxLines = 2

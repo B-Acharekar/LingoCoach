@@ -102,7 +102,7 @@ fun LanguageSelectionScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp)
-                    .background(Color.White.copy(alpha = 0.92f))
+                    .background(appTopBarColor(0.92f))
                     .padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
@@ -122,7 +122,7 @@ fun LanguageSelectionScreen(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = "Language",
-                        color = TextDark,
+                        color = appTextPrimaryColor(),
                         fontSize = 17.sp,
                         fontWeight = FontWeight.ExtraBold,
                         maxLines = 1,
@@ -172,7 +172,7 @@ fun LanguageSelectionScreen(
                 ) {
                     Text(
                         text = stringResource(R.string.no_languages_found, ""),
-                        color = TextLight,
+                        color = appTextMutedColor(),
                         fontSize = 15.sp,
                         textAlign = TextAlign.Center
                     )
@@ -196,7 +196,7 @@ fun LanguageSelectionScreen(
                                 },
                             shape = RoundedCornerShape(22.dp),
                             colors = CardDefaults.cardColors(
-                                containerColor = if (isSelected) BrandPurple else Color.White
+                                containerColor = if (isSelected) BrandPurple else appSurfaceColor()
                             )
                         ) {
                             Row(
@@ -217,7 +217,7 @@ fun LanguageSelectionScreen(
                                     modifier = Modifier
                                         .size(34.dp)
                                         .clip(CircleShape)
-                                        .background(if (isSelected) Color.White.copy(alpha = 0.18f) else BrandPurpleSoft),
+                                        .background(if (isSelected) Color.White.copy(alpha = 0.18f) else appSoftPurpleColor()),
                                     contentAlignment = Alignment.Center
                                 ) {
                                     Text(
@@ -229,7 +229,7 @@ fun LanguageSelectionScreen(
                                 Spacer(modifier = Modifier.width(12.dp))
                                 Text(
                                     text = localizedAppLanguageName(language.code),
-                                    color = if (isSelected) Color.White else TextDark,
+                                    color = if (isSelected) Color.White else appTextPrimaryColor(),
                                     fontSize = 14.sp,
                                     fontWeight = FontWeight.Bold,
                                     maxLines = 1
@@ -237,7 +237,7 @@ fun LanguageSelectionScreen(
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
                                     text = language.nativeName,
-                                    color = if (isSelected) Color.White.copy(alpha = 0.78f) else TextLight,
+                                    color = if (isSelected) Color.White.copy(alpha = 0.78f) else appTextMutedColor(),
                                     fontSize = 12.sp,
                                     fontWeight = FontWeight.Medium,
                                     maxLines = 1
@@ -254,7 +254,7 @@ fun LanguageSelectionScreen(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .border(1.dp, Color(0xFFE2E2E6))
+                .border(1.dp, appBorderColor())
         )
     }
 }
